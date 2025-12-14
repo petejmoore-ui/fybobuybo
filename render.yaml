@@ -3,6 +3,6 @@ services:
     name: fybobuybo
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn main:app
     envVars:
       GROQ_API_KEY: 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
