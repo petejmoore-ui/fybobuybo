@@ -1,77 +1,54 @@
 import os
 from flask import Flask, render_template
 from apscheduler.schedulers.background import BackgroundScheduler
-from dotenv import load_dotenv
-import requests
+from amazon_paapi import AmazonAPI
 from groq import GroqClient
-from amazon_paapi import AmazonAPI  # Use the official Amazon PAAPI SDK
-
-# Load environment variables
-load_dotenv()
-
-AMAZON_ACCESS_KEY = os.getenv("AMAZON_ACCESS_KEY")
-AMAZON_SECRET_KEY = os.getenv("AMAZON_SECRET_KEY")
-AMAZON_PARTNER_TAG = os.getenv("AMAZON_PARTNER_TAG")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-REGION = "uk"
 
 app = Flask(__name__)
 
-# Fallback content
-fallback_products = [
-    {
-        "title": "Sample Product 1",
-        "image": "https://via.placeholder.com/300",
-        "link": "#",
-        "category": "Fallback",
-        "description": "This is fallback content while live data is loading."
-    },
-    {
-        "title": "Sample Product 2",
-        "image": "https://via.placeholder.com/300",
-        "link": "#",
-        "category": "Fallback",
-        "description": "This is fallback content while live data is loading."
-    },
-]
-
-# In-memory store
-trending_products = fallback_products.copy()
+# Load environment variables
+AMAZON_ACCESS_KEY = os.getenv("AMAZON_ACCESS_KEY")
+AMAZON_SECRET_KEY = os.getenv("AMAZON_SECRET_KEY")
+AMAZON_ASSOC_TAG = os.getenv("AMAZON_ASSOC_TAG")
+REGION = os.getenv("REGION", "uk")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # Initialize Amazon API
-amazon = AmazonAPI(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY, AMAZON_PARTNER_TAG, REGION)
+amazon = AmazonAPI(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY, AMAZON_ASSOC_TAG, REGION)
 
-# Initialize Groq client
+# Initialize Groq AI
 groq_client = GroqClient(api_key=GROQ_API_KEY)
+
+# Cached trending products
+trending_products = []
 
 def fetch_trending_products():
     global trending_products
     try:
-        # Fetch top trending products via Amazon PAAPI
-        items = amazon.get_top_selling_items(limit=8, category="All")
-        products = []
-        for item in items:
-            products.append({
-                "title": item.title,
-                "image": item.image_url,
-                "link": item.detail_page_url,
-                "category": item.category,
-                "description": item.features[0] if item.features else "Amazing product!"
-            })
-        trending_products = products
+        # Example category query
+        products = amazon.search_products(keywords="trending", search_index="All", item_count=8)
+        trending_products = [{
+            "title": p.title,
+            "url": p.detail_page_url,
+            "image": p.images.primary.medium.url,
+            "price": p.price_and_currency[0] if p.price_and_currency else "N/A",
+            "category": p.product_group
+        } for p in products]
+        print("Fetched latest trending products.")
     except Exception as e:
         print("Error fetching products:", e)
-        trending_products = fallback_products
 
-# Schedule automatic updates every 6 hours
+# Schedule fetching every 6 hours
 scheduler = BackgroundScheduler()
 scheduler.add_job(fetch_trending_products, "interval", hours=6)
 scheduler.start()
+
+# Fetch on startup
+fetch_trending_products()
 
 @app.route("/")
 def index():
     return render_template("index.html", products=trending_products)
 
 if __name__ == "__main__":
-    fetch_trending_products()  # Initial fetch
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
