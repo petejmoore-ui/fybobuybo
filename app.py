@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template
 from apscheduler.schedulers.background import BackgroundScheduler
-from amazon_paapi import AmazonAPI
+from amazon_paapi import AmazonApi
 from groq import GroqClient
 
 app = Flask(__name__)
