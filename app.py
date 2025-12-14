@@ -1,48 +1,64 @@
-import os
+# app.py
 from flask import Flask, render_template
-from dotenv import load_dotenv
+import os
 import boto3
+from dotenv import load_dotenv
 
-# Load environment variables
+# Load environment variables from .env
 load_dotenv()
 
 app = Flask(__name__)
 
-# Amazon PAAPI client setup
-AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
-AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
-AWS_ASSOCIATE_TAG = os.getenv("AWS_ASSOCIATE_TAG")
-REGION = os.getenv("REGION", "uk")
+# Amazon PAAPI credentials from .env
+AMAZON_ACCESS_KEY = os.getenv("AMAZON_ACCESS_KEY")
+AMAZON_SECRET_KEY = os.getenv("AMAZON_SECRET_KEY")
+AMAZON_PARTNER_TAG = os.getenv("AMAZON_PARTNER_TAG")
+AMAZON_REGION = "uk"  # UK store
 
-client = boto3.client(
-    "advertising",
-    aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY,
-    region_name=REGION
+# Boto3 client for PAAPI
+paapi = boto3.client(
+    "paapi5",
+    aws_access_key_id=AMAZON_ACCESS_KEY,
+    aws_secret_access_key=AMAZON_SECRET_KEY,
+    region_name=AMAZON_REGION,
 )
 
-def get_trending_products():
-    """Fetch trending products from Amazon (example: top-selling)."""
-    # Replace this with actual PAAPI calls
-    return [
-        {
-            "title": "Guinness Draught Nitrosurge",
-            "description": "Game-changing beer with nitro technology!",
-            "image_url": "https://via.placeholder.com/300",
-            "url": "https://www.amazon.co.uk/dp/EXAMPLE?tag=" + AWS_ASSOCIATE_TAG
-        },
-        {
-            "title": "Velvet Toilet Tissue 24 Rolls",
-            "description": "Softest wipe ever, ultimate comfort.",
-            "image_url": "https://via.placeholder.com/300",
-            "url": "https://www.amazon.co.uk/dp/EXAMPLE2?tag=" + AWS_ASSOCIATE_TAG
-        }
-    ]
+# List of search keywords/categories to show
+CATEGORIES = ["drinks", "health", "games", "tech", "home", "books"]
+
+def fetch_amazon_products(keywords, max_results=5):
+    products = []
+    for keyword in keywords:
+        try:
+            response = paapi.search_items(
+                PartnerTag=AMAZON_PARTNER_TAG,
+                PartnerType="Associates",
+                Keywords=keyword,
+                Marketplace="www.amazon.co.uk",
+                Resources=[
+                    "ItemInfo.Title",
+                    "Offers.Listings.Price",
+                    "Images.Primary.Large",
+                    "DetailPageURL",
+                ],
+                ItemCount=max_results
+            )
+            for item in response["ItemsResult"]["Items"]:
+                products.append({
+                    "title": item["ItemInfo"]["Title"]["DisplayValue"],
+                    "price": item.get("Offers", {}).get("Listings", [{}])[0].get("Price", {}).get("DisplayAmount", "N/A"),
+                    "image": item["Images"]["Primary"]["Large"]["URL"],
+                    "url": item["DetailPageURL"],
+                    "category": keyword.capitalize()
+                })
+        except Exception as e:
+            print(f"Error fetching {keyword}: {e}")
+    return products
 
 @app.route("/")
-def home():
-    products = get_trending_products()
-    return render_template("index.html", products=products)
+def index():
+    items = fetch_amazon_products(CATEGORIES)
+    return render_template("index.html", items=items)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
