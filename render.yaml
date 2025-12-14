@@ -1,15 +1,7 @@
 services:
   - type: web
-    name: fybobuybo
+    name: trending-page
     env: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
-    envVars:
-      - key: GROK_API_KEY
-        fromDatabase: false
-      - key: AWS_ACCESS_KEY
-        fromDatabase: false
-      - key: AWS_SECRET_KEY
-        fromDatabase: false
-      - key: ASSOCIATE_TAG
-        fromDatabase: false
