@@ -1,61 +1,50 @@
 from flask import Flask, render_template
+import boto3
 import os
 from dotenv import load_dotenv
-import requests
-import datetime
-import hashlib
-import hmac
-import base64
-from urllib.parse import quote
 
-load_dotenv()  # Load .env file with API keys
+load_dotenv()  # Load API keys from .env
 
 app = Flask(__name__)
 
-# Amazon API credentials
-AMAZON_ACCESS_KEY = os.getenv("AMAZON_ACCESS_KEY")
-AMAZON_SECRET_KEY = os.getenv("AMAZON_SECRET_KEY")
-AMAZON_ASSOC_TAG = os.getenv("AMAZON_ASSOC_TAG")
-AMAZON_ENDPOINT = "webservices.amazon.co.uk"
-AMAZON_URI = "/paapi5/getitems"
+# Amazon API setup
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_ASSOCIATE_TAG = os.getenv("AWS_ASSOCIATE_TAG")
+REGION = os.getenv("REGION", "us-east-1")
 
-# Helper to create signed request (Amazon requires HMAC signing)
-def sign_request(payload):
-    # For PAAPI5, Amazon recommends using the official SDK (boto3 or amazon-paapi)
-    # If using requests directly, signing is needed, which is complex
-    # We'll use boto3 in practice for simplicity
-    return payload
+client = boto3.client(
+    "productadvertisingapi",  # This is pseudo-client; see note below
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+    region_name=REGION
+)
 
-# Example function to fetch trending products
-def get_trending_products():
+def fetch_trending_products():
     """
-    This function fetches trending UK products via Amazon API.
-    Currently, as a demo, it returns a static list.
-    Replace the static list with a call to the Product Advertising API.
+    Fetch trending products using Amazon Product Advertising API
     """
-    # Replace this block with real API call
-    products = [
-        {
-            "title": "Guinness Draught Nitrosurge",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/81EXAMPLE.jpg",
-            "url": f"https://www.amazon.co.uk/dp/B000EXAMPLE?tag={AMAZON_ASSOC_TAG}"
-        },
-        {
-            "title": "Velvet Toilet Tissue 24 Rolls",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/71EXAMPLE.jpg",
-            "url": f"https://www.amazon.co.uk/dp/B000EXAMPLE?tag={AMAZON_ASSOC_TAG}"
-        },
-        {
-            "title": "Nutrition Geeks Magnesium Glycinate",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/61EXAMPLE.jpg",
-            "url": f"https://www.amazon.co.uk/dp/B000EXAMPLE?tag={AMAZON_ASSOC_TAG}"
-        }
-    ]
+    # Example placeholder: you can customize search or category
+    response = client.search_items(
+        Keywords="trending",
+        SearchIndex="All",
+        ItemCount=8,
+        Resources=["Images.Primary.Large","ItemInfo.Title","Offers.Listings.Price","DetailPageURL"]
+    )
+    
+    products = []
+    for item in response['ItemsResult']['Items']:
+        products.append({
+            "title": item['ItemInfo']['Title']['DisplayValue'],
+            "url": item['DetailPageURL'],
+            "image": item['Images']['Primary']['Large']['URL'],
+            "price": item['Offers']['Listings'][0]['Price']['DisplayAmount']
+        })
     return products
 
 @app.route("/")
-def index():
-    products = get_trending_products()
+def home():
+    products = fetch_trending_products()
     return render_template("index.html", products=products)
 
 if __name__ == "__main__":
