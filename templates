@@ -2,19 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ForYourBuysOnly</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <h1>ForYourBuysOnly</h1>
+<p class="subtitle">Top UK trending buys · Updated daily</p>
+
 <div class="grid">
-    {% for product in products %}
-    <div class="card">
-        <img src="{{ product.image }}" alt="{{ product.title }}">
-        <h2>{{ product.title }}</h2>
-        <a href="{{ product.url }}" target="_blank"><button>Grab It Now 🔥</button></a>
-    </div>
-    {% endfor %}
+  {% for product in products %}
+  <div class="card">
+    <img src="{{ product.image }}" alt="{{ product.title }}">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.price }}</p>
+    <a href="{{ product.url }}" target="_blank">
+      <button>Grab It Now 🔥</button>
+    </a>
+  </div>
+  {% endfor %}
 </div>
+
+<footer>
+Affiliate links may earn commission · Made with AI
+</footer>
 </body>
 </html>
