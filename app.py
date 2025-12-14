@@ -1,73 +1,55 @@
 import os
 from flask import Flask, render_template
+from groq import GroqClient
 import boto3
-import openai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
-# Load environment variables
-AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
-AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY")
-AMAZON_ASSOC_TAG = os.environ.get("AMAZON_ASSOC_TAG")
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+# Grok client
+GROK_API_KEY = os.getenv("GROK_API_KEY")
+grok = GroqClient(api_key=GROK_API_KEY)
 
-# Initialize OpenAI
-openai.api_key = OPENAI_API_KEY
+# Amazon PAAPI client
+AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
+AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
+ASSOCIATE_TAG = os.getenv("ASSOCIATE_TAG")
 
-# Initialize Amazon PAAPI client (using boto3 for Product Advertising API)
 paapi = boto3.client(
-    "advertising-api",
-    aws_access_key_id=AMAZON_ACCESS_KEY,
-    aws_secret_access_key=AMAZON_SECRET_KEY,
-    region_name="eu-west-1"  # UK
+    'productadvertisingapi',
+    aws_access_key_id=AWS_ACCESS_KEY,
+    aws_secret_access_key=AWS_SECRET_KEY,
+    region_name='uk'
 )
 
-# Example ASINs you want to track
-PRODUCT_ASINS = [
-    "B08N5WRWNW",  # Example ASINs; replace with real UK ASINs
-    "B07XQXZXJC",
-    "B07YLD3DL3",
-]
-
-def fetch_amazon_products():
-    """Fetch product info from Amazon PAAPI"""
-    products = []
-    for asin in PRODUCT_ASINS:
-        try:
-            response = paapi.get_items(
-                ItemIds=[asin],
-                Resources=[
-                    "Images.Primary.Medium",
-                    "ItemInfo.Title",
-                    "ItemInfo.Features",
-                    "Offers.Listings.Price"
-                ]
-            )
-            item = response["ItemsResult"]["Items"][0]
-            products.append({
-                "title": item["ItemInfo"]["Title"]["DisplayValue"],
-                "image": item["Images"]["Primary"]["Medium"]["URL"],
-                "url": f"https://www.amazon.co.uk/dp/{asin}/?tag={AMAZON_ASSOC_TAG}"
-            })
-        except Exception as e:
-            print(f"Error fetching ASIN {asin}: {e}")
-    return products
-
-def generate_hype_text(title):
-    """Generate marketing description for product using GPT"""
-    prompt = f"Write a short, energetic UK marketing description for this product: {title}"
-    response = openai.Completion.create(
-        model="gpt-4-mini",
-        prompt=prompt,
-        max_tokens=80
+def fetch_trending_products():
+    # Example: get top 8 trending products in UK
+    response = paapi.search_items(
+        Keywords='trending',
+        SearchIndex='All',
+        ItemCount=8,
+        Resources=['Images.Primary.Large', 'ItemInfo.Title', 'Offers.Listings.Price']
     )
-    return response.choices[0].text.strip()
+    products = []
+    for item in response['ItemsResult']['Items']:
+        title = item['ItemInfo']['Title']['DisplayValue']
+        image = item['Images']['Primary']['Large']['URL']
+        url = item['DetailPageURL']
+        hook_prompt = f"Write a fun, exciting 2-line hook for this product: {title}"
+        hook = grok.complete(prompt=hook_prompt, max_output_tokens=60)
+        products.append({
+            "title": title,
+            "image": image,
+            "url": url,
+            "hook": hook.text
+        })
+    return products
 
 @app.route("/")
 def home():
-    products = fetch_amazon_products()
-    for product in products:
-        product["description"] = generate_hype_text(product["title"])
+    products = fetch_trending_products()
     return render_template("index.html", products=products)
 
 if __name__ == "__main__":
