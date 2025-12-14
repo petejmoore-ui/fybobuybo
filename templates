@@ -6,120 +6,37 @@
 <title>ForYourBuysOnly</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    background: #0d0d1f;
-    color: #fff;
-    font-family: 'Outfit', sans-serif;
-    padding: 20px 10px;
-}
-h1 {
-    font-size: 3.8rem;
-    text-align: center;
-    background: linear-gradient(90deg, #ff4e4e, #8b5cf6);
-    -webkit-background-clip: text;
-    color: transparent;
-}
-.subtitle {
-    text-align: center;
-    opacity: 0.8;
-    font-size: 1.4rem;
-    margin-bottom: 40px;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.card {
-    background: #161630;
-    border-radius: 22px;
-    padding: 24px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
-    opacity: 0;
-}
-.card.visible {
-    opacity: 1;
-}
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-}
-img {
-    width: 100%;
-    border-radius: 16px;
-    margin-bottom: 16px;
-    transition: transform 0.3s;
-}
-img:hover {
-    transform: scale(1.05);
-}
-.tag {
-    display: inline-block;
-    background: #8b5cf6;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-}
-button {
-    background: linear-gradient(90deg, #ff4e4e, #8b5cf6);
-    border: none;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-size: 1.3rem;
-    font-weight: 900;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-button:hover {
-    transform: scale(1.05);
-}
-.hook {
-    margin: 16px 0;
-    line-height: 1.5;
-    font-size: 1.1rem;
-}
-footer {
-    text-align: center;
-    opacity: 0.6;
-    margin: 80px 0 20px;
-}
-.privacy {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #222;
-    padding: 10px;
-    text-align: center;
-    font-size: 0.9rem;
-}
+body { margin:0; background:#0d0d1f; color:#fff; font-family:'Outfit',sans-serif; padding:20px 10px; }
+h1 { font-size:3.8rem; text-align:center; background:linear-gradient(90deg,#ff4e4e,#8b5cf6); -webkit-background-clip:text; color:transparent; }
+.subtitle { text-align:center; opacity:0.8; font-size:1.4rem; margin-bottom:40px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; max-width:1400px; margin:0 auto; }
+.card { background:#161630; border-radius:22px; padding:24px; text-align:center; transition:.3s; box-shadow:0 15px 40px rgba(0,0,0,.7); }
+.card:hover { transform:scale(1.05); }
+img { width:100%; border-radius:16px; margin-bottom:16px; transition: transform .3s; }
+img:hover { transform: scale(1.05); }
+.tag { display:inline-block; background:#8b5cf6; padding:6px 16px; border-radius:20px; font-size:0.9rem; margin-bottom:12px; }
+button { background:linear-gradient(90deg,#ff4e4e,#8b5cf6); border:none; padding:15px 40px; border-radius:50px; font-size:1.3rem; font-weight:900; cursor:pointer; transition:.3s; }
+button:hover { opacity:.85; transform:scale(1.05); }
+.hook { margin:16px 0; line-height:1.5; font-size:1.1rem; }
+footer { text-align:center; opacity:0.6; margin:80px 0 20px; }
+.privacy { position:fixed; bottom:0; left:0; width:100%; background:#222; padding:10px; text-align:center; font-size:0.9rem; }
 </style>
 </head>
 <body>
-
 <h1>ForYourBuysOnly</h1>
-<div class="subtitle">Top UK trending buys · Updated daily</div>
-
-<div class="grid" id="product-grid">
-  <!-- Cards will be injected here by app.py -->
+<div class="subtitle">Top UK trending buys · Updated automatically</div>
+<div class="grid">
+{% for product in products %}
+<div class="card">
+    <span class="tag">{{ product.category }}</span>
+    <img src="{{ product.image }}" alt="{{ product.title }}">
+    <h2>{{ product.title }}</h2>
+    <p class="hook">{{ product.description }}</p>
+    <a href="{{ product.link }}" target="_blank"><button>Grab It Now 🔥</button></a>
 </div>
-
-<footer>Affiliate links may earn commission · Made with AI · No tracking · No cookies · Just top UK finds</footer>
-
-<script>
-// Fade-in animation for cards
-window.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, index) => {
-        setTimeout(() => card.classList.add('visible'), index * 100);
-    });
-});
-</script>
-
+{% endfor %}
+</div>
+<footer>Affiliate links may earn commission · Made with AI · No tracking · No cookies</footer>
+<div class="privacy">Privacy Guaranteed</div>
 </body>
 </html>
