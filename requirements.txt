@@ -1,4 +1,4 @@
 flask
-grok
+grok-sdk
 apscheduler
 gunicorn
