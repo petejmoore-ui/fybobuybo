@@ -1,115 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ForYourBuysOnly</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    body {
-      margin: 0;
-      background: #0d0d1f;
-      color: #fff;
-      font-family: 'Outfit', sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 3.5rem;
-      background: linear-gradient(90deg, #ff4e4e, #8b5cf6);
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 10px;
-    }
-    .subtitle {
-      text-align: center;
-      opacity: 0.8;
-      font-size: 1.3rem;
-      margin-bottom: 50px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 26px;
-      max-width: 1400px;
-      margin: auto;
-    }
-    .card {
-      background: #161630;
-      border-radius: 22px;
-      padding: 22px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,.6);
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 30px 60px rgba(0,0,0,.8);
-    }
-    img {
-      width: 100%;
-      border-radius: 16px;
-      margin-bottom: 14px;
-      transition: transform .3s ease;
-    }
-    .card:hover img {
-      transform: scale(1.04);
-    }
-    .tag {
-      background: #8b5cf6;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: .85rem;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
-    h3 {
-      margin: 10px 0;
-    }
-    .hook {
-      line-height: 1.5;
-      opacity: .9;
-      margin-bottom: 16px;
-    }
-    a.button {
-      display: inline-block;
-      background: linear-gradient(90deg, #ff4e4e, #ff7a7a);
-      padding: 14px 36px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: white;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      opacity: .6;
-      margin: 70px 0 20px;
-      font-size: .9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForYourBuysOnly</title>
+    <style>
+        body{margin:0;background:#0d0d1f;color:#fff;font-family:'Outfit',sans-serif;padding:20px}
+        h1{text-align:center;font-size:3.5rem;background:linear-gradient(90deg,#ff4e4e,#8b5cf6);-webkit-background-clip:text;color:transparent}
+        .subtitle{text-align:center;opacity:.8;margin-bottom:40px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+        .card{background:#161630;border-radius:22px;padding:22px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
+        .card:hover{transform:scale(1.05)}
+        img{width:100%;border-radius:16px}
+        .tag{background:#8b5cf6;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
+        button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
+        .hook{margin:14px 0;line-height:1.5}
+        footer{text-align:center;opacity:.6;margin:60px 0}
+    </style>
 </head>
-
 <body>
+    <h1>ForYourBuysOnly</h1>
+    <div class="subtitle">Top UK trending buys · Updated daily</div>
+    
+    <div class="grid">
+        <div class="card">
+            <div class="tag">Drinks</div>
+            <img src="guinness.jpg" alt="Guinness Draught Nitrosurge">
+            <div class="hook">
+                Get ready to experience the <strong>revolutionary</strong> Guinness Draught Nitrosurge...
+            </div>
+            <button>Grab It Now 🔥</button>
+        </div>
+        
+        <div class="card">
+            <div class="tag">Household</div>
+            <img src="velvet.jpg" alt="Velvet Toilet Tissue 24 Rolls">
+            <div class="hook">
+                Get ready to experience the ultimate in bathroom luxury with Velvet Toilet Tissue 24 Rolls...
+            </div>
+            <button>Grab It Now 🔥</button>
+        </div>
 
-<h1>ForYourBuysOnly</h1>
-<p class="subtitle">Top UK trending buys · Updated daily</p>
+        <!-- Repeat other cards as needed -->
+    </div>
 
-<div class="grid">
-  {% for item in items %}
-  <div class="card">
-    <img src="{{ item.image }}" alt="{{ item.title }}">
-    <span class="tag">{{ item.category }}</span>
-    <h3>{{ item.title }}</h3>
-    <div class="hook">{{ item.hook }}</div>
-    <a class="button" href="{{ item.url }}" target="_blank">Grab It Now 🔥</a>
-  </div>
-  {% endfor %}
-</div>
-
-<footer>
-  Affiliate links may earn commission · Made with AI · No cookies
-</footer>
-
+    <footer>Affiliate links may earn commission · Made with AI</footer>
 </body>
 </html>
