@@ -1,51 +1,72 @@
-from flask import Flask, render_template
-import boto3
+# app.py
 import os
+from flask import Flask, render_template
+from apscheduler.schedulers.background import BackgroundScheduler
+import boto3
 from dotenv import load_dotenv
+from datetime import datetime
 
-load_dotenv()  # Load API keys from .env
+# Load environment variables from .env
+load_dotenv()
 
+# Flask app
 app = Flask(__name__)
 
-# Amazon API setup
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_ASSOCIATE_TAG = os.getenv("AWS_ASSOCIATE_TAG")
-REGION = os.getenv("REGION", "us-east-1")
+# Amazon PAAPI credentials from environment
+AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
+AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
+AWS_ASSOC_TAG = os.getenv("AWS_ASSOC_TAG")
+AWS_REGION = os.getenv("AWS_REGION", "uk")  # default UK
 
-client = boto3.client(
-    "productadvertisingapi",  # This is pseudo-client; see note below
-    aws_access_key_id=AWS_ACCESS_KEY_ID,
-    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-    region_name=REGION
+# Initialize Amazon client
+paapi = boto3.client(
+    "advertising-api",
+    aws_access_key_id=AWS_ACCESS_KEY,
+    aws_secret_access_key=AWS_SECRET_KEY,
+    region_name=AWS_REGION
 )
 
-def fetch_trending_products():
-    """
-    Fetch trending products using Amazon Product Advertising API
-    """
-    # Example placeholder: you can customize search or category
-    response = client.search_items(
-        Keywords="trending",
-        SearchIndex="All",
-        ItemCount=8,
-        Resources=["Images.Primary.Large","ItemInfo.Title","Offers.Listings.Price","DetailPageURL"]
-    )
-    
-    products = []
-    for item in response['ItemsResult']['Items']:
-        products.append({
-            "title": item['ItemInfo']['Title']['DisplayValue'],
-            "url": item['DetailPageURL'],
-            "image": item['Images']['Primary']['Large']['URL'],
-            "price": item['Offers']['Listings'][0]['Price']['DisplayAmount']
-        })
-    return products
+# Global variable to store trending items
+trending_items = []
 
+# Function to fetch trending items from Amazon
+def fetch_trending_items():
+    global trending_items
+    try:
+        response = paapi.get_items(
+            Marketplace="www.amazon.co.uk",
+            ItemIds=[],
+            Resources=[
+                "ItemInfo.Title",
+                "Images.Primary.Large",
+                "Offers.Listings.Price"
+            ]
+        )
+        trending_items = []
+        for item in response.get("ItemsResult", {}).get("Items", []):
+            trending_items.append({
+                "title": item["ItemInfo"]["Title"]["DisplayValue"],
+                "image": item["Images"]["Primary"]["Large"]["URL"],
+                "price": item.get("Offers", {}).get("Listings", [{}])[0].get("Price", {}).get("DisplayAmount", ""),
+                "url": f"https://www.amazon.co.uk/dp/{item['ASIN']}?tag={AWS_ASSOC_TAG}"
+            })
+        print(f"[{datetime.now()}] Trending items updated: {len(trending_items)} items")
+    except Exception as e:
+        print("Error fetching trending items:", e)
+
+# Schedule fetching every 6 hours
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=fetch_trending_items, trigger="interval", hours=6)
+scheduler.start()
+
+# Fetch initially
+fetch_trending_items()
+
+# Routes
 @app.route("/")
-def home():
-    products = fetch_trending_products()
-    return render_template("index.html", products=products)
+def index():
+    return render_template("index.html", items=trending_items)
 
+# Run Flask
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
