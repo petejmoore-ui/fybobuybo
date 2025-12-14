@@ -1,64 +1,74 @@
-# app.py
-from flask import Flask, render_template
 import os
+from flask import Flask, render_template
 import boto3
-from dotenv import load_dotenv
-
-# Load environment variables from .env
-load_dotenv()
+import openai
 
 app = Flask(__name__)
 
-# Amazon PAAPI credentials from .env
-AMAZON_ACCESS_KEY = os.getenv("AMAZON_ACCESS_KEY")
-AMAZON_SECRET_KEY = os.getenv("AMAZON_SECRET_KEY")
-AMAZON_PARTNER_TAG = os.getenv("AMAZON_PARTNER_TAG")
-AMAZON_REGION = "uk"  # UK store
+# Load environment variables
+AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
+AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY")
+AMAZON_ASSOC_TAG = os.environ.get("AMAZON_ASSOC_TAG")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
-# Boto3 client for PAAPI
+# Initialize OpenAI
+openai.api_key = OPENAI_API_KEY
+
+# Initialize Amazon PAAPI client (using boto3 for Product Advertising API)
 paapi = boto3.client(
-    "paapi5",
+    "advertising-api",
     aws_access_key_id=AMAZON_ACCESS_KEY,
     aws_secret_access_key=AMAZON_SECRET_KEY,
-    region_name=AMAZON_REGION,
+    region_name="eu-west-1"  # UK
 )
 
-# List of search keywords/categories to show
-CATEGORIES = ["drinks", "health", "games", "tech", "home", "books"]
+# Example ASINs you want to track
+PRODUCT_ASINS = [
+    "B08N5WRWNW",  # Example ASINs; replace with real UK ASINs
+    "B07XQXZXJC",
+    "B07YLD3DL3",
+]
 
-def fetch_amazon_products(keywords, max_results=5):
+def fetch_amazon_products():
+    """Fetch product info from Amazon PAAPI"""
     products = []
-    for keyword in keywords:
+    for asin in PRODUCT_ASINS:
         try:
-            response = paapi.search_items(
-                PartnerTag=AMAZON_PARTNER_TAG,
-                PartnerType="Associates",
-                Keywords=keyword,
-                Marketplace="www.amazon.co.uk",
+            response = paapi.get_items(
+                ItemIds=[asin],
                 Resources=[
+                    "Images.Primary.Medium",
                     "ItemInfo.Title",
-                    "Offers.Listings.Price",
-                    "Images.Primary.Large",
-                    "DetailPageURL",
-                ],
-                ItemCount=max_results
+                    "ItemInfo.Features",
+                    "Offers.Listings.Price"
+                ]
             )
-            for item in response["ItemsResult"]["Items"]:
-                products.append({
-                    "title": item["ItemInfo"]["Title"]["DisplayValue"],
-                    "price": item.get("Offers", {}).get("Listings", [{}])[0].get("Price", {}).get("DisplayAmount", "N/A"),
-                    "image": item["Images"]["Primary"]["Large"]["URL"],
-                    "url": item["DetailPageURL"],
-                    "category": keyword.capitalize()
-                })
+            item = response["ItemsResult"]["Items"][0]
+            products.append({
+                "title": item["ItemInfo"]["Title"]["DisplayValue"],
+                "image": item["Images"]["Primary"]["Medium"]["URL"],
+                "url": f"https://www.amazon.co.uk/dp/{asin}/?tag={AMAZON_ASSOC_TAG}"
+            })
         except Exception as e:
-            print(f"Error fetching {keyword}: {e}")
+            print(f"Error fetching ASIN {asin}: {e}")
     return products
 
+def generate_hype_text(title):
+    """Generate marketing description for product using GPT"""
+    prompt = f"Write a short, energetic UK marketing description for this product: {title}"
+    response = openai.Completion.create(
+        model="gpt-4-mini",
+        prompt=prompt,
+        max_tokens=80
+    )
+    return response.choices[0].text.strip()
+
 @app.route("/")
-def index():
-    items = fetch_amazon_products(CATEGORIES)
-    return render_template("index.html", items=items)
+def home():
+    products = fetch_amazon_products()
+    for product in products:
+        product["description"] = generate_hype_text(product["title"])
+    return render_template("index.html", products=products)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True)
