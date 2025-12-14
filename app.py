@@ -1,17 +1,12 @@
-import os, json, datetime
-from flask import Flask, render_template_string
+import os
+import json
+import datetime
+from flask import Flask, render_template_string, Response
+from groq import Groq
 from apscheduler.schedulers.background import BackgroundScheduler
 
-try:
-    from groq import Groq
-except ImportError:
-    Groq = None  # Handle missing Groq gracefully
-
 app = Flask(__name__)
-
-# Initialize Groq client only if API key exists
-API_KEY = os.getenv("GROQ_API_KEY")
-client = Groq(api_key=API_KEY) if API_KEY and Groq else None
+client = Groq(api_key=os.environ['GROQ_API_KEY'])
 
 CACHE_FILE = "cache.json"
 
@@ -60,7 +55,9 @@ HTML = """
   <img src="https://via.placeholder.com/400x400/111/fff?text={{ p.name.replace(' ','+') }}">
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook | safe }}</div>
-  <a href="https://www.amazon.co.uk/s?k={{ p.name.replace(' ','+') }}" target="_blank"><button>Grab It Now 🔥</button></a>
+  <a href="https://www.amazon.co.uk/s?k={{ p.name.replace(' ','+') }}" target="_blank">
+    <button>Grab It Now 🔥</button>
+  </a>
 </div>
 {% endfor %}
 </div>
@@ -72,41 +69,34 @@ HTML = """
 
 def refresh_hooks():
     today = str(datetime.date.today())
-
-    # Try reading cache
     if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE) as f:
-                data = json.load(f)
-                if data.get("date") == today:
-                    return data["products"]
-        except json.JSONDecodeError:
-            pass
-
+        with open(CACHE_FILE) as f:
+            data = json.load(f)
+            if data.get("date") == today:
+                return data["products"]
+    
     products = []
     for p in PRODUCTS:
-        hook = f"<b>{p['name']} is flying off shelves across the UK!</b><br>Perfect for right now."
-        if client:
-            try:
-                response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
-                    messages=[{"role":"user","content":f"Write a short, exciting 2-line hype hook for '{p['name']}'."}],
-                    temperature=0.85,
-                    max_tokens=120
-                )
-                hook = response.choices[0].message.content.strip()
-            except Exception as e:
-                print(f"Groq API failed for {p['name']}: {e}")
+        prompt = f"Write a short, exciting 2-line hype hook for this trending UK product: '{p['name']}'. Use bold and keep it honest."
+        try:
+            hook = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role":"user","content":prompt}],
+                temperature=0.85,
+                max_tokens=120
+            ).choices[0].message.content.strip()
+        except:
+            hook = f"<b>{p['name']} is flying off shelves across the UK!</b><br>Perfect for right now."
         products.append({**p, "hook": hook})
-
+    
     with open(CACHE_FILE, "w") as f:
         json.dump({"date": today, "products": products}, f)
-
     return products
 
 @app.route("/")
 def home():
-    return render_template_string(HTML, products=refresh_hooks(), css=CSS)
+    html_content = render_template_string(HTML, products=refresh_hooks(), css=CSS)
+    return Response(html_content, mimetype="text/html")
 
 if __name__ == "__main__":
     scheduler = BackgroundScheduler()
