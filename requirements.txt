@@ -5,4 +5,4 @@ boto3
 python-dotenv==1.0.0
 requests==2.32.0
 groq==0.3.0
-amazon-paapi==1.1.0  # Official Amazon PAAPI Python SDK
+amazon-paapi  # Official Amazon PAAPI Python SDK
