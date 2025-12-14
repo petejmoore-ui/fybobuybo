@@ -2,3 +2,6 @@ flask
 groq
 apscheduler
 gunicorn
+boto3
+python-dotenv
+requests
