@@ -40,8 +40,7 @@ HTML = """
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>ForYourBuysOnly UK</title>
+<meta charset="utf-8"><title>ForYourBuysOnly UK</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 {{ css }}
@@ -73,7 +72,7 @@ def refresh_hooks():
             data = json.load(f)
             if data.get("date") == today:
                 return data["products"]
-
+    
     products = []
     for p in PRODUCTS:
         prompt = f"Write a short, exciting 2-line hype hook for this trending UK product: '{p['name']}'. Use bold and keep it honest."
@@ -87,15 +86,16 @@ def refresh_hooks():
         except:
             hook = f"<b>{p['name']} is flying off shelves across the UK!</b><br>Perfect for right now."
         products.append({**p, "hook": hook})
-
+    
     with open(CACHE_FILE, "w") as f:
         json.dump({"date": today, "products": products}, f)
     return products
 
 @app.route("/")
 def home():
+    # Render HTML and tell the browser it's HTML
     html_content = render_template_string(HTML, products=refresh_hooks(), css=CSS)
-    return Response(html_content, mimetype="text/html")  # <-- ensures browser interprets as HTML
+    return Response(html_content, mimetype="text/html")
 
 if __name__ == "__main__":
     scheduler = BackgroundScheduler()
