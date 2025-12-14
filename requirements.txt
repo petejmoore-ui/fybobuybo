@@ -1,4 +1,4 @@
 flask
-grok-sdk
+grok @ git+https://github.com/OWNER/REPO.git
 apscheduler
 gunicorn
