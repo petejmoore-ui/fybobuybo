@@ -43,7 +43,7 @@ HTML = """
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ForYourBuysOnly</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-{{ css }}
+{{ css | safe }}
 </head>
 <body>
 <h1>ForYourBuysOnly</h1>
