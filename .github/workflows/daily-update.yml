@@ -1,0 +1,15 @@
+name: Daily Trend Update
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Runs daily at 8:00 AM UTC (9:00 AM UK time)
+  workflow_dispatch:    # Allows manual trigger from GitHub UI
+
+jobs:
+  ping-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake up site and trigger refresh
+        run: |
+          curl -s -o /dev/null "https://fybobuybo.onrender.com/"
+          echo "Site pinged – refresh triggered"
