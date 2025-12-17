@@ -3,4 +3,4 @@ groq
 apscheduler
 gunicorn
 python-dotenv
-
+amazon-paapi
