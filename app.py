@@ -46,7 +46,7 @@ HTML = """
 {{ css | safe }}
 </head>
 <body>
-<h1>ForYourBuysOnly</h1>
+<h1>FyboBuybo</h1>
 <p class="subtitle">Top UK trending buys · Updated daily</p>
 
 <div class="grid">
@@ -57,7 +57,7 @@ HTML = """
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook|safe }}</div>
   <a href="https://www.amazon.co.uk/s?k={{ p.name.replace(' ','+') }}" target="_blank">
-    <button>Grab It Now 🔥</button>
+    <button>Get It Now 🔥</button>
   </a>
 </div>
 {% endfor %}
