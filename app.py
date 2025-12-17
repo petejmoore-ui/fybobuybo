@@ -4,9 +4,9 @@ import datetime
 from flask import Flask, render_template_string
 from groq import Groq
 from amazon_paapi import AmazonApi, errors
-from dotenv import load_dotenv  # <-- New: for local .env support
+from dotenv import load_dotenv
 
-# Load .env file if it exists (only affects local runs – Render ignores it)
+# Load .env for local testing only
 load_dotenv()
 
 app = Flask(__name__)
@@ -14,16 +14,16 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
 
-# PA API setup – keys come from Render env vars or local .env
+# PA API setup
 amazon = AmazonApi(
     os.environ.get("PA_ACCESS_KEY"),
     os.environ.get("PA_SECRET_KEY"),
     os.environ.get("PA_PARTNER_TAG"),
     "UK",
-    throttling=1
+    throttling=1  # Avoid rate limits
 )
 
-# Hot UK categories (BrowseNode IDs)
+# Hot UK categories with BrowseNode IDs
 CATEGORIES = {
     "Electronics": "560798",
     "Books": "266239",
@@ -113,33 +113,43 @@ def refresh_products():
     all_items = []
     for cat_name, node_id in CATEGORIES.items():
         try:
+            # Correct call – no 'resources' to avoid conflict
             results = amazon.search_items(
                 keywords="",
                 browse_node_id=node_id,
-                resources=[
-                    "ItemInfo.Title",
-                    "Images.Primary.Large",
-                    "BrowseNodeInfo.BrowseNodes.SalesRank"
-                ],
                 item_count=10
             )
             for item in results.items:
-                sales_rank = min(
-                    (bn.sales_rank for bn in getattr(item.browse_node_info, 'browse_nodes', []) if bn.sales_rank),
-                    default=999999
-                )
+                # Safely get sales rank
+                sales_rank = 999999
+                if hasattr(item, 'browse_node_info') and item.browse_node_info and hasattr(item.browse_node_info, 'browse_nodes'):
+                    for bn in item.browse_node_info.browse_nodes:
+                        if hasattr(bn, 'sales_rank') and bn.sales_rank is not None:
+                            sales_rank = min(sales_rank, bn.sales_rank)
+
+                # Safely extract data
+                name = "Unknown Product"
+                if hasattr(item, 'item_info') and item.item_info and hasattr(item.item_info, 'title') and item.item_info.title:
+                    name = item.item_info.title.display_value
+
+                image = ""
+                if hasattr(item, 'images') and item.images and hasattr(item.images.primary, 'large') and item.images.primary.large:
+                    image = item.images.primary.large.url
+
+                url = item.detail_page_url if hasattr(item, 'detail_page_url') else "https://www.amazon.co.uk"
+
                 all_items.append({
-                    "name": getattr(item.item_info.title, 'display_value', 'Unknown') if item.item_info.title else "Unknown",
+                    "name": name,
                     "category": cat_name,
-                    "image": item.images.primary.large.url if item.images and item.images.primary.large else "",
+                    "image": image,
                     "hook": "",
-                    "url": item.detail_page_url or f"https://www.amazon.co.uk/s?k={item.item_info.title.display_value.replace(' ', '+') if item.item_info.title else ''}&tag={os.environ.get('PA_PARTNER_TAG')}",
+                    "url": url,
                     "sales_rank": sales_rank
                 })
-        except errors.AmazonError as e:
+        except Exception as e:
             print(f"Amazon API error: {e}")
 
-    # Sort by best sales rank, take top 12
+    # Sort by best (lowest) sales rank, take top 12
     all_items.sort(key=lambda x: x["sales_rank"])
     top_products = all_items[:12]
 
