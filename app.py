@@ -64,12 +64,12 @@ HTML = """
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ForYourBuysOnly</title>
+<title>FyboBuybo</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 {{ css | safe }}
 </head>
 <body>
-<h1>ForYourBuysOnly</h1>
+<h1>FyboBuybo</h1>
 <p class="subtitle">Top UK trending buys · Updated daily</p>
 
 <div class="grid">
