@@ -29,7 +29,7 @@ PRODUCTS = [
      "image": "https://m.media-amazon.com/images/I/71example-guinness-large.jpg",
      "url": f"https://www.amazon.co.uk/Official-Guinness-Nitrosurge-Complete-Experience/dp/B09HR329BC?tag={AFFILIATE_TAG}"},
     {"name": "AnySharp Knife Sharpener", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/61example-anysharp-large.jpg",
+     "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/AnySharp-Knife-Sharpener-PowerGrip-Silver/dp/B0029X0RTU?tag={AFFILIATE_TAG}"},
     {"name": "Rechargeable Hand Warmers 2 Pack", "category": "Sports & Outdoors", 
      "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
