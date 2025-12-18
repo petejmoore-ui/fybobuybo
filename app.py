@@ -5,41 +5,32 @@ from flask import Flask, render_template_string
 from groq import Groq
 from dotenv import load_dotenv
 
-load_dotenv()  # Local testing only
+load_dotenv()
 
 app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
 
-AFFILIATE_TAG = "whoaccepts-21"  # Your real tag!
+AFFILIATE_TAG = "whoaccepts-21"  # Your tag!
 
-# Real trending products – December 18, 2025 (Movers & Shakers + Best Sellers)
+# Real top rechargeable hand warmers – December 18, 2025 (Amazon UK Best Sellers)
 PRODUCTS = [
-    {"name": "Rechargeable Hand Warmers 10000mAh 2 Pack", "category": "Sports & Outdoors", 
+    {"name": "COTOP Hand Warmers Rechargeable 2 Pack 6000mAh", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/81a2hQ1jK3L._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/COTOP-Rechargeable-Handwarmers-Electric-Portable/dp/B0C6G8J7P8?tag={AFFILIATE_TAG}"},
+    {"name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
      "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Rechargeable-Hand-Warmers-Double-Sided-Heating/dp/B0CR8ZJ5N4?tag={AFFILIATE_TAG}"},
-    {"name": "LEGO Icons Williams Racing FW14B & Nigel Mansell", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/81f8e9jVJqL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/LEGO-10356-Williams-Racing-Nigel/dp/B0DJY4K7XW?tag={AFFILIATE_TAG}"},
-    {"name": "EasyAcc 1200ml Electric Dehumidifier", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/71eL5f5rE2L._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/EasyAcc-Dehumidifier-Electric-Portable-Bedroom/dp/B0CM9J3X8V?tag={AFFILIATE_TAG}"},
-    {"name": "Sanex Expert Skin Health Hypoallergenic Shower Gel", "category": "Beauty", 
-     "image": "https://m.media-amazon.com/images/I/71fR2wZ5uPL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Sanex-Biomeprotect-Hypoallergenic-Shower-570ml/dp/B0977C19NL?tag={AFFILIATE_TAG}"},
-    {"name": "TOSY Magnet Fidget Spinner Glow", "category": "Toys & Games", 
+     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}"},
+    {"name": "Wopigh Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/71L5f5rE2L._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Wopigh-Magnetic-Rechargeable-Handwarmers-Portable/dp/B0DM1WK3YJ?tag={AFFILIATE_TAG}"},
+    {"name": "Gaiatop Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
      "image": "https://m.media-amazon.com/images/I/81kW5uO8eGL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/TOSY-Magnet-Fidget-Spinner-Rechargeable/dp/B0CL5QJ2QW?tag={AFFILIATE_TAG}"},
-    {"name": "Ginger Fox Taskmaster Card Game", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/81pXU1r6tBL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Ginger-Fox-Taskmaster-Competitive-Challenges/dp/B0CL5R8X9P?tag={AFFILIATE_TAG}"},
-    {"name": "Herd Mentality Board Game", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/81qB8nF8kUL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}"},
-    {"name": "Guinness World Records 2026", "category": "Books", 
-     "image": "https://m.media-amazon.com/images/I/81example-gwr2026.jpg",
-     "url": f"https://www.amazon.co.uk/Guinness-World-Records-2026/dp/1913484815?tag={AFFILIATE_TAG}"},
+     "url": f"https://www.amazon.co.uk/Gaiatop-Magnetic-Rechargeable-Portable-Penguin/dp/B0CL5QJ2QW?tag={AFFILIATE_TAG}"},
+    {"name": "OCOOPA Dual-Sided Hand Warmers Rechargeable", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/61d2z9rXJPL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/OCOOPA-Dual-Sided-Rechargeable-Handwarmers-Certified/dp/B0FHPF3WXM?tag={AFFILIATE_TAG}"},
 ]
 
 CSS = """
