@@ -72,7 +72,7 @@ HTML = """
 {{ css | safe }}
 </head>
 <body>
-<h1>ForYourBuysOnly</h1>
+<h1>FyboBuybo</h1>
 <p class="subtitle">Top UK trending buys · Updated daily</p>
 
 <div class="grid">
