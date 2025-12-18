@@ -18,7 +18,7 @@ AFFILIATE_TAG = "whoaccepts-21"  # ← Change only if your tag is different
 # (I’ve kept the structure you had; replace with your exact list if needed)
 PRODUCTS = [
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
-     "image": "https://m.media-amazon.com/images/I/81F6t5t9pLL._AC_SL1500_.jpg",
+     "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
      "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."},
     {"name": "Karaoke Machine for Kids with Microphone", "category": "Toys & Games", 
