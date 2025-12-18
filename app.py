@@ -12,7 +12,7 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
 
-AFFILIATE_TAG = "https://amzn.to/4pMfBmH"  # <<< REPLACE WITH YOUR REAL TAG!
+AFFILIATE_TAG = "whoaccepts-21"  # <<< REPLACE WITH YOUR REAL TAG!
 
 # Real trending products – December 18, 2025 (Movers & Shakers + Best Sellers)
 PRODUCTS = [
