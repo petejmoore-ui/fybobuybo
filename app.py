@@ -14,32 +14,32 @@ CACHE_FILE = "cache.json"
 
 AFFILIATE_TAG = "whoaccepts-21"  # Your tag!
 
-# Real trending products – December 18, 2025 (Movers & Shakers + Best Sellers)
+# Real trending products – December 18, 2025 (Best Sellers + Movers & Shakers)
 PRODUCTS = [
-    {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
-     "image": "https://m.media-amazon.com/images/I/81F6t5t9pLL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
-     "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."},
-    {"name": "Karaoke Machine for Kids with Microphone", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/71rK0k8pLZL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
-     "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."},
-    {"name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream", "category": "Beauty", 
-     "image": "https://m.media-amazon.com/images/I/71v3iK7pLZL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
-     "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."},
-    {"name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
-     "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
-     "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."},
     {"name": "Herd Mentality Board Game", "category": "Toys & Games", 
      "image": "https://m.media-amazon.com/images/I/81qB8nF8kUL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
-     "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."},
+     "info": "Hilarious party game where you try to think like the herd — perfect family entertainment, massive Christmas bestseller."},
+    {"name": "Gaiatop Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/81kW5uO8eGL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Gaiatop-Magnetic-Rechargeable-Portable-Penguin/dp/B0CL5QJ2QW?tag={AFFILIATE_TAG}",
+     "info": "Cute penguin design with fast heating — top winter essential for cold hands, surging in sales."},
+    {"name": "OCOOPA UT3 Lite Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
+     "info": "Ultra-thin, magnetic for pairing — long-lasting heat, ideal for outdoor activities and commuting."},
+    {"name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream", "category": "Beauty", 
+     "image": "https://m.media-amazon.com/images/I/71v3iK7pLZL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
+     "info": "Advanced formula reduces wrinkles — popular gifting choice for skincare lovers this season."},
     {"name": "Amazon Fire TV Stick 4K", "category": "Electronics", 
      "image": "https://m.media-amazon.com/images/I/41Qj8d4QdFL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
-     "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."},
+     "info": "4K streaming with Alexa — top entertainment upgrade, perfect for movie nights and Christmas binge-watching."},
+    {"name": "Sanex Expert Skin Health Hypoallergenic Shower Gel", "category": "Beauty", 
+     "image": "https://m.media-amazon.com/images/I/71fR2wZ5uPL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Sanex-Biomeprotect-Hypoallergenic-Shower-570ml/dp/B0977C19NL?tag={AFFILIATE_TAG}",
+     "info": "Gentle for sensitive skin with 12-hour hydration — everyday essential trending for winter dryness."},
 ]
 
 CSS = """
@@ -57,39 +57,12 @@ button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
-/* Improved "Read More" – big button-like, highly visible */
-details {
-  margin-top: 16px;
-}
-details summary {
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: #ff4e4e;
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 20px;
-  background: #161630;
-  border: 2px solid #ff4e4e;
-  border-radius: 50px;
-  transition: 0.3s;
-}
-details summary:hover {
-  background: #ff4e4e;
-  color: white;
-}
-details[open] summary {
-  border-radius: 50px 50px 0 0;
-}
-details p {
-  background: #161630;
-  padding: 16px;
-  border-radius: 0 0 16px 16px;
-  border: 2px solid #ff4e4e;
-  border-top: none;
-  margin: 0;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
+/* Big, pressable "Read More" button */
+details {margin-top:16px;}
+details summary {font-weight:900;font-size:1.1rem;color:#ff4e4e;cursor:pointer;display:inline-block;padding:10px 20px;background:#161630;border:2px solid #ff4e4e;border-radius:50px;transition:0.3s;}
+details summary:hover {background:#ff4e4e;color:white;}
+details[open] summary {border-radius:50px 50px 0 0;}
+details p {background:#161630;padding:16px;border-radius:0 0 16px 16px;border:2px solid #ff4e4e;border-top:none;margin:0;font-size:0.9rem;opacity:0.9;}
 </style>
 """
 
@@ -112,7 +85,7 @@ HTML = """
 <div class="card">
   <span class="tag">{{ p.category }}</span>
   
-  <!-- Image is now clickable -->
+  <!-- Clickable image -->
   <a href="{{ p.url }}" target="_blank">
     <img src="{{ p.image }}" alt="{{ p.name }}">
   </a>
@@ -120,13 +93,12 @@ HTML = """
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook|safe }}</div>
   
-  <!-- Improved "Read More" dropdown -->
+  <!-- Big pressable "Read More" -->
   <details>
     <summary>Read More ↓</summary>
     <p>{{ p.info }}</p>
   </details>
   
-  <!-- Button remains for double CTA -->
   <a href="{{ p.url }}" target="_blank">
     <button>Grab It Now 🔥</button>
   </a>
