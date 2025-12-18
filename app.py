@@ -14,35 +14,32 @@ CACHE_FILE = "cache.json"
 
 AFFILIATE_TAG = "whoaccepts-21"  # Your tag!
 
-# Updated varied trending products – December 18, 2025 (Best Sellers/Movers & Shakers)
+# Real trending products – December 18, 2025 (Best Sellers + Movers & Shakers)
 PRODUCTS = [
-    {"name": "Hydrocolloid Pimple Patches Pack", "category": "Beauty", 
-     "image": "https://m.media-amazon.com/images/I/71example-pimplepatches-large.jpg",
-     "url": f"https://www.amazon.co.uk/Hydrocolloid-Pimple-Patches-Absorbing-Spots/dp/B0example-patches?tag={AFFILIATE_TAG}"},
-    {"name": "Gua Sha Facial Tool Jade Stone", "category": "Beauty", 
-     "image": "https://m.media-amazon.com/images/I/81example-guasha-large.jpg",
-     "url": f"https://www.amazon.co.uk/Gua-Sha-Facial-Tool-Jade/dp/B0example-guasha?tag={AFFILIATE_TAG}"},
-    {"name": "Stanley Quencher H2.0 Insulated Tumbler", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/71example-stanley-large.jpg",
-     "url": f"https://www.amazon.co.uk/Stanley-Quencher-Insulated-Tumbler/dp/B0example-stanley?tag={AFFILIATE_TAG}"},
-    {"name": "Levoit Air Purifier for Home", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/61wT8py+YNL._AC_SY879_.jpg",
-     "url": f"https://www.amazon.co.uk/Levoit-Air-Purifier-Home-Allergies/dp/B07VVK39F7?tag={AFFILIATE_TAG}"},
-    {"name": "Lululemon Athleisure Align Leggings", "category": "Sports & Outdoors", 
-     "image": "https://m.media-amazon.com/images/I/71example-lululemon-large.jpg",
-     "url": f"https://www.amazon.co.uk/Lululemon-Align-High-Rise-Legging-28/dp/B0example-lulu?tag={AFFILIATE_TAG}"},
-    {"name": "Matcha Green Tea Powder 100g", "category": "Grocery", 
-     "image": "https://m.media-amazon.com/images/I/81example-matcha-large.jpg",
-     "url": f"https://www.amazon.co.uk/Matcha-Green-Tea-Powder-Organic/dp/B0example-matcha?tag={AFFILIATE_TAG}"},
-    {"name": "Mushroom Coffee Blend 250g", "category": "Grocery", 
-     "image": "https://m.media-amazon.com/images/I/71example-mushroomcoffee-large.jpg",
-     "url": f"https://www.amazon.co.uk/Mushroom-Coffee-Blend-Organic-Lions/dp/B0example-mushroom?tag={AFFILIATE_TAG}"},
-    {"name": "Fake Plants for Home Decor Set", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/81example-fakeplants-large.jpg",
-     "url": f"https://www.amazon.co.uk/Artificial-Plants-Home-Decor-Bathroom/dp/B0example-plants?tag={AFFILIATE_TAG}"},
-    {"name": "Adjustable Phone Stand Desk Holder", "category": "Electronics", 
-     "image": "https://m.media-amazon.com/images/I/71example-phonestand-large.jpg",
-     "url": f"https://www.amazon.co.uk/Adjustable-Phone-Stand-Desk-Holder/dp/B0example-stand?tag={AFFILIATE_TAG}"},
+    {"name": "OCOOPA UT3 Lite Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}"},
+    {"name": "Gaiatop Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/81kW5uO8eGL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Gaiatop-Magnetic-Rechargeable-Portable-Penguin/dp/B0CL5QJ2QW?tag={AFFILIATE_TAG}"},
+    {"name": "Herd Mentality Board Game", "category": "Toys & Games", 
+     "image": "https://m.media-amazon.com/images/I/81qB8nF8kUL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}"},
+    {"name": "Oral-B Vitality Pro Electric Toothbrush", "category": "Health & Personal Care", 
+     "image": "https://m.media-amazon.com/images/I/517FdTqxhVL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Oral-B-Vitality-Blue-Cross-Action/dp/B0C5YD1BM7?tag={AFFILIATE_TAG}"},
+    {"name": "Grenade High Protein Bar Selection Box", "category": "Grocery", 
+     "image": "https://m.media-amazon.com/images/I/71PewkXflBL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Grenade-Carb-Killa-High-Protein/dp/B07DDYDP57?tag={AFFILIATE_TAG}"},
+    {"name": "Murdle Puzzle Book", "category": "Books", 
+     "image": "https://m.media-amazon.com/images/I/71ImfTaemnL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Murdle-Devilishly-Devious-Mystery-Puzzles/dp/1800818025?tag={AFFILIATE_TAG}"},
+    {"name": "Bedsure Heated Throw Blanket", "category": "Home & Kitchen", 
+     "image": "https://m.media-amazon.com/images/I/81yn3kD3kvL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Bedsure-Heated-Blanket-Electric-Throw/dp/B0BZR9XSSF?tag={AFFILIATE_TAG}"},
+    {"name": "Amazon Fire TV Stick 4K", "category": "Electronics", 
+     "image": "https://m.media-amazon.com/images/I/41Qj8d4QdFL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}"},
 ]
 
 CSS = """
@@ -72,7 +69,7 @@ HTML = """
 {{ css | safe }}
 </head>
 <body>
-<h1>FyboBuybo</h1>
+<h1>ForYourBuysOnly</h1>
 <p class="subtitle">Top UK trending buys · Updated daily</p>
 
 <div class="grid">
