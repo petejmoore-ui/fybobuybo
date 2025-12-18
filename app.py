@@ -14,39 +14,39 @@ CACHE_FILE = "cache.json"
 
 AFFILIATE_TAG = "whoaccepts-21"  # Your tag!
 
-# Real trending products – December 18, 2025 (Best Sellers + Movers & Shakers)
+# Real trending products – December 18, 2025 (Movers & Shakers + Best Sellers)
 PRODUCTS = [
-    {"name": "OCOOPA UT3 Lite Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
+    {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
+     "image": "https://m.media-amazon.com/images/I/81F6t5t9pLL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
+     "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."},
+    {"name": "Karaoke Machine for Kids with Microphone", "category": "Toys & Games", 
+     "image": "https://m.media-amazon.com/images/I/71rK0k8pLZL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
+     "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."},
+    {"name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream", "category": "Beauty", 
+     "image": "https://m.media-amazon.com/images/I/71v3iK7pLZL._AC_SL1500_.jpg",
+     "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
+     "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."},
+    {"name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
      "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}"},
-    {"name": "Gaiatop Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
-     "image": "https://m.media-amazon.com/images/I/81kW5uO8eGL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Gaiatop-Magnetic-Rechargeable-Portable-Penguin/dp/B0CL5QJ2QW?tag={AFFILIATE_TAG}"},
+     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
+     "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."},
     {"name": "Herd Mentality Board Game", "category": "Toys & Games", 
      "image": "https://m.media-amazon.com/images/I/81qB8nF8kUL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}"},
-    {"name": "Oral-B Vitality Pro Electric Toothbrush", "category": "Health & Personal Care", 
-     "image": "https://m.media-amazon.com/images/I/517FdTqxhVL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Oral-B-Vitality-Blue-Cross-Action/dp/B0C5YD1BM7?tag={AFFILIATE_TAG}"},
-    {"name": "Grenade High Protein Bar Selection Box", "category": "Grocery", 
-     "image": "https://m.media-amazon.com/images/I/71PewkXflBL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Grenade-Carb-Killa-High-Protein/dp/B07DDYDP57?tag={AFFILIATE_TAG}"},
-    {"name": "Murdle Puzzle Book", "category": "Books", 
-     "image": "https://m.media-amazon.com/images/I/71ImfTaemnL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Murdle-Devilishly-Devious-Mystery-Puzzles/dp/1800818025?tag={AFFILIATE_TAG}"},
-    {"name": "Bedsure Heated Throw Blanket", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/81yn3kD3kvL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Bedsure-Heated-Blanket-Electric-Throw/dp/B0BZR9XSSF?tag={AFFILIATE_TAG}"},
+     "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
+     "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."},
     {"name": "Amazon Fire TV Stick 4K", "category": "Electronics", 
      "image": "https://m.media-amazon.com/images/I/41Qj8d4QdFL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}"},
+     "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
+     "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."},
 ]
 
 CSS = """
 <style>
 body{margin:0;background:#0d0d1f;color:#fff;font-family:'Outfit',sans-serif;padding:20px}
 h1{text-align:center;font-size:3.5rem;background:linear-gradient(90deg,#ff4e4e,#8b5cf6);-webkit-background-clip:text;color:transparent}
-.subtitle{text-align:center;opacity:.8;margin-bottom:40px}
+.subtitle{text-align:center;opacity:.8;margin-bottom:40px;font-size:1.2rem;max-width:900px;margin-left:auto;margin-right:auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
 .card{background:#161630;border-radius:22px;padding:22px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
 .card:hover{transform:scale(1.05)}
@@ -55,6 +55,8 @@ img{width:100%;border-radius:16px}
 button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
+details summary {outline:none; font-weight:bold; color:#ff4e4e; margin-top:12px;}
+details p {font-size:0.9rem; opacity:0.9; margin-top:8px;}
 </style>
 """
 
@@ -70,7 +72,7 @@ HTML = """
 </head>
 <body>
 <h1>FyboBuybo</h1>
-<p class="subtitle">Top UK trending buys · Updated daily</p>
+<p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
 <div class="grid">
 {% for p in products %}
@@ -79,6 +81,13 @@ HTML = """
   <img src="{{ p.image }}" alt="{{ p.name }}">
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook|safe }}</div>
+  
+  <!-- "Read More" dropdown for extra info -->
+  <details>
+    <summary>Read More ↓</summary>
+    <p>{{ p.info }}</p>
+  </details>
+  
   <a href="{{ p.url }}" target="_blank">
     <button>Grab It Now 🔥</button>
   </a>
