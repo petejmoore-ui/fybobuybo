@@ -38,7 +38,7 @@ PRODUCTS = [
      "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
      "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."},
     {"name": "Amazon Fire TV Stick 4K", "category": "Electronics", 
-     "image": "https://m.media-amazon.com/images/I61TzK204IjL._AC_SX679_.jpg",
+     "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
      "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."},
 ]
