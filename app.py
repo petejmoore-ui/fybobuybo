@@ -55,8 +55,40 @@ img{width:100%;border-radius:16px}
 button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
-details summary {outline:none; font-weight:bold; color:#ff4e4e; margin-top:12px;}
-details p {font-size:0.9rem; opacity:0.9; margin-top:8px;}
+
+/* Improved "Read More" – button-like, visible, pressable */
+details {
+  margin-top: 16px;
+}
+details summary {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #ff4e4e;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #161630;
+  border: 2px solid #ff4e4e;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+details summary:hover {
+  background: #ff4e4e;
+  color: white;
+}
+details[open] summary {
+  border-radius: 50px 50px 0 0;
+}
+details p {
+  background: #161630;
+  padding: 16px;
+  border-radius: 0 0 16px 16px;
+  border: 2px solid #ff4e4e;
+  border-top: none;
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
 </style>
 """
 
@@ -82,7 +114,7 @@ HTML = """
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook|safe }}</div>
   
-  <!-- "Read More" dropdown for extra info -->
+  <!-- Improved "Read More" dropdown -->
   <details>
     <summary>Read More ↓</summary>
     <p>{{ p.info }}</p>
