@@ -17,15 +17,15 @@ AFFILIATE_TAG = "whoaccepts-21"  # Your tag!
 # Real trending products – December 18, 2025 (Movers & Shakers + Best Sellers)
 PRODUCTS = [
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
-     "image": "https://m.media-amazon.com/images/I/81F6t5t9pLL._AC_SL1500_.jpg",
+     "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
      "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."},
     {"name": "Karaoke Machine for Kids with Microphone", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/71rK0k8pLZL._AC_SL1500_.jpg",
+     "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SY300_SX300_QL70_ML2_.jpg",
      "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
      "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."},
     {"name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream", "category": "Beauty", 
-     "image": "https://m.media-amazon.com/images/I/71v3iK7pLZL._AC_SL1500_.jpg",
+     "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SY300_SX300_QL70_ML2_.jpg",
      "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
      "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."},
     {"name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
