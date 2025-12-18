@@ -17,27 +17,27 @@ AFFILIATE_TAG = "whoaccepts-21"  # Your tag!
 # Real trending products – December 18, 2025 (Movers & Shakers + Best Sellers)
 PRODUCTS = [
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
-     "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
+     "image": "https://m.media-amazon.com/images/I/81F6t5t9pLL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
      "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."},
     {"name": "Karaoke Machine for Kids with Microphone", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SY300_SX300_QL70_ML2_.jpg",
+     "image": "https://m.media-amazon.com/images/I/71rK0k8pLZL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
      "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."},
     {"name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream", "category": "Beauty", 
-     "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SY300_SX300_QL70_ML2_.jpg",
+     "image": "https://m.media-amazon.com/images/I/71v3iK7pLZL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
      "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."},
     {"name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack", "category": "Sports & Outdoors", 
-     "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
+     "image": "https://m.media-amazon.com/images/I/71V8g8Zf0uL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
      "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."},
     {"name": "Herd Mentality Board Game", "category": "Toys & Games", 
-     "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SY300_SX300_QL70_ML2_.jpg",
+     "image": "https://m.media-amazon.com/images/I/81qB8nF8kUL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
      "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."},
     {"name": "Amazon Fire TV Stick 4K", "category": "Electronics", 
-     "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
+     "image": "https://m.media-amazon.com/images/I/41Qj8d4QdFL._AC_SL1500_.jpg",
      "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
      "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."},
 ]
@@ -50,13 +50,14 @@ h1{text-align:center;font-size:3.5rem;background:linear-gradient(90deg,#ff4e4e,#
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
 .card{background:#161630;border-radius:22px;padding:22px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
 .card:hover{transform:scale(1.05)}
-img{width:100%;border-radius:16px}
+img{width:100%;border-radius:16px;transition:0.3s}
+.card a img:hover{opacity:0.9;transform:scale(1.03)}
 .tag{background:#8b5cf6;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
 button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
-/* Improved "Read More" – button-like, visible, pressable */
+/* Improved "Read More" – big button-like, highly visible */
 details {
   margin-top: 16px;
 }
@@ -110,7 +111,12 @@ HTML = """
 {% for p in products %}
 <div class="card">
   <span class="tag">{{ p.category }}</span>
-  <img src="{{ p.image }}" alt="{{ p.name }}">
+  
+  <!-- Image is now clickable -->
+  <a href="{{ p.url }}" target="_blank">
+    <img src="{{ p.image }}" alt="{{ p.name }}">
+  </a>
+  
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook|safe }}</div>
   
@@ -120,6 +126,7 @@ HTML = """
     <p>{{ p.info }}</p>
   </details>
   
+  <!-- Button remains for double CTA -->
   <a href="{{ p.url }}" target="_blank">
     <button>Grab It Now 🔥</button>
   </a>
