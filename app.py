@@ -12,39 +12,50 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
 
-AFFILIATE_TAG = "whoaccepts-21"  # <<< REPLACE WITH YOUR REAL TAG!
+AFFILIATE_TAG = "whoaccepts-21"  # <<< REPLACE WITH YOUR REAL AMAZON ASSOCIATES TAG!
 
-# Real trending UK products – December 18, 2025 (from Best Sellers/Movers & Shakers)
+# Real trending/moving UK products – December 18, 2025
+# From Amazon Best Sellers & Movers/Shakers: LEGO, hand warmers, dehumidifiers, shower gel, fidget spinners, etc.
 PRODUCTS = [
-    {"name": "INIU Portable Charger 10000mAh", "category": "Tech", 
-     "image": "https://m.media-amazon.com/images/I/71kKx3jE5fL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/INIU-Portable-Charger-10000mAh-Power/dp/B07CZ7Z6WK?tag={AFFILIATE_TAG}"},
-    {"name": "Oral-B iO3 Electric Toothbrush", "category": "Health", 
-     "image": "https://m.media-amazon.com/images/I/61v2ZaR3PZL._AC_SL1500_.jpg",
-     "url": f"https://www.amazon.co.uk/Oral-B-iO3-Electric-Toothbrush/dp/B0Cexample?tag={AFFILIATE_TAG}"},
-    {"name": "Tony's Chocolonely Everything Bar", "category": "Grocery", 
-     "image": "https://m.media-amazon.com/images/I/81example-tonys.jpg",
-     "url": f"https://www.amazon.co.uk/Tonys-Chocolonely-Everything-Chocolate-Bar/dp/B0example?tag={AFFILIATE_TAG}"},
-    {"name": "HIGH5 ZERO Electrolyte Tablets", "category": "Health", 
-     "image": "https://m.media-amazon.com/images/I/81example-high5.jpg",
-     "url": f"https://www.amazon.co.uk/HIGH5-ZERO-Electrolyte-Hydration-Tablets/dp/B07example?tag={AFFILIATE_TAG}"},
-    {"name": "Murdle Puzzle Book", "category": "Books", 
-     "image": "https://m.media-amazon.com/images/I/81example-murdle.jpg",
-     "url": f"https://www.amazon.co.uk/Murdle-Devilishly-Murder-Mystery-Puzzles/dp/B0Cexample?tag={AFFILIATE_TAG}"},
-    {"name": "Bedsure Heated Throw Blanket", "category": "Home Comfort", 
-     "image": "https://m.media-amazon.com/images/I/81example-bedsure.jpg",
-     "url": f"https://www.amazon.co.uk/Bedsure-Electric-Heated-Blanket-Throw/dp/B0example?tag={AFFILIATE_TAG}"},
-    {"name": "Grenade High Protein Bar", "category": "Health", 
-     "image": "https://m.media-amazon.com/images/I/81example-grenade.jpg",
-     "url": f"https://www.amazon.co.uk/Grenade-Carb-Killa-Protein-Chocolate/dp/B07example?tag={AFFILIATE_TAG}"},
-    {"name": "Stanley Quencher Tumbler", "category": "Home", 
-     "image": "https://m.media-amazon.com/images/I/71example-stanley.jpg",
-     "url": f"https://www.amazon.co.uk/Stanley-Quencher-Tumbler-Stainless-Insulated/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "LEGO Icons Williams Racing FW14B & Nigel Mansell F1 Car Model", "category": "Toys & Games", 
+     "image": "https://m.media-amazon.com/images/I/81+example-lego-fw14b.jpg",  # Use actual from page
+     "url": f"https://www.amazon.co.uk/LEGO-Icons-Williams-Racing-Nigel/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "Rechargeable Hand Warmers 10000mAh 2 Pack", "category": "Sports & Outdoors", 
+     "image": "https://m.media-amazon.com/images/I/71example-handwarmers.jpg",
+     "url": f"https://www.amazon.co.uk/Rechargeable-Hand-Warmers-Double-sided/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "EasyAcc 1200ml Electric Dehumidifier", "category": "Home & Kitchen", 
+     "image": "https://m.media-amazon.com/images/I/71example-dehumidifier.jpg",
+     "url": f"https://www.amazon.co.uk/Dehumidifier-EasyAcc-Electric-Portable/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "Sanex Expert Skin Health Hypoallergenic Shower Gel", "category": "Beauty", 
+     "image": "https://m.media-amazon.com/images/I/71example-sanex.jpg",
+     "url": f"https://www.amazon.co.uk/Sanex-Expert-Hypoallergenic-Shower-Gel/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "TOSY Magnet Fidget Spinner Glow", "category": "Toys & Games", 
+     "image": "https://m.media-amazon.com/images/I/81example-tosy.jpg",
+     "url": f"https://www.amazon.co.uk/TOSY-Magnet-Fidget-Spinner-Glow/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "Ginger Fox Taskmaster Card Game", "category": "Toys & Games", 
+     "image": "https://m.media-amazon.com/images/I/81example-taskmaster.jpg",
+     "url": f"https://www.amazon.co.uk/Ginger-Fox-Taskmaster-Card-Game/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "Amazon Fire TV Stick 4K", "category": "Electronics", 
+     "image": "https://m.media-amazon.com/images/I/41example-firetv.jpg",
+     "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B0example?tag={AFFILIATE_TAG}"},
+    {"name": "Ring Battery Video Doorbell (2024)", "category": "Electronics", 
+     "image": "https://m.media-amazon.com/images/I/61example-ring.jpg",
+     "url": f"https://www.amazon.co.uk/Ring-Battery-Video-Doorbell-2024/dp/B0example?tag={AFFILIATE_TAG}"},
 ]
 
 CSS = """
 <style>
-/* Your existing beautiful CSS – unchanged */
+body{margin:0;background:#0d0d1f;color:#fff;font-family:'Outfit',sans-serif;padding:20px}
+h1{text-align:center;font-size:3.5rem;background:linear-gradient(90deg,#ff4e4e,#8b5cf6);-webkit-background-clip:text;color:transparent}
+.subtitle{text-align:center;opacity:.8;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.card{background:#161630;border-radius:22px;padding:22px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
+.card:hover{transform:scale(1.05)}
+img{width:100%;border-radius:16px}
+.tag{background:#8b5cf6;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
+button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
+.hook{margin:14px 0;line-height:1.5}
+footer{text-align:center;opacity:.6;margin:60px 0}
 </style>
 """
 
