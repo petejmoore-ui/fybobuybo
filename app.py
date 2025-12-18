@@ -26,7 +26,7 @@ PRODUCTS = [
      "image": "https://m.media-amazon.com/images/I/71example-stanley-large.jpg",
      "url": f"https://www.amazon.co.uk/Stanley-Quencher-Insulated-Tumbler/dp/B0example-stanley?tag={AFFILIATE_TAG}"},
     {"name": "Levoit Air Purifier for Home", "category": "Home & Kitchen", 
-     "image": "https://m.media-amazon.com/images/I/61example-levoit-large.jpg",
+     "image": "https://m.media-amazon.com/images/I/61wT8py+YNL._AC_SY879_.jpg",
      "url": f"https://www.amazon.co.uk/Levoit-Air-Purifier-Home-Allergies/dp/B07VVK39F7?tag={AFFILIATE_TAG}"},
     {"name": "Lululemon Athleisure Align Leggings", "category": "Sports & Outdoors", 
      "image": "https://m.media-amazon.com/images/I/71example-lululemon-large.jpg",
