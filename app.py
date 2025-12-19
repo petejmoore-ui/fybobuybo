@@ -44,7 +44,15 @@ PRODUCTS = [
 
 # 6 Daily Rotating Themes
 THEMES = [
-
+    { # 1: Original Dark Purple-Red
+        "bg": "#0d0d1f",
+        "card": "#161630",
+        "accent": "#ff4e4e",
+        "button": "#ff4e4e",
+        "tag": "#8b5cf6",
+        "text_accent": "#ff6b6b",
+        "gradient": "linear-gradient(90deg,#ff4e4e,#8b5cf6)"
+    },
     { # 2: Winter Blue
         "bg": "#0f172a",
         "card": "#1e293b",
@@ -53,6 +61,42 @@ THEMES = [
         "tag": "#93c5fd",
         "text_accent": "#93c5fd",
         "gradient": "linear-gradient(90deg,#3b82f6,#60a5fa)"
+    },
+    { # 3: Festive Green-Red
+        "bg": "#111827",
+        "card": "#1f2937",
+        "accent": "#ef4444",
+        "button": "#dc2626",
+        "tag": "#22c55e",
+        "text_accent": "#22c55e",
+        "gradient": "linear-gradient(90deg,#dc2626,#22c55e)"
+    },
+    { # 4: Midnight Teal
+        "bg": "#0f172a",
+        "card": "#164e63",
+        "accent": "#06b6d4",
+        "button": "#0891b2",
+        "tag": "#22d3ee",
+        "text_accent": "#67e8f9",
+        "gradient": "linear-gradient(90deg,#0891b2,#22d3ee)"
+    },
+    { # 5: Sunset Orange
+        "bg": "#1e1b4b",
+        "card": "#312e81",
+        "accent": "#f97316",
+        "button": "#ea580c",
+        "tag": "#fb923c",
+        "text_accent": "#fdba74",
+        "gradient": "linear-gradient(90deg,#ea580c,#f97316)"
+    },
+    { # 6: Emerald Luxury
+        "bg": "#022c22",
+        "card": "#065f46",
+        "accent": "#10b981",
+        "button": "#059669",
+        "tag": "#34d399",
+        "text_accent": "#6ee7b7",
+        "gradient": "linear-gradient(90deg,#059669,#34d399)"
     }
 ]
 
