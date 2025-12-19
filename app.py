@@ -17,7 +17,7 @@ AFFILIATE_TAG = "whoaccepts-21"
 # Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
     {
-    "name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
+    "name": "Mini Projector Portable 20000 Lux 4K Supported",
     "category": "Electronics",
     "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",  # Replace with actual high-res from page if available (right-click main photo)
     "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
