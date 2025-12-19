@@ -14,6 +14,7 @@ CACHE_FILE = "cache.json"
 
 AFFILIATE_TAG = "whoaccepts-21"
 
+# Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
      "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
@@ -41,27 +42,90 @@ PRODUCTS = [
      "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."},
 ]
 
-CSS = """
+# 6 Daily Rotating Themes
+THEMES = [
+    { # 1: Original Dark Purple-Red
+        "bg": "#0d0d1f",
+        "card": "#161630",
+        "accent": "#ff4e4e",
+        "button": "#ff4e4e",
+        "tag": "#8b5cf6",
+        "text_accent": "#ff6b6b",
+        "gradient": "linear-gradient(90deg,#ff4e4e,#8b5cf6)"
+    },
+    { # 2: Winter Blue
+        "bg": "#0f172a",
+        "card": "#1e293b",
+        "accent": "#60a5fa",
+        "button": "#3b82f6",
+        "tag": "#93c5fd",
+        "text_accent": "#93c5fd",
+        "gradient": "linear-gradient(90deg,#3b82f6,#60a5fa)"
+    },
+    { # 3: Festive Green-Red
+        "bg": "#111827",
+        "card": "#1f2937",
+        "accent": "#ef4444",
+        "button": "#dc2626",
+        "tag": "#22c55e",
+        "text_accent": "#22c55e",
+        "gradient": "linear-gradient(90deg,#dc2626,#22c55e)"
+    },
+    { # 4: Midnight Teal
+        "bg": "#0f172a",
+        "card": "#164e63",
+        "accent": "#06b6d4",
+        "button": "#0891b2",
+        "tag": "#22d3ee",
+        "text_accent": "#67e8f9",
+        "gradient": "linear-gradient(90deg,#0891b2,#22d3ee)"
+    },
+    { # 5: Sunset Orange
+        "bg": "#1e1b4b",
+        "card": "#312e81",
+        "accent": "#f97316",
+        "button": "#ea580c",
+        "tag": "#fb923c",
+        "text_accent": "#fdba74",
+        "gradient": "linear-gradient(90deg,#ea580c,#f97316)"
+    },
+    { # 6: Emerald Luxury
+        "bg": "#022c22",
+        "card": "#065f46",
+        "accent": "#10b981",
+        "button": "#059669",
+        "tag": "#34d399",
+        "text_accent": "#6ee7b7",
+        "gradient": "linear-gradient(90deg,#059669,#34d399)"
+    }
+]
+
+def get_daily_theme():
+    day_of_year = datetime.date.today().timetuple().tm_yday
+    theme_index = day_of_year % len(THEMES)
+    return THEMES[theme_index]
+
+CSS_TEMPLATE = """
 <style>
-body{margin:0;background:#0d0d1f;color:#fff;font-family:'Outfit',sans-serif;padding:20px}
-h1{text-align:center;font-size:3.5rem;background:linear-gradient(90deg,#ff4e4e,#8b5cf6);-webkit-background-clip:text;color:transparent}
-.subtitle{text-align:center;opacity:.8;margin-bottom:40px;font-size:1.2rem;max-width:900px;margin-left:auto;margin-right:auto}
+body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px}
+h1{text-align:center;font-size:3.5rem;background:{{gradient}};-webkit-background-clip:text;color:transparent}
+.subtitle{text-align:center;opacity:.8;margin-bottom:40px;font-size:1.2rem;max-width:900px;margin-left:auto;margin-right:auto;color:{{text_accent}}}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
-.card{background:#161630;border-radius:22px;padding:22px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
+.card{background:{{card}};border-radius:22px;padding:22px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
 .card:hover{transform:scale(1.05)}
 img{width:100%;border-radius:16px;transition:0.3s}
 .card a img:hover{opacity:0.9;transform:scale(1.03)}
-.tag{background:#8b5cf6;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
-button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
+.tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
+button{background:{{button}};border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
-/* Big, pressable "Read More" button */
+/* Big "Read More" button */
 details {margin-top:16px;}
-details summary {font-weight:900;font-size:1.1rem;color:#ff4e4e;cursor:pointer;display:inline-block;padding:10px 20px;background:#161630;border:2px solid #ff4e4e;border-radius:50px;transition:0.3s;}
-details summary:hover {background:#ff4e4e;color:white;}
+details summary {font-weight:900;font-size:1.1rem;color:{{accent}};cursor:pointer;display:inline-block;padding:10px 20px;background:{{card}};border:2px solid {{accent}};border-radius:50px;transition:0.3s;}
+details summary:hover {background:{{accent}};color:white;}
 details[open] summary {border-radius:50px 50px 0 0;}
-details p {background:#161630;padding:16px;border-radius:0 0 16px 16px;border:2px solid #ff4e4e;border-top:none;margin:0;font-size:0.9rem;opacity:0.9;}
+details p {background:{{card}};padding:16px;border-radius:0 0 16px 16px;border:2px solid {{accent}};border-top:none;margin:0;font-size:0.9rem;opacity:0.9;}
 </style>
 """
 
@@ -89,7 +153,6 @@ HTML = """
   </a>
   
   <h3>{{ p.name }}</h3>
-  
   <div class="hook">{{ p.hook|safe }}</div>
   
   <details>
@@ -145,7 +208,10 @@ def refresh_products():
 
 @app.route("/")
 def home():
-    return render_template_string(HTML, products=refresh_products(), css=CSS)
+    products = refresh_products()
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    return render_template_string(HTML, products=products, css=css)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
