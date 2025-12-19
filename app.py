@@ -22,7 +22,7 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71rZJYKSpgL._AC_SX425_.jpg",  # Replace with the actual high-res main image from the Amazon page if available
     "url": "https://www.amazon.co.uk/FOLOKE-Light-Therapy-Mask-Skin/dp/B0F6N5ZNY9?tag={AFFILIATE_TAG}",
     "info": "Rechargeable LED light therapy mask with red & near-infrared light for skin rejuvenation, fine line reduction, and improved tone/texture — portable and suitable for home use, with comfortable silicone fit."
-}
+},
 
     {
     "name": "Mini Projector Portable 20000 Lux 4K Supported",
