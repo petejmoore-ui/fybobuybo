@@ -184,7 +184,7 @@ HTML = """
   </details>
   
   <a href="{{ p.url }}" target="_blank">
-    <button>Check Price 🔥</button>
+    <button>Check Price </button>
   </a>
 </div>
 {% endfor %}
