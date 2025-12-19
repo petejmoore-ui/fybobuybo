@@ -16,6 +16,7 @@ HISTORY_FILE = "history.json"  # Persistent archive
 AFFILIATE_TAG = "whoaccepts-21"
 
 PRODUCTS = [
+   
     {"name": "Mini Projector Portable 20000 Lux Projector 4K Supported", "category": "Electronics", 
      "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SX679_.jpg",
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
