@@ -22,7 +22,7 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71Po3XHc1EL._AC_SX679_.jpg",  # You can replace with the main image if needed
     "url": f"https://www.amazon.co.uk/Sportneer-Adjustable-Strength-Training-Calisthenics/dp/B0D1VBF4N5?tag={AFFILIATE_TAG}",
     "info": "Adjustable weighted vest for men and women, perfect for running, strength training, calisthenics, and bodyweight workouts — boosts endurance and muscle gain."
-}
+},
 
     {
     "name": "FOLOKE LED Light Therapy Mask Skin Care",
