@@ -178,10 +178,10 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action like 'Perfect for gifting!' or 'Add to basket today!'"
+                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action like 'Perfect for gifting!' or 'Add to basket today!' Keep it under 120 characters if possible."
             }],
             temperature=1.0,
-            max_tokens=90
+            max_tokens=120  # Increased from 90 → full sentences
         )
         return r.choices[0].message.content
     except Exception as e:
