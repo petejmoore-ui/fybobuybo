@@ -14,7 +14,6 @@ CACHE_FILE = "cache.json"
 
 AFFILIATE_TAG = "whoaccepts-21"
 
-# Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
      "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
@@ -54,7 +53,7 @@ img{width:100%;border-radius:16px;transition:0.3s}
 .card a img:hover{opacity:0.9;transform:scale(1.03)}
 .tag{background:#8b5cf6;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
 button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
-.hook{margin:14px 0;line-height:1.5}
+.hook{margin:14px 0;line-height:1.5;font-size:1.1rem}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
 /* Big, pressable "Read More" button */
@@ -92,7 +91,7 @@ HTML = """
   
   <h3>{{ p.name }}</h3>
   
-  <!-- AI hook (no product name repeat) -->
+  <!-- Clean AI hook (no asterisks, relevant) -->
   <div class="hook">{{ p.hook|safe }}</div>
   
   <!-- Big pressable "Read More" -->
@@ -120,7 +119,7 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Create a unique, exciting 1-2 sentence sales hook for this trending UK Amazon product. Do NOT repeat the product name. Make it urgent and fun, use <b> tags for bold emphasis, vary the style, and end with a strong call to action like 'Snag it now!' or 'Don't wait!'"
+                "content": f"Write a unique, exciting 1-2 sentence sales hook for this trending UK Amazon product. Do NOT repeat the product name. Make it relevant to the product's appeal, urgent but not tacky, use <b> tags for bold emphasis, vary the style, and end with a natural call to action like 'Add to basket today!' or 'Perfect for gifting!'"
             }],
             temperature=1.0,
             max_tokens=90
@@ -128,7 +127,7 @@ def generate_hook(name):
         return r.choices[0].message.content
     except Exception as e:
         print(f"Groq error: {e}")
-        return f"This trending deal is flying off the shelves!<br>Grab yours before stocks run out! 🔥"
+        return f"Discover why this trending item is a favourite among UK shoppers.<br>Add to basket today!"
 
 def refresh_products():
     today = str(datetime.date.today())
