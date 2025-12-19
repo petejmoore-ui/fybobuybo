@@ -19,15 +19,15 @@ PRODUCTS = [
     {
     "name": "FOLOKE LED Light Therapy Mask Skin Care",
     "category": "Beauty & Personal Care",
-    "image": "https://m.media-amazon.com/images/I/71rZJYKSpgL._AC_SX425_.jpg",  # Replace with the actual high-res main image from the Amazon page if available
-    "url": "https://www.amazon.co.uk/FOLOKE-Light-Therapy-Mask-Skin/dp/B0F6N5ZNY9?tag={AFFILIATE_TAG}",
+    "image": "https://m.media-amazon.com/images/I/71rZJYKSpgL._AC_SX425_.jpg",
+    "url": f"https://www.amazon.co.uk/FOLOKE-Light-Therapy-Mask-Skin/dp/B0F6N5ZNY9?tag={AFFILIATE_TAG}",
     "info": "Rechargeable LED light therapy mask with red & near-infrared light for skin rejuvenation, fine line reduction, and improved tone/texture — portable and suitable for home use, with comfortable silicone fit."
 },
 
     {
     "name": "Mini Projector Portable 20000 Lux 4K Supported",
     "category": "Electronics",
-    "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",  # Replace with actual high-res from page if available (right-click main photo)
+    "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
     "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
     "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."
 },
@@ -193,18 +193,18 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "end with a varied, natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy). ' Keep it under 120 characters if possible."
+                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy). Keep it under 120 characters if possible."
             }],
             temperature=1.0,
-            max_tokens=120  # Increased from 90 → full sentences
+            max_tokens=120
         )
         return r.choices[0].message.content
     except Exception as e:
         print(f"Groq error: {e}")
-        return f"<b>{name}</b> is a popular choice this season.<br>Perfect for your basket!"
+        return f"<b>{name}</b> is a popular choice this season."
 
 def refresh_products():
-    today = str(datetime.date.today()) + "-reset"
+    today = str(datetime.date.today())
 
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE) as f:
@@ -230,3 +230,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+
