@@ -17,6 +17,14 @@ AFFILIATE_TAG = "whoaccepts-21"
 # Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
     {
+    "name": "Sportneer Adjustable Weighted Vest for Strength Training",
+    "category": "Sports & Outdoors",
+    "image": "https://m.media-amazon.com/images/I/71Po3XHc1EL._AC_SX679_.jpg",  # You can replace with the main image if needed
+    "url": f"https://www.amazon.co.uk/Sportneer-Adjustable-Strength-Training-Calisthenics/dp/B0D1VBF4N5?tag={AFFILIATE_TAG}",
+    "info": "Adjustable weighted vest for men and women, perfect for running, strength training, calisthenics, and bodyweight workouts — boosts endurance and muscle gain."
+}
+
+    {
     "name": "FOLOKE LED Light Therapy Mask Skin Care",
     "category": "Beauty & Personal Care",
     "image": "https://m.media-amazon.com/images/I/71rZJYKSpgL._AC_SX425_.jpg",
@@ -156,7 +164,7 @@ HTML = """
 </head>
 <body>
 <h1>FyboBuybo</h1>
-<p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
+<p class="subtitle">Discover the hottest UK products right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
 <div class="grid">
 {% for p in products %}
@@ -193,7 +201,7 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy). Keep it under 120 characters if possible."
+                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy). Keep it under 220 characters if possible."
             }],
             temperature=1.0,
             max_tokens=120
