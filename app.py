@@ -204,7 +204,7 @@ def generate_hook(name):
         return f"<b>{name}</b> is a popular choice this season.<br>Perfect for your basket!"
 
 def refresh_products():
-    today = str(datetime.date.today())
+    today = str(datetime.date.today()) + "-reset"
 
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE) as f:
