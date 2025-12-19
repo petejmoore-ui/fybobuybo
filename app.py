@@ -79,7 +79,7 @@ HTML = """
 </head>
 <body>
 <h1>FyboBuybo</h1>
-<p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
+<p class="subtitle">Discover the hottest UK trends right now — from seasonal gifts and essentials to viral gadgets everyone's buying.</p>
 
 <div class="grid">
 {% for p in products %}
