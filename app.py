@@ -11,14 +11,11 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
-HISTORY_FILE = "history.json"  # Persistent archive
 
 AFFILIATE_TAG = "whoaccepts-21"
 
+# Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
-   
-    {"name": "Mini Projector Portable 20000 Lux Projector 4K Supported", "category": "Electronics", 
-     "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SX679_.jpg",
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
      "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
@@ -60,19 +57,12 @@ button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
-/* Big "Read More" */
+/* Big, pressable "Read More" button */
 details {margin-top:16px;}
 details summary {font-weight:900;font-size:1.1rem;color:#ff4e4e;cursor:pointer;display:inline-block;padding:10px 20px;background:#161630;border:2px solid #ff4e4e;border-radius:50px;transition:0.3s;}
 details summary:hover {background:#ff4e4e;color:white;}
 details[open] summary {border-radius:50px 50px 0 0;}
 details p {background:#161630;padding:16px;border-radius:0 0 16px 16px;border:2px solid #ff4e4e;border-top:none;margin:0;font-size:0.9rem;opacity:0.9;}
-
-/* Archive styling */
-.archive {margin-top:80px;}
-.archive h2 {text-align:center;color:#ff4e4e;font-size:2rem;margin-bottom:40px;}
-.archive details {margin-bottom:20px;}
-.archive summary {font-size:1.5rem;cursor:pointer;color:#ff6b6b;}
-.archive .category-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px;}
 </style>
 """
 
@@ -90,64 +80,33 @@ HTML = """
 <h1>FyboBuybo</h1>
 <p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
-<h2>Today's Trending Deals</h2>
 <div class="grid">
-{% for p in today_products %}
+{% for p in products %}
 <div class="card">
   <span class="tag">{{ p.category }}</span>
+  
+  <!-- Clickable image -->
   <a href="{{ p.url }}" target="_blank">
     <img src="{{ p.image }}" alt="{{ p.name }}">
   </a>
+  
   <h3>{{ p.name }}</h3>
+  
+  <!-- AI hook (no product name repeat) -->
   <div class="hook">{{ p.hook|safe }}</div>
+  
+  <!-- Big pressable "Read More" -->
   <details>
     <summary>Read More ↓</summary>
     <p>{{ p.info }}</p>
   </details>
+  
+  <!-- Button for double CTA -->
   <a href="{{ p.url }}" target="_blank">
     <button>Grab It Now 🔥</button>
   </a>
 </div>
 {% endfor %}
-</div>
-
-<!-- Revolutionary Archive -->
-<div class="archive">
-  <h2>Trend Archive – Explore Past Hot Deals</h2>
-  {% if archive_dates %}
-    {% for date in archive_dates %}
-    <details>
-      <summary>{{ date }} ({{ archive[date]|length }} deals)</summary>
-      {% set grouped = namespace(data={}) %}
-      {% for p in archive[date] %}
-        {% if grouped.data[p.category] is not defined %}
-          {% set _ = grouped.data.update({p.category: []}) %}
-        {% endif %}
-        {% set _ = grouped.data[p.category].append(p) %}
-      {% endfor %}
-      {% for cat, items in grouped.data.items() %}
-        <h3 style="text-align:left;color:#ff6b6b;margin:30px 0 10px;">{{ cat }}</h3>
-        <div class="category-grid">
-          {% for p in items %}
-          <div class="card">
-            <span class="tag">{{ p.category }}</span>
-            <a href="{{ p.url }}" target="_blank">
-              <img src="{{ p.image }}" alt="{{ p.name }}">
-            </a>
-            <h3>{{ p.name }}</h3>
-            <div class="hook">{{ p.hook|safe }}</div>
-            <a href="{{ p.url }}" target="_blank">
-              <button>Grab It Now 🔥</button>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-      {% endfor %}
-    </details>
-    {% endfor %}
-  {% else %}
-    <p style="text-align:center;">Archive building — check back tomorrow!</p>
-  {% endif %}
 </div>
 
 <footer>Affiliate links may earn commission · Made with AI</footer>
@@ -161,60 +120,37 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Create a unique, exciting 1-2 sentence sales hook for this trending UK Amazon product: '{name}'. Make it urgent and fun. Use <b> tags for bold emphasis (no **). End with a strong call to action like 'Snag it now!' or 'Don't wait!'"
+                "content": f"Create a unique, exciting 1-2 sentence sales hook for this trending UK Amazon product. Do NOT repeat the product name. Make it urgent and fun, use <b> tags for bold emphasis, vary the style, and end with a strong call to action like 'Snag it now!' or 'Don't wait!'"
             }],
             temperature=1.0,
             max_tokens=90
         )
         return r.choices[0].message.content
-    except Exception:
-        return f"<b>{name}</b> is flying off the shelves right now!<br>Grab yours before stocks run out! 🔥"
-
-def load_history():
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE) as f:
-            return json.load(f)
-    return {}
-
-def save_history(history):
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(history, f, indent=2)
+    except Exception as e:
+        print(f"Groq error: {e}")
+        return f"This trending deal is flying off the shelves!<br>Grab yours before stocks run out! 🔥"
 
 def refresh_products():
     today = str(datetime.date.today())
-    today_products = []
 
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE) as f:
             data = json.load(f)
             if data.get("date") == today:
-                today_products = data["products"]
+                return data["products"]
 
-    if not today_products:
-        enriched = []
-        for p in PRODUCTS:
-            enriched.append({**p, "hook": generate_hook(p["name"])})
-        today_products = enriched
+    enriched = []
+    for p in PRODUCTS:
+        enriched.append({**p, "hook": generate_hook(p["name"])})
 
-        # Save daily cache
-        with open(CACHE_FILE, "w") as f:
-            json.dump({"date": today, "products": today_products}, f)
+    with open(CACHE_FILE, "w") as f:
+        json.dump({"date": today, "products": enriched}, f)
 
-        # Save to persistent history (archive grows!)
-        history = load_history()
-        history[today] = today_products
-        save_history(history)
-
-    return today_products
+    return enriched
 
 @app.route("/")
 def home():
-    today_products = refresh_products()
-    history = load_history()
-    archive_dates = sorted([d for d in history.keys() if d != str(datetime.date.today())], reverse=True)
-
-    return render_template_string(HTML, today_products=today_products, archive=history, archive_dates=archive_dates, css=CSS)
+    return render_template_string(HTML, products=refresh_products(), css=CSS)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
-    
