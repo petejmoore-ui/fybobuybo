@@ -16,13 +16,6 @@ AFFILIATE_TAG = "whoaccepts-21"
 
 # Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
-    {
-    "name": "Mini Projector Portable 20000 Lux 4K Supported",
-    "category": "Electronics",
-    "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SX679_.jpg",  # Replace with actual high-res from page if available (right-click main photo)
-    "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
-    "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."
-    },
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
      "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
