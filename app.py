@@ -56,7 +56,7 @@ button{background:#ff4e4e;border:none;padding:14px 36px;border-radius:50px;font-
 .hook{margin:14px 0;line-height:1.5}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
-/* Big "Read More" button */
+/* Big, pressable "Read More" button */
 details {margin-top:16px;}
 details summary {font-weight:900;font-size:1.1rem;color:#ff4e4e;cursor:pointer;display:inline-block;padding:10px 20px;background:#161630;border:2px solid #ff4e4e;border-radius:50px;transition:0.3s;}
 details summary:hover {background:#ff4e4e;color:white;}
@@ -89,6 +89,7 @@ HTML = """
   </a>
   
   <h3>{{ p.name }}</h3>
+  
   <div class="hook">{{ p.hook|safe }}</div>
   
   <details>
@@ -114,7 +115,7 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Create a unique, exciting 1-2 sentence sales hook for this trending UK Amazon product. Do NOT repeat the product name. Make it relevant to the product's appeal, use <b> tags for bold emphasis, vary the style, and end with a natural call to action like 'Perfect for gifting!' or 'Add to basket today!'"
+                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action like 'Perfect for gifting!' or 'Add to basket today!'"
             }],
             temperature=1.0,
             max_tokens=90
@@ -122,7 +123,7 @@ def generate_hook(name):
         return r.choices[0].message.content
     except Exception as e:
         print(f"Groq error: {e}")
-        return f"A popular choice for <b>cosy winter evenings</b> or gifting.<br>Perfect addition to your basket!"
+        return f"<b>{name}</b> is a popular choice this season.<br>Perfect for your basket!"
 
 def refresh_products():
     today = str(datetime.date.today())
