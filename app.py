@@ -44,15 +44,15 @@ PRODUCTS = [
 
 # 6 Daily Rotating Themes
 THEMES = [
-    
-    { # 6: Emerald Luxury
-        "bg": "#022c22",
-        "card": "#065f46",
-        "accent": "#10b981",
-        "button": "#059669",
-        "tag": "#34d399",
-        "text_accent": "#6ee7b7",
-        "gradient": "linear-gradient(90deg,#059669,#34d399)"
+
+    { # 2: Winter Blue
+        "bg": "#0f172a",
+        "card": "#1e293b",
+        "accent": "#60a5fa",
+        "button": "#3b82f6",
+        "tag": "#93c5fd",
+        "text_accent": "#93c5fd",
+        "gradient": "linear-gradient(90deg,#3b82f6,#60a5fa)"
     }
 ]
 
@@ -117,7 +117,7 @@ HTML = """
   </details>
   
   <a href="{{ p.url }}" target="_blank">
-    <button>Check Price 🔥</button>
+    <button>Grab It Now 🔥</button>
   </a>
 </div>
 {% endfor %}
