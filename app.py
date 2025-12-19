@@ -17,6 +17,14 @@ AFFILIATE_TAG = "whoaccepts-21"
 # Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
     {
+    "name": "FOLOKE LED Light Therapy Mask Skin Care",
+    "category": "Beauty & Personal Care",
+    "image": "https://m.media-amazon.com/images/I/71rZJYKSpgL._AC_SX425_.jpg",  # Replace with the actual high-res main image from the Amazon page if available
+    "url": "https://www.amazon.co.uk/FOLOKE-Light-Therapy-Mask-Skin/dp/B0F6N5ZNY9?tag={AFFILIATE_TAG}",
+    "info": "Rechargeable LED light therapy mask with red & near-infrared light for skin rejuvenation, fine line reduction, and improved tone/texture — portable and suitable for home use, with comfortable silicone fit."
+}
+
+    {
     "name": "Mini Projector Portable 20000 Lux 4K Supported",
     "category": "Electronics",
     "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",  # Replace with actual high-res from page if available (right-click main photo)
