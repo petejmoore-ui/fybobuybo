@@ -193,8 +193,7 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "end with a varied, natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy).
-!' Keep it under 120 characters if possible."
+                "end with a varied, natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy). ' Keep it under 120 characters if possible."
             }],
             temperature=1.0,
             max_tokens=120  # Increased from 90 → full sentences
