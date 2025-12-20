@@ -1,7 +1,7 @@
 import os
 import json
 import datetime
-import re  # Added for cleaning markdown
+import re
 from flask import Flask, render_template_string, abort
 from groq import Groq
 from dotenv import load_dotenv
@@ -113,7 +113,7 @@ img{width:100%;border-radius:16px;transition:0.3s}
 .card a img:hover{opacity:0.9;transform:scale(1.03)}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
 button{background:{{button}};border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
-.hook{margin:14px 0;line-height:1.5;font-size:1rem}
+.hook{margin:14px 0;line-height:1.5;font-size:1.05rem}  /* Slightly bigger hook text */
 footer{text-align:center;opacity:.6;margin:60px 0}
 
 /* "Read More" */
@@ -125,7 +125,7 @@ details p {background:{{card}};padding:16px;border-radius:0 0 16px 16px;border:2
 
 /* Archive */
 .archive {margin-top:80px;}
-.archive h2 {text-align:center;color:{{accent}};font-size:2.2rem;margin-bottom:40px;} /* Slightly bigger */
+.archive h2 {text-align:center;color:{{accent}};font-size:2.2rem;margin-bottom:40px;}
 .archive details {margin-bottom:20px;}
 .archive summary {font-size:1.5rem;cursor:pointer;color:{{text_accent}};}
 .archive .category-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px;}
@@ -145,7 +145,7 @@ MAIN_HTML = """
 </head>
 <body>
 <h1>FyboBuybo</h1>
-<p class="subtitle">Discover the hottest UK products right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
+<p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
 <h2 style="text-align:center;font-size:2.4rem;margin:60px 0 40px;color:{{accent}};">Today's Trending Deals</h2>
 <div class="grid">
@@ -272,7 +272,7 @@ def generate_hook(name):
         hook = r.choices[0].message.content.strip()
         # Clean any accidental ** markdown
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-        hook = re.sub(r'\*(.*?)\*', r'<i>\1</i>', hook)  # Optional: convert italic
+        hook = re.sub(r'\*(.*?)\*', r'<i>\1</i>', hook)
         return hook
     except Exception as e:
         print(f"Groq error: {e}")
