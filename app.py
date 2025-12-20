@@ -347,11 +347,9 @@ def home():
 
 @app.route("/category/<cat_slug>")
 def category_page(cat_slug):
+    # Universal: replace '-' with space, title case, fix common '&'
     category_title = cat_slug.replace('-', ' ').title()
-    # Fix common & 
     category_title = category_title.replace(' And ', ' & ')
-    category_title = category_title.replace(' Personal Care', ' & Personal Care')  # for Health
-    category_title = category_title.replace(' Outdoors', ' & Outdoors')  # for Sports
 
     history = load_history()
     category_products = []
@@ -367,6 +365,5 @@ def category_page(cat_slug):
     css = render_template_string(CSS_TEMPLATE, **theme)
 
     return render_template_string(CATEGORY_HTML, category_products=category_products, category_title=category_title, css=css)
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
