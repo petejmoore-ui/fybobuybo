@@ -11,34 +11,16 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
+HISTORY_FILE = "history.json"  # Persistent archive
 
 AFFILIATE_TAG = "whoaccepts-21"
 
 # Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
-    {
-    "name": "Sportneer Adjustable Weighted Vest for Strength Training",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/71Po3XHc1EL._AC_SX679_.jpg",  # You can replace with the main image if needed
-    "url": f"https://www.amazon.co.uk/Sportneer-Adjustable-Strength-Training-Calisthenics/dp/B0D1VBF4N5?tag={AFFILIATE_TAG}",
-    "info": "Adjustable weighted vest for men and women, perfect for running, strength training, calisthenics, and bodyweight workouts — boosts endurance and muscle gain."
-},
-
-    {
-    "name": "FOLOKE LED Light Therapy Mask Skin Care",
-    "category": "Beauty & Personal Care",
-    "image": "https://m.media-amazon.com/images/I/71rZJYKSpgL._AC_SX425_.jpg",
-    "url": f"https://www.amazon.co.uk/FOLOKE-Light-Therapy-Mask-Skin/dp/B0F6N5ZNY9?tag={AFFILIATE_TAG}",
-    "info": "Rechargeable LED light therapy mask with red & near-infrared light for skin rejuvenation, fine line reduction, and improved tone/texture — portable and suitable for home use, with comfortable silicone fit."
-},
-
-    {
-    "name": "Mini Projector Portable 20000 Lux 4K Supported",
-    "category": "Electronics",
-    "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
-    "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."
-},
+    {"name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported", "category": "Electronics", 
+     "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
+     "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
+     "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."},
     {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt", "category": "Fashion", 
      "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
      "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
@@ -149,6 +131,13 @@ details summary {font-weight:900;font-size:1.1rem;color:{{accent}};cursor:pointe
 details summary:hover {background:{{accent}};color:white;}
 details[open] summary {border-radius:50px 50px 0 0;}
 details p {background:{{card}};padding:16px;border-radius:0 0 16px 16px;border:2px solid {{accent}};border-top:none;margin:0;font-size:0.9rem;opacity:0.9;}
+
+/* Archive styling */
+.archive {margin-top:80px;}
+.archive h2 {text-align:center;color:{{accent}};font-size:2rem;margin-bottom:40px;}
+.archive details {margin-bottom:20px;}
+.archive summary {font-size:1.5rem;cursor:pointer;color:{{text_accent}};}
+.archive .category-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px;}
 </style>
 """
 
@@ -166,28 +155,64 @@ HTML = """
 <h1>FyboBuybo</h1>
 <p class="subtitle">Discover the hottest UK products right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
+<h2>Today's Trending Deals</h2>
 <div class="grid">
-{% for p in products %}
+{% for p in today_products %}
 <div class="card">
   <span class="tag">{{ p.category }}</span>
-  
   <a href="{{ p.url }}" target="_blank">
     <img src="{{ p.image }}" alt="{{ p.name }}">
   </a>
-  
   <h3>{{ p.name }}</h3>
   <div class="hook">{{ p.hook|safe }}</div>
-  
   <details>
     <summary>Read More ↓</summary>
     <p>{{ p.info }}</p>
   </details>
-  
   <a href="{{ p.url }}" target="_blank">
-    <button>Check Price </button>
+    <button>Check Price</button>
   </a>
 </div>
 {% endfor %}
+</div>
+
+<!-- Revolutionary Archive Section -->
+<div class="archive">
+  <h2>Trend Archive – Explore Past Hot Deals</h2>
+  {% if archive_dates %}
+    {% for date in archive_dates %}
+    <details>
+      <summary>{{ date }} ({{ archive[date]|length }} deals)</summary>
+      {% set grouped = namespace(data={}) %}
+      {% for p in archive[date] %}
+        {% if grouped.data[p.category] is not defined %}
+          {% set _ = grouped.data.update({p.category: []}) %}
+        {% endif %}
+        {% set _ = grouped.data[p.category].append(p) %}
+      {% endfor %}
+      {% for cat, items in grouped.data.items() %}
+        <h3 style="text-align:left;color:{{text_accent}};margin:30px 0 10px;">{{ cat }}</h3>
+        <div class="category-grid">
+          {% for p in items %}
+          <div class="card">
+            <span class="tag">{{ p.category }}</span>
+            <a href="{{ p.url }}" target="_blank">
+              <img src="{{ p.image }}" alt="{{ p.name }}">
+            </a>
+            <h3>{{ p.name }}</h3>
+            <div class="hook">{{ p.hook|safe }}</div>
+            <a href="{{ p.url }}" target="_blank">
+              <button>Grab It Now 🔥</button>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </details>
+    {% endfor %}
+  {% else %}
+    <p style="text-align:center;">Archive building — check back tomorrow!</p>
+  {% endif %}
 </div>
 
 <footer>Affiliate links may earn commission · Made with AI</footer>
@@ -201,41 +226,62 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action suitable for an affiliate product page (avoid words like basket, checkout, or buy). Keep it under 220 characters if possible."
+                "content": f"Create a unique, exciting 1-2 sentence sales hook starting with the product name '{name}'. Make it relevant to the product's appeal, use <b> tags for bold emphasis (no **), vary the style, and end with a natural call to action like 'Perfect for gifting!' or 'Add to basket today!'"
             }],
             temperature=1.0,
-            max_tokens=120
+            max_tokens=90
         )
         return r.choices[0].message.content
     except Exception as e:
         print(f"Groq error: {e}")
-        return f"<b>{name}</b> is a popular choice this season."
+        return f"<b>{name}</b> is a popular choice this season.<br>Perfect for your basket!"
+
+def load_history():
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE) as f:
+            return json.load(f)
+    return {}
+
+def save_history(history):
+    with open(HISTORY_FILE, "w") as f:
+        json.dump(history, f, indent=2)
 
 def refresh_products():
     today = str(datetime.date.today())
+    today_products = []
 
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE) as f:
             data = json.load(f)
             if data.get("date") == today:
-                return data["products"]
+                today_products = data["products"]
 
-    enriched = []
-    for p in PRODUCTS:
-        enriched.append({**p, "hook": generate_hook(p["name"])})
+    if not today_products:
+        enriched = []
+        for p in PRODUCTS:
+            enriched.append({**p, "hook": generate_hook(p["name"])})
+        today_products = enriched
 
-    with open(CACHE_FILE, "w") as f:
-        json.dump({"date": today, "products": enriched}, f)
+        # Save daily cache
+        with open(CACHE_FILE, "w") as f:
+            json.dump({"date": today, "products": today_products}, f)
 
-    return enriched
+        # Save to persistent history (archive grows!)
+        history = load_history()
+        history[today] = today_products
+        save_history(history)
+
+    return today_products
 
 @app.route("/")
 def home():
-    products = refresh_products()
+    today_products = refresh_products()
+    history = load_history()
+    archive_dates = sorted([d for d in history.keys() if d != str(datetime.date.today())], reverse=True)
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
-    return render_template_string(HTML, products=products, css=css)
+
+    return render_template_string(HTML, today_products=today_products, archive=history, archive_dates=archive_dates, css=css)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
-
