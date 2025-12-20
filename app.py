@@ -113,7 +113,7 @@ img{width:100%;border-radius:16px;transition:0.3s}
 .card a img:hover{opacity:0.9;transform:scale(1.03)}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
 button{background:{{button}};border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
-.hook{margin:14px 0;line-height:1.5;font-size:1.05rem}  /* Slightly bigger hook text */
+.hook{margin:14px 0;line-height:1.5;font-size:1.10rem}  /* Slightly bigger hook text */
 footer{text-align:center;opacity:.6;margin:60px 0}
 
 /* "Read More" */
