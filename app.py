@@ -1,6 +1,7 @@
 import os
 import json
 import datetime
+import re  # Added for cleaning markdown
 from flask import Flask, render_template_string, abort
 from groq import Groq
 from dotenv import load_dotenv
@@ -95,14 +96,14 @@ body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;paddi
 h1{text-align:center;font-size:3.5rem;background:{{gradient}};-webkit-background-clip:text;color:transparent}
 .subtitle{text-align:center;opacity:.8;margin-bottom:40px;font-size:1.2rem;max-width:900px;margin-left:auto;margin-right:auto;color:{{text_accent}}}
 
-/* Tighter grid for desktop — more cards visible */
+/* Tighter grid for desktop */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1400px;margin:auto}
 
 /* Smaller cards on large screens */
 .card{background:{{card}};border-radius:22px;padding:18px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:.3s}
 .card:hover{transform:scale(1.03)}
 
-/* Mobile override — keep spacious */
+/* Mobile override */
 @media (max-width:768px) {
   .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
   .card{padding:20px;}
@@ -124,7 +125,7 @@ details p {background:{{card}};padding:16px;border-radius:0 0 16px 16px;border:2
 
 /* Archive */
 .archive {margin-top:80px;}
-.archive h2 {text-align:center;color:{{accent}};font-size:2rem;margin-bottom:40px;}
+.archive h2 {text-align:center;color:{{accent}};font-size:2.2rem;margin-bottom:40px;} /* Slightly bigger */
 .archive details {margin-bottom:20px;}
 .archive summary {font-size:1.5rem;cursor:pointer;color:{{text_accent}};}
 .archive .category-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px;}
@@ -144,9 +145,9 @@ MAIN_HTML = """
 </head>
 <body>
 <h1>FyboBuybo</h1>
-<p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
+<p class="subtitle">Discover the hottest UK products right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
-<h2>Today's Trending Deals</h2>
+<h2 style="text-align:center;font-size:2.4rem;margin:60px 0 40px;color:{{accent}};">Today's Trending Deals</h2>
 <div class="grid">
 {% for p in today_products %}
 <div class="card">
@@ -268,7 +269,11 @@ def generate_hook(name):
             temperature=0.8,
             max_tokens=100
         )
-        return r.choices[0].message.content
+        hook = r.choices[0].message.content.strip()
+        # Clean any accidental ** markdown
+        hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
+        hook = re.sub(r'\*(.*?)\*', r'<i>\1</i>', hook)  # Optional: convert italic
+        return hook
     except Exception as e:
         print(f"Groq error: {e}")
         return f"Discover the refined appeal of <b>{name}</b> — a standout choice among UK shoppers."
@@ -322,7 +327,7 @@ def home():
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
 
-    return render_template_string(MAIN_HTML, today_products=today_products, archive=history, archive_dates=archive_dates, categories=categories, text_accent=theme["text_accent"], css=css)
+    return render_template_string(MAIN_HTML, today_products=today_products, archive=history, archive_dates=archive_dates, categories=categories, text_accent=theme["text_accent"], accent=theme["accent"], css=css)
 
 @app.route("/category/<cat_slug>")
 def category_page(cat_slug):
