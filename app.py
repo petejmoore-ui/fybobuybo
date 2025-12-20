@@ -16,6 +16,37 @@ HISTORY_FILE = "history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 
 PRODUCTS = [
+    {
+    "name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
+    "category": "Home & Kitchen",
+    "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",  # High-res main image
+    "url": f"https://www.amazon.co.uk/VonShef-Tray-Warmer-Buffet-Server/dp/B073Q5G9VX?tag={AFFILIATE_TAG}",
+    "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays."
+},
+
+{
+    "name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
+    "category": "Books",
+    "image": "https://m.media-amazon.com/images/I/81akIVih9NL._SY385_.jpg",  # Right-click main photo on Amazon page → Copy image address → use high-res _SL1500_.jpg version
+    "url": f"https://www.amazon.co.uk/UK-Driving-Theory-Test-Kit/dp/B09D84M7C4?tag={AFFILIATE_TAG}",
+    "info": "Complete 2025 theory test kit with official Highway Code book, practice questions, hazard perception — essential for passing the UK driving test. Massive demand spike for new learners."
+},
+
+{
+    "name": "Magnetic Chess Game with Stones Portable Family Board",
+    "category": "Toys & Games",
+    "image": "https://m.media-amazon.com/images/I/61mcbNi2MGL._AC_SX679_.jpg",  # High-res main image (right-click on Amazon page if needed for exact)
+    "url": f"https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag={AFFILIATE_TAG}",
+    "info": "Portable magnetic chess set with stones and ropes — fun family game for parties, travel, or gatherings. Addictive strategy challenge that's trending for all ages."
+},
+
+{
+    "name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
+    "category": "Health & Personal Care",
+    "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",  # High-res main image (tested from similar listings; right-click on page for exact if needed)
+    "url": f"https://www.amazon.co.uk/Magnesium-Glycinate-Complex-Supplements-Bisglycinate/dp/B0C9VVCL12?tag={AFFILIATE_TAG}",
+    "info": "High-absorption 3-in-1 magnesium (glycinate, citrate, malate) — supports sleep, muscle recovery, energy, and stress relief. Consistent bestseller for wellness routines."
+},
     {"name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported", "category": "Electronics", 
      "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
      "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
