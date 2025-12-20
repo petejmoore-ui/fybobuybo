@@ -178,11 +178,12 @@ MAIN_HTML = """
 <div class="archive">
   <h2>Trend Archive – Explore Past Hot Deals</h2>
   <p style="text-align:center;">
-    Browse by category: 
-    {% for cat in categories %}
-      <a href="/category/{{ cat|lower|replace(' & ', '-')|replace(' ', '-') }}" class="category-link">{{ cat }}</a>{% if not loop.last %} | {% endif %}
-    {% endfor %}
-  </p>
+  Browse by category: 
+  {% for cat in categories %}
+    {% set slug = cat|lower|replace(' & ', '-and-')|replace(' ', '-') %}
+    <a href="/category/{{ slug }}" class="category-link">{{ cat }}</a>{% if not loop.last %} | {% endif %}
+  {% endfor %}
+</p>
   {% if archive_dates %}
     {% for date in archive_dates %}
     <details>
@@ -347,9 +348,21 @@ def home():
 
 @app.route("/category/<cat_slug>")
 def category_page(cat_slug):
-    # Universal: replace '-' with space, title case, fix common '&'
-    category_title = cat_slug.replace('-', ' ').title()
-    category_title = category_title.replace(' And ', ' & ')
+    # Map slugs back to exact category titles (safe & accurate)
+    slug_to_title = {
+        "electronics": "Electronics",
+        "fashion": "Fashion",
+        "toys-games": "Toys & Games",
+        "beauty": "Beauty",
+        "sports-outdoors": "Sports & Outdoors",
+        "home-kitchen": "Home & Kitchen",
+        "books": "Books",
+        "health-personal-care": "Health & Personal Care",
+    }
+
+    category_title = slug_to_title.get(cat_slug.lower())
+    if not category_title:
+        abort(404)
 
     history = load_history()
     category_products = []
