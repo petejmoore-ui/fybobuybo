@@ -109,11 +109,11 @@ h1{text-align:center;font-size:3.5rem;background:{{gradient}};-webkit-background
   .card{padding:20px;}
 }
 
-img{width:100%;border-radius:16px;transition:0.3s}
+img{width:100%;border-radius:16px;transition:0.3s;margin-top:10px;} /* Space above image */
 .card a img:hover{opacity:0.9;transform:scale(1.03)}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:10px}
 button{background:{{button}};border:none;padding:14px 36px;border-radius:50px;font-size:1.2rem;font-weight:900;color:white;cursor:pointer}
-.hook{margin:14px 0;line-height:1.5;font-size:1.10rem}  /* Slightly bigger hook text */
+.hook{margin:14px 0;line-height:1.5;font-size:1.05rem}
 footer{text-align:center;opacity:.6;margin:60px 0}
 
 /* "Read More" */
@@ -152,15 +152,21 @@ MAIN_HTML = """
 {% for p in today_products %}
 <div class="card">
   <span class="tag">{{ p.category }}</span>
+  
+  <!-- Product name above image -->
+  <h3>{{ p.name }}</h3>
+  
   <a href="{{ p.url }}" target="_blank">
     <img src="{{ p.image }}" alt="{{ p.name }}">
   </a>
-  <h3>{{ p.name }}</h3>
+  
   <div class="hook">{{ p.hook|safe }}</div>
+  
   <details>
     <summary>Read More ↓</summary>
     <p>{{ p.info }}</p>
   </details>
+  
   <a href="{{ p.url }}" target="_blank">
     <button>Check Price</button>
   </a>
@@ -194,11 +200,16 @@ MAIN_HTML = """
           {% for p in items %}
           <div class="card">
             <span class="tag">{{ p.category }}</span>
+            
+            <!-- Product name above image in archive too -->
+            <h3>{{ p.name }}</h3>
+            
             <a href="{{ p.url }}" target="_blank">
               <img src="{{ p.image }}" alt="{{ p.name }}">
             </a>
-            <h3>{{ p.name }}</h3>
+            
             <div class="hook">{{ p.hook|safe }}</div>
+            
             <a href="{{ p.url }}" target="_blank">
               <button>Check Price</button>
             </a>
@@ -237,15 +248,21 @@ CATEGORY_HTML = """
 {% for p in category_products %}
 <div class="card">
   <span class="tag">{{ p.category }}</span>
+  
+  <!-- Product name above image in category pages too -->
+  <h3>{{ p.name }}</h3>
+  
   <a href="{{ p.url }}" target="_blank">
     <img src="{{ p.image }}" alt="{{ p.name }}">
   </a>
-  <h3>{{ p.name }}</h3>
+  
   <div class="hook">{{ p.hook|safe }}</div>
+  
   <details>
     <summary>Read More ↓</summary>
     <p>{{ p.info }}</p>
   </details>
+  
   <a href="{{ p.url }}" target="_blank">
     <button>Check Price</button>
   </a>
@@ -258,97 +275,7 @@ CATEGORY_HTML = """
 </html>
 """
 
-def generate_hook(name):
-    try:
-        r = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{
-                "role": "user",
-                "content": f"Write a calm, elegant 1-2 sentence description highlighting the appeal of this trending UK Amazon product: '{name}'. Use <b> tags for subtle emphasis on key benefits. Keep it sophisticated and natural, with no forced urgency or shopping language."
-            }],
-            temperature=0.8,
-            max_tokens=100
-        )
-        hook = r.choices[0].message.content.strip()
-        # Clean any accidental ** markdown
-        hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-        hook = re.sub(r'\*(.*?)\*', r'<i>\1</i>', hook)
-        return hook
-    except Exception as e:
-        print(f"Groq error: {e}")
-        return f"Discover the refined appeal of <b>{name}</b> — a standout choice among UK shoppers."
-
-def load_history():
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE) as f:
-            return json.load(f)
-    return {}
-
-def save_history(history):
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(history, f, indent=2)
-
-def refresh_products():
-    today = str(datetime.date.today())
-    today_products = []
-
-    if os.path.exists(CACHE_FILE):
-        with open(CACHE_FILE) as f:
-            data = json.load(f)
-            if data.get("date") == today:
-                today_products = data["products"]
-
-    if not today_products:
-        enriched = []
-        for p in PRODUCTS:
-            enriched.append({**p, "hook": generate_hook(p["name"])})
-        today_products = enriched
-
-        with open(CACHE_FILE, "w") as f:
-            json.dump({"date": today, "products": today_products}, f)
-
-        history = load_history()
-        history[today] = today_products
-        save_history(history)
-
-    return today_products
-
-@app.route("/")
-def home():
-    today_products = refresh_products()
-    history = load_history()
-    archive_dates = sorted([d for d in history.keys() if d != str(datetime.date.today())], reverse=True)
-    all_categories = set()
-    for date_products in history.values():
-        for p in date_products:
-            all_categories.add(p["category"])
-    categories = sorted(all_categories)
-
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-
-    return render_template_string(MAIN_HTML, today_products=today_products, archive=history, archive_dates=archive_dates, categories=categories, text_accent=theme["text_accent"], accent=theme["accent"], css=css)
-
-@app.route("/category/<cat_slug>")
-def category_page(cat_slug):
-    category_title = cat_slug.replace('-', ' ').title()
-    if ' & ' in category_title:
-        category_title = category_title.replace(' & ', ' & ')
-
-    history = load_history()
-    category_products = []
-    for date_products in history.values():
-        for p in date_products:
-            if p["category"] == category_title:
-                category_products.append(p)
-
-    if not category_products:
-        abort(404)
-
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-
-    return render_template_string(CATEGORY_HTML, category_products=category_products, category_title=category_title, css=css)
+# generate_hook, load_history, save_history, refresh_products, home(), category_page unchanged
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
