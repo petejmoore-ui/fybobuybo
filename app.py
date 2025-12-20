@@ -1,7 +1,7 @@
 import os
 import json
 import datetime
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, abort
 from groq import Groq
 from dotenv import load_dotenv
 
@@ -11,11 +11,10 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
-HISTORY_FILE = "history.json"  # Persistent archive
+HISTORY_FILE = "history.json"
 
 AFFILIATE_TAG = "whoaccepts-21"
 
-# Your current products – keep your own image URLs and any custom info you added
 PRODUCTS = [
     {"name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported", "category": "Electronics", 
      "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -49,60 +48,12 @@ PRODUCTS = [
 
 # 6 Daily Rotating Themes
 THEMES = [
-    { # 1: Original Dark Purple-Red
-        "bg": "#0d0d1f",
-        "card": "#161630",
-        "accent": "#ff4e4e",
-        "button": "#ff4e4e",
-        "tag": "#8b5cf6",
-        "text_accent": "#ff6b6b",
-        "gradient": "linear-gradient(90deg,#ff4e4e,#8b5cf6)"
-    },
-    { # 2: Winter Blue
-        "bg": "#0f172a",
-        "card": "#1e293b",
-        "accent": "#60a5fa",
-        "button": "#3b82f6",
-        "tag": "#93c5fd",
-        "text_accent": "#93c5fd",
-        "gradient": "linear-gradient(90deg,#3b82f6,#60a5fa)"
-    },
-    { # 3: Festive Green-Red
-        "bg": "#111827",
-        "card": "#1f2937",
-        "accent": "#ef4444",
-        "button": "#dc2626",
-        "tag": "#22c55e",
-        "text_accent": "#22c55e",
-        "gradient": "linear-gradient(90deg,#dc2626,#22c55e)"
-    },
-    { # 4: Midnight Teal
-        "bg": "#0f172a",
-        "card": "#164e63",
-        "accent": "#06b6d4",
-        "button": "#0891b2",
-        "tag": "#22d3ee",
-        "text_accent": "#67e8f9",
-        "gradient": "linear-gradient(90deg,#0891b2,#22d3ee)"
-    },
-    { # 5: Sunset Orange
-        "bg": "#1e1b4b",
-        "card": "#312e81",
-        "accent": "#f97316",
-        "button": "#ea580c",
-        "tag": "#fb923c",
-        "text_accent": "#fdba74",
-        "gradient": "linear-gradient(90deg,#ea580c,#f97316)"
-    },
-    { # 6: Emerald Luxury
-        "bg": "#022c22",
-        "card": "#065f46",
-        "accent": "#10b981",
-        "button": "#059669",
-        "tag": "#34d399",
-        "text_accent": "#6ee7b7",
-        "gradient": "linear-gradient(90deg,#059669,#34d399)"
-    }
+    { "bg": "#0d0d1f", "card": "#161630", "accent": "#ff4e4e", "button": "#ff4e4e", "tag": "#8b5cf6", "text_accent": "#ff6b6b", "gradient": "linear-gradient(90deg,#ff4e4e,#8b5cf6)" },
+    { "bg": "#0f172a", "card": "#1e293b", "accent": "#60a5fa", "button": "#3b82f6", "tag": "#93c5fd", "text_accent": "#93c5fd", "gradient": "linear-gradient(90deg,#3b82f6,#60a5fa)" },
+    { "bg": "#111827", "card": "#1f2937", "accent": "#ef4444", "button": "#dc2626", "tag": "#22c55e", "text_accent": "#22c55e", "gradient": "linear-gradient(90deg,#dc2626,#22c55e)" },
+    { "bg": "#0f172a", "card": "#164e63", "accent": "#06b6d4", "button": "#0891b2", "tag": "#22d3ee", "text_accent": "#67e8f9", "gradient": "linear-gradient(90deg,#0891b2,#22d3ee)" },
+    { "bg": "#1e1b4b", "card": "#312e81", "accent": "#f97316", "button": "#ea580c", "tag": "#fb923c", "text_accent": "#fdba74", "gradient": "linear-gradient(90deg,#ea580c,#f97316)" },
+    { "bg": "#022c22", "card": "#065f46", "accent": "#10b981", "button": "#059669", "tag": "#34d399", "text_accent": "#6ee7b7", "gradient": "linear-gradient(90deg,#059669,#34d399)" }
 ]
 
 def get_daily_theme():
@@ -138,10 +89,11 @@ details p {background:{{card}};padding:16px;border-radius:0 0 16px 16px;border:2
 .archive details {margin-bottom:20px;}
 .archive summary {font-size:1.5rem;cursor:pointer;color:{{text_accent}};}
 .archive .category-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:20px;}
+.category-link {color:{{text_accent}};text-decoration:underline;cursor:pointer;margin:10px;display:inline-block;}
 </style>
 """
 
-HTML = """
+MAIN_HTML = """
 <!DOCTYPE html>
 <html>
 <head>
@@ -153,7 +105,7 @@ HTML = """
 </head>
 <body>
 <h1>FyboBuybo</h1>
-<p class="subtitle">Discover the hottest UK products right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
+<p class="subtitle">Discover the hottest UK deals right now — from seasonal gifts and essentials to viral gadgets everyone's buying. Updated daily with what's trending!</p>
 
 <h2>Today's Trending Deals</h2>
 <div class="grid">
@@ -176,9 +128,15 @@ HTML = """
 {% endfor %}
 </div>
 
-<!-- Revolutionary Archive Section -->
+<!-- Archive with category links -->
 <div class="archive">
   <h2>Trend Archive – Explore Past Hot Deals</h2>
+  <p style="text-align:center;">
+    Browse by category: 
+    {% for cat in categories %}
+      <a href="/category/{{ cat|lower|replace(' & ', '-')|replace(' ', '-') }}" class="category-link">{{ cat }}</a>{% if not loop.last %} | {% endif %}
+    {% endfor %}
+  </p>
   {% if archive_dates %}
     {% for date in archive_dates %}
     <details>
@@ -213,6 +171,46 @@ HTML = """
   {% else %}
     <p style="text-align:center;">Archive building — check back tomorrow!</p>
   {% endif %}
+</div>
+
+<footer>Affiliate links may earn commission · Made with AI</footer>
+</body>
+</html>
+"""
+
+CATEGORY_HTML = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FyboBuybo - Archive: {{ category_title }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+{{ css | safe }}
+</head>
+<body>
+<h1>FyboBuybo</h1>
+<p class="subtitle">Archive: All {{ category_title }} Deals</p>
+<a href="/">← Back to Home</a>
+
+<div class="grid">
+{% for p in category_products %}
+<div class="card">
+  <span class="tag">{{ p.category }}</span>
+  <a href="{{ p.url }}" target="_blank">
+    <img src="{{ p.image }}" alt="{{ p.name }}">
+  </a>
+  <h3>{{ p.name }}</h3>
+  <div class="hook">{{ p.hook|safe }}</div>
+  <details>
+    <summary>Read More ↓</summary>
+    <p>{{ p.info }}</p>
+  </details>
+  <a href="{{ p.url }}" target="_blank">
+    <button>Grab It Now 🔥</button>
+  </a>
+</div>
+{% endfor %}
 </div>
 
 <footer>Affiliate links may earn commission · Made with AI</footer>
@@ -262,11 +260,9 @@ def refresh_products():
             enriched.append({**p, "hook": generate_hook(p["name"])})
         today_products = enriched
 
-        # Save daily cache
         with open(CACHE_FILE, "w") as f:
             json.dump({"date": today, "products": today_products}, f)
 
-        # Save to persistent history (archive grows!)
         history = load_history()
         history[today] = today_products
         save_history(history)
@@ -278,10 +274,38 @@ def home():
     today_products = refresh_products()
     history = load_history()
     archive_dates = sorted([d for d in history.keys() if d != str(datetime.date.today())], reverse=True)
+    all_categories = set()
+    for date_products in history.values():
+        for p in date_products:
+            all_categories.add(p["category"])
+    categories = sorted(all_categories)
+
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
 
-    return render_template_string(HTML, today_products=today_products, archive=history, archive_dates=archive_dates, css=css)
+    return render_template_string(MAIN_HTML, today_products=today_products, archive=history, archive_dates=archive_dates, categories=categories, text_accent=theme["text_accent"], css=css)
+
+@app.route("/category/<cat_slug>")
+def category_page(cat_slug):
+    # Convert slug back to title (e.g., "toys-games" -> "Toys & Games")
+    category_title = cat_slug.replace('-', ' ').title()
+    if ' & ' in category_title:
+        category_title = category_title.replace(' & ', ' & ')
+
+    history = load_history()
+    category_products = []
+    for date_products in history.values():
+        for p in date_products:
+            if p["category"] == category_title:
+                category_products.append(p)
+
+    if not category_products:
+        abort(404)
+
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+
+    return render_template_string(CATEGORY_HTML, category_products=category_products, category_title=category_title, css=css)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
