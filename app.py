@@ -348,8 +348,10 @@ def home():
 @app.route("/category/<cat_slug>")
 def category_page(cat_slug):
     category_title = cat_slug.replace('-', ' ').title()
-    if ' & ' in category_title:
-        category_title = category_title.replace(' & ', ' & ')
+    # Fix common & 
+    category_title = category_title.replace(' And ', ' & ')
+    category_title = category_title.replace(' Personal Care', ' & Personal Care')  # for Health
+    category_title = category_title.replace(' Outdoors', ' & Outdoors')  # for Sports
 
     history = load_history()
     category_products = []
