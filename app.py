@@ -247,7 +247,7 @@ def save_history(history):
         json.dump(history, f, indent=2)
 
 def refresh_products():
-    today = str(datetime.date.today())
+    today = str(datetime.date.today() + datetime.timedelta(days=1))  # Forces "tomorrow"
     today_products = []
 
     if os.path.exists(CACHE_FILE):
