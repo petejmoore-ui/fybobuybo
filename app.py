@@ -1,7 +1,6 @@
 import os
 import json
 import datetime
-import re
 from flask import Flask, render_template_string, abort
 from groq import Groq
 from dotenv import load_dotenv
@@ -39,62 +38,7 @@ PRODUCTS = [
         "url": f"https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag={AFFILIATE_TAG}",
         "info": "Portable magnetic chess set with stones and ropes — fun family game for parties, travel, or gatherings. Addictive strategy challenge that's trending for all ages."
     },
-    {
-        "name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
-        "category": "Health & Personal Care",
-        "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Magnesium-Glycinate-Complex-Supplements-Bisglycinate/dp/B0C9VVCL12?tag={AFFILIATE_TAG}",
-        "info": "High-absorption 3-in-1 magnesium (glycinate, citrate, malate) — supports sleep, muscle recovery, energy, and stress relief. Consistent bestseller for wellness routines."
-    },
-    {
-        "name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
-        "category": "Electronics",
-        "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
-        "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."
-    },
-    {
-        "name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
-        "category": "Fashion",
-        "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
-        "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."
-    },
-    {
-        "name": "Karaoke Machine for Kids with Microphone",
-        "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
-        "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."
-    },
-    {
-        "name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
-        "category": "Beauty",
-        "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
-        "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."
-    },
-    {
-        "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
-        "category": "Sports & Outdoors",
-        "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
-        "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."
-    },
-    {
-        "name": "Herd Mentality Board Game",
-        "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
-        "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."
-    },
-    {
-        "name": "Amazon Fire TV Stick 4K",
-        "category": "Electronics",
-        "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
-        "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
-    },
+    # add more products as needed...
 ]
 
 # --- 6 Daily Rotating Themes ---
@@ -281,4 +225,103 @@ def generate_hook(name):
             temperature=0.8,
             max_tokens=100
         )
-        hook = r.choices[0].message.content.strip
+        hook = r.choices[0].message.content.strip()
+        return hook
+    except Exception:
+        return "Discover why this product is trending in the UK."
+
+def load_cache():
+    if os.path.exists(CACHE_FILE):
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_cache(cache):
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+def load_history():
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_history(history):
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(history, f, ensure_ascii=False, indent=2)
+
+def get_today_products():
+    cache = load_cache()
+    today_str = datetime.date.today().isoformat()
+    today_products = []
+
+    for p in PRODUCTS:
+        key = f"{today_str}_{p['name']}"
+        if key in cache:
+            hook = cache[key]
+        else:
+            hook = generate_hook(p['name'])
+            cache[key] = hook
+        p_copy = p.copy()
+        p_copy['hook'] = hook
+        today_products.append(p_copy)
+
+    save_cache(cache)
+    return today_products
+
+def build_archive(today_products):
+    history = load_history()
+    today_str = datetime.date.today().isoformat()
+    history[today_str] = today_products
+    save_history(history)
+    return history
+
+def get_categories():
+    cats = set(p['category'] for p in PRODUCTS)
+    return sorted(cats)
+
+# --- Routes ---
+@app.route("/")
+def home():
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    today_products = get_today_products()
+    archive = load_history()
+    archive_dates = sorted(archive.keys(), reverse=True)
+    categories = get_categories()
+    return render_template_string(MAIN_HTML,
+                                  css=css,
+                                  today_products=today_products,
+                                  archive=archive,
+                                  archive_dates=archive_dates,
+                                  categories=categories,
+                                  **theme)
+
+@app.route("/category/<slug>")
+def category_page(slug):
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    cat_name = None
+    for c in get_categories():
+        s = c.lower().replace(" & ", "-and-").replace(" ", "-")
+        if s == slug:
+            cat_name = c
+            break
+    if not cat_name:
+        abort(404)
+    archive = load_history()
+    category_products = []
+    for products in archive.values():
+        for p in products:
+            if p['category'] == cat_name:
+                category_products.append(p)
+    return render_template_string(CATEGORY_HTML,
+                                  css=css,
+                                  category_title=cat_name,
+                                  category_products=category_products,
+                                  **theme)
+
+if __name__ == "__main__":
+    today_products = get_today_products()
+    build_archive(today_products)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
