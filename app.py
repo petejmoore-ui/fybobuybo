@@ -13,90 +13,79 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 CACHE_FILE = "cache.json"
 HISTORY_FILE = "history.json"
+
 AFFILIATE_TAG = "whoaccepts-21"
 
-# --- Products (all preserved) ---
+# -------------------- Products --------------------
 PRODUCTS = [
-    {
-        "name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
-        "category": "Home & Kitchen",
-        "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/VonShef-Tray-Warmer-Buffet-Server/dp/B073Q5G9VX?tag={AFFILIATE_TAG}",
-        "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays."
-    },
-    {
-        "name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
-        "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/81akIVih9NL._SY385_.jpg",
-        "url": f"https://www.amazon.co.uk/UK-Driving-Theory-Test-Kit/dp/B09D84M7C4?tag={AFFILIATE_TAG}",
-        "info": "Complete 2025 theory test kit with official Highway Code book, practice questions, hazard perception — essential for passing the UK driving test. Massive demand spike for new learners."
-    },
-    {
-        "name": "Magnetic Chess Game with Stones Portable Family Board",
-        "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/61mcbNi2MGL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag={AFFILIATE_TAG}",
-        "info": "Portable magnetic chess set with stones and ropes — fun family game for parties, travel, or gatherings. Addictive strategy challenge that's trending for all ages."
-    },
-    {
-        "name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
-        "category": "Health & Personal Care",
-        "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Magnesium-Glycinate-Complex-Supplements-Bisglycinate/dp/B0C9VVCL12?tag={AFFILIATE_TAG}",
-        "info": "High-absorption 3-in-1 magnesium (glycinate, citrate, malate) — supports sleep, muscle recovery, energy, and stress relief. Consistent bestseller for wellness routines."
-    },
-    {
-        "name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
-        "category": "Electronics",
-        "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
-        "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."
-    },
-    {
-        "name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
-        "category": "Fashion",
-        "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
-        "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."
-    },
-    {
-        "name": "Karaoke Machine for Kids with Microphone",
-        "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
-        "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."
-    },
-    {
-        "name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
-        "category": "Beauty",
-        "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
-        "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."
-    },
-    {
-        "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
-        "category": "Sports & Outdoors",
-        "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
-        "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."
-    },
-    {
-        "name": "Herd Mentality Board Game",
-        "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SY300_SX300_QL70_ML2_.jpg",
-        "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
-        "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."
-    },
-    {
-        "name": "Amazon Fire TV Stick 4K",
-        "category": "Electronics",
-        "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
-        "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
-    },
+    {"name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
+     "category": "Home & Kitchen",
+     "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",
+     "url": f"https://www.amazon.co.uk/VonShef-Tray-Warmer-Buffet-Server/dp/B073Q5G9VX?tag={AFFILIATE_TAG}",
+     "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays."},
+
+    {"name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
+     "category": "Books",
+     "image": "https://m.media-amazon.com/images/I/81akIVih9NL._SY385_.jpg",
+     "url": f"https://www.amazon.co.uk/UK-Driving-Theory-Test-Kit/dp/B09D84M7C4?tag={AFFILIATE_TAG}",
+     "info": "Complete 2025 theory test kit with official Highway Code book, practice questions, hazard perception — essential for passing the UK driving test. Massive demand spike for new learners."},
+
+    {"name": "Magnetic Chess Game with Stones Portable Family Board",
+     "category": "Toys & Games",
+     "image": "https://m.media-amazon.com/images/I/61mcbNi2MGL._AC_SX679_.jpg",
+     "url": f"https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag={AFFILIATE_TAG}",
+     "info": "Portable magnetic chess set with stones and ropes — fun family game for parties, travel, or gatherings. Addictive strategy challenge that's trending for all ages."},
+
+    {"name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
+     "category": "Health & Personal Care",
+     "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",
+     "url": f"https://www.amazon.co.uk/Magnesium-Glycinate-Complex-Supplements-Bisglycinate/dp/B0C9VVCL12?tag={AFFILIATE_TAG}",
+     "info": "High-absorption 3-in-1 magnesium (glycinate, citrate, malate) — supports sleep, muscle recovery, energy, and stress relief. Consistent bestseller for wellness routines."},
+
+    {"name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
+     "category": "Electronics",
+     "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
+     "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag={AFFILIATE_TAG}",
+     "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice."},
+
+    {"name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
+     "category": "Fashion",
+     "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
+     "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
+     "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."},
+
+    {"name": "Karaoke Machine for Kids with Microphone",
+     "category": "Toys & Games",
+     "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SX679_.jpg",
+     "url": f"https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag={AFFILIATE_TAG}",
+     "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs."},
+
+    {"name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
+     "category": "Beauty",
+     "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SY300_SX300_QL70_ML2_.jpg",
+     "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag={AFFILIATE_TAG}",
+     "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines."},
+
+    {"name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
+     "category": "Sports & Outdoors",
+     "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SY300_SX300_QL70_ML2_.jpg",
+     "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
+     "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."},
+
+    {"name": "Herd Mentality Board Game",
+     "category": "Toys & Games",
+     "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX300_SX300_QL70_ML2_.jpg",
+     "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
+     "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."},
+
+    {"name": "Amazon Fire TV Stick 4K",
+     "category": "Electronics",
+     "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
+     "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
+     "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."},
 ]
 
-# --- 6 Daily Rotating Themes ---
+# -------------------- Daily Themes --------------------
 THEMES = [
     { "bg": "#0d0d1f", "card": "#161630", "accent": "#ff4e4e", "button": "#ff4e4e", "tag": "#8b5cf6", "text_accent": "#ff6b6b", "gradient": "linear-gradient(90deg,#ff4e4e,#8b5cf6)" },
     { "bg": "#0f172a", "card": "#1e293b", "accent": "#60a5fa", "button": "#3b82f6", "tag": "#93c5fd", "text_accent": "#93c5fd", "gradient": "linear-gradient(90deg,#3b82f6,#60a5fa)" },
@@ -110,17 +99,19 @@ def get_daily_theme():
     day_of_year = datetime.date.today().timetuple().tm_yday
     return THEMES[day_of_year % len(THEMES)]
 
-# --- CSS & HTML templates (same as your improved version, omitted here for brevity) ---
-# Assign CSS_TEMPLATE, MAIN_HTML, CATEGORY_HTML exactly as in your second version
+# -------------------- CSS & HTML Templates --------------------
+CSS_TEMPLATE = """[Your CSS_TEMPLATE here from above]"""
+MAIN_HTML = """[Your MAIN_HTML here from above]"""
+CATEGORY_HTML = """[Your CATEGORY_HTML here from above]"""
 
-# --- Hook Generation ---
+# -------------------- Product Hooks --------------------
 def generate_hook(name):
     try:
         r = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Write a calm, elegant 1-2 sentence description highlighting the appeal of this trending UK Amazon product: '{name}'. Use <b> tags for subtle emphasis on key benefits. Keep it sophisticated and natural, with no forced urgency or shopping language."
+                "content": f"Write a calm, elegant 1-2 sentence description highlighting the appeal of this trending UK Amazon product: '{name}'. Use <b> tags for subtle emphasis on key benefits. Keep it sophisticated and natural."
             }],
             temperature=0.8,
             max_tokens=100
@@ -133,7 +124,7 @@ def generate_hook(name):
         print(f"Groq error: {e}")
         return f"Discover the refined appeal of <b>{name}</b> — a standout choice among UK shoppers."
 
-# --- History & Cache ---
+# -------------------- History / Cache --------------------
 def load_history():
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE) as f:
@@ -169,18 +160,24 @@ def refresh_products():
 
     return today_products
 
-# --- Routes ---
-@app.route("/")
+# -------------------- Routes --------------------
+@app.route("/", methods=["GET", "HEAD"])
 def home():
     today_products = refresh_products()
     history = load_history()
     archive_dates = sorted([d for d in history.keys() if d != str(datetime.date.today())], reverse=True)
-    categories = sorted({p["category"] for products in history.values() for p in products})
+    all_categories = set()
+    for date_products in history.values():
+        for p in date_products:
+            all_categories.add(p["category"])
+    categories = sorted(all_categories)
+
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
+
     return render_template_string(MAIN_HTML, today_products=today_products, archive=history, archive_dates=archive_dates, categories=categories, text_accent=theme["text_accent"], accent=theme["accent"], css=css)
 
-@app.route("/category/<cat_slug>")
+@app.route("/category/<cat_slug>", methods=["GET", "HEAD"])
 def category_page(cat_slug):
     slug_to_title = {
         "electronics": "Electronics",
@@ -192,17 +189,26 @@ def category_page(cat_slug):
         "books": "Books",
         "health-personal-care": "Health & Personal Care",
     }
+
     category_title = slug_to_title.get(cat_slug.lower())
     if not category_title:
         abort(404)
+
     history = load_history()
-    category_products = [p for products in history.values() for p in products if p["category"] == category_title]
+    category_products = []
+    for date_products in history.values():
+        for p in date_products:
+            if p["category"] == category_title:
+                category_products.append(p)
+
     if not category_products:
         abort(404)
+
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
+
     return render_template_string(CATEGORY_HTML, category_products=category_products, category_title=category_title, css=css)
 
-# --- Run ---
+# -------------------- Run --------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
