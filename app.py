@@ -2,9 +2,10 @@ import os
 import json
 import datetime
 import re
-from flask import Flask, render_template_string, abort, Response, request
+from flask import Flask, render_template_string, abort, Response, request, url_for
 from groq import Groq
 from dotenv import load_dotenv
+from threading import Thread
 
 load_dotenv()
 
@@ -15,9 +16,9 @@ CACHE_FILE = "cache.json"
 HISTORY_FILE = "history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = os.environ.get("SITE_URL", "https://yourdomain.com").rstrip("/")
+ITEMS_PER_PAGE = 12  # pagination
 
 # ---------------- PRODUCTS ---------------- #
-
 PRODUCTS = [
     {
         "name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
@@ -99,7 +100,6 @@ PRODUCTS = [
 ]
 
 # ---------------- THEMES ---------------- #
-
 THEMES = [
     {
         "bg": "#0f172a",
@@ -116,7 +116,6 @@ def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
 # ---------------- AI HOOK ---------------- #
-
 def generate_hook(name):
     try:
         r = client.chat.completions.create(
@@ -140,7 +139,6 @@ Product: {name}
         return "A well-regarded product among UK shoppers, valued for its thoughtful design and everyday practicality."
 
 # ---------------- STORAGE ---------------- #
-
 def load_history():
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE) as f:
@@ -151,28 +149,44 @@ def save_history(data):
     with open(HISTORY_FILE, "w") as f:
         json.dump(data, f, indent=2)
 
-def refresh_products():
-    today = str(datetime.date.today())
+def enrich_products(products):
+    """Generate hooks in background to prevent slow page loads."""
+    enriched = []
+    for p in products:
+        p_copy = dict(p)
+        p_copy["hook"] = generate_hook(p["name"])
+        enriched.append(p_copy)
+    return enriched
 
+def refresh_products(background=False):
+    today = str(datetime.date.today())
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE) as f:
             cache = json.load(f)
             if cache.get("date") == today:
                 return cache["products"]
 
-    enriched = [{**p, "hook": generate_hook(p["name"])} for p in PRODUCTS]
+    def do_refresh():
+        enriched = enrich_products(PRODUCTS)
+        with open(CACHE_FILE, "w") as f:
+            json.dump({"date": today, "products": enriched}, f)
+        history = load_history()
+        history[today] = enriched
+        save_history(history)
 
-    with open(CACHE_FILE, "w") as f:
-        json.dump({"date": today, "products": enriched}, f)
-
-    history = load_history()
-    history[today] = enriched
-    save_history(history)
-
-    return enriched
+    if background:
+        Thread(target=do_refresh).start()
+        # return cached or empty if first time
+        if os.path.exists(CACHE_FILE):
+            with open(CACHE_FILE) as f:
+                return json.load(f).get("products", [])
+        return []
+    else:
+        do_refresh()
+        with open(CACHE_FILE) as f:
+            return json.load(f)["products"]
 
 # ---------------- HELPERS ---------------- #
-
 def slugify(text):
     text = text.lower()
     text = re.sub(r'&', '-and-', text)
@@ -183,8 +197,12 @@ def slugify(text):
 def get_categories(history):
     return sorted({p["category"] for day in history.values() for p in day})
 
-# ---------------- CSS (enhanced with hover effects) ---------------- #
+def paginate(items, page):
+    start = (page - 1) * ITEMS_PER_PAGE
+    end = start + ITEMS_PER_PAGE
+    return items[start:end], len(items)
 
+# ---------------- CSS ---------------- #
 CSS_TEMPLATE = """
 <style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
@@ -202,6 +220,9 @@ a{color:{{text_accent}};text-decoration:none}
 nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
 nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
 nav a:hover{opacity:.8}
+.pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
+.pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
+.pagination a:hover{opacity:.9}
 @media (max-width:768px){
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
@@ -210,7 +231,6 @@ nav a:hover{opacity:.8}
 """
 
 # ---------------- HTML TEMPLATE ---------------- #
-
 BASE_HTML = """
 <!DOCTYPE html>
 <html lang="en">
@@ -258,7 +278,7 @@ BASE_HTML = """
     <h2>{{ p.name }}</h2>
 
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored">
-        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info[:120] }}{% if p.info|length > 120 %}...{% endif %}" loading="lazy">
+        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
     </a>
 
     <p>{{ p.hook|safe }}</p>
@@ -295,6 +315,18 @@ BASE_HTML = """
 {% endfor %}
 </div>
 
+{% if total_pages > 1 %}
+<div class="pagination">
+    {% for p in range(1, total_pages+1) %}
+        {% if p == page %}
+        <span style="background:{{button}};padding:10px 16px;border-radius:12px;font-weight:700">{{p}}</span>
+        {% else %}
+        <a href="{{ page_url(p) }}">{{p}}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
     <p>FyboBuybo is an independent UK deals site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
@@ -305,27 +337,42 @@ BASE_HTML = """
 """
 
 # ---------------- ROUTES ---------------- #
-
-@app.route("/")
-def home():
+def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#"):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
-    products = refresh_products()
     history = load_history()
     categories = get_categories(history)
-    canonical = SITE_URL + "/"
+    canonical = SITE_URL + request.path
+
+    paged_products, total_items = paginate(products, page)
+    total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
 
     return render_template_string(
         BASE_HTML,
+        title=title,
+        description=description,
+        heading=heading,
+        subtitle=subtitle,
+        products=paged_products,
+        categories=categories,
+        css=css,
+        canonical_url=canonical,
+        slugify=slugify,
+        total_pages=total_pages,
+        page=page,
+        page_url=page_url,
+        button=theme["button"]
+    )
+
+@app.route("/")
+def home():
+    products = refresh_products(background=True)
+    return render_page(
         title="FyboBuybo – Trending UK Deals & Popular Products",
         description="Discover today's trending UK deals and popular products across electronics, home, toys, beauty and more. Independently curated and refreshed daily.",
         heading="FyboBuybo – Trending UK Deals",
         subtitle="A curated look at popular products and online bestsellers, refreshed daily.",
-        products=products,
-        categories=categories,
-        css=css,
-        canonical_url=canonical,
-        slugify=slugify
+        products=products
     )
 
 @app.route("/category/<slug>")
@@ -334,72 +381,61 @@ def category(slug):
     products = [p for day in history.values() for p in day if slugify(p["category"]) == slug]
     if not products:
         abort(404)
-
     cat_name = products[0]["category"]
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    categories = get_categories(history)
-    canonical = SITE_URL + request.path
 
-    return render_template_string(
-        BASE_HTML,
+    def page_url(p):
+        return url_for("category", slug=slug, page=p)
+
+    page = int(request.args.get("page", 1))
+    return render_page(
         title=f"{cat_name} Deals – FyboBuybo",
         description=f"Explore popular and trending {cat_name} products in the UK, featuring bestsellers and well-reviewed items.",
         heading=f"{cat_name} Deals",
         subtitle=f"Hand-picked popular products in {cat_name}, updated from our daily selections.",
         products=products,
-        categories=categories,
-        css=css,
-        canonical_url=canonical,
-        slugify=slugify
+        page=page,
+        page_url=page_url
     )
 
 @app.route("/archive")
 def archive():
     history = load_history()
     products = [p for day in history.values() for p in day]
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    categories = get_categories(history)
-    canonical = SITE_URL + "/archive"
 
-    return render_template_string(
-        BASE_HTML,
+    def page_url(p):
+        return url_for("archive", page=p)
+
+    page = int(request.args.get("page", 1))
+    return render_page(
         title="Deal Archive – FyboBuybo",
         description="Browse our full archive of previously featured trending UK deals and popular products.",
         heading="Deal Archive",
         subtitle="All previously featured popular products across every category.",
         products=products,
-        categories=categories,
-        css=css,
-        canonical_url=canonical,
-        slugify=slugify
+        page=page,
+        page_url=page_url
     )
 
 @app.route("/best-uk-deals")
-def long_tail():
+def best_deals():
     history = load_history()
     products = [p for day in history.values() for p in day]
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    categories = get_categories(history)
-    canonical = SITE_URL + "/best-uk-deals"
 
-    return render_template_string(
-        BASE_HTML,
+    def page_url(p):
+        return url_for("best_deals", page=p)
+
+    page = int(request.args.get("page", 1))
+    return render_page(
         title="Best UK Deals – Popular Products Right Now",
         description="A broader selection of the best UK deals and most popular products people are buying online today.",
         heading="Best UK Deals",
         subtitle="Popular and well-reviewed products across all categories.",
         products=products,
-        categories=categories,
-        css=css,
-        canonical_url=canonical,
-        slugify=slugify
+        page=page,
+        page_url=page_url
     )
 
 # ---------------- SEO FILES ---------------- #
-
 @app.route("/robots.txt")
 def robots():
     return Response(
@@ -426,6 +462,5 @@ def sitemap():
     return Response("\n".join(xml), mimetype="application/xml")
 
 # ---------------- RUN ---------------- #
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
