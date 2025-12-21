@@ -21,41 +21,6 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
-    "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
-    "category": "Toys & Games",
-    "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SY300_SX300_QL70_ML2_.jpg",  # Common high-res image for similar listings; replace if you fetch exact
-    "url": f"https://www.amazon.co.uk/Catching-Reaction-Reactions-Coordination-Christmas/dp/B0FMD3DXPC?tag={AFFILIATE_TAG}",
-    "info": "Fast-paced reaction game where colorful sticks drop randomly at adjustable speeds — players race to catch them, building hand-eye coordination and quick reflexes. Viral trending Christmas gift for kids and families, perfect for parties and screen-free fun."
-},
-
-
-
-{
-    "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
-    "category": "Health & Personal Care",
-    "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag={AFFILIATE_TAG}",
-    "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond."
-},
-
-{
-    "name": "SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black",
-    "category": "Electronics",
-    "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55?tag={AFFILIATE_TAG}",
-    "info": "Open-ear true wireless headphones with secure fit, situational awareness, powerful bass, and long battery life — ideal for workouts, running, or daily use without blocking ambient sound. Trending choice for active lifestyles and safer outdoor listening."
-},
-
-
-{
-    "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
-    "category": "Toys & Games",
-    "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag={AFFILIATE_TAG}",
-    "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages."
-},
-
-    {
         "name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
         "category": "Home & Kitchen",
         "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",
@@ -292,8 +257,7 @@ BASE_HTML = """
 
 <nav>
     <a href="/">Home</a>
-    <a href="/best-uk-deals">All Deals</a>
-    <a href="/archive">Archive</a>
+    <a href="/all-deals">All Deals</a>
     {% for cat in categories %}
     <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
     {% endfor %}
@@ -432,40 +396,30 @@ def category(slug):
         page_url=page_url
     )
 
-@app.route("/archive")
-def archive():
+@app.route("/all-deals")
+def all_deals():
     history = load_history()
-    products = [p for day in history.values() for p in day]
+    today_str = str(datetime.date.today())
+    # Start with today's products (from cache or history)
+    today_products = refresh_products(background=True)
+    # Flatten all historical products (including today if already saved)
+    all_products = [p for day in history.values() for p in day]
+    # Ensure today's products are included and appear first (avoid dupes)
+    if today_products:
+        # Remove any old today entry if exists, then prepend fresh today_products
+        all_products = [p for date, day_prods in history.items() if date != today_str for p in day_prods]
+        all_products = today_products + all_products
 
     def page_url(p):
-        return url_for("archive", page=p)
+        return url_for("all_deals", page=p)
 
     page = int(request.args.get("page", 1))
     return render_page(
-        title="Deal Archive – FyboBuybo",
-        description="Browse our full archive of previously featured trending UK deals and popular products.",
-        heading="Deal Archive",
-        subtitle="All previously featured popular products across every category.",
-        products=products,
-        page=page,
-        page_url=page_url
-    )
-
-@app.route("/best-uk-deals")
-def best_deals():
-    history = load_history()
-    products = [p for day in history.values() for p in day]
-
-    def page_url(p):
-        return url_for("best_deals", page=p)
-
-    page = int(request.args.get("page", 1))
-    return render_page(
-        title="Best UK Deals – Popular Products Right Now",
-        description="A broader selection of the best UK deals and most popular products people are buying online today.",
-        heading="Best UK Deals",
-        subtitle="Popular and well-reviewed products across all categories.",
-        products=products,
+        title="All Deals – Popular UK Products",
+        description="Browse every popular product we've featured – the complete collection of trending UK deals across all categories.",
+        heading="All Deals",
+        subtitle="Every hand-picked popular product from our daily selections.",
+        products=all_products,
         page=page,
         page_url=page_url
     )
@@ -483,8 +437,7 @@ def sitemap():
     history = load_history()
     urls = {
         f"{SITE_URL}/",
-        f"{SITE_URL}/archive",
-        f"{SITE_URL}/best-uk-deals"
+        f"{SITE_URL}/all-deals"
     }
     for cat in get_categories(history):
         urls.add(f"{SITE_URL}/category/{slugify(cat)}")
