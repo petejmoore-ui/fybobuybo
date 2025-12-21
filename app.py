@@ -126,16 +126,25 @@ def generate_hook(name):
 Write a calm, elegant 1–2 sentence description explaining why this is a popular UK online product.
 Naturally reference everyday usefulness and popularity.
 Use <b> tags subtly. No urgency or sales language.
+End with a complete sentence.
 Product: {name}
 """
             }],
-            temperature=0.7,
-            max_tokens=90
+            temperature=0.5,  # Lower for more consistent/complete output
+            max_tokens=120   # Increased buffer for full sentences
         )
         hook = r.choices[0].message.content.strip()
+        
+        # Convert any **bold** to <b> tags
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
+        
+        # Fallback cleanup: if it ends abruptly (no punctuation), append a soft closer
+        if not re.search(r'[.!?]$', hook):
+            hook += " among UK shoppers."
+        
         return hook
-    except:
+    except Exception as e:
+        print(f"Groq error: {e}")  # Optional: log for debugging
         return "A well-regarded product among UK shoppers, valued for its thoughtful design and everyday practicality."
 
 # ---------------- STORAGE ---------------- #
