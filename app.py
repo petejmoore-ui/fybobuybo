@@ -21,40 +21,33 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
-    "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
-    "category": "Toys & Games",
-    "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SY300_SX300_QL70_ML2_.jpg",  # Common high-res image for similar listings; replace if you fetch exact
-    "url": f"https://www.amazon.co.uk/Catching-Reaction-Reactions-Coordination-Christmas/dp/B0FMD3DXPC?tag={AFFILIATE_TAG}",
-    "info": "Fast-paced reaction game where colorful sticks drop randomly at adjustable speeds — players race to catch them, building hand-eye coordination and quick reflexes. Viral trending Christmas gift for kids and families, perfect for parties and screen-free fun."
-},
-
-
-
-{
-    "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
-    "category": "Health & Personal Care",
-    "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag={AFFILIATE_TAG}",
-    "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond."
-},
-
-{
-    "name": "SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black",
-    "category": "Electronics",
-    "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55?tag={AFFILIATE_TAG}",
-    "info": "Open-ear true wireless headphones with secure fit, situational awareness, powerful bass, and long battery life — ideal for workouts, running, or daily use without blocking ambient sound. Trending choice for active lifestyles and safer outdoor listening."
-},
-
-
-{
-    "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
-    "category": "Toys & Games",
-    "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SY300_SX300_QL70_ML2_.jpg",
-    "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag={AFFILIATE_TAG}",
-    "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages."
-},
-
+        "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
+        "category": "Toys & Games",
+        "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "url": f"https://www.amazon.co.uk/Catching-Reaction-Reactions-Coordination-Christmas/dp/B0FMD3DXPC?tag={AFFILIATE_TAG}",
+        "info": "Fast-paced reaction game where colorful sticks drop randomly at adjustable speeds — players race to catch them, building hand-eye coordination and quick reflexes. Viral trending Christmas gift for kids and families, perfect for parties and screen-free fun."
+    },
+    {
+        "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
+        "category": "Health & Personal Care",
+        "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SY300_SX300_QL70_ML2_.jpg",
+        "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag={AFFILIATE_TAG}",
+        "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond."
+    },
+    {
+        "name": "SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black",
+        "category": "Electronics",
+        "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "url": f"https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55?tag={AFFILIATE_TAG}",
+        "info": "Open-ear true wireless headphones with secure fit, situational awareness, powerful bass, and long battery life — ideal for workouts, running, or daily use without blocking ambient sound. Trending choice for active lifestyles and safer outdoor listening."
+    },
+    {
+        "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
+        "category": "Toys & Games",
+        "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag={AFFILIATE_TAG}",
+        "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages."
+    },
     {
         "name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
         "category": "Home & Kitchen",
@@ -150,7 +143,7 @@ THEMES = [
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
-# ---------------- AI HOOK ---------------- #
+# ---------------- IMPROVED AI HOOK ---------------- #
 def generate_hook(name):
     try:
         r = client.chat.completions.create(
@@ -165,21 +158,16 @@ End with a complete sentence.
 Product: {name}
 """
             }],
-            temperature=0.5,  # Lower for more consistent/complete output
-            max_tokens=120   # Increased buffer for full sentences
+            temperature=0.5,
+            max_tokens=120
         )
         hook = r.choices[0].message.content.strip()
-        
-        # Convert any **bold** to <b> tags
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-        
-        # Fallback cleanup: if it ends abruptly (no punctuation), append a soft closer
         if not re.search(r'[.!?]$', hook):
             hook += " among UK shoppers."
-        
         return hook
     except Exception as e:
-        print(f"Groq error: {e}")  # Optional: log for debugging
+        print(f"Groq error: {e}")
         return "A well-regarded product among UK shoppers, valued for its thoughtful design and everyday practicality."
 
 # ---------------- STORAGE ---------------- #
@@ -194,7 +182,6 @@ def save_history(data):
         json.dump(data, f, indent=2)
 
 def enrich_products(products):
-    """Generate hooks in background to prevent slow page loads."""
     enriched = []
     for p in products:
         p_copy = dict(p)
@@ -220,11 +207,15 @@ def refresh_products(background=False):
 
     if background:
         Thread(target=do_refresh).start()
-        # return cached or empty if first time
+        # Fallback: old cache
         if os.path.exists(CACHE_FILE):
             with open(CACHE_FILE) as f:
-                return json.load(f).get("products", [])
-        return []
+                cached = json.load(f).get("products", [])
+                if cached:
+                    return cached
+        # Final fallback: raw products with info as hook
+        return [{"name": p["name"], "category": p["category"], "image": p["image"],
+                 "url": p["url"], "info": p["info"], "hook": p["info"]} for p in PRODUCTS]
     else:
         do_refresh()
         with open(CACHE_FILE) as f:
@@ -267,6 +258,7 @@ nav a:hover{opacity:.8}
 .pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
 .pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
 .pagination a:hover{opacity:.9}
+.loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}};}
 @media (max-width:768px){
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
@@ -274,7 +266,7 @@ nav a:hover{opacity:.8}
 </style>
 """
 
-# ---------------- HTML TEMPLATE ---------------- #
+# ---------------- HTML TEMPLATE with loading fallback ---------------- #
 BASE_HTML = """
 <!DOCTYPE html>
 <html lang="en">
@@ -314,6 +306,7 @@ BASE_HTML = """
 ✔ UK-focused · ✔ Updated daily · ✔ Independent curation
 </p>
 
+{% if products %}
 <div class="grid">
 {% for p in products %}
 <div class="card">
@@ -357,6 +350,12 @@ BASE_HTML = """
 </div>
 {% endfor %}
 </div>
+{% else %}
+<p class="loading">
+    Loading today's deals...<br>
+    <small>Generating fresh AI descriptions – this only happens once per day.</small>
+</p>
+{% endif %}
 
 {% if total_pages > 1 %}
 <div class="pagination">
@@ -409,7 +408,8 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 
 @app.route("/")
 def home():
-    products = refresh_products(background=True)
+    # Synchronous on home page → always shows content reliably
+    products = refresh_products(background=False)
     return render_page(
         title="FyboBuybo – Trending UK Deals & Popular Products",
         description="Discover today's trending UK deals and popular products across electronics, home, toys, beauty and more. Independently curated and refreshed daily.",
@@ -444,15 +444,9 @@ def category(slug):
 def all_deals():
     history = load_history()
     today_str = str(datetime.date.today())
-    # Start with today's products (from cache or history)
-    today_products = refresh_products(background=True)
-    # Flatten all historical products (including today if already saved)
-    all_products = [p for day in history.values() for p in day]
-    # Ensure today's products are included and appear first (avoid dupes)
-    if today_products:
-        # Remove any old today entry if exists, then prepend fresh today_products
-        all_products = [p for date, day_prods in history.items() if date != today_str for p in day_prods]
-        all_products = today_products + all_products
+    today_products = refresh_products(background=True)  # Background safe here thanks to fallback
+    all_products = [p for date, day_prods in history.items() if date != today_str for p in day_prods]
+    all_products = today_products + all_products  # Today first, no dupes
 
     def page_url(p):
         return url_for("all_deals", page=p)
