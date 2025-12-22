@@ -342,6 +342,7 @@ BASE_HTML = """
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>{{ title }}</title>
