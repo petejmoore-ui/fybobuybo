@@ -21,6 +21,13 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
+    "name": "Maybelline New York Lash Sensational Sky High Mascara, Volumising & Lengthening Mascara, Washable Flake-Free Formula Infused with Bamboo Extract & Fibres, 7.2 ml, Very Black",
+    "category": "Beauty",
+    "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
+    "url": f"https://www.amazon.co.uk/Maybelline-Sensational-Volumising-Lengthening-Flake-Free/dp/B08WR5CPNB?tag={AFFILIATE_TAG}",
+    "info": "Iconic volumising and lengthening mascara with flexible tower brush and bamboo extract formula — delivers sky-high lashes without clumping or flaking. UK's bestselling mascara for dramatic, weightless volume and everyday wear."
+},
+    {
     "name": "Contigo West Loop Autoseal Travel Mug, Stainless Steel Thermal Mug, Vacuum Flask, Leakproof Tumbler, Coffee Mug with BPA Free Easy-Clean Lid, 470ml, Gunmetal",
     "category": "Home & Kitchen",
     "image": "https://m.media-amazon.com/images/I/514K6nv6AWL._AC_SX679_.jpg",
