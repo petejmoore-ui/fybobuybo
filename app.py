@@ -21,6 +21,13 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
+    "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
+    "category": "Books",
+    "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",  # Typical high-res; update if needed
+    "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag={AFFILIATE_TAG}",
+    "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries."
+},
+    {
     "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
     "category": "Pet Supplies",
     "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX425_.jpg",
