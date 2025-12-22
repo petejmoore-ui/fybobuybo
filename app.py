@@ -23,39 +23,39 @@ PRODUCTS = [
     {
     "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
     "category": "Books",
-    "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",  # Typical high-res; update if needed
+    "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
     "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag={AFFILIATE_TAG}",
     "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries."
 },
-    {
+{
     "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
     "category": "Pet Supplies",
     "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX425_.jpg",
     "url": f"https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag={AFFILIATE_TAG}",
     "info": "Non-clumping white hygiene cat litter made from natural quartz sand and lime — highly absorbent, locks in odours, and prevents bacterial growth for superior freshness. UK's leading choice for clean, hygienic litter trays and happy cats."
 },
-    {
+{
     "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
     "url": f"https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag={AFFILIATE_TAG}",
     "info": "Air-activated hand warmers providing up to 10 hours of natural, odourless heat — safe, easy to use, and perfect for cold weather activities, commuting, or outdoor events. Bestselling essential for staying warm during winter walks, sports, or festivals."
 },
-    {
+{
     "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
     "url": f"https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag={AFFILIATE_TAG}",
     "info": "Advanced fitness tracker with built-in GPS, heart rate monitoring, sleep tracking, stress management, and a daily Readiness Score — includes 6 months Premium membership. Popular choice for active lifestyles, workout motivation, and overall health insights in everyday routines."
 },
-    {
+{
     "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
     "category": "Baby",
     "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_PIbundle-12,TopRight,0,0_SH20_.jpg",
     "url": f"https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag={AFFILIATE_TAG}",
     "info": "Gentle baby wipes made with 99.9% purified water and a drop of fruit extract — plastic-free, unscented, and dermatologist-approved for sensitive newborn skin, including eczema-prone. UK's top choice for pure, effective cleansing that cares for and protects delicate skin every day."
 },
-    {
+     {
     "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
     "category": "Fashion",
     "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SY695_.jpg",
@@ -174,6 +174,7 @@ PRODUCTS = [
         "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
     },
+
 ]
 
 # ---------------- THEMES ---------------- #
@@ -284,9 +285,8 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-# ---------------- CSS with pulsing button ---------------- #
-CSS_TEMPLATE = """
-<style>
+# ---------------- CSS ---------------- #
+CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
@@ -333,31 +333,25 @@ nav a:hover{opacity:.8}
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
 }
-</style>
-"""
+</style>"""
 
-# ---------------- HTML TEMPLATE with loading fallback ---------------- #
-BASE_HTML = """
-<!DOCTYPE html>
+# ---------------- HTML TEMPLATE ---------------- #
+BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
 <link rel="canonical" href="{{ canonical_url }}">
-
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ canonical_url }}">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-
 {{ css|safe }}
 </head>
 <body>
@@ -516,20 +510,18 @@ def category(slug):
 def all_deals():
     history = load_history()
     today_str = str(datetime.date.today())
-    today_products = refresh_products(background=True)
-    all_products = [p for date, day_prods in history.items() if date != today_str for p in day_prods]
-    all_products = today_products + all_products
+    products = history.get(today_str, refresh_products(background=False))
 
     def page_url(p):
         return url_for("all_deals", page=p)
 
     page = int(request.args.get("page", 1))
     return render_page(
-        title="All Deals – Popular UK Products",
-        description="Browse every popular product we've featured – the complete collection of trending UK deals across all categories.",
+        title="All Deals – FyboBuybo",
+        description="Browse all trending UK deals and popular products across categories in one place.",
         heading="All Deals",
-        subtitle="Every hand-picked popular product from our daily selections.",
-        products=all_products,
+        subtitle="Our full selection of today's trending products in the UK.",
+        products=products,
         page=page,
         page_url=page_url
     )
@@ -537,28 +529,29 @@ def all_deals():
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
 def robots():
-    return Response(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml",
-        mimetype="text/plain"
-    )
+    txt = f"""
+User-agent: *
+Disallow:
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    return Response(txt, mimetype="text/plain")
 
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
-    urls = {
-        f"{SITE_URL}/",
-        f"{SITE_URL}/all-deals"
-    }
-    for cat in get_categories(history):
-        urls.add(f"{SITE_URL}/category/{slugify(cat)}")
+    urls = [SITE_URL + "/"] + [SITE_URL + "/all-deals"]
+    for day_products in history.values():
+        for p in day_products:
+            urls.append(SITE_URL + "/category/" + slugify(p["category"]))
 
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in sorted(urls):
-        xml.append(f"<url><loc>{u}</loc></url>")
-    xml.append("</urlset>")
-    return Response("\n".join(xml), mimetype="application/xml")
+    sitemap_xml = "<?xml version='1.0' encoding='UTF-8'?>\n"
+    sitemap_xml += "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
+    for url in sorted(set(urls)):
+        sitemap_xml += f"  <url>\n    <loc>{url}</loc>\n  </url>\n"
+    sitemap_xml += "</urlset>"
+    return Response(sitemap_xml, mimetype="application/xml")
 
-# ---------------- RUN ---------------- #
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    app.run(host="0.0.0.0", port=8080, debug=True)
