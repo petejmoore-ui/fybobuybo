@@ -438,7 +438,8 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 
 @app.route("/")
 def home():
-    products = refresh_products(background=False)
+    products = refresh_products(background=False)[:ITEMS_PER_PAGE]
+
     return render_page(
         title="FyboBuybo – Trending UK Deals & Popular Products",
         description="Discover today's trending UK deals and popular products across electronics, home, toys, beauty and more. Independently curated and refreshed daily.",
