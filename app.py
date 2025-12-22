@@ -256,7 +256,7 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-# ---------------- CSS with uniform images & layout ---------------- #
+# ---------------- CSS with fixed layout (no overlapping) ---------------- #
 CSS_TEMPLATE = """
 <style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
@@ -274,13 +274,13 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
     flex-direction:column;
     justify-content:space-between;
     height:100%;
-    max-height:680px;  /* Prevents super-tall cards from overlapping */
-    overflow:hidden;   /* Cuts off any excess if needed */
+    max-height:680px;
+    overflow:hidden;
 }
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 .card img{
     width:100%;
-    height:260px;           /* Reduced from 320px for tighter layout */
+    height:260px;
     object-fit:contain;
     object-position:center;
     background:#0f172a;
@@ -288,7 +288,7 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
     margin:16px 0;
 }
 .card h2{
-    font-size:1.35rem;      /* Slightly smaller for long titles */
+    font-size:1.35rem;
     line-height:1.3;
     margin:12px 0;
     min-height:70px;
@@ -296,13 +296,15 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
     align-items:center;
     justify-content:center;
 }
-.card p{                    /* Hook description */
+.card p{
     flex-grow:1;
     display:flex;
     align-items:center;
     justify-content:center;
     margin:0 0 16px;
     font-size:0.95rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
 button{
