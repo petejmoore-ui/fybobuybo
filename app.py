@@ -21,6 +21,13 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
+    "name": "Contigo West Loop Autoseal Travel Mug, Stainless Steel Thermal Mug, Vacuum Flask, Leakproof Tumbler, Coffee Mug with BPA Free Easy-Clean Lid, 470ml, Gunmetal",
+    "category": "Home & Kitchen",
+    "image": "https://m.media-amazon.com/images/I/514K6nv6AWL._AC_SX679_.jpg",
+    "url": f"https://www.amazon.co.uk/Contigo-Byron-SNAPSEAL-Travel-Mug/dp/B07TRDWHXG?tag={AFFILIATE_TAG}",
+    "info": "Leak-proof vacuum-insulated travel mug with one-handed SNAPSEAL lid and Thermalock technology — keeps drinks hot for up to 6 hours or cold for 12. UK's favourite reusable coffee mug for commuters and on-the-go lifestyles."
+},
+    {
     "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",  # Typical high-res; update if needed
