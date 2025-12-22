@@ -207,13 +207,11 @@ def refresh_products(background=False):
 
     if background:
         Thread(target=do_refresh).start()
-        # Fallback: old cache
         if os.path.exists(CACHE_FILE):
             with open(CACHE_FILE) as f:
                 cached = json.load(f).get("products", [])
                 if cached:
                     return cached
-        # Final fallback: raw products with info as hook
         return [{"name": p["name"], "category": p["category"], "image": p["image"],
                  "url": p["url"], "info": p["info"], "hook": p["info"]} for p in PRODUCTS]
     else:
@@ -237,7 +235,7 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-# ---------------- CSS ---------------- #
+# ---------------- CSS with pulsing button ---------------- #
 CSS_TEMPLATE = """
 <style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
@@ -248,8 +246,31 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
-button{background:{{button}};border:none;padding:16px 36px;border-radius:50px;font-size:1.1rem;font-weight:900;color:white;cursor:pointer;transition:.3s}
-button:hover{opacity:.9;transform:scale(1.05)}
+button{
+    background:{{button}};
+    border:none;
+    padding:16px 36px;
+    border-radius:50px;
+    font-size:1.1rem;
+    font-weight:900;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+button:hover{
+    opacity:.9;
+    transform:scale(1.05);
+    animation:none;
+}
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);}
+    70%{box-shadow:0 0 0 12px rgba(2,132,199,0);}
+    100%{box-shadow:0 0 0 0 rgba(2,132,199,0);}
+}
+@media (prefers-reduced-motion: reduce){
+    button{animation:none;}
+}
 footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
 a{color:{{text_accent}};text-decoration:none}
 nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
@@ -408,7 +429,6 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 
 @app.route("/")
 def home():
-    # Synchronous on home page → always shows content reliably
     products = refresh_products(background=False)
     return render_page(
         title="FyboBuybo – Trending UK Deals & Popular Products",
@@ -444,9 +464,9 @@ def category(slug):
 def all_deals():
     history = load_history()
     today_str = str(datetime.date.today())
-    today_products = refresh_products(background=True)  # Background safe here thanks to fallback
+    today_products = refresh_products(background=True)
     all_products = [p for date, day_prods in history.items() if date != today_str for p in day_prods]
-    all_products = today_products + all_products  # Today first, no dupes
+    all_products = today_products + all_products
 
     def page_url(p):
         return url_for("all_deals", page=p)
