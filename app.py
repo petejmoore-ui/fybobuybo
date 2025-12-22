@@ -365,7 +365,7 @@ BASE_HTML = """
         <button>View on Amazon</button>
     </a>
 
-    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+    <p style="font-size:1.0rem;opacity:.7;margin-top:16px;">
         More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> deals
     </p>
 </div>
