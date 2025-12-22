@@ -12,8 +12,8 @@ load_dotenv()
 app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
-CACHE_FILE = "cache.json"
-HISTORY_FILE = "history.json"
+CACHE_FILE = "/data/cache.json"
+HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = os.environ.get("SITE_URL", "https://yourdomain.com").rstrip("/")
 ITEMS_PER_PAGE = 12  # pagination
