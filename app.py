@@ -21,6 +21,48 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
+    "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
+    "category": "Pet Supplies",
+    "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX425_.jpg",
+    "url": f"https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag={AFFILIATE_TAG}",
+    "info": "Non-clumping white hygiene cat litter made from natural quartz sand and lime — highly absorbent, locks in odours, and prevents bacterial growth for superior freshness. UK's leading choice for clean, hygienic litter trays and happy cats."
+},
+    {
+    "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
+    "category": "Sports & Outdoors",
+    "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
+    "url": f"https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag={AFFILIATE_TAG}",
+    "info": "Air-activated hand warmers providing up to 10 hours of natural, odourless heat — safe, easy to use, and perfect for cold weather activities, commuting, or outdoor events. Bestselling essential for staying warm during winter walks, sports, or festivals."
+},
+    {
+    "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
+    "category": "Sports & Outdoors",
+    "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
+    "url": f"https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag={AFFILIATE_TAG}",
+    "info": "Advanced fitness tracker with built-in GPS, heart rate monitoring, sleep tracking, stress management, and a daily Readiness Score — includes 6 months Premium membership. Popular choice for active lifestyles, workout motivation, and overall health insights in everyday routines."
+},
+    {
+    "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
+    "category": "Baby",
+    "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_PIbundle-12,TopRight,0,0_SH20_.jpg",
+    "url": f"https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag={AFFILIATE_TAG}",
+    "info": "Gentle baby wipes made with 99.9% purified water and a drop of fruit extract — plastic-free, unscented, and dermatologist-approved for sensitive newborn skin, including eczema-prone. UK's top choice for pure, effective cleansing that cares for and protects delicate skin every day."
+},
+    {
+    "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
+    "category": "Fashion",
+    "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SY695_.jpg",
+    "url": f"https://www.amazon.co.uk/Mens-Two-Tone-Memory-Foam-Slipper/dp/B07CLXD2V4?tag={AFFILIATE_TAG}",
+    "info": "Cosy two-tone memory foam slippers with hard non-slip sole and mule design — perfect for indoor comfort and quick outdoor trips. Bestselling men's slippers for all-day warmth, support, and durability during colder months."
+},
+    {
+    "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
+    "category": "Toys & Games",
+    "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
+    "url": f"https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag={AFFILIATE_TAG}",
+    "info": "Hilarious party game where players guess whether random facts are 'more' or 'less' than a given number — perfect for family gatherings, parties, and game nights. Trending for its mix of ridiculous questions, laughs, and surprising knowledge."
+},
+    {
         "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
         "category": "Toys & Games",
         "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -324,7 +366,7 @@ BASE_HTML = """
 <p class="subtitle">{{ subtitle }}</p>
 
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
-✔ UK-focused · ✔ Updated daily · ✔ Independent curation
+✔ UK-focused · ✔ Updated weekly · ✔ Independent curation
 </p>
 
 {% if products %}
