@@ -77,7 +77,7 @@ PRODUCTS = [
         "url": f"https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag={AFFILIATE_TAG}",
         "info": "Portable magnetic chess set with stones and ropes — fun family game for parties, travel, or gatherings. Addictive strategy challenge that's trending for all ages."
     },
- {
+    {
         "name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
         "category": "Health & Personal Care",
         "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",
