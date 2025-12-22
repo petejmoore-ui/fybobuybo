@@ -414,10 +414,17 @@ BASE_HTML = """<!DOCTYPE html>
     }
     </script>
 
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" aria-label="View {{ p.name }} on Amazon" 
-   onclick="gtag('event', 'click', { 'event_category': 'Affiliate', 'event_label': '{{ p.name }}', 'value': 1 });">
+    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
+   aria-label="View {{ p.name }} on Amazon"
+   onclick="gtag('event', 'affiliate_click', { 
+       'event_category': '{{ p.category }}', 
+       'event_label': '{{ p.name }}', 
+       'value': 1,
+       'page_path': window.location.pathname
+   });">
     <button>View on Amazon</button>
 </a>
+
 
 
     <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
