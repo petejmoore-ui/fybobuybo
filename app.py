@@ -21,27 +21,6 @@ ITEMS_PER_PAGE = 12  # pagination
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
-        "name": "Maybelline New York Lash Sensational Sky High Mascara, Volumising & Lengthening Mascara, Washable Flake-Free Formula Infused with Bamboo Extract & Fibres, 7.2 ml, Very Black",
-        "category": "Beauty",
-        "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
-        "url": f"https://www.amazon.co.uk/Maybelline-Sensational-Volumising-Lengthening-Flake-Free/dp/B08WR5CPNB?tag={AFFILIATE_TAG}",
-        "info": "Iconic volumising and lengthening mascara with flexible tower brush and bamboo extract formula — delivers sky-high lashes without clumping or flaking. UK's bestselling mascara for dramatic, weightless volume and everyday wear."
-    },
-    {
-        "name": "Contigo West Loop Autoseal Travel Mug, Stainless Steel Thermal Mug, Vacuum Flask, Leakproof Tumbler, Coffee Mug with BPA Free Easy-Clean Lid, 470ml, Gunmetal",
-        "category": "Home & Kitchen",
-        "image": "https://m.media-amazon.com/images/I/514K6nv6AWL._AC_SX679_.jpg",
-        "url": f"https://www.amazon.co.uk/Contigo-Byron-SNAPSEAL-Travel-Mug/dp/B07TRDWHXG?tag={AFFILIATE_TAG}",
-        "info": "Leak-proof vacuum-insulated travel mug with one-handed SNAPSEAL lid and Thermalock technology — keeps drinks hot for up to 6 hours or cold for 12. UK's favourite reusable coffee mug for commuters and on-the-go lifestyles."
-    },
-    {
-        "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
-        "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
-        "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag={AFFILIATE_TAG}",
-        "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries."
-    },
-    {
         "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
         "category": "Toys & Games",
         "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SY300_SX300_QL70_ML2_.jpg",
@@ -256,56 +235,16 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-# ---------------- CSS with fixed layout (no overlapping) ---------------- #
+# ---------------- CSS with pulsing button ---------------- #
 CSS_TEMPLATE = """
 <style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
-.card{
-    background:{{card}};
-    border-radius:22px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 20px 40px rgba(0,0,0,.6);
-    transition:transform .3s,box-shadow .3s;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    height:100%;
-    max-height:680px;
-    overflow:hidden;
-}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
-.card img{
-    width:100%;
-    height:260px;
-    object-fit:contain;
-    object-position:center;
-    background:#0f172a;
-    border-radius:16px;
-    margin:16px 0;
-}
-.card h2{
-    font-size:1.35rem;
-    line-height:1.3;
-    margin:12px 0;
-    min-height:70px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-.card p{
-    flex-grow:1;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:0 0 16px;
-    font-size:0.95rem;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
+img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
 button{
     background:{{button}};
@@ -318,7 +257,6 @@ button{
     cursor:pointer;
     transition:.3s;
     animation: pulse 2.5s infinite ease-in-out;
-    margin-top:auto;
 }
 button:hover{
     opacity:.9;
@@ -491,7 +429,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 
 @app.route("/")
 def home():
-    products = refresh_products(background=False)[:ITEMS_PER_PAGE]
+    products = refresh_products(background=False)
     return render_page(
         title="FyboBuybo – Trending UK Deals & Popular Products",
         description="Discover today's trending UK deals and popular products across electronics, home, toys, beauty and more. Independently curated and refreshed daily.",
