@@ -274,11 +274,13 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
     flex-direction:column;
     justify-content:space-between;
     height:100%;
+    max-height:680px;  /* Prevents super-tall cards from overlapping */
+    overflow:hidden;   /* Cuts off any excess if needed */
 }
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 .card img{
     width:100%;
-    height:320px;
+    height:260px;           /* Reduced from 320px for tighter layout */
     object-fit:contain;
     object-position:center;
     background:#0f172a;
@@ -286,13 +288,21 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
     margin:16px 0;
 }
 .card h2{
-    font-size:1.4rem;
+    font-size:1.35rem;      /* Slightly smaller for long titles */
     line-height:1.3;
     margin:12px 0;
-    min-height:80px;
+    min-height:70px;
     display:flex;
     align-items:center;
     justify-content:center;
+}
+.card p{                    /* Hook description */
+    flex-grow:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 0 16px;
+    font-size:0.95rem;
 }
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
 button{
