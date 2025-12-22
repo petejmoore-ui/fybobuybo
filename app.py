@@ -373,7 +373,7 @@ BASE_HTML = """
 <p class="subtitle">{{ subtitle }}</p>
 
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
-✔ UK-focused · ✔ Updated weekly · ✔ Independent curation
+✔ UK-focused · ✔ Updated daily · ✔ Independent curation
 </p>
 
 {% if products %}
@@ -414,7 +414,7 @@ BASE_HTML = """
         <button>View on Amazon</button>
     </a>
 
-    <p style="font-size:1.0rem;opacity:.7;margin-top:16px;">
+    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
         More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> deals
     </p>
 </div>
