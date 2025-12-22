@@ -414,9 +414,11 @@ BASE_HTML = """<!DOCTYPE html>
     }
     </script>
 
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" aria-label="View {{ p.name }} on Amazon">
-        <button>View on Amazon</button>
-    </a>
+    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" aria-label="View {{ p.name }} on Amazon" 
+   onclick="gtag('event', 'click', { 'event_category': 'Affiliate', 'event_label': '{{ p.name }}', 'value': 1 });">
+    <button>View on Amazon</button>
+</a>
+
 
     <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
         More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> deals
