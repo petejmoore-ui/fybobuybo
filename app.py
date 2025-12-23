@@ -284,6 +284,32 @@ def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
+    def shorten_product_name(name, max_length=120):
+    """Shorten long product names intelligently while keeping key info."""
+    if len(name) <= max_length:
+        return name
+    
+    # Cut after first comma
+    if ',' in name:
+        shortened = name.split(',', 1)[0].strip()
+        if len(shortened) <= max_length:
+            return shortened
+    
+    # Cut before parentheses
+    if '(' in name:
+        shortened = name.split('(', 1)[0].strip()
+        if len(shortened) <= max_length:
+            return shortened
+    
+    # Fallback: truncate at word boundary
+    words = name.split()
+    shortened = ''
+    for word in words:
+        if len(shortened + ' ' + word) <= max_length - 3:
+            shortened += (' ' + word) if shortened else word
+        else:
+            break
+    return shortened + '...'
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
@@ -385,7 +411,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% for p in products %}
 <div class="card">
     <span class="tag">{{ p.category }}</span>
-    <h2>{{ p.name }}</h2>
+    <h2>{{ shorten_product_name(p.name) }}</h2>
 
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored">
         <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
@@ -393,47 +419,34 @@ BASE_HTML = """<!DOCTYPE html>
 
     <p>{{ p.hook|safe }}</p>
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "{{ p.name }}",
+  "name": "{{ shorten_product_name(p.name) }}",
   "image": "{{ p.image }}",
   "description": "{{ p.info }}",
-  "brand": {
-    "@type": "Brand",
-    "name": "Various"
-  },
+  "url": "{{ p.url }}",
+  "brand": {"@type": "Brand", "name": "Various"},
   "offers": {
     "@type": "Offer",
     "url": "{{ p.url }}",
     "priceCurrency": "GBP",
-    "price": "0.00",  <!-- Google requires a price — use placeholder or scrape real one later -->
+    "price": "0.00",
     "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
       "applicableCountry": "GB",
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30,
-      "returnMethod": "https://schema.org/ReturnByMail"
+      "merchantReturnDays": 30
     },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0.00",
-        "currency": "GBP"
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "GB"
-      }
+      "shippingRate": {"@type": "MonetaryAmount", "value": "0.00", "currency": "GBP"},
+      "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"}
     },
-    "seller": {
-      "@type": "Organization",
-      "name": "Amazon"
-    }
+    "seller": {"@type": "Organization", "name": "Amazon"}
   }
 }
 </script>
