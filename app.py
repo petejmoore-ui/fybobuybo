@@ -16,59 +16,59 @@ CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://fybobuybo.com"
-ITEMS_PER_PAGE = 12  # pagination
+ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
-    "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
-    "category": "Books",
-    "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag={AFFILIATE_TAG}",
-    "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries."
-},
-{
-    "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
-    "category": "Pet Supplies",
-    "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX425_.jpg",
-    "url": f"https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag={AFFILIATE_TAG}",
-    "info": "Non-clumping white hygiene cat litter made from natural quartz sand and lime — highly absorbent, locks in odours, and prevents bacterial growth for superior freshness. UK's leading choice for clean, hygienic litter trays and happy cats."
-},
-{
-    "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
-    "url": f"https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag={AFFILIATE_TAG}",
-    "info": "Air-activated hand warmers providing up to 10 hours of natural, odourless heat — safe, easy to use, and perfect for cold weather activities, commuting, or outdoor events. Bestselling essential for staying warm during winter walks, sports, or festivals."
-},
-{
-    "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
-    "url": f"https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag={AFFILIATE_TAG}",
-    "info": "Advanced fitness tracker with built-in GPS, heart rate monitoring, sleep tracking, stress management, and a daily Readiness Score — includes 6 months Premium membership. Popular choice for active lifestyles, workout motivation, and overall health insights in everyday routines."
-},
-{
-    "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
-    "category": "Baby",
-    "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_PIbundle-12,TopRight,0,0_SH20_.jpg",
-    "url": f"https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag={AFFILIATE_TAG}",
-    "info": "Gentle baby wipes made with 99.9% purified water and a drop of fruit extract — plastic-free, unscented, and dermatologist-approved for sensitive newborn skin, including eczema-prone. UK's top choice for pure, effective cleansing that cares for and protects delicate skin every day."
-},
-     {
-    "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
-    "category": "Fashion",
-    "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SY695_.jpg",
-    "url": f"https://www.amazon.co.uk/Mens-Two-Tone-Memory-Foam-Slipper/dp/B07CLXD2V4?tag={AFFILIATE_TAG}",
-    "info": "Cosy two-tone memory foam slippers with hard non-slip sole and mule design — perfect for indoor comfort and quick outdoor trips. Bestselling men's slippers for all-day warmth, support, and durability during colder months."
-},
+        "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
+        "category": "Books",
+        "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
+        "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag={AFFILIATE_TAG}",
+        "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries."
+    },
     {
-    "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
-    "category": "Toys & Games",
-    "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
-    "url": f"https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag={AFFILIATE_TAG}",
-    "info": "Hilarious party game where players guess whether random facts are 'more' or 'less' than a given number — perfect for family gatherings, parties, and game nights. Trending for its mix of ridiculous questions, laughs, and surprising knowledge."
-},
+        "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
+        "category": "Pet Supplies",
+        "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX425_.jpg",
+        "url": f"https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag={AFFILIATE_TAG}",
+        "info": "Non-clumping white hygiene cat litter made from natural quartz sand and lime — highly absorbent, locks in odours, and prevents bacterial growth for superior freshness. UK's leading choice for clean, hygienic litter trays and happy cats."
+    },
+    {
+        "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
+        "url": f"https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag={AFFILIATE_TAG}",
+        "info": "Air-activated hand warmers providing up to 10 hours of natural, odourless heat — safe, easy to use, and perfect for cold weather activities, commuting, or outdoor events. Bestselling essential for staying warm during winter walks, sports, or festivals."
+    },
+    {
+        "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
+        "url": f"https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag={AFFILIATE_TAG}",
+        "info": "Advanced fitness tracker with built-in GPS, heart rate monitoring, sleep tracking, stress management, and a daily Readiness Score — includes 6 months Premium membership. Popular choice for active lifestyles, workout motivation, and overall health insights in everyday routines."
+    },
+    {
+        "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
+        "category": "Baby",
+        "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_PIbundle-12,TopRight,0,0_SH20_.jpg",
+        "url": f"https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag={AFFILIATE_TAG}",
+        "info": "Gentle baby wipes made with 99.9% purified water and a drop of fruit extract — plastic-free, unscented, and dermatologist-approved for sensitive newborn skin, including eczema-prone. UK's top choice for pure, effective cleansing that cares for and protects delicate skin every day."
+    },
+    {
+        "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
+        "category": "Fashion",
+        "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SY695_.jpg",
+        "url": f"https://www.amazon.co.uk/Mens-Two-Tone-Memory-Foam-Slipper/dp/B07CLXD2V4?tag={AFFILIATE_TAG}",
+        "info": "Cosy two-tone memory foam slippers with hard non-slip sole and mule design — perfect for indoor comfort and quick outdoor trips. Bestselling men's slippers for all-day warmth, support, and durability during colder months."
+    },
+    {
+        "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
+        "category": "Toys & Games",
+        "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
+        "url": f"https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag={AFFILIATE_TAG}",
+        "info": "Hilarious party game where players guess whether random facts are 'more' or 'less' than a given number — perfect for family gatherings, parties, and game nights. Trending for its mix of ridiculous questions, laughs, and surprising knowledge."
+    },
     {
         "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
         "category": "Toys & Games",
@@ -174,7 +174,6 @@ PRODUCTS = [
         "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
     },
-
 ]
 
 # ---------------- THEMES ---------------- #
@@ -284,24 +283,22 @@ def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
-    def shorten_product_name(name, max_length=120):
+
+def shorten_product_name(name, max_length=120):
     """Shorten long product names intelligently while keeping key info."""
     if len(name) <= max_length:
         return name
     
-    # Cut after first comma
     if ',' in name:
         shortened = name.split(',', 1)[0].strip()
         if len(shortened) <= max_length:
             return shortened
     
-    # Cut before parentheses
     if '(' in name:
         shortened = name.split('(', 1)[0].strip()
         if len(shortened) <= max_length:
             return shortened
     
-    # Fallback: truncate at word boundary
     words = name.split()
     shortened = ''
     for word in words:
@@ -419,50 +416,48 @@ BASE_HTML = """<!DOCTYPE html>
 
     <p>{{ p.hook|safe }}</p>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "{{ shorten_product_name(p.name) }}",
-  "image": "{{ p.image }}",
-  "description": "{{ p.info }}",
-  "url": "{{ p.url }}",
-  "brand": {"@type": "Brand", "name": "Various"},
-  "offers": {
-    "@type": "Offer",
-    "url": "{{ p.url }}",
-    "priceCurrency": "GBP",
-    "price": "0.00",
-    "priceValidUntil": "2026-12-31",
-    "availability": "https://schema.org/InStock",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "GB",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {"@type": "MonetaryAmount", "value": "0.00", "currency": "GBP"},
-      "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"}
-    },
-    "seller": {"@type": "Organization", "name": "Amazon"}
-  }
-}
-</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "{{ shorten_product_name(p.name) }}",
+      "image": "{{ p.image }}",
+      "description": "{{ p.info }}",
+      "url": "{{ p.url }}",
+      "brand": {"@type": "Brand", "name": "Various"},
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ p.url }}",
+        "priceCurrency": "GBP",
+        "price": "0.00",
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "GB",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {"@type": "MonetaryAmount", "value": "0.00", "currency": "GBP"},
+          "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"}
+        },
+        "seller": {"@type": "Organization", "name": "Amazon"}
+      }
+    }
+    </script>
 
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
-   aria-label="View {{ p.name }} on Amazon"
-   onclick="gtag('event', 'affiliate_click', { 
-       'event_category': '{{ p.category }}', 
-       'event_label': '{{ p.name }}', 
-       'value': 1,
-       'page_path': window.location.pathname
-   });">
-    <button>View on Amazon</button>
-</a>
-
-
+       aria-label="View {{ p.name }} on Amazon"
+       onclick="gtag('event', 'affiliate_click', { 
+           'event_category': '{{ p.category }}', 
+           'event_label': '{{ p.name }}', 
+           'value': 1,
+           'page_path': window.location.pathname
+       });">
+        <button>View on Amazon</button>
+    </a>
 
     <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
         More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> deals
@@ -529,7 +524,6 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 @app.route("/")
 def home():
     products = refresh_products(background=False)[:ITEMS_PER_PAGE]
-
     return render_page(
         title="FyboBuybo – Trending UK Deals & Popular Products",
         description="Discover today's trending UK deals and popular products across electronics, home, toys, beauty and more. Independently curated and refreshed daily.",
@@ -538,11 +532,18 @@ def home():
         products=products
     )
 
-
 @app.route("/category/<slug>")
 def category(slug):
     history = load_history()
-    products = [p for day in history.values() for p in day if slugify(p["category"]) == slug]
+    # Deduplicate by name + url
+    unique_products = {}
+    for day in history.values():
+        for p in day:
+            if slugify(p["category"]) == slug:
+                key = p["name"] + p["url"]
+                unique_products[key] = p
+    products = list(unique_products.values())
+    
     if not products:
         abort(404)
     cat_name = products[0]["category"]
@@ -565,7 +566,20 @@ def category(slug):
 def all_deals():
     history = load_history()
     today_str = str(datetime.date.today())
-    products = history.get(today_str, refresh_products(background=False))
+    today_products = refresh_products(background=True)
+    
+    # Deduplicate all products
+    unique_products = {}
+    for p in today_products:
+        key = p["name"] + p["url"]
+        unique_products[key] = p
+    for date, day_prods in history.items():
+        if date != today_str:
+            for p in day_prods:
+                key = p["name"] + p["url"]
+                unique_products[key] = p
+    
+    all_products = list(unique_products.values())
 
     def page_url(p):
         return url_for("all_deals", page=p)
@@ -576,7 +590,7 @@ def all_deals():
         description="Browse all trending UK deals and popular products across categories in one place.",
         heading="All Deals",
         subtitle="Our full selection of today's trending products in the UK.",
-        products=products,
+        products=all_products,
         page=page,
         page_url=page_url
     )
@@ -606,7 +620,6 @@ def sitemap():
         sitemap_xml += f"  <url>\n    <loc>{url}</loc>\n  </url>\n"
     sitemap_xml += "</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
