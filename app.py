@@ -505,21 +505,22 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
     total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
 
     return render_template_string(
-        BASE_HTML,
-        title=title,
-        description=description,
-        heading=heading,
-        subtitle=subtitle,
-        products=paged_products,
-        categories=categories,
-        css=css,
-        canonical_url=canonical,
-        slugify=slugify,
-        total_pages=total_pages,
-        page=page,
-        page_url=page_url,
-        button=theme["button"]
-    )
+    BASE_HTML,
+    title=title,
+    description=description,
+    heading=heading,
+    subtitle=subtitle,
+    products=paged_products,
+    categories=categories,
+    css=css,
+    canonical_url=canonical,
+    slugify=slugify,
+    shorten_product_name=shorten_product_name,  # <-- ADD THIS LINE
+    total_pages=total_pages,
+    page=page,
+    page_url=page_url,
+    button=theme["button"]
+)
 
 @app.route("/")
 def home():
