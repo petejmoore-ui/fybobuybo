@@ -284,7 +284,7 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-def shorten_product_name(name, max_length=120):
+def shorten_product_name(name, max_length=80):
     """Shorten long product names intelligently while keeping key info."""
     if len(name) <= max_length:
         return name
