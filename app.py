@@ -295,7 +295,12 @@ def shorten_product_name(name, max_length=80):
     """Shorten long product names intelligently while keeping key info."""
     if len(name) <= max_length:
         return name
-    
+        
+def ensure_hook(p):
+    if not p.get("hook") or p["hook"] == p.get("info"):
+        p["hook"] = generate_hook(p["name"])
+    return p
+
     if ',' in name:
         shortened = name.split(',', 1)[0].strip()
         if len(shortened) <= max_length:
@@ -550,7 +555,7 @@ def category(slug):
             if slugify(p["category"]) == slug:
                 key = p["name"] + p["url"]
                 unique_products[key] = p
-    products = list(unique_products.values())
+    products = [ensure_hook(p) for p in unique_products.values()]
     
     if not products:
         abort(404)
@@ -587,7 +592,7 @@ def all_deals():
                 key = p["name"] + p["url"]
                 unique_products[key] = p
     
-    all_products = list(unique_products.values())
+    all_products = [ensure_hook(p) for p in unique_products.values()]
 
     def page_url(p):
         return url_for("all_deals", page=p)
