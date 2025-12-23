@@ -292,15 +292,9 @@ def paginate(items, page):
     return items[start:end], len(items)
 
 def shorten_product_name(name, max_length=80):
-    """Shorten long product names intelligently while keeping key info."""
     if len(name) <= max_length:
         return name
-        
-def ensure_hook(p):
-    if not p.get("hook") or p["hook"] == p.get("info"):
-        p["hook"] = generate_hook(p["name"])
-    return p
-
+    
     if ',' in name:
         shortened = name.split(',', 1)[0].strip()
         if len(shortened) <= max_length:
@@ -319,6 +313,12 @@ def ensure_hook(p):
         else:
             break
     return shortened + '...'
+
+
+def ensure_hook(p):
+    if not p.get("hook") or p["hook"] == p.get("info"):
+        p["hook"] = generate_hook(p["name"])
+    return p
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
