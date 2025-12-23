@@ -21,6 +21,13 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
+    "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
+    "category": "Beauty",
+    "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
+    "url": f"https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag={AFFILIATE_TAG}",
+    "info": "Affordable electric toothbrush with 3 brushing modes including Sensitive Plus for gentle cleaning, 2-minute timer, and superior plaque removal vs manual brushing. Bestselling entry-level Oral-B model for everyday oral care and healthier gums."
+},
+    {
         "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
         "category": "Books",
         "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
