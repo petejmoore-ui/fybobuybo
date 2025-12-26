@@ -207,14 +207,15 @@ def generate_hook(name):
             messages=[{
                 "role": "user",
                 "content": f"""
-Write a calm, elegant 1–2 sentence description explaining why this is a popular UK online product.
-Naturally reference everyday usefulness and popularity.
-Use <b> tags subtly. No urgency or sales language.
+Write a calm, elegant 1–2 sentence description explaining why this product is popular among UK shoppers.
+Focus on its practical benefits, quality, or appeal in daily life.
+Vary the phrasing across different products — avoid repeating common words like "staple", "essential", or "go-to".
+Use <b> tags subtly for key features.
 End with a complete sentence.
 Product: {name}
 """
             }],
-            temperature=0.5,
+            temperature=0.7,  # Slightly higher for more natural variety
             max_tokens=120
         )
         hook = r.choices[0].message.content.strip()
@@ -224,7 +225,7 @@ Product: {name}
         return hook
     except Exception as e:
         print(f"Groq error: {e}")
-        return "A well-regarded product among UK shoppers, valued for its thoughtful design and everyday practicality."
+        return "A popular choice among UK shoppers for its quality and everyday appeal."
 
 # ---------------- STORAGE ---------------- #
 def load_history():
