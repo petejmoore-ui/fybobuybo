@@ -403,7 +403,7 @@ BASE_HTML = """<!DOCTYPE html>
 
 <nav>
     <a href="/">Home</a>
-    <a href="/all-deals">All Deals</a>
+    <a href="/all-gifts">All Gifts</a>
     {% for cat in categories %}
     <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
     {% endfor %}
@@ -413,7 +413,7 @@ BASE_HTML = """<!DOCTYPE html>
 <p class="subtitle">{{ subtitle }}</p>
 
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
-✔ UK-focused · ✔ Updated daily · ✔ Independent curation
+✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
 </p>
 
 {% if products %}
@@ -539,10 +539,10 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 def home():
     products = refresh_products(background=False)[:ITEMS_PER_PAGE]
     return render_page(
-        title="FyboBuybo – Trending UK Deals & Popular Products",
-        description="Discover today's trending UK deals and popular products across electronics, home, toys, beauty and more. Independently curated and refreshed daily.",
-        heading="FyboBuybo – Trending UK Deals",
-        subtitle="A curated look at popular products and online bestsellers, refreshed daily.",
+        title="FyboBuybo – Trending UK Gifts & Popular Presents",
+        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more. Independently curated and refreshed daily.",
+        heading="FyboBuybo – Trending UK Gifts",
+        subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
     )
 
@@ -566,17 +566,17 @@ def category(slug):
         return url_for("category", slug=slug, page=p)
 
     page = int(request.args.get("page", 1))
-    return render_page(
-        title=f"{cat_name} Deals – FyboBuybo",
-        description=f"Explore popular and trending {cat_name} products in the UK, featuring bestsellers and well-reviewed items.",
-        heading=f"{cat_name} Deals",
-        subtitle=f"Hand-picked popular products in {cat_name}, updated from our daily selections.",
+       return render_page(
+        title=f"{cat_name} Gifts – FyboBuybo",
+        description=f"Explore popular and trending {cat_name} gifts in the UK, featuring thoughtful presents and bestsellers.",
+        heading=f"{cat_name} Gifts",
+        subtitle=f"Hand-picked popular gifts in {cat_name}, updated from our daily selections.",
         products=products,
         page=page,
         page_url=page_url
     )
 
-@app.route("/all-deals")
+@app.route("/all-gifts")
 def all_deals():
     history = load_history()
     today_str = str(datetime.date.today())
@@ -599,11 +599,11 @@ def all_deals():
         return url_for("all_deals", page=p)
 
     page = int(request.args.get("page", 1))
-    return render_page(
-        title="All Deals – FyboBuybo",
-        description="Browse all trending UK deals and popular products across categories in one place.",
-        heading="All Deals",
-        subtitle="Our full selection of today's trending products in the UK.",
+        return render_page(
+        title="All Gifts – FyboBuybo",
+        description="Browse our complete collection of trending UK gifts and popular presents across all categories.",
+        heading="All Gifts",
+        subtitle="Every hand-picked popular gift from our daily selections.",
         products=all_products,
         page=page,
         page_url=page_url
