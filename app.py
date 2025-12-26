@@ -21,12 +21,12 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
-    "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
-    "category": "Beauty",
-    "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
-    "url": f"https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag={AFFILIATE_TAG}",
-    "info": "Affordable electric toothbrush with 3 brushing modes including Sensitive Plus for gentle cleaning, 2-minute timer, and superior plaque removal vs manual brushing. Bestselling entry-level Oral-B model for everyday oral care and healthier gums."
-},
+        "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
+        "category": "Beauty",
+        "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
+        "url": f"https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag={AFFILIATE_TAG}",
+        "info": "Affordable electric toothbrush with 3 brushing modes including Sensitive Plus for gentle cleaning, 2-minute timer, and superior plaque removal vs manual brushing. Bestselling entry-level Oral-B model for everyday oral care and healthier gums."
+    },
     {
         "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
         "category": "Books",
@@ -215,7 +215,7 @@ End with a complete sentence.
 Product: {name}
 """
             }],
-            temperature=0.7,  # Slightly higher for more natural variety
+            temperature=0.7,
             max_tokens=120
         )
         hook = r.choices[0].message.content.strip()
@@ -315,9 +315,9 @@ def shorten_product_name(name, max_length=80):
             break
     return shortened + '...'
 
-
 def ensure_hook(p):
-    if not p.get("hook") or p["hook"] == p.get("info"):
+    # If hook is missing or fallback, regenerate
+    if "hook" not in p or p["hook"] == p.get("info") or "well-regarded product" in p["hook"]:
         p["hook"] = generate_hook(p["name"])
     return p
 
@@ -473,14 +473,14 @@ BASE_HTML = """<!DOCTYPE html>
     </a>
 
     <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
-        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> deals
+        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
     </p>
 </div>
 {% endfor %}
 </div>
 {% else %}
 <p class="loading">
-    Loading today's deals...<br>
+    Loading today's gifts...<br>
     <small>Generating fresh AI descriptions – this only happens once per day.</small>
 </p>
 {% endif %}
@@ -499,7 +499,7 @@ BASE_HTML = """<!DOCTYPE html>
 
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-    <p>FyboBuybo is an independent UK deals site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+    <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
 </footer>
 
 </body>
@@ -518,22 +518,22 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
     total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
 
     return render_template_string(
-    BASE_HTML,
-    title=title,
-    description=description,
-    heading=heading,
-    subtitle=subtitle,
-    products=paged_products,
-    categories=categories,
-    css=css,
-    canonical_url=canonical,
-    slugify=slugify,
-    shorten_product_name=shorten_product_name,  # <-- ADD THIS LINE
-    total_pages=total_pages,
-    page=page,
-    page_url=page_url,
-    button=theme["button"]
-)
+        BASE_HTML,
+        title=title,
+        description=description,
+        heading=heading,
+        subtitle=subtitle,
+        products=paged_products,
+        categories=categories,
+        css=css,
+        canonical_url=canonical,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        total_pages=total_pages,
+        page=page,
+        page_url=page_url,
+        button=theme["button"]
+    )
 
 @app.route("/")
 def home():
@@ -549,7 +549,6 @@ def home():
 @app.route("/category/<slug>")
 def category(slug):
     history = load_history()
-    # Deduplicate by name + url
     unique_products = {}
     for day in history.values():
         for p in day:
@@ -566,7 +565,7 @@ def category(slug):
         return url_for("category", slug=slug, page=p)
 
     page = int(request.args.get("page", 1))
-       return render_page(
+    return render_page(
         title=f"{cat_name} Gifts – FyboBuybo",
         description=f"Explore popular and trending {cat_name} gifts in the UK, featuring thoughtful presents and bestsellers.",
         heading=f"{cat_name} Gifts",
@@ -577,12 +576,11 @@ def category(slug):
     )
 
 @app.route("/all-gifts")
-def all_deals():
+def all_gifts():
     history = load_history()
     today_str = str(datetime.date.today())
     today_products = refresh_products(background=True)
     
-    # Deduplicate all products
     unique_products = {}
     for p in today_products:
         key = p["name"] + p["url"]
@@ -596,10 +594,10 @@ def all_deals():
     all_products = [ensure_hook(p) for p in unique_products.values()]
 
     def page_url(p):
-        return url_for("all_deals", page=p)
+        return url_for("all_gifts", page=p)
 
     page = int(request.args.get("page", 1))
-        return render_page(
+    return render_page(
         title="All Gifts – FyboBuybo",
         description="Browse our complete collection of trending UK gifts and popular presents across all categories.",
         heading="All Gifts",
@@ -623,7 +621,7 @@ Sitemap: {SITE_URL}/sitemap.xml
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
-    urls = [SITE_URL + "/"] + [SITE_URL + "/all-deals"]
+    urls = [SITE_URL + "/"] + [SITE_URL + "/all-gifts"]
     for day_products in history.values():
         for p in day_products:
             urls.append(SITE_URL + "/category/" + slugify(p["category"]))
