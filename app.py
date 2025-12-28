@@ -33,7 +33,7 @@ PRODUCTS = [
     "name": "Always Remember by Charlie Mackesy",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/818fhGP49iL._SY385_.jpg",
-    "url": f"https://amzn.to/3YOsC30={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/3YOsC30?tag={AFFILIATE_TAG}",
     "info": "Heartwarming illustrated book of wisdom and comfort from the creator of The Boy, the Mole, the Fox and the Horse — a Christmas No.1 bestseller perfect for thoughtful gifting and quiet reflection."
 },
 
