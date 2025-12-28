@@ -21,7 +21,7 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
    
-    {
+{
     "name": "From Ibiza to the Norfolk Broads: A Bowie Odyssey by James Briggs",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/61Kdkp7DPuL._SY466_.jpg",
