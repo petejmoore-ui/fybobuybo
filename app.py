@@ -106,7 +106,7 @@ PRODUCTS = [
         "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
         "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag={AFFILIATE_TAG}",
         "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries."
-    },
+    }
     
 ]
 
