@@ -490,9 +490,11 @@ BASE_HTML = """<!DOCTYPE html>
 {% for p in products %}
 <div class="card">
     <span class="tag">{{ p.category }}</span>
-    <h2>{{ shorten_product_name(p.name) }}</h2>
+    <a href="/product/{{ slugify(p.name) }}">
+        <h2>{{ shorten_product_name(p.name) }}</h2>
+    </a>
 
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored">
+    <a href="/product/{{ slugify(p.name) }}">
         <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
     </a>
 
@@ -547,13 +549,31 @@ BASE_HTML = """<!DOCTYPE html>
 </div>
 {% endfor %}
 </div>
-{% else %}
-<p class="loading">
-    Loading today's gifts...<br>
-    <small>Generating fresh AI descriptions – this only happens once per day.</small>
-</p>
+
+{# === RELATED PRODUCTS SECTION (only shows on single product pages) === #}
+{% if related_products %}
+<h3 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Related Gifts</h3>
+<div class="grid">
+{% for rp in related_products %}
+<div class="card">
+    <span class="tag">{{ rp.category }}</span>
+    <a href="/product/{{ slugify(rp.name) }}">
+        <h2>{{ shorten_product_name(rp.name) }}</h2>
+    </a>
+    <a href="/product/{{ slugify(rp.name) }}">
+        <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
+    </a>
+    <p>{{ rp.hook|safe }}</p>
+    <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored" 
+       aria-label="View {{ rp.name }} on Amazon">
+        <button>View on Amazon</button>
+    </a>
+</div>
+{% endfor %}
+</div>
 {% endif %}
 
+{# === PAGINATION (only on list pages) === #}
 {% if total_pages > 1 %}
 <div class="pagination">
     {% for p in range(1, total_pages+1) %}
@@ -564,6 +584,13 @@ BASE_HTML = """<!DOCTYPE html>
         {% endif %}
     {% endfor %}
 </div>
+{% endif %}
+
+{% else %}
+<p class="loading">
+    Loading today's gifts...<br>
+    <small>Generating fresh AI descriptions – this only happens once per day.</small>
+</p>
 {% endif %}
 
 <footer>
@@ -674,6 +701,46 @@ def all_gifts():
         products=all_products,
         page=page,
         page_url=page_url
+    )
+   @app.route("/product/<path:product_slug>")
+def product_detail(product_slug):
+    # Find the product across history (or today's cache)
+    history = load_history()
+    today_str = str(datetime.date.today())
+    all_days = history.copy()
+    today_products = refresh_products(background=True)
+    all_days[today_str] = today_products  # Include today
+
+    found_product = None
+    for day_prods in all_days.values():
+        for p in day_prods:
+            if slugify(p["name"]) == product_slug:
+                found_product = ensure_hook(p)
+                break
+        if found_product:
+            break
+
+    if not found_product:
+        abort(404)
+
+    # Related products (same category, exclude self)
+    related = []
+    for day_prods in all_days.values():
+        for p in day_prods:
+            if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
+                related.append(ensure_hook(p))
+    related = list({p["name"] + p["url"]: p for p in related}.values())[:6]  # Dedup + limit
+
+    return render_page(
+        title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
+        description=found_product["info"],
+        heading=shorten_product_name(found_product["name"]),
+        subtitle="A popular UK gift choice",
+        products=[found_product],  # Main product as "grid" of 1
+        extra_context={
+            "related_products": related,
+            "is_product_page": True
+        }
     )
 
 # ---------------- SEO FILES ---------------- #
