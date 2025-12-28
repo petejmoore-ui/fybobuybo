@@ -603,7 +603,7 @@ BASE_HTML = """<!DOCTYPE html>
 """
 
 # ---------------- ROUTES ---------------- #
-def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#"):
+def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     history = load_history()
@@ -625,6 +625,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         canonical_url=canonical,
         slugify=slugify,
         shorten_product_name=shorten_product_name,
+        related_products=related_products or [],  # ← passes empty list if none
         total_pages=total_pages,
         page=page,
         page_url=page_url,
@@ -705,16 +706,19 @@ def all_gifts():
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    # Find the product across history (or today's cache)
+    # Decode URL-encoded slug (handles %20, etc.)
+    decoded_slug = product_slug.replace("-", " ").lower()  # Basic reverse, but we'll search flexibly
+
     history = load_history()
     today_str = str(datetime.date.today())
     all_days = history.copy()
     today_products = refresh_products(background=True)
-    all_days[today_str] = today_products  # Include today
+    all_days[today_str] = today_products
 
     found_product = None
     for day_prods in all_days.values():
         for p in day_prods:
+            # Compare slugified name (exact match)
             if slugify(p["name"]) == product_slug:
                 found_product = ensure_hook(p)
                 break
@@ -724,13 +728,13 @@ def product_detail(product_slug):
     if not found_product:
         abort(404)
 
-    # Related products (same category, exclude self)
+    # Related products
     related = []
     for day_prods in all_days.values():
         for p in day_prods:
             if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
                 related.append(ensure_hook(p))
-    related = list({p["name"] + p["url"]: p for p in related}.values())[:6]  # Dedup + limit 6
+    related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
 
     return render_page(
         title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
