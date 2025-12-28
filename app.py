@@ -702,7 +702,8 @@ def all_gifts():
         page=page,
         page_url=page_url
     )
-   @app.route("/product/<path:product_slug>")
+
+@app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     # Find the product across history (or today's cache)
     history = load_history()
@@ -729,7 +730,7 @@ def product_detail(product_slug):
         for p in day_prods:
             if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
                 related.append(ensure_hook(p))
-    related = list({p["name"] + p["url"]: p for p in related}.values())[:6]  # Dedup + limit
+    related = list({p["name"] + p["url"]: p for p in related}.values())[:6]  # Dedup + limit 6
 
     return render_page(
         title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
