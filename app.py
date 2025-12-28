@@ -703,7 +703,7 @@ def all_gifts():
         page_url=page_url
     )
    @app.route("/product/<path:product_slug>")
-def product_detail(product_slug):
+   def product_detail(product_slug):
     # Find the product across history (or today's cache)
     history = load_history()
     today_str = str(datetime.date.today())
