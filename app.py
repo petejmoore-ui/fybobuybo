@@ -703,7 +703,7 @@ def all_gifts():
         page_url=page_url
     )
    @app.route("/product/<path:product_slug>")
-   def product_detail(product_slug):
+def product_detail(product_slug):
     # Find the product across history (or today's cache)
     history = load_history()
     today_str = str(datetime.date.today())
@@ -736,11 +736,8 @@ def all_gifts():
         description=found_product["info"],
         heading=shorten_product_name(found_product["name"]),
         subtitle="A popular UK gift choice",
-        products=[found_product],  # Main product as "grid" of 1
-        extra_context={
-            "related_products": related,
-            "is_product_page": True
-        }
+        products=[found_product],
+        related_products=related
     )
 
 # ---------------- SEO FILES ---------------- #
