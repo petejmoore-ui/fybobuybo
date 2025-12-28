@@ -73,13 +73,6 @@ PRODUCTS = [
     "info": "The highly anticipated new mystery thriller from the master of conspiracies — packed with codes, symbols, and globe-trotting intrigue."
 },
 {
-    "name": "The Long Shoe by Bob Mortimer",
-    "category": "Books",
-    "image": "https://m.media-amazon.com/images/I/61Y8egjgeyL._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Long-Shoe-Bob-Mortimer/dp/1399613317?tag={AFFILIATE_TAG}",
-    "info": "Hilarious and heartfelt memoir from the beloved comedian Bob Mortimer — full of absurd stories, warmth, and laugh-out-loud moments."
-},
-{
     "name": "Sunrise on the Reaping by Suzanne Collins (Hunger Games)",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/71mC7kMhg6L._SY466_.jpg",
