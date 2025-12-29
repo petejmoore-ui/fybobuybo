@@ -20,6 +20,15 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+
+    {
+    "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
+    "category": "Electronics",
+    "season": "Christmas Gift Ideas",
+    "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SY450_.jpg",
+    "url": f"https://amzn.to/4sg8fZZ?tag={AFFILIATE_TAG}",
+    "info": "The fastest Kindle Paperwhite ever with a 7-inch glare-free display, higher contrast, 25% faster page turns, adjustable warm light, and up to 12 weeks of battery life — waterproof and perfect for distraction-free reading. Bestselling e-reader upgrade and ideal thoughtful gift for book lovers this Christmas."
+},
 {
     "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
     "category": "Electronics",
