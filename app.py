@@ -438,31 +438,29 @@ nav a:hover{opacity:.8}
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
 }
-/* Single product page - constrain image and center card */
+
+/* Single product page - center card & constrain image */
 .grid:has(> .card:only-child) .card {
     max-width: 600px;
     margin: 0 auto;
 }
-
-/* Uniform cards: fixed header (tag + title), flexible hook, fixed footer (button + more link) */
-.card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.grid:has(> .card:only-child) img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 16px;
 }
 
-.card > .tag {
-    align-self: flex-start;
-    margin-bottom: 8px;
-}
-
+/* Uniform titles & aligned images */
 .card h2 {
-    min-height: 70px; /* Reserves space for titles — adjust if needed */
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 12px 0;
-    font-size: 1.25rem; /* Slightly bigger titles */
+    font-size: 1.25rem;
     line-height: 1.3;
     font-weight: 900;
 }
@@ -476,27 +474,15 @@ nav a:hover{opacity:.8}
     margin: 16px 0;
 }
 
-.card > p { /* The AI hook */
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 16px;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.card > a[onclick] { /* View on Amazon button */
+/* Button & "More" spacing */
+.card > a[onclick] {
     margin: 20px 0 10px;
 }
-
-.card p:last-of-type { /* "More ... gifts" */
-    margin: 0 0 10px;
+.card p:last-of-type {
+    margin: 10px 0;
     font-size: .85rem;
     opacity: .7;
 }
-
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
