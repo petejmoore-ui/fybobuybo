@@ -654,6 +654,32 @@ BASE_HTML = """<!DOCTYPE html>
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ SITE_URL }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ p.category }}",
+      "item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ shorten_product_name(p.name) }}"
+    }
+  ]
+}
+</script>
+
 
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
        aria-label="View {{ p.name }} on Amazon"
@@ -746,6 +772,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         categories=categories,
         css=css,
         canonical_url=canonical,
+        SITE_URL=SITE_URL,
         slugify=slugify,
         shorten_product_name=shorten_product_name,
         related_products=related_products or [],  # ← passes empty list if none
