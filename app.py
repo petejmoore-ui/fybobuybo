@@ -310,7 +310,7 @@ PRODUCTS = [
         "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag={AFFILIATE_TAG}",
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
-    },
+    }
 
     
 ]
