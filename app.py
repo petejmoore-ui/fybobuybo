@@ -634,36 +634,26 @@ BASE_HTML = """<!DOCTYPE html>
     <p>{{ p.hook|safe }}</p>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "{{ shorten_product_name(p.name) }}",
-      "image": "{{ p.image }}",
-      "description": "{{ p.info }}",
-      "url": "{{ p.url }}",
-      "brand": {"@type": "Brand", "name": "Various"},
-      "offers": {
-        "@type": "Offer",
-        "url": "{{ p.url }}",
-        "priceCurrency": "GBP",
-        "price": "0.00",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "GB",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 30
-        },
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {"@type": "MonetaryAmount", "value": "0.00", "currency": "GBP"},
-          "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"}
-        },
-        "seller": {"@type": "Organization", "name": "Amazon"}
-      }
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ shorten_product_name(p.name) }}",
+  "image": "{{ p.image }}",
+  "description": "{{ p.info }}",
+  "url": "{{ p.url }}",
+  "brand": {"@type": "Brand", "name": "Various"},
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ p.url }}",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Amazon"
     }
-    </script>
+  }
+}
+</script>
+
 
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
        aria-label="View {{ p.name }} on Amazon"
