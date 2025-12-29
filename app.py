@@ -452,34 +452,29 @@ nav a:hover{opacity:.8}
     display: block;
     border-radius: 16px;
 }
-/* Uniform card layout - align images & push button to bottom */
-.card {
+/* Uniform card layout - fixed title height, aligned images */
+.card h2 {
+    min-height: 60px; /* Reserves space for ~2-3 lines of title */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pushes button to bottom */
-    height: 100%; /* Makes all cards same height in row */
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
 }
 
 .card img {
     width: 100%;
-    height: 350px; /* Fixed height for consistency */
-    object-fit: contain; /* Keeps full cover visible, no crop */
-    background: #0f172a; /* Dark background for white borders */
+    max-height: 380px; /* Caps tall images */
+    object-fit: contain; /* Shows full cover, no stretch/crop */
+    background: #111827; /* Dark fill for transparency */
     border-radius: 16px;
     margin: 16px 0;
 }
 
-.card .tag {
-    align-self: flex-start;
-}
-
-.card > a[onclick] { /* The View on Amazon button wrapper */
-    margin-top: auto; /* Pushes button to bottom */
-}
-
-.card p:last-of-type { /* The "More ... gifts" line */
-    margin-top: auto;
-    padding-top: 10px;
+/* Optional: push button lower if needed */
+.card > a[onclick] {
+    margin-top: 20px;
 }
 </style>"""
 
