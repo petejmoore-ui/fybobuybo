@@ -41,49 +41,49 @@ PRODUCTS = [
     "name": "Guinness World Records 2026",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/8186fr4T+gL._SY425_.jpg",
-    "url": f"https://www.amazon.co.uk/Guinness-World-Records-2026/dp/1913484569?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/4jheRDi?tag={AFFILIATE_TAG}",
     "info": "The iconic annual edition packed with thousands of amazing new records, facts, and photos — a perennial favourite gift for curious minds of all ages."
 },
 {
     "name": "The 1% Club Official Quiz Book",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/81I3J2AZbRL._SY425_.jpg",
-    "url": f"https://www.amazon.co.uk/1-Club-Official-Quiz-Book/dp/1529941126?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/4jlfWu3?tag={AFFILIATE_TAG}",
     "info": "Official companion to the hit ITV quiz show hosted by Lee Mack — packed with challenging logic puzzles and questions to test the sharpest minds at home."
 },
 {
     "name": "Diary of a Wimpy Kid: Partypooper by Jeff Kinney",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/91NDZEkcE7L._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Diary-Wimpy-Kid-Partypooper-Book/dp/0241663008?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/4pgyoVU?tag={AFFILIATE_TAG}",
     "info": "The latest hilarious instalment in the bestselling Diary of a Wimpy Kid series — perfect laugh-out-loud reading for kids and reluctant readers."
 },
 {
     "name": "Exit Strategy by Lee Child & Andrew Child (Jack Reacher)",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/81BL0gt7LcL._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Exit-Strategy-Jack-Reacher-Child/dp/0857505474?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/4si7U9k?tag={AFFILIATE_TAG}",
     "info": "Another gripping thriller in the iconic Jack Reacher series — high-stakes action and sharp plotting for fans of fast-paced crime fiction."
 },
 {
     "name": "The Secret of Secrets by Dan Brown",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/81dHhoARp9L._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Secret-Secrets-Dan-Brown/dp/1529900548?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/4aBYsaq?tag={AFFILIATE_TAG}",
     "info": "The highly anticipated new mystery thriller from the master of conspiracies — packed with codes, symbols, and globe-trotting intrigue."
 },
 {
     "name": "Sunrise on the Reaping by Suzanne Collins (Hunger Games)",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/71mC7kMhg6L._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Sunrise-Reaping-Hunger-Games/dp/070234587X?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/4avIgaJ?tag={AFFILIATE_TAG}",
     "info": "The gripping new prequel to The Hunger Games series — returning to the world of Panem with high-stakes drama and unforgettable characters."
 },
 {
     "name": "Onyx Storm by Rebecca Yarros (Empyrean Series)",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/81dY-4XtCXL._SY466_.jpg",
-    "url": f"https://www.amazon.co.uk/Onyx-Storm-Empyrean-Rebecca-Yarros/dp/0349443053?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/48Ysbt5?tag={AFFILIATE_TAG}",
     "info": "The highly anticipated third book in the addictive romantasy Empyrean series — dragons, romance, and epic battles for fans of Fourth Wing and Iron Flame."
 },
 {
