@@ -20,7 +20,20 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
-
+   {
+    "name": "USAopoly Flip 7 Party Card Game - Ages 8+, 3+ Players, 20 Minutes Playing Time",
+    "category": "Toys & Games",
+    "image": "https://m.media-amazon.com/images/I/81m3yB192RL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/49xuFyE?tag={AFFILIATE_TAG}",
+    "info": "Fast-paced press-your-luck card game where players flip cards without duplicates, using action cards for twists — risk it for bonus points or play safe. Addictive party fun for families and groups, quick to learn and endlessly replayable."
+},
+{
+    "name": "LEGO Speed Champions Ferrari SF-24 F1 Race Car Toy - Model Kit with Formula 1 Driver Minifigure - Gift for 10+ Year Old Boys, Girls & Adult Motorsport Fans - 77242",
+    "category": "Toys & Games",
+    "image": "https://m.media-amazon.com/images/I/8169xVSJScL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3LbsyXS?tag={AFFILIATE_TAG}",
+    "info": "Authentic LEGO buildable Ferrari SF-24 F1 car from the 2024 season, complete with driver minifigure, halo cockpit, rear wing, sponsor stickers, and Pirelli tyres — perfect for recreating races or display. Trending gift for young builders and adult F1 fans alike."
+},
    {
     "name": "LEGO Speed Champions Lightning McQueen Race Car Toy - Collectible Model Kit with Detailed Undercarriage - Disney Gift for 9+ Year Old Boys, Girls & Pixar Cars Movie Fans - 77255",
     "category": "Toys & Games",
