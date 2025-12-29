@@ -20,6 +20,15 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+{
+    "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
+    "category": "Electronics",
+    "season": "Christmas Gift Ideas",
+    "image": "https://m.media-amazon.com/images/I/710gjg-lYyL._AC_SY741_.jpg",
+    "url": f"https://amzn.to/4b7825h?tag={AFFILIATE_TAG}",
+    "info": "Latest generation Echo Dot with improved audio for richer, louder sound, built-in temperature sensor, tap gestures, and Alexa voice control — perfect for music, smart home control, and daily assistance. Bestselling smart speaker that's a popular Christmas gift for all ages."
+},
+   
    {
     "name": "USAopoly Flip 7 Party Card Game - Ages 8+, 3+ Players, 20 Minutes Playing Time",
     "category": "Toys & Games",
