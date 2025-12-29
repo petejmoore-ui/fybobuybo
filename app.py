@@ -708,29 +708,34 @@ BASE_HTML = """<!DOCTYPE html>
 </div>
 
 {# === RELATED PRODUCTS SECTION (only shows on single product pages) === #}
-{% if related_products %}
+
 <h2 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-    More Popular {{ related_products[0].category }} Gifts
+    More Popular {{ related_products[0].category if related_products else 'UK' }} Gifts
 </h2>
+
+{% if related_products %}
 <div class="grid">
-{% for rp in related_products %}
-<div class="card">
-    <span class="tag">{{ rp.category }}</span>
-    <a href="/product/{{ slugify(rp.name) }}">
-        <h2>{{ shorten_product_name(rp.name) }}</h2>
-    </a>
-    <a href="/product/{{ slugify(rp.name) }}">
-        <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
-    </a>
-    <p>{{ rp.hook|safe }}</p>
-    <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored" 
-       aria-label="View {{ rp.name }} on Amazon">
-        <button>View on Amazon</button>
-    </a>
+    {% for rp in related_products %}
+    <div class="card">
+        <span class="tag">{{ rp.category }}</span>
+        <a href="/product/{{ slugify(rp.name) }}">
+            <h2>{{ shorten_product_name(rp.name) }}</h2>
+        </a>
+        <a href="/product/{{ slugify(rp.name) }}">
+            <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
+        </a>
+        <p>{{ rp.hook|safe }}</p>
+        <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored" 
+           aria-label="View {{ rp.name }} on Amazon">
+            <button>View on Amazon</button>
+        </a>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-</div>
+{% else %}
+<p style="text-align:center;opacity:.7;">Check out more top gifts across the UK!</p>
 {% endif %}
+
 
 
 {% else %}
@@ -892,22 +897,37 @@ def product_detail(product_slug):
     if not found_product:
         abort(404)
 
-    # Related products
-    related = []
+   
+   # Related products
+related = []
+for day_prods in all_days.values():
+    for p in day_prods:
+        if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
+            related.append(ensure_hook(p))
+
+# Remove duplicates and limit to 6
+related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
+
+# Fallback: if no related products, show other popular items from the same season
+if not related and "season" in found_product:
     for day_prods in all_days.values():
         for p in day_prods:
-            if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
+            if p["name"] != found_product["name"] and any(
+                s.strip() in p.get("season", "") for s in found_product["season"].split(",")
+            ):
                 related.append(ensure_hook(p))
     related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
 
-    return render_page(
-        title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
-        description=found_product["info"],
-        heading=shorten_product_name(found_product["name"]),
-        subtitle="A popular UK gift choice",
-        products=[found_product],
-        related_products=related
-    )
+# Always pass related_products to template (even if empty)
+return render_page(
+    title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
+    description=found_product["info"],
+    heading=shorten_product_name(found_product["name"]),
+    subtitle="A popular UK gift choice",
+    products=[found_product],
+    related_products=related  # even empty list, template can handle
+)
+
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
