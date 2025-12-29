@@ -20,6 +20,13 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+   {
+    "name": "SPURK GOLF Fairway Wood Head Covers Set - 3 Pack (3,5,7)",
+    "category": "Sports & Outdoors",
+    "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4jeRomi?tag={AFFILIATE_TAG}",
+    "info": "Premium leather-look fairway wood headcover set (for 3, 5, 7 woods) with strong magnetic closure and soft fleece lining — protects clubs from scratches and dings. Bestselling choice for golfers wanting stylish, secure protection during rounds and travel."
+},
    
 {
     "name": "From Ibiza to the Norfolk Broads: A Bowie Odyssey by James Briggs",
