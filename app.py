@@ -20,6 +20,22 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+
+   {
+    "name": "LEGO Speed Champions Lightning McQueen Race Car Toy - Collectible Model Kit with Detailed Undercarriage - Disney Gift for 9+ Year Old Boys, Girls & Pixar Cars Movie Fans - 77255",
+    "category": "Toys & Games",
+    "image": "https://m.media-amazon.com/images/I/81f5c9hpLXL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/49wGjtx?tag={AFFILIATE_TAG}",
+    "info": "Detailed LEGO Speed Champions build of Lightning McQueen from Disney Pixar's Cars, featuring authentic stickers, Rust-eze branding, and a unique undercarriage view — perfect for recreating movie scenes or display. Trending gift for young builders and fans celebrating the film's 20th anniversary."
+},
+{
+    "name": "Mattel Games UNO Classic Card Game for Kids and Adults, Family Game Night, Travel Game or Gift for Kids, 2 to 10 Players, Ages 7 and Up, W2087",
+    "category": "Toys & Games",
+    "image": "https://m.media-amazon.com/images/I/71MrrNB7jCL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4pUlSfT?tag={AFFILIATE_TAG}",
+    "info": "The timeless matching card game where players race to discard cards by colour or number, with action cards adding twists and excitement. A family favourite for game nights, travel, or as an engaging gift — easy to learn, endlessly replayable fun for all ages."
+},
+   
    {
     "name": "Gritin Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels - Carrying Case Included",
     "category": "Sports & Outdoors",
