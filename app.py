@@ -444,64 +444,59 @@ nav a:hover{opacity:.8}
     margin: 0 auto;
 }
 
-.grid:has(> .card:only-child) img {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    margin: 20px auto;
-    display: block;
-    border-radius: 16px;
+/* Uniform cards: fixed header (tag + title), flexible hook, fixed footer (button + more link) */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-/* Uniform card layout - fixed title height, aligned images */
+
+.card > .tag {
+    align-self: flex-start;
+    margin-bottom: 8px;
+}
+
 .card h2 {
-    min-height: 60px; /* Keeps alignment */
+    min-height: 70px; /* Reserves space for titles — adjust if needed */
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 12px 0;
-    font-size: 1.25rem;  /* ← Change from 1.1rem to 1.25rem (or 1.3rem if you want bolder) */
+    font-size: 1.25rem; /* Slightly bigger titles */
     line-height: 1.3;
-    font-weight: 900; /* Optional: makes it stand out more */
+    font-weight: 900;
 }
 
 .card img {
     width: 100%;
-    max-height: 380px; /* Caps tall images */
-    object-fit: contain; /* Shows full cover, no stretch/crop */
-    background: #111827; /* Dark fill for transparency */
+    max-height: 380px;
+    object-fit: contain;
+    background: #111827;
     border-radius: 16px;
     margin: 16px 0;
 }
 
-/* Optional: push button lower if needed */
-.card > a[onclick] {
-    margin-top: 20px;
-}
-/* Align bottom elements (button + more link) uniformly */
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Pushes bottom section down */
-    height: 100%;
-}
-
-.card > p:nth-of-type(2) { /* The hook paragraph */
+.card > p { /* The AI hook */
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10px;
+    padding: 0 16px;
     margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-.card > a[onclick] { /* View on Amazon button wrapper */
-    margin-top: 20px;
+.card > a[onclick] { /* View on Amazon button */
+    margin: 20px 0 10px;
 }
 
-.card p:last-of-type { /* "More ... gifts" line */
-    margin-top: 10px;
-    margin-bottom: 0;
+.card p:last-of-type { /* "More ... gifts" */
+    margin: 0 0 10px;
+    font-size: .85rem;
+    opacity: .7;
 }
+
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
