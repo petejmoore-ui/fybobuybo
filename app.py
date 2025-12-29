@@ -438,6 +438,20 @@ nav a:hover{opacity:.8}
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
 }
+/* Single product page - constrain image and center card */
+.grid:has(> .card:only-child) .card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid:has(> .card:only-child) img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 16px;
+}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
