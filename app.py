@@ -641,13 +641,11 @@ BASE_HTML = """<!DOCTYPE html>
   "image": "{{ p.image }}",
   "description": "{{ p.info }}",
   "url": "{{ p.url }}",
-  "brand": {"@type": "Brand", "name": "Various"},
+  "brand": {"@type": "Brand", "name": "{{ p.brand or 'Various' }}"},
   "offers": {
     "@type": "Offer",
     "url": "{{ p.url }}",
     "availability": "https://schema.org/InStock",
-    "price": "{{ p.price }}",
-    "priceCurrency": "GBP",
     "seller": {
       "@type": "Organization",
       "name": "Amazon"
@@ -655,6 +653,7 @@ BASE_HTML = """<!DOCTYPE html>
   }
 }
 </script>
+
 
 
 <script type="application/ld+json">
@@ -761,6 +760,10 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
     history = load_history()
     categories = get_categories(history)
     canonical = SITE_URL + request.path
+    page_num = int(request.args.get("page", 1))
+    if page_num > 1:
+    canonical += f"?page={page_num}"
+
 
     paged_products, total_items = paginate(products, page)
     total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
@@ -919,25 +922,25 @@ Sitemap: {SITE_URL}/sitemap.xml
 def sitemap():
     history = load_history()
     urls = {
-        SITE_URL + "/",
-        SITE_URL + "/all-gifts"
+        (SITE_URL + "/", str(datetime.date.today())),
+        (SITE_URL + "/all-gifts", str(datetime.date.today()))
     }
 
     for day_products in history.values():
         for p in day_products:
             # Category URLs
-            urls.add(SITE_URL + "/category/" + slugify(p["category"]))
-
-            # Product URLs  ✅ NEW
-            urls.add(SITE_URL + "/product/" + slugify(p["name"]))
+            urls.add((SITE_URL + "/category/" + slugify(p["category"]), str(datetime.date.today())))
+            # Product URLs
+            urls.add((SITE_URL + "/product/" + slugify(p["name"]), str(datetime.date.today())))
 
     sitemap_xml = "<?xml version='1.0' encoding='UTF-8'?>\n"
     sitemap_xml += "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
 
-    for url in sorted(urls):
+    for url, lastmod in sorted(urls):
         sitemap_xml += f"""
   <url>
     <loc>{url}</loc>
+    <lastmod>{lastmod}</lastmod>
   </url>"""
 
     sitemap_xml += "\n</urlset>"
