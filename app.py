@@ -21,11 +21,26 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
    {
-    "name": "SPURK GOLF Fairway Wood Head Covers Set - 3 Pack (3,5,7)",
+    "name": "Gritin Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels - Carrying Case Included",
+    "category": "Sports & Outdoors",
+    "image": "https://m.media-amazon.com/images/I/617NmwvU4tL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4pjWiQy?tag={AFFILIATE_TAG}",
+    "info": "Set of 5 latex-free loop resistance bands in progressive strengths (extra light to extra heavy) with carry bag — skin-friendly, durable, and portable for full-body workouts. Bestselling choice for home fitness, yoga, Pilates, physio, and strength training on the go."
+},
+
+   {
+    "name": "Callaway Warbird Golf Balls - 12 Pack (White)",
+    "category": "Sports & Outdoors",
+    "image": "https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/493JB64?tag={AFFILIATE_TAG}",
+    "info": "High-energy core golf balls designed for maximum distance off the tee with a thin, high-sensory ionomer cover for responsive feel around the greens. Popular choice for mid-handicap golfers seeking long, straight drives and value in a durable 2-piece ball."
+},
+   {
+    "name": "SPURK GOLF Winter Strike Mat - Fairway Protection and Practice Mat",
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4jeRomi?tag={AFFILIATE_TAG}",
-    "info": "Premium leather-look fairway wood headcover set (for 3, 5, 7 woods) with strong magnetic closure and soft fleece lining — protects clubs from scratches and dings. Bestselling choice for golfers wanting stylish, secure protection during rounds and travel."
+    "url": f"https://amzn.to/4jBhqAF?tag={AFFILIATE_TAG}",
+    "info": "Durable winter golf strike mat with fairway-like turf for year-round practice — protects grass on driving ranges and allows realistic iron shots without divots. Bestselling accessory for golfers maintaining swing tempo during cold months and off-season training."
 },
    
 {
