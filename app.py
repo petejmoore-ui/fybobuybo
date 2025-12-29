@@ -583,6 +583,12 @@ BASE_HTML = """<!DOCTYPE html>
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
 <link rel="canonical" href="{{ canonical_url }}">
+{% if next_page_url %}
+<link rel="next" href="{{ next_page_url }}">
+{% endif %}
+{% if prev_page_url %}
+<link rel="prev" href="{{ prev_page_url }}">
+{% endif %}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
 <script>
@@ -762,11 +768,14 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
     canonical = SITE_URL + request.path
     page_num = int(request.args.get("page", 1))
     if page_num > 1:
-    canonical += f"?page={page_num}"
-
+        canonical += f"?page={page_num}"
 
     paged_products, total_items = paginate(products, page)
     total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
+
+    # ---------------- Pagination rel links ---------------- #
+    next_page_url = page_url(page + 1) if page < total_pages else None
+    prev_page_url = page_url(page - 1) if page > 1 else None
 
     return render_template_string(
         BASE_HTML,
@@ -781,12 +790,15 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         SITE_URL=SITE_URL,
         slugify=slugify,
         shorten_product_name=shorten_product_name,
-        related_products=related_products or [],  # ← passes empty list if none
+        related_products=related_products or [],
         total_pages=total_pages,
         page=page,
         page_url=page_url,
-        button=theme["button"]
+        button=theme["button"],
+        next_page_url=next_page_url,
+        prev_page_url=prev_page_url
     )
+
 
 @app.route("/")
 def home():
