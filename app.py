@@ -888,17 +888,31 @@ Sitemap: {SITE_URL}/sitemap.xml
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
-    urls = [SITE_URL + "/"] + [SITE_URL + "/all-gifts"]
+    urls = {
+        SITE_URL + "/",
+        SITE_URL + "/all-gifts"
+    }
+
     for day_products in history.values():
         for p in day_products:
-            urls.append(SITE_URL + "/category/" + slugify(p["category"]))
+            # Category URLs
+            urls.add(SITE_URL + "/category/" + slugify(p["category"]))
+
+            # Product URLs  ✅ NEW
+            urls.add(SITE_URL + "/product/" + slugify(p["name"]))
 
     sitemap_xml = "<?xml version='1.0' encoding='UTF-8'?>\n"
     sitemap_xml += "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
-    for url in sorted(set(urls)):
-        sitemap_xml += f"  <url>\n    <loc>{url}</loc>\n  </url>\n"
-    sitemap_xml += "</urlset>"
+
+    for url in sorted(urls):
+        sitemap_xml += f"""
+  <url>
+    <loc>{url}</loc>
+  </url>"""
+
+    sitemap_xml += "\n</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
