@@ -710,7 +710,7 @@ BASE_HTML = """<!DOCTYPE html>
 {# === RELATED PRODUCTS SECTION (only shows on single product pages) === #}
 {% if related_products %}
 <h2 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-    More Popular {{ related_products[0].category if related_products else '' }} Gifts
+    More Popular {{ related_products[0].category }} Gifts
 </h2>
 <div class="grid">
 {% for rp in related_products %}
@@ -732,18 +732,6 @@ BASE_HTML = """<!DOCTYPE html>
 </div>
 {% endif %}
 
-{# === PAGINATION (only on list pages) === #}
-{% if total_pages > 1 %}
-<div class="pagination">
-    {% for p in range(1, total_pages+1) %}
-        {% if p == page %}
-        <span style="background:{{button}};padding:10px 16px;border-radius:12px;font-weight:700">{{p}}</span>
-        {% else %}
-        <a href="{{ page_url(p) }}">{{p}}</a>
-        {% endif %}
-    {% endfor %}
-</div>
-{% endif %}
 
 {% else %}
 <p class="loading">
