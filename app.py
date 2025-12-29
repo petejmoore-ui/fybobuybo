@@ -454,13 +454,14 @@ nav a:hover{opacity:.8}
 }
 /* Uniform card layout - fixed title height, aligned images */
 .card h2 {
-    min-height: 60px; /* Reserves space for ~2-3 lines of title */
+    min-height: 60px; /* Keeps alignment */
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 12px 0;
-    font-size: 1.1rem;
+    font-size: 1.25rem;  /* ← Change from 1.1rem to 1.25rem (or 1.3rem if you want bolder) */
     line-height: 1.3;
+    font-weight: 900; /* Optional: makes it stand out more */
 }
 
 .card img {
@@ -475,6 +476,31 @@ nav a:hover{opacity:.8}
 /* Optional: push button lower if needed */
 .card > a[onclick] {
     margin-top: 20px;
+}
+/* Align bottom elements (button + more link) uniformly */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes bottom section down */
+    height: 100%;
+}
+
+.card > p:nth-of-type(2) { /* The hook paragraph */
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 0;
+}
+
+.card > a[onclick] { /* View on Amazon button wrapper */
+    margin-top: 20px;
+}
+
+.card p:last-of-type { /* "More ... gifts" line */
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 </style>"""
 
