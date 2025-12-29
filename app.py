@@ -764,24 +764,30 @@ def category(slug):
     unique_products = {}
     for day in history.values():
         for p in day:
-            if slugify(p["category"]) == slug:
+            # Match on category OR any season tag
+            if slugify(p["category"]) == slug or ("season" in p and slugify(slug) in [slugify(s.strip()) for s in p["season"].split(",")]):
                 key = p["name"] + p["url"]
                 unique_products[key] = p
     products = [ensure_hook(p) for p in unique_products.values()]
     
     if not products:
         abort(404)
-    cat_name = products[0]["category"]
+    
+    # Use the original name for display (find first match)
+    cat_name = next((p["category"] if slugify(p["category"]) == slug else s.strip() 
+                     for p in unique_products.values() 
+                     for s in (p.get("season", "").split(",") if "season" in p else []) 
+                     if slugify(s.strip()) == slug), slug.replace("-", " ").title())
 
     def page_url(p):
         return url_for("category", slug=slug, page=p)
 
     page = int(request.args.get("page", 1))
     return render_page(
-        title=f"{cat_name} Gifts – FyboBuybo",
-        description=f"Explore popular and trending {cat_name} gifts in the UK, featuring thoughtful presents and bestsellers.",
-        heading=f"{cat_name} Gifts",
-        subtitle=f"Hand-picked popular gifts in {cat_name}, updated from our daily selections.",
+        title=f"{cat_name} – FyboBuybo",
+        description=f"Explore popular {cat_name.lower()} in the UK, featuring trending gifts and bestsellers.",
+        heading=cat_name,
+        subtitle=f"Hand-picked selection of {cat_name.lower()}, updated daily.",
         products=products,
         page=page,
         page_url=page_url
