@@ -452,6 +452,35 @@ nav a:hover{opacity:.8}
     display: block;
     border-radius: 16px;
 }
+/* Uniform card layout - align images & push button to bottom */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+    height: 100%; /* Makes all cards same height in row */
+}
+
+.card img {
+    width: 100%;
+    height: 350px; /* Fixed height for consistency */
+    object-fit: contain; /* Keeps full cover visible, no crop */
+    background: #0f172a; /* Dark background for white borders */
+    border-radius: 16px;
+    margin: 16px 0;
+}
+
+.card .tag {
+    align-self: flex-start;
+}
+
+.card > a[onclick] { /* The View on Amazon button wrapper */
+    margin-top: auto; /* Pushes button to bottom */
+}
+
+.card p:last-of-type { /* The "More ... gifts" line */
+    margin-top: auto;
+    padding-top: 10px;
+}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
