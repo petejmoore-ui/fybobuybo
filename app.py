@@ -23,6 +23,7 @@ PRODUCTS = [
    {
     "name": "USAopoly Flip 7 Party Card Game - Ages 8+, 3+ Players, 20 Minutes Playing Time",
     "category": "Toys & Games",
+    "season": "Christmas Gift Ideas",
     "image": "https://m.media-amazon.com/images/I/81m3yB192RL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49xuFyE?tag={AFFILIATE_TAG}",
     "info": "Fast-paced press-your-luck card game where players flip cards without duplicates, using action cards for twists — risk it for bonus points or play safe. Addictive party fun for families and groups, quick to learn and endlessly replayable."
@@ -30,6 +31,7 @@ PRODUCTS = [
 {
     "name": "LEGO Speed Champions Ferrari SF-24 F1 Race Car Toy - Model Kit with Formula 1 Driver Minifigure - Gift for 10+ Year Old Boys, Girls & Adult Motorsport Fans - 77242",
     "category": "Toys & Games",
+    "season": "Christmas Gift Ideas"
     "image": "https://m.media-amazon.com/images/I/8169xVSJScL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3LbsyXS?tag={AFFILIATE_TAG}",
     "info": "Authentic LEGO buildable Ferrari SF-24 F1 car from the 2024 season, complete with driver minifigure, halo cockpit, rear wing, sponsor stickers, and Pirelli tyres — perfect for recreating races or display. Trending gift for young builders and adult F1 fans alike."
@@ -37,6 +39,7 @@ PRODUCTS = [
    {
     "name": "LEGO Speed Champions Lightning McQueen Race Car Toy - Collectible Model Kit with Detailed Undercarriage - Disney Gift for 9+ Year Old Boys, Girls & Pixar Cars Movie Fans - 77255",
     "category": "Toys & Games",
+    "season": "Christmas Gift Ideas"
     "image": "https://m.media-amazon.com/images/I/81f5c9hpLXL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49wGjtx?tag={AFFILIATE_TAG}",
     "info": "Detailed LEGO Speed Champions build of Lightning McQueen from Disney Pixar's Cars, featuring authentic stickers, Rust-eze branding, and a unique undercarriage view — perfect for recreating movie scenes or display. Trending gift for young builders and fans celebrating the film's 20th anniversary."
@@ -44,6 +47,7 @@ PRODUCTS = [
 {
     "name": "Mattel Games UNO Classic Card Game for Kids and Adults, Family Game Night, Travel Game or Gift for Kids, 2 to 10 Players, Ages 7 and Up, W2087",
     "category": "Toys & Games",
+    "season": "Christmas Gift Ideas"
     "image": "https://m.media-amazon.com/images/I/71MrrNB7jCL._AC_SX679_.jpg",
     "url": f"https://amzn.to/4pUlSfT?tag={AFFILIATE_TAG}",
     "info": "The timeless matching card game where players race to discard cards by colour or number, with action cards adding twists and excitement. A family favourite for game nights, travel, or as an engaging gift — easy to learn, endlessly replayable fun for all ages."
@@ -52,6 +56,7 @@ PRODUCTS = [
    {
     "name": "Gritin Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels - Carrying Case Included",
     "category": "Sports & Outdoors",
+    "season": "New Year Essentials, Summer Essentials"
     "image": "https://m.media-amazon.com/images/I/617NmwvU4tL._AC_SX679_.jpg",
     "url": f"https://amzn.to/4pjWiQy?tag={AFFILIATE_TAG}",
     "info": "Set of 5 latex-free loop resistance bands in progressive strengths (extra light to extra heavy) with carry bag — skin-friendly, durable, and portable for full-body workouts. Bestselling choice for home fitness, yoga, Pilates, physio, and strength training on the go."
@@ -162,6 +167,7 @@ PRODUCTS = [
     {
     "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
     "category": "Sports & Outdoors",
+    "season": "Winter Essentials"
     "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
     "url": f"https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag={AFFILIATE_TAG}",
     "info": "Air-activated hand warmers providing up to 10 hours of natural, odourless heat — safe, easy to use, and perfect for cold weather activities, commuting, or outdoor events. Bestselling essential for staying warm during winter walks, sports, or festivals."
@@ -190,6 +196,7 @@ PRODUCTS = [
     {
     "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
     "category": "Toys & Games",
+    "season": "Christmas Gift Ideas"
     "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
     "url": f"https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag={AFFILIATE_TAG}",
     "info": "Hilarious party game where players guess whether random facts are 'more' or 'less' than a given number — perfect for family gatherings, parties, and game nights. Trending for its mix of ridiculous questions, laughs, and surprising knowledge."
@@ -204,6 +211,7 @@ PRODUCTS = [
     {
         "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
         "category": "Health & Personal Care",
+        "season": "Christmas Gift Ideas, Valentine’s Day Gifts, Mother’s Day Gifts, Father’s Day Gifts"
         "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SY300_SX300_QL70_ML2_.jpg",
         "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag={AFFILIATE_TAG}",
         "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond."
@@ -218,6 +226,7 @@ PRODUCTS = [
     {
         "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
         "category": "Toys & Games",
+        "season": "Christmas Gift Ideas"
         "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SY300_SX300_QL70_ML2_.jpg",
         "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag={AFFILIATE_TAG}",
         "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages."
@@ -260,6 +269,7 @@ PRODUCTS = [
     {
         "name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
         "category": "Fashion",
+        "season": "Christmas Gift Ideas"
         "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag={AFFILIATE_TAG}",
         "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos."
@@ -281,6 +291,7 @@ PRODUCTS = [
     {
         "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
         "category": "Sports & Outdoors",
+        "season": "Christmas Gift Ideas, Winter Essentials"
         "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SY300_SX300_QL70_ML2_.jpg",
         "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag={AFFILIATE_TAG}",
         "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events."
@@ -289,6 +300,7 @@ PRODUCTS = [
         "name": "Herd Mentality Board Game",
         "category": "Toys & Games",
         "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "season": "Christmas Gift Ideas"
         "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag={AFFILIATE_TAG}",
         "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas."
     },
@@ -405,7 +417,14 @@ def slugify(text):
     return text
 
 def get_categories(history):
-    return sorted({p["category"] for day in history.values() for p in day})
+    cats = set()
+    for day in history.values():
+        for p in day:
+            cats.add(p["category"])
+            if "season" in p:
+                for s in p["season"].split(","):
+                    cats.add(s.strip())
+    return sorted(cats)
 
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
