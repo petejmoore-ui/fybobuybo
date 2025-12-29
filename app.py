@@ -875,8 +875,7 @@ def all_gifts():
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    # Decode URL-encoded slug (handles %20, etc.)
-    decoded_slug = product_slug.replace("-", " ").lower()  # Basic reverse, but we'll search flexibly
+    decoded_slug = product_slug.replace("-", " ").lower()
 
     history = load_history()
     today_str = str(datetime.date.today())
@@ -887,7 +886,6 @@ def product_detail(product_slug):
     found_product = None
     for day_prods in all_days.values():
         for p in day_prods:
-            # Compare slugified name (exact match)
             if slugify(p["name"]) == product_slug:
                 found_product = ensure_hook(p)
                 break
@@ -897,36 +895,35 @@ def product_detail(product_slug):
     if not found_product:
         abort(404)
 
-   
-   # Related products
-related = []
-for day_prods in all_days.values():
-    for p in day_prods:
-        if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
-            related.append(ensure_hook(p))
-
-# Remove duplicates and limit to 6
-related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
-
-# Fallback: if no related products, show other popular items from the same season
-if not related and "season" in found_product:
+    # ---------------- Related products ----------------
+    related = []
     for day_prods in all_days.values():
         for p in day_prods:
-            if p["name"] != found_product["name"] and any(
-                s.strip() in p.get("season", "") for s in found_product["season"].split(",")
-            ):
+            if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
                 related.append(ensure_hook(p))
+
+    # Remove duplicates and limit to 6
     related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
 
-# Always pass related_products to template (even if empty)
-return render_page(
-    title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
-    description=found_product["info"],
-    heading=shorten_product_name(found_product["name"]),
-    subtitle="A popular UK gift choice",
-    products=[found_product],
-    related_products=related  # even empty list, template can handle
-)
+    # Fallback: if no related products, show other popular items from the same season
+    if not related and "season" in found_product:
+        for day_prods in all_days.values():
+            for p in day_prods:
+                if p["name"] != found_product["name"] and any(
+                    s.strip() in p.get("season", "") for s in found_product["season"].split(",")
+                ):
+                    related.append(ensure_hook(p))
+        related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
+
+    return render_page(
+        title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
+        description=found_product["info"],
+        heading=shorten_product_name(found_product["name"]),
+        subtitle="A popular UK gift choice",
+        products=[found_product],
+        related_products=related
+    )
+
 
 
 # ---------------- SEO FILES ---------------- #
