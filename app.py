@@ -709,7 +709,9 @@ BASE_HTML = """<!DOCTYPE html>
 
 {# === RELATED PRODUCTS SECTION (only shows on single product pages) === #}
 {% if related_products %}
-<h3 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Related Gifts</h3>
+<h2 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+    More Popular {{ related_products[0].category if related_products else '' }} Gifts
+</h2>
 <div class="grid">
 {% for rp in related_products %}
 <div class="card">
