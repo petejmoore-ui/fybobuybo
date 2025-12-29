@@ -633,7 +633,7 @@ BASE_HTML = """<!DOCTYPE html>
 
     <p>{{ p.hook|safe }}</p>
 
-    <script type="application/ld+json">
+   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -646,6 +646,8 @@ BASE_HTML = """<!DOCTYPE html>
     "@type": "Offer",
     "url": "{{ p.url }}",
     "availability": "https://schema.org/InStock",
+    "price": "{{ p.price }}",
+    "priceCurrency": "GBP",
     "seller": {
       "@type": "Organization",
       "name": "Amazon"
@@ -653,6 +655,7 @@ BASE_HTML = """<!DOCTYPE html>
   }
 }
 </script>
+
 
 <script type="application/ld+json">
 {
