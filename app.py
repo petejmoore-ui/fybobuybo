@@ -22,6 +22,14 @@ ITEMS_PER_PAGE = 12
 PRODUCTS = [
 
     {
+    "name": "MeacoDry Arete Two 12L Dehumidifier and Air Purifier",
+    "category": "Home & Kitchen",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51MY3VTr3pL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/48Ylszg?tag={AFFILIATE_TAG}",
+    "info": "Quiet 12L dehumidifier with HEPA air purifier – removes damp, mould, and allergens while drying laundry faster. Energy-efficient, ultra-quiet night mode – bestselling UK choice for healthier homes."
+}
+    {
     "name": "Philips Hue White Smart Bulb Twin Pack LED [B22 Bayonet Cap] – Dimmable, Bluetooth & Zigbee Compatible, Works with Alexa, Google Assistant and Apple HomeKit",
     "category": "Lighting",  # Or "Home & Kitchen" to match your existing
     "image": "https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg",  # High-quality main image from similar listings
@@ -458,8 +466,26 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>3. Meaco Dehumidifier</h2>
-                <p>Combat UK damp, dry laundry faster indoors, and prevent mould – a winter essential.</p>
+                <h2>3. MeacoDry Arete Two 12L Dehumidifier and Air Purifier</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/meacodry-arete-two-12l-dehumidifier-and-air-purifier">
+        <img src="https://m.media-amazon.com/images/I/51MY3VTr3pL._AC_SX679_.jpg" 
+             alt="MeacoDry Arete Two 12L Dehumidifier with HEPA air purification" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Quiet, energy-efficient 12L dehumidifier with built-in HEPA air purifier – perfect for UK homes battling damp, mould, and allergies. Extracts up to 12 litres per day, dries laundry faster, runs ultra-quiet in night mode, and purifies air for healthier breathing all year round.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/meacodry-arete-two-12l-dehumidifier-and-air-purifier">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/49hEeAD?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'MeacoDry Arete Two 12L', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <h2>4. Luxury Fluffy Bath Mat or Area Rug</h2>
                 <p>Instant warmth underfoot with non-slip, quick-dry designs.</p>
