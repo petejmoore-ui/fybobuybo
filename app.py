@@ -22,6 +22,14 @@ ITEMS_PER_PAGE = 12
 PRODUCTS = [
 
     {
+    "name": "Philips Hue White Smart Bulb Twin Pack LED [B22 Bayonet Cap] – Dimmable, Bluetooth & Zigbee Compatible, Works with Alexa, Google Assistant and Apple HomeKit",
+    "category": "Lighting",  # Or "Home & Kitchen" to match your existing
+    "image": "https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg",  # High-quality main image from similar listings
+    "url": f"https://amzn.to/4pWqfaj?tag={AFFILIATE_TAG}",
+    "info": "Twin pack of dimmable smart LED bulbs with soft white light, instant Bluetooth control for single-room use, or add a Hue Bridge for full features like away-from-home control and voice integration with Alexa, Google Assistant, and Apple HomeKit. Energy-efficient upgrade for mood lighting and everyday convenience in UK homes."
+}
+
+    {
     "name": "Overmont Enamelled Cast Iron Dutch Oven Casserole Dish - 5.5L Round Non-Stick Pot with Lid - Oven Safe up to 260°C - Red",
     "category": "Home & Kitchen",
     "season": "Christmas Gift Ideas, New Year Essentials",
@@ -412,7 +420,15 @@ BLOG_POSTS = {
                 <p>As we step into 2026, many UK households are looking for simple, affordable ways to refresh their living spaces. From energy-saving tech to cozy comforts, here are 8 essential home products trending right now on Amazon.</p>
                 
                 <h2>1. Philips Hue Smart Bulbs</h2>
-                <p>Control lighting from your phone, set moods, and save energy – perfect starter smart home upgrade.</p>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/philips-hue-smart-bulbs">
+        <img src="https://m.media-amazon.com/images/I/71zXgQAXMPL._AC_SX679_.jpg" alt="Philips Hue Smart Bulbs" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Control lighting from your phone, set moods, and save energy – perfect starter smart home upgrade.</p>
+    <a href="/product/philips-hue-smart-bulbs">
+        <button>View Details & Buy</button>
+    </a>
+</div>
                 
                 <h2>2. Ninja Air Fryer</h2>
                 <p>Healthier cooking with less oil, quick meals, and lower energy use than a traditional oven.</p>
