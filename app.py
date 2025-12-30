@@ -22,6 +22,15 @@ ITEMS_PER_PAGE = 12
 PRODUCTS = [
 
     {
+    "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3YilDiF?tag={AFFILIATE_TAG}",
+    "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design."
+}
+
+    {
     "name": "Mia&Coco Electric Heated Throw Blanket 120x160cm",
     "category": "Home & Kitchen",
     "season": "Winter Essentials, New Year Essentials",
@@ -597,8 +606,26 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>8. Under-Bed Storage Organisers</h2>
-                <p>Maximise space in smaller UK properties without clutter.</p>
+                <h2>8. Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/lifewit-large-capacity-under-bed-storage-organiser-bags-pack-of-2">
+        <img src="https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg" 
+             alt="Lifewit Under Bed Storage Bags – large capacity organisers for clothes and bedding" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Maximise space in smaller UK properties without clutter. Pack of 2 extra-large 100L bags with clear windows, reinforced handles, and breathable fabric – perfect for storing seasonal clothes, duvets, or toys neatly under the bed.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/lifewit-large-capacity-under-bed-storage-organiser-bags-pack-of-2">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/49fUzWa?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'Lifewit Under Bed Storage', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <p>All these products are available with fast Prime delivery. Start your 2026 home refresh today!</p>
             </article>
