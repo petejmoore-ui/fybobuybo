@@ -1035,57 +1035,49 @@ def product_detail(product_slug):
     )
 @app.route("/blog")
 def blog_index():
-    products = refresh_products(background=True)[:6]  # Teaser products
-    return render_page(
-        title="Blog – FyboBuybo",
-        description="Gift guides, home tips, and trending product recommendations",
-        heading="FyboBuybo Blog",
-        subtitle="Latest articles on gifts and home inspiration",
-        products=products
-    )
-
-@app.route("/blog/<slug>")
-def blog_detail(slug):
-    post = BLOG_POSTS.get(slug)
-    if not post:
-        abort(404)
-    
-    all_products = refresh_products(background=True)
-    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+    # Simple list of blog posts (clickable)
+    post_list = """
+    <div style="max-width:900px;margin:40px auto;text-align:left;">
+        <h2 style="text-align:center;margin-bottom:40px;">Latest Articles</h2>
+        <ul style="list-style:none;padding:0;">
+            <li style="margin:20px 0;">
+                <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;font-size:1.3rem;font-weight:700;">
+                    8 Essential Home Products to Upgrade Your Space in 2026
+                </a>
+                <p style="opacity:.8;margin-top:8px;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
+            </li>
+            <!-- Add more <li> entries here for future posts -->
+        </ul>
+    </div>
+    """
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
     rendered = render_template_string(
         BASE_HTML,
-        title=post["title"],
-        description=post["description"],
-        heading=post["heading"],
-        subtitle=post["subtitle"],
-        products=[],  # No main grid
+        title="Blog – FyboBuybo",
+        description="Gift guides, home tips, and trending product recommendations",
+        heading="FyboBuybo Blog",
+        subtitle="Latest articles on gifts and home inspiration",
+        products=[],  # No product grid on blog index
         categories=get_categories(load_history()),
         css=css,
-        canonical_url=SITE_URL + request.path,
+        canonical_url=SITE_URL + "/blog",
         SITE_URL=SITE_URL,
         slugify=slugify,
         shorten_product_name=shorten_product_name,
-        related_products=related,
+        related_products=[],
         gradient=theme["gradient"],
         next_page_url=None,
         prev_page_url=None
     )
     
-    # Insert content after subtitle
+    # Insert post list after subtitle
     insert_point = rendered.find('<p class="subtitle">')
     if insert_point != -1:
         insert_point = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_point] + post["content"] + rendered[insert_point:]
-    
-    # Update related header
-    rendered = rendered.replace(
-        '<h2 style="text-align:center;margin:60px 0 20px;',
-        '<h2 style="text-align:center;margin:80px 0 40px;font-size:2rem;background:' + theme["gradient"] + ';-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Trending Related Products</h2><h2 style="text-align:center;margin:60px 0 20px;'
-    )
+        rendered = rendered[:insert_point] + post_list + rendered[insert_point:]
     
     return rendered
 
