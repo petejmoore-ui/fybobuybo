@@ -1033,7 +1033,7 @@ def product_detail(product_slug):
         products=[found_product],
         related_products=related
     )
-    @app.route("/blog")
+@app.route("/blog")
 def blog_index():
     products = refresh_products(background=True)[:6]  # Teaser products
     return render_page(
