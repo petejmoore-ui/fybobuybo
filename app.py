@@ -1045,12 +1045,12 @@ def product_detail(product_slug):
     
 @app.route("/blog")
 def blog_index():
-    post_list = """
+    post_list_html = """
     <div style="max-width:900px;margin:60px auto;padding:20px;">
-        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
             Latest Articles
         </h2>
-        <div class="grid" style="grid-template-columns:1fr;gap:30px;">
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
             <div class="card">
                 <h3 style="font-size:1.5rem;margin-bottom:10px;">
                     <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;text-decoration:none;">
@@ -1059,7 +1059,7 @@ def blog_index():
                 </h3>
                 <p style="opacity:.85;font-size:1rem;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
             </div>
-            <!-- Add more cards for future posts -->
+            <!-- Add more cards here for future posts -->
         </div>
     </div>
     """
@@ -1067,14 +1067,14 @@ def blog_index():
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
-    return render_template_string(
-        BASE_HTML.replace("{% for cat in categories %}", "").replace("{% endfor %}", ""),  # Remove dynamic cats loop
+    rendered = render_template_string(
+        BASE_HTML,
         title="Blog – FyboBuybo",
         description="Gift guides, home tips, and trending product recommendations",
         heading="FyboBuybo Blog",
         subtitle="Latest articles on gifts and home inspiration",
         products=[],
-        categories=[],  # No dynamic categories
+        categories=[],  # Empty to skip loop
         css=css,
         canonical_url=SITE_URL + "/blog",
         SITE_URL=SITE_URL,
@@ -1084,7 +1084,19 @@ def blog_index():
         gradient=theme["gradient"],
         next_page_url=None,
         prev_page_url=None
-    ).replace('<div class="grid">', post_list + '<div class="grid">', 1)  # Insert after subtitle
+    )
+    
+    # Remove the categories loop entirely (safe replace)
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    
+    # Insert post list after subtitle
+    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
+    rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
+    
+    # Clean empty grids
+    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
+    
+    return rendered
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
@@ -1093,13 +1105,13 @@ def blog_detail(slug):
         abort(404)
     
     all_products = refresh_products(background=True)
-    related = [p for p in all_products if "Home & Kitchen" in p["category"] or "Electronics" in p["category"]][:6]
+    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
-    return render_template_string(
-        BASE_HTML.replace("{% for cat in categories %}", "").replace("{% endfor %}", ""),
+    rendered = render_template_string(
+        BASE_HTML,
         title=post["title"],
         description=post["description"],
         heading=post["heading"],
@@ -1115,8 +1127,16 @@ def blog_detail(slug):
         gradient=theme["gradient"],
         next_page_url=None,
         prev_page_url=None
-    ).replace('<div class="grid">', post["content"] + '<div class="grid">', 1)
-
+    )
+    
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    
+    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
+    rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
+    
+    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
+    
+    return rendered
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
