@@ -1040,7 +1040,10 @@ def product_detail(product_slug):
         subtitle="A popular UK gift choice",
         products=[found_product],
         related_products=related
-    )@app.route("/blog")
+        
+    )
+    
+@app.route("/blog")
 def blog_index():
     post_list = """
     <div style="max-width:900px;margin:60px auto;padding:20px;">
