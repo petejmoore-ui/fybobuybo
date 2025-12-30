@@ -28,7 +28,7 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3YilDiF?tag={AFFILIATE_TAG}",
     "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design."
-}
+},
 
     {
     "name": "Mia&Coco Electric Heated Throw Blanket 120x160cm",
