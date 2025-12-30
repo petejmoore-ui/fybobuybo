@@ -627,7 +627,7 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <p>All these products are available with fast Prime delivery. Start your 2026 home refresh today!</p>
+                <p>All these products are available with fast delivery. Start your 2026 home refresh today!</p>
             </article>
         """
     }
