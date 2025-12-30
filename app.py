@@ -27,7 +27,7 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg",  # High-quality main image from similar listings
     "url": f"https://amzn.to/4pWqfaj?tag={AFFILIATE_TAG}",
     "info": "Twin pack of dimmable smart LED bulbs with soft white light, instant Bluetooth control for single-room use, or add a Hue Bridge for full features like away-from-home control and voice integration with Alexa, Google Assistant, and Apple HomeKit. Energy-efficient upgrade for mood lighting and everyday convenience in UK homes."
-}
+},
 
     {
     "name": "Overmont Enamelled Cast Iron Dutch Oven Casserole Dish - 5.5L Round Non-Stick Pot with Lid - Oven Safe up to 260°C - Red",
