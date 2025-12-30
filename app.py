@@ -1040,51 +1040,48 @@ def product_detail(product_slug):
         subtitle="A popular UK gift choice",
         products=[found_product],
         related_products=related
-    )
-@app.route("/blog")
+    )@app.route("/blog")
 def blog_index():
     post_list = """
-    <div style="max-width:900px;margin:40px auto;text-align:left;color:#fff;line-height:1.8;">
-        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;">Latest Articles</h2>
-        <div style="background:#1e293b;padding:30px;border-radius:22px;box-shadow:0 20px 40px rgba(0,0,0,.6);">
-            <h3 style="font-size:1.5rem;margin:0 0 10px;"><a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;text-decoration:none;">8 Essential Home Products to Upgrade Your Space in 2026</a></h3>
-            <p style="opacity:.85;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
+    <div style="max-width:900px;margin:60px auto;padding:20px;">
+        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            Latest Articles
+        </h2>
+        <div class="grid" style="grid-template-columns:1fr;gap:30px;">
+            <div class="card">
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">
+                    <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;text-decoration:none;">
+                        8 Essential Home Products to Upgrade Your Space in 2026
+                    </a>
+                </h3>
+                <p style="opacity:.85;font-size:1rem;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
+            </div>
+            <!-- Add more cards for future posts -->
         </div>
-        <!-- Add more article blocks here for future posts -->
     </div>
     """
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
-    # Minimal manual render – no products, no categories loop issues
-    manual_html = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Blog – FyboBuybo</title>
-        <meta name="description" content="Gift guides, home tips, and trending product recommendations">
-        <link rel="canonical" href="{SITE_URL}/blog">
-        {{css|safe}}
-    </head>
-    <body>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/all-gifts">All Gifts</a>
-            <a href="/blog">Blog</a>
-        </nav>
-        <h1>FyboBuybo Blog</h1>
-        <p class="subtitle">Latest articles on gifts and home inspiration</p>
-        {post_list}
-        <footer>
-            <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-        </footer>
-    </body>
-    </html>
-    """
-    return manual_html
+    return render_template_string(
+        BASE_HTML.replace("{% for cat in categories %}", "").replace("{% endfor %}", ""),  # Remove dynamic cats loop
+        title="Blog – FyboBuybo",
+        description="Gift guides, home tips, and trending product recommendations",
+        heading="FyboBuybo Blog",
+        subtitle="Latest articles on gifts and home inspiration",
+        products=[],
+        categories=[],  # No dynamic categories
+        css=css,
+        canonical_url=SITE_URL + "/blog",
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        related_products=[],
+        gradient=theme["gradient"],
+        next_page_url=None,
+        prev_page_url=None
+    ).replace('<div class="grid">', post_list + '<div class="grid">', 1)  # Insert after subtitle
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
@@ -1093,52 +1090,29 @@ def blog_detail(slug):
         abort(404)
     
     all_products = refresh_products(background=True)
-    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+    related = [p for p in all_products if "Home & Kitchen" in p["category"] or "Electronics" in p["category"]][:6]
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
-    related_grid = ""
-    if related:
-        related_grid = '<div class="grid">' + "".join(f"""
-        <div class="card">
-            <span class="tag">{p['category']}</span>
-            <a href="/product/{slugify(p['name'])}"><h2>{shorten_product_name(p['name'])}</h2></a>
-            <a href="/product/{slugify(p['name'])}"><img src="{p['image']}" loading="lazy"></a>
-            <p>{p.get('hook', p['info'])}</p>
-            <a href="{p['url']}" target="_blank" rel="nofollow sponsored"><button>View on Amazon</button></a>
-        </div>
-        """ for p in related) + '</div>'
-    
-    manual_html = f"""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>{post['title']}</title>
-        <meta name="description" content="{post['description']}">
-        <link rel="canonical" href="{SITE_URL}/blog/{slug}">
-        {{css|safe}}
-    </head>
-    <body>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/all-gifts">All Gifts</a>
-            <a href="/blog">Blog</a>
-        </nav>
-        <h1>{post['heading']}</h1>
-        <p class="subtitle">{post['subtitle']}</p>
-        {post['content']}
-        <h2 style="text-align:center;margin:80px 0 40px;font-size:2rem;background:{theme['gradient']};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Trending Related Products</h2>
-        {related_grid}
-        <footer>
-            <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-        </footer>
-    </body>
-    </html>
-    """
-    return manual_html
+    return render_template_string(
+        BASE_HTML.replace("{% for cat in categories %}", "").replace("{% endfor %}", ""),
+        title=post["title"],
+        description=post["description"],
+        heading=post["heading"],
+        subtitle=post["subtitle"],
+        products=[],
+        categories=[],
+        css=css,
+        canonical_url=SITE_URL + request.path,
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        related_products=related,
+        gradient=theme["gradient"],
+        next_page_url=None,
+        prev_page_url=None
+    ).replace('<div class="grid">', post["content"] + '<div class="grid">', 1)
 
 
 # ---------------- SEO FILES ---------------- #
