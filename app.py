@@ -425,6 +425,8 @@ BLOG_POSTS = {
         <img src="https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg" alt="Philips Hue Smart Bulbs" loading="lazy" style="border-radius:16px;">
     </a>
     <p>Control lighting from your phone, set moods, and save energy – perfect starter smart home upgrade.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
     <a href="/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit">
         <button>View Details & Buy</button>
     </a> <a href="https://amzn.to/4pWqfaj?tag=whoaccepts-21" 
