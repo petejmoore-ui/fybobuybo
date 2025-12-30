@@ -22,6 +22,15 @@ ITEMS_PER_PAGE = 12
 PRODUCTS = [
 
     {
+    "name": "Mia&Coco Electric Heated Throw Blanket 120x160cm",
+    "category": "Home & Kitchen",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3L8maAQ?tag={AFFILIATE_TAG}",
+    "info": "Extra-large 120x160cm electric heated throw with 10 heat settings, 9 timer options, and machine-washable flannel fleece – ultra-soft, energy-efficient overblanket with overheat protection for cosy winter evenings on the sofa."
+},
+
+    {
     "name": "SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier",
     "category": "Home & Kitchen",
     "season": "Winter Essentials, New Year Essentials",
@@ -547,8 +556,26 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>6. Heated Electric Throw Blanket</h2>
-                <p>Stay cozy on the sofa while cutting heating bills.</p>
+                <h2>6. Mia&Coco Electric Heated Throw Blanket 120x160cm</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/mia-coco-electric-heated-throw-blanket-120x160cm">
+        <img src="https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg" 
+             alt="Mia&Coco Electric Heated Throw Blanket – large cosy fleece overblanket" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Stay cozy on the sofa while cutting heating bills. Extra-large 120x160cm flannel fleece throw with 10 heat levels, 9 auto-off timers, machine washable design, and overheat protection – bestselling energy-saving essential for UK winters.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/mia-coco-electric-heated-throw-blanket-120x160cm">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/3YmgAhc?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'Mia&Coco Heated Throw', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <h2>7. Dyson V15 Detect Advanced Cordless Vacuum Cleaner</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
