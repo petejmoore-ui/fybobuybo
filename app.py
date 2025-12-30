@@ -1043,52 +1043,102 @@ def product_detail(product_slug):
     )
 @app.route("/blog")
 def blog_index():
-    # Simple list of blog posts (clickable)
     post_list = """
-    <div style="max-width:900px;margin:40px auto;text-align:left;">
-        <h2 style="text-align:center;margin-bottom:40px;">Latest Articles</h2>
-        <ul style="list-style:none;padding:0;">
-            <li style="margin:20px 0;">
-                <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;font-size:1.3rem;font-weight:700;">
-                    8 Essential Home Products to Upgrade Your Space in 2026
-                </a>
-                <p style="opacity:.8;margin-top:8px;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
-            </li>
-            <!-- Add more <li> entries here for future posts -->
-        </ul>
+    <div style="max-width:900px;margin:40px auto;text-align:left;color:#fff;line-height:1.8;">
+        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;">Latest Articles</h2>
+        <div style="background:#1e293b;padding:30px;border-radius:22px;box-shadow:0 20px 40px rgba(0,0,0,.6);">
+            <h3 style="font-size:1.5rem;margin:0 0 10px;"><a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;text-decoration:none;">8 Essential Home Products to Upgrade Your Space in 2026</a></h3>
+            <p style="opacity:.85;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
+        </div>
+        <!-- Add more article blocks here for future posts -->
     </div>
     """
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
-    rendered = render_template_string(
-        BASE_HTML,
-        title="Blog – FyboBuybo",
-        description="Gift guides, home tips, and trending product recommendations",
-        heading="FyboBuybo Blog",
-        subtitle="Latest articles on gifts and home inspiration",
-        products=[],  # No product grid on blog index
-        categories=get_categories(load_history()),
-        css=css,
-        canonical_url=SITE_URL + "/blog",
-        SITE_URL=SITE_URL,
-        slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        related_products=[],
-        gradient=theme["gradient"],
-        next_page_url=None,
-        prev_page_url=None
-    )
-    
-    # Insert post list after subtitle
-    insert_point = rendered.find('<p class="subtitle">')
-    if insert_point != -1:
-        insert_point = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_point] + post_list + rendered[insert_point:]
-    
-    return rendered
+    # Minimal manual render – no products, no categories loop issues
+    manual_html = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Blog – FyboBuybo</title>
+        <meta name="description" content="Gift guides, home tips, and trending product recommendations">
+        <link rel="canonical" href="{SITE_URL}/blog">
+        {{css|safe}}
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/all-gifts">All Gifts</a>
+            <a href="/blog">Blog</a>
+        </nav>
+        <h1>FyboBuybo Blog</h1>
+        <p class="subtitle">Latest articles on gifts and home inspiration</p>
+        {post_list}
+        <footer>
+            <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
+        </footer>
+    </body>
+    </html>
+    """
+    return manual_html
 
+@app.route("/blog/<slug>")
+def blog_detail(slug):
+    post = BLOG_POSTS.get(slug)
+    if not post:
+        abort(404)
+    
+    all_products = refresh_products(background=True)
+    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+    
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    
+    related_grid = ""
+    if related:
+        related_grid = '<div class="grid">' + "".join(f"""
+        <div class="card">
+            <span class="tag">{p['category']}</span>
+            <a href="/product/{slugify(p['name'])}"><h2>{shorten_product_name(p['name'])}</h2></a>
+            <a href="/product/{slugify(p['name'])}"><img src="{p['image']}" loading="lazy"></a>
+            <p>{p.get('hook', p['info'])}</p>
+            <a href="{p['url']}" target="_blank" rel="nofollow sponsored"><button>View on Amazon</button></a>
+        </div>
+        """ for p in related) + '</div>'
+    
+    manual_html = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>{post['title']}</title>
+        <meta name="description" content="{post['description']}">
+        <link rel="canonical" href="{SITE_URL}/blog/{slug}">
+        {{css|safe}}
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/all-gifts">All Gifts</a>
+            <a href="/blog">Blog</a>
+        </nav>
+        <h1>{post['heading']}</h1>
+        <p class="subtitle">{post['subtitle']}</p>
+        {post['content']}
+        <h2 style="text-align:center;margin:80px 0 40px;font-size:2rem;background:{theme['gradient']};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Trending Related Products</h2>
+        {related_grid}
+        <footer>
+            <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
+        </footer>
+    </body>
+    </html>
+    """
+    return manual_html
 
 
 # ---------------- SEO FILES ---------------- #
