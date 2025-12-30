@@ -544,13 +544,21 @@ def slugify(text):
     return text
 
 def get_categories(history):
+    # Use only today's products for nav categories (prevents old duplicates)
+    today_str = str(datetime.date.today())
+    today_products = history.get(today_str, [])
+    if not today_products:
+        # Fallback: use current static PRODUCTS list
+        today_products = PRODUCTS
+    
     cats = set()
-    for day in history.values():
-        for p in day:
-            cats.add(p["category"])
-            if "season" in p:
-                for s in p["season"].split(","):
-                    cats.add(s.strip())
+    for p in today_products:
+        cats.add(p["category"])
+        if "season" in p:
+            for s in p["season"].split(","):
+                stripped = s.strip()
+                if stripped:
+                    cats.add(stripped)
     return sorted(cats)
 
 def paginate(items, page):
