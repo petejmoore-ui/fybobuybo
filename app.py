@@ -21,6 +21,31 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
 
+    {
+    "name": "Overmont Enamelled Cast Iron Dutch Oven Casserole Dish - 5.5L Round Non-Stick Pot with Lid - Oven Safe up to 260°C - Red",
+    "category": "Home & Kitchen",
+    "season": "Christmas Gift Ideas, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71fYHkEDgML._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4jeOuOo?tag={AFFILIATE_TAG}",
+    "info": "Heavy-duty enamelled cast iron Dutch oven with excellent heat retention and even distribution — ideal for slow cooking, braising, baking bread, and one-pot meals. Oven safe to 260°C, easy-clean non-stick interior, and stylish design — bestselling affordable alternative to premium brands for home cooks."
+},
+
+    {
+    "name": "TCL 32SF560 32 Inch Full HD Fire TV with Freeview Play, Dolby Audio, Voice Remote, Enhanced Brightness - Black",
+    "category": "Electronics",
+    "season": "Christmas Gift Ideas",
+    "image": "https://m.media-amazon.com/images/I/61BYxuQ0KHL._AC_SX425_.jpg",
+    "url": f"https://amzn.to/45xwjOi?tag={AFFILIATE_TAG}",
+    "info": "Compact 32-inch Full HD Fire TV with built-in Alexa voice remote, Freeview Play, Dolby Audio, HDR10 support, and enhanced brightness for vivid viewing — seamless access to streaming apps like Netflix, Prime Video, and Disney+. Affordable smart TV upgrade perfect for bedrooms, kitchens, or secondary rooms."
+},
+{
+    "name": "Ninja Foodi Max Dual Zone Air Fryer AF400UK - 9.5L",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials, Christmas Gift Ideas",
+    "image": "https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/45kdy0K?tag={AFFILIATE_TAG}",
+    "info": "Large 9.5L dual zone air fryer with two independent cooking baskets — cook two foods two ways simultaneously, with sync and match functions for perfect timing. Up to 75% less fat than deep frying, 6 functions including max crisp — bestselling kitchen essential for healthier family meals and quick cooking."
+},
     
     {
     "name": "Ooni Karu 16 Multi-Fuel Outdoor Pizza Oven - Wood, Charcoal or Gas Fired",
