@@ -497,7 +497,7 @@ BLOG_POSTS = {
                 
                 <h2>4. Utopia Towels Luxury Fluffy Bath Mat Rug (50x80cm)</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
-    <a href="/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey">
+    <a href="/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm---grey">
         <img src="https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg" 
              alt="Utopia Towels Luxury Fluffy Grey Bath Mat – soft microfibre rug" 
              loading="lazy" style="border-radius:16px;">
@@ -505,7 +505,7 @@ BLOG_POSTS = {
     <p>Instant warmth underfoot with non-slip, quick-dry designs. Super-absorbent microfibre that's machine washable and luxuriously plush – bestselling upgrade for cosy bathrooms without the premium price tag.</p>
     
     <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-        <a href="/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey">
+        <a href="/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm---grey">
             <button>View Details & Buy</button>
         </a>
         <a href="https://amzn.to/4si7AHt?tag=whoaccepts-21" 
