@@ -50,7 +50,7 @@ PRODUCTS = [
     {
     "name": "Ooni Karu 16 Multi-Fuel Outdoor Pizza Oven - Wood, Charcoal or Gas Fired",
     "category": "Home & Kitchen",
-    "season": "Summer Essentials, Father's Day Gifts",
+    "season": "Summer Essentials",
     "image": "https://m.media-amazon.com/images/I/61gq41WEf3L._AC_SX679_.jpg",
     "url": f"https://amzn.to/4sAOw7R?tag={AFFILIATE_TAG}",
     "info": "Versatile multi-fuel pizza oven reaching 950°F for authentic 60-second Neapolitan pizzas — burns wood, charcoal or gas (with optional burner). Large 16-inch cooking area, hinged door with thermometer, and premium build — bestselling choice for garden entertaining and outdoor cooking enthusiasts."
@@ -59,7 +59,7 @@ PRODUCTS = [
     {
     "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
     "category": "Electronics",
-    "season": "Christmas Gift Ideas, Valentine's Day Gifts",
+    "season": "Christmas Gift Ideas",
     "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
     "url": f"https://amzn.to/4pZnuoJ?tag={AFFILIATE_TAG}",
     "info": "Latest AirPods Pro 2 with USB-C charging, advanced active noise cancellation, adaptive audio, personalised spatial audio with head tracking, and new hearing health features — up to 6 hours listening time per charge. Premium wireless earbuds that remain the top choice for seamless iPhone integration and immersive sound."
@@ -297,7 +297,7 @@ PRODUCTS = [
     {
         "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
         "category": "Health & Personal Care",
-        "season": "Christmas Gift Ideas, Valentine’s Day Gifts, Mother’s Day Gifts, Father’s Day Gifts",
+        "season": "Christmas Gift Ideas",
         "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SY300_SX300_QL70_ML2_.jpg",
         "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag={AFFILIATE_TAG}",
         "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond."
