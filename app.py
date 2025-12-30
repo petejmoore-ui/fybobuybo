@@ -558,7 +558,7 @@ BLOG_POSTS = {
                 
                 <h2>6. Mia&Coco Electric Heated Throw Blanket 120x160cm</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
-    <a href="/product/mia-coco-electric-heated-throw-blanket-120x160cm">
+    <a href="/product/mia-and-coco-electric-heated-throw-blanket-120x160cm">
         <img src="https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg" 
              alt="Mia&Coco Electric Heated Throw Blanket – large cosy fleece overblanket" 
              loading="lazy" style="border-radius:16px;">
@@ -566,7 +566,7 @@ BLOG_POSTS = {
     <p>Stay cozy on the sofa while cutting heating bills. Extra-large 120x160cm flannel fleece throw with 10 heat levels, 9 auto-off timers, machine washable design, and overheat protection – bestselling energy-saving essential for UK winters.</p>
     
     <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-        <a href="/product/mia-coco-electric-heated-throw-blanket-120x160cm">
+        <a href="/product/mia-and-coco-electric-heated-throw-blanket-120x160cm">
             <button>View Details & Buy</button>
         </a>
         <a href="https://amzn.to/3YmgAhc?tag=whoaccepts-21" 
