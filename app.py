@@ -435,8 +435,26 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>2. Ninja Air Fryer</h2>
-                <p>Healthier cooking with less oil, quick meals, and lower energy use than a traditional oven.</p>
+                <h2>2. Ninja Foodi Max Dual Zone Air Fryer AF400UK - 9.5L</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l">
+        <img src="https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg" 
+             alt="Ninja Foodi Max Dual Zone Air Fryer 9.5L – two independent cooking zones" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Large 9.5L dual-zone air fryer lets you cook two different foods two ways at once and finish at the same time with Sync. Up to 75% less fat than deep frying, 6 functions (air fry, roast, bake, reheat, dehydrate, max crisp) – perfect for quick, healthier family meals.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/45kdy0K?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'Ninja Dual Zone Air Fryer', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <h2>3. Meaco Dehumidifier</h2>
                 <p>Combat UK damp, dry laundry faster indoors, and prevent mould – a winter essential.</p>
@@ -1004,14 +1022,18 @@ def all_gifts():
     today_products = refresh_products(background=True)
     
     unique_products = {}
+    # Prioritize today's enriched products first
     for p in today_products:
         key = p["name"] + p["url"]
         unique_products[key] = p
+    
+    # Add only historical products that aren't in today
     for date, day_prods in history.items():
         if date != today_str:
             for p in day_prods:
                 key = p["name"] + p["url"]
-                unique_products[key] = p
+                if key not in unique_products:
+                    unique_products[key] = p
     
     all_products = [ensure_hook(p) for p in unique_products.values()]
 
