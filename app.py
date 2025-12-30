@@ -427,7 +427,12 @@ BLOG_POSTS = {
     <p>Control lighting from your phone, set moods, and save energy – perfect starter smart home upgrade.</p>
     <a href="/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit">
         <button>View Details & Buy</button>
-    </a>
+    </a> <a href="https://amzn.to/4pWqfaj?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Lighting', 'event_label': 'Philips Hue Twin Pack', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
 </div>
                 
                 <h2>2. Ninja Air Fryer</h2>
@@ -445,8 +450,25 @@ BLOG_POSTS = {
                 <h2>6. Heated Electric Throw Blanket</h2>
                 <p>Stay cozy on the sofa while cutting heating bills.</p>
                 
-                <h2>7. Cordless Stick or Robot Vacuum</h2>
-                <p>Effortless daily cleaning – huge time-saver for busy homes.</p>
+                <h2>7. Dyson V15 Detect Advanced Cordless Vacuum Cleaner</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/dyson-v8-advanced-cordless-vacuum-cleaner">
+        <img src="https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg" 
+             alt="Dyson V15 Detect Cordless Vacuum with laser dust detection" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Effortless daily cleaning with laser dust detection, auto-adjusting suction, and HEPA filtration – huge time-saver for busy homes. Reveals invisible dust, deep cleans carpets and hard floors, and runs up to 60 minutes.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/dyson-v8-advanced-cordless-vacuum-cleaner">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/3MZbchx?tag=whoaccepts-21" target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'Dyson V15 Detect', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <h2>8. Under-Bed Storage Organisers</h2>
                 <p>Maximise space in smaller UK properties without clutter.</p>
