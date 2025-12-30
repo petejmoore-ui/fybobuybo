@@ -786,7 +786,6 @@ BASE_HTML = """<!DOCTYPE html>
 
 <nav>
     <a href="/">Home</a>
-    <a href="/all-gifts">All Gifts</a>
     <a href="/blog">Blog</a>
     {% for cat in categories %}
     <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
@@ -1017,41 +1016,6 @@ def category(slug):
         page_url=page_url
     )
 
-@app.route("/all-gifts")
-def all_gifts():
-    history = load_history()
-    today_str = str(datetime.date.today())
-    today_products = refresh_products(background=True)
-    
-    unique_products = {}
-    # Prioritize today's enriched products first
-    for p in today_products:
-        key = p["name"] + p["url"]
-        unique_products[key] = p
-    
-    # Add only historical products that aren't in today
-    for date, day_prods in history.items():
-        if date != today_str:
-            for p in day_prods:
-                key = p["name"] + p["url"]
-                if key not in unique_products:
-                    unique_products[key] = p
-    
-    all_products = [ensure_hook(p) for p in unique_products.values()]
-
-    def page_url(p):
-        return url_for("all_gifts", page=p)
-
-    page = int(request.args.get("page", 1))
-    return render_page(
-        title="All Gifts – FyboBuybo",
-        description="Browse our complete collection of trending UK gifts and popular presents across all categories.",
-        heading="All Gifts",
-        subtitle="Every hand-picked popular gift from our daily selections.",
-        products=all_products,
-        page=page,
-        page_url=page_url
-    )
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
