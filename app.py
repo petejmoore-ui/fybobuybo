@@ -400,6 +400,47 @@ PRODUCTS = [
 
     
 ]
+# ---------------- BLOG SECTION ---------------- #
+BLOG_POSTS = {
+    "8-essential-home-products-to-upgrade-your-space-in-2026": {
+        "title": "8 Essential Home Products to Upgrade Your Space in 2026",
+        "description": "Discover trending home upgrades for 2026 – smart devices, cozy textiles, and practical essentials to refresh your UK home affordably.",
+        "heading": "8 Essential Home Upgrades for 2026",
+        "subtitle": "Trending Amazon picks to make your space smarter, cozier, and more efficient this year.",
+        "content": """
+            <article style="max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;">
+                <p>As we step into 2026, many UK households are looking for simple, affordable ways to refresh their living spaces. From energy-saving tech to cozy comforts, here are 8 essential home products trending right now on Amazon.</p>
+                
+                <h2>1. Philips Hue Smart Bulbs</h2>
+                <p>Control lighting from your phone, set moods, and save energy – perfect starter smart home upgrade.</p>
+                
+                <h2>2. Ninja Air Fryer</h2>
+                <p>Healthier cooking with less oil, quick meals, and lower energy use than a traditional oven.</p>
+                
+                <h2>3. Meaco Dehumidifier</h2>
+                <p>Combat UK damp, dry laundry faster indoors, and prevent mould – a winter essential.</p>
+                
+                <h2>4. Luxury Fluffy Bath Mat or Area Rug</h2>
+                <p>Instant warmth underfoot with non-slip, quick-dry designs.</p>
+                
+                <h2>5. Aromatherapy Essential Oil Diffuser</h2>
+                <p>Create a relaxing spa atmosphere at home with calming scents.</p>
+                
+                <h2>6. Heated Electric Throw Blanket</h2>
+                <p>Stay cozy on the sofa while cutting heating bills.</p>
+                
+                <h2>7. Cordless Stick or Robot Vacuum</h2>
+                <p>Effortless daily cleaning – huge time-saver for busy homes.</p>
+                
+                <h2>8. Under-Bed Storage Organisers</h2>
+                <p>Maximise space in smaller UK properties without clutter.</p>
+                
+                <p>All these products are available with fast Prime delivery. Start your 2026 home refresh today!</p>
+            </article>
+        """
+    }
+    # Add more posts here later
+}
 
 # ---------------- THEMES ---------------- #
 THEMES = [
@@ -680,6 +721,7 @@ BASE_HTML = """<!DOCTYPE html>
 <nav>
     <a href="/">Home</a>
     <a href="/all-gifts">All Gifts</a>
+    <a href="/blog">Blog</a>
     {% for cat in categories %}
     <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
     {% endfor %}
@@ -991,6 +1033,61 @@ def product_detail(product_slug):
         products=[found_product],
         related_products=related
     )
+    @app.route("/blog")
+def blog_index():
+    products = refresh_products(background=True)[:6]  # Teaser products
+    return render_page(
+        title="Blog – FyboBuybo",
+        description="Gift guides, home tips, and trending product recommendations",
+        heading="FyboBuybo Blog",
+        subtitle="Latest articles on gifts and home inspiration",
+        products=products
+    )
+
+@app.route("/blog/<slug>")
+def blog_detail(slug):
+    post = BLOG_POSTS.get(slug)
+    if not post:
+        abort(404)
+    
+    all_products = refresh_products(background=True)
+    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+    
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    
+    rendered = render_template_string(
+        BASE_HTML,
+        title=post["title"],
+        description=post["description"],
+        heading=post["heading"],
+        subtitle=post["subtitle"],
+        products=[],  # No main grid
+        categories=get_categories(load_history()),
+        css=css,
+        canonical_url=SITE_URL + request.path,
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        related_products=related,
+        gradient=theme["gradient"],
+        next_page_url=None,
+        prev_page_url=None
+    )
+    
+    # Insert content after subtitle
+    insert_point = rendered.find('<p class="subtitle">')
+    if insert_point != -1:
+        insert_point = rendered.find('</p>', insert_point) + 4
+        rendered = rendered[:insert_point] + post["content"] + rendered[insert_point:]
+    
+    # Update related header
+    rendered = rendered.replace(
+        '<h2 style="text-align:center;margin:60px 0 20px;',
+        '<h2 style="text-align:center;margin:80px 0 40px;font-size:2rem;background:' + theme["gradient"] + ';-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Trending Related Products</h2><h2 style="text-align:center;margin:60px 0 20px;'
+    )
+    
+    return rendered
 
 
 
