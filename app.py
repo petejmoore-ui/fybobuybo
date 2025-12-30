@@ -28,7 +28,7 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/51MY3VTr3pL._AC_SX679_.jpg",
     "url": f"https://amzn.to/48Ylszg?tag={AFFILIATE_TAG}",
     "info": "Quiet 12L dehumidifier with HEPA air purifier – removes damp, mould, and allergens while drying laundry faster. Energy-efficient, ultra-quiet night mode – bestselling UK choice for healthier homes."
-}
+},
     {
     "name": "Philips Hue White Smart Bulb Twin Pack LED [B22 Bayonet Cap] – Dimmable, Bluetooth & Zigbee Compatible, Works with Alexa, Google Assistant and Apple HomeKit",
     "category": "Lighting",  # Or "Home & Kitchen" to match your existing
