@@ -21,6 +21,49 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
 
+    
+    {
+    "name": "Ooni Karu 16 Multi-Fuel Outdoor Pizza Oven - Wood, Charcoal or Gas Fired",
+    "category": "Home & Kitchen",
+    "season": "Summer Essentials, Father's Day Gifts",
+    "image": "https://m.media-amazon.com/images/I/61gq41WEf3L._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4sAOw7R?tag={AFFILIATE_TAG}",
+    "info": "Versatile multi-fuel pizza oven reaching 950°F for authentic 60-second Neapolitan pizzas — burns wood, charcoal or gas (with optional burner). Large 16-inch cooking area, hinged door with thermometer, and premium build — bestselling choice for garden entertaining and outdoor cooking enthusiasts."
+},
+
+    {
+    "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
+    "category": "Electronics",
+    "season": "Christmas Gift Ideas, Valentine's Day Gifts",
+    "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
+    "url": f"https://amzn.to/4pZnuoJ?tag={AFFILIATE_TAG}",
+    "info": "Latest AirPods Pro 2 with USB-C charging, advanced active noise cancellation, adaptive audio, personalised spatial audio with head tracking, and new hearing health features — up to 6 hours listening time per charge. Premium wireless earbuds that remain the top choice for seamless iPhone integration and immersive sound."
+},
+    {
+    "name": "Dyson V8 Advanced Cordless Vacuum Cleaner",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3MZbchx?tag={AFFILIATE_TAG}",
+    "info": "Flagship Dyson V15 Detect with laser dust detection, auto-adjusting suction, LCD screen showing real-time particle count, piezo sensor, and whole-machine HEPA filtration — up to 60 minutes runtime. Premium cordless vacuum that's a top-trending gift for spotless homes and effortless cleaning."
+},
+    {
+    "name": "Shark Stratos Cordless Pet Pro Stick Vacuum Cleaner IZ402UKTSB - Anti Hair Wrap Plus, Clean Sense IQ, DuoClean, 60min Run-Time, Removable Battery, Anti-Allergen, White/Navy",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/615kcyMiPJL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4jguATc?tag={AFFILIATE_TAG}",
+    "info": "Powerful cordless stick vacuum with Clean Sense IQ (auto-adjusts suction for hidden dirt), Anti Hair Wrap Plus (removes pet/long hair from brush-roll), DuoClean floors, odour neutraliser, and anti-allergen seal — up to 60min runtime with removable battery. Bestselling upgrade for pet owners and busy homes seeking effortless, deep cleaning."
+},
+    {
+    "name": "eufy X10 Pro Omni Robot Vacuum Cleaner With Mop, AI Obstacle Avoidance,
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/612vDNxMmtL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3LoiHhx?tag={AFFILIATE_TAG}",
+    "info": "Advanced robot vacuum and mop with 5500Pa suction, 3D obstacle avoidance, auto-empty station, self-washing/hot air drying mop pads, and auto-refill — keeps floors clean with minimal effort. Bestselling smart home upgrade for busy households seeking effortless cleaning and a fresh start in the new year."
+},
+
     {
     "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
     "category": "Electronics",
