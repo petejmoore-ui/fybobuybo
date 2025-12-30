@@ -20,6 +20,16 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+
+    {
+    "name": "SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier",
+    "category": "Home & Kitchen",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3MZhjCD?tag={AFFILIATE_TAG}",
+    "info": "Large 500ml ultrasonic diffuser with 7-colour LED lights, 4 timer settings, and auto shut-off – creates relaxing aromatherapy mist for up to 15 hours. Quiet operation and remote control make it perfect for bedrooms, living rooms, or wellness spaces."
+},
+    
     {
     "name": "Utopia Towels Luxury Fluffy Bath Mat Rug 50x80cm - Grey",
     "category": "Home & Kitchen",
@@ -516,8 +526,26 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>5. Aromatherapy Essential Oil Diffuser</h2>
-                <p>Create a relaxing spa atmosphere at home with calming scents.</p>
+               <h2>5. SALKING Aromatherapy Essential Oil Diffuser 500ml</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/salking-aromatherapy-essential-oil-diffuser-500ml-ultrasonic-cool-mist-humidifier">
+        <img src="https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg" 
+             alt="SALKING 500ml Aromatherapy Diffuser with LED lights and remote" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Create a relaxing spa atmosphere at home with calming scents. Large 500ml capacity runs up to 15 hours with quiet ultrasonic mist, 7 soothing LED colours, 4 timers, remote control, and auto shut-off – ideal for better sleep, stress relief, and wellness routines.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/salking-aromatherapy-essential-oil-diffuser-500ml-ultrasonic-cool-mist-humidifier">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/3MZhjCD?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'SALKING Aromatherapy Diffuser', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <h2>6. Heated Electric Throw Blanket</h2>
                 <p>Stay cozy on the sofa while cutting heating bills.</p>
