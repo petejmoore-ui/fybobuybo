@@ -20,6 +20,14 @@ ITEMS_PER_PAGE = 12
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+    {
+    "name": "Utopia Towels Luxury Fluffy Bath Mat Rug 50x80cm - Grey",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials, Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg",
+    "url": f"https://amzn.to/3KTbvKj?tag={AFFILIATE_TAG}",
+    "info": "Super soft, ultra-absorbent microfibre bath mat with non-slip rubber backing – quick-drying, machine washable, and luxuriously fluffy for instant warmth and comfort underfoot in bathrooms or bedrooms."
+},
 
     {
     "name": "MeacoDry Arete Two 12L Dehumidifier and Air Purifier",
@@ -487,8 +495,26 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>4. Luxury Fluffy Bath Mat or Area Rug</h2>
-                <p>Instant warmth underfoot with non-slip, quick-dry designs.</p>
+                <h2>4. Utopia Towels Luxury Fluffy Bath Mat Rug (50x80cm)</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey">
+        <img src="https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg" 
+             alt="Utopia Towels Luxury Fluffy Grey Bath Mat – soft microfibre rug" 
+             loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Instant warmth underfoot with non-slip, quick-dry designs. Super-absorbent microfibre that's machine washable and luxuriously plush – bestselling upgrade for cosy bathrooms without the premium price tag.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="https://amzn.to/4si7AHt?tag=whoaccepts-21" 
+           target="_blank" rel="nofollow sponsored"
+           onclick="gtag('event', 'affiliate_click', {'event_category': 'Home & Kitchen', 'event_label': 'Utopia Fluffy Bath Mat', 'value': 1});">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
                 
                 <h2>5. Aromatherapy Essential Oil Diffuser</h2>
                 <p>Create a relaxing spa atmosphere at home with calming scents.</p>
