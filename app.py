@@ -421,11 +421,11 @@ BLOG_POSTS = {
                 
                 <h2>1. Philips Hue Smart Bulbs</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
-    <a href="/product/philips-hue-smart-bulbs">
-        <img src="https://m.media-amazon.com/images/I/71zXgQAXMPL._AC_SX679_.jpg" alt="Philips Hue Smart Bulbs" loading="lazy" style="border-radius:16px;">
+    <a href="/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit">
+        <img src="https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg" alt="Philips Hue Smart Bulbs" loading="lazy" style="border-radius:16px;">
     </a>
     <p>Control lighting from your phone, set moods, and save energy – perfect starter smart home upgrade.</p>
-    <a href="/product/philips-hue-smart-bulbs">
+    <a href="/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit">
         <button>View Details & Buy</button>
     </a>
 </div>
