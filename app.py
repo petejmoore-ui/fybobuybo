@@ -56,7 +56,7 @@ PRODUCTS = [
     "info": "Powerful cordless stick vacuum with Clean Sense IQ (auto-adjusts suction for hidden dirt), Anti Hair Wrap Plus (removes pet/long hair from brush-roll), DuoClean floors, odour neutraliser, and anti-allergen seal — up to 60min runtime with removable battery. Bestselling upgrade for pet owners and busy homes seeking effortless, deep cleaning."
 },
     {
-    "name": "eufy X10 Pro Omni Robot Vacuum Cleaner With Mop, AI Obstacle Avoidance,
+    "name": "eufy X10 Pro Omni Robot Vacuum Cleaner With Mop, AI Obstacle Avoidance",
     "category": "Home & Kitchen",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/612vDNxMmtL._AC_SX679_.jpg",
