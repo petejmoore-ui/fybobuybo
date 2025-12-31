@@ -829,22 +829,29 @@ def slugify(text):
     return text
 
 def get_categories(history):
-    # Use only today's products for nav categories (prevents old duplicates)
     today_str = str(datetime.date.today())
-    today_products = history.get(today_str, [])
-    if not today_products:
-        # Fallback: use current static PRODUCTS list
-        today_products = PRODUCTS
+    today_products = history.get(today_str, PRODUCTS)
     
     cats = set()
+    subcats = set()
+    
     for p in today_products:
         cats.add(p["category"])
+        if "subcategory" in p:
+            subcats.add(p["subcategory"])
         if "season" in p:
             for s in p["season"].split(","):
                 stripped = s.strip()
                 if stripped:
-                    cats.add(stripped)
-    return sorted(cats)
+                    cats.add(stripped)  # Keep seasons as top-level if you want
+    
+    # Add subcategories as "Parent > Sub" for unique display/slug
+    combined = sorted(cats)
+    for sub in sorted(subcats):
+        # Find parent(s) – here assuming one main parent, or adjust
+        combined.append(f"Sports & Outdoors > {sub}")  # Change if multiple parents
+    
+    return combined
 
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
@@ -1212,22 +1219,43 @@ def home():
 def category(slug):
     history = load_history()
     unique_products = {}
+    
+    # Decode possible "parent-sub" format
+    if ">" in slug.replace("--", " "):  # Handle slugified "sports--and--outdoors-running-essentials"
+        parts = [part.strip() for part in slug.replace("--", "-").split("-") if part]
+        potential_sub = parts[-1] if len(parts) > 1 else None
+    else:
+        potential_sub = None
+    
     for day in history.values():
         for p in day:
-            # Match on category OR any season tag
-            if slugify(p["category"]) == slug or ("season" in p and slugify(slug) in [slugify(s.strip()) for s in p["season"].split(",")]):
+            match = False
+            if slugify(p["category"]) == slug:
+                match = True
+            elif "season" in p and any(slugify(s.strip()) == slug for s in p["season"].split(",")):
+                match = True
+            elif "subcategory" in p and slugify(p["subcategory"]) == slug:
+                match = True
+            # New: Match combined parent-sub slug
+            elif "subcategory" in p and slugify(f"{p['category']} {p['subcategory']}") == slug:
+                match = True
+            
+            if match:
                 key = p["name"] + p["url"]
                 unique_products[key] = p
+    
     products = [ensure_hook(p) for p in unique_products.values()]
     
     if not products:
         abort(404)
     
-    # Use the original name for display (find first match)
-    cat_name = next((p["category"] if slugify(p["category"]) == slug else s.strip() 
-                     for p in unique_products.values() 
-                     for s in (p.get("season", "").split(",") if "season" in p else []) 
-                     if slugify(s.strip()) == slug), slug.replace("-", " ").title())
+    # Display name logic (improve for subcats)
+    if ">" in slug:
+        cat_name = slug.replace("--", " > ").replace("-", " ").title()
+    else:
+        cat_name = slug.replace("-", " ").title()
+    
+    # ... rest unchanged
 
     def page_url(p):
         return url_for("category", slug=slug, page=p)
