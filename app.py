@@ -1530,11 +1530,11 @@ for slug, post in sorted_posts:
         </div>
     """
     
-post_list_html += """
+    post_list_html += """
     </div>
 </div>
 """
-    
+
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
