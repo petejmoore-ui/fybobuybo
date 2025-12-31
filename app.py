@@ -85,7 +85,7 @@ PRODUCTS = [
 {
     "name": "Anti-Blister Cushioned Running Socks",
     "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/71yF5XDAS9L._AC_SX679_.jpg",
     "url": f"https://amzn.to/3KY1nzY?tag={AFFILIATE_TAG}",
     "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs.",
     "date_added": "2025-12-31"
@@ -860,7 +860,7 @@ BLOG_POSTS = {
 <h2>8. Anti-Blister Running Socks</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
     <a href="/product/anti-blister-running-socks">
-        <img src="https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg" alt="Anti-blister cushioned running socks" loading="lazy" style="border-radius:16px;">
+        <img src="https://m.media-amazon.com/images/I/71yF5XDAS9L._AC_SX679_.jpg" alt="Anti-blister cushioned running socks" loading="lazy" style="border-radius:16px;">
     </a>
     <p>Good socks are one of the most overlooked running essentials. Anti-blister running socks reduce friction, wick moisture, and improve comfort on longer or more frequent runs.</p>
     
