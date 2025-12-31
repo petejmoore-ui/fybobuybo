@@ -27,7 +27,7 @@ PRODUCTS = [
     "season": "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/71y5JZqZKRL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training, long runs, and beginner runners."
+    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs."
 },
 {
     "name": "Reflective Running Armbands (Set of 4)",
@@ -35,7 +35,7 @@ PRODUCTS = [
     "season": "Running Safety",
     "image": "https://m.media-amazon.com/images/I/61oU3QX4bRL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "High-visibility reflective armbands improve safety during early morning and night runs. Lightweight, adjustable, and suitable for runners, cyclists, and walkers."
+    "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners."
 },
 {
     "name": "Lightweight Running Hydration Vest with Bottles",
@@ -43,23 +43,23 @@ PRODUCTS = [
     "season": "Distance Training",
     "image": "https://m.media-amazon.com/images/I/71J2Qh4k5GL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Breathable hydration vest with adjustable straps and front-mounted water bottles. Ideal for long runs, trail training, and runners increasing weekly mileage."
+    "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage."
 },
 {
-    "name": "Unigear Touchscreen Running Gloves",
+    "name": "Touchscreen-Compatible Running Gloves",
     "category": "Sports & Outdoors",
     "season": "Cold Weather Running",
-    "image": "https://m.media-amazon.com/images/I/61f5z+eXyJL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/61R9ZQZk6XL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Lightweight thermal running gloves with touchscreen-compatible fingertips. Keeps hands warm while allowing phone use during winter and early-morning runs."
+    "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs."
 },
 {
     "name": "Compression Running Tights for Training",
     "category": "Sports & Outdoors",
     "season": "All-Season Training",
-    "image": "https://m.media-amazon.com/images/I/61x4rGQkYJL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/61X6GkFZpXL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort. Suitable for cooler weather runs, recovery sessions, and long-distance training."
+    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs."
 },
 {
     "name": "Adjustable Running Headband Sweatband",
@@ -67,7 +67,7 @@ PRODUCTS = [
     "season": "Warm Weather Running",
     "image": "https://m.media-amazon.com/images/I/61P6E5Z5CXL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Moisture-wicking running headband that keeps sweat out of eyes during intense workouts. Lightweight and comfortable for everyday runs and summer training."
+    "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training."
 },
 {
     "name": "Lightweight Breathable Running Cap",
@@ -75,7 +75,7 @@ PRODUCTS = [
     "season": "Summer Running",
     "image": "https://m.media-amazon.com/images/I/71v5b2F7WFL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Quick-dry running cap designed to reduce sun glare and improve comfort. Breathable materials make it ideal for long runs and hot-weather training."
+    "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs."
 },
 {
     "name": "Anti-Blister Cushioned Running Socks",
@@ -83,7 +83,7 @@ PRODUCTS = [
     "season": "Everyday Running",
     "image": "https://m.media-amazon.com/images/I/71A6XxZ4hXL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters. Cushioned support improves comfort for frequent and long-distance runners."
+    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs."
 },
 {
     "name": "LED Clip-On Running Safety Light",
@@ -91,16 +91,17 @@ PRODUCTS = [
     "season": "Low Light Safety",
     "image": "https://m.media-amazon.com/images/I/61q9B8c5RXL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Compact LED safety light that clips onto clothing or belts for improved visibility. Ideal for early morning, evening, and winter runs."
+    "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs."
 },
 {
     "name": "Reusable Soft Running Water Bottle",
     "category": "Sports & Outdoors",
     "season": "Hydration Essentials",
-    "image": "https://m.media-amazon.com/images/I/61K3p7m+8ZL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/61K3p7m8ZL._AC_SX679_.jpg",
     "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
-    "info": "Lightweight collapsible soft flask designed for runners. Easy to carry by hand or in a vest, shrinking as you drink to reduce bulk during training runs."
+    "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs."
 },
+
 
 
     {
