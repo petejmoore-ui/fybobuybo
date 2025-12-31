@@ -586,7 +586,7 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>7. Dyson V15 Detect Advanced Cordless Vacuum Cleaner</h2>
+                <h2>7. Dyson Detect Advanced Cordless Vacuum Cleaner</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
     <a href="/product/dyson-v8-advanced-cordless-vacuum-cleaner">
         <img src="https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg" 
