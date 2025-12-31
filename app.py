@@ -716,7 +716,7 @@ BLOG_POSTS = {
                 <p>All these products are available with fast delivery. Start your 2026 home refresh today!</p>
             </article>
         """
-    }
+    },
 
 
 "8-essential-running-accessories-for-everyday-training-2026": {
