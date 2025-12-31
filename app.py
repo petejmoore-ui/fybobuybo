@@ -24,14 +24,14 @@ PRODUCTS = [
    
 {
     "name": "HAISSKY Lightweight Running Belt Waist Pack",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX425_.jpg",
     "url": f"https://amzn.to/3LpASn2?tag={AFFILIATE_TAG}",
     "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs."
 },
 {
     "name": "Reflective Running Armbands (Set of 4)",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3L9rfZK?tag={AFFILIATE_TAG}",
@@ -39,14 +39,14 @@ PRODUCTS = [
 },
 {
     "name": "LUMEFIT Running Vest Phone Holder - Hydration Vest with Water Bottle- Reflective Vest for Men and Women",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
     "url": f"https://amzn.to/4sAitou?tag={AFFILIATE_TAG}",
     "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage."
 },
 {
     "name": "Touchscreen-Compatible Running Gloves",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49iIrnF?tag={AFFILIATE_TAG}",
@@ -54,14 +54,14 @@ PRODUCTS = [
 },
 {
     "name": "Compression Running Tights for Training",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
     "url": f"https://amzn.to/4aFtmia?tag={AFFILIATE_TAG}",
     "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs."
 },
 {
     "name": "Ear Warmers Headband with Ponytail Hole",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "season": "Summer Essentials",
     "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49aRqZj?tag={AFFILIATE_TAG}",
@@ -69,28 +69,28 @@ PRODUCTS = [
 },
 {
     "name": "Lightweight Breathable Running Cap",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3YmhASv?tag={AFFILIATE_TAG}",
     "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs."
 },
 {
     "name": "Anti-Blister Cushioned Running Socks",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3KY1nzY?tag={AFFILIATE_TAG}",
     "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs."
 },
 {
     "name": "LED Clip-On Running Safety Light",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49fdWif?tag={AFFILIATE_TAG}",
     "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs."
 },
 {
     "name": "Reusable Soft Running Water Bottle",
-    "category": "Sports & Outdoors, Running Essentials",
+    "category": "Sports & Outdoors", "Running Essentials",
     "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49fUmCp?tag={AFFILIATE_TAG}",
     "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs."
