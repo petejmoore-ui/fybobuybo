@@ -845,12 +845,16 @@ def get_categories(history):
                 if stripped:
                     cats.add(stripped)
     
-    combined = sorted(cats)
-    for sub in sorted(parent_sub_map):
+    # Build full list
+    combined = list(cats)  # Main categories and seasons
+    
+    # Add hierarchical subcategories
+    for sub in parent_sub_map:
         parent = parent_sub_map[sub]
         combined.append(f"{parent} > {sub}")
     
-    return combined
+    # Sort everything alphabetically for clean nav order
+    return sorted(combined)
 
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
