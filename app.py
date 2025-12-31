@@ -32,8 +32,8 @@ PRODUCTS = [
 },
 {
     "name": "Reflective Running Armbands (Set of 4)",
-    "category": "Sports & Outdoors",
-    "season": "Running Safety",
+    "category": "Sports & Outdoors, Running",
+    "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3L9rfZK?tag={AFFILIATE_TAG}",
     "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners."
