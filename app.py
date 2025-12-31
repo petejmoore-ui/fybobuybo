@@ -541,6 +541,7 @@ BLOG_POSTS = {
         "description": "Discover trending home upgrades for 2026 – smart devices, cozy textiles, and practical essentials to refresh your UK home affordably.",
         "heading": "8 Essential Home Upgrades for 2026",
         "subtitle": "Trending Amazon picks to make your space smarter, cozier, and more efficient this year.",
+        "date": "2025-12-26",
         "content": """
             <article style="max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;">
                 <p>As we step into 2026, many UK households are looking for simple, affordable ways to refresh their living spaces. From energy-saving tech to cozy comforts, here are 8 essential home products trending right now on Amazon.</p>
@@ -719,6 +720,7 @@ BLOG_POSTS = {
         "description": "Discover practical running essentials for 2026 – storage, hydration, safety, and comfort accessories ideal for beginners and everyday runners.",
         "heading": "10 Essential Running Accessories for 2026",
         "subtitle": "Practical, affordable running gear to improve comfort, safety, and performance this year.",
+        "date": "2025-12-31",
         "content": """
             <article style="max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;">
                 <p>Whether you're starting running for the first time or building consistency in 2026, the right accessories can make every run safer and more comfortable. Below are 10 essential running accessories that everyday runners rely on, all widely available online.</p>
@@ -1480,21 +1482,44 @@ def product_detail(product_slug):
     
 @app.route("/blog")
 def blog_index():
+    # Sort posts by date descending (newest first)
+    sorted_posts = sorted(
+        BLOG_POSTS.items(),
+        key=lambda x: x[1].get("date", "1900-01-01"),
+        reverse=True
+    )
+    
     post_list_html = """
     <div style="max-width:900px;margin:60px auto;padding:20px;">
         <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
             Latest Articles
         </h2>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
+    """
+    
+    for slug, post in sorted_posts:
+        # Format date nicely: December 31, 2025
+        from datetime import datetime
+        date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
+        formatted_date = date_obj.strftime("%B %d, %Y")
+        
+        post_list_html += f"""
             <div class="card">
-                <h3 style="font-size:1.5rem;margin-bottom:10px;">
-                    <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;text-decoration:none;">
-                        8 Essential Home Products to Upgrade Your Space in 2026
+                <h3 style="font-size:1.5rem;margin-bottom:8px;">
+                    <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
+                        {post['title']}
                     </a>
                 </h3>
-                <p style="opacity:.85;font-size:1rem;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
+                <p style="opacity:.7;font-size:0.95rem;margin:0 0 12px 0;color:#94a3b8;">
+                    {formatted_date}
+                </p>
+                <p style="opacity:.85;font-size:1rem;line-height:1.6;">
+                    {post['description']}
+                </p>
             </div>
-            <!-- Add more cards here for future posts -->
+        """
+    
+    post_list_html += """
         </div>
     </div>
     """
@@ -1509,7 +1534,7 @@ def blog_index():
         heading="FyboBuybo Blog",
         subtitle="Latest articles on gifts and home inspiration",
         products=[],
-        categories=[],  # Empty to skip loop
+        categories=[], 
         css=css,
         canonical_url=SITE_URL + "/blog",
         SITE_URL=SITE_URL,
@@ -1521,14 +1546,11 @@ def blog_index():
         prev_page_url=None
     )
     
-    # Remove the categories loop entirely (safe replace)
     rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
     
-    # Insert post list after subtitle
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
     
-    # Clean empty grids
     rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
     
     return rendered
