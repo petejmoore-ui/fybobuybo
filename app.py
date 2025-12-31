@@ -1502,39 +1502,37 @@ def blog_index():
     )
     
     post_list_html = """
-    <div style="max-width:900px;margin:60px auto;padding:20px;">
-        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-            Latest Articles
-        </h2>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
-    """
+<div style="max-width:900px;margin:20px auto 60px;padding:0 20px;">
+    <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+        Latest Articles
+    </h2>
+    <div class="grid" style="grid-template-columns:1fr;gap:20px;">
+"""
     
-    for slug, post in sorted_posts:
-        # Format date nicely: December 31, 2025
-        from datetime import datetime
-        date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
-        formatted_date = date_obj.strftime("%B %d, %Y")
+for slug, post in sorted_posts:
+    date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
+    formatted_date = date_obj.strftime("%B %d, %Y")
         
-        post_list_html += f"""
-            <div class="card">
-                <h3 style="font-size:1.5rem;margin-bottom:8px;">
-                    <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
-                        {post['title']}
-                    </a>
-                </h3>
-                <p style="opacity:.7;font-size:0.95rem;margin:0 0 12px 0;color:#94a3b8;">
-                    {formatted_date}
-                </p>
-                <p style="opacity:.85;font-size:1rem;line-height:1.6;">
-                    {post['description']}
-                </p>
-            </div>
-        """
-    
-    post_list_html += """
+    post_list_html += f"""
+        <div class="card" style="padding:24px;">
+            <h3 style="font-size:1.6rem;margin-bottom:8px;line-height:1.3;">
+                <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
+                    {post['title']}
+                </a>
+            </h3>
+            <p style="opacity:.7;font-size:0.95rem;margin:0 0 16px 0;color:#94a3b8;">
+                {formatted_date}
+            </p>
+            <p style="opacity:.85;font-size:1.1rem;line-height:1.7;">
+                {post['description']}
+            </p>
         </div>
-    </div>
     """
+    
+post_list_html += """
+    </div>
+</div>
+"""
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
