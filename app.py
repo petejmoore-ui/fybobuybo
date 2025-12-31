@@ -839,7 +839,7 @@ def get_categories(history):
     cats = set()
     for p in today_products:
         cats.add(p["category"])
-        if p.get("season"):
+    if p.get("season"):
     for s in p["season"].split(","):
                 stripped = s.strip()
                 if stripped:
