@@ -21,92 +21,6 @@ ITEMS_PER_PAGE = 12
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
 
-   
-{
-    "name": "HAISSKY Lightweight Running Belt Waist Pack",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX425_.jpg",
-    "url": "https://amzn.to/3LpASn2?tag=whoaccepts-21",
-    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs."
-},
-{
-    "name": "Reflective Running Armbands (Set of 4)",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
-    "url": "https://amzn.to/3L9rfZK?tag=whoaccepts-21",
-    "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners."
-},
-{
-    "name": "LUMEFIT Running Vest Phone Holder - Hydration Vest with Water Bottle- Reflective Vest for Men and Women",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
-    "url": "https://amzn.to/4sAitou?tag=whoaccepts-21",
-    "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage."
-},
-{
-    "name": "Touchscreen-Compatible Running Gloves",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
-    "url": "https://amzn.to/49iIrnF?tag=whoaccepts-21",
-    "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs."
-},
-{
-    "name": "Compression Running Tights for Training",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
-    "url": "https://amzn.to/4aFtmia?tag=whoaccepts-21",
-    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs."
-},
-{
-    "name": "Ear Warmers Headband with Ponytail Hole",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "season": "Summer Essentials",
-    "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
-    "url": "https://amzn.to/49aRqZj?tag=whoaccepts-21",
-    "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training."
-},
-{
-    "name": "Lightweight Breathable Running Cap",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
-    "url": "https://amzn.to/3YmhASv?tag=whoaccepts-21",
-    "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs."
-},
-{
-    "name": "Anti-Blister Cushioned Running Socks",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/81EZqFrfsKL._AC_SX679_.jpg",
-    "url": "https://amzn.to/3KY1nzY?tag=whoaccepts-21",
-    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs."
-},
-{
-    "name": "LED Clip-On Running Safety Light",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
-    "url": "https://amzn.to/49fdWif?tag=whoaccepts-21",
-    "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs."
-},
-{
-    "name": "Reusable Soft Running Water Bottle",
-    "category": "Sports & Outdoors",
-    "subcategory": "Running Essentials",
-    "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
-    "url": "https://amzn.to/49fUmCp?tag=whoaccepts-21",
-    "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs."
-},
-
-
     {
     "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
     "category": "Home & Kitchen",
@@ -536,8 +450,8 @@ PRODUCTS = [
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
     }
 
- ]   
-
+    
+]
 # ---------------- BLOG SECTION ---------------- #
 BLOG_POSTS = {
     "8-essential-home-products-to-upgrade-your-space-in-2026": {
@@ -672,7 +586,7 @@ BLOG_POSTS = {
     </div>
 </div>
                 
-                <h2>7. Dyson Detect Advanced Cordless Vacuum Cleaner</h2>
+                <h2>7. Dyson V15 Detect Advanced Cordless Vacuum Cleaner</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
     <a href="/product/dyson-v8-advanced-cordless-vacuum-cleaner">
         <img src="https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg" 
@@ -716,170 +630,7 @@ BLOG_POSTS = {
                 <p>All these products are available with fast delivery. Start your 2026 home refresh today!</p>
             </article>
         """
-    },
-
-
-"8-essential-running-accessories-for-everyday-training-2026": {
-    "title": "8 Essential Running Accessories for Everyday Training in 2026",
-    "description": "Discover practical running essentials for 2026 – storage, hydration, safety, and comfort accessories ideal for beginners and everyday runners.",
-    "heading": "8 Essential Running Accessories for 2026",
-    "subtitle": "Practical, affordable running gear to improve comfort, safety, and performance this year.",
-    "content": """
-        <article style="max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;">
-            <p>Whether you're starting running for the first time or building consistency in 2026, the right accessories can make every run safer and more comfortable. Below are 8 essential running accessories that everyday runners rely on, all widely available online.</p>
-            
-            <h2>1. Lightweight Running Belt for Phone & Keys</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/haissky-running-belt-waist-pack">
-                    <img src="https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX425_.jpg" alt="Lightweight running belt with phone pocket" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>A slim, bounce-free running belt is one of the most useful accessories for short and long runs. Ideal for carrying your phone, keys, and energy gels without bulky pockets or armbands.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                <a href="/product/haissky-running-belt-waist-pack">
-                    <button>View Details & Buy</button>
-                </a>
-                <a href="https://amzn.to/3LpASn2?tag=whoaccepts-21"
-                   target="_blank" rel="nofollow sponsored">
-                    <button style="background:#ff9900;">View on Amazon</button>
-                </a>
-                </div>
-            </div>
-            
-            <h2>2. Reflective Running Armbands for Low-Light Runs</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/reflective-running-armbands">
-                    <img src="https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg" alt="Reflective running armbands for night safety" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>Perfect for early morning or evening runs, reflective armbands improve visibility in traffic and poorly lit areas. A simple, low-cost safety upgrade for any runner.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/reflective-running-armbands">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/3L9rfZK?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <h2>3. Lightweight Hydration Vest for Long Runs</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/lightweight-running-hydration-vest">
-                    <img src="https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg" alt="Lightweight running hydration vest with bottles" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>For runners increasing distance in 2026, a lightweight hydration vest helps maintain performance without carrying bottles by hand. Adjustable fits make these suitable for beginners and experienced runners alike.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/lightweight-running-hydration-vest">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/4sAitou?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <h2>4. Touchscreen-Compatible Running Gloves</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/running-gloves-touchscreen">
-                    <img src="https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg" alt="Running gloves with touchscreen fingertips" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>Essential for cold-weather runs, lightweight running gloves keep hands warm while allowing phone use without removing them — ideal for winter training and early mornings.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/running-gloves-touchscreen">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/49iIrnF?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <h2>5. Compression Running Tights for Muscle Support</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/compression-running-tights">
-                    <img src="https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg" alt="Men’s compression running tights for training and recovery" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>Compression tights help reduce muscle fatigue and improve comfort on longer runs. Ideal for cooler weather training, recovery runs, and runners increasing weekly mileage.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/compression-running-tights">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/4aFtmia?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <h2>6. Adjustable Running Headband or Sweatband</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/running-headband-sweatband">
-                    <img src="https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg" alt="Lightweight running headband sweatband" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>A simple but effective running essential, sweatbands help keep sweat out of your eyes and improve comfort during warm-weather or high-intensity runs.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/running-headband-sweatband">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/49aRqZj?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <h2>7. Lightweight Running Cap for Sun Protection</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/lightweight-running-cap">
-                    <img src="https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg" alt="Breathable lightweight running cap" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>A breathable running cap protects against sun glare and light rain while improving visibility. Especially useful for summer training and long outdoor runs.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/lightweight-running-cap">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/3YmhASv?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <h2>8. Anti-Blister Running Socks</h2>
-            <div class="card" style="max-width:600px;margin:40px auto;">
-                <a href="/product/anti-blister-running-socks">
-                    <img src="https://m.media-amazon.com/images/I/81EZqFrfsKL._AC_SX679_.jpg" alt="Anti-blister cushioned running socks" loading="lazy" style="border-radius:16px;">
-                </a>
-                <p>Good socks are one of the most overlooked running essentials. Anti-blister running socks reduce friction, wick moisture, and improve comfort on longer or more frequent runs.</p>
-                
-                <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
-                    <a href="/product/anti-blister-running-socks">
-                        <button>View Details & Buy</button>
-                    </a>
-                    <a href="https://amzn.to/3KY1nzY?tag=whoaccepts-21"
-                       target="_blank" rel="nofollow sponsored">
-                        <button style="background:#ff9900;">View on Amazon</button>
-                    </a>
-                </div>
-            </div>
-
-            <p>These running accessories focus on comfort, safety, and convenience — the areas that matter most when building a consistent running habit in 2026. All items are widely available online with fast delivery.</p>
-        </article>
-    """
-}
-
-   
-
-
+    }
     # Add more posts here later
 }
 
@@ -985,13 +736,21 @@ def slugify(text):
     return text
 
 def get_categories(history):
+    # Use only today's products for nav categories (prevents old duplicates)
+    today_str = str(datetime.date.today())
+    today_products = history.get(today_str, [])
+    if not today_products:
+        # Fallback: use current static PRODUCTS list
+        today_products = PRODUCTS
+    
     cats = set()
-    for day in history.values():
-        for p in day:
-            cats.add(p["category"])
-            if "season" in p:
-                for s in p["season"].split(","):
-                    cats.add(s.strip())
+    for p in today_products:
+        cats.add(p["category"])
+        if "season" in p:
+            for s in p["season"].split(","):
+                stripped = s.strip()
+                if stripped:
+                    cats.add(stripped)
     return sorted(cats)
 
 def paginate(items, page):
@@ -1161,7 +920,6 @@ BASE_HTML = """<!DOCTYPE html>
 
 <nav>
     <a href="/">Home</a>
-    <a href="/all-gifts">All Gifts</a>
     <a href="/blog">Blog</a>
     {% for cat in categories %}
     <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
@@ -1392,37 +1150,6 @@ def category(slug):
         page_url=page_url
     )
 
-@app.route("/all-gifts")
-def all_gifts():
-    history = load_history()
-    today_str = str(datetime.date.today())
-    today_products = refresh_products(background=True)
-    
-    unique_products = {}
-    for p in today_products:
-        key = p["name"] + p["url"]
-        unique_products[key] = p
-    for date, day_prods in history.items():
-        if date != today_str:
-            for p in day_prods:
-                key = p["name"] + p["url"]
-                unique_products[key] = p
-    
-    all_products = [ensure_hook(p) for p in unique_products.values()]
-
-    def page_url(p):
-        return url_for("all_gifts", page=p)
-
-    page = int(request.args.get("page", 1))
-    return render_page(
-        title="All Gifts – FyboBuybo",
-        description="Browse our complete collection of trending UK gifts and popular presents across all categories.",
-        heading="All Gifts",
-        subtitle="Every hand-picked popular gift from our daily selections.",
-        products=all_products,
-        page=page,
-        page_url=page_url
-    )
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
@@ -1473,22 +1200,27 @@ def product_detail(product_slug):
         subtitle="A popular UK gift choice",
         products=[found_product],
         related_products=related
+        
     )
+    
 @app.route("/blog")
 def blog_index():
-    # Simple list of blog posts (clickable)
-    post_list = """
-    <div style="max-width:900px;margin:40px auto;text-align:left;">
-        <h2 style="text-align:center;margin-bottom:40px;">Latest Articles</h2>
-        <ul style="list-style:none;padding:0;">
-            <li style="margin:20px 0;">
-                <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;font-size:1.3rem;font-weight:700;">
-                    8 Essential Home Products to Upgrade Your Space in 2026
-                </a>
-                <p style="opacity:.8;margin-top:8px;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
-            </li>
-            <!-- Add more <li> entries here for future posts -->
-        </ul>
+    post_list_html = """
+    <div style="max-width:900px;margin:60px auto;padding:20px;">
+        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            Latest Articles
+        </h2>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;">
+            <div class="card">
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">
+                    <a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026" style="color:#bae6fd;text-decoration:none;">
+                        8 Essential Home Products to Upgrade Your Space in 2026
+                    </a>
+                </h3>
+                <p style="opacity:.85;font-size:1rem;">Trending Amazon picks to make your space smarter, cozier, and more efficient this year.</p>
+            </div>
+            <!-- Add more cards here for future posts -->
+        </div>
     </div>
     """
     
@@ -1501,8 +1233,8 @@ def blog_index():
         description="Gift guides, home tips, and trending product recommendations",
         heading="FyboBuybo Blog",
         subtitle="Latest articles on gifts and home inspiration",
-        products=[],  # No product grid on blog index
-        categories=get_categories(load_history()),
+        products=[],
+        categories=[],  # Empty to skip loop
         css=css,
         canonical_url=SITE_URL + "/blog",
         SITE_URL=SITE_URL,
@@ -1514,15 +1246,57 @@ def blog_index():
         prev_page_url=None
     )
     
+    # Remove the categories loop entirely (safe replace)
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    
     # Insert post list after subtitle
-    insert_point = rendered.find('<p class="subtitle">')
-    if insert_point != -1:
-        insert_point = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_point] + post_list + rendered[insert_point:]
+    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
+    rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
+    
+    # Clean empty grids
+    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
     
     return rendered
 
-
+@app.route("/blog/<slug>")
+def blog_detail(slug):
+    post = BLOG_POSTS.get(slug)
+    if not post:
+        abort(404)
+    
+    all_products = refresh_products(background=True)
+    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+    
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    
+    rendered = render_template_string(
+        BASE_HTML,
+        title=post["title"],
+        description=post["description"],
+        heading=post["heading"],
+        subtitle=post["subtitle"],
+        products=[],
+        categories=[],
+        css=css,
+        canonical_url=SITE_URL + request.path,
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        related_products=related,
+        gradient=theme["gradient"],
+        next_page_url=None,
+        prev_page_url=None
+    )
+    
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    
+    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
+    rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
+    
+    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
+    
+    return rendered
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
@@ -1566,4 +1340,3 @@ def sitemap():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
-
