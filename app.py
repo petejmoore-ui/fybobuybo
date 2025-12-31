@@ -1510,13 +1510,13 @@ def blog_index():
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
 """
     
-        for slug, post in sorted_posts:
-        post_date = post.get("date", "2025-01-01")  # fallback if missing
+           for slug, post in sorted_posts:
+        post_date = post.get("date", "2025-01-01")
         try:
             date_obj = datetime.strptime(post_date, "%Y-%m-%d")
             formatted_date = date_obj.strftime("%B %d, %Y")
         except ValueError:
-            formatted_date = "Date unknown"  # fallback if format wrong
+            formatted_date = "Date unknown"
         
         post_list_html += f"""
         <div class="card" style="padding:28px;border-radius:22px;">
@@ -1532,15 +1532,14 @@ def blog_index():
                 {post['description']}
             </p>
         </div>
-    """
-    
-    # ← THIS CLOSING BLOCK MUST BE ALIGNED WITH THE 'for' LOOP (4 spaces)
+        """
+
+    # ← ONLY ONE closing block, aligned with 'for' (4 spaces)
     post_list_html += """
     </div>
 </div>
 """
 
-    # ← NOW CONTINUE AT FUNCTION LEVEL (4 spaces)
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
