@@ -536,7 +536,7 @@ PRODUCTS = [
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades."
     }
 
-    
+ ]   
 
 # ---------------- BLOG SECTION ---------------- #
 BLOG_POSTS = {
