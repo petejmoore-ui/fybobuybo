@@ -1502,7 +1502,7 @@ def blog_index():
         reverse=True
     )
     
-        post_list_html = """
+    post_list_html = """
 <div style="max-width:900px;margin:40px auto 80px;padding:0 20px;">
     <h2 style="text-align:center;margin-bottom:40px;font-size:2.2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
         Latest Articles
