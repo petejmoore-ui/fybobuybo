@@ -1,11 +1,13 @@
 import os
 import json
-import datetime
 import re
-from flask import Flask, render_template_string, abort, Response, request, url_for
+import datetime
+from datetime import date        # ← Add this line
+from threading import Thread
+
+from flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
 from dotenv import load_dotenv
-from threading import Thread
 
 load_dotenv()
 
@@ -17,6 +19,9 @@ HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://fybobuybo.com"
 ITEMS_PER_PAGE = 12
+
+# Ensure data directory exists (important for deployment platforms)
+os.makedirs("/data", exist_ok=True)
 
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
