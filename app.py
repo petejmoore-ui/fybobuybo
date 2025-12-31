@@ -1510,11 +1510,11 @@ def blog_index():
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
 """
     
-for slug, post in sorted_posts:
-    date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
-    formatted_date = date_obj.strftime("%B %d, %Y")
+    for slug, post in sorted_posts:
+        date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
+        formatted_date = date_obj.strftime("%B %d, %Y")
         
-    post_list_html += f"""
+        post_list_html += f"""
         <div class="card" style="padding:28px;border-radius:22px;">
             <h3 style="font-size:1.65rem;margin-bottom:10px;line-height:1.3;">
                 <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
@@ -1530,11 +1530,13 @@ for slug, post in sorted_posts:
         </div>
     """
     
+    # ← THIS CLOSING BLOCK MUST BE ALIGNED WITH THE 'for' LOOP (4 spaces)
     post_list_html += """
     </div>
 </div>
 """
 
+    # ← NOW CONTINUE AT FUNCTION LEVEL (4 spaces)
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
@@ -1561,46 +1563,6 @@ for slug, post in sorted_posts:
     
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
-    
-    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
-    
-    return rendered
-
-@app.route("/blog/<slug>")
-def blog_detail(slug):
-    post = BLOG_POSTS.get(slug)
-    if not post:
-        abort(404)
-    
-    all_products = refresh_products(background=True)
-    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
-    
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    
-    rendered = render_template_string(
-        BASE_HTML,
-        title=post["title"],
-        description=post["description"],
-        heading=post["heading"],
-        subtitle=post["subtitle"],
-        products=[],
-        categories=[],
-        css=css,
-        canonical_url=SITE_URL + request.path,
-        SITE_URL=SITE_URL,
-        slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        related_products=related,
-        gradient=theme["gradient"],
-        next_page_url=None,
-        prev_page_url=None
-    )
-    
-    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
-    
-    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
-    rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
     
     rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
     
