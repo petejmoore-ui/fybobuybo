@@ -833,23 +833,22 @@ def get_categories(history):
     today_products = history.get(today_str, PRODUCTS)
     
     cats = set()
-    subcats = set()
+    parent_sub_map = {}  # sub -> parent
     
     for p in today_products:
         cats.add(p["category"])
         if "subcategory" in p:
-            subcats.add(p["subcategory"])
+            parent_sub_map[p["subcategory"]] = p["category"]
         if "season" in p:
             for s in p["season"].split(","):
                 stripped = s.strip()
                 if stripped:
-                    cats.add(stripped)  # Keep seasons as top-level if you want
+                    cats.add(stripped)
     
-    # Add subcategories as "Parent > Sub" for unique display/slug
     combined = sorted(cats)
-    for sub in sorted(subcats):
-        # Find parent(s) – here assuming one main parent, or adjust
-        combined.append(f"Sports & Outdoors > {sub}")  # Change if multiple parents
+    for sub in sorted(parent_sub_map):
+        parent = parent_sub_map[sub]
+        combined.append(f"{parent} > {sub}")
     
     return combined
 
@@ -1037,7 +1036,9 @@ BASE_HTML = """<!DOCTYPE html>
 <div class="grid">
 {% for p in products %}
 <div class="card">
-    <span class="tag">{{ p.category }}</span>
+    <span class="tag">
+    {{ p.category }}{% if "subcategory" in p %} > {{ p.subcategory }}{% endif %}
+    </span>
     <a href="/product/{{ slugify(p.name) }}">
         <h2>{{ shorten_product_name(p.name) }}</h2>
     </a>
@@ -1109,8 +1110,10 @@ BASE_HTML = """<!DOCTYPE html>
         <button>View on Amazon</button>
     </a>
 
-    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
-        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+        <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+        More <a href="/category/{{ slugify(p.category + (' > ' + p.subcategory if 'subcategory' in p else '')) }}">
+            {{ p.category }}{% if "subcategory" in p %} > {{ p.subcategory }}{% endif %}
+        </a> gifts
     </p>
 </div>
 {% endfor %}
