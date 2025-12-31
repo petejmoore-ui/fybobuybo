@@ -22,6 +22,88 @@ ITEMS_PER_PAGE = 12
 PRODUCTS = [
 
     {
+    "name": "HAISSKY Lightweight Running Belt Waist Pack",
+    "category": "Sports & Outdoors",
+    "season": "Running Essentials",
+    "image": "https://m.media-amazon.com/images/I/71y5JZqZKRL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training, long runs, and beginner runners."
+},
+{
+    "name": "Reflective Running Armbands (Set of 4)",
+    "category": "Sports & Outdoors",
+    "season": "Running Safety",
+    "image": "https://m.media-amazon.com/images/I/61oU3QX4bRL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "High-visibility reflective armbands improve safety during early morning and night runs. Lightweight, adjustable, and suitable for runners, cyclists, and walkers."
+},
+{
+    "name": "Lightweight Running Hydration Vest with Bottles",
+    "category": "Sports & Outdoors",
+    "season": "Distance Training",
+    "image": "https://m.media-amazon.com/images/I/71J2Qh4k5GL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Breathable hydration vest with adjustable straps and front-mounted water bottles. Ideal for long runs, trail training, and runners increasing weekly mileage."
+},
+{
+    "name": "Unigear Touchscreen Running Gloves",
+    "category": "Sports & Outdoors",
+    "season": "Cold Weather Running",
+    "image": "https://m.media-amazon.com/images/I/61f5z+eXyJL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Lightweight thermal running gloves with touchscreen-compatible fingertips. Keeps hands warm while allowing phone use during winter and early-morning runs."
+},
+{
+    "name": "Compression Running Tights for Training",
+    "category": "Sports & Outdoors",
+    "season": "All-Season Training",
+    "image": "https://m.media-amazon.com/images/I/61x4rGQkYJL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort. Suitable for cooler weather runs, recovery sessions, and long-distance training."
+},
+{
+    "name": "Adjustable Running Headband Sweatband",
+    "category": "Sports & Outdoors",
+    "season": "Warm Weather Running",
+    "image": "https://m.media-amazon.com/images/I/61P6E5Z5CXL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Moisture-wicking running headband that keeps sweat out of eyes during intense workouts. Lightweight and comfortable for everyday runs and summer training."
+},
+{
+    "name": "Lightweight Breathable Running Cap",
+    "category": "Sports & Outdoors",
+    "season": "Summer Running",
+    "image": "https://m.media-amazon.com/images/I/71v5b2F7WFL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Quick-dry running cap designed to reduce sun glare and improve comfort. Breathable materials make it ideal for long runs and hot-weather training."
+},
+{
+    "name": "Anti-Blister Cushioned Running Socks",
+    "category": "Sports & Outdoors",
+    "season": "Everyday Running",
+    "image": "https://m.media-amazon.com/images/I/71A6XxZ4hXL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters. Cushioned support improves comfort for frequent and long-distance runners."
+},
+{
+    "name": "LED Clip-On Running Safety Light",
+    "category": "Sports & Outdoors",
+    "season": "Low Light Safety",
+    "image": "https://m.media-amazon.com/images/I/61q9B8c5RXL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Compact LED safety light that clips onto clothing or belts for improved visibility. Ideal for early morning, evening, and winter runs."
+},
+{
+    "name": "Reusable Soft Running Water Bottle",
+    "category": "Sports & Outdoors",
+    "season": "Hydration Essentials",
+    "image": "https://m.media-amazon.com/images/I/61K3p7m+8ZL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/XXXXXXX?tag={AFFILIATE_TAG}",
+    "info": "Lightweight collapsible soft flask designed for runners. Easy to carry by hand or in a vest, shrinking as you drink to reduce bulk during training runs."
+},
+
+
+    {
     "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
     "category": "Home & Kitchen",
     "season": "New Year Essentials",
@@ -631,6 +713,207 @@ BLOG_POSTS = {
             </article>
         """
     }
+
+
+
+
+
+    BLOG_POSTS = {
+    "8-essential-running-accessories-for-everyday-training-2026": {
+        "title": "8 Essential Running Accessories for Everyday Training in 2026",
+        "description": "Discover practical running essentials for 2026 – storage, hydration, safety, and comfort accessories ideal for beginners and everyday runners.",
+        "heading": "8 Essential Running Accessories for 2026",
+        "subtitle": "Practical, affordable running gear to improve comfort, safety, and performance this year.",
+        "content": """
+            <article style="max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;">
+                <p>Whether you're starting running for the first time or building consistency in 2026, the right accessories can make every run safer and more comfortable. Below are 8 essential running accessories that everyday runners rely on, all widely available online.</p>
+                
+                <h2>1. Lightweight Running Belt for Phone & Keys</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/haissky-running-belt-waist-pack">
+        <img src="IMAGE_URL_HERE" alt="Lightweight running belt with phone pocket" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>A slim, bounce-free running belt is one of the most useful accessories for short and long runs. Ideal for carrying your phone, keys, and energy gels without bulky pockets or armbands.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+    <a href="/product/haissky-running-belt-waist-pack">
+        <button>View Details & Buy</button>
+    </a>
+    <a href="AMAZON_AFFILIATE_LINK"
+       target="_blank" rel="nofollow sponsored">
+        <button style="background:#ff9900;">View on Amazon</button>
+    </a>
+    </div>
+</div>
+                
+                <h2>2. Reflective Running Armbands for Low-Light Runs</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/reflective-running-armbands">
+        <img src="IMAGE_URL_HERE" alt="Reflective running armbands for night safety" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Perfect for early morning or evening runs, reflective armbands improve visibility in traffic and poorly lit areas. A simple, low-cost safety upgrade for any runner.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/reflective-running-armbands">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+                <h2>3. Lightweight Hydration Vest for Long Runs</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/lightweight-running-hydration-vest">
+        <img src="IMAGE_URL_HERE" alt="Lightweight running hydration vest with bottles" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>For runners increasing distance in 2026, a lightweight hydration vest helps maintain performance without carrying bottles by hand. Adjustable fits make these suitable for beginners and experienced runners alike.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/lightweight-running-hydration-vest">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+                <h2>4. Touchscreen-Compatible Running Gloves</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/running-gloves-touchscreen">
+        <img src="IMAGE_URL_HERE" alt="Running gloves with touchscreen fingertips" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Essential for cold-weather runs, lightweight running gloves keep hands warm while allowing phone use without removing them — ideal for winter training and early mornings.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/running-gloves-touchscreen">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+                <p>These running accessories focus on comfort, safety, and convenience — the areas that matter most when building a consistent running habit in 2026. All items are widely available online with fast delivery.</p>
+            </article>
+        """
+        <h2>5. Compression Running Tights for Muscle Support</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/compression-running-tights">
+        <img src="IMAGE_URL_HERE" alt="Men’s compression running tights for training and recovery" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Compression tights help reduce muscle fatigue and improve comfort on longer runs. Ideal for cooler weather training, recovery runs, and runners increasing weekly mileage.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/compression-running-tights">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+<h2>6. Adjustable Running Headband or Sweatband</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/running-headband-sweatband">
+        <img src="IMAGE_URL_HERE" alt="Lightweight running headband sweatband" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>A simple but effective running essential, sweatbands help keep sweat out of your eyes and improve comfort during warm-weather or high-intensity runs.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/running-headband-sweatband">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+<h2>7. Lightweight Running Cap for Sun Protection</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/lightweight-running-cap">
+        <img src="IMAGE_URL_HERE" alt="Breathable lightweight running cap" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>A breathable running cap protects against sun glare and light rain while improving visibility. Especially useful for summer training and long outdoor runs.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/lightweight-running-cap">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+<h2>8. Anti-Blister Running Socks</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/anti-blister-running-socks">
+        <img src="IMAGE_URL_HERE" alt="Anti-blister cushioned running socks" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Good socks are one of the most overlooked running essentials. Anti-blister running socks reduce friction, wick moisture, and improve comfort on longer or more frequent runs.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/anti-blister-running-socks">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+<h2>9. LED Running Light or Clip-On Safety Light</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/led-running-safety-light">
+        <img src="IMAGE_URL_HERE" alt="LED clip-on running safety light" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Clip-on LED running lights improve visibility in low-light conditions without bulky headlamps. Ideal for early mornings, evenings, and winter runs.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/led-running-safety-light">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+<h2>10. Reusable Soft Water Bottle or Handheld Flask</h2>
+<div class="card" style="max-width:600px;margin:40px auto;">
+    <a href="/product/soft-running-water-bottle">
+        <img src="IMAGE_URL_HERE" alt="Reusable soft water bottle for running" loading="lazy" style="border-radius:16px;">
+    </a>
+    <p>Soft flasks and handheld bottles provide lightweight hydration for short and medium runs. Collapsible designs reduce bulk as you drink, making them ideal for everyday training.</p>
+    
+    <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+        <a href="/product/soft-running-water-bottle">
+            <button>View Details & Buy</button>
+        </a>
+        <a href="AMAZON_AFFILIATE_LINK"
+           target="_blank" rel="nofollow sponsored">
+            <button style="background:#ff9900;">View on Amazon</button>
+        </a>
+    </div>
+</div>
+
+    }
+
+
     # Add more posts here later
 }
 
