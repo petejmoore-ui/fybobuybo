@@ -1502,39 +1502,38 @@ def blog_index():
         reverse=True
     )
     
-    post_list_html = """
-<div style="max-width:900px;margin:20px auto;padding:0 20px;">
-    <h2 style="text-align:center;margin:32px 0 40px;font-size:2.2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+        post_list_html = """
+<div style="max-width:900px;margin:40px auto 80px;padding:0 20px;">
+    <h2 style="text-align:center;margin-bottom:40px;font-size:2.2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
         Latest Articles
     </h2>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
 """
     
-           for slug, post in sorted_posts:
+    for slug, post in sorted_posts:
         post_date = post.get("date", "2025-01-01")
         try:
             date_obj = datetime.strptime(post_date, "%Y-%m-%d")
             formatted_date = date_obj.strftime("%B %d, %Y")
         except ValueError:
-            formatted_date = "Date unknown"
+            formatted_date = post_date
         
         post_list_html += f"""
-        <div class="card" style="padding:28px;border-radius:22px;">
-            <h3 style="font-size:1.65rem;margin-bottom:10px;line-height:1.3;">
+        <div class="card">
+            <h3 style="font-size:1.6rem;margin-bottom:12px;line-height:1.3;">
                 <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
                     {post['title']}
                 </a>
             </h3>
-            <p style="opacity:.7;font-size:1rem;margin:0 0 16px 0;color:#94a3b8;">
+            <p style="opacity:.7;font-size:1rem;margin-bottom:16px;color:#94a3b8;">
                 {formatted_date}
             </p>
-            <p style="opacity:.85;font-size:1.15rem;line-height:1.7;">
+            <p style="opacity:.85;font-size:1.1rem;line-height:1.7;">
                 {post['description']}
             </p>
         </div>
         """
-
-    # ← ONLY ONE closing block, aligned with 'for' (4 spaces)
+    
     post_list_html += """
     </div>
 </div>
