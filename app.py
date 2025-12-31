@@ -803,7 +803,7 @@ BLOG_POSTS = {
 
                 <p>These running accessories focus on comfort, safety, and convenience — the areas that matter most when building a consistent running habit in 2026. All items are widely available online with fast delivery.</p>
             </article>
-        """
+            
         <h2>5. Compression Running Tights for Muscle Support</h2>
 <div class="card" style="max-width:600px;margin:40px auto;">
     <a href="/product/compression-running-tights">
