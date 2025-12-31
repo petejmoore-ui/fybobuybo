@@ -31,7 +31,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX425_.jpg",
     "url": f"https://amzn.to/3LpASn2?tag={AFFILIATE_TAG}",
-    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs."
+    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs.",
     "date_added": "2025-12-31"
 },
 {
@@ -39,7 +39,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3L9rfZK?tag={AFFILIATE_TAG}",
-    "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners."
+    "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners.",
     "date_added": "2025-12-31"
 },
 {
@@ -47,7 +47,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
     "url": f"https://amzn.to/4sAitou?tag={AFFILIATE_TAG}",
-    "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage."
+    "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage.",
     "date_added": "2025-12-31"
 },
 {
@@ -55,7 +55,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49iIrnF?tag={AFFILIATE_TAG}",
-    "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs."
+    "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs.",
     "date_added": "2025-12-31"
 },
 {
@@ -63,7 +63,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
     "url": f"https://amzn.to/4aFtmia?tag={AFFILIATE_TAG}",
-    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs."
+    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs.",
     "date_added": "2025-12-31"
 },
 {
@@ -71,7 +71,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49aRqZj?tag={AFFILIATE_TAG}",
-    "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training."
+    "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training.",
     "date_added": "2025-12-31"
 },
 {
@@ -79,7 +79,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3YmhASv?tag={AFFILIATE_TAG}",
-    "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs."
+    "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs.",
     "date_added": "2025-12-31"
 },
 {
@@ -87,7 +87,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3KY1nzY?tag={AFFILIATE_TAG}",
-    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs."
+    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs.",
     "date_added": "2025-12-31"
 },
 {
@@ -95,7 +95,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49fdWif?tag={AFFILIATE_TAG}",
-    "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs."
+    "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs.",
     "date_added": "2025-12-31"
 },
 {
@@ -103,7 +103,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
     "url": f"https://amzn.to/49fUmCp?tag={AFFILIATE_TAG}",
-    "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs."
+    "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs.",
     "date_added": "2025-12-31"
 },
 
@@ -114,7 +114,7 @@ PRODUCTS = [
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3YilDiF?tag={AFFILIATE_TAG}",
-    "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design."
+    "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design.",
     "date_added": "2025-12-30"
 },
 
@@ -124,7 +124,7 @@ PRODUCTS = [
     "season": "Winter Essentials, New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3L8maAQ?tag={AFFILIATE_TAG}",
-    "info": "Extra-large 120x160cm electric heated throw with 10 heat settings, 9 timer options, and machine-washable flannel fleece – ultra-soft, energy-efficient overblanket with overheat protection for cosy winter evenings on the sofa."
+    "info": "Extra-large 120x160cm electric heated throw with 10 heat settings, 9 timer options, and machine-washable flannel fleece – ultra-soft, energy-efficient overblanket with overheat protection for cosy winter evenings on the sofa.",
 },
 
     {
@@ -133,7 +133,7 @@ PRODUCTS = [
     "season": "Winter Essentials, New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3MZhjCD?tag={AFFILIATE_TAG}",
-    "info": "Large 500ml ultrasonic diffuser with 7-colour LED lights, 4 timer settings, and auto shut-off – creates relaxing aromatherapy mist for up to 15 hours. Quiet operation and remote control make it perfect for bedrooms, living rooms, or wellness spaces."
+    "info": "Large 500ml ultrasonic diffuser with 7-colour LED lights, 4 timer settings, and auto shut-off – creates relaxing aromatherapy mist for up to 15 hours. Quiet operation and remote control make it perfect for bedrooms, living rooms, or wellness spaces.",
 },
     
     {
