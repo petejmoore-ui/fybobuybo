@@ -108,7 +108,7 @@ PRODUCTS = [
 },
 
 
-    [
+    
     {
         "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
         "category": "Home & Kitchen",
@@ -216,7 +216,7 @@ PRODUCTS = [
         "info": "Flagship Dyson V15 Detect with laser dust detection, auto-adjusting suction, LCD screen showing real-time particle count, piezo sensor, and whole-machine HEPA filtration — up to 60 minutes runtime. Premium cordless vacuum that's a top-trending gift for spotless homes and effortless cleaning.",
         "date_added": "2025-12-30"
     },
-    [
+    
     {
         "name": "Shark Stratos Cordless Pet Pro Stick Vacuum Cleaner IZ402UKTSB - Anti Hair Wrap Plus, Clean Sense IQ, DuoClean, 60min Run-Time, Removable Battery, Anti-Allergen, White/Navy",
         "category": "Home & Kitchen",
@@ -362,7 +362,7 @@ PRODUCTS = [
         "info": "Another gripping thriller in the iconic Jack Reacher series — high-stakes action and sharp plotting for fans of fast-paced crime fiction.",
         "date_added": "2025-12-29"
     },
-[
+
     {
         "name": "The Secret of Secrets by Dan Brown",
         "category": "Books",
@@ -494,7 +494,7 @@ PRODUCTS = [
         "url": f"https://www.amazon.co.uk/VonShef-Tray-Warmer-Buffet-Server/dp/B073Q5G9VX?tag={AFFILIATE_TAG}",
         "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays."
     },
-    [
+    
     {
         "name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
         "category": "Books",
