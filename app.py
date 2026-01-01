@@ -610,6 +610,7 @@ def blog_index():
     
     for slug, post in sorted_posts:
         # Format date nicely: December 31, 2025
+        from datetime import datetime
         date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
         formatted_date = date_obj.strftime("%B %d, %Y")
         
@@ -672,8 +673,7 @@ def blog_detail(slug):
         abort(404)
     
     all_products = refresh_products(background=True)
-    blog_category = "Home & Kitchen"  # or detect from post title/slug
-    related = [p for p in all_products if p["category"] == blog_category][:6]
+    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
     
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
