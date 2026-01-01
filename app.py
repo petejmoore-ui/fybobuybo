@@ -722,7 +722,6 @@ def sitemap():
     history = load_history()
     urls = {
         (SITE_URL + "/", str(datetime.date.today())),
-        (SITE_URL + "/all-gifts", str(datetime.date.today()))
     }
 
     for day_products in history.values():
