@@ -174,7 +174,14 @@ def ensure_hook(p):
 @app.route("/")
 def home():
     products = refresh_products(background=False)[:ITEMS_PER_PAGE]
-    return render_template_string("<h1>App running correctly</h1>")
+    return render_page(
+        title="FyboBuybo – Trending UK Gifts & Popular Presents",
+        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more. Independently curated and refreshed daily.",
+        heading="FyboBuybo – Trending UK Gifts",
+        subtitle="A curated selection of popular gifts and presents, refreshed daily.",
+        products=products
+    )
+
 
 @app.route("/blog")
 def blog_index():
