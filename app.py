@@ -2,7 +2,6 @@ import os
 import json
 import re
 import datetime
-from datetime import datetime
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
