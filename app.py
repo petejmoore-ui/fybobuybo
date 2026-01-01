@@ -6,13 +6,21 @@ from datetime import date        # ← Add this line
 from threading import Threadfrom flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
 from dotenv import load_dotenvload_dotenv()app = Flask(__name__)
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))CACHE_FILE = "/data/cache.json"
+
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
+CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://fybobuybo.com"
 ITEMS_PER_PAGE = 12# Ensure data directory exists (important for deployment platforms)
-os.makedirs("/data", exist_ok=True)# ---------------- PRODUCTS ---------------- #
-PRODUCTS = [ {
+os.makedirs("/data", exist_ok=True)
+
+
+# ---------------- PRODUCTS ---------------- #
+PRODUCTS = 
+[ 
+    {
 "name": "HAISSKY Lightweight Running Belt Waist Pack",
 "category": "Sports & Outdoors",
 "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX425_.jpg",
@@ -90,26 +98,34 @@ PRODUCTS = [ {
     "url": f"https://amzn.to/49fUmCp?tag={AFFILIATE_TAG}",
     "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs.",
     "date_added": "2025-12-31"
-},{
+},
+    
+    {
 "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
 "category": "Home & Kitchen",
 "season": "New Year Essentials",
 "image": "https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg",
 "url": f"https://amzn.to/3YilDiF?tag={AFFILIATE_TAG}",
 "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design."
-"date_added": "2025-12-30"},{
+"date_added": "2025-12-30"},
+    
+    {
 "name": "Mia&Coco Electric Heated Throw Blanket 120x160cm",
 "category": "Home & Kitchen",
 "season": "Winter Essentials, New Year Essentials",
 "image": "https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg",
 "url": f"https://amzn.to/3L8maAQ?tag={AFFILIATE_TAG}",
-"info": "Extra-large 120x160cm electric heated throw with 10 heat settings, 9 timer options, and machine-washable flannel fleece – ultra-soft, energy-efficient overblanket with overheat protection for cosy winter evenings on the sofa."},{
+"info": "Extra-large 120x160cm electric heated throw with 10 heat settings, 9 timer options, and machine-washable flannel fleece – ultra-soft, energy-efficient overblanket with overheat protection for cosy winter evenings on the sofa."},
+    
+    {
 "name": "SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier",
 "category": "Home & Kitchen",
 "season": "Winter Essentials, New Year Essentials",
 "image": "https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg",
 "url": f"https://amzn.to/3MZhjCD?tag={AFFILIATE_TAG}",
-"info": "Large 500ml ultrasonic diffuser with 7-colour LED lights, 4 timer settings, and auto shut-off – creates relaxing aromatherapy mist for up to 15 hours. Quiet operation and remote control make it perfect for bedrooms, living rooms, or wellness spaces."},{
+"info": "Large 500ml ultrasonic diffuser with 7-colour LED lights, 4 timer settings, and auto shut-off – creates relaxing aromatherapy mist for up to 15 hours. Quiet operation and remote control make it perfect for bedrooms, living rooms, or wellness spaces."},
+    
+    {
 "name": "Utopia Towels Luxury Fluffy Bath Mat Rug 50x80cm - Grey",
 "category": "Home & Kitchen",
 "season": "New Year Essentials, Winter Essentials",
@@ -184,13 +200,15 @@ PRODUCTS = [ {
     "image": "https://m.media-amazon.com/images/I/612vDNxMmtL._AC_SX679_.jpg",
     "url": f"https://amzn.to/3LoiHhx?tag={AFFILIATE_TAG}",
     "info": "Advanced robot vacuum and mop with 5500Pa suction, 3D obstacle avoidance, auto-empty station, self-washing/hot air drying mop pads, and auto-refill — keeps floors clean with minimal effort. Bestselling smart home upgrade for busy households seeking effortless cleaning and a fresh start in the new year."
-},{
-"name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
-"category": "Electronics",
-"season": "Christmas Gift Ideas",
-"image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SY450_.jpg",
-"url": f"https://amzn.to/4sg8fZZ?tag={AFFILIATE_TAG}",
-"info": "The fastest Kindle Paperwhite ever with a 7-inch glare-free display, higher contrast, 25% faster page turns, adjustable warm light, and up to 12 weeks of battery life — waterproof and perfect for distraction-free reading. Bestselling e-reader upgrade and ideal thoughtful gift for book lovers this Christmas."},
+},
+    
+    {
+    "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
+    "category": "Electronics",
+    "season": "Christmas Gift Ideas",
+    "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SY450_.jpg",
+    "url": f"https://amzn.to/4sg8fZZ?tag={AFFILIATE_TAG}",
+    "info": "The fastest Kindle Paperwhite ever with a 7-inch glare-free display, higher contrast, 25% faster page turns, adjustable warm light, and up to 12 weeks of battery life — waterproof and perfect for distraction-free reading. Bestselling e-reader upgrade and ideal thoughtful gift for book lovers this Christmas."},
 {
     "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
     "category": "Electronics",
@@ -256,11 +274,13 @@ PRODUCTS = [ {
     "url": f"https://www.amazon.co.uk/Ibiza-Norfolk-Broads-Bowie-Odyssey/dp/1837733112?tag={AFFILIATE_TAG}",
     "info": "Hilarious and heartfelt memoir of a lifelong Bowie fan cycling the iconic Life on Mars? lyric from Ibiza to the Norfolk Broads — blending travel adventure, music history, and mid-life reflection. Trending for its witty take on embracing the strange and living fearlessly like the Starman."
 },{
-"name": "Always Remember by Charlie Mackesy",
-"category": "Books",
-"image": "https://m.media-amazon.com/images/I/818fhGP49iL._SY385_.jpg",
-"url": f"https://amzn.to/3YOsC30?tag={AFFILIATE_TAG}",
-"info": "Heartwarming illustrated book of wisdom and comfort from the creator of The Boy, the Mole, the Fox and the Horse — a Christmas No.1 bestseller perfect for thoughtful gifting and quiet reflection."},{
+    "name": "Always Remember by Charlie Mackesy",
+    "category": "Books",
+    "image": "https://m.media-amazon.com/images/I/818fhGP49iL._SY385_.jpg",
+    "url": f"https://amzn.to/3YOsC30?tag={AFFILIATE_TAG}",
+    "info": "Heartwarming illustrated book of wisdom and comfort from the creator of The Boy, the Mole, the Fox and the Horse — a Christmas No.1 bestseller perfect for thoughtful gifting and quiet reflection."},
+    
+    {
     "name": "Guinness World Records 2026",
     "category": "Books",
     "image": "https://m.media-amazon.com/images/I/8186fr4T+gL._SY425_.jpg",
