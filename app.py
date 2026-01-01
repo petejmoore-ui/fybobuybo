@@ -2,7 +2,7 @@ import os
 import json
 import re
 import datetime
-from datetime import date
+from datetime import datetime
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOGS
@@ -621,7 +621,6 @@ def blog_index():
     
     for slug, post in sorted_posts:
         # Format date nicely: December 31, 2025
-        from datetime import datetime
         date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
         formatted_date = date_obj.strftime("%B %d, %Y")
         
