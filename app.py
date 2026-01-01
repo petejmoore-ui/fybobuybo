@@ -5,7 +5,7 @@ import datetime
 from datetime import datetime
 from threading import Thread
 from products_data import PRODUCTS
-from blog_data import BLOGS
+from blog_data import BLOG_POSTS
 
 from flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
@@ -87,9 +87,10 @@ def enrich_products(products):
     for p in products:
         p_copy = dict(p)
         p_copy["hook"] = generate_hook(p["name"])
-        # Ensure date_added is carried over
-        if "date_added" not in p_copy:
-            p_copy["date_added"] = str(datetime.date.today())
+        
+        # Safe fallback: use today if missing, otherwise keep existing
+        p_copy.setdefault("date_added", str(datetime.date.today()))
+        
         enriched.append(p_copy)
     return enriched
 
@@ -732,7 +733,6 @@ def sitemap():
     history = load_history()
     urls = {
         (SITE_URL + "/", str(datetime.date.today())),
-        (SITE_URL + "/all-gifts", str(datetime.date.today()))
     }
 
     for day_products in history.values():
