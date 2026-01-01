@@ -208,7 +208,7 @@ BLOG_POSTS = {
     <a href="/product/haissky-lightweight-running-belt-waist-pack">
         <button>View Details & Buy</button>
     </a>
-    <a href="https://amzn.to/3LpASn2?tag={AFFILIATE_TAG}"
+    <a href="https://amzn.to/3LpASn2?tag=whoaccepts-21"
        target="_blank" rel="nofollow sponsored">
         <button style="background:#ff9900;">View on Amazon</button>
     </a>
@@ -226,7 +226,7 @@ BLOG_POSTS = {
         <a href="/product/reflective-running-armbands-set-of-4">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/3L9rfZK?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/3L9rfZK?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -244,7 +244,7 @@ BLOG_POSTS = {
         <a href="/product/lumefit-running-vest-phone-holder---hydration-vest-with-water-bottle--reflective-vest-for-men-and-women">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/4sAitou?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/4sAitou?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -262,7 +262,7 @@ BLOG_POSTS = {
         <a href="/product/touchscreen-compatible-running-gloves">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/49iIrnF?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/49iIrnF?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -280,7 +280,7 @@ BLOG_POSTS = {
         <a href="/product/compression-running-tights-for-training">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/4aFtmia?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/4aFtmia?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -298,7 +298,7 @@ BLOG_POSTS = {
         <a href="/product/ear-warmers-headband-with-ponytail-hole">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/49aRqZj?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/49aRqZj?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -316,7 +316,7 @@ BLOG_POSTS = {
         <a href="/product/lightweight-breathable-running-cap">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/3YmhASv?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/3YmhASv?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -334,7 +334,7 @@ BLOG_POSTS = {
         <a href="/product/anti-blister-cushioned-running-socks">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/3KY1nzY?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/3KY1nzY?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -352,7 +352,7 @@ BLOG_POSTS = {
         <a href="/product/led-clip-on-running-safety-light">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/49fdWif?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/49fdWif?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
@@ -370,7 +370,7 @@ BLOG_POSTS = {
         <a href="/product/reusable-soft-running-water-bottle">
             <button>View Details & Buy</button>
         </a>
-        <a href="https://amzn.to/49fUmCp?tag={AFFILIATE_TAG}"
+        <a href="https://amzn.to/49fUmCp?tag=whoaccepts-21"
            target="_blank" rel="nofollow sponsored">
             <button style="background:#ff9900;">View on Amazon</button>
         </a>
