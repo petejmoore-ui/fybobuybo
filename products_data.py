@@ -467,7 +467,8 @@ PRODUCTS = [
         "category": "Home & Kitchen",
         "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/VonShef-Tray-Warmer-Buffet-Server/dp/B073Q5G9VX?tag=whoaccepts-21",
-        "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays."
+        "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays.",
+        "date_added": "2025-12-28"
     },
     
     {
