@@ -177,10 +177,27 @@ body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;paddi
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
-.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
+
+.card{
+    background:{{card}};
+    border-radius:22px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,.6);
+    transition:transform .3s,box-shadow .3s;
+    display:flex;
+    flex-direction:column;
+}
+
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
+
+.card > a[target="_blank"]{
+    margin-top:auto;
+}
+
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
+
 button{
     background:{{button}};
     border:none;
@@ -191,79 +208,87 @@ button{
     color:white;
     cursor:pointer;
     transition:.3s;
-    animation: pulse 2.5s infinite ease-in-out;
+    animation:pulse 2.5s infinite ease-in-out;
 }
 button:hover{
     opacity:.9;
     transform:scale(1.05);
     animation:none;
 }
+
 @keyframes pulse{
     0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);}
     70%{box-shadow:0 0 0 12px rgba(2,132,199,0);}
     100%{box-shadow:0 0 0 0 rgba(2,132,199,0);}
 }
+
 @media (prefers-reduced-motion: reduce){
     button{animation:none;}
 }
+
 footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
 a{color:{{text_accent}};text-decoration:none}
-nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
+
+nav{
+    background:{{card}};
+    padding:16px;
+    margin:20px 0 40px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    text-align:center
+}
 nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
 nav a:hover{opacity:.8}
+
 .pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
 .pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
 .pagination a:hover{opacity:.9}
+
 .loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}};}
+
 @media (max-width:768px){
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
 }
 
 /* Single product page - center card & constrain image */
-.grid:has(> .card:only-child) .card {
-    max-width: 600px;
-    margin: 0 auto;
+.grid:has(> .card:only-child) .card{
+    max-width:600px;
+    margin:0 auto;
 }
-.grid:has(> .card:only-child) img {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    margin: 20px auto;
-    display: block;
-    border-radius: 16px;
+.grid:has(> .card:only-child) img{
+    max-width:500px;
+    width:100%;
+    height:auto;
+    margin:20px auto;
+    display:block;
+    border-radius:16px;
 }
 
 /* Uniform titles & aligned images */
-.card h2 {
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 12px 0;
-    font-size: 1.25rem;
-    line-height: 1.3;
-    font-weight: 900;
+.card h2{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:12px 0;
+    font-size:1.25rem;
+    line-height:1.3;
+    font-weight:900;
 }
 
-.card img {
-    width: 100%;
-    max-height: 380px;
-    object-fit: contain;
-    background: #111827;
-    border-radius: 16px;
-    margin: 16px 0;
+.card img{
+    width:100%;
+    max-height:380px;
+    object-fit:contain;
+    background:#111827;
+    border-radius:16px;
+    margin:16px 0;
 }
 
 /* Button & "More" spacing */
-.card > a[onclick] {
-    margin: 20px 0 10px;
-}
-.card p:last-of-type {
-    margin: 10px 0;
-    font-size: .85rem;
-    opacity: .7;
-}
+.card > a[onclick]{margin:20px 0 10px}
+.card p:last-of-type{margin:10px 0;font-size:.85rem;opacity:.7}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
