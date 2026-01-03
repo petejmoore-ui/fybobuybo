@@ -450,10 +450,15 @@ BASE_HTML = """<!DOCTYPE html>
     </p>
     
     <div style="margin:40px 0 20px;text-align:center;">
+        <p style="opacity:.8;font-size:.9rem;margin-bottom:16px;">Follow us for more gift ideas</p>
+        
         <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 12px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Pinterest" width="32" height="32" style="border-radius:50%;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" 
+                 alt="Pinterest" 
+                 width="28" height="28" 
+                 style="border-radius:50%;vertical-align:middle;">
         </a>
-        <!-- Add more social icons here when ready -->
+        <!-- Add more icons here later -->
     </div>
 </footer>
 
