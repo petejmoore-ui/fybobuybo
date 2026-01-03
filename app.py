@@ -449,16 +449,15 @@ BASE_HTML = """<!DOCTYPE html>
         All product information, prices, and availability are accurate at the time of publication and subject to change.
     </p>
     
-    <div style="margin:40px 0 20px;text-align:center;">
-        <p style="opacity:.8;font-size:.9rem;margin-bottom:16px;">Follow us for more gift ideas</p>
-        
-        <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" 
-         alt="Pinterest" 
-         width="32" height="32" 
-         style="border-radius:50%;vertical-align:middle;margin:0 8px;">
-        </a>
-        <!-- Add more icons here later -->
+    <div style="margin:50px 0 30px;text-align:center;">
+    <p style="opacity:.8;font-size:.95rem;margin-bottom:20px;">Follow us for more gift ideas</p>
+    
+    <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20200210163626" 
+             alt="Pinterest" 
+             width="32" height="32" 
+             style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;margin:0 8px;">
+    </a>
     </div>
 </footer>
 
