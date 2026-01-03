@@ -452,7 +452,7 @@ BASE_HTML = """<!DOCTYPE html>
     <div style="margin:40px 0 20px;text-align:center;">
         <p style="opacity:.8;font-size:.9rem;margin-bottom:16px;">Follow us for more gift ideas</p>
         
-        <a href="https://www.pinterest.co.uk/yourusername/" target="_blank" aria-label="Pinterest">
+        <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest">
     <img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" 
          alt="Pinterest" 
          width="32" height="32" 
