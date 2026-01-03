@@ -172,32 +172,15 @@ def ensure_hook(p):
 
 
 # ---------------- CSS ---------------- #
-CSS_TEMPLATE = r"""<style>
+CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
-
-.card{
-    background:{{card}};
-    border-radius:22px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 20px 40px rgba(0,0,0,.6);
-    transition:transform .3s,box-shadow .3s;
-    display:flex;
-    flex-direction:column;
-}
-
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
-
-.card-footer{
-    margin-top:auto; /* pushes buttons/text to bottom */
-}
-
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
-
 button{
     background:{{button}};
     border:none;
@@ -208,96 +191,79 @@ button{
     color:white;
     cursor:pointer;
     transition:.3s;
-    animation:pulse 2.5s infinite ease-in-out;
+    animation: pulse 2.5s infinite ease-in-out;
 }
 button:hover{
     opacity:.9;
     transform:scale(1.05);
     animation:none;
 }
-
 @keyframes pulse{
     0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);}
     70%{box-shadow:0 0 0 12px rgba(2,132,199,0);}
     100%{box-shadow:0 0 0 0 rgba(2,132,199,0);}
 }
-
 @media (prefers-reduced-motion: reduce){
     button{animation:none;}
 }
-
 footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
 a{color:{{text_accent}};text-decoration:none}
-
-nav{
-    background:{{card}};
-    padding:16px;
-    margin:20px 0 40px;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-    text-align:center
-}
+nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
 nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
 nav a:hover{opacity:.8}
-
 .pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
 .pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
 .pagination a:hover{opacity:.9}
-
 .loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}};}
-
 @media (max-width:768px){
     nav a{margin:0 10px;font-size:1rem}
     .grid{grid-template-columns:1fr}
 }
 
 /* Single product page - center card & constrain image */
-.grid:has(> .card:only-child) .card{
-    max-width:600px;
-    margin:0 auto;
+.grid:has(> .card:only-child) .card {
+    max-width: 600px;
+    margin: 0 auto;
 }
-.grid:has(> .card:only-child) img{
-    max-width:500px;
-    width:100%;
-    height:auto;
-    margin:20px auto;
-    display:block;
-    border-radius:16px;
+.grid:has(> .card:only-child) img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 16px;
 }
 
 /* Uniform titles & aligned images */
-.card h2{
-    min-height:70px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:12px 0;
-    font-size:1.25rem;
-    line-height:1.3;
-    font-weight:900;
+.card h2 {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 900;
 }
 
-.card img{
-    width:100%;
-    max-height:380px;
-    object-fit:contain;
-    background:#111827;
-    border-radius:16px;
-    margin:16px 0;
+.card img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    background: #111827;
+    border-radius: 16px;
+    margin: 16px 0;
 }
 
 /* Button & "More" spacing */
-.card-footer a, .card-footer button{
-    display:block;
-    margin:20px 0 10px;
+.card > a[onclick] {
+    margin: 20px 0 10px;
 }
-.card-footer p{
-    margin:10px 0;
-    font-size:.85rem;
-    opacity:.7;
+.card p:last-of-type {
+    margin: 10px 0;
+    font-size: .85rem;
+    opacity: .7;
 }
-</style>"""
-;
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
@@ -322,6 +288,7 @@ BASE_HTML = """<!DOCTYPE html>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-C1YNKZS6PG');
 </script>
 <meta property="og:title" content="{{ title }}">
@@ -347,7 +314,7 @@ BASE_HTML = """<!DOCTYPE html>
 <p class="subtitle">{{ subtitle }}</p>
 
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
-&#10004; UK-focused · &#10004; Updated daily · &#10004; Thoughtfully curated gifts
+✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
 </p>
 
 {% if products %}
@@ -363,7 +330,7 @@ BASE_HTML = """<!DOCTYPE html>
         <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
     </a>
 
-    <p>{{ p.hook|safe }}</p>
+       <p>{{ p.hook|safe }}</p>
 
     {% if p.date_added %}
     <p style="font-size:0.85rem;opacity:.7;margin:16px 0 8px;color:#94a3b8;text-align:center;">
@@ -371,7 +338,7 @@ BASE_HTML = """<!DOCTYPE html>
     </p>
     {% endif %}
 
-    <script type="application/ld+json">
+   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -384,39 +351,54 @@ BASE_HTML = """<!DOCTYPE html>
     "@type": "Offer",
     "url": "{{ p.url }}",
     "availability": "https://schema.org/InStock",
-    "seller": {"@type": "Organization","name": "Amazon"}
+    "seller": {
+      "@type": "Organization",
+      "name": "Amazon"
+    }
   }
 }
 </script>
 
-    <script type="application/ld+json">
+   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem","position": 1,"name": "Home","item": "{{ SITE_URL }}/"},
-    {"@type": "ListItem","position": 2,"name": "{{ p.category }}","item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"},
-    {"@type": "ListItem","position": 3,"name": "{{ shorten_product_name(p.name) }}"}
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ SITE_URL }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ p.category }}",
+      "item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ shorten_product_name(p.name) }}"
+    }
   ]
 }
 </script>
 
-    <div class="card-footer">
-        <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
-           aria-label="View {{ p.name }} on Amazon"
-           onclick="gtag('event', 'affiliate_click', { 
-               'event_category': '{{ p.category }}', 
-               'event_label': '{{ p.name }}', 
-               'value': 1,
-               'page_path': window.location.pathname
-           });">
-            <button>View on Amazon</button>
-        </a>
+    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
+       aria-label="View {{ p.name }} on Amazon"
+       onclick="gtag('event', 'affiliate_click', { 
+           'event_category': '{{ p.category }}', 
+           'event_label': '{{ p.name }}', 
+           'value': 1,
+           'page_path': window.location.pathname
+       });">
+        <button>View on Amazon</button>
+    </a>
 
-        <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
-            More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
-        </p>
-    </div>
+    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+    </p>
 </div>
 {% endfor %}
 </div>
@@ -429,32 +411,28 @@ BASE_HTML = """<!DOCTYPE html>
 
 {% if related_products %}
 <div class="grid">
-{% for rp in related_products %}
-<div class="card">
-    <span class="tag">{{ rp.category }}</span>
-    <a href="/product/{{ slugify(rp.name) }}">
-        <h2>{{ shorten_product_name(rp.name) }}</h2>
-    </a>
-    <a href="/product/{{ slugify(rp.name) }}">
-        <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
-    </a>
-    <p>{{ rp.hook|safe }}</p>
-
-    <div class="card-footer">
+    {% for rp in related_products %}
+    <div class="card">
+        <span class="tag">{{ rp.category }}</span>
+        <a href="/product/{{ slugify(rp.name) }}">
+            <h2>{{ shorten_product_name(rp.name) }}</h2>
+        </a>
+        <a href="/product/{{ slugify(rp.name) }}">
+            <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
+        </a>
+        <p>{{ rp.hook|safe }}</p>
         <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored" 
            aria-label="View {{ rp.name }} on Amazon">
             <button>View on Amazon</button>
         </a>
-        <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
-            More <a href="/category/{{ slugify(rp.category) }}">{{ rp.category }}</a> gifts
-        </p>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% else %}
 <p style="text-align:center;opacity:.7;">Check out more top gifts across the UK!</p>
 {% endif %}
+
+
 
 {% else %}
 <p class="loading">
@@ -471,7 +449,6 @@ BASE_HTML = """<!DOCTYPE html>
 </body>
 </html>
 """
-
 
 
 # ---------------- ROUTES ---------------- #
