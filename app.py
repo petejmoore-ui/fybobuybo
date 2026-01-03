@@ -1,4 +1,4 @@
-import os
+    import os
 import json
 import re
 import datetime
@@ -453,9 +453,9 @@ BASE_HTML = """<!DOCTYPE html>
         <p style="opacity:.8;font-size:.9rem;margin-bottom:16px;">Follow us for more gift ideas</p>
         
         <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 12px;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" 
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" 
                  alt="Pinterest" 
-                 width="8" height="8" 
+                 width="28" height="28" 
                  style="border-radius:50%;vertical-align:middle;">
         </a>
         <!-- Add more icons here later -->
