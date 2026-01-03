@@ -455,7 +455,7 @@ BASE_HTML = """<!DOCTYPE html>
         <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 12px;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" 
                  alt="Pinterest" 
-                 width="28" height="28" 
+                 width="8" height="8" 
                  style="border-radius:50%;vertical-align:middle;">
         </a>
         <!-- Add more icons here later -->
