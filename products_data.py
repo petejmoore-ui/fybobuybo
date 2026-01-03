@@ -6,7 +6,7 @@ PRODUCTS = [
     "category": "Sports & Outdoors",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/71Fgn+H4lHL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/3Yq324j?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.to/3Yq324j?tag=tag=whoaccepts-21",
     "info": "World's bestselling whey protein powder with 24g premium protein per serving, naturally occurring glutamine and BCAAs for muscle support and recovery — ultra-filtered for exceptional purity, mixes easily, and available in delicious flavours. Trusted choice for gym-goers building strength and lean muscle in 2026.",
     "date_added": "2026-01-03"
 },
