@@ -444,6 +444,17 @@ BASE_HTML = """<!DOCTYPE html>
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
     <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+    
+    <p style="opacity:.8;font-size:.9rem;margin-top:20px;">
+        All product information, prices, and availability are accurate at the time of publication and subject to change.
+    </p>
+    
+    <div style="margin:40px 0 20px;text-align:center;">
+        <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 12px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="Pinterest" width="32" height="32" style="border-radius:50%;">
+        </a>
+        <!-- Add more social icons here when ready -->
+    </div>
 </footer>
 
 </body>
