@@ -172,6 +172,7 @@ def ensure_hook(p):
 
 
 # ---------------- CSS ---------------- #
+CSS_TEMPLATE = r"""<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
@@ -191,7 +192,7 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 
 .card-footer{
-    margin-top:auto; /* pushes the button + text to the bottom */
+    margin-top:auto; /* pushes buttons/text to bottom */
 }
 
 img{width:100%;border-radius:16px;margin:16px 0}
@@ -295,7 +296,10 @@ nav a:hover{opacity:.8}
     font-size:.85rem;
     opacity:.7;
 }
-
+</style>"""
+;
+}
+</style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
@@ -319,7 +323,6 @@ BASE_HTML = """<!DOCTYPE html>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-C1YNKZS6PG');
 </script>
 <meta property="og:title" content="{{ title }}">
@@ -361,7 +364,7 @@ BASE_HTML = """<!DOCTYPE html>
         <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
     </a>
 
-       <p>{{ p.hook|safe }}</p>
+    <p>{{ p.hook|safe }}</p>
 
     {% if p.date_added %}
     <p style="font-size:0.85rem;opacity:.7;margin:16px 0 8px;color:#94a3b8;text-align:center;">
@@ -369,7 +372,7 @@ BASE_HTML = """<!DOCTYPE html>
     </p>
     {% endif %}
 
-   <script type="application/ld+json">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -382,57 +385,39 @@ BASE_HTML = """<!DOCTYPE html>
     "@type": "Offer",
     "url": "{{ p.url }}",
     "availability": "https://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Amazon"
-    }
+    "seller": {"@type": "Organization","name": "Amazon"}
   }
 }
 </script>
 
-   <script type="application/ld+json">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ SITE_URL }}/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "{{ p.category }}",
-      "item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ shorten_product_name(p.name) }}"
-    }
+    {"@type": "ListItem","position": 1,"name": "Home","item": "{{ SITE_URL }}/"},
+    {"@type": "ListItem","position": 2,"name": "{{ p.category }}","item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"},
+    {"@type": "ListItem","position": 3,"name": "{{ shorten_product_name(p.name) }}"}
   ]
 }
 </script>
 
     <div class="card-footer">
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
-       aria-label="View {{ p.name }} on Amazon"
-       onclick="gtag('event', 'affiliate_click', { 
-           'event_category': '{{ p.category }}', 
-           'event_label': '{{ p.name }}', 
-           'value': 1,
-           'page_path': window.location.pathname
-       });">
-        <button>View on Amazon</button>
-    </a>
+        <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
+           aria-label="View {{ p.name }} on Amazon"
+           onclick="gtag('event', 'affiliate_click', { 
+               'event_category': '{{ p.category }}', 
+               'event_label': '{{ p.name }}', 
+               'value': 1,
+               'page_path': window.location.pathname
+           });">
+            <button>View on Amazon</button>
+        </a>
 
-    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
-        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
-    </p>
-</div>
-
+        <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+            More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+        </p>
+    </div>
 </div>
 {% endfor %}
 </div>
@@ -445,28 +430,32 @@ BASE_HTML = """<!DOCTYPE html>
 
 {% if related_products %}
 <div class="grid">
-    {% for rp in related_products %}
-    <div class="card">
-        <span class="tag">{{ rp.category }}</span>
-        <a href="/product/{{ slugify(rp.name) }}">
-            <h2>{{ shorten_product_name(rp.name) }}</h2>
-        </a>
-        <a href="/product/{{ slugify(rp.name) }}">
-            <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
-        </a>
-        <p>{{ rp.hook|safe }}</p>
+{% for rp in related_products %}
+<div class="card">
+    <span class="tag">{{ rp.category }}</span>
+    <a href="/product/{{ slugify(rp.name) }}">
+        <h2>{{ shorten_product_name(rp.name) }}</h2>
+    </a>
+    <a href="/product/{{ slugify(rp.name) }}">
+        <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
+    </a>
+    <p>{{ rp.hook|safe }}</p>
+
+    <div class="card-footer">
         <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored" 
            aria-label="View {{ rp.name }} on Amazon">
             <button>View on Amazon</button>
         </a>
+        <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+            More <a href="/category/{{ slugify(rp.category) }}">{{ rp.category }}</a> gifts
+        </p>
     </div>
-    {% endfor %}
+</div>
+{% endfor %}
 </div>
 {% else %}
 <p style="text-align:center;opacity:.7;">Check out more top gifts across the UK!</p>
 {% endif %}
-
-
 
 {% else %}
 <p class="loading">
@@ -483,6 +472,7 @@ BASE_HTML = """<!DOCTYPE html>
 </body>
 </html>
 """
+
 
 
 # ---------------- ROUTES ---------------- #
