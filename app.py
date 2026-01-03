@@ -172,7 +172,6 @@ def ensure_hook(p):
 
 
 # ---------------- CSS ---------------- #
-CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
@@ -191,8 +190,8 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
 
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 
-.card > a[target="_blank"]{
-    margin-top:auto;
+.card-footer{
+    margin-top:auto; /* pushes the button + text to the bottom */
 }
 
 img{width:100%;border-radius:16px;margin:16px 0}
@@ -287,9 +286,16 @@ nav a:hover{opacity:.8}
 }
 
 /* Button & "More" spacing */
-.card > a[onclick]{margin:20px 0 10px}
-.card p:last-of-type{margin:10px 0;font-size:.85rem;opacity:.7}
-</style>"""
+.card-footer a, .card-footer button{
+    display:block;
+    margin:20px 0 10px;
+}
+.card-footer p{
+    margin:10px 0;
+    font-size:.85rem;
+    opacity:.7;
+}
+
 
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
@@ -410,6 +416,7 @@ BASE_HTML = """<!DOCTYPE html>
 }
 </script>
 
+    <div class="card-footer">
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
        aria-label="View {{ p.name }} on Amazon"
        onclick="gtag('event', 'affiliate_click', { 
@@ -424,6 +431,8 @@ BASE_HTML = """<!DOCTYPE html>
     <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
         More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
     </p>
+</div>
+
 </div>
 {% endfor %}
 </div>
