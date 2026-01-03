@@ -347,7 +347,7 @@ BASE_HTML = """<!DOCTYPE html>
 <p class="subtitle">{{ subtitle }}</p>
 
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
-✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
+&#10004; UK-focused · &#10004; Updated daily · &#10004; Thoughtfully curated gifts
 </p>
 
 {% if products %}
