@@ -1,5 +1,15 @@
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
+
+     {
+    "name": "Ring Battery Video Doorbell - Wireless DIY Video Doorbell Camera with Head-to-Toe View, HD Video, Easy 5-Min Install, 30-Day Free Trial of Ring Protect",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/61EZr2ozjwL._SY450_.jpg",
+    "url": f"https://amzn.to/49aUanW?tag=whoaccepts-21",
+    "info": "Battery-powered wireless video doorbell with expanded head-to-toe HD view, colour night vision, two-way talk, and motion detection – quick 5-minute DIY install with no wiring needed. Includes 30-day free Ring Protect trial for video recording and sharing – bestselling smart home security upgrade for UK properties.",
+    "date_added": "2026-01-03"
+},
      
      {
     "name": "Optimum Nutrition Gold Standard 100% Whey Protein Powder with Glutamine & Amino Acids",
