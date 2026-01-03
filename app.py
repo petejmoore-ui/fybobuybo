@@ -298,7 +298,6 @@ nav a:hover{opacity:.8}
 }
 </style>"""
 ;
-}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
