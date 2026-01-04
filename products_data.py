@@ -2,6 +2,75 @@
 PRODUCTS = [
 
      {
+    "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
+    "category": "Electronics",
+    "season": "Christmas Gift Ideas, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4ppgXmf?tag=whoaccepts-21",
+    "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting photos with protective layer. Compatible with iOS & Android, includes cartridge for 8 prints – fun, creative gift for capturing and sharing memories instantly.",
+    "date_added": "2026-01-04"
+},
+
+     {
+    "name": "SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her",
+    "category": "Toys & Games",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4qWBiAH?tag=whoaccepts-21",
+    "info": "Fun and cheeky couples card game with real-life challenges designed to spark laughter, connection, and memorable date nights – perfect for bringing playfulness back into relationships. Easy to play, no complicated rules – bestselling gift for anniversaries, Valentine's, Christmas, or just to keep things exciting.",
+    "date_added": "2026-01-04"
+},
+
+
+
+     {
+    "name": "SWOMOG Women's Satin Pyjama Set - Long Sleeve Button-Down Silk Loungewear Two-Piece Sleepwear",
+    "category": "Fashion",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg",
+    "url": f"https://amzn.to/4qgKEqE?tag=whoaccepts-21",
+    "info": "Luxurious satin pyjama set with long-sleeve button-down shirt and elastic-waist trousers – silky smooth, lightweight and breathable for ultimate comfort. Classic piping detail and multiple colours – bestselling loungewear gift for cosy nights in, self-care routines, or romantic occasions.",
+    "date_added": "2026-01-04"
+},
+
+
+
+     {
+    "name": "DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box",
+    "category": "Home & Kitchen",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/4qgKrUo?tag=whoaccepts-21",
+    "info": "Beautiful personalised photo album scrapbook with 60 black pages for photos, messages, and memories – includes 12 metallic marker pens, stickers, corner stickers, and gift box. Customizable cover and high-capacity refillable design – heartfelt sentimental gift for birthdays, anniversaries, weddings, or family keepsakes.",
+    "date_added": "2026-01-04"
+},
+
+
+
+     {
+    "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg",
+    "url": f"https://amzn.to/49khgZD?tag=whoaccepts-21",
+    "info": "Luxurious Sanctuary Spa gift set featuring body wash, scrub, moisturiser, hand cream, bath salts and more in the iconic signature scent – beautifully presented in a premium hamper box. Ultimate pamper treat for self-care, birthdays, Christmas or just because – bestselling beauty indulgence for ultimate relaxation.",
+    "date_added": "2026-01-04"
+},
+
+
+     {
+    "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
+    "category": "Home & Kitchen",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+    "url": f"https://amzn.to/45vgasL?tag=whoaccepts-21",
+    "info": "Elegant set of 4 luxury scented candles in lavender, rose, vanilla and jasmine – made with natural soy wax and essential oils for long-lasting fragrance and clean burn. Beautifully packaged in premium gift box – perfect thoughtful present for birthdays, weddings, Christmas, Mother's Day or self-care relaxation.",
+    "date_added": "2026-01-04"
+},
+
+
+
+     {
     "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
     "category": "Fashion",
     "season": "Valentine's Day",
