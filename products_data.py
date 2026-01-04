@@ -4,7 +4,7 @@ PRODUCTS = [
      {
     "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
     "category": "Fashion",
-    "season": "Christmas Gift Ideas, New Year Essentials",
+    "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
     "url": f"https://amzn.to/4aJ2cXO?tag=whoaccepts-21",
     "info": "Elegant custom name necklace with personalised nameplate in your choice of gold, silver or rose gold plating – stylish, meaningful jewellery that's fully customizable with any name or word. Hypoallergenic stainless steel, adjustable chain, and gift-ready packaging – trending sentimental gift for birthdays, anniversaries, or special occasions.",
