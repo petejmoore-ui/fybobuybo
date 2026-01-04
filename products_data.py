@@ -4,7 +4,7 @@ PRODUCTS = [
      {
     "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
     "category": "Electronics",
-    "season": "Christmas Gift Ideas, New Year Essentials",
+    "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
     "url": f"https://amzn.to/4ppgXmf?tag=whoaccepts-21",
     "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting photos with protective layer. Compatible with iOS & Android, includes cartridge for 8 prints – fun, creative gift for capturing and sharing memories instantly.",
