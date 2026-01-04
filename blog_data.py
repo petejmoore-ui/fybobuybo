@@ -390,7 +390,7 @@ BLOG_POSTS = {
     "description": "These best-selling Valentine’s gifts for her are romantic, meaningful, and perfect for last-minute buyers. Proven Amazon-style picks women actually love.",
     "heading": "7 Best-Selling Valentine’s Gifts for Her",
     "subtitle": "Reliable, romantic gift ideas that convert – even if you’re shopping late.",
-    "date": "2026-01-20",
+    "date": "2026-01-04",
     "content": """
 <article style="max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;">
 
@@ -499,7 +499,7 @@ BLOG_POSTS = {
     "description": "Affordable Valentine’s gifts for her under £50 that still feel thoughtful, romantic, and meaningful.",
     "heading": "Valentine’s Gifts for Her Under £50",
     "subtitle": "Budget-friendly Valentine’s gift ideas that don’t feel cheap.",
-    "date": "2026-01-20",
+    "date": "2026-01-04",
     "content": """
 <article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
 
@@ -551,7 +551,7 @@ BLOG_POSTS = {
     "description": "Premium Valentine’s gifts for her under £100 that feel luxurious, thoughtful, and well-reviewed.",
     "heading": "Valentine’s Gifts for Her Under £100",
     "subtitle": "Luxury-feel Valentine’s gifts without the luxury price tag.",
-    "date": "2026-01-20",
+    "date": "2026-01-04",
     "content": """
 <article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
 
