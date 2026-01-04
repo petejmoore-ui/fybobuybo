@@ -172,21 +172,19 @@ def ensure_hook(p):
 
 
 # ---------------- CSS ---------------- #
-<style>
-/* General */
+CSS_TEMPLATE = """<style>
 body {
     margin: 0;
-    background: {{bg}};
+    background: {{ bg }};
     color: #fff;
     font-family: 'Outfit', sans-serif;
     padding: 20px 20px 40px;
 }
 
-/* Headings */
 h1 {
     text-align: center;
     font-size: 3rem;
-    background: {{gradient}};
+    background: {{ gradient }};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 40px 0 10px;
@@ -196,22 +194,20 @@ h1 {
     text-align: center;
     margin: 60px 0 20px;
     font-size: 2rem;
-    background: {{gradient}};
+    background: {{ gradient }};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Subtitle */
 .subtitle {
     text-align: center;
     opacity: .85;
     max-width: 900px;
     margin: 20px auto;
-    color: {{text_accent}};
+    color: {{ text_accent }};
     font-size: 1.1rem;
 }
 
-/* Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -220,9 +216,8 @@ h1 {
     margin: auto;
 }
 
-/* Cards */
 .card {
-    background: {{card}};
+    background: {{ card }};
     border-radius: 22px;
     padding: 20px;
     text-align: center;
@@ -234,16 +229,14 @@ h1 {
     box-shadow: 0 30px 60px rgba(0,0,0,.7);
 }
 
-/* Images */
 img {
     width: 100%;
     border-radius: 16px;
     margin: 16px 0;
 }
 
-/* Tags */
 .tag {
-    background: {{tag}};
+    background: {{ tag }};
     padding: 6px 14px;
     border-radius: 20px;
     font-size: .85rem;
@@ -251,10 +244,9 @@ img {
     margin-bottom: 12px;
 }
 
-/* Buttons */
 a.btn {
     display: inline-block;
-    background: {{button}};
+    background: {{ button }};
     padding: 16px 36px;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -281,7 +273,6 @@ a.btn:hover {
     a.btn { animation: none; }
 }
 
-/* Footer */
 footer {
     text-align: center;
     opacity: .7;
@@ -290,15 +281,13 @@ footer {
     line-height: 1.6;
 }
 
-/* Links */
 a {
-    color: {{text_accent}};
+    color: {{ text_accent }};
     text-decoration: none;
 }
 
-/* Navigation */
 nav {
-    background: {{card}};
+    background: {{ card }};
     padding: 16px;
     margin: 20px 0 40px;
     border-radius: 16px;
@@ -307,7 +296,7 @@ nav {
 }
 nav a {
     margin: 0 16px;
-    color: {{text_accent}};
+    color: {{ text_accent }};
     font-weight: 700;
     font-size: 1.1rem;
     transition: .2s;
@@ -316,7 +305,6 @@ nav a:hover {
     opacity: .8;
 }
 
-/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -324,7 +312,7 @@ nav a:hover {
     margin: 40px 0;
 }
 .pagination a {
-    background: {{button}};
+    background: {{ button }};
     padding: 10px 16px;
     border-radius: 12px;
     color: white;
@@ -336,16 +324,14 @@ nav a:hover {
     opacity: .9;
 }
 
-/* Loading state */
 .loading {
     text-align: center;
     opacity: .8;
     margin: 80px 0;
     font-size: 1.3rem;
-    color: {{text_accent}};
+    color: {{ text_accent }};
 }
 
-/* Inline-style replacements */
 .featured-date {
     font-size: .85rem;
     opacity: .7;
@@ -374,20 +360,18 @@ nav a:hover {
     margin-top: 20px;
 }
 
-/* Responsive */
 @media (max-width:768px) {
     nav a { margin: 0 10px; font-size: 1rem; }
     .grid { grid-template-columns: 1fr; }
 }
 </style>
-
+"""
 
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
@@ -395,26 +379,11 @@ BASE_HTML = """<!DOCTYPE html>
 {% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 {% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
 
-<!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-C1YNKZS6PG');
-</script>
-
-<meta property="og:title" content="{{ title }}">
-<meta property="og:description" content="{{ description }}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ canonical_url }}">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 {{ css|safe }}
 </head>
-
 <body>
 
 <nav>
@@ -436,99 +405,15 @@ gtag('config', 'G-C1YNKZS6PG');
 {% for p in products %}
 <div class="card">
     <span class="tag">{{ p.category }}</span>
-
-    <a href="/product/{{ slugify(p.name) }}">
-        <h2>{{ shorten_product_name(p.name) }}</h2>
-    </a>
-
-    <a href="/product/{{ slugify(p.name) }}">
-        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
-    </a>
-
+    <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
+    <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy"></a>
     <p>{{ p.hook|safe }}</p>
-
-    {% if p.date_added %}
-    <p class="featured-date">
-        ↳ Featured on {{ p.date_added }}
-    </p>
-    {% endif %}
-
-    <!-- JSON-LD for product -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "{{ shorten_product_name(p.name) }}",
-      "image": "{{ p.image }}",
-      "description": "{{ p.info }}",
-      "url": "{{ p.url }}",
-      "brand": {"@type": "Brand", "name": "{{ p.brand or 'Various' }}"},
-      "offers": {
-        "@type": "Offer",
-        "url": "{{ p.url }}",
-        "availability": "https://schema.org/InStock",
-        "seller": {"@type": "Organization", "name": "Amazon"}
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ SITE_URL }}/"},
-        {"@type": "ListItem", "position": 2, "name": "{{ p.category }}", "item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"},
-        {"@type": "ListItem", "position": 3, "name": "{{ shorten_product_name(p.name) }}"}
-      ]
-    }
-    </script>
-
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener noreferrer" 
-       aria-label="View {{ p.name }} on Amazon" class="btn"
-       onclick="gtag('event', 'affiliate_click', { 
-           'event_category': '{{ p.category }}', 
-           'event_label': '{{ p.name }}', 
-           'value': 1,
-           'page_path': window.location.pathname
-       });">
-        View on Amazon
-    </a>
-
-    <p class="more-gifts">
-        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
-    </p>
+    {% if p.date_added %}<p class="featured-date">↳ Featured on {{ p.date_added }}</p>{% endif %}
+    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener noreferrer" aria-label="View {{ p.name }} on Amazon" class="btn">View on Amazon</a>
+    <p class="more-gifts">More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts</p>
 </div>
 {% endfor %}
 </div>
-
-<h2 class="section-title">
-    More Popular {{ related_products[0].category if related_products else 'UK' }} Gifts
-</h2>
-
-{% if related_products %}
-<div class="grid">
-{% for rp in related_products %}
-<div class="card">
-    <span class="tag">{{ rp.category }}</span>
-    <a href="/product/{{ slugify(rp.name) }}">
-        <h2>{{ shorten_product_name(rp.name) }}</h2>
-    </a>
-    <a href="/product/{{ slugify(rp.name) }}">
-        <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
-    </a>
-    <p>{{ rp.hook|safe }}</p>
-    <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored noopener noreferrer" 
-       aria-label="View {{ rp.name }} on Amazon" class="btn">
-        View on Amazon
-    </a>
-</div>
-{% endfor %}
-</div>
-{% else %}
-<p class="intro-note">Check out more top gifts across the UK!</p>
-{% endif %}
-
 {% else %}
 <p class="loading">
     Loading today's gifts...<br>
@@ -542,14 +427,11 @@ gtag('config', 'G-C1YNKZS6PG');
     <p class="disclaimer">
         All product information, prices, and availability are accurate at the time of publication and subject to change.
     </p>
-    <div style="margin:50px 0 30px;text-align:center;">
-        <p class="social-promo">Follow us for more gift ideas</p>
-        <!-- Social icons remain unchanged -->
-    </div>
 </footer>
 
 </body>
 </html>
+"""
 
 
 
