@@ -541,17 +541,6 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2>4. Mini Photo Printer or Smart Keepsake</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
-      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' alt='Mini photo printer Valentine’s gift idea' loading='lazy' style='border-radius:16px;'>
-    </a>
-    <p>Modern keepsakes like mini printers combine tech and sentiment, perfect for a fun, affordable Valentine’s gift.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'><button>View Details & Buy</button></a>
-      <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
-    </div>
-  </div>
 
 </article>
 """
@@ -613,6 +602,18 @@ BLOG_POSTS = {
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
       <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
+    </div>
+  </div>
+
+   <h2>5. Mini Photo Printer or Smart Keepsake</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' alt='Mini photo printer Valentine’s gift idea' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Modern keepsakes like mini printers combine tech and sentiment, perfect for a fun, affordable Valentine’s gift.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'><button>View Details & Buy</button></a>
+      <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
 
