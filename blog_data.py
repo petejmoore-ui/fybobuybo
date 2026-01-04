@@ -400,8 +400,8 @@ BLOG_POSTS = {
 
   <p>
     Looking for a specific budget?  
-    <a href="/valentines-gifts-for-her-under-50">Valentine’s gifts for her under £50</a> | 
-    <a href="/valentines-gifts-for-her-under-100">Valentine’s gifts for her under £100</a>
+    <a href="/blog/valentines-gifts-for-her-under-50">Valentine’s gifts for her under £50</a> | 
+    <a href="/blog/valentines-gifts-for-her-under-100">Valentine’s gifts for her under £100</a>
   </p>
 
   <h2>1. Personalised Initial or Name Necklace</h2>
