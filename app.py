@@ -172,7 +172,7 @@ def ensure_hook(p):
 
 
 # ---------------- CSS ---------------- #
-CSS_TEMPLATE = = """<style>
+CSS_TEMPLATE = """<style>
 /* General */
 body {
     margin: 0;
