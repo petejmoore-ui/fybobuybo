@@ -449,16 +449,15 @@ BASE_HTML = """<!DOCTYPE html>
         All product information, prices, and availability are accurate at the time of publication and subject to change.
     </p>
     
-    <div style="margin:50px 0 30px;text-align:center;">
+   <div style="margin:50px 0 30px;text-align:center;">
     <p style="opacity:.8;font-size:.95rem;margin-bottom:20px;">Follow us for more gift ideas</p>
     
     <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20200210163626" 
-             alt="Pinterest" 
-             width="32" height="32" 
-             style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;margin:0 8px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.03-.655 2.568-.994 3.995-.281 1.195.597 2.169 1.774 2.169 2.131 0 3.766-2.248 3.766-5.495 0-2.871-2.064-4.877-5.01-4.877-3.411 0-5.409 2.562-5.409 5.209 0 1.032.396 2.142.89 2.744.099.121.112.226.085.345-.087.377-.284 1.187-.322 1.352-.05.217-.165.262-.388.159-1.459-.677-2.37-2.8-2.37-4.507 0-3.67 2.665-7.033 7.689-7.033 4.041 0 7.186 2.876 7.186 6.72 0 4.004-2.526 7.225-6.05 7.225-1.183 0-2.298-.616-2.683-1.342 0 0-.589 2.241-.732 2.791-.269 1.036-1.004 2.332-1.497 3.122 1.126.347 2.317.535 3.552.535 6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="#E60023"/>
+        </svg>
     </a>
-    </div>
+</div>
 </footer>
 
 </body>
