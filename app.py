@@ -303,7 +303,7 @@ a {
 """
 
 # ---------------- PRODUCT PAGE TEMPLATE ---------------- #
-PRODUCT_HTML = """<!DOCTYPE html>
+BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
