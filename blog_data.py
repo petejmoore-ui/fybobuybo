@@ -433,7 +433,7 @@ BLOG_POSTS = {
     <a href="/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper">
       <img src="https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg" alt="Skincare gift set Valentine’s gift for her" loading="lazy" style="border-radius:16px;">
     </a>
-    <p>Skincare and beauty gift sets feel indulgent without needing to know exact shades or sizes. A safe, high-converting Valentine’s gift option.</p>
+    <p>Skincare and beauty gift sets feel indulgent without needing to know exact shades or sizes. A safe Valentine’s gift option.</p>
     <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
       <a href="/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper"><button>View Details & Buy</button></a>
       <a href="https://amzn.to/49khgZD?tag=whoaccepts-21" target="_blank" rel="nofollow sponsored"><button style="background:#ff9900;">View on Amazon</button></a>
@@ -522,7 +522,7 @@ BLOG_POSTS = {
     <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
       <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' alt='Skincare gift set Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>Mini skincare or bath sets feel indulgent and thoughtful — a high-converting Valentine’s gift under £50.</p>
+    <p>Mini skincare or bath sets feel indulgent and thoughtful — a kind Valentine’s gift under £50.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
       <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
