@@ -19,7 +19,7 @@ CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://fybobuybo.com"
-ITEMS_PER_PAGE = 12
+ITEMS_PER_PAGE = 16
 
 # Ensure data directory exists
 os.makedirs("/data", exist_ok=True)
