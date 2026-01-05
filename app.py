@@ -18,7 +18,7 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
-SITE_URL = "https://fybobuybo.com"
+SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
 # Ensure data directory exists
