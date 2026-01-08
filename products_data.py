@@ -6,7 +6,7 @@ PRODUCTS = [
     "category": "Beauty",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/71g3Z8+7dPL._AC_SX679_.jpg",
-    "url": f"https://amzn.eu/d/49cMTit?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
     "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
     "date_added": "2026-01-08"
 },
@@ -16,7 +16,7 @@ PRODUCTS = [
     "category": "Beauty",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/71g3Z8+7dPL._AC_SX679_.jpg",
-    "url": f"https://amzn.eu/d/49cMTit?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
     "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
     "date_added": "2026-01-08"
 },
@@ -27,7 +27,7 @@ PRODUCTS = [
     "category": "Beauty",
     "season": "New Year Essentials",
     "image": "https://m.media-amazon.com/images/I/61s7V8oG8GL._AC_SX679_.jpg",
-    "url": f"https://amzn.eu/d/0Q0E8tR?tag={AFFILIATE_TAG}",
+    "url": f"https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
     "info": "Gentle 10% azelaic acid serum with hyaluronic acid and niacinamide to calm redness, soothe irritation, and target blemishes – lightweight, non-greasy formula ideal for sensitive, acne-prone, or rosacea skin. Natural colour, vegan, cruelty-free Korean skincare – helps even tone, hydrate, and reduce inflammation for clearer, calmer complexion.",
     "date_added": "2026-01-08"
 },
