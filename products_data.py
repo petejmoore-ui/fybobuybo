@@ -1,21 +1,24 @@
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
 
+   
      {
-    "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
+    "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
     "category": "Beauty",
     "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/71g3Z8+7dPL._AC_SX679_.jpg",
-    "url": f"https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
-    "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
+    "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg",
+    "url": f"https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
+    "info": "Iconic Korean skincare essence with 96% snail secretion filtrate for intense hydration, skin repair, and improved texture – lightweight, fast-absorbing formula that boosts glow, fades scars, and strengthens skin barrier. CPNP registered, cruelty-free, paraben-free, alcohol-free – bestselling daily serum for plump, dewy 'glass skin' results.",
     "date_added": "2026-01-08"
 },
+
+
 
      {
     "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
     "category": "Beauty",
     "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/71g3Z8+7dPL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0_SH20_.jpg",
     "url": f"https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
     "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
     "date_added": "2026-01-08"
@@ -26,7 +29,7 @@ PRODUCTS = [
     "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
     "category": "Beauty",
     "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/61s7V8oG8GL._AC_SX679_.jpg",
+    "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg",
     "url": f"https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
     "info": "Gentle 10% azelaic acid serum with hyaluronic acid and niacinamide to calm redness, soothe irritation, and target blemishes – lightweight, non-greasy formula ideal for sensitive, acne-prone, or rosacea skin. Natural colour, vegan, cruelty-free Korean skincare – helps even tone, hydrate, and reduce inflammation for clearer, calmer complexion.",
     "date_added": "2026-01-08"
