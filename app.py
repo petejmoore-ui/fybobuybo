@@ -164,6 +164,7 @@ def ensure_hook(p):
         p["hook"] = generate_hook(p["name"])
     return p
 
+# ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
@@ -257,7 +258,6 @@ nav a:hover{opacity:.8}
     opacity: .7;
 }
 </style>"""
-
     
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
