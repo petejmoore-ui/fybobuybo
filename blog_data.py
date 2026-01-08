@@ -543,12 +543,12 @@ BLOG_POSTS = {
 
   <h2>4. COSRX Snail Mucin Power Essence</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-percent-skin-repair-serum'>
+    <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
       <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' alt='COSRX Snail Mucin Essence Valentine’s skincare gift' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>The cult-favourite Korean snail mucin essence for hydrated, glowing skin — a pampering treat she’ll use every day.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-percent-skin-repair-serum'><button>View Details & Buy</button></a>
+      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'><button>View Details & Buy</button></a>
       <a href='https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
