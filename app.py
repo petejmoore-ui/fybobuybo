@@ -57,7 +57,8 @@ Product: {name}
 """
             }],
             temperature=0.7,
-            max_tokens=120
+            max_tokens=120,
+            timeout=10  # ← Add this: 10-second timeout per call
         )
         hook = r.choices[0].message.content.strip()
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
@@ -65,8 +66,8 @@ Product: {name}
             hook += " among UK shoppers."
         return hook
     except Exception as e:
-        print(f"Groq error: {e}")
-        return "A popular choice among UK shoppers for its quality and everyday appeal."
+        print(f"Groq error for '{name}': {e}")
+        return f"A highly regarded choice among UK shoppers for its excellent quality and practical benefits."
 
 # ---------------- STORAGE ---------------- #
 def load_history():
