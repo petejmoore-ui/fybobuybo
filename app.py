@@ -41,32 +41,48 @@ def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
 # ---------------- IMPROVED AI HOOK (FAST & SAFE) ---------------- #
-def generate_hook(name):
+
+def get_product_hook(product):
+    # Return existing hook if already generated
+    if getattr(product, "ai_hook", None):
+        return product.ai_hook
+
     try:
-        r = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{
-                "role": "user",
-                "content": f"""
+        response = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {
+                    "role": "user",
+                    "content": f"""
 Write a calm, elegant 1–2 sentence description explaining why this product is popular among UK shoppers.
 Focus on its practical benefits, quality, or appeal in daily life.
 Vary the phrasing across different products — avoid repeating common words like "staple", "essential", or "go-to".
 Use <b> tags subtly for key features.
 End with a complete sentence.
-Product: {name}
+Product: {product.name}
 """
-            }],
+                }
+            ],
             temperature=0.7,
             max_tokens=120
         )
-        hook = r.choices[0].message.content.strip()
+
+        hook = response.choices[0].message.content.strip()
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
+
         if not re.search(r'[.!?]$', hook):
-            hook += " among UK shoppers."
-        return hook
+            hook += "."
+
     except Exception as e:
-        print(f"Groq error: {e}")
-        return "A popular choice among UK shoppers for its quality and everyday appeal."
+        print(f"[Groq error] {e}")
+        hook = "A popular choice among UK shoppers for its quality and everyday appeal."
+
+    # Save once and reuse forever
+    product.ai_hook = hook
+    product.ai_hook_generated_at = datetime.utcnow()
+    save(product)  # <-- replace if needed
+
+    return hook
 # ---------------- STORAGE ---------------- #
 def load_history():
     if os.path.exists(HISTORY_FILE):
