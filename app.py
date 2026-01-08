@@ -57,8 +57,7 @@ Product: {name}
 """
             }],
             temperature=0.7,
-            max_tokens=120,
-            timeout=10  # Keep the timeout to prevent crashes
+            max_tokens=120
         )
         hook = r.choices[0].message.content.strip()
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
@@ -68,7 +67,6 @@ Product: {name}
     except Exception as e:
         print(f"Groq error: {e}")
         return "A popular choice among UK shoppers for its quality and everyday appeal."
-
 # ---------------- STORAGE ---------------- #
 def load_history():
     if os.path.exists(HISTORY_FILE):
