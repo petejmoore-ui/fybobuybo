@@ -164,13 +164,12 @@ def ensure_hook(p):
         p["hook"] = generate_hook(p["name"])
     return p
 
-# ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
-.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:space-between;height:100%}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
@@ -227,18 +226,7 @@ nav a:hover{opacity:.8}
     border-radius: 16px;
 }
 
-/* Uniform titles & aligned images */
-.card h2 {
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 12px 0;
-    font-size: 1.25rem;
-    line-height: 1.3;
-    font-weight: 900;
-}
-
+/* Product images */
 .card img {
     width: 100%;
     max-height: 380px;
@@ -248,40 +236,44 @@ nav a:hover{opacity:.8}
     margin: 16px 0;
 }
 
-/* Button & "More" spacing */
+/* Titles - handle long names gracefully */
+.card h2 {
+    min-height: auto;
+    height: auto;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin: 10px 0;
+    font-weight: 900;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+
+/* Description paragraph - takes available space */
+.card > p {
+    flex-grow: 1;
+    margin: 12px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* Button spacing */
 .card > a[onclick] {
     margin: 20px 0 10px;
+    flex-shrink: 0;
 }
+
+/* "More category gifts" line */
 .card p:last-of-type {
-    margin: 10px 0;
+    margin: 10px 0 0 0;
+    padding-top: 8px;
     font-size: .85rem;
     opacity: .7;
-}
-/* Fix long product names on homepage */
-.card h2 {
-    min-height: auto !important; /* Remove fixed height */
-    height: auto;
-    font-size: 1.15rem; /* Slightly smaller for long titles */
-    line-height: 1.2;
-    margin: 8px 0;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Max 3 lines */
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-}
-
-.card p {
-    font-size: 0.95rem; /* Slightly smaller description */
-    line-height: 1.4;
-}
-
-/* Ensure consistent card height */
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    flex-shrink: 0;
 }
 </style>"""
 
