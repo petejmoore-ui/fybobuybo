@@ -494,7 +494,7 @@ BLOG_POSTS = {
 """
   },
 
-  "valentines-gifts-for-her-under-50": {
+ "valentines-gifts-for-her-under-50": {
     "title": "Valentine’s Gifts for Her Under £50 (Affordable & Thoughtful)",
     "description": "Affordable Valentine’s gifts for her under £50 that still feel thoughtful, romantic, and meaningful.",
     "heading": "Valentine’s Gifts for Her Under £50",
@@ -541,10 +541,45 @@ BLOG_POSTS = {
     </div>
   </div>
 
+  <h2>4. COSRX Snail Mucin Power Essence</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-percent-skin-repair-serum'>
+      <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' alt='COSRX Snail Mucin Essence Valentine’s skincare gift' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>The cult-favourite Korean snail mucin essence for hydrated, glowing skin — a pampering treat she’ll use every day.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-percent-skin-repair-serum'><button>View Details & Buy</button></a>
+      <a href='https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2>5. BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
+      <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0_SH20_.jpg' alt='BIODANCE collagen hydrogel mask Valentine’s gift' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Overnight hydrogel masks that give glass-skin glow — luxurious self-care she’ll love using on a romantic evening in.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+      <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'><button>View Details & Buy</button></a>
+      <a href='https://amzn.eu/d/49cMTit?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2>6. Anua Azelaic Acid Redness Soothing Serum</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
+      <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg' alt='Anua Azelaic Acid serum Valentine’s skincare gift' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Gentle redness-calming serum perfect for sensitive skin — a caring, thoughtful addition to her routine.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+      <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'><button>View Details & Buy</button></a>
+      <a href='https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
+    </div>
+  </div>
 
 </article>
 """
-  },
+},
 
   "valentines-gifts-for-her-under-100": {
     "title": "Valentine’s Gifts for Her Under £100 (Premium Without Overspending)",
