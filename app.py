@@ -168,7 +168,7 @@ CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto;align-items:start}
 .card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;height:100%}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
@@ -247,11 +247,10 @@ nav a:hover{opacity:.8}
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    flex-shrink: 0;
 }
 
-/* Description - takes available space */
-.card > p:not(:last-of-type) {
+/* Description */
+.card > p {
     flex-grow: 1;
     margin: 12px 0;
     font-size: 0.95rem;
@@ -262,7 +261,6 @@ nav a:hover{opacity:.8}
 /* Button */
 .card > a[onclick] {
     margin: 16px 0 8px;
-    flex-shrink: 0;
 }
 
 /* "More category gifts" line */
@@ -270,10 +268,8 @@ nav a:hover{opacity:.8}
     margin: 8px 0 0;
     font-size: .85rem;
     opacity: .7;
-    flex-shrink: 0;
 }
 </style>"""
-
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
