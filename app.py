@@ -257,6 +257,32 @@ nav a:hover{opacity:.8}
     font-size: .85rem;
     opacity: .7;
 }
+/* Fix long product names on homepage */
+.card h2 {
+    min-height: auto !important; /* Remove fixed height */
+    height: auto;
+    font-size: 1.15rem; /* Slightly smaller for long titles */
+    line-height: 1.2;
+    margin: 8px 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Max 3 lines */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.card p {
+    font-size: 0.95rem; /* Slightly smaller description */
+    line-height: 1.4;
+}
+
+/* Ensure consistent card height */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
