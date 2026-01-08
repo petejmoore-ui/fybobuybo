@@ -143,7 +143,7 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-def shorten_product_name(name, max_length=80):
+def shorten_product_name(name, max_length=65):
     if len(name) <= max_length:
         return name
     for sep in [',', '(']:
@@ -168,8 +168,8 @@ CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto;align-items:start}
-.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;height:100%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
@@ -212,7 +212,7 @@ nav a:hover{opacity:.8}
     .grid{grid-template-columns:1fr}
 }
 
-/* Single product page */
+/* Single product page - center card & constrain image */
 .grid:has(> .card:only-child) .card {
     max-width: 600px;
     margin: 0 auto;
@@ -226,7 +226,18 @@ nav a:hover{opacity:.8}
     border-radius: 16px;
 }
 
-/* Product images */
+/* Uniform titles & aligned images */
+.card h2 {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 900;
+}
+
 .card img {
     width: 100%;
     max-height: 380px;
@@ -236,40 +247,18 @@ nav a:hover{opacity:.8}
     margin: 16px 0;
 }
 
-/* Titles - handle long names */
-.card h2 {
-    font-size: 1.15rem;
-    line-height: 1.25;
-    margin: 10px 0;
-    font-weight: 900;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Description */
-.card > p {
-    flex-grow: 1;
-    margin: 12px 0;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    opacity: 0.9;
-}
-
-/* Button */
+/* Button & "More" spacing */
 .card > a[onclick] {
-    margin: 16px 0 8px;
+    margin: 20px 0 10px;
 }
-
-/* "More category gifts" line */
 .card p:last-of-type {
-    margin: 8px 0 0;
+    margin: 10px 0;
     font-size: .85rem;
     opacity: .7;
 }
 </style>"""
+
+    
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
