@@ -1,4 +1,4 @@
-import os
+routeimport os
 import json
 import re
 import datetime
@@ -618,7 +618,7 @@ def blog_index():
     """
     
     for slug, post in sorted_posts:
-        date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
+        date_obj = datetime.datetime.strptime(post["date"], "%Y-%m-%d")
         formatted_date = date_obj.strftime("%B %d, %Y")
         
         post_list_html += f"""
