@@ -47,19 +47,27 @@ def generate_hook(name):
             model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
-                "content": f"Write a calm, elegant 1–2 sentence hook for this product: {name}. Focus on why UK shoppers love it. Use <b> for key features. End with a full sentence."
+                "content": f"""
+Write a calm, elegant 1–2 sentence description explaining why this product is popular among UK shoppers.
+Focus on its practical benefits, quality, or appeal in daily life.
+Vary the phrasing across different products — avoid repeating common words like "staple", "essential", or "go-to".
+Use <b> tags subtly for key features.
+End with a complete sentence.
+Product: {name}
+"""
             }],
             temperature=0.7,
-            max_tokens=80,
-            timeout=8  # Fail fast if slow
+            max_tokens=120,
+            timeout=10  # Keep the timeout to prevent crashes
         )
         hook = r.choices[0].message.content.strip()
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-        if not hook.endswith(('.', '!', '?')):
-            hook += "."
-        return hook.capitalize()
-    except Exception:
-        return f"Popular with UK shoppers for its reliable performance and great value."
+        if not re.search(r'[.!?]$', hook):
+            hook += " among UK shoppers."
+        return hook
+    except Exception as e:
+        print(f"Groq error: {e}")
+        return "A popular choice among UK shoppers for its quality and everyday appeal."
 
 # ---------------- STORAGE ---------------- #
 def load_history():
