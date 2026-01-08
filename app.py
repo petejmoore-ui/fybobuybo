@@ -539,6 +539,9 @@ def category(slug):
                 unique_products[key] = p
     products = [ensure_hook(p) for p in unique_products.values()]
     
+    # NEW: Sort by date_added descending (newest first)
+    products.sort(key=lambda x: x.get("date_added", "1900-01-01"), reverse=True)
+    
     if not products:
         abort(404)
     
