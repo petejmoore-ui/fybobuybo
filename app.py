@@ -169,7 +169,7 @@ body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;paddi
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
-.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;height:100%}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
@@ -212,7 +212,7 @@ nav a:hover{opacity:.8}
     .grid{grid-template-columns:1fr}
 }
 
-/* Single product page - center card & constrain image */
+/* Single product page */
 .grid:has(> .card:only-child) .card {
     max-width: 600px;
     margin: 0 auto;
@@ -236,10 +236,8 @@ nav a:hover{opacity:.8}
     margin: 16px 0;
 }
 
-/* Titles - handle long names gracefully */
+/* Titles - handle long names */
 .card h2 {
-    min-height: auto;
-    height: auto;
     font-size: 1.15rem;
     line-height: 1.25;
     margin: 10px 0;
@@ -252,8 +250,8 @@ nav a:hover{opacity:.8}
     flex-shrink: 0;
 }
 
-/* Description paragraph - takes available space */
-.card > p {
+/* Description - takes available space */
+.card > p:not(:last-of-type) {
     flex-grow: 1;
     margin: 12px 0;
     font-size: 0.95rem;
@@ -261,16 +259,15 @@ nav a:hover{opacity:.8}
     opacity: 0.9;
 }
 
-/* Button spacing */
+/* Button */
 .card > a[onclick] {
-    margin: 20px 0 10px;
+    margin: 16px 0 8px;
     flex-shrink: 0;
 }
 
 /* "More category gifts" line */
 .card p:last-of-type {
-    margin: 10px 0 0 0;
-    padding-top: 8px;
+    margin: 8px 0 0;
     font-size: .85rem;
     opacity: .7;
     flex-shrink: 0;
