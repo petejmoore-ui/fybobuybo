@@ -668,29 +668,25 @@ def category(slug):
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    # Load the latest cached products once
-    cached_products = refresh_products(background=False)  # or load_or_generate_hooks(PRODUCTS)
-    
+    decoded_slug = product_slug.replace("-", " ").lower()
+
+    history = load_history()
+    today_str = str(datetime.date.today())
+    all_days = history.copy()
+    today_products = refresh_products(background=True)
+    all_days[today_str] = today_products
+
     found_product = None
-    for p in cached_products:
-        if slugify(p["name"]) == product_slug:
-            found_product = p  # already has the cached hook
+    for day_prods in all_days.values():
+        for p in day_prods:
+            if slugify(p["name"]) == product_slug:
+                found_product = ensure_hook(p)
+                break
+        if found_product:
             break
 
     if not found_product:
         abort(404)
-
-    # Related products also from same cache
-    related = [
-        rp for rp in cached_products 
-        if rp["category"] == found_product["category"] and rp["name"] != found_product["name"]
-    ][:6]
-
-    return render_page(
-        ...,
-        products=[found_product],
-        related_products=related
-    )
 
     # ---------------- Related products ----------------
     related = []
