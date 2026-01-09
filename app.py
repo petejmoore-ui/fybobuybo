@@ -40,49 +40,34 @@ THEMES = [
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
-# ---------------- IMPROVED AI HOOK (FAST & SAFE) ---------------- #
-
-def get_product_hook(product):
-    # Return existing hook if already generated
-    if getattr(product, "ai_hook", None):
-        return product.ai_hook
-
+# ---------------- IMPROVED AI HOOK ---------------- #
+def generate_hook(name):
     try:
-        response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {
-                    "role": "user",
-                    "content": f"""
+        r = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{
+                "role": "user",
+                "content": f"""
 Write a calm, elegant 1–2 sentence description explaining why this product is popular among UK shoppers.
 Focus on its practical benefits, quality, or appeal in daily life.
 Vary the phrasing across different products — avoid repeating common words like "staple", "essential", or "go-to".
 Use <b> tags subtly for key features.
 End with a complete sentence.
-Product: {product.name}
+Product: {name}
 """
-                }
-            ],
+            }],
             temperature=0.7,
             max_tokens=120
         )
-
-        hook = response.choices[0].message.content.strip()
+        hook = r.choices[0].message.content.strip()
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-
         if not re.search(r'[.!?]$', hook):
-            hook += "."
-
+            hook += " among UK shoppers."
+        return hook
     except Exception as e:
-        print(f"[Groq error] {e}")
-        hook = "A popular choice among UK shoppers for its quality and everyday appeal."
+        print(f"Groq error: {e}")
+        return "A popular choice among UK shoppers for its quality and everyday appeal."
 
-    # Save once and reuse forever
-    product.ai_hook = hook
-    product.ai_hook_generated_at = datetime.utcnow()
-    save(product)  # <-- replace if needed
-
-    return hook
 # ---------------- STORAGE ---------------- #
 def load_history():
     if os.path.exists(HISTORY_FILE):
@@ -121,7 +106,6 @@ def refresh_products(background=False):
 
     if background:
         Thread(target=do_refresh).start()
-        # Instant fallback for first visitor
         if os.path.exists(CACHE_FILE):
             with open(CACHE_FILE) as f:
                 cached = json.load(f).get("products", [])
@@ -165,7 +149,7 @@ def paginate(items, page):
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
 
-def shorten_product_name(name, max_length=65):
+def shorten_product_name(name, max_length=80):
     if len(name) <= max_length:
         return name
     for sep in [',', '(']:
@@ -185,6 +169,7 @@ def ensure_hook(p):
     if "hook" not in p or p["hook"] == p.get("info"):
         p["hook"] = generate_hook(p["name"])
     return p
+
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
@@ -280,7 +265,7 @@ nav a:hover{opacity:.8}
     opacity: .7;
 }
 </style>"""
-    
+
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
@@ -468,21 +453,21 @@ BASE_HTML = """<!DOCTYPE html>
         <p style="opacity:.8;font-size:.95rem;margin-bottom:20px;">Follow us for more gift ideas</p>
         
         <!-- Pinterest -->
-        <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 12px;">
+        <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 10px;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.03-.655 2.568-.994 3.995-.281 1.195.597 2.169 1.774 2.169 2.131 0 3.766-2.248 3.766-5.495 0-2.871-2.064-4.877-5.01-4.877-3.411 0-5.409 2.562-5.409 5.209 0 1.032.396 2.142.89 2.744.099.121.112.226.085.345-.087.377-.284 1.187-.322 1.352-.05.217-.165.262-.388.159-1.459-.677-2.37-2.8-2.37-4.507 0-3.67 2.665-7.033 7.689-7.033 4.041 0 7.186 2.876 7.186 6.72 0 4.004-2.526 7.225-6.05 7.225-1.183 0-2.298-.616-2.683-1.342 0 0-.589 2.241-.732 2.791-.269 1.036-1.004 2.332-1.497 3.122 1.126.347 2.317.535 3.552.535 6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="#E60023"/>
             </svg>
         </a>
         
         <!-- X (Twitter) -->
-        <a href="https://twitter.com/yourusername" target="_blank" aria-label="X (Twitter)" style="margin:0 12px;">
+        <a href="https://twitter.com/yourusername" target="_blank" aria-label="X (Twitter)" style="margin:0 10px;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l12.01 15.644z" fill="#000000"/>
             </svg>
         </a>
         
         <!-- Instagram -->
-        <a href="https://www.instagram.com/yourusername/" target="_blank" aria-label="Instagram" style="margin:0 12px;">
+        <a href="https://www.instagram.com/yourusername/" target="_blank" aria-label="Instagram" style="margin:0 10px;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#E4405F"/>
             </svg>
@@ -493,6 +478,7 @@ BASE_HTML = """<!DOCTYPE html>
 </body>
 </html>
 """
+
 
 # ---------------- ROUTES ---------------- #
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
@@ -508,6 +494,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
     paged_products, total_items = paginate(products, page)
     total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
 
+    # ---------------- Pagination rel links ---------------- #
     next_page_url = page_url(page + 1) if page < total_pages else None
     prev_page_url = page_url(page - 1) if page > 1 else None
 
@@ -533,9 +520,10 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         prev_page_url=prev_page_url
     )
 
+
 @app.route("/")
 def home():
-    products = refresh_products(background=True)[:ITEMS_PER_PAGE]  # Background for stability
+    products = refresh_products(background=False)[:ITEMS_PER_PAGE]
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents",
         description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more. Independently curated and refreshed daily.",
@@ -550,17 +538,16 @@ def category(slug):
     unique_products = {}
     for day in history.values():
         for p in day:
+            # Match on category OR any season tag
             if slugify(p["category"]) == slug or ("season" in p and slugify(slug) in [slugify(s.strip()) for s in p["season"].split(",")]):
                 key = p["name"] + p["url"]
                 unique_products[key] = p
     products = [ensure_hook(p) for p in unique_products.values()]
     
-    # NEW: Sort by date_added descending (newest first)
-    products.sort(key=lambda x: x.get("date_added", "1900-01-01"), reverse=True)
-    
     if not products:
         abort(404)
     
+    # Use the original name for display (find first match)
     cat_name = next((p["category"] if slugify(p["category"]) == slug else s.strip() 
                      for p in unique_products.values() 
                      for s in (p.get("season", "").split(",") if "season" in p else []) 
@@ -580,8 +567,11 @@ def category(slug):
         page_url=page_url
     )
 
+
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
+    decoded_slug = product_slug.replace("-", " ").lower()
+
     history = load_history()
     today_str = str(datetime.date.today())
     all_days = history.copy()
@@ -600,14 +590,17 @@ def product_detail(product_slug):
     if not found_product:
         abort(404)
 
+    # ---------------- Related products ----------------
     related = []
     for day_prods in all_days.values():
         for p in day_prods:
             if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
                 related.append(ensure_hook(p))
 
+    # Remove duplicates and limit to 6
     related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
 
+    # Fallback: if no related products, show other popular items from the same season
     if not related and "season" in found_product:
         for day_prods in all_days.values():
             for p in day_prods:
@@ -620,14 +613,16 @@ def product_detail(product_slug):
     return render_page(
         title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
         description=found_product["info"],
-        heading=shorten_product_name(found_product['name']),
+        heading=shorten_product_name(found_product["name"]),
         subtitle="A popular UK gift choice",
         products=[found_product],
         related_products=related
+        
     )
     
 @app.route("/blog")
 def blog_index():
+    # Sort posts by date descending (newest first)
     sorted_posts = sorted(
         BLOG_POSTS.items(),
         key=lambda x: x[1].get("date", "1900-01-01"),
@@ -643,7 +638,9 @@ def blog_index():
     """
     
     for slug, post in sorted_posts:
-        date_obj = datetime.datetime.strptime(post["date"], "%Y-%m-%d")
+        # Format date nicely: December 31, 2025
+        from datetime import datetime
+        date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
         formatted_date = date_obj.strftime("%B %d, %Y")
         
         post_list_html += f"""
@@ -758,7 +755,9 @@ def sitemap():
 
     for day_products in history.values():
         for p in day_products:
+            # Category URLs
             urls.add((SITE_URL + "/category/" + slugify(p["category"]), str(datetime.date.today())))
+            # Product URLs
             urls.add((SITE_URL + "/product/" + slugify(p["name"]), str(datetime.date.today())))
 
     sitemap_xml = "<?xml version='1.0' encoding='UTF-8'?>\n"
@@ -773,6 +772,7 @@ def sitemap():
 
     sitemap_xml += "\n</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
