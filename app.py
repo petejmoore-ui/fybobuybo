@@ -54,14 +54,6 @@ HOOK_STYLES = [
 ]
 
 def generate_hook(product):
-    """
-    Enhanced AI hook generator - better quality, more variety, SEO helpful
-    Optional product fields you can add in products_data.py:
-    - keywords: list[str]       e.g. ["best electric blanket uk", "energy saving throw"]
-    - pain_points: list[str]    e.g. ["cold British winters", "high energy bills"]
-    - price_tier: str           e.g. "affordable", "premium"
-    - hook_override: str        → if present and not empty → use this instead (manual control)
-    """
     # Manual override takes priority
     if "hook_override" in product and product["hook_override"].strip():
         return product["hook_override"].strip()
@@ -107,8 +99,8 @@ Output only the 1–2 sentences. End with a complete sentence. No explanations.
         r = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.72 + random.uniform(-0.08, 0.08),  # slight variation
-            max_tokens=90   # tighter → saves money on output tokens
+            temperature=0.72 + random.uniform(-0.08, 0.08),
+            max_tokens=90
         )
         hook = r.choices[0].message.content.strip()
 
@@ -151,7 +143,6 @@ def load_or_generate_hooks(products):
         except:
             pass  # fall through and regenerate
 
-    # Generate fresh
     enriched = []
     for p in products:
         p_copy = dict(p)
@@ -160,7 +151,6 @@ def load_or_generate_hooks(products):
         p_copy["hook_version"] = PROMPT_VERSION
         enriched.append(p_copy)
 
-    # Save cache
     today_iso = datetime.datetime.now().isoformat()
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
         json.dump({
@@ -169,7 +159,6 @@ def load_or_generate_hooks(products):
             "products": enriched
         }, f, indent=2, ensure_ascii=False)
 
-    # Save to history
     history = load_history()
     history_key = datetime.date.today().isoformat()
     history[history_key] = enriched
@@ -190,7 +179,6 @@ def save_history(data):
 def refresh_products(background=False):
     today = str(datetime.date.today())
 
-    # Fast path: use existing cache if still fresh
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE, encoding="utf-8") as f:
             cache = json.load(f)
@@ -198,17 +186,15 @@ def refresh_products(background=False):
                 return cache["products"]
 
     def do_refresh():
-        load_or_generate_hooks(PRODUCTS)  # generates + saves
+        load_or_generate_hooks(PRODUCTS)
 
     if background:
         Thread(target=do_refresh).start()
-        # Return best available (old cache or fallback)
         if os.path.exists(CACHE_FILE):
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cached = json.load(f).get("products", [])
                 if cached:
                     return cached
-        # Ultimate fallback
         return [{
             "name": p["name"],
             "category": p["category"],
@@ -263,12 +249,15 @@ def shorten_product_name(name, max_length=80):
             break
     return out + "..."
 
+FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
+
 def ensure_hook(p):
-    # If hook is missing or fallback to info, log it but don't regenerate
-    if "hook" not in p or not p["hook"] or p["hook"] == p.get("info"):
-        print(f"Warning: Hook missing for {p['name']} — using info as fallback")
-        p["hook"] = p.get("info", "A thoughtful choice for UK shoppers.")
+    if "hook" not in p or not p["hook"]:
+        p["hook"] = FALLBACK_HOOK
     return p
+
+# ---------------- CSS ---------------- #
+
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
@@ -621,10 +610,10 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 
 @app.route("/")
 def home():
-    products = refresh_products(background=False)[:ITEMS_PER_PAGE]
+    products = refresh_products(background=True)[:ITEMS_PER_PAGE]
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents",
-        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more. Independently curated and refreshed daily.",
+        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more.",
         heading="FyboBuybo – Trending UK Gifts",
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
@@ -632,24 +621,19 @@ def home():
 
 @app.route("/category/<slug>")
 def category(slug):
-    history = load_history()
-    unique_products = {}
-    for day in history.values():
-        for p in day:
-            # Match on category OR any season tag
-            if slugify(p["category"]) == slug or ("season" in p and slugify(slug) in [slugify(s.strip()) for s in p["season"].split(",")]):
-                key = p["name"] + p["url"]
-                unique_products[key] = p
-    products = [ensure_hook(p) for p in unique_products.values()]
-    
-    if not products:
+    ### FIX: always read from cached enriched products
+    products = refresh_products(background=True)
+
+    filtered = [
+        p for p in products
+        if slugify(p["category"]) == slug
+        or ("season" in p and slugify(slug) in [slugify(s.strip()) for s in p["season"].split(",")])
+    ]
+
+    if not filtered:
         abort(404)
-    
-    # Use the original name for display (find first match)
-    cat_name = next((p["category"] if slugify(p["category"]) == slug else s.strip() 
-                     for p in unique_products.values() 
-                     for s in (p.get("season", "").split(",") if "season" in p else []) 
-                     if slugify(s.strip()) == slug), slug.replace("-", " ").title())
+
+    cat_name = filtered[0]["category"]
 
     def page_url(p):
         return url_for("category", slug=slug, page=p)
@@ -657,36 +641,36 @@ def category(slug):
     page = int(request.args.get("page", 1))
     return render_page(
         title=f"{cat_name} – FyboBuybo",
-        description=f"Explore popular {cat_name.lower()} in the UK, featuring trending gifts and bestsellers.",
+        description=f"Explore popular {cat_name.lower()} in the UK.",
         heading=cat_name,
         subtitle=f"Hand-picked selection of {cat_name.lower()}, updated daily.",
-        products=products,
+        products=filtered,
         page=page,
         page_url=page_url
     )
 
-
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    decoded_slug = product_slug.replace("-", " ").lower()
+    products = refresh_products(background=True)
+    found = next((p for p in products if slugify(p["name"]) == product_slug), None)
 
-    history = load_history()
-    today_str = str(datetime.date.today())
-    all_days = history.copy()
-    today_products = refresh_products(background=True)
-    all_days[today_str] = today_products
-
-    found_product = None
-    for day_prods in all_days.values():
-        for p in day_prods:
-            if slugify(p["name"]) == product_slug:
-                found_product = ensure_hook(p)
-                break
-        if found_product:
-            break
-
-    if not found_product:
+    if not found:
         abort(404)
+
+    related = [
+        p for p in products
+        if p["category"] == found["category"] and p["name"] != found["name"]
+    ][:6]
+
+    return render_page(
+        title=f"{shorten_product_name(found['name'])} – FyboBuybo",
+        description=found["info"],
+        heading=shorten_product_name(found["name"]),
+        subtitle="A popular UK gift choice",
+        products=[found],
+        related_products=related
+    )
+
 
     # ---------------- Related products ----------------
     related = []
