@@ -264,8 +264,10 @@ def shorten_product_name(name, max_length=80):
     return out + "..."
 
 def ensure_hook(p):
+    # If hook is missing or fallback to info, log it but don't regenerate
     if "hook" not in p or not p["hook"] or p["hook"] == p.get("info"):
-        p["hook"] = generate_hook(p)
+        print(f"Warning: Hook missing for {p['name']} — using info as fallback")
+        p["hook"] = p.get("info", "A thoughtful choice for UK shoppers.")
     return p
 
 # ---------------- CSS ---------------- #
