@@ -1,189 +1,193 @@
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
-
-     {
-    "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
-    "category": "Electronics",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4ppgXmf?tag=whoaccepts-21",
-    "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting photos with protective layer. Compatible with iOS & Android, includes cartridge for 8 prints – fun, creative gift for capturing and sharing memories instantly.",
-    "date_added": "2026-01-04"
-},
-
-     {
-    "name": "SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her",
-    "category": "Toys & Games",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4qWBiAH?tag=whoaccepts-21",
-    "info": "Fun and cheeky couples card game with real-life challenges designed to spark laughter, connection, and memorable date nights – perfect for bringing playfulness back into relationships. Easy to play, no complicated rules – bestselling gift for anniversaries, Valentine's, Christmas, or just to keep things exciting.",
-    "date_added": "2026-01-04"
-},
-
-
-
-     {
-    "name": "SWOMOG Women's Satin Pyjama Set - Long Sleeve Button-Down Silk Loungewear Two-Piece Sleepwear",
-    "category": "Fashion",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg",
-    "url": f"https://amzn.to/4qgKEqE?tag=whoaccepts-21",
-    "info": "Luxurious satin pyjama set with long-sleeve button-down shirt and elastic-waist trousers – silky smooth, lightweight and breathable for ultimate comfort. Classic piping detail and multiple colours – bestselling loungewear gift for cosy nights in, self-care routines, or romantic occasions.",
-    "date_added": "2026-01-04"
-},
-
-
-
-     {
-    "name": "DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box",
-    "category": "Home & Kitchen",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4qgKrUo?tag=whoaccepts-21",
-    "info": "Beautiful personalised photo album scrapbook with 60 black pages for photos, messages, and memories – includes 12 metallic marker pens, stickers, corner stickers, and gift box. Customizable cover and high-capacity refillable design – heartfelt sentimental gift for birthdays, anniversaries, weddings, or family keepsakes.",
-    "date_added": "2026-01-04"
-},
-
-
-
-     {
-    "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
-    "category": "Beauty",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg",
-    "url": f"https://amzn.to/49khgZD?tag=whoaccepts-21",
-    "info": "Luxurious Sanctuary Spa gift set featuring body wash, scrub, moisturiser, hand cream, bath salts and more in the iconic signature scent – beautifully presented in a premium hamper box. Ultimate pamper treat for self-care, birthdays, Christmas or just because – bestselling beauty indulgence for ultimate relaxation.",
-    "date_added": "2026-01-04"
-},
-
-
-     {
-    "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
-    "category": "Home & Kitchen",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/45vgasL?tag=whoaccepts-21",
-    "info": "Elegant set of 4 luxury scented candles in lavender, rose, vanilla and jasmine – made with natural soy wax and essential oils for long-lasting fragrance and clean burn. Beautifully packaged in premium gift box – perfect thoughtful present for birthdays, weddings, Christmas, Mother's Day or self-care relaxation.",
-    "date_added": "2026-01-04"
-},
-
-
-
-     {
-    "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
-    "category": "Fashion",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4aJ2cXO?tag=whoaccepts-21",
-    "info": "Elegant custom name necklace with personalised nameplate in your choice of gold, silver or rose gold plating – stylish, meaningful jewellery that's fully customizable with any name or word. Hypoallergenic stainless steel, adjustable chain, and gift-ready packaging – trending sentimental gift for birthdays, anniversaries, or special occasions.",
-    "date_added": "2026-01-04"
-},
-
-
-     {
-    "name": "Ring Battery Video Doorbell - Wireless DIY Video Doorbell Camera with Head-to-Toe View, HD Video, Easy 5-Min Install, 30-Day Free Trial of Ring Protect",
-    "category": "Home & Kitchen",
-    "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/61EZr2ozjwL._SY450_.jpg",
-    "url": f"https://amzn.to/49aUanW?tag=whoaccepts-21",
-    "info": "Battery-powered wireless video doorbell with expanded head-to-toe HD view, colour night vision, two-way talk, and motion detection – quick 5-minute DIY install with no wiring needed. Includes 30-day free Ring Protect trial for video recording and sharing – bestselling smart home security upgrade for UK properties.",
-    "date_added": "2026-01-03"
-},
-     
-     {
-    "name": "Optimum Nutrition Gold Standard 100% Whey Protein Powder with Glutamine & Amino Acids",
-    "category": "Sports & Outdoors",
-    "season": "New Year Essentials",
-    "image": "https://m.media-amazon.com/images/I/71Fgn+H4lHL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/3Yq324j?tag=tag=whoaccepts-21",
-    "info": "World's bestselling whey protein powder with 24g premium protein per serving, naturally occurring glutamine and BCAAs for muscle support and recovery — ultra-filtered for exceptional purity, mixes easily, and available in delicious flavours. Trusted choice for gym-goers building strength and lean muscle in 2026.",
-    "date_added": "2026-01-03"
-},
-
-     {
-    "name": "HAISSKY Lightweight Running Belt Waist Pack",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX425_.jpg",
-    "url": f"https://amzn.to/3LpASn2?tag=whoaccepts-21",
-    "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Reflective Running Armbands (Set of 4)",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/3L9rfZK?tag=whoaccepts-21",
-    "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "LUMEFIT Running Vest Phone Holder - Hydration Vest with Water Bottle- Reflective Vest for Men and Women",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4sAitou?tag=whoaccepts-21",
-    "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Touchscreen-Compatible Running Gloves",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/49iIrnF?tag=whoaccepts-21",
-    "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Compression Running Tights for Training",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
-    "url": f"https://amzn.to/4aFtmia?tag=whoaccepts-21",
-    "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Ear Warmers Headband with Ponytail Hole",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/49aRqZj?tag=whoaccepts-21",
-    "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Lightweight Breathable Running Cap",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/3YmhASv?tag=whoaccepts-21",
-    "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Anti-Blister Cushioned Running Socks",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/3KY1nzY?tag=whoaccepts-21",
-    "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "LED Clip-On Running Safety Light",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/49fdWif?tag=whoaccepts-21",
-    "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs.",
-    "date_added": "2025-12-31"
-},
-{
-    "name": "Reusable Soft Running Water Bottle",
-    "category": "Sports & Outdoors",
-    "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
-    "url": f"https://amzn.to/49fUmCp?tag=whoaccepts-21",
-    "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs.",
-    "date_added": "2025-12-31"
-},
-
-
-    
+    {
+        "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
+        "category": "Beauty",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX679_.jpg",
+        "url": f"https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
+        "info": "Iconic Korean skincare essence with 96% snail secretion filtrate for intense hydration, skin repair, and improved texture – lightweight, fast-absorbing formula that boosts glow, fades scars, and strengthens skin barrier. CPNP registered, cruelty-free, paraben-free, alcohol-free – bestselling daily serum for plump, dewy 'glass skin' results.",
+        "date_added": "2026-01-08"
+    },
+    {
+        "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
+        "category": "Beauty",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
+        "url": f"https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
+        "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
+        "date_added": "2026-01-08"
+    },
+    {
+        "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
+        "category": "Beauty",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
+        "url": f"https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
+        "info": "Gentle 10% azelaic acid serum with hyaluronic acid and niacinamide to calm redness, soothe irritation, and target blemishes – lightweight, non-greasy formula ideal for sensitive, acne-prone, or rosacea skin. Natural colour, vegan, cruelty-free Korean skincare – helps even tone, hydrate, and reduce inflammation for clearer, calmer complexion.",
+        "date_added": "2026-01-08"
+    },
+    {
+        "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
+        "category": "Electronics",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4ppgXmf?tag=whoaccepts-21",
+        "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting photos with protective layer. Compatible with iOS & Android, includes cartridge for 8 prints – fun, creative gift for capturing and sharing memories instantly.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her",
+        "category": "Toys & Games",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4qWBiAH?tag=whoaccepts-21",
+        "info": "Fun and cheeky couples card game with real-life challenges designed to spark laughter, connection, and memorable date nights – perfect for bringing playfulness back into relationships. Easy to play, no complicated rules – bestselling gift for anniversaries, Valentine's, Christmas, or just to keep things exciting.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "SWOMOG Women's Satin Pyjama Set - Long Sleeve Button-Down Silk Loungewear Two-Piece Sleepwear",
+        "category": "Fashion",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4qgKEqE?tag=whoaccepts-21",
+        "info": "Luxurious satin pyjama set with long-sleeve button-down shirt and elastic-waist trousers – silky smooth, lightweight and breathable for ultimate comfort. Classic piping detail and multiple colours – bestselling loungewear gift for cosy nights in, self-care routines, or romantic occasions.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box",
+        "category": "Home & Kitchen",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4qgKrUo?tag=whoaccepts-21",
+        "info": "Beautiful personalised photo album scrapbook with 60 black pages for photos, messages, and memories – includes 12 metallic marker pens, stickers, corner stickers, and gift box. Customizable cover and high-capacity refillable design – heartfelt sentimental gift for birthdays, anniversaries, weddings, or family keepsakes.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
+        "category": "Beauty",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/49khgZD?tag=whoaccepts-21",
+        "info": "Luxurious Sanctuary Spa gift set featuring body wash, scrub, moisturiser, hand cream, bath salts and more in the iconic signature scent – beautifully presented in a premium hamper box. Ultimate pamper treat for self-care, birthdays, Christmas or just because – bestselling beauty indulgence for ultimate relaxation.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
+        "category": "Home & Kitchen",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/45vgasL?tag=whoaccepts-21",
+        "info": "Elegant set of 4 luxury scented candles in lavender, rose, vanilla and jasmine – made with natural soy wax and essential oils for long-lasting fragrance and clean burn. Beautifully packaged in premium gift box – perfect thoughtful present for birthdays, weddings, Christmas, Mother's Day or self-care relaxation.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
+        "category": "Fashion",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4aJ2cXO?tag=whoaccepts-21",
+        "info": "Elegant custom name necklace with personalised nameplate in your choice of gold, silver or rose gold plating – stylish, meaningful jewellery that's fully customizable with any name or word. Hypoallergenic stainless steel, adjustable chain, and gift-ready packaging – trending sentimental gift for birthdays, anniversaries, or special occasions.",
+        "date_added": "2026-01-04"
+    },
+    {
+        "name": "Ring Battery Video Doorbell - Wireless DIY Video Doorbell Camera with Head-to-Toe View, HD Video, Easy 5-Min Install, 30-Day Free Trial of Ring Protect",
+        "category": "Home & Kitchen",
+        "season": "New Year Essentials",
+        "image": "https://m.media-amazon.com/images/I/61EZr2ozjwL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/49aUanW?tag=whoaccepts-21",
+        "info": "Battery-powered wireless video doorbell with expanded head-to-toe HD view, colour night vision, two-way talk, and motion detection – quick 5-minute DIY install with no wiring needed. Includes 30-day free Ring Protect trial for video recording and sharing – bestselling smart home security upgrade for UK properties.",
+        "date_added": "2026-01-03"
+    },
+    {
+        "name": "Optimum Nutrition Gold Standard 100% Whey Protein Powder with Glutamine & Amino Acids",
+        "category": "Sports & Outdoors",
+        "season": "New Year Essentials",
+        "image": "https://m.media-amazon.com/images/I/71Fgn+H4lHL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/3Yq324j?tag=whoaccepts-21",
+        "info": "World's bestselling whey protein powder with 24g premium protein per serving, naturally occurring glutamine and BCAAs for muscle support and recovery — ultra-filtered for exceptional purity, mixes easily, and available in delicious flavours. Trusted choice for gym-goers building strength and lean muscle in 2026.",
+        "date_added": "2026-01-03"
+    },
+    {
+        "name": "HAISSKY Lightweight Running Belt Waist Pack",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/3LpASn2?tag=whoaccepts-21",
+        "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Reflective Running Armbands (Set of 4)",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/3L9rfZK?tag=whoaccepts-21",
+        "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "LUMEFIT Running Vest Phone Holder - Hydration Vest with Water Bottle- Reflective Vest for Men and Women",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4sAitou?tag=whoaccepts-21",
+        "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Touchscreen-Compatible Running Gloves",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/49iIrnF?tag=whoaccepts-21",
+        "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Compression Running Tights for Training",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
+        "url": f"https://amzn.to/4aFtmia?tag=whoaccepts-21",
+        "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Ear Warmers Headband with Ponytail Hole",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/49aRqZj?tag=whoaccepts-21",
+        "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Lightweight Breathable Running Cap",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/3YmhASv?tag=whoaccepts-21",
+        "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Anti-Blister Cushioned Running Socks",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/3KY1nzY?tag=whoaccepts-21",
+        "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "LED Clip-On Running Safety Light",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/49fdWif?tag=whoaccepts-21",
+        "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs.",
+        "date_added": "2025-12-31"
+    },
+    {
+        "name": "Reusable Soft Running Water Bottle",
+        "category": "Sports & Outdoors",
+        "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
+        "url": f"https://amzn.to/49fUmCp?tag=whoaccepts-21",
+        "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs.",
+        "date_added": "2025-12-31"
+    },
     {
         "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
         "category": "Home & Kitchen",
@@ -250,7 +254,7 @@ PRODUCTS = [
         "name": "TCL 32SF560 32 Inch Full HD Fire TV with Freeview Play, Dolby Audio, Voice Remote, Enhanced Brightness - Black",
         "category": "Electronics",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/61BYxuQ0KHL._AC_SX425_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61BYxuQ0KHL._AC_SX679_.jpg",
         "url": f"https://amzn.to/45xwjOi?tag=whoaccepts-21",
         "info": "Compact 32-inch Full HD Fire TV with built-in Alexa voice remote, Freeview Play, Dolby Audio, HDR10 support, and enhanced brightness for vivid viewing — seamless access to streaming apps like Netflix, Prime Video, and Disney+. Affordable smart TV upgrade perfect for bedrooms, kitchens, or secondary rooms.",
         "date_added": "2025-12-30"
@@ -277,7 +281,7 @@ PRODUCTS = [
         "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
         "category": "Electronics",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4pZnuoJ?tag=whoaccepts-21",
         "info": "Latest AirPods Pro 2 with USB-C charging, advanced active noise cancellation, adaptive audio, personalised spatial audio with head tracking, and new hearing health features — up to 6 hours listening time per charge. Premium wireless earbuds that remain the top choice for seamless iPhone integration and immersive sound.",
         "date_added": "2025-12-30"
@@ -291,7 +295,6 @@ PRODUCTS = [
         "info": "Flagship Dyson V15 Detect with laser dust detection, auto-adjusting suction, LCD screen showing real-time particle count, piezo sensor, and whole-machine HEPA filtration — up to 60 minutes runtime. Premium cordless vacuum that's a top-trending gift for spotless homes and effortless cleaning.",
         "date_added": "2025-12-30"
     },
-    
     {
         "name": "Shark Stratos Cordless Pet Pro Stick Vacuum Cleaner IZ402UKTSB - Anti Hair Wrap Plus, Clean Sense IQ, DuoClean, 60min Run-Time, Removable Battery, Anti-Allergen, White/Navy",
         "category": "Home & Kitchen",
@@ -314,7 +317,7 @@ PRODUCTS = [
         "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
         "category": "Electronics",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SY450_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4sg8fZZ?tag=whoaccepts-21",
         "info": "The fastest Kindle Paperwhite ever with a 7-inch glare-free display, higher contrast, 25% faster page turns, adjustable warm light, and up to 12 weeks of battery life — waterproof and perfect for distraction-free reading. Bestselling e-reader upgrade and ideal thoughtful gift for book lovers this Christmas.",
         "date_added": "2025-12-29"
@@ -323,7 +326,7 @@ PRODUCTS = [
         "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
         "category": "Electronics",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/710gjg-lYyL._AC_SY741_.jpg",
+        "image": "https://m.media-amazon.com/images/I/710gjg-lYyL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4b7825h?tag=whoaccepts-21",
         "info": "Latest generation Echo Dot with improved audio for richer, louder sound, built-in temperature sensor, tap gestures, and Alexa voice control — perfect for music, smart home control, and daily assistance. Bestselling smart speaker that's a popular Christmas gift for all ages.",
         "date_added": "2025-12-29"
@@ -392,7 +395,7 @@ PRODUCTS = [
     {
         "name": "From Ibiza to the Norfolk Broads: A Bowie Odyssey by James Briggs",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/61Kdkp7DPuL._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61Kdkp7DPuL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Ibiza-Norfolk-Broads-Bowie-Odyssey/dp/1837733112?tag=whoaccepts-21",
         "info": "Hilarious and heartfelt memoir of a lifelong Bowie fan cycling the iconic Life on Mars? lyric from Ibiza to the Norfolk Broads — blending travel adventure, music history, and mid-life reflection. Trending for its witty take on embracing the strange and living fearlessly like the Starman.",
         "date_added": "2025-12-29"
@@ -400,7 +403,7 @@ PRODUCTS = [
     {
         "name": "Always Remember by Charlie Mackesy",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/818fhGP49iL._SY385_.jpg",
+        "image": "https://m.media-amazon.com/images/I/818fhGP49iL._AC_SX679_.jpg",
         "url": f"https://amzn.to/3YOsC30?tag=whoaccepts-21",
         "info": "Heartwarming illustrated book of wisdom and comfort from the creator of The Boy, the Mole, the Fox and the Horse — a Christmas No.1 bestseller perfect for thoughtful gifting and quiet reflection.",
         "date_added": "2025-12-29"
@@ -408,7 +411,7 @@ PRODUCTS = [
     {
         "name": "Guinness World Records 2026",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/8186fr4T+gL._SY425_.jpg",
+        "image": "https://m.media-amazon.com/images/I/8186fr4T+gL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4jheRDi?tag=whoaccepts-21",
         "info": "The iconic annual edition packed with thousands of amazing new records, facts, and photos — a perennial favourite gift for curious minds of all ages.",
         "date_added": "2025-12-29"
@@ -416,7 +419,7 @@ PRODUCTS = [
     {
         "name": "The 1% Club Official Quiz Book",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/81I3J2AZbRL._SY425_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81I3J2AZbRL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4jlfWu3?tag=whoaccepts-21",
         "info": "Official companion to the hit ITV quiz show hosted by Lee Mack — packed with challenging logic puzzles and questions to test the sharpest minds at home.",
         "date_added": "2025-12-29"
@@ -424,7 +427,7 @@ PRODUCTS = [
     {
         "name": "Diary of a Wimpy Kid: Partypooper by Jeff Kinney",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/91NDZEkcE7L._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/91NDZEkcE7L._AC_SX679_.jpg",
         "url": f"https://amzn.to/4pgyoVU?tag=whoaccepts-21",
         "info": "The latest hilarious instalment in the bestselling Diary of a Wimpy Kid series — perfect laugh-out-loud reading for kids and reluctant readers.",
         "date_added": "2025-12-29"
@@ -432,16 +435,15 @@ PRODUCTS = [
     {
         "name": "Exit Strategy by Lee Child & Andrew Child (Jack Reacher)",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/81BL0gt7LcL._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81BL0gt7LcL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4si7U9k?tag=whoaccepts-21",
         "info": "Another gripping thriller in the iconic Jack Reacher series — high-stakes action and sharp plotting for fans of fast-paced crime fiction.",
         "date_added": "2025-12-29"
     },
-
     {
         "name": "The Secret of Secrets by Dan Brown",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/81dHhoARp9L._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81dHhoARp9L._AC_SX679_.jpg",
         "url": f"https://amzn.to/4aBYsaq?tag=whoaccepts-21",
         "info": "The highly anticipated new mystery thriller from the master of conspiracies — packed with codes, symbols, and globe-trotting intrigue.",
         "date_added": "2025-12-28"
@@ -449,7 +451,7 @@ PRODUCTS = [
     {
         "name": "Sunrise on the Reaping by Suzanne Collins (Hunger Games)",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/71mC7kMhg6L._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/71mC7kMhg6L._AC_SX679_.jpg",
         "url": f"https://amzn.to/4avIgaJ?tag=whoaccepts-21",
         "info": "The gripping new prequel to The Hunger Games series — returning to the world of Panem with high-stakes drama and unforgettable characters.",
         "date_added": "2025-12-28"
@@ -457,7 +459,7 @@ PRODUCTS = [
     {
         "name": "Onyx Storm by Rebecca Yarros (Empyrean Series)",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/81dY-4XtCXL._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81dY-4XtCXL._AC_SX679_.jpg",
         "url": f"https://amzn.to/48Ysbt5?tag=whoaccepts-21",
         "info": "The highly anticipated third book in the addictive romantasy Empyrean series — dragons, romance, and epic battles for fans of Fourth Wing and Iron Flame.",
         "date_added": "2025-12-28"
@@ -473,7 +475,7 @@ PRODUCTS = [
     {
         "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._SY466_.jpg",
+        "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag=whoaccepts-21",
         "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries.",
         "date_added": "2025-12-28"
@@ -481,7 +483,7 @@ PRODUCTS = [
     {
         "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
         "category": "Pet Supplies",
-        "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX425_.jpg",
+        "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag=whoaccepts-21",
         "info": "Non-clumping white hygiene cat litter made from natural quartz sand and lime — highly absorbent, locks in odours, and prevents bacterial growth for superior freshness. UK's leading choice for clean, hygienic litter trays and happy cats.",
         "date_added": "2025-12-28"
@@ -506,7 +508,7 @@ PRODUCTS = [
     {
         "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
         "category": "Baby",
-        "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_PIbundle-12,TopRight,0,0_SH20_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag=whoaccepts-21",
         "info": "Gentle baby wipes made with 99.9% purified water and a drop of fruit extract — plastic-free, unscented, and dermatologist-approved for sensitive newborn skin, including eczema-prone. UK's top choice for pure, effective cleansing that cares for and protects delicate skin every day.",
         "date_added": "2025-12-28"
@@ -514,7 +516,7 @@ PRODUCTS = [
     {
         "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
         "category": "Fashion",
-        "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SY695_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Mens-Two-Tone-Memory-Foam-Slipper/dp/B07CLXD2V4?tag=whoaccepts-21",
         "info": "Cosy two-tone memory foam slippers with hard non-slip sole and mule design — perfect for indoor comfort and quick outdoor trips. Bestselling men's slippers for all-day warmth, support, and durability during colder months.",
         "date_added": "2025-12-28"
@@ -531,7 +533,7 @@ PRODUCTS = [
     {
         "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
         "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Catching-Reaction-Reactions-Coordination-Christmas/dp/B0FMD3DXPC?tag=whoaccepts-21",
         "info": "Fast-paced reaction game where colorful sticks drop randomly at adjustable speeds — players race to catch them, building hand-eye coordination and quick reflexes. Viral trending Christmas gift for kids and families, perfect for parties and screen-free fun.",
         "date_added": "2025-12-28"
@@ -540,7 +542,7 @@ PRODUCTS = [
         "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
         "category": "Health & Personal Care",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag=whoaccepts-21",
         "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond.",
         "date_added": "2025-12-28"
@@ -548,7 +550,7 @@ PRODUCTS = [
     {
         "name": "SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black",
         "category": "Electronics",
-        "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55?tag=whoaccepts-21",
         "info": "Open-ear true wireless headphones with secure fit, situational awareness, powerful bass, and long battery life — ideal for workouts, running, or daily use without blocking ambient sound. Trending choice for active lifestyles and safer outdoor listening.",
         "date_added": "2025-12-28"
@@ -557,7 +559,7 @@ PRODUCTS = [
         "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
         "category": "Toys & Games",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag=whoaccepts-21",
         "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages.",
         "date_added": "2025-12-28"
@@ -570,11 +572,10 @@ PRODUCTS = [
         "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays.",
         "date_added": "2025-12-28"
     },
-    
     {
         "name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
         "category": "Books",
-        "image": "https://m.media-amazon.com/images/I/81akIVih9NL._SY385_.jpg",
+        "image": "https://m.media-amazon.com/images/I/81akIVih9NL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/UK-Driving-Theory-Test-Kit/dp/B09D84M7C4?tag=whoaccepts-21",
         "info": "Complete 2025 theory test kit with official Highway Code book, practice questions, hazard perception — essential for passing the UK driving test. Massive demand spike for new learners.",
         "date_added": "2025-12-26"
@@ -598,7 +599,7 @@ PRODUCTS = [
     {
         "name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
         "category": "Electronics",
-        "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag=whoaccepts-21",
         "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice.",
         "date_added": "2025-12-26"
@@ -623,7 +624,7 @@ PRODUCTS = [
     {
         "name": "L’Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
         "category": "Beauty",
-        "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag=whoaccepts-21",
         "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines.",
         "date_added": "2025-12-26"
@@ -632,7 +633,7 @@ PRODUCTS = [
         "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
         "category": "Sports & Outdoors",
         "season": "Christmas Gift Ideas, Winter Essentials",
-        "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag=whoaccepts-21",
         "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events.",
         "date_added": "2025-12-26"
@@ -640,7 +641,7 @@ PRODUCTS = [
     {
         "name": "Herd Mentality Board Game",
         "category": "Toys & Games",
-        "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX679_.jpg",
         "season": "Christmas Gift Ideas",
         "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag=whoaccepts-21",
         "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas.",
@@ -654,5 +655,4 @@ PRODUCTS = [
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades.",
         "date_added": "2025-12-26"
     }
-    
 ]
