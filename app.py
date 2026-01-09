@@ -2,6 +2,7 @@ import os
 import json
 import re
 import datetime
+import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
@@ -20,6 +21,10 @@ HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
+
+# Cache settings - controls how often we regenerate hooks (bigger = cheaper)
+CACHE_REFRESH_DAYS = 10
+PROMPT_VERSION = "v2.2-uk-seo-2026"  # Change this when you update prompt/styles
 
 # Ensure data directory exists
 os.makedirs("/data", exist_ok=True)
@@ -40,77 +45,170 @@ THEMES = [
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
-# ---------------- IMPROVED AI HOOK ---------------- #
-def generate_hook(name):
+# ---------------- IMPROVED + SEO-FRIENDLY AI HOOK ---------------- #
+HOOK_STYLES = [
+    "benefit-first",       # Lead with primary practical benefit
+    "lifestyle-story",     # Gentle relatable British daily-life moment
+    "quality-craft",       # Focus on materials, durability, heritage
+    "quiet-genius"         # Understated clever fix for common UK issue
+]
+
+def generate_hook(product):
+    """
+    Enhanced AI hook generator - better quality, more variety, SEO helpful
+    Optional product fields you can add in products_data.py:
+    - keywords: list[str]       e.g. ["best electric blanket uk", "energy saving throw"]
+    - pain_points: list[str]    e.g. ["cold British winters", "high energy bills"]
+    - price_tier: str           e.g. "affordable", "premium"
+    - hook_override: str        → if present and not empty → use this instead (manual control)
+    """
+    # Manual override takes priority
+    if "hook_override" in product and product["hook_override"].strip():
+        return product["hook_override"].strip()
+
+    name = product["name"]
+    category = product.get("category", "")
+    keywords = product.get("keywords", [])
+    pain_points = product.get("pain_points", [])
+    price_tier = product.get("price_tier", "")
+
+    style = random.choice(HOOK_STYLES)
+
+    prompt = f"""
+You are a sophisticated British copywriter creating calm, elegant 1–2 sentence product highlights 
+loved by UK shoppers in 2026.
+
+Core rules:
+- Maximum 2 sentences, very concise yet evocative
+- Focus purely on practical benefits, real daily value, quality or subtle lifestyle improvement
+- Never use these words: staple, essential, go-to, must-have, iconic, game-changer
+- Use <b> tags subtly around 1–2 truly standout features only
+- Sound understated, refined, trustworthy — quiet confidence, not hype
+- Naturally weave in UK context (weather, homes, seasons, value mindset) where organic
+
+Style to use exactly: {style}
+- benefit-first:      Start directly with the #1 real-world benefit
+- lifestyle-story:    Paint a gentle, relatable moment in British daily life
+- quality-craft:      Emphasise materials, build quality, longevity
+- quiet-genius:       Highlight clever, understated solution to a common UK annoyance
+
+Extra context to blend naturally if relevant:
+Category: {category}
+Price feel: {price_tier}
+Common UK shopper context: {', '.join(pain_points) if pain_points else 'everyday practicality and lasting value'}
+Target search phrases to echo subtly (NO stuffing): {', '.join(keywords) if keywords else 'none'}
+
+Product: {name}
+
+Output only the 1–2 sentences. End with a complete sentence. No explanations.
+"""
+
     try:
         r = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
-            messages=[{
-                "role": "user",
-                "content": f"""
-Write a calm, elegant 1–2 sentence description explaining why this product is popular among UK shoppers.
-Focus on its practical benefits, quality, or appeal in daily life.
-Vary the phrasing across different products — avoid repeating common words like "staple", "essential", or "go-to".
-Use <b> tags subtly for key features.
-End with a complete sentence.
-Product: {name}
-"""
-            }],
-            temperature=0.7,
-            max_tokens=120
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.72 + random.uniform(-0.08, 0.08),  # slight variation
+            max_tokens=90   # tighter → saves money on output tokens
         )
         hook = r.choices[0].message.content.strip()
-        hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-        if not re.search(r'[.!?]$', hook):
-            hook += " among UK shoppers."
-        return hook
-    except Exception as e:
-        print(f"Groq error: {e}")
-        return "A popular choice among UK shoppers for its quality and everyday appeal."
 
-# ---------------- STORAGE ---------------- #
+        # Normalise bold formatting
+        hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
+        hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
+
+        # Ensure it ends properly
+        if not re.search(r'[.!?]$', hook):
+            hook += " It’s quietly appreciated among UK shoppers."
+
+        return hook
+
+    except Exception as e:
+        print(f"Groq error for '{name}': {e}")
+        return f"Appreciated for its <b>lasting quality</b> and thoughtful design in everyday British life."
+
+# ---------------- SMART CACHING LOGIC ---------------- #
+def should_refresh_cache():
+    if not os.path.exists(CACHE_FILE):
+        return True
+    try:
+        with open(CACHE_FILE, encoding="utf-8") as f:
+            cache = json.load(f)
+        cache_date = datetime.datetime.fromisoformat(cache.get("date", "2000-01-01T00:00:00"))
+        days_old = (datetime.datetime.now() - cache_date).days
+        if days_old >= CACHE_REFRESH_DAYS:
+            return True
+        if cache.get("prompt_version") != PROMPT_VERSION:
+            return True
+        return False
+    except Exception:
+        return True
+
+def load_or_generate_hooks(products):
+    if not should_refresh_cache():
+        try:
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                return json.load(f)["products"]
+        except:
+            pass  # fall through and regenerate
+
+    # Generate fresh
+    enriched = []
+    for p in products:
+        p_copy = dict(p)
+        p_copy["hook"] = generate_hook(p)
+        p_copy.setdefault("date_added", str(datetime.date.today()))
+        p_copy["hook_version"] = PROMPT_VERSION
+        enriched.append(p_copy)
+
+    # Save cache
+    today_iso = datetime.datetime.now().isoformat()
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump({
+            "date": today_iso,
+            "prompt_version": PROMPT_VERSION,
+            "products": enriched
+        }, f, indent=2, ensure_ascii=False)
+
+    # Save to history
+    history = load_history()
+    history_key = datetime.date.today().isoformat()
+    history[history_key] = enriched
+    save_history(history)
+
+    return enriched
+
 def load_history():
     if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE) as f:
+        with open(HISTORY_FILE, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
 def save_history(data):
-    with open(HISTORY_FILE, "w") as f:
-        json.dump(data, f, indent=2)
-
-def enrich_products(products):
-    enriched = []
-    for p in products:
-        p_copy = dict(p)
-        p_copy["hook"] = generate_hook(p["name"])
-        p_copy.setdefault("date_added", str(datetime.date.today()))
-        enriched.append(p_copy)
-    return enriched
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 def refresh_products(background=False):
     today = str(datetime.date.today())
+
+    # Fast path: use existing cache if still fresh
     if os.path.exists(CACHE_FILE):
-        with open(CACHE_FILE) as f:
+        with open(CACHE_FILE, encoding="utf-8") as f:
             cache = json.load(f)
-            if cache.get("date") == today:
+            if cache.get("date", "").startswith(today) or not should_refresh_cache():
                 return cache["products"]
 
     def do_refresh():
-        enriched = enrich_products(PRODUCTS)
-        with open(CACHE_FILE, "w") as f:
-            json.dump({"date": today, "products": enriched}, f)
-        history = load_history()
-        history[today] = enriched
-        save_history(history)
+        load_or_generate_hooks(PRODUCTS)  # generates + saves
 
     if background:
         Thread(target=do_refresh).start()
+        # Return best available (old cache or fallback)
         if os.path.exists(CACHE_FILE):
-            with open(CACHE_FILE) as f:
+            with open(CACHE_FILE, encoding="utf-8") as f:
                 cached = json.load(f).get("products", [])
                 if cached:
                     return cached
+        # Ultimate fallback
         return [{
             "name": p["name"],
             "category": p["category"],
@@ -121,7 +219,7 @@ def refresh_products(background=False):
         } for p in PRODUCTS]
     else:
         do_refresh()
-        with open(CACHE_FILE) as f:
+        with open(CACHE_FILE, encoding="utf-8") as f:
             return json.load(f)["products"]
 
 # ---------------- HELPERS ---------------- #
@@ -166,10 +264,9 @@ def shorten_product_name(name, max_length=80):
     return out + "..."
 
 def ensure_hook(p):
-    if "hook" not in p or p["hook"] == p.get("info"):
-        p["hook"] = generate_hook(p["name"])
+    if "hook" not in p or not p["hook"] or p["hook"] == p.get("info"):
+        p["hook"] = generate_hook(p)
     return p
-
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
@@ -479,7 +576,6 @@ BASE_HTML = """<!DOCTYPE html>
 </html>
 """
 
-
 # ---------------- ROUTES ---------------- #
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
@@ -617,7 +713,6 @@ def product_detail(product_slug):
         subtitle="A popular UK gift choice",
         products=[found_product],
         related_products=related
-        
     )
     
 @app.route("/blog")
