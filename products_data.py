@@ -12,7 +12,7 @@ PRODUCTS = [
     {
         "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
         "category": "Beauty",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
         "url": f"https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
         "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
