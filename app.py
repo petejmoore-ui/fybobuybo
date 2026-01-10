@@ -219,14 +219,14 @@ def slugify(text):
 def get_categories(history):
     today_str = str(datetime.date.today())
     today_products = history.get(today_str, []) or PRODUCTS
+
     cats = set()
     for p in today_products:
-        cats.add(p["category"])
-        if "season" in p:
-            for s in p["season"].split(","):
-                if s.strip():
-                    cats.add(s.strip())
+        if "category" in p and p["category"].strip():
+            cats.add(p["category"].strip())
+
     return sorted(cats)
+
 
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
@@ -484,9 +484,12 @@ BASE_HTML = """<!DOCTYPE html>
         <button>View on Amazon</button>
     </a>
 
-    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
-        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
-    </p>
+    {% if p.category %}
+<p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+    More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+</p>
+{% endif %}
+
 </div>
 {% endfor %}
 </div>
