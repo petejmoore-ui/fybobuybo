@@ -379,6 +379,7 @@ PRODUCTS = [
     {
         "name": "Callaway Warbird Golf Balls - 12 Pack (White)",
         "category": "Sports & Outdoors",
+        "season": "Christmas Gift Ideas, Father's Day",
         "image": "https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg",
         "url": f"https://amzn.to/493JB64?tag=whoaccepts-21",
         "info": "High-energy core golf balls designed for maximum distance off the tee with a thin, high-sensory ionomer cover for responsive feel around the greens. Popular choice for mid-handicap golfers seeking long, straight drives and value in a durable 2-piece ball.",
@@ -386,7 +387,7 @@ PRODUCTS = [
     },
     {
         "name": "SPURK GOLF Winter Strike Mat - Fairway Protection and Practice Mat",
-        "category": "Sports & Outdoors",
+        "category": "Sports & Outdoors, Summer Gifts",
         "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4jBhqAF?tag=whoaccepts-21",
         "info": "Durable winter golf strike mat with fairway-like turf for year-round practice — protects grass on driving ranges and allows realistic iron shots without divots. Bestselling accessory for golfers maintaining swing tempo during cold months and off-season training.",
@@ -541,7 +542,7 @@ PRODUCTS = [
     {
         "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
         "category": "Health & Personal Care",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas Gift Ideas, Easter",
         "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag=whoaccepts-21",
         "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond.",
@@ -558,7 +559,7 @@ PRODUCTS = [
     {
         "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas Gift Ideas, Halloween, Christmas",
         "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag=whoaccepts-21",
         "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages.",
@@ -632,7 +633,7 @@ PRODUCTS = [
     {
         "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
         "category": "Sports & Outdoors",
-        "season": "Christmas Gift Ideas, Winter Essentials",
+        "season": "Christmas Gift Ideas, Winter Essentials, Back to School",
         "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag=whoaccepts-21",
         "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events.",
