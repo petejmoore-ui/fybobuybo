@@ -217,15 +217,15 @@ def slugify(text):
     return text
 
 def get_categories(history):
+    """
+    Navigation categories ONLY.
+    Seasons are intentionally excluded.
+    """
     today_str = str(datetime.date.today())
     today_products = history.get(today_str, []) or PRODUCTS
 
-    cats = set()
-    for p in today_products:
-        if "category" in p and p["category"].strip():
-            cats.add(p["category"].strip())
-
-    return sorted(cats)
+    cats = sorted({p["category"] for p in today_products if p.get("category")})
+    return cats
 
 
 def paginate(items, page):
