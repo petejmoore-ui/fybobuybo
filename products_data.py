@@ -387,7 +387,8 @@ PRODUCTS = [
     },
     {
         "name": "SPURK GOLF Winter Strike Mat - Fairway Protection and Practice Mat",
-        "category": "Sports & Outdoors, Summer Gifts",
+        "category": "Sports & Outdoors",
+        "season": "Christmas Gift Ideas, Father's Day, Summer Gifts",
         "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4jBhqAF?tag=whoaccepts-21",
         "info": "Durable winter golf strike mat with fairway-like turf for year-round practice — protects grass on driving ranges and allows realistic iron shots without divots. Bestselling accessory for golfers maintaining swing tempo during cold months and off-season training.",
