@@ -281,7 +281,7 @@ PRODUCTS = [
         "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
         "category": "Electronics",
         "season": "Christmas Gift Ideas",
-        "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SX679_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
         "url": f"https://amzn.to/4pZnuoJ?tag=whoaccepts-21",
         "info": "Latest AirPods Pro 2 with USB-C charging, advanced active noise cancellation, adaptive audio, personalised spatial audio with head tracking, and new hearing health features — up to 6 hours listening time per charge. Premium wireless earbuds that remain the top choice for seamless iPhone integration and immersive sound.",
         "date_added": "2025-12-30"
