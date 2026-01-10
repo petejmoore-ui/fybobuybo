@@ -207,9 +207,14 @@ def slugify(text):
     text = re.sub(r'[^\w\-]', '', text)
     return text
 
+def normalize_for_match(text):
+    """Remove apostrophes, spaces, hyphens for flexible season matching"""
+    if not text:
+        return ""
+    return text.lower().replace("'", "").replace(" ", "").replace("-", "")
+
 def get_nav_items():
     """Returns dict with separate categories and seasons for navigation"""
-    # Try to get today's cached products
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
@@ -220,10 +225,8 @@ def get_nav_items():
     else:
         today_products = PRODUCTS
 
-    # Regular categories
     categories = sorted({p["category"] for p in today_products if p.get("category")})
 
-    # Active seasons from current products
     seasons_set = set()
     for p in today_products:
         if p.get("season"):
@@ -232,7 +235,6 @@ def get_nav_items():
                 if clean:
                     seasons_set.add(clean)
 
-    # Important seasons we want to show even if currently low/no stock
     important_seasons = [
         "Valentine's Day",
         "Mother's Day",
@@ -244,7 +246,6 @@ def get_nav_items():
         "Christmas"
     ]
 
-    # Combine: active seasons first (sorted), then add missing important ones
     seasons = sorted(list(seasons_set))
     for imp in important_seasons:
         if imp not in seasons:
@@ -323,7 +324,7 @@ a{color:{{text_accent}};text-decoration:none}
 nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
 nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
 nav a:hover{opacity:.8}
-nav .season-link { color: #f472b6; }  /* pinkish for seasonal feel */
+nav .season-link { color: #f472b6; }
 nav .season-link:hover { opacity: 0.9; color: #fda4af; }
 .pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
 .pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
@@ -409,7 +410,6 @@ BASE_HTML = """<!DOCTYPE html>
         ↳ Featured on {{ p.date_added }}
     </p>
     {% endif %}
-    <!-- Schema.org Product & Breadcrumb remains unchanged -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -495,7 +495,6 @@ BASE_HTML = """<!DOCTYPE html>
     </p>
     <div style="margin:50px 0 30px;text-align:center;">
         <p style="opacity:.8;font-size:.95rem;margin-bottom:20px;">Follow us for more gift ideas</p>
-        <!-- Social links remain unchanged -->
         <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 10px;">
             <!-- Pinterest SVG -->
         </a>
@@ -517,7 +516,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
-    nav_items = get_nav_items()   # ← NEW - navigation data
+    nav_items = get_nav_items()
     
     canonical = SITE_URL + request.path
     page_num = int(request.args.get("page", 1))
@@ -537,7 +536,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         heading=heading,
         subtitle=subtitle,
         products=paged_products,
-        nav_items=nav_items,                # ← NEW
+        nav_items=nav_items,
         css=css,
         canonical_url=canonical,
         SITE_URL=SITE_URL,
@@ -595,15 +594,20 @@ def category(slug):
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
+    # print(f"Season route reached! Slug: {season_slug}")  # ← uncomment for debugging
+
     products = refresh_products(background=True)
     
-    season_name = ' '.join(word.capitalize() for word in season_slug.replace('-', ' ').split())
-    season_lower = season_name.lower()
+    # Normalize slug for display
+    season_name = season_slug.replace('-', ' ').title()
+    
+    # Normalized version for matching (remove apostrophes, spaces, hyphens)
+    norm_slug = normalize_for_match(season_slug)
 
     filtered = [
         p for p in products
         if p.get("season") and any(
-            season_lower in s.lower().strip() 
+            norm_slug in normalize_for_match(s)
             for s in p["season"].split(",")
         )
     ]
@@ -617,7 +621,7 @@ def seasonal_collection(season_slug, page=1):
         return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
 
     title_season = season_name
-    if "day" in season_lower or "christmas" in season_lower:
+    if "day" in season_name.lower() or "christmas" in season_name.lower():
         title_season += " Gifts"
 
     return render_page(
@@ -714,7 +718,6 @@ def blog_index():
         prev_page_url=None
     )
     
-    # Remove old category nav (already handled by nav_items)
     rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
     
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
@@ -784,7 +787,6 @@ def sitemap():
     urls = set()
     urls.add((SITE_URL + "/", str(datetime.date.today())))
 
-    # Categories
     for day_products in history.values():
         for p in day_products:
             if p.get("category"):
@@ -792,7 +794,6 @@ def sitemap():
             if p.get("name"):
                 urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", str(datetime.date.today())))
 
-    # Add seasonal pages
     important_seasons = [
         "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
         "Summer Gifts", "Back to School", "Halloween", "Christmas"
