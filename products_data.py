@@ -244,7 +244,7 @@ PRODUCTS = [
     {
         "name": "Overmont Enamelled Cast Iron Dutch Oven Casserole Dish - 5.5L Round Non-Stick Pot with Lid - Oven Safe up to 260°C - Red",
         "category": "Home & Kitchen",
-        "season": "Christmas Gift Ideas, New Year Essentials",
+        "season": "Christmas, New Year Essentials",
         "image": "https://m.media-amazon.com/images/I/71fYHkEDgML._AC_SX679_.jpg",
         "url": f"https://amzn.to/4jeOuOo?tag=whoaccepts-21",
         "info": "Heavy-duty enamelled cast iron Dutch oven with excellent heat retention and even distribution — ideal for slow cooking, braising, baking bread, and one-pot meals. Oven safe to 260°C, easy-clean non-stick interior, and stylish design — bestselling affordable alternative to premium brands for home cooks.",
@@ -253,7 +253,7 @@ PRODUCTS = [
     {
         "name": "TCL 32SF560 32 Inch Full HD Fire TV with Freeview Play, Dolby Audio, Voice Remote, Enhanced Brightness - Black",
         "category": "Electronics",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/61BYxuQ0KHL._AC_SX679_.jpg",
         "url": f"https://amzn.to/45xwjOi?tag=whoaccepts-21",
         "info": "Compact 32-inch Full HD Fire TV with built-in Alexa voice remote, Freeview Play, Dolby Audio, HDR10 support, and enhanced brightness for vivid viewing — seamless access to streaming apps like Netflix, Prime Video, and Disney+. Affordable smart TV upgrade perfect for bedrooms, kitchens, or secondary rooms.",
@@ -262,7 +262,7 @@ PRODUCTS = [
     {
         "name": "Ninja Foodi Max Dual Zone Air Fryer AF400UK - 9.5L",
         "category": "Home & Kitchen",
-        "season": "New Year Essentials, Christmas Gift Ideas",
+        "season": "New Year Essentials, Christmas",
         "image": "https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg",
         "url": f"https://amzn.to/45kdy0K?tag=whoaccepts-21",
         "info": "Large 9.5L dual zone air fryer with two independent cooking baskets — cook two foods two ways simultaneously, with sync and match functions for perfect timing. Up to 75% less fat than deep frying, 6 functions including max crisp — bestselling kitchen essential for healthier family meals and quick cooking.",
@@ -280,7 +280,7 @@ PRODUCTS = [
     {
         "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
         "category": "Electronics",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
         "url": f"https://amzn.to/4pZnuoJ?tag=whoaccepts-21",
         "info": "Latest AirPods Pro 2 with USB-C charging, advanced active noise cancellation, adaptive audio, personalised spatial audio with head tracking, and new hearing health features — up to 6 hours listening time per charge. Premium wireless earbuds that remain the top choice for seamless iPhone integration and immersive sound.",
@@ -316,7 +316,7 @@ PRODUCTS = [
     {
         "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
         "category": "Electronics",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4sg8fZZ?tag=whoaccepts-21",
         "info": "The fastest Kindle Paperwhite ever with a 7-inch glare-free display, higher contrast, 25% faster page turns, adjustable warm light, and up to 12 weeks of battery life — waterproof and perfect for distraction-free reading. Bestselling e-reader upgrade and ideal thoughtful gift for book lovers this Christmas.",
@@ -325,7 +325,7 @@ PRODUCTS = [
     {
         "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
         "category": "Electronics",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/710gjg-lYyL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4b7825h?tag=whoaccepts-21",
         "info": "Latest generation Echo Dot with improved audio for richer, louder sound, built-in temperature sensor, tap gestures, and Alexa voice control — perfect for music, smart home control, and daily assistance. Bestselling smart speaker that's a popular Christmas gift for all ages.",
@@ -334,7 +334,7 @@ PRODUCTS = [
     {
         "name": "USAopoly Flip 7 Party Card Game - Ages 8+, 3+ Players, 20 Minutes Playing Time",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/81m3yB192RL._AC_SX679_.jpg",
         "url": f"https://amzn.to/49xuFyE?tag=whoaccepts-21",
         "info": "Fast-paced press-your-luck card game where players flip cards without duplicates, using action cards for twists — risk it for bonus points or play safe. Addictive party fun for families and groups, quick to learn and endlessly replayable.",
@@ -343,7 +343,7 @@ PRODUCTS = [
     {
         "name": "LEGO Speed Champions Ferrari SF-24 F1 Race Car Toy - Model Kit with Formula 1 Driver Minifigure - Gift for 10+ Year Old Boys, Girls & Adult Motorsport Fans - 77242",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/8169xVSJScL._AC_SX679_.jpg",
         "url": f"https://amzn.to/3LbsyXS?tag=whoaccepts-21",
         "info": "Authentic LEGO buildable Ferrari SF-24 F1 car from the 2024 season, complete with driver minifigure, halo cockpit, rear wing, sponsor stickers, and Pirelli tyres — perfect for recreating races or display. Trending gift for young builders and adult F1 fans alike.",
@@ -352,7 +352,7 @@ PRODUCTS = [
     {
         "name": "LEGO Speed Champions Lightning McQueen Race Car Toy - Collectible Model Kit with Detailed Undercarriage - Disney Gift for 9+ Year Old Boys, Girls & Pixar Cars Movie Fans - 77255",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/81f5c9hpLXL._AC_SX679_.jpg",
         "url": f"https://amzn.to/49wGjtx?tag=whoaccepts-21",
         "info": "Detailed LEGO Speed Champions build of Lightning McQueen from Disney Pixar's Cars, featuring authentic stickers, Rust-eze branding, and a unique undercarriage view — perfect for recreating movie scenes or display. Trending gift for young builders and fans celebrating the film's 20th anniversary.",
@@ -361,7 +361,7 @@ PRODUCTS = [
     {
         "name": "Mattel Games UNO Classic Card Game for Kids and Adults, Family Game Night, Travel Game or Gift for Kids, 2 to 10 Players, Ages 7 and Up, W2087",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/71MrrNB7jCL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4pUlSfT?tag=whoaccepts-21",
         "info": "The timeless matching card game where players race to discard cards by colour or number, with action cards adding twists and excitement. A family favourite for game nights, travel, or as an engaging gift — easy to learn, endlessly replayable fun for all ages.",
@@ -379,7 +379,7 @@ PRODUCTS = [
     {
         "name": "Callaway Warbird Golf Balls - 12 Pack (White)",
         "category": "Sports & Outdoors",
-        "season": "Christmas Gift Ideas, Father's Day",
+        "season": "Christmas, Father's Day",
         "image": "https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg",
         "url": f"https://amzn.to/493JB64?tag=whoaccepts-21",
         "info": "High-energy core golf balls designed for maximum distance off the tee with a thin, high-sensory ionomer cover for responsive feel around the greens. Popular choice for mid-handicap golfers seeking long, straight drives and value in a durable 2-piece ball.",
@@ -388,7 +388,7 @@ PRODUCTS = [
     {
         "name": "SPURK GOLF Winter Strike Mat - Fairway Protection and Practice Mat",
         "category": "Sports & Outdoors",
-        "season": "Christmas Gift Ideas, Father's Day, Summer Gifts",
+        "season": "Christmas, Father's Day, Summer Gifts",
         "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
         "url": f"https://amzn.to/4jBhqAF?tag=whoaccepts-21",
         "info": "Durable winter golf strike mat with fairway-like turf for year-round practice — protects grass on driving ranges and allows realistic iron shots without divots. Bestselling accessory for golfers maintaining swing tempo during cold months and off-season training.",
@@ -526,7 +526,7 @@ PRODUCTS = [
     {
         "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag=whoaccepts-21",
         "info": "Hilarious party game where players guess whether random facts are 'more' or 'less' than a given number — perfect for family gatherings, parties, and game nights. Trending for its mix of ridiculous questions, laughs, and surprising knowledge.",
@@ -543,7 +543,7 @@ PRODUCTS = [
     {
         "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
         "category": "Health & Personal Care",
-        "season": "Christmas Gift Ideas, Easter",
+        "season": "Christmas, Easter",
         "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag=whoaccepts-21",
         "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond.",
@@ -560,7 +560,7 @@ PRODUCTS = [
     {
         "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
         "category": "Toys & Games",
-        "season": "Christmas Gift Ideas, Halloween, Christmas",
+        "season": "Christmas, Halloween, Christmas",
         "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag=whoaccepts-21",
         "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages.",
@@ -609,7 +609,7 @@ PRODUCTS = [
     {
         "name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
         "category": "Fashion",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag=whoaccepts-21",
         "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos.",
@@ -634,7 +634,7 @@ PRODUCTS = [
     {
         "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
         "category": "Sports & Outdoors",
-        "season": "Christmas Gift Ideas, Winter Essentials, Back to School",
+        "season": "Christmas, Winter Essentials, Back to School",
         "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
         "url": f"https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag=whoaccepts-21",
         "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events.",
@@ -644,7 +644,7 @@ PRODUCTS = [
         "name": "Herd Mentality Board Game",
         "category": "Toys & Games",
         "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX679_.jpg",
-        "season": "Christmas Gift Ideas",
+        "season": "Christmas",
         "url": f"https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag=whoaccepts-21",
         "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas.",
         "date_added": "2025-12-26"
