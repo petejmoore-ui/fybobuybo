@@ -177,35 +177,26 @@ def save_history(data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def refresh_products(background=False):
-    today = str(datetime.date.today())
-
+    # Try to load existing cache if it exists and is valid
     if os.path.exists(CACHE_FILE):
-        with open(CACHE_FILE, encoding="utf-8") as f:
-            cache = json.load(f)
-            if cache.get("date", "").startswith(today) or not should_refresh_cache():
-                return cache["products"]
-
-    def do_refresh():
-        load_or_generate_hooks(PRODUCTS)
-
-    if background:
-        Thread(target=do_refresh).start()
-        if os.path.exists(CACHE_FILE):
+        try:
             with open(CACHE_FILE, encoding="utf-8") as f:
-                cached = json.load(f).get("products", [])
-                if cached:
-                    return cached
-        return [{
-            "name": p["name"],
-            "category": p["category"],
-            "image": p["image"],
-            "url": p["url"],
-            "info": p["info"],
-            "hook": p["info"]
-        } for p in PRODUCTS]
-    else:
-        do_refresh()
-        with open(CACHE_FILE, encoding="utf-8") as f:
+                cache = json.load(f)
+            cache_date_str = cache.get("date", "")
+            if cache_date_str.startswith(str(datetime.date.today())):
+                return cache.get("products", [])
+            
+            # Optional: also check age / version
+            cache_date = datetime.datetime.fromisoformat(cache_date_str)
+            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
+               cache.get("prompt_version") == PROMPT_VERSION:
+                return cache.get("products", [])
+        except Exception as e:
+            print(f"Cache read failed: {e} — will regenerate")
+
+    # Cache missing, invalid or too old → generate now
+    enriched = load_or_generate_hooks(PRODUCTS)
+    return enriched8") as f:
             return json.load(f)["products"]
 
 # ---------------- HELPERS ---------------- #
@@ -616,7 +607,8 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 
 @app.route("/debug-routes")
 def debug_routes():
-    return "<pre>" + "\n".join(sorted(app.url_map.iter_rules())) + "</pre>"
+    rules = sorted(str(rule) for rule in app.url_map.iter_rules())
+    return "<pre>" + "\n".join(rules) + "</pre>"
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
