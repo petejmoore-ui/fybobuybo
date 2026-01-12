@@ -225,42 +225,42 @@ def normalize_for_match(text):
     return text.lower().replace("'", "").replace(" ", "").replace("-", "")
 
 def get_nav_items():
-    """Returns dict with separate categories and seasons for navigation"""
+    """Returns dict with separate categories and seasons for navigation, only real ones."""
+    # Load cached products or fallback
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache = json.load(f)
-            today_products = cache.get("products", [])
+            products = cache.get("products", [])
         except:
-            today_products = PRODUCTS
+            products = PRODUCTS
     else:
-        today_products = PRODUCTS
+        products = PRODUCTS
 
-    categories = sorted({p["category"] for p in today_products if p.get("category")})
+    # Gather categories that have products
+    categories = sorted({p["category"] for p in products if p.get("category")})
 
+    # Gather seasons from products
     seasons_set = set()
-    for p in today_products:
+    for p in products:
         if p.get("season"):
             for s in p["season"].split(","):
                 clean = s.strip()
                 if clean:
                     seasons_set.add(clean)
 
-    important_seasons = [
-        "Valentine's Day",
-        "Mother's Day",
-        "Easter",
-        "Father's Day",
-        "Summer Gifts",
-        "Back to School",
-        "Halloween",
-        "Christmas"
+    # Keep important seasons at the end if they exist in products
+    important_seasons_order = [
+        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
+        "Summer Gifts", "Back to School", "Halloween", "Christmas"
     ]
+    # Only include important seasons present in products
+    important_seasons = [s for s in important_seasons_order if s in seasons_set]
 
-    seasons = sorted(list(seasons_set))
-    for imp in important_seasons:
-        if imp not in seasons:
-            seasons.append(imp)
+    # Remaining seasons (excluding important ones)
+    other_seasons = sorted(seasons_set - set(important_seasons))
+
+    seasons = other_seasons + important_seasons
 
     return {
         "categories": categories,
@@ -351,6 +351,17 @@ nav .season-link:hover { opacity: 0.9; color: #fda4af; }
 .card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
 .card > a[onclick] { margin: 20px 0 10px; }
 .card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
+@media (max-width:768px){
+    nav a{margin:0 10px;font-size:1rem}
+    .grid{grid-template-columns:1fr}
+
+    /* Hide inline season links on mobile */
+    nav a.season-link { display: none; }
+
+    /* Show the dropdown button on mobile */
+    .seasons-dropdown { display: inline-block; }
+}
+
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
@@ -389,13 +400,36 @@ BASE_HTML = """<!DOCTYPE html>
     {% for cat in nav_items.categories %}
         <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
     {% endfor %}
+
     {% if nav_items.seasons %}
         <span style="margin:0 14px;opacity:0.5;">•</span>
         {% for season in nav_items.seasons %}
             <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
         {% endfor %}
+
+        <!-- Dropdown for mobile -->
+        <div class="seasons-dropdown" style="display:none; position:relative;">
+            <button>Seasons ▼</button>
+            <div class="dropdown-content" style="display:none;position:absolute;background:{{card}};border-radius:8px;padding:8px;top:36px;left:0;z-index:100;">
+                {% for season in nav_items.seasons %}
+                    <a href="/season/{{ slugify(season) }}" style="display:block;margin:4px 0;color:{{text_accent}};">{{ season }}</a>
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 </nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    const dropdown = document.querySelector(".seasons-dropdown");
+    if(dropdown){
+        const btn = dropdown.querySelector("button");
+        const content = dropdown.querySelector(".dropdown-content");
+        btn.addEventListener("click", ()=>content.style.display = content.style.display==="block"?"none":"block");
+    }
+});
+</script>
+
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
@@ -824,3 +858,5 @@ def sitemap():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
+
