@@ -573,6 +573,7 @@ document.addEventListener("DOMContentLoaded", function() {
 """
 
 # ---------------- ROUTES ---------------- #
+
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
@@ -613,7 +614,9 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         prev_page_url=prev_page_url
     )
 
-
+@app.route("/debug-routes")
+def debug_routes():
+    return "<pre>" + "\n".join(sorted(app.url_map.iter_rules())) + "</pre>"
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
