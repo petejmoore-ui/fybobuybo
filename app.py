@@ -136,13 +136,6 @@ def should_refresh_cache():
         return True
 
 def load_or_generate_hooks(products):
-    if not should_refresh_cache():
-        try:
-            with open(CACHE_FILE, encoding="utf-8") as f:
-                return json.load(f)["products"]
-        except:
-            pass
-
     enriched = []
     for p in products:
         p_copy = dict(p)
@@ -177,27 +170,27 @@ def save_history(data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def refresh_products(background=False):
-    # Try to load existing cache if it exists and is valid
+    today = str(datetime.date.today())
+
+    # Try to load cache if it exists
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache = json.load(f)
             cache_date_str = cache.get("date", "")
-            if cache_date_str.startswith(str(datetime.date.today())):
+            if cache_date_str.startswith(today):
                 return cache.get("products", [])
-            
-            # Optional: also check age / version
+            # Check age and version
             cache_date = datetime.datetime.fromisoformat(cache_date_str)
             if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
                cache.get("prompt_version") == PROMPT_VERSION:
                 return cache.get("products", [])
         except Exception as e:
-            print(f"Cache read failed: {e} — will regenerate")
+            print(f"Cache read failed: {e} — regenerating")
 
-    # Cache missing, invalid or too old → generate now
+    # Generate fresh if cache missing, invalid or outdated
     enriched = load_or_generate_hooks(PRODUCTS)
-    return enriched8") as f:
-            return json.load(f)["products"]
+    return enriched
 
 # ---------------- HELPERS ---------------- #
 def slugify(text):
@@ -213,15 +206,14 @@ def normalize_for_match(text):
     return text.lower().replace("'", "").replace(" ", "").replace("-", "")
 
 def get_nav_items():
+    products = PRODUCTS  # fallback
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache = json.load(f)
-            products = cache.get("products", [])
+            products = cache.get("products", PRODUCTS)
         except:
-            products = PRODUCTS
-    else:
-        products = PRODUCTS
+            pass
 
     categories = sorted({p["category"] for p in products if p.get("category")})
 
@@ -564,7 +556,6 @@ document.addEventListener("DOMContentLoaded", function() {
 """
 
 # ---------------- ROUTES ---------------- #
-
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
@@ -609,6 +600,7 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
 def debug_routes():
     rules = sorted(str(rule) for rule in app.url_map.iter_rules())
     return "<pre>" + "\n".join(rules) + "</pre>"
+
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
@@ -619,7 +611,6 @@ def home():
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
     )
-
 
 @app.route("/category/<slug>")
 def category(slug):
@@ -645,7 +636,6 @@ def category(slug):
         page=page,
         page_url=page_url
     )
-
 
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
@@ -685,7 +675,6 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
-
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     products = refresh_products(background=True)
@@ -707,7 +696,6 @@ def product_detail(product_slug):
         products=[found],
         related_products=related
     )
-
 
 @app.route("/blog")
 def blog_index():
@@ -778,7 +766,6 @@ def blog_index():
     
     return rendered
 
-
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
@@ -819,7 +806,6 @@ def blog_detail(slug):
     
     return rendered
 
-
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
 def robots():
@@ -830,7 +816,6 @@ Disallow:
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
-
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -860,7 +845,6 @@ def sitemap():
 
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
