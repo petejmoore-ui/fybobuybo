@@ -26,7 +26,8 @@ ITEMS_PER_PAGE = 12
 CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v2.2-uk-seo-2026"
 
-os.makedirs("/data", exist_ok=True)
+os.makedirs("data", exist_ok=True)  # relative to your project folder
+DATA_PATH = "data"
 
 # ---------------- THEMES ---------------- #
 THEMES = [
