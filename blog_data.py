@@ -245,7 +245,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <p>Each accessory helps improve your training comfort, safety, or convenience — the key factors that keep you consistent in 2026. Explore more <a href='/blog/best-fitness-gadgets-2026'>running gear and fitness gadgets</a> to complement your routine.</p>
+  <p>Each accessory helps improve your training comfort, safety, or convenience — the key factors that keep you consistent in 2026. Explore more <a href='/category/sports--and--outdoors'>running gear and fitness gadgets</a> to complement your routine.</p>
 
 </article>
 """
