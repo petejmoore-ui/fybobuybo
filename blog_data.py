@@ -1,5 +1,5 @@
 # ---------------- BLOG SECTION ---------------- #
-BLOG-POSTS = {
+BLOG_POSTS = {
     "8-essential-home-products-to-upgrade-your-space-in-2026": {
   "title": "8 Essential Home Products to Upgrade Your Space in 2026",
   "description": "Explore top-rated home upgrades for 2026 — smart gadgets, cozy textiles, and everyday essentials to refresh your UK home without overspending.",
