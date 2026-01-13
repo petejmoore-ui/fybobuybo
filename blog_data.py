@@ -480,7 +480,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <p>Each of these <strong>Valentine’s gifts under £50</strong> feels premium, thoughtful, and appreciated — proof that meaningful doesn’t have to mean expensive. Discover even more <a href='/blog/valentines-gifts-for-her-under-100'>Valentine’s ideas under £100 →</a> or explore other <a href='/blog/best-valentines-gifts-for-her'>top-rated Valentine’s gifts for her</a> to find the perfect surprise.</p>
+  <p>Each of these <strong>Valentine’s gifts under £50</strong> feels premium, thoughtful, and appreciated — proof that meaningful doesn’t have to mean expensive. Discover even more <a href='/blog/valentines-gifts-for-her-under-100'>Valentine’s ideas under £100 →</a> or explore other <a href='/season/valentines-day'>top-rated Valentine’s gifts for her</a> to find the perfect surprise.</p>
 
 </article>
 
