@@ -3,7 +3,7 @@
 
   <!-- Blog Title -->
   <h1>8 Essential Home Products to Upgrade Your Space in 2026</h1>
-  <p style="font-size:1.2rem;color:#555;">Discover trending UK home upgrades – smart devices, cozy textiles, and practical essentials to refresh your space affordably.</p>
+  <p style="font-size:1.2rem;color:#555;">Discover trending UK home upgrades - smart devices, cozy textiles, and practical essentials to refresh your space affordably.</p>
   <p>Updated: 26 December 2025</p>
 
   <!-- Quick Comparison Table -->
@@ -257,7 +257,7 @@
     <a href="/product/disposable-hand-warmers">
         <img src="https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg" alt="Disposable hand warmers for running" loading="lazy" style="border-radius:16px;">
     </a>
-    <p>Perfect for extremely cold days, hand warmers slip into gloves or pockets for extra warmth.</p>
+    <p>Perfect for extremely cold days. Hand warmers slip into gloves or pockets for extra warmth.</p>
     <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
         <a href="/product/disposable-hand-warmers"><button>View Details & Buy</button></a>
         <a href="https://amzn.to/49fUmCp?tag=whoaccepts-21" target="_blank" rel="nofollow sponsored"><button style="background:#ff9900;">View on Amazon</button></a>
@@ -305,7 +305,7 @@
     <a href="/product/thermal-running-hat-ear-flaps">
         <img src="https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg" alt="Thermal running hat with ear flaps" loading="lazy" style="border-radius:16px;">
     </a>
-    <p>Extra warmth for ears on extremely cold days. Lightweight and breathable materials prevent overheating.</p>
+    <p>Extra warmth for ears on extremely cold days. Lightweight, breathable materials prevent overheating.</p>
     <div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
         <a href="/product/thermal-running-hat-ear-flaps"><button>View Details & Buy</button></a>
         <a href="https://amzn.to/3YmhASv?tag=whoaccepts-21" target="_blank" rel="nofollow sponsored"><button style="background:#ff9900;">View on Amazon</button></a>
@@ -325,85 +325,75 @@
 </div>
 
 <p>With these 10 winter running accessories, your 2026 runs will be warmer, safer, and more enjoyable. Every item is practical, widely available online, and designed for everyday runners.</p>
-</article>
-"""
-}
 
 
-  "valentines-gifts-for-her-under-100": {
-  "title": "Valentine’s Gifts for Her Under £100 (Premium Without Overspending)",
-  "description": "Discover Valentine’s gifts for her under £100 that feel luxurious, thoughtful, and memorable—without breaking the bank.",
-  "heading": "Valentine’s Gifts for Her Under £100",
-  "subtitle": "Luxury-feel Valentine’s gifts without the luxury price tag.",
-  "date": "2026-01-04",
-  "content": """
-<article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
+
+ <article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
 
   <p>Looking for a Valentine’s gift that feels truly special but won’t exceed £100? These premium-feel gifts combine thoughtfulness, style, and quality, all at an accessible price.</p>
 
   <h2>1. Personalised Initial or Name Necklace</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
-      <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' alt='Personalised initial necklace Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
+    <a href='/product/umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-gold-silver-rose-gold'>
+      <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' alt='Personalised initial necklace — Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>Give her a truly personal gift with a custom necklace featuring her name or initials. Elegant, intimate, and budget-friendly under £100.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'><button>View Details & Buy</button></a>
+      <a href='/product/umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-gold-silver-rose-gold'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/4aJ2cXO?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
 
   <h2>2. Silk or Satin Pyjama Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
-      <img src='https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg' alt='Silk pyjamas Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
+    <a href='/product/swomog-womens-satin-pyjama-set-long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+      <img src='https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg' alt='Silk pyjamas — Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>Soft, silky pyjamas feel indulgent and luxurious. A perfect way to help her relax in style, while keeping the gift thoughtful and under £100.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'><button>View Details & Buy</button></a>
+      <a href='/product/swomog-womens-satin-pyjama-set-long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/4qgKEqE?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
 
   <h2>3. Luxury Scented Candle Gift Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
-      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' alt='Luxury scented candle Valentine’s gift set' loading='lazy' style='border-radius:16px;'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
+      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' alt='Luxury scented candle — Valentine’s gift set' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>Fill her home with romance and warmth with premium-scented candles. High-quality fragrances without the high price tag make this a thoughtful Valentine’s choice.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'><button>View Details & Buy</button></a>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
 
   <h2>4. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
-      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' alt='Skincare gift set Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
+      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' alt='Skincare gift set — Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>Luxury bath and skincare hampers let her indulge in pampering moments. Beautifully packaged and under £100—perfect for a premium-feel gift.</p>
+    <p>Luxury bath and skincare hampers let her indulge in pampering moments. Beautifully packaged and under £100 — perfect for a premium-feel gift.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'><button>View Details & Buy</button></a>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
 
   <h2>5. Mini Photo Printer or Smart Keepsake</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
-      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' alt='Mini photo printer Valentine’s gift idea' loading='lazy' style='border-radius:16px;'>
+    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints'>
+      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' alt='Mini photo printer — Valentine’s gift idea' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>Capture memories instantly with a mini photo printer. A tech-savvy yet sentimental gift she’ll treasure, all while staying under £100.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'><button>View Details & Buy</button></a>
+      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints'><button>View Details & Buy</button></a>
       <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;'>View on Amazon</button></a>
     </div>
   </div>
 
 </article>
-"""
-}
+
 
 
 
