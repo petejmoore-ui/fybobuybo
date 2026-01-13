@@ -308,6 +308,11 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
 .card p:last-of-type {margin:10px 0;font-size:.85rem;opacity:.7}
 @media (max-width:768px){nav a{margin:0 10px;font-size:1rem}.grid{grid-template-columns:1fr}nav a.season-link{display:none}.seasons-dropdown{display:inline-block}}
 @media (min-width:769px){.seasons-dropdown{display:none !important}}
+@media (max-width:768px){
+  h1{margin-bottom:8px;}
+  .subtitle{margin:8px auto 12px;}
+  .grid{margin-top:0;}
+}
 </style>"""
 
 BASE_HTML = """<!DOCTYPE html>
