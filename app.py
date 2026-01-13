@@ -35,7 +35,6 @@ CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v2.2-uk-seo-2026"
 
 os.makedirs("data", exist_ok=True)
-DATA_PATH = "data"
 
 # ---------------- THEMES ---------------- #
 THEMES = [
@@ -172,7 +171,6 @@ def save_history(data):
 def refresh_products(background=False):
     today = str(datetime.date.today())
 
-    # Try to load cache if it exists
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
@@ -180,7 +178,6 @@ def refresh_products(background=False):
             cache_date_str = cache.get("date", "")
             if cache_date_str.startswith(today):
                 return cache.get("products", [])
-            # Check age and version
             cache_date = datetime.datetime.fromisoformat(cache_date_str)
             if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
                cache.get("prompt_version") == PROMPT_VERSION:
@@ -188,9 +185,21 @@ def refresh_products(background=False):
         except Exception as e:
             print(f"Cache read failed: {e} — regenerating")
 
-    # Generate fresh if cache missing, invalid or outdated
-    enriched = load_or_generate_hooks(PRODUCTS)
-    return enriched
+    # Cache missing/invalid → generate
+    if background:
+        Thread(target=load_or_generate_hooks, args=(PRODUCTS,)).start()
+        # Return fallback data immediately
+        return [{
+            "name": p["name"],
+            "category": p.get("category", "Uncategorised"),
+            "image": p.get("image", ""),
+            "url": p.get("url", "#"),
+            "info": p.get("info", ""),
+            "hook": FALLBACK_HOOK,
+            "season": p.get("season", "")
+        } for p in PRODUCTS]
+    else:
+        return load_or_generate_hooks(PRODUCTS)
 
 # ---------------- HELPERS ---------------- #
 def slugify(text):
@@ -206,7 +215,7 @@ def normalize_for_match(text):
     return text.lower().replace("'", "").replace(" ", "").replace("-", "")
 
 def get_nav_items():
-    products = PRODUCTS  # fallback
+    products = PRODUCTS
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
@@ -261,89 +270,46 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
-def ensure_hook(p):
-    if "hook" not in p or not p["hook"]:
-        p["hook"] = FALLBACK_HOOK
-    return p
-
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-body { margin:0; background:{{bg}}; color:#fff; font-family:'Outfit',sans-serif; padding:20px 20px 40px; }
-h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:40px 0 10px; }
-.subtitle { text-align:center; opacity:.85; max-width:900px; margin:20px auto; color:{{text_accent}}; font-size:1.1rem; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1400px; margin:auto; }
-.card { background:{{card}}; border-radius:22px; padding:20px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,.6); transition:transform .3s,box-shadow .3s; }
-.card:hover { transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,.7); }
-img { width:100%; border-radius:16px; margin:16px 0; }
-.tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
-button {
-    background:{{button}}; border:none; padding:16px 36px; border-radius:50px; font-size:1.1rem; font-weight:900;
-    color:white; cursor:pointer; transition:.3s; animation: pulse 2.5s infinite ease-in-out;
-}
-button:hover { opacity:.9; transform:scale(1.05); animation:none; }
-@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);} 70%{box-shadow:0 0 0 12px rgba(2,132,199,0);} 100%{box-shadow:0 0 0 0 rgba(2,132,199,0);} }
-@media (prefers-reduced-motion: reduce) { button{animation:none;} }
-footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
-a { color:{{text_accent}}; text-decoration:none; }
-nav {
-    background:{{card}}; padding:16px; margin:20px 0 40px; border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center; position:relative;
-}
-nav a { margin:0 16px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
-nav a:hover { opacity:.8; }
-nav .season-link { color: #f472b6; }
-nav .season-link:hover { opacity: 0.9; color: #fda4af; }
-
-/* ─────────────── MOBILE SEASONS DROPDOWN ─────────────── */
-.seasons-dropdown {
-    display: none;
-    position: relative;
-    margin: 0 8px;
-}
-.seasons-dropdown button {
-    background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 8px 16px; border-radius: 12px; font-weight: 600; font-size: 1rem;
-    cursor: pointer; transition: all 0.2s;
-}
-.seasons-dropdown button:hover { background: #475569; color: white; }
-.dropdown-content {
-    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-    background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 180px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
-}
-.dropdown-content a {
-    display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none;
-    font-size: 1rem; white-space: nowrap;
-}
-.dropdown-content a:hover { background: #334155; }
-
-.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
-.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
-.pagination a:hover { opacity:.9; }
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
-
-.grid:has(> .card:only-child) .card { max-width: 600px; margin: 0 auto; }
-.grid:has(> .card:only-child) img { max-width: 500px; width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 16px; }
-.card h2 { min-height: 70px; display: flex; align-items: center; justify-content: center; margin: 12px 0; font-size: 1.25rem; line-height: 1.3; font-weight: 900; }
-.card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
-.card > a[onclick] { margin: 20px 0 10px; }
-.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
-
-/* ─────────────── MEDIA QUERIES ─────────────── */
-@media (max-width:768px) {
-    nav a { margin:0 10px; font-size:1rem; }
-    .grid { grid-template-columns:1fr; }
-
-    nav a.season-link { display: none; }
-    .seasons-dropdown { display: inline-block; }
-}
-
-@media (min-width:769px) {
-    .seasons-dropdown { display: none !important; }
-}
+body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
+h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
+.subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
+img{width:100%;border-radius:16px;margin:16px 0}
+.tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
+button{background:{{button}};border:none;padding:16px 36px;border-radius:50px;font-size:1.1rem;font-weight:900;color:white;cursor:pointer;transition:.3s;animation:pulse 2.5s infinite ease-in-out}
+button:hover{opacity:.9;transform:scale(1.05);animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4)}70%{box-shadow:0 0 0 12px rgba(2,132,199,0)}100%{box-shadow:0 0 0 0 rgba(2,132,199,0)}}
+footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
+a{color:{{text_accent}};text-decoration:none}
+nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center;position:relative}
+nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
+nav a:hover{opacity:.8}
+nav .season-link{color:#f472b6}
+nav .season-link:hover{opacity:.9;color:#fda4af}
+.seasons-dropdown{display:none;position:relative;margin:0 8px}
+.seasons-dropdown button{background:#334155;color:#bae6fd;border:1px solid #475569;padding:8px 16px;border-radius:12px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .2s}
+.seasons-dropdown button:hover{background:#475569;color:white}
+.dropdown-content{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:{{card}};border-radius:12px;padding:12px 0;min-width:180px;box-shadow:0 10px 25px rgba(0,0,0,.5);z-index:100;margin-top:8px}
+.dropdown-content a{display:block;padding:10px 20px;color:{{text_accent}};text-decoration:none;font-size:1rem;white-space:nowrap}
+.dropdown-content a:hover{background:#334155}
+.pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
+.pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
+.pagination a:hover{opacity:.9}
+.loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}}}
+.grid:has(> .card:only-child) .card {max-width:600px;margin:0 auto}
+.grid:has(> .card:only-child) img {max-width:500px;width:100%;height:auto;margin:20px auto;display:block;border-radius:16px}
+.card h2 {min-height:70px;display:flex;align-items:center;justify-content:center;margin:12px 0;font-size:1.25rem;line-height:1.3;font-weight:900}
+.card img {width:100%;max-height:380px;object-fit:contain;background:#111827;border-radius:16px;margin:16px 0}
+.card > a[onclick] {margin:20px 0 10px}
+.card p:last-of-type {margin:10px 0;font-size:.85rem;opacity:.7}
+@media (max-width:768px){nav a{margin:0 10px;font-size:1rem}.grid{grid-template-columns:1fr}nav a.season-link{display:none}.seasons-dropdown{display:inline-block}}
+@media (min-width:769px){.seasons-dropdown{display:none !important}}
 </style>"""
 
-# ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -382,13 +348,10 @@ BASE_HTML = """<!DOCTYPE html>
 
     {% if nav_items.seasons %}
         <span style="margin:0 14px;opacity:0.5;">•</span>
-
-        <!-- Desktop season links -->
         {% for season in nav_items.seasons %}
             <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
         {% endfor %}
 
-        <!-- Mobile dropdown -->
         <div class="seasons-dropdown">
             <button>Seasons ▼</button>
             <div class="dropdown-content">
@@ -401,30 +364,22 @@ BASE_HTML = """<!DOCTYPE html>
 </nav>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function(){
     const dropdowns = document.querySelectorAll(".seasons-dropdown");
-    
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector("button");
         const content = dropdown.querySelector(".dropdown-content");
-        
         if (!btn || !content) return;
-        
-        btn.addEventListener("click", function(e) {
+        btn.addEventListener("click", function(e){
             e.stopPropagation();
             const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => {
-                el.style.display = "none";
-            });
+            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
             content.style.display = isOpen ? "none" : "block";
         });
     });
-
-    document.addEventListener("click", function(e) {
+    document.addEventListener("click", function(e){
         if (!e.target.closest(".seasons-dropdown")) {
-            document.querySelectorAll(".dropdown-content").forEach(el => {
-                el.style.display = "none";
-            });
+            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
         }
     });
 });
@@ -603,7 +558,36 @@ def debug_routes():
 
 @app.route("/")
 def home():
+    # Trigger background generation if cache doesn't exist
+    if not os.path.exists(CACHE_FILE):
+        Thread(target=refresh_products, kwargs={"background": True}).start()
+
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
+
+    # Show loading page on first-ever load
+    if not os.path.exists(CACHE_FILE):
+        return render_template_string("""
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>FyboBuybo – Loading Gifts</title>
+            <style>
+                body {margin:0; background:#0f172a; color:#fff; font-family:sans-serif; text-align:center; padding:120px 20px;}
+                h1 {font-size:2.8rem; margin-bottom:1.5rem;}
+                p {font-size:1.3rem; opacity:0.9; max-width:600px; margin:0 auto 2rem;}
+            </style>
+        </head>
+        <body>
+            <h1>Preparing today's curated gifts...</h1>
+            <p>This is the first time setup — it may take 30–120 seconds to generate descriptions.<br>
+            Please refresh the page in a minute or two.</p>
+            <meta http-equiv="refresh" content="60">
+        </body>
+        </html>
+        """)
+
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents",
         description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more.",
@@ -615,17 +599,12 @@ def home():
 @app.route("/category/<slug>")
 def category(slug):
     products = refresh_products(background=True)
-
-    filtered = [p for p in products if slugify(p["category"]) == slug]
-
+    filtered = [p for p in products if slugify(p.get("category", "")) == slug]
     if not filtered:
         abort(404)
-
     cat_name = filtered[0]["category"]
-
     def page_url(p):
         return url_for("category", slug=slug, page=p)
-
     page = int(request.args.get("page", 1))
     return render_page(
         title=f"{cat_name} – FyboBuybo",
@@ -649,7 +628,7 @@ def seasonal_collection(season_slug, page=1):
         p for p in products
         if p.get("season") and any(
             norm_slug in normalize_for_match(s.strip())
-            for s in p["season"].split(",")
+            for s in str(p["season"]).split(",")
         )
     ]
 
@@ -757,7 +736,7 @@ def blog_index():
         prev_page_url=None
     )
     
-    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    rendered = rendered.replace('{% for cat in nav_items.categories %}\n        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
     
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
@@ -797,7 +776,7 @@ def blog_detail(slug):
         prev_page_url=None
     )
     
-    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    rendered = rendered.replace('{% for cat in nav_items.categories %}\n        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
     
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
