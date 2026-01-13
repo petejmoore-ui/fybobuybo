@@ -275,8 +275,8 @@ CSS_TEMPLATE = """<style>
 body{margin:0;background:#0f172a;color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:linear-gradient(90deg,#0284c7,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:#bae6fd;font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:100%;max-width:none;margin:0 auto;padding:0 20px;box-sizing:border-box}
-.card{background:#1e293b;border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:flex-start}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:100%;margin:0 auto;padding:0;box-sizing:border-box}
+.card{background:#1e293b;border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:flex-start;align-items:center}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:#7dd3fc;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
@@ -300,15 +300,13 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
 .pagination a{background:#0284c7;padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
 .pagination a:hover{opacity:.9}
 .loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:#bae6fd}
-.grid:has(> .card:only-child) .card {max-width:600px;margin:0 auto}
-.grid:has(> .card:only-child) img {max-width:500px;width:100%;height:auto;margin:20px auto;display:block;border-radius:16px}
 .card h2 {min-height:70px;display:flex;align-items:center;justify-content:center;margin:12px 0;font-size:1.25rem;line-height:1.3;font-weight:900}
 .card img {width:100%;max-height:380px;object-fit:contain;background:#111827;border-radius:16px;margin:16px 0}
 .card > a[onclick] {margin:20px 0 10px}
 .card p:last-of-type {margin:10px 0;font-size:.85rem;opacity:.7}
 
-/* Fix for blog cards and product cards to align content properly */
-.card h2, .card p, .card img, .card .tag, .card button {margin-left:auto; margin-right:auto;}
+/* Center content inside cards */
+.card h2, .card p, .card img, .card .tag, .card button {margin-left:auto;margin-right:auto}
 
 /* Mobile layout for all pages */
 @media (max-width:768px){
@@ -332,38 +330,33 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
 body.blog-home .grid {
     grid-template-columns: 1fr !important;
     margin: 0 auto !important;
-    padding: 0 12px !important;
-    gap: 16px !important;
+    padding: 0 20px !important; /* reduce left margin */
+    gap: 20px !important;
     box-sizing: border-box !important;
 }
 
 body.blog-home .grid > .card:first-child {
-    margin-top: 0 !important;
+    margin-top:0 !important;
 }
 
 body.blog-home .card {
-    margin: 0 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    margin:0 auto !important;
+    width:100% !important;
+    max-width:100% !important;
 }
 
 body.blog-home .subtitle {
-    margin-bottom: 8px !important;
-    text-align: center !important;
+    margin-bottom:8px !important;
+    text-align:center !important;
 }
 
-/* PRODUCT PAGE CARD FIXES */
-body.product-page .grid {grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+/* Product page fixes */
+body.product-page .grid {grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;padding:0 20px}
 body.product-page .card {max-width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
 body.product-page .card img {object-fit:contain;max-height:380px;margin:16px 0}
 body.product-page .card h2 {min-height:70px;margin:12px 0;font-size:1.25rem}
 body.product-page .card p, body.product-page .card .tag, body.product-page .card button {margin-left:auto;margin-right:auto}
-
-/* Ensure blog cards and product cards behave on all screen sizes */
-.grid > .card {display:flex;flex-direction:column;align-items:center;text-align:center}
-</style>
-
-"""
+</style>"""
 
 
 
