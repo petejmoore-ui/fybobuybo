@@ -272,90 +272,404 @@ FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-body{margin:0;background:#0f172a;color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
-h1{text-align:center;font-size:3rem;background:linear-gradient(90deg,#0284c7,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
-.subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:#bae6fd;font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:100%;margin:0 auto;padding:0;box-sizing:border-box}
-.card{background:#1e293b;border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:flex-start;align-items:center}
-.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
-img{width:100%;border-radius:16px;margin:16px 0}
-.tag{background:#7dd3fc;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
-button{background:#0284c7;border:none;padding:16px 36px;border-radius:50px;font-size:1.1rem;font-weight:900;color:white;cursor:pointer;transition:.3s;animation:pulse 2.5s infinite ease-in-out}
-button:hover{opacity:.9;transform:scale(1.05);animation:none}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4)}70%{box-shadow:0 0 0 12px rgba(2,132,199,0)}100%{box-shadow:0 0 0 0 rgba(2,132,199,0)}}
-footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
-a{color:#bae6fd;text-decoration:none}
-nav{background:#1e293b;padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center;position:relative}
-nav a{margin:0 16px;color:#bae6fd;font-weight:700;font-size:1.1rem;transition:.2s}
-nav a:hover{opacity:.8}
-nav .season-link{color:#f472b6}
-nav .season-link:hover{opacity:.9;color:#fda4af}
-.seasons-dropdown{display:none;position:relative;margin:0 8px}
-.seasons-dropdown button{background:#334155;color:#bae6fd;border:1px solid #475569;padding:8px 16px;border-radius:12px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .2s}
-.seasons-dropdown button:hover{background:#475569;color:white}
-.dropdown-content{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#1e293b;border-radius:12px;padding:12px 0;min-width:180px;box-shadow:0 10px 25px rgba(0,0,0,.5);z-index:100;margin-top:8px}
-.dropdown-content a{display:block;padding:10px 20px;color:#bae6fd;text-decoration:none;font-size:1rem;white-space:nowrap}
-.dropdown-content a:hover{background:#334155}
-.pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
-.pagination a{background:#0284c7;padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
-.pagination a:hover{opacity:.9}
-.loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:#bae6fd}
-.card h2 {min-height:70px;display:flex;align-items:center;justify-content:center;margin:12px 0;font-size:1.25rem;line-height:1.3;font-weight:900}
-.card img {width:100%;max-height:380px;object-fit:contain;background:#111827;border-radius:16px;margin:16px 0}
-.card > a[onclick] {margin:20px 0 10px}
-.card p:last-of-type {margin:10px 0;font-size:.85rem;opacity:.7}
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  padding: 20px 20px 40px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 40px 0 10px;
+}
+
+.subtitle {
+  text-align: center;
+  opacity: .85;
+  max-width: 900px;
+  margin: 20px auto;
+  color: #bae6fd;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #1e293b;
+  border-radius: 22px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,.7);
+}
+
+img {
+  width: 100%;
+  border-radius: 16px;
+  margin: 16px 0;
+}
+
+.tag {
+  background: #7dd3fc;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: .85rem;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+button {
+  background: #0284c7;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+button:hover {
+  opacity: .9;
+  transform: scale(1.05);
+  animation: none;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(2,132,199,0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(2,132,199,0); }
+  100% { box-shadow: 0 0 0 0 rgba(2,132,199,0); }
+}
+
+footer {
+  text-align: center;
+  opacity: .7;
+  margin: 80px 0 40px;
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+a {
+  color: #bae6fd;
+  text-decoration: none;
+}
+
+nav {
+  background: #1e293b;
+  padding: 16px;
+  margin: 20px 0 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  text-align: center;
+  position: relative;
+}
+
+nav a {
+  margin: 0 16px;
+  color: #bae6fd;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: .2s;
+}
+
+nav a:hover {
+  opacity: .8;
+}
+
+nav .season-link {
+  color: #f472b6;
+}
+
+nav .season-link:hover {
+  opacity: .9;
+  color: #fda4af;
+}
+
+.seasons-dropdown {
+  display: none;
+  position: relative;
+  margin: 0 8px;
+}
+
+.seasons-dropdown button {
+  background: #334155;
+  color: #bae6fd;
+  border: 1px solid #475569;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.seasons-dropdown button:hover {
+  background: #475569;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 12px 0;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5);
+  z-index: 100;
+  margin-top: 8px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #bae6fd;
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background: #334155;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.pagination a {
+  background: #0284c7;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.pagination a:hover {
+  opacity: .9;
+}
+
+.loading {
+  text-align: center;
+  opacity: .8;
+  margin: 80px 0;
+  font-size: 1.3rem;
+  color: #bae6fd;
+}
+
+.card h2 {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+.card img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  background: #111827;
+  border-radius: 16px;
+  margin: 16px 0;
+}
+
+.card > a[onclick] {
+  margin: 20px 0 10px;
+}
+
+.card p:last-of-type {
+  margin: 10px 0;
+  font-size: .85rem;
+  opacity: .7;
+}
 
 /* Center content inside cards */
-.card h2, .card p, .card img, .card .tag, .card button {margin-left:auto;margin-right:auto}
-
-/* Mobile layout for all pages */
-@media (max-width:768px){
-  nav a{margin:0 10px;font-size:1rem}
-  .grid{grid-template-columns:1fr;padding:0 16px;gap:16px}
-  nav a.season-link{display:none}
-  .seasons-dropdown{display:inline-block}
-  nav{margin-bottom:8px}
-  .grid > .card:first-child{margin-top:0}
-  .card{margin:0 auto;width:100%;max-width:100%}
-  .subtitle, .intro-text{margin-bottom:8px;text-align:center}
+.card h2,
+.card p,
+.card img,
+.card .tag,
+.card button {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Hide empty subtitles */
-.subtitle:empty{display:none;}
-@media (min-width:769px){
-  .seasons-dropdown{display:none !important}
-}
+/* ────────────────────────────────────────────────
+   IMPROVED MOBILE STYLES (centered cards + no gap above first blog card)
+──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    padding-top: 12px;
+  }
 
-/* BLOG HOMEPAGE FIXES */
-body.blog-home .grid {
-    grid-template-columns: 1fr !important;
+  nav {
+    margin: 12px 0 24px !important;
+  }
+
+  .grid {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
     margin: 0 auto !important;
-    padding: 0 20px !important; /* reduce left margin */
-    gap: 20px !important;
-    box-sizing: border-box !important;
+    padding: 0 12px !important;
+    max-width: 100%;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px !important;
+    margin: 0 auto 24px !important;
+  }
+
+  .grid > .card:first-child,
+  body.blog-home .grid > .card:first-child {
+    margin-top: 0 !important;
+  }
+
+  h1 {
+    margin: 24px 0 12px !important;
+  }
+
+  .subtitle {
+    margin: 0 auto 20px !important;
+  }
+
+  body.blog-home h1 {
+    margin-top: 16px;
+  }
+
+  body.blog-home .subtitle {
+    margin-bottom: 16px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 1rem;
+  }
+
+  nav a.season-link {
+    display: none;
+  }
+
+  .seasons-dropdown {
+    display: inline-block;
+  }
 }
 
-body.blog-home .grid > .card:first-child {
-    margin-top:0 !important;
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  button {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .seasons-dropdown {
+    display: none !important;
+  }
+}
+
+/* BLOG HOMEPAGE */
+body.blog-home .grid {
+  grid-template-columns: 1fr !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  gap: 20px !important;
+  box-sizing: border-box !important;
 }
 
 body.blog-home .card {
-    margin:0 auto !important;
-    width:100% !important;
-    max-width:100% !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 body.blog-home .subtitle {
-    margin-bottom:8px !important;
-    text-align:center !important;
+  margin-bottom: 8px !important;
+  text-align: center !important;
 }
 
-/* Product page fixes */
-body.product-page .grid {grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;padding:0 20px}
-body.product-page .card {max-width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
-body.product-page .card img {object-fit:contain;max-height:380px;margin:16px 0}
-body.product-page .card h2 {min-height:70px;margin:12px 0;font-size:1.25rem}
-body.product-page .card p, body.product-page .card .tag, body.product-page .card button {margin-left:auto;margin-right:auto}
+/* PRODUCT PAGE */
+body.product-page .grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
+}
+
+body.product-page .card {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+body.product-page .card img {
+  object-fit: contain;
+  max-height: 380px;
+  margin: 16px 0;
+}
+
+body.product-page .card h2 {
+  min-height: 70px;
+  margin: 12px 0;
+  font-size: 1.25rem;
+}
+
+body.product-page .card p,
+body.product-page .card .tag,
+body.product-page .card button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hide empty subtitles */
+.subtitle:empty {
+  display: none;
+}
 </style>"""
 
 
