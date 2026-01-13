@@ -276,7 +276,7 @@ body{margin:0;background:#0f172a;color:#fff;font-family:'Outfit',sans-serif;padd
 h1{text-align:center;font-size:3rem;background:linear-gradient(90deg,#0284c7,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:#bae6fd;font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:100%;max-width:none;margin:0 auto;padding:0 20px;box-sizing:border-box}
-.card{background:#1e293b;border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
+.card{background:#1e293b;border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;justify-content:flex-start}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
 .tag{background:#7dd3fc;padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
@@ -307,6 +307,9 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
 .card > a[onclick] {margin:20px 0 10px}
 .card p:last-of-type {margin:10px 0;font-size:.85rem;opacity:.7}
 
+/* Fix for blog cards and product cards to align content properly */
+.card h2, .card p, .card img, .card .tag, .card button {margin-left:auto; margin-right:auto;}
+
 /* Mobile layout for all pages */
 @media (max-width:768px){
   nav a{margin:0 10px;font-size:1rem}
@@ -325,7 +328,7 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
   .seasons-dropdown{display:none !important}
 }
 
-/* MOBILE FIX ONLY FOR BLOG HOMEPAGE */
+/* BLOG HOMEPAGE FIXES */
 body.blog-home .grid {
     grid-template-columns: 1fr !important;
     margin: 0 auto !important;
@@ -348,7 +351,18 @@ body.blog-home .subtitle {
     margin-bottom: 8px !important;
     text-align: center !important;
 }
+
+/* PRODUCT PAGE CARD FIXES */
+body.product-page .grid {grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+body.product-page .card {max-width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+body.product-page .card img {object-fit:contain;max-height:380px;margin:16px 0}
+body.product-page .card h2 {min-height:70px;margin:12px 0;font-size:1.25rem}
+body.product-page .card p, body.product-page .card .tag, body.product-page .card button {margin-left:auto;margin-right:auto}
+
+/* Ensure blog cards and product cards behave on all screen sizes */
+.grid > .card {display:flex;flex-direction:column;align-items:center;text-align:center}
 </style>
+
 """
 
 
@@ -380,8 +394,8 @@ BASE_HTML = """<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 {{ css|safe }}
 </head>
-<body {% if request.path == '/blog' %}class="blog-home"{% endif %}>
 
+<body class="{% if request.path == '/blog' %}blog-home{% else %}product-page{% endif %}">
 
 <nav>
     <a href="/">Home</a>
@@ -439,7 +453,7 @@ document.addEventListener("DOMContentLoaded", function(){
 {% if products %}
 <div class="grid">
 {% for p in products %}
-<div class="card">
+<div class="card product-card">
     <span class="tag">{{ p.category }}</span>
     <a href="/product/{{ slugify(p.name) }}">
         <h2>{{ shorten_product_name(p.name) }}</h2>
@@ -506,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function(){
 </h2>
 <div class="grid">
     {% for rp in related_products %}
-    <div class="card">
+    <div class="card product-card">
         <span class="tag">{{ rp.category }}</span>
         <a href="/product/{{ slugify(rp.name) }}">
             <h2>{{ shorten_product_name(rp.name) }}</h2>
@@ -553,6 +567,7 @@ document.addEventListener("DOMContentLoaded", function(){
 </body>
 </html>
 """
+
 
 # ---------------- ROUTES ---------------- #
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
