@@ -272,42 +272,43 @@ FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-* { box-sizing: border-box; } /* Add this globally for safety */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   margin: 0 !important;
+  padding: 0 12px 40px !important;
   background: #0f172a;
   color: #fff;
   font-family: 'Outfit', sans-serif;
-  padding: 0 16px 40px; /* Reduced sides, zero top */
 }
 
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.8rem;
   background: linear-gradient(90deg, #0284c7, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 20px 0 8px; /* Tighter */
+  margin: 16px 0 8px;
 }
 
 .subtitle {
   text-align: center;
   opacity: .85;
   max-width: 900px;
-  margin: 0 auto 16px; /* Zero top, small bottom */
+  margin: 0 auto 12px;
   color: #bae6fd;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
   width: 100%;
-  max-width: 1400px; /* Optional cap for desktop */
   margin: 0 auto;
   padding: 0;
+  gap: 24px;
 }
 
 .card {
@@ -328,130 +329,35 @@ h1 {
   box-shadow: 0 30px 60px rgba(0,0,0,.7);
 }
 
-/* ... keep your existing img, tag, button, keyframes, footer, a, nav, dropdown, pagination, loading, .card h2/img/p rules unchanged ... */
+/* Keep your existing rules for img, tag, button, keyframes, footer, nav, dropdown, pagination, loading, .card h2/img/p, center content inside cards */
 
-/* Center content inside cards */
-.card h2, .card p, .card img, .card .tag, .card button {
-  margin-left: auto;
-  margin-right: auto;
+nav {
+  background: #1e293b;
+  padding: 12px;
+  margin: 8px 0 16px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  text-align: center;
 }
 
 /* ────────────────────────────────────────────────
-   STRONGER MOBILE FIXES: zero top gap + perfect centering
+   MOBILE: ZERO GAP + DEAD-CENTER CARDS
 ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  body {
-    padding: 0 12px 32px !important; /* Zero top padding */
-    margin: 0 !important;
-  }
-
-  nav {
-    margin: 8px 0 16px !important; /* Much tighter */
-    padding: 12px;
-  }
-
-  h1 {
-    margin: 16px 0 8px !important; /* Very tight for blog */
-  }
-
-  .subtitle {
-    margin: 0 auto 12px !important;
-  }
-
-  .grid {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Extra centering push */
-    margin: 0 auto !important;
-    padding: 0 8px !important; /* Minimal sides */
-    width: 100% !important;
-    max-width: 100% !important;
-    gap: 20px;
-  }
-
-  .card {
-    width: 100% !important;
-    max-width: 420px !important;
-    margin: 0 auto 24px !important; /* Only bottom spacing */
-  }
-
-  /* Nuclear option: zero top on EVERY first card */
-  .grid > .card:first-child,
-  body.blog-home .grid > .card:first-child,
-  .grid > div:first-child > .card {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /* Blog-specific zero-gap overrides */
-  body.blog-home {
-    padding-top: 0 !important;
-  }
-
-  body.blog-home h1 {
-    margin-top: 12px !important;
-  }
-
-  body.blog-home .subtitle {
-    margin-top: 0 !important;
-    margin-bottom: 12px !important;
-  }
-
-  /* Ensure no hidden margins */
-  body.blog-home .grid {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    padding: 16px;
-    border-radius: 16px;
-  }
-  button {
-    padding: 14px 32px;
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 769px) {
-  .seasons-dropdown { display: none !important; }
-}
-
-/* Keep your existing blog-home & product-page overrides, but tighten padding */
-body.blog-home .grid {
-  padding: 0 12px !important;
-  gap: 20px !important;
-}
-
-body.product-page .grid {
-  padding: 0 12px;
-}
-
-/* Hide empty subtitles */
-.subtitle:empty { display: none; }
-/* Force zero top everywhere on mobile - overrides body/nav/h1/subtitle/grid */
-@media (max-width: 768px) {
-  html, body {
+  body, html {
     margin: 0 !important;
     padding: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 32px !important; /* only bottom breathing room */
+    padding-bottom: 32px !important;
   }
 
-  /* Nav: collapse tighter */
   nav {
     margin: 4px 0 12px !important;
-    padding: 10px !important;
-    border-radius: 12px;
+    padding: 10px 12px !important;
   }
 
-  /* Header chain: minimal vertical space */
   h1 {
     margin: 12px 0 6px !important;
-    font-size: 2.2rem !important; /* smaller on small screens to reduce height */
+    font-size: 2.4rem !important;
   }
 
   .subtitle {
@@ -459,61 +365,77 @@ body.product-page .grid {
     font-size: 1rem !important;
   }
 
-  /* The checkmark paragraph */
-  p[style*="text-align:center;opacity:.7;margin-bottom:40px"] {
-    margin: 8px 0 16px !important;
+  /* Checkmark line - target by style attribute or add class if possible */
+  p[style*="text-align:center;opacity:.7;margin-bottom:40px"],
+  body > p[style*="✔ UK-focused"] {
+    margin: 6px 0 12px !important;
     font-size: 0.9rem !important;
   }
 
-  /* Grid: full-width, centered flex stack */
   .grid {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
     margin: 0 !important;
-    padding: 0 10px !important;
-    width: 100vw !important; /* viewport width to fight any overflow */
+    padding: 0 0px !important; /* zero side padding to max width */
+    width: 100vw !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     max-width: none !important;
-    box-sizing: border-box !important;
     gap: 20px !important;
   }
 
-  /* Cards: capped, centered, no top margin on first */
   .card {
-    width: 100% !important;
-    max-width: 400px !important; /* slightly narrower for better mobile feel */
+    width: 92vw !important; /* slight inset for breathing room */
+    max-width: 400px !important;
     margin: 0 auto 24px !important;
     padding: 16px !important;
-    box-sizing: border-box !important;
   }
 
+  /* Kill top on first card no matter what */
+  .grid > *:first-child .card,
   .grid > .card:first-child,
-  .grid > div:first-child .card,
   body.blog-home .grid > .card:first-child {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
-  /* Blog-specific kill gap */
-  body.blog-home {
-    padding-top: 0 !important;
+  body.blog-home .grid {
+    padding: 0 !important;
+    margin-top: 0 !important;
   }
 
   body.blog-home h1 {
     margin-top: 10px !important;
   }
+}
 
-  body.blog-home .subtitle {
-    margin: 0 auto 10px !important;
+@media (max-width: 480px) {
+  .card {
+    width: 94vw !important;
+    max-width: 360px !important;
   }
 }
 
-/* Extra safety for very small screens */
-@media (max-width: 480px) {
-  h1 { font-size: 2rem !important; }
-  .card { max-width: 360px !important; }
+/* Keep min-width seasons hide */
+@media (min-width: 769px) {
+  .seasons-dropdown { display: none !important; }
 }
+
+/* Your existing blog/product overrides with tweaks */
+body.blog-home .grid {
+  padding: 0 8px !important;
+  gap: 20px !important;
+}
+
+body.product-page .grid {
+  padding: 0 8px;
+}
+
+/* Hide empty */
+.subtitle:empty { display: none; }
 </style>"""
 
 
