@@ -255,7 +255,7 @@ BLOG_POSTS = {
 
 </article>
 """
-}
+},
 
 
   {
@@ -364,7 +364,7 @@ BLOG_POSTS = {
 
 </article>
 """
-}
+},
 
     
 {
@@ -454,7 +454,7 @@ BLOG_POSTS = {
 
 </article>
 """
-}
+},
 
     
 {
