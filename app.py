@@ -275,7 +275,7 @@ CSS_TEMPLATE = """<style>
 body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
 h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
 .subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:100%;max-width:none;margin:0 auto;padding:0 20px;box-sizing:border-box}
 .card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
 img{width:100%;border-radius:16px;margin:16px 0}
@@ -310,7 +310,7 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
 /* Mobile layout */
 @media (max-width:768px){
   nav a{margin:0 10px;font-size:1rem}
-  .grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr;padding:0 16px;gap:16px}
   nav a.season-link{display:none}
   .seasons-dropdown{display:inline-block}
 
@@ -319,11 +319,13 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
   .grid > .card:first-child{margin-top:0;}
 }
 
+/* Hide empty subtitles */
+.subtitle:empty{display:none;}
 @media (min-width:769px){
   .seasons-dropdown{display:none !important}
 }
-.subtitle:empty{display:none;}
 </style>"""
+
 
 
 BASE_HTML = """<!DOCTYPE html>
