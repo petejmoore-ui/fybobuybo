@@ -432,6 +432,88 @@ body.product-page .grid {
 
 /* Hide empty subtitles */
 .subtitle:empty { display: none; }
+/* Force zero top everywhere on mobile - overrides body/nav/h1/subtitle/grid */
+@media (max-width: 768px) {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 32px !important; /* only bottom breathing room */
+  }
+
+  /* Nav: collapse tighter */
+  nav {
+    margin: 4px 0 12px !important;
+    padding: 10px !important;
+    border-radius: 12px;
+  }
+
+  /* Header chain: minimal vertical space */
+  h1 {
+    margin: 12px 0 6px !important;
+    font-size: 2.2rem !important; /* smaller on small screens to reduce height */
+  }
+
+  .subtitle {
+    margin: 0 auto 10px !important;
+    font-size: 1rem !important;
+  }
+
+  /* The checkmark paragraph */
+  p[style*="text-align:center;opacity:.7;margin-bottom:40px"] {
+    margin: 8px 0 16px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Grid: full-width, centered flex stack */
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    width: 100vw !important; /* viewport width to fight any overflow */
+    max-width: none !important;
+    box-sizing: border-box !important;
+    gap: 20px !important;
+  }
+
+  /* Cards: capped, centered, no top margin on first */
+  .card {
+    width: 100% !important;
+    max-width: 400px !important; /* slightly narrower for better mobile feel */
+    margin: 0 auto 24px !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .grid > .card:first-child,
+  .grid > div:first-child .card,
+  body.blog-home .grid > .card:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Blog-specific kill gap */
+  body.blog-home {
+    padding-top: 0 !important;
+  }
+
+  body.blog-home h1 {
+    margin-top: 10px !important;
+  }
+
+  body.blog-home .subtitle {
+    margin: 0 auto 10px !important;
+  }
+}
+
+/* Extra safety for very small screens */
+@media (max-width: 480px) {
+  h1 { font-size: 2rem !important; }
+  .card { max-width: 360px !important; }
+}
 </style>"""
 
 
