@@ -72,15 +72,7 @@ PRODUCTS = [
         "info": "Luxurious Sanctuary Spa gift set featuring body wash, scrub, moisturiser, hand cream, bath salts and more in the iconic signature scent – beautifully presented in a premium hamper box. Ultimate pamper treat for self-care, birthdays, Christmas or just because – bestselling beauty indulgence for ultimate relaxation.",
         "date_added": "2026-01-04"
     },
-    {
-        "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
-        "category": "Home & Kitchen",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
-        "url": f"https://amzn.to/45vgasL?tag=whoaccepts-21",
-        "info": "Elegant set of 4 luxury scented candles in lavender, rose, vanilla and jasmine – made with natural soy wax and essential oils for long-lasting fragrance and clean burn. Beautifully packaged in premium gift box – perfect thoughtful present for birthdays, weddings, Christmas, Mother's Day or self-care relaxation.",
-        "date_added": "2026-01-04"
-    },
+
     {
         "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
         "category": "Fashion",
