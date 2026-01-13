@@ -281,13 +281,11 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  width: 100vw;
-  max-width: 100vw;
-  margin: 0;
-  padding: 0 12px;
+  max-width: 1400px;   /* keeps the grid from stretching too wide on desktop */
+  margin: 0 auto;      /* centers the grid */
+  padding: 0 20px;     /* gives some space at edges */
   box-sizing: border-box;
 }
-
 .card {
   background: {{card}};
   border-radius: 22px;
@@ -295,8 +293,7 @@ h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-c
   text-align: center;
   box-shadow: 0 20px 40px rgba(0,0,0,.6);
   transition: transform .3s, box-shadow .3s;
-  max-width: 100%;
-  margin: 0 auto;
+  margin: 0;           /* removes extra auto margins inside card */
 }
 
 .card:hover {
