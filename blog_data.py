@@ -115,7 +115,7 @@ BLOG_POSTS = {
 
 
   
-  "title": "10 Essential Running Accessories for Everyday Training in 2026": {
+  "title": "10 Essential Running Accessories for Everyday Training in 2026" {
   "description": "Discover top-rated running accessories for 2026 — hydration, safety, and comfort gear every runner needs to improve training and performance.",
   "heading": "10 Essential Running Accessories for 2026",
   "subtitle": "Practical, affordable running gear to improve comfort, safety, and consistency this year.",
