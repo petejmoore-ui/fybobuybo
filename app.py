@@ -16,14 +16,6 @@ load_dotenv()
 app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
-# --- Staging SEO safeguard ---
-if os.environ.get("STAGING") == "true":
-    @app.after_request
-    def add_header(response):
-        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
-        return response
-# -----------------------------
-
 CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
@@ -34,7 +26,8 @@ ITEMS_PER_PAGE = 12
 CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v2.2-uk-seo-2026"
 
-os.makedirs("data", exist_ok=True)
+os.makedirs("data", exist_ok=True)  # relative to your project folder
+DATA_PATH = "data"
 
 # ---------------- THEMES ---------------- #
 THEMES = [
@@ -135,6 +128,13 @@ def should_refresh_cache():
         return True
 
 def load_or_generate_hooks(products):
+    if not should_refresh_cache():
+        try:
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                return json.load(f)["products"]
+        except:
+            pass
+
     enriched = []
     for p in products:
         p_copy = dict(p)
@@ -172,34 +172,33 @@ def refresh_products(background=False):
     today = str(datetime.date.today())
 
     if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE, encoding="utf-8") as f:
-                cache = json.load(f)
-            cache_date_str = cache.get("date", "")
-            if cache_date_str.startswith(today):
-                return cache.get("products", [])
-            cache_date = datetime.datetime.fromisoformat(cache_date_str)
-            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
-               cache.get("prompt_version") == PROMPT_VERSION:
-                return cache.get("products", [])
-        except Exception as e:
-            print(f"Cache read failed: {e} — regenerating")
+        with open(CACHE_FILE, encoding="utf-8") as f:
+            cache = json.load(f)
+            if cache.get("date", "").startswith(today) or not should_refresh_cache():
+                return cache["products"]
 
-    # Cache missing/invalid → generate
+    def do_refresh():
+        load_or_generate_hooks(PRODUCTS)
+
     if background:
-        Thread(target=load_or_generate_hooks, args=(PRODUCTS,)).start()
-        # Return fallback data immediately
+        Thread(target=do_refresh).start()
+        if os.path.exists(CACHE_FILE):
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                cached = json.load(f).get("products", [])
+                if cached:
+                    return cached
         return [{
             "name": p["name"],
-            "category": p.get("category", "Uncategorised"),
-            "image": p.get("image", ""),
-            "url": p.get("url", "#"),
-            "info": p.get("info", ""),
-            "hook": FALLBACK_HOOK,
-            "season": p.get("season", "")
+            "category": p["category"],
+            "image": p["image"],
+            "url": p["url"],
+            "info": p["info"],
+            "hook": p["info"]
         } for p in PRODUCTS]
     else:
-        return load_or_generate_hooks(PRODUCTS)
+        do_refresh()
+        with open(CACHE_FILE, encoding="utf-8") as f:
+            return json.load(f)["products"]
 
 # ---------------- HELPERS ---------------- #
 def slugify(text):
@@ -210,37 +209,48 @@ def slugify(text):
     return text
 
 def normalize_for_match(text):
+    """Remove apostrophes, spaces, hyphens for flexible season matching"""
     if not text:
         return ""
     return text.lower().replace("'", "").replace(" ", "").replace("-", "")
 
 def get_nav_items():
-    products = PRODUCTS
+    """Returns dict with separate categories and seasons for navigation"""
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache = json.load(f)
-            products = cache.get("products", PRODUCTS)
+            today_products = cache.get("products", [])
         except:
-            pass
+            today_products = PRODUCTS
+    else:
+        today_products = PRODUCTS
 
-    categories = sorted({p["category"] for p in products if p.get("category")})
+    categories = sorted({p["category"] for p in today_products if p.get("category")})
 
     seasons_set = set()
-    for p in products:
+    for p in today_products:
         if p.get("season"):
             for s in p["season"].split(","):
                 clean = s.strip()
                 if clean:
                     seasons_set.add(clean)
 
-    important_seasons_order = [
-        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-        "Summer Gifts", "Back to School", "Halloween", "Christmas"
+    important_seasons = [
+        "Valentine's Day",
+        "Mother's Day",
+        "Easter",
+        "Father's Day",
+        "Summer Gifts",
+        "Back to School",
+        "Halloween",
+        "Christmas"
     ]
-    important_seasons = [s for s in important_seasons_order if s in seasons_set]
-    other_seasons = sorted(seasons_set - set(important_seasons))
-    seasons = other_seasons + important_seasons
+
+    seasons = sorted(list(seasons_set))
+    for imp in important_seasons:
+        if imp not in seasons:
+            seasons.append(imp)
 
     return {
         "categories": categories,
@@ -270,224 +280,70 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
+def ensure_hook(p):
+    if "hook" not in p or not p["hook"]:
+        p["hook"] = FALLBACK_HOOK
+    return p
+
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
+h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
+.subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
+img{width:100%;border-radius:16px;margin:16px 0}
+.tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
+button{
+    background:{{button}};
+    border:none;
+    padding:16px 36px;
+    border-radius:50px;
+    font-size:1.1rem;
+    font-weight:900;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    animation: pulse 2.5s infinite ease-in-out;
 }
-
-body {
-  margin: 0 !important;
-  padding: 0 12px 40px !important;
-  background: #0f172a;
-  color: #fff;
-  font-family: 'Outfit', sans-serif;
+button:hover{
+    opacity:.9;
+    transform:scale(1.05);
+    animation:none;
 }
-
-h1 {
-  text-align: center;
-  font-size: 2.8rem;
-  background: linear-gradient(90deg, #0284c7, #38bdf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 16px 0 8px;
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);}
+    70%{box-shadow:0 0 0 12px rgba(2,132,199,0);}
+    100%{box-shadow:0 0 0 0 rgba(2,132,199,0);}
 }
-
-.subtitle {
-  text-align: center;
-  opacity: .85;
-  max-width: 900px;
-  margin: 0 auto 12px;
-  color: #bae6fd;
-  font-size: 1.05rem;
+@media (prefers-reduced-motion: reduce){
+    button{animation:none;}
 }
-
-.grid {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  gap: 24px;
+footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
+a{color:{{text_accent}};text-decoration:none}
+nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
+nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
+nav a:hover{opacity:.8}
+nav .season-link { color: #f472b6; }
+nav .season-link:hover { opacity: 0.9; color: #fda4af; }
+.pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
+.pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
+.pagination a:hover{opacity:.9}
+.loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}};}
+@media (max-width:768px){
+    nav a{margin:0 10px;font-size:1rem}
+    .grid{grid-template-columns:1fr}
 }
-
-.card {
-  background: #1e293b;
-  border-radius: 22px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
-  transition: transform .3s, box-shadow .3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,.7);
-}
-
-/* Keep your existing rules for img, tag, button, keyframes, footer, nav, dropdown, pagination, loading, .card h2/img/p, center content inside cards */
-
-nav {
-  background: #1e293b;
-  padding: 12px;
-  margin: 8px 0 16px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.4);
-  text-align: center;
-}
-
-/* ────────────────────────────────────────────────
-   MOBILE: ZERO GAP + DEAD-CENTER CARDS
-──────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  body, html {
-    margin: 0 !important;
-    padding: 0 !important;
-    padding-bottom: 32px !important;
-  }
-
-  nav {
-    margin: 4px 0 12px !important;
-    padding: 10px 12px !important;
-  }
-
-  h1 {
-    margin: 12px 0 6px !important;
-    font-size: 2.4rem !important;
-  }
-
-  .subtitle {
-    margin: 0 auto 10px !important;
-    font-size: 1rem !important;
-  }
-
-  /* Checkmark line - target by style attribute or add class if possible */
-  p[style*="text-align:center;opacity:.7;margin-bottom:40px"],
-  body > p[style*="✔ UK-focused"] {
-    margin: 6px 0 12px !important;
-    font-size: 0.9rem !important;
-  }
-
-  .grid {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    margin: 0 !important;
-    padding: 0 0px !important; /* zero side padding to max width */
-    width: 100vw !important;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: none !important;
-    gap: 20px !important;
-  }
-
-  .card {
-    width: 92vw !important; /* slight inset for breathing room */
-    max-width: 400px !important;
-    margin: 0 auto 24px !important;
-    padding: 16px !important;
-  }
-
-  /* Kill top on first card no matter what */
-  .grid > *:first-child .card,
-  .grid > .card:first-child,
-  body.blog-home .grid > .card:first-child {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  body.blog-home .grid {
-    padding: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  body.blog-home h1 {
-    margin-top: 10px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 94vw !important;
-    max-width: 360px !important;
-  }
-}
-
-/* Keep min-width seasons hide */
-@media (min-width: 769px) {
-  .seasons-dropdown { display: none !important; }
-}
-
-/* Your existing blog/product overrides with tweaks */
-body.blog-home .grid {
-  padding: 0 8px !important;
-  gap: 20px !important;
-}
-
-body.product-page .grid {
-  padding: 0 8px;
-}
-
-/* Hide empty */
-.subtitle:empty { display: none; }
-/* Blog homepage only: remove top gap above first card + center single card */
-body.blog-home {
-  padding-top: 0 !important; /* kill body's 20px top */
-}
-
-body.blog-home h1 {
-  margin-top: 20px !important; /* reduce from 40px */
-}
-
-body.blog-home .subtitle {
-  margin-top: 8px !important; /* almost zero top */
-  margin-bottom: 12px !important;
-}
-
-/* Tighten the checkmark paragraph */
-body.blog-home p[style*="text-align:center;opacity:.7;margin-bottom:40px"] {
-  margin: 8px 0 16px !important; /* small top/bottom */
-}
-
-/* Blog grid: zero top padding/margin, center card if single */
-body.blog-home .grid {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  max-width: 600px !important; /* matches your :only-child rule */
-}
-
-/* First blog card: force zero top */
-body.blog-home .grid > .card:first-child {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Ensure mobile centering for blog cards (fallback if grid 1fr doesn't center) */
-@media (max-width: 768px) {
-  body.blog-home .grid {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 10px !important; /* symmetric small sides */
-  }
-
-  body.blog-home .card {
-    width: 100% !important;
-    max-width: 420px !important; /* comfortable mobile width */
-    margin: 0 auto 24px !important; /* centers + bottom spacing only */
-  }
-}
+.grid:has(> .card:only-child) .card { max-width: 600px; margin: 0 auto; }
+.grid:has(> .card:only-child) img { max-width: 500px; width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 16px; }
+.card h2 { min-height: 70px; display: flex; align-items: center; justify-content: center; margin: 12px 0; font-size: 1.25rem; line-height: 1.3; font-weight: 900; }
+.card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
+.card > a[onclick] { margin: 20px 0 10px; }
+.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
 </style>"""
 
-
-
+# ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -515,8 +371,7 @@ BASE_HTML = """<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 {{ css|safe }}
 </head>
-
-<body class="{% if request.path == '/blog' %}blog-home{% else %}product-page{% endif %}">
+<body>
 
 <nav>
     <a href="/">Home</a>
@@ -524,45 +379,13 @@ BASE_HTML = """<!DOCTYPE html>
     {% for cat in nav_items.categories %}
         <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
     {% endfor %}
-
     {% if nav_items.seasons %}
         <span style="margin:0 14px;opacity:0.5;">•</span>
         {% for season in nav_items.seasons %}
             <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
         {% endfor %}
-
-        <div class="seasons-dropdown">
-            <button>Seasons ▼</button>
-            <div class="dropdown-content">
-                {% for season in nav_items.seasons %}
-                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-                {% endfor %}
-            </div>
-        </div>
     {% endif %}
 </nav>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
-    const dropdowns = document.querySelectorAll(".seasons-dropdown");
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector("button");
-        const content = dropdown.querySelector(".dropdown-content");
-        if (!btn || !content) return;
-        btn.addEventListener("click", function(e){
-            e.stopPropagation();
-            const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-            content.style.display = isOpen ? "none" : "block";
-        });
-    });
-    document.addEventListener("click", function(e){
-        if (!e.target.closest(".seasons-dropdown")) {
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-        }
-    });
-});
-</script>
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
@@ -574,7 +397,7 @@ document.addEventListener("DOMContentLoaded", function(){
 {% if products %}
 <div class="grid">
 {% for p in products %}
-<div class="card product-card">
+<div class="card">
     <span class="tag">{{ p.category }}</span>
     <a href="/product/{{ slugify(p.name) }}">
         <h2>{{ shorten_product_name(p.name) }}</h2>
@@ -641,7 +464,7 @@ document.addEventListener("DOMContentLoaded", function(){
 </h2>
 <div class="grid">
     {% for rp in related_products %}
-    <div class="card product-card">
+    <div class="card">
         <span class="tag">{{ rp.category }}</span>
         <a href="/product/{{ slugify(rp.name) }}">
             <h2>{{ shorten_product_name(rp.name) }}</h2>
@@ -689,7 +512,6 @@ document.addEventListener("DOMContentLoaded", function(){
 </html>
 """
 
-
 # ---------------- ROUTES ---------------- #
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
@@ -731,43 +553,10 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         prev_page_url=prev_page_url
     )
 
-@app.route("/debug-routes")
-def debug_routes():
-    rules = sorted(str(rule) for rule in app.url_map.iter_rules())
-    return "<pre>" + "\n".join(rules) + "</pre>"
 
 @app.route("/")
 def home():
-    # Trigger background generation if cache doesn't exist
-    if not os.path.exists(CACHE_FILE):
-        Thread(target=refresh_products, kwargs={"background": True}).start()
-
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
-
-    # Show loading page on first-ever load
-    if not os.path.exists(CACHE_FILE):
-        return render_template_string("""
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>FyboBuybo – Loading Gifts</title>
-            <style>
-                body {margin:0; background:#0f172a; color:#fff; font-family:sans-serif; text-align:center; padding:120px 20px;}
-                h1 {font-size:2.8rem; margin-bottom:1.5rem;}
-                p {font-size:1.3rem; opacity:0.9; max-width:600px; margin:0 auto 2rem;}
-            </style>
-        </head>
-        <body>
-            <h1>Preparing today's curated gifts...</h1>
-            <p>This is the first time setup — it may take 30–120 seconds to generate descriptions.<br>
-            Please refresh the page in a minute or two.</p>
-            <meta http-equiv="refresh" content="60">
-        </body>
-        </html>
-        """)
-
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents",
         description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more.",
@@ -776,15 +565,21 @@ def home():
         products=products
     )
 
+
 @app.route("/category/<slug>")
 def category(slug):
     products = refresh_products(background=True)
-    filtered = [p for p in products if slugify(p.get("category", "")) == slug]
+
+    filtered = [p for p in products if slugify(p["category"]) == slug]
+
     if not filtered:
         abort(404)
+
     cat_name = filtered[0]["category"]
+
     def page_url(p):
         return url_for("category", slug=slug, page=p)
+
     page = int(request.args.get("page", 1))
     return render_page(
         title=f"{cat_name} – FyboBuybo",
@@ -796,19 +591,25 @@ def category(slug):
         page_url=page_url
     )
 
+
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
+    # print(f"Season route reached! Slug: {season_slug}")  # ← uncomment for debugging
+
     products = refresh_products(background=True)
     
+    # Normalize slug for display
     season_name = season_slug.replace('-', ' ').title()
+    
+    # Normalized version for matching (remove apostrophes, spaces, hyphens)
     norm_slug = normalize_for_match(season_slug)
 
     filtered = [
         p for p in products
         if p.get("season") and any(
-            norm_slug in normalize_for_match(s.strip())
-            for s in str(p["season"]).split(",")
+            norm_slug in normalize_for_match(s)
+            for s in p["season"].split(",")
         )
     ]
 
@@ -834,6 +635,7 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
+
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     products = refresh_products(background=True)
@@ -855,6 +657,7 @@ def product_detail(product_slug):
         products=[found],
         related_products=related
     )
+
 
 @app.route("/blog")
 def blog_index():
@@ -916,7 +719,7 @@ def blog_index():
         prev_page_url=None
     )
     
-    rendered = rendered.replace('{% for cat in nav_items.categories %}\n        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
     
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
@@ -924,6 +727,7 @@ def blog_index():
     rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
     
     return rendered
+
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
@@ -956,7 +760,7 @@ def blog_detail(slug):
         prev_page_url=None
     )
     
-    rendered = rendered.replace('{% for cat in nav_items.categories %}\n        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
     
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
@@ -964,6 +768,7 @@ def blog_detail(slug):
     rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
     
     return rendered
+
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
@@ -975,6 +780,7 @@ Disallow:
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
+
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -1004,6 +810,7 @@ def sitemap():
 
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
