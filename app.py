@@ -16,13 +16,6 @@ load_dotenv()
 app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
-# --- Staging SEO safeguard ---
-if os.environ.get("STAGING") == "true":
-    @app.after_request
-    def add_header(response):
-        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
-        return response
-# -----------------------------
 
 CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
