@@ -362,91 +362,128 @@ BLOG_POSTS = {
 },
 
 "valentines-gifts-for-her-under-50": {
-  "title": "Valentine’s Gifts for Her Under £50 (Affordable & Thoughtful)",
-  "description": "Affordable Valentine’s gifts for her under £50 that feel romantic, useful, and meaningful — proven ideas women actually love.",
+  "title": "Valentine’s Gifts for Her Under £50 (Affordable, Thoughtful & Highly Rated)",
+  "description": "Affordable Valentine’s gifts for her under £50 that are romantic, useful, and meaningful — proven ideas women actually love and highly rate.",
   "heading": "Valentine’s Gifts for Her Under £50",
-  "subtitle": "Budget‑friendly Valentine’s gifts that don’t feel cheap.",
+  "subtitle": "Budget‑friendly Valentine’s gifts that feel premium and thoughtful.",
   "date": "2026-01-04",
   "content": """
 <article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
 
-  <p>Valentine’s Day doesn’t have to cost a fortune. These <strong>under £50 gifts</strong> are affordable, romantic, and highly rated — perfect for showing you care without overspending.</p>
+  <p>Valentine’s Day doesn’t have to break the bank. These <strong>under £50 gifts for her</strong> are romantic, thoughtful, and highly rated — perfect for showing you care without overspending. From cozy evenings to pampering skincare, each gift is proven to delight women who value meaningful, budget-friendly surprises. Grab them before they sell out and make this Valentine’s unforgettable!</p>
 
   <h2>1. Luxury Scented Candle Gift Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
-      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' alt='Luxury scented candle Valentine’s gift set – lavender, rose, vanilla scents' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
+           alt='Luxury scented candle Valentine’s gift set – romantic gift for girlfriend under £50' 
+           loading='lazy' style='border-radius:16px;'>
     </a>
-    <p><strong>Candle sets</strong> instantly elevate any evening. Warm, romantic, and thoughtfully packaged — ideal for last-minute Valentine’s gifts that still feel special.</p>
+    <p><strong>Candle sets</strong> instantly elevate any evening. Warm, romantic, and thoughtfully packaged — ideal for last-minute Valentine’s gifts that feel premium. Highly rated and loved by thousands, this gift is a fail-safe choice to impress your partner.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'><button aria-label='View candle gift set details'>View Details & Buy</button></a>
-      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy candle gift set on Amazon'>View on Amazon</button></a>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+        <button aria-label='View candle gift set details – fast shipping available'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
+        <button style='background:#ff9900;' aria-label='Buy candle gift set on Amazon – fast delivery'>View on Amazon</button>
+      </a>
     </div>
   </div>
 
   <h2>2. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
-      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' alt='Sanctuary Spa skincare gift set under £50 – bath and body collection' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
+           alt='Sanctuary Spa skincare gift set under £50 – bath and body collection for her' 
+           loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>Pampering sets like <strong>Sanctuary Spa</strong> deliver luxury on a budget. Gentle, relaxing, and universally loved — ideal for partners who enjoy self-care.</p>
+    <p>Pampering sets like <strong>Sanctuary Spa</strong> deliver luxury on a budget. Gentle, relaxing, and universally loved — ideal for partners who enjoy self-care. Rated highly by customers, this gift is a spa-level treat at home.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'><button aria-label='View skincare gift set details'>View Details & Buy</button></a>
-      <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy skincare gift set on Amazon'>View on Amazon</button></a>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+        <button aria-label='View skincare gift set details – popular choice'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
+        <button style='background:#ff9900;' aria-label='Buy skincare gift set on Amazon – fast delivery'>View on Amazon</button>
+      </a>
     </div>
   </div>
 
   <h2>3. Custom Photo Frame or Memory Book</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
-      <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' alt='Personalised photo album scrapbook – custom Valentine’s memory book' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' 
+           alt='Personalised photo album scrapbook – custom Valentine’s memory book under £50' 
+           loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>A <strong>custom photo gift</strong> is sentimental and affordable. Add favourite pictures and captions — she’ll treasure it more than any expensive jewellery.</p>
+    <p>A <strong>custom photo gift</strong> is sentimental and affordable. Add favourite pictures and captions — she’ll treasure it more than any expensive jewellery. Highly recommended for lasting memories and personal touches.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'><button aria-label='View photo scrapbook details'>View Details & Buy</button></a>
-      <a href='https://amzn.to/4qgKrUo?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy personalised photo book on Amazon'>View on Amazon</button></a>
+      <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+        <button aria-label='View photo scrapbook details – thoughtful gift'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4qgKrUo?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
+        <button style='background:#ff9900;' aria-label='Buy personalised photo book on Amazon – fast shipping'>View on Amazon</button>
+      </a>
     </div>
   </div>
 
   <h2>4. COSRX Snail Mucin Power Essence</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
-      <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' alt='COSRX Snail Mucin Power Essence – Korean skincare under £50 gift' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' 
+           alt='COSRX Snail Mucin Power Essence – Korean skincare under £50 gift' 
+           loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>A cult-favourite <strong>K-beauty product</strong> loved for instant hydration and skin glow. Lightweight, effective, and always well-reviewed — a thoughtful pick for skincare lovers.</p>
+    <p>A cult-favourite <strong>K-beauty product</strong> loved for instant hydration and glowing skin. Lightweight, effective, and always well-reviewed — perfect for skincare enthusiasts who appreciate quality without overspending.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'><button aria-label='View COSRX Snail Essence details'>View Details & Buy</button></a>
-      <a href='https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy COSRX Snail Essence on Amazon'>View on Amazon</button></a>
+      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
+        <button aria-label='View COSRX Snail Essence details – highly rated'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
+        <button style='background:#ff9900;' aria-label='Buy COSRX Snail Essence on Amazon – fast delivery'>View on Amazon</button>
+      </a>
     </div>
   </div>
 
   <h2>5. BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
-      <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0-SH20_.jpg' alt='BIODANCE collagen hydrogel face mask – glowing skin Valentine’s gift under £50' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0-SH20_.jpg' 
+           alt='BIODANCE collagen hydrogel face mask – glowing skin Valentine’s gift under £50' 
+           loading='lazy' style='border-radius:16px;'>
     </a>
-    <p><strong>Hydrogel sheet masks</strong> deliver spa-level moisture at home. BIODANCE masks are known for visible glow and instant hydration — the perfect self-care Valentine’s surprise.</p>
+    <p><strong>Hydrogel sheet masks</strong> deliver spa-level moisture at home. BIODANCE masks are known for visible glow and instant hydration — the perfect self-care Valentine’s surprise for skincare lovers.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'><button aria-label='View BIODANCE face mask details'>View Details & Buy</button></a>
-      <a href='https://amzn.eu/d/49cMTit?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy BIODANCE mask on Amazon'>View on Amazon</button></a>
+      <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
+        <button aria-label='View BIODANCE face mask details – top-rated gift'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.eu/d/49cMTit?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
+        <button style='background:#ff9900;' aria-label='Buy BIODANCE mask on Amazon – fast delivery'>View on Amazon</button>
+      </a>
     </div>
   </div>
 
   <h2>6. Anua Azelaic Acid Redness Soothing Serum</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
-      <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg' alt='Anua Azelaic Acid 10% Hyaluron Serum – calming sensitive-skin Valentine’s gift' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg' 
+           alt='Anua Azelaic Acid 10% Hyaluron Serum – calming sensitive-skin Valentine’s gift' 
+           loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>Perfect for sensitive skin, this <strong>soothing serum</strong> reduces redness and hydrates deeply. A gentle, caring way to gift self-care this Valentine’s Day.</p>
+    <p>Perfect for sensitive skin, this <strong>soothing serum</strong> reduces redness and hydrates deeply. A gentle, caring way to gift self-care this Valentine’s Day — trusted by many for visible results.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'><button aria-label='View Anua Soothing Serum details'>View Details & Buy</button></a>
-      <a href='https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy Anua Soothing Serum on Amazon'>View on Amazon</button></a>
+      <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
+        <button aria-label='View Anua Soothing Serum details – proven results'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
+        <button style='background:#ff9900;' aria-label='Buy Anua Soothing Serum on Amazon – fast delivery'>View on Amazon</button>
+      </a>
     </div>
   </div>
 
-  <p>Each of these <strong>Valentine’s gifts under £50</strong> feels premium, thoughtful, and appreciated — proof that meaningful doesn’t have to mean expensive. Discover even more <a href='/blog/valentines-gifts-for-her-under-100'>Valentine’s ideas under £100 →</a></p>
+  <p>Each of these <strong>Valentine’s gifts under £50</strong> feels premium, thoughtful, and appreciated — proof that meaningful doesn’t have to mean expensive. Discover even more <a href='/blog/valentines-gifts-for-her-under-100'>Valentine’s ideas under £100 →</a> or explore other <a href='/blog/best-valentines-gifts-for-her'>top-rated Valentine’s gifts for her</a> to find the perfect surprise.</p>
 
 </article>
+
 """
 },
 
