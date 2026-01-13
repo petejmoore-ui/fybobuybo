@@ -114,8 +114,8 @@ BLOG_POSTS = {
     },
 
 
-  
-  "title": "10 Essential Running Accessories for Everyday Training in 2026" {
+"10-essential-running-accessories-for-everyday-training-2026": {
+  "title": "10 Essential Running Accessories for Everyday Training in 2026",
   "description": "Discover top-rated running accessories for 2026 — hydration, safety, and comfort gear every runner needs to improve training and performance.",
   "heading": "10 Essential Running Accessories for 2026",
   "subtitle": "Practical, affordable running gear to improve comfort, safety, and consistency this year.",
@@ -253,7 +253,8 @@ BLOG_POSTS = {
 
 
   
-  "title": "7 Best-Selling Valentine’s Gifts for Her (Last-Minute & Meaningful)": {
+"7-best-selling-valentines-gifts-for-her-2026": {
+    "title": "7 Best-Selling Valentine’s Gifts for Her (Last-Minute & Meaningful)",
   "description": "Discover the best-selling Valentine’s gifts for her — romantic, meaningful, and perfect for last-minute buyers. Proven picks women actually love and rate highly.",
   "heading": "7 Best-Selling Valentine’s Gifts for Her",
   "subtitle": "Reliable, romantic gift ideas that convert – even if you’re shopping late.",
@@ -360,8 +361,8 @@ BLOG_POSTS = {
 """
 },
 
-    
-  "title": "Valentine’s Gifts for Her Under £50 (Affordable & Thoughtful)": {
+"valentines-gifts-for-her-under-50": {
+  "title": "Valentine’s Gifts for Her Under £50 (Affordable & Thoughtful)",
   "description": "Affordable Valentine’s gifts for her under £50 that feel romantic, useful, and meaningful — proven ideas women actually love.",
   "heading": "Valentine’s Gifts for Her Under £50",
   "subtitle": "Budget‑friendly Valentine’s gifts that don’t feel cheap.",
@@ -451,7 +452,8 @@ BLOG_POSTS = {
 
     
 
-  "title": "Valentine’s Gifts for Her Under £100 (Premium Without Overspending)": {
+"valentines-gifts-for-her-under-100": {
+  "title": "Valentine’s Gifts for Her Under £100 (Premium Without Overspending)",
   "description": "Luxurious Valentine’s gifts for her under £100 — elegant jewellery, beauty, and tech‑inspired keepsakes that feel premium without the price tag.",
   "heading": "Valentine’s Gifts for Her Under £100",
   "subtitle": "Luxury‑feel Valentine’s ideas under £100.",
