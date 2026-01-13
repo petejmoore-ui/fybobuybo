@@ -341,6 +341,54 @@ nav .season-link:hover { opacity: 0.9; color: #fda4af; }
 .card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
 .card > a[onclick] { margin: 20px 0 10px; }
 .card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
+/* Blog homepage only: remove top gap above first card + center single card */
+body.blog-home {
+  padding-top: 0 !important; /* kill body's 20px top */
+}
+
+body.blog-home h1 {
+  margin-top: 20px !important; /* reduce from 40px */
+}
+
+body.blog-home .subtitle {
+  margin-top: 8px !important; /* almost zero top */
+  margin-bottom: 12px !important;
+}
+
+/* Tighten the checkmark paragraph */
+body.blog-home p[style*="text-align:center;opacity:.7;margin-bottom:40px"] {
+  margin: 8px 0 16px !important; /* small top/bottom */
+}
+
+/* Blog grid: zero top padding/margin, center card if single */
+body.blog-home .grid {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  max-width: 600px !important; /* matches your :only-child rule */
+}
+
+/* First blog card: force zero top */
+body.blog-home .grid > .card:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure mobile centering for blog cards (fallback if grid 1fr doesn't center) */
+@media (max-width: 768px) {
+  body.blog-home .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 10px !important; /* symmetric small sides */
+  }
+
+  body.blog-home .card {
+    width: 100% !important;
+    max-width: 420px !important; /* comfortable mobile width */
+    margin: 0 auto 24px !important; /* centers + bottom spacing only */
+  }
+}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
