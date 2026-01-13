@@ -341,6 +341,45 @@ nav .season-link:hover { opacity: 0.9; color: #fda4af; }
 .card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
 .card > a[onclick] { margin: 20px 0 10px; }
 .card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
+/* Only for blog homepage: fix top gap + ensure centered single card */
+body.blog-home {
+  padding-top: 0 !important;
+}
+
+body.blog-home h1 {
+  margin-top: 24px !important; /* reduced from 40px */
+}
+
+body.blog-home .subtitle {
+  margin: 8px auto 12px !important;
+}
+
+body.blog-home p[style*="text-align:center;opacity:.7;margin-bottom:40px"] {
+  margin: 8px 0 16px !important;
+}
+
+body.blog-home .grid {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  max-width: 500px !important; /* tighter for single card centering */
+}
+
+/* First card zero top */
+body.blog-home .grid > .card:first-child {
+  margin-top: 0 !important;
+}
+
+/* Mobile: reinforce centering for blog */
+@media (max-width: 768px) {
+  body.blog-home .grid {
+    justify-content: center !important; /* grid centering fallback */
+    padding: 0 10px !important;
+  }
+
+  body.blog-home .card {
+    margin: 0 auto !important;
+    max-width: 420px !important;
+  }
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
