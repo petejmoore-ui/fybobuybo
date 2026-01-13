@@ -111,7 +111,7 @@ BLOG_POSTS = {
 
 </article>
 """
-}
+},
 
 
 
@@ -256,7 +256,7 @@ BLOG_POSTS = {
 
 </article>
 """
-}
+},
 
 
 
@@ -366,7 +366,7 @@ BLOG_POSTS = {
 
 </article>
 """
-}
+},
 
 "valentines-gifts-for-her-under-50": {
   "title": "Valentine’s Gifts for Her Under £50 (Affordable & Thoughtful)",
