@@ -322,6 +322,7 @@ nav .season-link:hover{opacity:.9;color:#fda4af}
 @media (min-width:769px){
   .seasons-dropdown{display:none !important}
 }
+.subtitle:empty{display:none;}
 </style>"""
 
 
