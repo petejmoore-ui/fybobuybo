@@ -272,64 +272,253 @@ FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
-h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
-.subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:0 auto;padding:0 20px;box-sizing:border-box}
-.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s;margin:0 auto;max-width:100%}
-.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
-img{width:100%;border-radius:16px;margin:16px 0}
-.tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
-button{background:{{button}};border:none;padding:16px 36px;border-radius:50px;font-size:1.1rem;font-weight:900;color:white;cursor:pointer;transition:.3s;animation:pulse 2.5s infinite ease-in-out}
-button:hover{opacity:.9;transform:scale(1.05);animation:none}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4)}70%{box-shadow:0 0 0 12px rgba(2,132,199,0)}100%{box-shadow:0 0 0 0 rgba(2,132,199,0)}}
-footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
-a{color:{{text_accent}};text-decoration:none}
-nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center;position:relative}
-nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
-nav a:hover{opacity:.8}
-nav .season-link{color:#f472b6}
-nav .season-link:hover{opacity:.9;color:#fda4af}
-.seasons-dropdown{display:none;position:relative;margin:0 8px}
-.seasons-dropdown button{background:#334155;color:#bae6fd;border:1px solid #475569;padding:8px 16px;border-radius:12px;font-weight:600;font-size:1rem;cursor:pointer;transition:all .2s}
-.seasons-dropdown button:hover{background:#475569;color:white}
-.dropdown-content{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:{{card}};border-radius:12px;padding:12px 0;min-width:180px;box-shadow:0 10px 25px rgba(0,0,0,.5);z-index:100;margin-top:8px}
-.dropdown-content a{display:block;padding:10px 20px;color:{{text_accent}};text-decoration:none;font-size:1rem;white-space:nowrap}
-.dropdown-content a:hover{background:#334155}
-.pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
-.pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
-.pagination a:hover{opacity:.9}
-.loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}}}
-.grid:has(> .card:only-child) .card {max-width:600px;margin:0 auto}
-.grid:has(> .card:only-child) img {max-width:500px;width:100%;height:auto;margin:20px auto;display:block;border-radius:16px}
-.card h2 {min-height:70px;display:flex;align-items:center;justify-content:center;margin:12px 0;font-size:1.25rem;line-height:1.3;font-weight:900}
-.card img {width:100%;max-height:380px;object-fit:contain;background:#111827;border-radius:16px;margin:16px 0}
-.card > a[onclick] {margin:20px 0 10px}
-.card p:last-of-type {margin:10px 0;font-size:.85rem;opacity:.7}
-
-/* Mobile layout */
-@media (max-width:768px){
-  nav a{margin:0 10px;font-size:1rem}
-  .grid{
-    grid-template-columns:1fr;
-    padding:0 12px;
-    gap:16px;
-    margin-top:0;
-  }
-  .grid > .card:first-child{margin-top:0;}
-  h1, .subtitle{margin-top:24px;margin-bottom:16px;}
-  nav a.season-link{display:none}
-  .seasons-dropdown{display:inline-block}
+body {
+    margin: 0;
+    background: {{bg}};
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    padding: 20px 20px 40px;
 }
 
-/* Desktop dropdown fix */
-@media (min-width:769px){
-  .seasons-dropdown{display:none !important}
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    background: {{gradient}};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 40px 0 10px;
+}
+
+.subtitle {
+    text-align: center;
+    opacity: .85;
+    max-width: 900px;
+    margin: 20px auto;
+    color: {{text_accent}};
+    font-size: 1.1rem;
+}
+
+.intro-text {
+    text-align: center;
+    opacity: .7;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: {{card}};
+    border-radius: 22px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,.6);
+    transition: transform .3s, box-shadow .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,.7);
+}
+
+img {
+    width: 100%;
+    border-radius: 16px;
+    margin: 16px 0;
+}
+
+.tag {
+    background: {{tag}};
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: .85rem;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+button {
+    background: {{button}};
+    border: none;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+button:hover {
+    opacity: .9;
+    transform: scale(1.05);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(2,132,199,0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(2,132,199,0); }
+    100% { box-shadow: 0 0 0 0 rgba(2,132,199,0); }
+}
+
+footer {
+    text-align: center;
+    opacity: .7;
+    margin: 80px 0 40px;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+a {
+    color: {{text_accent}};
+    text-decoration: none;
+}
+
+nav {
+    background: {{card}};
+    padding: 16px;
+    margin: 20px 0 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    text-align: center;
+    position: relative;
+}
+
+nav a {
+    margin: 0 16px;
+    color: {{text_accent}};
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: .2s;
+}
+
+nav a:hover { opacity: .8; }
+nav .season-link { color: #f472b6; }
+nav .season-link:hover { opacity: .9; color: #fda4af; }
+
+.seasons-dropdown { display: none; position: relative; margin: 0 8px; }
+.seasons-dropdown button {
+    background: #334155;
+    color: #bae6fd;
+    border: 1px solid #475569;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .2s;
+}
+.seasons-dropdown button:hover { background: #475569; color: white; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: {{card}};
+    border-radius: 12px;
+    padding: 12px 0;
+    min-width: 180px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.5);
+    z-index: 100;
+    margin-top: 8px;
+}
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: {{text_accent}};
+    text-decoration: none;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+.dropdown-content a:hover { background: #334155; }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 40px 0;
+}
+.pagination a {
+    background: {{button}};
+    padding: 10px 16px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .2s;
+}
+.pagination a:hover { opacity: .9; }
+
+.loading {
+    text-align: center;
+    opacity: .8;
+    margin: 80px 0;
+    font-size: 1.3rem;
+    color: {{text_accent}};
+}
+
+.grid:has(> .card:only-child) .card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.grid:has(> .card:only-child) img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 16px;
+}
+
+.card h2 {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 900;
+}
+.card img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    background: #111827;
+    border-radius: 16px;
+    margin: 16px 0;
+}
+.card > a[onclick] { margin: 20px 0 10px; }
+.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
+
+/* ---------------- Mobile Layout ---------------- */
+@media (max-width: 768px) {
+    nav a { margin: 0 10px; font-size: 1rem; }
+    .grid { grid-template-columns: 1fr; padding: 0 16px; gap: 16px; }
+    nav a.season-link { display: none; }
+    .seasons-dropdown { display: inline-block; }
+
+    /* Remove gap above first blog card */
+    .intro-text { margin-bottom: 12px; margin-top: 12px; font-size: .95rem; opacity: .85; }
+}
+
+@media (min-width: 769px) {
+    .seasons-dropdown { display: none !important; }
 }
 
 /* Hide empty subtitles */
-.subtitle:empty{display:none;}
-</style>"""
+.subtitle:empty { display: none; }
+</style>
+"""
 
 
 
