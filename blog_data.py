@@ -284,17 +284,17 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2>2. Luxury Scented Candle Gift Set</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
-      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' alt='Luxury scented candle set - calming Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
-    </a>
-    <p>Set the mood with a <strong>luxury scented candle set</strong>. Elegant aromas like lavender, rose, or vanilla create a relaxing, romantic atmosphere — a simple but sophisticated gesture.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'><button aria-label='View candle gift set details'>View Details & Buy</button></a>
-      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy luxury candle gift set on Amazon'>View on Amazon</button></a>
-    </div>
+  <h2>2. Eternal 24K Gold Dipped Rose</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/ariceleo-gold-dipped-infinity-rose---24k-gold-preserved-real-rose'>
+    <img src='https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX466_.jpg' alt='Eternal 24K gold dipped rose - romantic everlasting Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
+  </a>
+  <p>Surprise her with an <strong>eternal 24K gold dipped rose</strong>. This genuine preserved real rose, hand-dipped in pure 24K gold, lasts forever as a symbol of enduring love and romance — the perfect luxurious, one-of-a-kind gesture for Valentine’s Day or any special occasion.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+    <a href='/product/ariceleo-gold-dipped-infinity-rose---24k-gold-preserved-real-rose'><button aria-label='View gold dipped rose details'>View Details & Buy</button></a>
+    <a href='https://amzn.to/4sFizer?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy eternal gold rose on Amazon'>View on Amazon</button></a>
   </div>
+</div>
 
   <h2>3. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
@@ -373,23 +373,17 @@ BLOG_POSTS = {
 
   <p>Valentine’s Day doesn’t have to break the bank. These <strong>under £50 gifts for her</strong> are romantic, thoughtful, and highly rated — perfect for showing you care without overspending. From cozy evenings to pampering skincare, each gift is proven to delight women who value meaningful, budget-friendly surprises. Grab them before they sell out and make this Valentine’s unforgettable!</p>
 
-  <h2>1. Luxury Scented Candle Gift Set</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
-      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
-           alt='Luxury scented candle Valentine’s gift set – romantic gift for girlfriend under £50' 
-           loading='lazy' style='border-radius:16px;'>
-    </a>
-    <p><strong>Candle sets</strong> instantly elevate any evening. Warm, romantic, and thoughtfully packaged — ideal for last-minute Valentine’s gifts that feel premium. Highly rated and loved by thousands, this gift is a fail-safe choice to impress your partner.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
-        <button aria-label='View candle gift set details – fast shipping available'>View Details & Buy</button>
-      </a>
-      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'>
-        <button style='background:#ff9900;' aria-label='Buy candle gift set on Amazon – fast delivery'>View on Amazon</button>
-      </a>
-    </div>
+  <h2>1. Eternal 24K Gold Dipped Rose</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/ariceleo-gold-dipped-infinity-rose---24k-gold-preserved-real-rose'>
+    <img src='https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX466_.jpg' alt='Eternal 24K gold dipped rose - romantic everlasting Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
+  </a>
+  <p>Surprise her with an <strong>eternal 24K gold dipped rose</strong>. This genuine preserved real rose, hand-dipped in pure 24K gold, lasts forever as a symbol of enduring love and romance — the perfect luxurious, one-of-a-kind gesture for Valentine’s Day or any special occasion.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+    <a href='/product/ariceleo-gold-dipped-infinity-rose---24k-gold-preserved-real-rose'><button aria-label='View gold dipped rose details'>View Details & Buy</button></a>
+    <a href='https://amzn.to/4sFizer?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy eternal gold rose on Amazon'>View on Amazon</button></a>
   </div>
+</div>
 
   <h2>2. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
@@ -525,17 +519,17 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2>3. Luxury Scented Candle Gift Set</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
-      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' alt='IdealHouse luxury scented candle set – premium Valentine’s home fragrance gift' loading='lazy' style='border-radius:16px;'>
-    </a>
-    <p><strong>Luxury candles</strong> make any evening feel special. Calming scents like lavender, rose, or vanilla create ambience, while elegant packaging elevates the gift experience — all under £100.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'><button aria-label='View premium candle set details'>View Details & Buy</button></a>
-      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy luxury candle gift set on Amazon'>View on Amazon</button></a>
-    </div>
+  <h2>3. Eternal 24K Gold Dipped Rose</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/ariceleo-gold-dipped-infinity-rose---24k-gold-preserved-real-rose'>
+    <img src='https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX466_.jpg' alt='Eternal 24K gold dipped rose - romantic everlasting Valentine’s gift for her' loading='lazy' style='border-radius:16px;'>
+  </a>
+  <p>Surprise her with an <strong>eternal 24K gold dipped rose</strong>. This genuine preserved real rose, hand-dipped in pure 24K gold, lasts forever as a symbol of enduring love and romance — the perfect luxurious, one-of-a-kind gesture for Valentine’s Day or any special occasion.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;'>
+    <a href='/product/ariceleo-gold-dipped-infinity-rose---24k-gold-preserved-real-rose'><button aria-label='View gold dipped rose details'>View Details & Buy</button></a>
+    <a href='https://amzn.to/4sFizer?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored'><button style='background:#ff9900;' aria-label='Buy eternal gold rose on Amazon'>View on Amazon</button></a>
   </div>
+</div>
 
   <h2>4. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
