@@ -753,6 +753,8 @@ def blog_list(page=1):
     if not paginated and page > 1:
         abort(404)
 
+    theme = get_daily_theme()  # needed for accent color
+
     def page_url(p_num):
         return url_for("blog_list", page=p_num) if p_num <= total_pages else None
 
@@ -768,62 +770,7 @@ def blog_list(page=1):
 
     # Inject blog list after subtitle
     blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    for post in paginated:
-        date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-        blog_html += f'''
-        <div class="card" style="text-align:left; padding:24px;">
-            <h2 style="font-size:1.6rem; margin-bottom:8px;"><a href="/blog/{post["slug"]}">{post["title"]}</a></h2>
-            <p style="opacity:0.7; font-size:0.95rem; margin:0 0 12px;">{date_str}</p>
-            <p style="line-height:1.6;">{post.get("description", "")}</p>
-            <a href="/blog/{post["slug"]}" style="color:{theme["accent"]}; font-weight:600;">Read more →</a>
-        </div>
-        '''
-    blog_html += '</div>'
-
-    # Insert after subtitle block
-    insert_point = rendered.find('<p class="subtitle">') 
-    if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
-
-    # Add pagination if needed
-    if total_pages > 1:
-        pag_html = '<div class="pagination">'
-        if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">« Previous</a>'
-        if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
-        pag_html += '</div>'
-        rendered = rendered.replace('</body>', pag_html + '</body>')
-
-    return rendered
-
-
-@app.route("/blog")
-@app.route("/blog/page/<int:page>")
-def blog_list(page=1):
-    paginated, total_pages, total_posts = load_blog_posts(page)
-    if not paginated and page > 1:
-        abort(404)
-
-    theme = get_daily_theme()  # ← add this here
-
-    def page_url(p_num):
-        return url_for("blog_list", page=p_num) if p_num <= total_pages else None
-
-    rendered = render_page(
-        title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
-        description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
-        heading="FyboBuybo Blog",
-        subtitle="Gift guides, trends and inspiration for UK shoppers",
-        products=None,
-        page=page,
-        page_url=page_url
-    )
-
-    # Inject blog list after subtitle
-    blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    accent_color = theme["accent"]  # extract once
+    accent_color = theme["accent"]
     for post in paginated:
         date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
         blog_html += f'''
@@ -836,12 +783,13 @@ def blog_list(page=1):
         '''
     blog_html += '</div>'
 
-    insert_point = rendered.find('<p class="subtitle">')
+    # Insert after subtitle block
+    insert_point = rendered.find('<p class="subtitle">') 
     if insert_point > -1:
         insert_after = rendered.find('</p>', insert_point) + 4
         rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
 
-    # Add pagination
+    # Add pagination if needed
     if total_pages > 1:
         pag_html = '<div class="pagination">'
         if page > 1:
