@@ -14,10 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
-    timeout=45.0  # Prevents any single Groq call from hanging the worker forever
-)
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 
 CACHE_FILE = "/data/cache.json"
@@ -131,40 +128,7 @@ def should_refresh_cache():
     except Exception:
         return True
 
-
-def _generate_hooks_in_background():
-    """Run full hook generation in background thread - writes to cache when done"""
-    try:
-        print("[BACKGROUND] Starting full AI hook generation for all products...")
-        enriched = []
-        for p in PRODUCTS:
-            p_copy = dict(p)
-            p_copy["hook"] = generate_hook(p)
-            p_copy.setdefault("date_added", str(datetime.date.today()))
-            p_copy["hook_version"] = PROMPT_VERSION
-            enriched.append(p_copy)
-
-        today_iso = datetime.datetime.now().isoformat()
-        with open(CACHE_FILE, "w", encoding="utf-8") as f:
-            json.dump({
-                "date": today_iso,
-                "prompt_version": PROMPT_VERSION,
-                "products": enriched
-            }, f, indent=2, ensure_ascii=False)
-
-        history = load_history()
-        history_key = datetime.date.today().isoformat()
-        history[history_key] = enriched
-        save_history(history)
-
-        print("[BACKGROUND] Hook generation complete. Cache updated.")
-    except Exception as e:
-        print(f"[BACKGROUND] Hook generation failed: {e}")
-
-
 def load_or_generate_hooks(products):
-    # This function is now only called from background thread
-    # (kept for compatibility, but not used in request path anymore)
     enriched = []
     for p in products:
         p_copy = dict(p)
@@ -188,57 +152,38 @@ def load_or_generate_hooks(products):
 
     return enriched
 
-
 def load_history():
     if os.path.exists(HISTORY_FILE):
         with open(HISTORY_FILE, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
-
 def save_history(data):
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-
 def refresh_products(background=False):
     today = str(datetime.date.today())
 
-    # Fast path: if valid cache exists → return it immediately
+    # Try to load cache if it exists
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache = json.load(f)
             cache_date_str = cache.get("date", "")
             if cache_date_str.startswith(today):
-                print("Using today's fresh cache")
                 return cache.get("products", [])
+            # Check age and version
             cache_date = datetime.datetime.fromisoformat(cache_date_str)
             if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
                cache.get("prompt_version") == PROMPT_VERSION:
-                print("Using valid recent cache")
                 return cache.get("products", [])
         except Exception as e:
-            print(f"Cache read failed: {e} — falling back")
+            print(f"Cache read failed: {e} — regenerating")
 
-    # Cache missing, outdated or invalid → trigger background generation if requested
-    if background:
-        # Only start one thread at a time
-        if not any(t.name == "hook-gen-thread" for t in Thread.enumerate()):
-            t = Thread(target=_generate_hooks_in_background, name="hook-gen-thread", daemon=True)
-            t.start()
-            print("Started background hook generation thread")
-
-    # Always return something fast so the page renders
-    # Use fallback hooks until real ones are ready
-    fallback_products = []
-    for p in PRODUCTS:
-        p_copy = dict(p)
-        p_copy["hook"] = p_copy.get("hook", FALLBACK_HOOK)
-        fallback_products.append(p_copy)
-
-    return fallback_products
-
+    # Generate fresh if cache missing, invalid or outdated
+    enriched = load_or_generate_hooks(PRODUCTS)
+    return enriched
 
 # ---------------- HELPERS ---------------- #
 def slugify(text):
@@ -248,12 +193,10 @@ def slugify(text):
     text = re.sub(r'[^\w\-]', '', text)
     return text
 
-
 def normalize_for_match(text):
     if not text:
         return ""
     return text.lower().replace("'", "").replace(" ", "").replace("-", "")
-
 
 def get_nav_items():
     products = PRODUCTS  # fallback
@@ -288,12 +231,10 @@ def get_nav_items():
         "seasons": seasons
     }
 
-
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
     end = start + ITEMS_PER_PAGE
     return items[start:end], len(items)
-
 
 def shorten_product_name(name, max_length=80):
     if len(name) <= max_length:
@@ -311,15 +252,12 @@ def shorten_product_name(name, max_length=80):
             break
     return out + "..."
 
-
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
-
 
 def ensure_hook(p):
     if "hook" not in p or not p["hook"]:
         p["hook"] = FALLBACK_HOOK
     return p
-
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
@@ -651,12 +589,10 @@ def render_page(title, description, heading, subtitle, products, page=1, page_ur
         prev_page_url=prev_page_url
     )
 
-
 @app.route("/debug-routes")
 def debug_routes():
     rules = sorted(str(rule) for rule in app.url_map.iter_rules())
     return "<pre>" + "\n".join(rules) + "</pre>"
-
 
 @app.route("/")
 def home():
@@ -668,7 +604,6 @@ def home():
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
     )
-
 
 @app.route("/category/<slug>")
 def category(slug):
@@ -694,7 +629,6 @@ def category(slug):
         page=page,
         page_url=page_url
     )
-
 
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
@@ -734,7 +668,6 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
-
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     products = refresh_products(background=True)
@@ -756,7 +689,6 @@ def product_detail(product_slug):
         products=[found],
         related_products=related
     )
-
 
 @app.route("/blog")
 def blog_index():
@@ -827,7 +759,6 @@ def blog_index():
     
     return rendered
 
-
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
@@ -868,7 +799,6 @@ def blog_detail(slug):
     
     return rendered
 
-
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
 def robots():
@@ -879,7 +809,6 @@ Disallow:
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
-
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -909,7 +838,6 @@ def sitemap():
 
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
