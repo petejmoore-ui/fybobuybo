@@ -299,7 +299,7 @@ a { color:{{text_accent}}; text-decoration:none; }
 nav {
     background:{{card}}; padding:12px 16px; margin:20px 0 40px; border-radius:16px;
     box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center; position:relative;
-    display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px;
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:12px;
 }
 nav a { margin:4px 12px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
 nav a:hover { opacity:.8; }
@@ -319,9 +319,8 @@ nav .season-link:hover {
     background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Mobile Categories Dropdown */
+/* Categories Dropdown */
 .categories-dropdown {
-    display: none;
     position: relative;
     margin: 0 8px;
 }
@@ -333,7 +332,8 @@ nav .season-link:hover {
 .categories-dropdown button:hover { background: #475569; color: white; }
 .categories-dropdown .dropdown-content {
     display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-    background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 220px;
+    background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 240px;
+    max-height: 60vh; overflow-y: auto;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
 }
 .categories-dropdown .dropdown-content a {
@@ -342,9 +342,8 @@ nav .season-link:hover {
 }
 .categories-dropdown .dropdown-content a:hover { background: #334155; }
 
-/* Mobile Seasons Dropdown (existing, kept for consistency) */
+/* Seasons Dropdown (same styling) */
 .seasons-dropdown {
-    display: none;
     position: relative;
     margin: 0 8px;
 }
@@ -354,33 +353,34 @@ nav .season-link:hover {
     cursor: pointer; transition: all 0.2s;
 }
 .seasons-dropdown button:hover { background: #475569; color: white; }
-.dropdown-content {
+.seasons-dropdown .dropdown-content {
     display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
     background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 180px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
 }
-.dropdown-content a {
+.seasons-dropdown .dropdown-content a {
     display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none;
     font-size: 1rem; white-space: nowrap;
 }
-.dropdown-content a:hover { background: #334155; }
+.seasons-dropdown .dropdown-content a:hover { background: #334155; }
 
-/* Mobile-only hiding & layout */
+/* Mobile: Collapse categories into dropdown, keep others visible */
 @media (max-width:768px) {
-    nav a:not(.season-link):not([href="/"]):not([href="/blog"]) { display: none; }
+    nav a[href^="/category/"] { display: none; }  /* Hide individual category links */
     .categories-dropdown { display: inline-block; }
     nav { flex-wrap: wrap; justify-content: space-between; padding: 12px; gap: 8px; }
     nav a { margin: 4px 8px; font-size: 1rem; }
     .grid { grid-template-columns:1fr; }
 }
 
-/* Desktop */
+/* Desktop: Show horizontal categories, hide dropdowns */
 @media (min-width:769px) {
     .categories-dropdown, .seasons-dropdown { display: none !important; }
-    nav { white-space: nowrap; overflow-x: auto; }
+    nav { white-space: nowrap; overflow-x: auto; padding: 16px; }
+    nav a { margin: 0 16px; }
 }
 
-/* Rest of your CSS remains unchanged */
+/* Rest unchanged */
 .pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
 .pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
 .pagination a:hover { opacity:.9; }
@@ -516,10 +516,10 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     {% endif %}
 
-    <!-- Search bar – balanced position -->
-    <form id="search-form" style="display:inline-block; margin:0 16px; vertical-align:middle; flex-grow:1; text-align:right;">
+    <!-- Search bar -->
+    <form id="search-form" style="margin-left:auto; margin-right:16px;">
         <input type="search" id="search-input" placeholder="Search gifts..." 
-               style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:100%; max-width:260px; font-size:1rem;">
+               style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:220px; font-size:1rem;">
     </form>
 </nav>
 
@@ -534,20 +534,28 @@ document.addEventListener("DOMContentLoaded", function() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const dropdowns = document.querySelectorAll(".seasons-dropdown, .categories-dropdown");
+    
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector("button");
         const content = dropdown.querySelector(".dropdown-content");
+        
         if (!btn || !content) return;
+        
         btn.addEventListener("click", function(e) {
             e.stopPropagation();
             const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".dropdown-content").forEach(el => {
+                el.style.display = "none";
+            });
             content.style.display = isOpen ? "none" : "block";
         });
     });
+
     document.addEventListener("click", function(e) {
         if (!e.target.closest(".seasons-dropdown, .categories-dropdown")) {
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
+            document.querySelectorAll(".dropdown-content").forEach(el => {
+                el.style.display = "none";
+            });
         }
     });
 });
