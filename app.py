@@ -288,42 +288,44 @@ h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-backgro
 img { width:100%; border-radius:16px; margin:16px 0; object-fit: contain; background: #111827; }
 .tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
 button {
-    background:{{button}}; border:none; padding:16px 36px; border-radius:50px; font-size:1.1rem; font-weight:900;
+    background:{{button}}; border:none; padding:12px 28px; border-radius:50px; font-size:1rem; font-weight:900;
     color:white; cursor:pointer; transition:.3s;
 }
-button:hover { opacity:.9; transform:scale(1.05); }
+button:hover { opacity:.9; transform:scale(1.03); }
 footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
 a { color:{{text_accent}}; text-decoration:none; }
 
-/* Nav - main container */
+/* Nav container */
 nav {
-    background:{{card}}; padding:12px 16px; margin:20px 0 40px; border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4); 
-    display:flex; flex-direction:column; align-items:center; gap:12px;
+    background:{{card}}; padding:16px; margin:20px 0 40px; border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:16px;
 }
 
 /* Top row: Home + Blog */
 .nav-top {
-    display:flex; justify-content:center; gap:32px; width:100%;
+    display:flex; justify-content:center; gap:40px; width:100%;
 }
 .nav-top a {
-    color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s;
+    color:{{text_accent}}; font-weight:700; font-size:1.2rem; transition:.2s;
 }
 .nav-top a:hover { opacity:.8; }
 
 /* Middle row: Categories + Seasonal buttons */
 .nav-middle {
-    display:flex; justify-content:center; gap:16px; flex-wrap:wrap;
+    display:flex; justify-content:center; gap:24px; flex-wrap:nowrap;
+    width:100%; max-width:360px;
 }
 
-/* Dropdown buttons (shared) */
+/* Dropdown buttons */
 .categories-dropdown, .seasons-dropdown {
     position: relative;
+    flex:1;
 }
 .categories-dropdown button, .seasons-dropdown button {
     background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 1rem;
-    cursor: pointer; transition: all 0.2s; min-width:140px; text-align:center;
+    padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; width:100%; text-align:center;
 }
 .categories-dropdown button:hover, .seasons-dropdown button:hover { 
     background: #475569; color: white; transform: translateY(-1px); 
@@ -346,7 +348,7 @@ nav {
 }
 #search-input {
     padding:10px 20px; border-radius:999px; border:1px solid {{text_accent}}; 
-    background:transparent; color:white; width:100%; font-size:1rem;
+    background:transparent; color:white; width:100%; font-size:1rem; text-align:center;
 }
 
 /* Seasons horizontal links (desktop only) */
@@ -358,18 +360,18 @@ nav .season-link:hover {
     opacity: 1; color: #c7d2fe; background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Mobile: Collapse categories & seasons into dropdowns */
+/* Mobile */
 @media (max-width:768px) {
-    nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide horizontal links */
+    nav a[href^="/category/"], nav a.season-link { display: none; }
     .nav-middle { gap:16px; }
     .grid { grid-template-columns:1fr; }
 }
 
-/* Desktop: Show everything horizontally */
+/* Desktop - show full horizontal nav */
 @media (min-width:769px) {
     nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:nowrap; }
     .nav-top { flex:0 0 auto; }
-    .nav-middle { flex:1; justify-content:center; }
+    .nav-middle { flex:1; justify-content:center; gap:16px; display:flex; }
     #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
     .categories-dropdown, .seasons-dropdown { display: none !important; }
     nav a { margin:0 16px; }
@@ -488,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="/blog">Blog</a>
     </div>
 
-    <!-- Middle row: Categories + Seasonal buttons -->
+    <!-- Middle row: Categories + Seasonal -->
     <div class="nav-middle">
         <div class="categories-dropdown">
             <button>Categories ▼</button>
@@ -511,7 +513,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {% endif %}
     </div>
 
-    <!-- Search bar – bottom row on mobile -->
+    <!-- Search bar - bottom row -->
     <form id="search-form">
         <input type="search" id="search-input" placeholder="Search gifts..." />
     </form>
