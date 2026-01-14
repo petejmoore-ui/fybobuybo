@@ -288,94 +288,91 @@ h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-backgro
 img { width:100%; border-radius:16px; margin:16px 0; }
 .tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
 button {
-    background:{{button}}; border:none; padding:16px 36px; border-radius:50px; font-size:1.1rem; font-weight:900;
+    background:{{button}}; border:none; padding:14px 32px; border-radius:50px; font-size:1rem; font-weight:900;
     color:white; cursor:pointer; transition:.3s;
 }
-button:hover { opacity:.9; transform:scale(1.05); }
+button:hover { opacity:.9; transform:scale(1.03); }
 footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
 a { color:{{text_accent}}; text-decoration:none; }
+
+/* Nav - main container */
 nav {
     background:{{card}}; padding:12px 16px; margin:20px 0 40px; border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center;
-    display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:12px;
-}
-nav a { margin:4px 12px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
-nav a:hover { opacity:.8; }
-
-/* Seasons styling */
-nav .season-link { 
-    color: #a5b4fc; 
-    font-size: 1rem; 
-    font-weight: 600; 
-    padding: 4px 10px; 
-    border-radius: 8px; 
-    transition: all 0.2s ease; 
-}
-nav .season-link:hover { 
-    opacity: 1; 
-    color: #c7d2fe; 
-    background: rgba(56, 189, 248, 0.12); 
+    box-shadow:0 10px 30px rgba(0,0,0,.4); 
+    display:flex; flex-direction:column; align-items:center; gap:12px;
 }
 
-/* Dropdowns (shared) */
+/* Top row: Home + Blog */
+.nav-top {
+    display:flex; justify-content:center; gap:24px; width:100%;
+}
+.nav-top a {
+    color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s;
+}
+.nav-top a:hover { opacity:.8; }
+
+/* Middle row: Categories + Seasonal buttons */
+.nav-middle {
+    display:flex; justify-content:center; gap:16px; flex-wrap:wrap;
+}
+
+/* Dropdown buttons (shared) */
 .categories-dropdown, .seasons-dropdown {
     position: relative;
-    margin: 0 8px;
 }
 .categories-dropdown button, .seasons-dropdown button {
     background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
-    cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 1rem;
+    cursor: pointer; transition: all 0.2s; min-width:140px; text-align:center;
 }
 .categories-dropdown button:hover, .seasons-dropdown button:hover { 
     background: #475569; color: white; transform: translateY(-1px); 
 }
-.categories-dropdown .dropdown-content, .seasons-dropdown .dropdown-content {
+.dropdown-content {
     display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
     background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 240px;
     max-height: 60vh; overflow-y: auto;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
 }
-.categories-dropdown .dropdown-content a, .seasons-dropdown .dropdown-content a {
+.dropdown-content a {
     display: block; padding: 10px 24px; color: {{text_accent}}; text-decoration: none;
     font-size: 1rem; white-space: nowrap;
 }
-.categories-dropdown .dropdown-content a:hover, .seasons-dropdown .dropdown-content a:hover { 
-    background: #334155; 
+.dropdown-content a:hover { background: #334155; }
+
+/* Search bar - bottom row */
+#search-form {
+    width:100%; max-width:400px; text-align:center;
+}
+#search-input {
+    padding:10px 20px; border-radius:999px; border:1px solid {{text_accent}}; 
+    background:transparent; color:white; width:100%; font-size:1rem;
 }
 
-/* Mobile layout */
+/* Seasons horizontal links (desktop only) */
+nav .season-link { 
+    color: #a5b4fc; font-size: 1rem; font-weight: 600; padding: 4px 10px; 
+    border-radius: 8px; transition: all 0.2s ease; 
+}
+nav .season-link:hover { 
+    opacity: 1; color: #c7d2fe; background: rgba(56, 189, 248, 0.12); 
+}
+
+/* Mobile tweaks */
 @media (max-width:768px) {
-    nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide individual links */
-    .categories-dropdown, .seasons-dropdown { display: inline-block; }
-    nav { flex-wrap: wrap; justify-content: space-between; padding: 12px; gap: 8px; }
-    nav a { margin: 4px 8px; font-size: 1rem; }
+    nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide horizontal links */
+    .nav-middle { gap:12px; }
     .grid { grid-template-columns:1fr; }
-    #search-form { width:100%; text-align:center; margin:12px 0 0; }
-    #search-input { width:90%; max-width:none; }
 }
 
-/* Desktop layout */
+/* Desktop tweaks */
 @media (min-width:769px) {
+    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; }
+    .nav-top, .nav-middle { flex:1; justify-content:flex-start; }
+    #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
     .categories-dropdown, .seasons-dropdown { display: none !important; }
-    nav { white-space: nowrap; overflow-x: auto; padding: 16px; justify-content: center; }
-    nav a { margin: 0 16px; }
-    #search-form { margin-left:auto; }
-    #search-input { width:220px; }
+    nav a { margin:0 16px; }
 }
-
-/* Rest unchanged */
-.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
-.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
-.pagination a:hover { opacity:.9; }
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
-
-.grid:has(> .card:only-child) .card { max-width: 600px; margin: 0 auto; }
-.grid:has(> .card:only-child) img { max-width: 500px; width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 16px; }
-.card h2 { min-height: 70px; display: flex; align-items: center; justify-content: center; margin: 12px 0; font-size: 1.25rem; line-height: 1.3; font-weight: 900; }
-.card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
-.card > a[onclick] { margin: 20px 0 10px; }
-.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
@@ -470,39 +467,38 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <nav aria-label="Main navigation">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-
-    <!-- Categories dropdown (mobile only) -->
-    <div class="categories-dropdown">
-        <button>Categories ▼</button>
-        <div class="dropdown-content">
-            {% for cat in nav_items.categories %}
-                <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-            {% endfor %}
-        </div>
+    <!-- Top row: Home + Blog -->
+    <div class="nav-top">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
     </div>
 
-    {% if nav_items.seasons %}
-        <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
-
-        {% for season in nav_items.seasons %}
-            <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
-        {% endfor %}
-
-        <div class="seasons-dropdown">
-            <button>Seasonal ▼</button>
+    <!-- Middle row: Categories + Seasonal buttons -->
+    <div class="nav-middle">
+        <div class="categories-dropdown">
+            <button>Categories ▼</button>
             <div class="dropdown-content">
-                {% for season in nav_items.seasons %}
-                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+                {% for cat in nav_items.categories %}
+                    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
                 {% endfor %}
             </div>
         </div>
-    {% endif %}
 
-    <form id="search-form" style="margin-left:auto; margin-right:16px;">
-        <input type="search" id="search-input" placeholder="Search gifts..." 
-               style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:220px; font-size:1rem;">
+        {% if nav_items.seasons %}
+            <div class="seasons-dropdown">
+                <button>Seasonal ▼</button>
+                <div class="dropdown-content">
+                    {% for season in nav_items.seasons %}
+                        <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Search bar (bottom row on mobile, right on desktop) -->
+    <form id="search-form">
+        <input type="search" id="search-input" placeholder="Search gifts..." />
     </form>
 </nav>
 
