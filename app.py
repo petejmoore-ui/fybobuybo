@@ -421,6 +421,13 @@ BASE_HTML = """<!DOCTYPE html>
     {% endif %}
 </nav>
 
+<nav aria-label="breadcrumb" style="text-align:center; opacity:0.8; margin: -10px 0 30px; font-size:0.95rem; color:{{text_accent}};">
+    <a href="/" style="color:{{text_accent}}; text-decoration:none;">Home</a>
+    {% if request.path != "/" %}
+        › <span style="font-weight:600; color:white;">{{ heading }}</span>
+    {% endif %}
+</nav>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const dropdowns = document.querySelectorAll(".seasons-dropdown");
