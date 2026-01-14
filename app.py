@@ -753,7 +753,7 @@ def blog_list(page=1):
     if not paginated and page > 1:
         abort(404)
 
-    theme = get_daily_theme()  # needed for accent color
+    theme = get_daily_theme()  # Get theme for accent color
 
     def page_url(p_num):
         return url_for("blog_list", page=p_num) if p_num <= total_pages else None
@@ -798,6 +798,39 @@ def blog_list(page=1):
             pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
         pag_html += '</div>'
         rendered = rendered.replace('</body>', pag_html + '</body>')
+
+    return rendered
+
+
+@app.route("/blog/<slug>")
+def blog_detail(slug):
+    post = BLOG_POSTS.get(slug)
+    if not post:
+        abort(404)
+
+    all_products = refresh_products(background=True)
+    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+
+    rendered = render_page(
+        title=post["title"],
+        description=post.get("description", "Gift inspiration and practical tips from FyboBuybo."),
+        heading=post.get("heading", post["title"]),
+        subtitle=post.get("subtitle", "Gift guide & inspiration"),
+        products=None,
+        related_products=related
+    )
+
+    # Inject full blog content after subtitle
+    content_html = f'''
+    <div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">
+        {post.get("content", "<p>Content coming soon.</p>")}
+    </div>
+    '''
+
+    insert_point = rendered.find('<p class="subtitle">')
+    if insert_point > -1:
+        insert_after = rendered.find('</p>', insert_point) + 4
+        rendered = rendered[:insert_after] + content_html + rendered[insert_after:]
 
     return rendered
 
