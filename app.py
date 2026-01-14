@@ -409,8 +409,10 @@ def sitemap():
     urls.add((SITE_URL + "/", str(datetime.date.today())))
     for day_products in history.values():
         for p in day_products:
-            if p.get("category"): urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", p.get("date_added", str(datetime.date.today()))))
-if p.get("name"): urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", p.get("date_added", str(datetime.date.today()))))
+            if p.get("category"):
+                urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", p.get("date_added", str(datetime.date.today()))))
+            if p.get("name"):
+                urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", p.get("date_added", str(datetime.date.today()))))
     for season in ["Valentine's Day","Mother's Day","Easter","Father's Day","Summer Gifts","Back to School","Halloween","Christmas"]:
         urls.add((f"{SITE_URL}/season/{slugify(season)}", str(datetime.date.today())))
     sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -418,6 +420,7 @@ if p.get("name"): urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", p.get("d
         sitemap_xml += f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n"
     sitemap_xml += "</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
