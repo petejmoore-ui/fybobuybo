@@ -311,21 +311,19 @@ nav {
 }
 .nav-top a:hover { opacity:.8; }
 
-/* Middle row: Categories + Seasonal buttons */
+/* Middle row: Categories + Seasonal buttons (mobile only) */
 .nav-middle {
     display:flex; justify-content:center; gap:24px; flex-wrap:nowrap;
-    width:100%; max-width:360px;
 }
 
 /* Dropdown buttons */
 .categories-dropdown, .seasons-dropdown {
     position: relative;
-    flex:1;
 }
 .categories-dropdown button, .seasons-dropdown button {
     background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
-    cursor: pointer; transition: all 0.2s; width:100%; text-align:center;
+    padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: 1rem;
+    cursor: pointer; transition: all 0.2s; min-width:140px;
 }
 .categories-dropdown button:hover, .seasons-dropdown button:hover { 
     background: #475569; color: white; transform: translateY(-1px); 
@@ -342,7 +340,7 @@ nav {
 }
 .dropdown-content a:hover { background: #334155; }
 
-/* Search bar - bottom row */
+/* Search bar - bottom row on mobile, right on desktop */
 #search-form {
     width:100%; max-width:400px; text-align:center;
 }
@@ -360,10 +358,10 @@ nav .season-link:hover {
     opacity: 1; color: #c7d2fe; background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Mobile */
+/* Mobile - hide horizontal links, show dropdowns */
 @media (max-width:768px) {
-    nav a[href^="/category/"], nav a.season-link { display: none; }
-    .nav-middle { gap:16px; }
+    nav a[href^="/category/"], nav a.season-link { display: none !important; }
+    .nav-middle { display: flex !important; gap:20px; justify-content:center; }
     .grid { grid-template-columns:1fr; }
 }
 
@@ -371,10 +369,10 @@ nav .season-link:hover {
 @media (min-width:769px) {
     nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:nowrap; }
     .nav-top { flex:0 0 auto; }
-    .nav-middle { flex:1; justify-content:center; gap:16px; display:flex; }
+    .nav-middle { display:none !important; }
     #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
     .categories-dropdown, .seasons-dropdown { display: none !important; }
-    nav a { margin:0 16px; }
+    nav a { margin:0 16px; display:inline-block !important; }
 }
 
 /* Rest unchanged */
@@ -490,7 +488,22 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="/blog">Blog</a>
     </div>
 
-    <!-- Middle row: Categories + Seasonal -->
+    <!-- Desktop horizontal categories + seasons -->
+    <div class="nav-desktop">
+        {% for cat in nav_items.categories %}
+            <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+        {% endfor %}
+
+        {% if nav_items.seasons %}
+            <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
+
+            {% for season in nav_items.seasons %}
+                <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- Mobile: Categories + Seasonal dropdowns -->
     <div class="nav-middle">
         <div class="categories-dropdown">
             <button>Categories ▼</button>
@@ -513,12 +526,11 @@ document.addEventListener("DOMContentLoaded", function() {
         {% endif %}
     </div>
 
-    <!-- Search bar - bottom row -->
+    <!-- Search bar - bottom on mobile, right on desktop -->
     <form id="search-form">
         <input type="search" id="search-input" placeholder="Search gifts..." />
     </form>
 </nav>
-
 <!-- Dropdown JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
