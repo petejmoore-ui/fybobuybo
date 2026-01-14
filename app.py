@@ -285,7 +285,32 @@ h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-backgro
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1400px; margin:auto; }
 .card { background:{{card}}; border-radius:22px; padding:20px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,.6); transition:transform .3s,box-shadow .3s; }
 .card:hover { transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,.7); }
-img { width:100%; border-radius:16px; margin:16px 0; object-fit: contain; background: #111827; }
+
+/* Images - restored original sizing */
+img { width:100%; border-radius:16px; margin:16px 0; }
+.card img { 
+    width: 100%; 
+    max-height: 380px; 
+    object-fit: contain; 
+    background: #111827; 
+    border-radius: 16px; 
+    margin: 16px 0; 
+    display: block; 
+}
+
+/* Single product detail page - prevent massive images */
+.grid:has(> .card:only-child) .card img {
+    max-height: 500px;          /* bigger than grid cards but contained */
+    max-width: 80%;             /* prevent full-width stretch */
+    width: auto; 
+    height: auto; 
+    margin: 20px auto; 
+    display: block; 
+}
+.grid:has(> .card:only-child) {
+    justify-items: center;      /* center single card */
+}
+
 .tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
 button {
     background:{{button}}; border:none; padding:12px 28px; border-radius:50px; font-size:1rem; font-weight:900;
@@ -384,6 +409,12 @@ nav .season-link:hover {
     .categories-dropdown, .seasons-dropdown { display: none !important; }
     nav a { margin:0 12px; }
 }
+
+/* Rest unchanged */
+.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
+.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
+.pagination a:hover { opacity:.9; }
+.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
 </style>"""
 
 
