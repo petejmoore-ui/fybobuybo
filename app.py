@@ -285,13 +285,13 @@ h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-backgro
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1400px; margin:auto; }
 .card { background:{{card}}; border-radius:22px; padding:20px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,.6); transition:transform .3s,box-shadow .3s; }
 .card:hover { transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,.7); }
-img { width:100%; border-radius:16px; margin:16px 0; }
+img { width:100%; border-radius:16px; margin:16px 0; object-fit: contain; background: #111827; }
 .tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
 button {
-    background:{{button}}; border:none; padding:14px 32px; border-radius:50px; font-size:1rem; font-weight:900;
+    background:{{button}}; border:none; padding:16px 36px; border-radius:50px; font-size:1.1rem; font-weight:900;
     color:white; cursor:pointer; transition:.3s;
 }
-button:hover { opacity:.9; transform:scale(1.03); }
+button:hover { opacity:.9; transform:scale(1.05); }
 footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
 a { color:{{text_accent}}; text-decoration:none; }
 
@@ -304,7 +304,7 @@ nav {
 
 /* Top row: Home + Blog */
 .nav-top {
-    display:flex; justify-content:center; gap:24px; width:100%;
+    display:flex; justify-content:center; gap:32px; width:100%;
 }
 .nav-top a {
     color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s;
@@ -358,22 +358,37 @@ nav .season-link:hover {
     opacity: 1; color: #c7d2fe; background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Mobile tweaks */
+/* Mobile: Collapse categories & seasons into dropdowns */
 @media (max-width:768px) {
     nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide horizontal links */
-    .nav-middle { gap:12px; }
+    .nav-middle { gap:16px; }
     .grid { grid-template-columns:1fr; }
 }
 
-/* Desktop tweaks */
+/* Desktop: Show everything horizontally */
 @media (min-width:769px) {
-    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; }
-    .nav-top, .nav-middle { flex:1; justify-content:flex-start; }
+    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:nowrap; }
+    .nav-top { flex:0 0 auto; }
+    .nav-middle { flex:1; justify-content:center; }
     #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
     .categories-dropdown, .seasons-dropdown { display: none !important; }
     nav a { margin:0 16px; }
 }
+
+/* Rest unchanged */
+.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
+.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
+.pagination a:hover { opacity:.9; }
+.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
+
+.grid:has(> .card:only-child) .card { max-width: 600px; margin: 0 auto; }
+.grid:has(> .card:only-child) img { max-width: 500px; width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 16px; }
+.card h2 { min-height: 70px; display: flex; align-items: center; justify-content: center; margin: 12px 0; font-size: 1.25rem; line-height: 1.3; font-weight: 900; }
+.card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
+.card > a[onclick] { margin: 20px 0 10px; }
+.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
 </style>"""
+
 
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
@@ -496,20 +511,13 @@ document.addEventListener("DOMContentLoaded", function() {
         {% endif %}
     </div>
 
-    <!-- Search bar (bottom row on mobile, right on desktop) -->
+    <!-- Search bar – bottom row on mobile -->
     <form id="search-form">
         <input type="search" id="search-input" placeholder="Search gifts..." />
     </form>
 </nav>
 
-<!-- Visible breadcrumbs -->
-<nav aria-label="breadcrumb" style="text-align:center; opacity:0.8; margin: -10px 0 30px; font-size:0.95rem; color:{{text_accent}};">
-    <a href="/" style="color:{{text_accent}}; text-decoration:none;">Home</a>
-    {% if request.path != "/" %}
-        › <span style="font-weight:600; color:white;">{{ heading }}</span>
-    {% endif %}
-</nav>
-
+<!-- Dropdown JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
