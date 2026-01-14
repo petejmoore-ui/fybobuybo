@@ -360,7 +360,6 @@ BASE_HTML = """<!DOCTYPE html>
     {% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
     {% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 
-
     <!-- Open Graph -->
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
@@ -396,6 +395,48 @@ BASE_HTML = """<!DOCTYPE html>
 </head>
 <body>
 
+<!-- Search JS - runs early to filter cards -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("search-input");
+    if (!searchInput) return;
+
+    const cards = document.querySelectorAll(".grid .card");
+
+    searchInput.addEventListener("input", function(e) {
+        const query = e.target.value.toLowerCase().trim();
+
+        cards.forEach(card => {
+            const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
+            const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
+            const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
+
+            const matches = name.includes(query) || hook.includes(query) || category.includes(query);
+
+            card.style.display = matches ? "" : "none";
+        });
+
+        // Show/hide "no results" message
+        const visibleCards = Array.from(cards).filter(c => c.style.display !== "none");
+        let noResults = document.getElementById("no-results");
+        if (query.length > 0 && visibleCards.length === 0) {
+            if (!noResults) {
+                noResults = document.createElement("p");
+                noResults.id = "no-results";
+                noResults.style.textAlign = "center";
+                noResults.style.opacity = "0.8";
+                noResults.style.margin = "40px 0";
+                noResults.style.fontSize = "1.1rem";
+                noResults.textContent = "No matching gifts found – try a different search.";
+                document.querySelector(".grid")?.after(noResults);
+            }
+        } else if (noResults) {
+            noResults.remove();
+        }
+    });
+});
+</script>
+
 <nav aria-label="Main navigation">
     <a href="/">Home</a>
     <a href="/blog">Blog</a>
@@ -419,8 +460,15 @@ BASE_HTML = """<!DOCTYPE html>
             </div>
         </div>
     {% endif %}
+
+    <!-- Search bar -->
+    <form id="search-form" style="display:inline-block; margin:0 16px; vertical-align:middle;">
+        <input type="search" id="search-input" placeholder="Search gifts..." 
+               style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:220px; font-size:1rem;">
+    </form>
 </nav>
 
+<!-- Visible breadcrumbs -->
 <nav aria-label="breadcrumb" style="text-align:center; opacity:0.8; margin: -10px 0 30px; font-size:0.95rem; color:{{text_accent}};">
     <a href="/" style="color:{{text_accent}}; text-decoration:none;">Home</a>
     {% if request.path != "/" %}
@@ -534,7 +582,6 @@ document.addEventListener("DOMContentLoaded", function() {
 <div class="grid">
     {% for rp in related_products %}
     <div class="card" itemscope itemtype="https://schema.org/Product">
-        <!-- same card structure as above, abbreviated for brevity -->
         <span class="tag">{{ rp.category }}</span>
         <a href="/product/{{ slugify(rp.name) }}" itemprop="url">
             <h2 itemprop="name">{{ shorten_product_name(rp.name) }}</h2>
