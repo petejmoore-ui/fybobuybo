@@ -289,16 +289,14 @@ img { width:100%; border-radius:16px; margin:16px 0; }
 .tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
 button {
     background:{{button}}; border:none; padding:16px 36px; border-radius:50px; font-size:1.1rem; font-weight:900;
-    color:white; cursor:pointer; transition:.3s; animation: pulse 2.5s infinite ease-in-out;
+    color:white; cursor:pointer; transition:.3s;
 }
-button:hover { opacity:.9; transform:scale(1.05); animation:none; }
-@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);} 70%{box-shadow:0 0 0 12px rgba(2,132,199,0);} 100%{box-shadow:0 0 0 0 rgba(2,132,199,0);} }
-@media (prefers-reduced-motion: reduce) { button{animation:none;} }
+button:hover { opacity:.9; transform:scale(1.05); }
 footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
 a { color:{{text_accent}}; text-decoration:none; }
 nav {
     background:{{card}}; padding:12px 16px; margin:20px 0 40px; border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center; position:relative;
+    box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center;
     display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:12px;
 }
 nav a { margin:4px 12px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
@@ -319,18 +317,18 @@ nav .season-link:hover {
     background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Categories & Seasons Dropdowns (shared styles) */
+/* Dropdowns (shared) */
 .categories-dropdown, .seasons-dropdown {
     position: relative;
     margin: 0 8px;
 }
 .categories-dropdown button, .seasons-dropdown button {
     background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 8px 16px; border-radius: 12px; font-weight: 600; font-size: 1rem;
-    cursor: pointer; transition: all 0.2s;
+    padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 .categories-dropdown button:hover, .seasons-dropdown button:hover { 
-    background: #475569; color: white; 
+    background: #475569; color: white; transform: translateY(-1px); 
 }
 .categories-dropdown .dropdown-content, .seasons-dropdown .dropdown-content {
     display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
@@ -339,30 +337,34 @@ nav .season-link:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
 }
 .categories-dropdown .dropdown-content a, .seasons-dropdown .dropdown-content a {
-    display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none;
+    display: block; padding: 10px 24px; color: {{text_accent}}; text-decoration: none;
     font-size: 1rem; white-space: nowrap;
 }
 .categories-dropdown .dropdown-content a:hover, .seasons-dropdown .dropdown-content a:hover { 
     background: #334155; 
 }
 
-/* Mobile: Collapse categories & seasons into dropdowns */
+/* Mobile layout */
 @media (max-width:768px) {
-    nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide all individual links */
+    nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide individual links */
     .categories-dropdown, .seasons-dropdown { display: inline-block; }
     nav { flex-wrap: wrap; justify-content: space-between; padding: 12px; gap: 8px; }
     nav a { margin: 4px 8px; font-size: 1rem; }
     .grid { grid-template-columns:1fr; }
+    #search-form { width:100%; text-align:center; margin:12px 0 0; }
+    #search-input { width:90%; max-width:none; }
 }
 
-/* Desktop: Show everything horizontally */
+/* Desktop layout */
 @media (min-width:769px) {
     .categories-dropdown, .seasons-dropdown { display: none !important; }
     nav { white-space: nowrap; overflow-x: auto; padding: 16px; justify-content: center; }
     nav a { margin: 0 16px; }
+    #search-form { margin-left:auto; }
+    #search-input { width:220px; }
 }
 
-/* Rest of your CSS */
+/* Rest unchanged */
 .pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
 .pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
 .pagination a:hover { opacity:.9; }
@@ -484,14 +486,12 @@ document.addEventListener("DOMContentLoaded", function() {
     {% if nav_items.seasons %}
         <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
 
-        <!-- Seasons horizontal on desktop -->
         {% for season in nav_items.seasons %}
             <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
         {% endfor %}
 
-        <!-- Seasons dropdown on mobile -->
         <div class="seasons-dropdown">
-            <button>Seasonal ▼</button>  <!-- Changed to "Seasonal" -->
+            <button>Seasonal ▼</button>
             <div class="dropdown-content">
                 {% for season in nav_items.seasons %}
                     <a href="/season/{{ slugify(season) }}">{{ season }}</a>
@@ -500,7 +500,6 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     {% endif %}
 
-    <!-- Search bar -->
     <form id="search-form" style="margin-left:auto; margin-right:16px;">
         <input type="search" id="search-input" placeholder="Search gifts..." 
                style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:220px; font-size:1rem;">
@@ -517,7 +516,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll(".seasons-dropdown, .categories-dropdown");
+    const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
     
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector("button");
@@ -534,7 +533,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.addEventListener("click", function(e) {
-        if (!e.target.closest(".seasons-dropdown, .categories-dropdown")) {
+        if (!e.target.closest(".categories-dropdown, .seasons-dropdown")) {
             document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
         }
     });
