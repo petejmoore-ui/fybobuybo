@@ -5,3 +5,4 @@ gunicorn
 python-dotenv
 python-amazon-paapi
 requests
+markupsafe
