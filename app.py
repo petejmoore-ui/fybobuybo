@@ -297,29 +297,52 @@ button:hover { opacity:.9; transform:scale(1.05); animation:none; }
 footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
 a { color:{{text_accent}}; text-decoration:none; }
 nav {
-    background:{{card}}; padding:16px; margin:20px 0 40px; border-radius:16px;
+    background:{{card}}; padding:12px 16px; margin:20px 0 40px; border-radius:16px;
     box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center; position:relative;
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px;
 }
-nav a { margin:0 16px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
+nav a { margin:4px 12px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
 nav a:hover { opacity:.8; }
-nav .season-link { color: #a5b4fc; }          
-nav .season-link:hover { opacity: 0.9; color: #c7d2fe; }  
-nav .season-link {
-    color: #a5b4fc;
-    font-size: 1rem;          /* slightly smaller than main links */
-    font-weight: 600;         /* less bold */
-    padding: 4px 10px;        /* breathing room */
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    text-decoration: none;
+
+/* Seasons styling – soft & professional */
+nav .season-link { 
+    color: #a5b4fc; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    padding: 4px 10px; 
+    border-radius: 8px; 
+    transition: all 0.2s ease; 
 }
-nav .season-link:hover {
-    opacity: 1;
-    color: #c7d2fe;
-    background: rgba(56, 189, 248, 0.12);  /* very subtle glow – matches accent */
+nav .season-link:hover { 
+    opacity: 1; 
+    color: #c7d2fe; 
+    background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Mobile Seasons Dropdown */
+/* Mobile Categories Dropdown */
+.categories-dropdown {
+    display: none;
+    position: relative;
+    margin: 0 8px;
+}
+.categories-dropdown button {
+    background: #334155; color: #bae6fd; border: 1px solid #475569;
+    padding: 8px 16px; border-radius: 12px; font-weight: 600; font-size: 1rem;
+    cursor: pointer; transition: all 0.2s;
+}
+.categories-dropdown button:hover { background: #475569; color: white; }
+.categories-dropdown .dropdown-content {
+    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
+}
+.categories-dropdown .dropdown-content a {
+    display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none;
+    font-size: 1rem; white-space: nowrap;
+}
+.categories-dropdown .dropdown-content a:hover { background: #334155; }
+
+/* Mobile Seasons Dropdown (existing, kept for consistency) */
 .seasons-dropdown {
     display: none;
     position: relative;
@@ -342,6 +365,22 @@ nav .season-link:hover {
 }
 .dropdown-content a:hover { background: #334155; }
 
+/* Mobile-only hiding & layout */
+@media (max-width:768px) {
+    nav a:not(.season-link):not([href="/"]):not([href="/blog"]) { display: none; }
+    .categories-dropdown { display: inline-block; }
+    nav { flex-wrap: wrap; justify-content: space-between; padding: 12px; gap: 8px; }
+    nav a { margin: 4px 8px; font-size: 1rem; }
+    .grid { grid-template-columns:1fr; }
+}
+
+/* Desktop */
+@media (min-width:769px) {
+    .categories-dropdown, .seasons-dropdown { display: none !important; }
+    nav { white-space: nowrap; overflow-x: auto; }
+}
+
+/* Rest of your CSS remains unchanged */
 .pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
 .pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
 .pagination a:hover { opacity:.9; }
@@ -353,18 +392,6 @@ nav .season-link:hover {
 .card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
 .card > a[onclick] { margin: 20px 0 10px; }
 .card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
-
-/* Media Queries */
-@media (max-width:768px) {
-    nav a { margin:0 10px; font-size:1rem; }
-    .grid { grid-template-columns:1fr; }
-    nav a.season-link { display: none; }
-    .seasons-dropdown { display: inline-block; }
-}
-
-@media (min-width:769px) {
-    .seasons-dropdown { display: none !important; }
-}
 </style>"""
 
 # ---------------- HTML TEMPLATE ---------------- #
@@ -417,7 +444,7 @@ BASE_HTML = """<!DOCTYPE html>
 </head>
 <body>
 
-<!-- Search JS - runs early to filter cards -->
+<!-- Search JS (client-side filtering) -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
@@ -438,7 +465,6 @@ document.addEventListener("DOMContentLoaded", function() {
             card.style.display = matches ? "" : "none";
         });
 
-        // Show/hide "no results" message
         const visibleCards = Array.from(cards).filter(c => c.style.display !== "none");
         let noResults = document.getElementById("no-results");
         if (query.length > 0 && visibleCards.length === 0) {
@@ -462,9 +488,16 @@ document.addEventListener("DOMContentLoaded", function() {
 <nav aria-label="Main navigation">
     <a href="/">Home</a>
     <a href="/blog">Blog</a>
-    {% for cat in nav_items.categories %}
-        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-    {% endfor %}
+
+    <!-- Categories dropdown on mobile -->
+    <div class="categories-dropdown">
+        <button>Categories ▼</button>
+        <div class="dropdown-content">
+            {% for cat in nav_items.categories %}
+                <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+            {% endfor %}
+        </div>
+    </div>
 
     {% if nav_items.seasons %}
         <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
@@ -474,8 +507,8 @@ document.addEventListener("DOMContentLoaded", function() {
         {% endfor %}
 
         <div class="seasons-dropdown">
-            <button aria-expanded="false" aria-haspopup="true">Seasons ▼</button>
-            <div class="dropdown-content" aria-hidden="true">
+            <button>Seasons ▼</button>
+            <div class="dropdown-content">
                 {% for season in nav_items.seasons %}
                     <a href="/season/{{ slugify(season) }}">{{ season }}</a>
                 {% endfor %}
@@ -483,10 +516,10 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     {% endif %}
 
-    <!-- Search bar -->
-    <form id="search-form" style="display:inline-block; margin:0 16px; vertical-align:middle;">
+    <!-- Search bar – balanced position -->
+    <form id="search-form" style="display:inline-block; margin:0 16px; vertical-align:middle; flex-grow:1; text-align:right;">
         <input type="search" id="search-input" placeholder="Search gifts..." 
-               style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:220px; font-size:1rem;">
+               style="padding:8px 16px; border-radius:50px; border:1px solid {{text_accent}}; background:transparent; color:white; width:100%; max-width:260px; font-size:1rem;">
     </form>
 </nav>
 
@@ -500,7 +533,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll(".seasons-dropdown");
+    const dropdowns = document.querySelectorAll(".seasons-dropdown, .categories-dropdown");
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector("button");
         const content = dropdown.querySelector(".dropdown-content");
@@ -513,7 +546,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     document.addEventListener("click", function(e) {
-        if (!e.target.closest(".seasons-dropdown")) {
+        if (!e.target.closest(".seasons-dropdown, .categories-dropdown")) {
             document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
         }
     });
@@ -667,7 +700,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 </html>
 """
-
 
 # ---------------- ROUTES / PAGE RENDERER ---------------- #
 @cache.cached(timeout=300, key_prefix=lambda: request.full_path)
