@@ -311,7 +311,16 @@ nav {
 }
 .nav-top a:hover { opacity:.8; }
 
-/* Middle row: Categories + Seasonal buttons (mobile only) */
+/* Desktop horizontal categories + seasons */
+.nav-desktop {
+    display: none;
+    flex-wrap: wrap; justify-content:center; gap:16px; width:100%;
+}
+.nav-desktop a {
+    margin: 0 12px;
+}
+
+/* Mobile dropdowns */
 .nav-middle {
     display:flex; justify-content:center; gap:24px; flex-wrap:nowrap;
 }
@@ -340,7 +349,7 @@ nav {
 }
 .dropdown-content a:hover { background: #334155; }
 
-/* Search bar - bottom row on mobile, right on desktop */
+/* Search bar */
 #search-form {
     width:100%; max-width:400px; text-align:center;
 }
@@ -358,35 +367,23 @@ nav .season-link:hover {
     opacity: 1; color: #c7d2fe; background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Mobile - hide horizontal links, show dropdowns */
+/* Mobile */
 @media (max-width:768px) {
-    nav a[href^="/category/"], nav a.season-link { display: none !important; }
+    .nav-desktop { display: none !important; }
     .nav-middle { display: flex !important; gap:20px; justify-content:center; }
     .grid { grid-template-columns:1fr; }
 }
 
-/* Desktop - show full horizontal nav */
+/* Desktop */
 @media (min-width:769px) {
-    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:nowrap; }
+    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:wrap; }
     .nav-top { flex:0 0 auto; }
     .nav-middle { display:none !important; }
+    .nav-desktop { display: flex !important; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
     #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
     .categories-dropdown, .seasons-dropdown { display: none !important; }
-    nav a { margin:0 16px; display:inline-block !important; }
+    nav a { margin:0 12px; }
 }
-
-/* Rest unchanged */
-.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
-.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
-.pagination a:hover { opacity:.9; }
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
-
-.grid:has(> .card:only-child) .card { max-width: 600px; margin: 0 auto; }
-.grid:has(> .card:only-child) img { max-width: 500px; width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 16px; }
-.card h2 { min-height: 70px; display: flex; align-items: center; justify-content: center; margin: 12px 0; font-size: 1.25rem; line-height: 1.3; font-weight: 900; }
-.card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
-.card > a[onclick] { margin: 20px 0 10px; }
-.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
 </style>"""
 
 
@@ -482,13 +479,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <nav aria-label="Main navigation">
-    <!-- Top row: Home + Blog -->
+    <!-- Top row: Home + Blog (always visible) -->
     <div class="nav-top">
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
     </div>
 
-    <!-- Desktop horizontal categories + seasons -->
+    <!-- Horizontal categories + seasons (desktop only) -->
     <div class="nav-desktop">
         {% for cat in nav_items.categories %}
             <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
@@ -503,7 +500,7 @@ document.addEventListener("DOMContentLoaded", function() {
         {% endif %}
     </div>
 
-    <!-- Mobile: Categories + Seasonal dropdowns -->
+    <!-- Mobile dropdowns: Categories + Seasonal -->
     <div class="nav-middle">
         <div class="categories-dropdown">
             <button>Categories ▼</button>
@@ -526,11 +523,12 @@ document.addEventListener("DOMContentLoaded", function() {
         {% endif %}
     </div>
 
-    <!-- Search bar - bottom on mobile, right on desktop -->
+    <!-- Search bar (bottom on mobile, right on desktop) -->
     <form id="search-form">
         <input type="search" id="search-input" placeholder="Search gifts..." />
     </form>
 </nav>
+
 <!-- Dropdown JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
