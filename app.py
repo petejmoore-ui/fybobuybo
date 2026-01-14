@@ -608,17 +608,11 @@ def home():
 @app.route("/category/<slug>")
 def category(slug):
     products = refresh_products(background=True)
-
     filtered = [p for p in products if slugify(p["category"]) == slug]
-
     if not filtered:
         abort(404)
-
     cat_name = filtered[0]["category"]
-
-    def page_url(p):
-        return url_for("category", slug=slug, page=p)
-
+    def page_url(p): return url_for("category", slug=slug, page=p)
     page = int(request.args.get("page", 1))
     return render_page(
         title=f"{cat_name} – FyboBuybo",
@@ -634,34 +628,20 @@ def category(slug):
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
     products = refresh_products(background=True)
-    
     season_name = season_slug.replace('-', ' ').title()
     norm_slug = normalize_for_match(season_slug)
-
-    filtered = [
-        p for p in products
-        if p.get("season") and any(
-            norm_slug in normalize_for_match(s.strip())
-            for s in p["season"].split(",")
-        )
-    ]
-
+    filtered = [p for p in products if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))]
     if not filtered:
         abort(404)
-
     filtered.sort(key=lambda p: p.get("date_added", "2000-01-01"), reverse=True)
-
-    def page_url(p_num):
-        return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
-
+    def page_url(p_num): return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
     title_season = season_name
     if "day" in season_name.lower() or "christmas" in season_name.lower():
         title_season += " Gifts"
-
     return render_page(
         title=f"Best {title_season} 2026 – FyboBuybo",
         description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026 – thoughtful, trending & updated daily.",
-        heading=f"{title_season}",
+        heading=title_season,
         subtitle="Perfect seasonal presents • refreshed every day",
         products=filtered,
         page=page,
@@ -672,15 +652,9 @@ def seasonal_collection(season_slug, page=1):
 def product_detail(product_slug):
     products = refresh_products(background=True)
     found = next((p for p in products if slugify(p["name"]) == product_slug), None)
-
     if not found:
         abort(404)
-
-    related = [
-        p for p in products
-        if p["category"] == found["category"] and p["name"] != found["name"]
-    ][:6]
-
+    related = [p for p in products if p["category"] == found["category"] and p["name"] != found["name"]][:6]
     return render_page(
         title=f"{shorten_product_name(found['name'])} – FyboBuybo",
         description=found["info"],
@@ -692,45 +666,15 @@ def product_detail(product_slug):
 
 @app.route("/blog")
 def blog_index():
-    sorted_posts = sorted(
-        BLOG_POSTS.items(),
-        key=lambda x: x[1].get("date", "1900-01-01"),
-        reverse=True
-    )
-    
-    post_list_html = """
-    <div style="max-width:900px;margin:60px auto;padding:20px;">
-        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-            Latest Articles
-        </h2>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
-    """
-    
+    sorted_posts = sorted(BLOG_POSTS.items(), key=lambda x: x[1].get("date", "1900-01-01"), reverse=True)
+    post_list_html = "<div style='max-width:900px;margin:60px auto;padding:20px;'><h2 style='text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>Latest Articles</h2><div class='grid' style='grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;'>"
     for slug, post in sorted_posts:
         date_obj = datetime.datetime.strptime(post["date"], "%Y-%m-%d")
         formatted_date = date_obj.strftime("%B %d, %Y")
-        
-        post_list_html += f"""
-            <div class="card">
-                <h3 style="font-size:1.5rem;margin-bottom:8px;">
-                    <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
-                        {post['title']}
-                    </a>
-                </h3>
-                <p style="opacity:.7;font-size:0.95rem;margin:0 0 12px 0;color:#94a3b8;">
-                    {formatted_date}
-                </p>
-                <p style="opacity:.85;font-size:1rem;line-height:1.6;">
-                    {post['description']}
-                </p>
-            </div>
-        """
-    
+        post_list_html += f"<div class='card'><h3 style='font-size:1.5rem;margin-bottom:8px;'><a href='/blog/{slug}' style='color:#bae6fd;text-decoration:none;'>{post['title']}</a></h3><p style='opacity:.7;font-size:0.95rem;margin:0 0 12px 0;color:#94a3b8;'>{formatted_date}</p><p style='opacity:.85;font-size:1rem;line-height:1.6;'>{post['description']}</p></div>"
     post_list_html += "</div></div>"
-    
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
-    
     rendered = render_template_string(
         BASE_HTML,
         title="Blog – FyboBuybo",
@@ -749,28 +693,18 @@ def blog_index():
         next_page_url=None,
         prev_page_url=None
     )
-    
-    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
-    
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
-    
-    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
-    
     return rendered
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
-    if not post:
-        abort(404)
-    
+    if not post: abort(404)
     all_products = refresh_products(background=True)
     related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
-    
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
-    
     rendered = render_template_string(
         BASE_HTML,
         title=post["title"],
@@ -789,25 +723,14 @@ def blog_detail(slug):
         next_page_url=None,
         prev_page_url=None
     )
-    
-    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
-    
     subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
     rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
-    
-    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
-    
     return rendered
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
 def robots():
-    txt = f"""
-User-agent: *
-Disallow:
-
-Sitemap: {SITE_URL}/sitemap.xml
-"""
+    txt = f"User-agent: *\nDisallow:\n\nSitemap: {SITE_URL}/sitemap.xml"
     return Response(txt, mimetype="text/plain")
 
 @app.route("/sitemap.xml")
@@ -815,28 +738,16 @@ def sitemap():
     history = load_history()
     urls = set()
     urls.add((SITE_URL + "/", str(datetime.date.today())))
-
     for day_products in history.values():
         for p in day_products:
-            if p.get("category"):
-                urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", str(datetime.date.today())))
-            if p.get("name"):
-                urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", str(datetime.date.today())))
-
-    important_seasons = [
-        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-        "Summer Gifts", "Back to School", "Halloween", "Christmas"
-    ]
-    for season in important_seasons:
+            if p.get("category"): urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", str(datetime.date.today())))
+            if p.get("name"): urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", str(datetime.date.today())))
+    for season in ["Valentine's Day","Mother's Day","Easter","Father's Day","Summer Gifts","Back to School","Halloween","Christmas"]:
         urls.add((f"{SITE_URL}/season/{slugify(season)}", str(datetime.date.today())))
-
-    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for url, lastmod in sorted(urls):
-        sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
-
-    sitemap_xml += '</urlset>'
+        sitemap_xml += f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n"
+    sitemap_xml += "</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
 
 if __name__ == "__main__":
