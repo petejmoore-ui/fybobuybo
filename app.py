@@ -304,7 +304,7 @@ nav {
 nav a { margin:4px 12px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
 nav a:hover { opacity:.8; }
 
-/* Seasons styling – soft & professional */
+/* Seasons styling */
 nav .season-link { 
     color: #a5b4fc; 
     font-size: 1rem; 
@@ -319,68 +319,50 @@ nav .season-link:hover {
     background: rgba(56, 189, 248, 0.12); 
 }
 
-/* Categories Dropdown */
-.categories-dropdown {
+/* Categories & Seasons Dropdowns (shared styles) */
+.categories-dropdown, .seasons-dropdown {
     position: relative;
     margin: 0 8px;
 }
-.categories-dropdown button {
+.categories-dropdown button, .seasons-dropdown button {
     background: #334155; color: #bae6fd; border: 1px solid #475569;
     padding: 8px 16px; border-radius: 12px; font-weight: 600; font-size: 1rem;
     cursor: pointer; transition: all 0.2s;
 }
-.categories-dropdown button:hover { background: #475569; color: white; }
-.categories-dropdown .dropdown-content {
+.categories-dropdown button:hover, .seasons-dropdown button:hover { 
+    background: #475569; color: white; 
+}
+.categories-dropdown .dropdown-content, .seasons-dropdown .dropdown-content {
     display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
     background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 240px;
     max-height: 60vh; overflow-y: auto;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
 }
-.categories-dropdown .dropdown-content a {
+.categories-dropdown .dropdown-content a, .seasons-dropdown .dropdown-content a {
     display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none;
     font-size: 1rem; white-space: nowrap;
 }
-.categories-dropdown .dropdown-content a:hover { background: #334155; }
+.categories-dropdown .dropdown-content a:hover, .seasons-dropdown .dropdown-content a:hover { 
+    background: #334155; 
+}
 
-/* Seasons Dropdown (same styling) */
-.seasons-dropdown {
-    position: relative;
-    margin: 0 8px;
-}
-.seasons-dropdown button {
-    background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 8px 16px; border-radius: 12px; font-weight: 600; font-size: 1rem;
-    cursor: pointer; transition: all 0.2s;
-}
-.seasons-dropdown button:hover { background: #475569; color: white; }
-.seasons-dropdown .dropdown-content {
-    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-    background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 180px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
-}
-.seasons-dropdown .dropdown-content a {
-    display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none;
-    font-size: 1rem; white-space: nowrap;
-}
-.seasons-dropdown .dropdown-content a:hover { background: #334155; }
-
-/* Mobile: Collapse categories into dropdown, keep others visible */
+/* Mobile: Collapse categories & seasons into dropdowns */
 @media (max-width:768px) {
-    nav a[href^="/category/"] { display: none; }  /* Hide individual category links */
-    .categories-dropdown { display: inline-block; }
+    nav a[href^="/category/"], nav a.season-link { display: none; }  /* Hide all individual links */
+    .categories-dropdown, .seasons-dropdown { display: inline-block; }
     nav { flex-wrap: wrap; justify-content: space-between; padding: 12px; gap: 8px; }
     nav a { margin: 4px 8px; font-size: 1rem; }
     .grid { grid-template-columns:1fr; }
 }
 
-/* Desktop: Show horizontal categories, hide dropdowns */
+/* Desktop: Show everything horizontally */
 @media (min-width:769px) {
     .categories-dropdown, .seasons-dropdown { display: none !important; }
-    nav { white-space: nowrap; overflow-x: auto; padding: 16px; }
+    nav { white-space: nowrap; overflow-x: auto; padding: 16px; justify-content: center; }
     nav a { margin: 0 16px; }
 }
 
-/* Rest unchanged */
+/* Rest of your CSS */
 .pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
 .pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
 .pagination a:hover { opacity:.9; }
@@ -489,7 +471,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <a href="/">Home</a>
     <a href="/blog">Blog</a>
 
-    <!-- Categories dropdown on mobile -->
+    <!-- Categories dropdown (mobile only) -->
     <div class="categories-dropdown">
         <button>Categories ▼</button>
         <div class="dropdown-content">
@@ -502,12 +484,14 @@ document.addEventListener("DOMContentLoaded", function() {
     {% if nav_items.seasons %}
         <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
 
+        <!-- Seasons horizontal on desktop -->
         {% for season in nav_items.seasons %}
             <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
         {% endfor %}
 
+        <!-- Seasons dropdown on mobile -->
         <div class="seasons-dropdown">
-            <button>Seasons ▼</button>
+            <button>Seasonal ▼</button>  <!-- Changed to "Seasonal" -->
             <div class="dropdown-content">
                 {% for season in nav_items.seasons %}
                     <a href="/season/{{ slugify(season) }}">{{ season }}</a>
@@ -544,18 +528,14 @@ document.addEventListener("DOMContentLoaded", function() {
         btn.addEventListener("click", function(e) {
             e.stopPropagation();
             const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => {
-                el.style.display = "none";
-            });
+            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
             content.style.display = isOpen ? "none" : "block";
         });
     });
 
     document.addEventListener("click", function(e) {
         if (!e.target.closest(".seasons-dropdown, .categories-dropdown")) {
-            document.querySelectorAll(".dropdown-content").forEach(el => {
-                el.style.display = "none";
-            });
+            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
         }
     });
 });
