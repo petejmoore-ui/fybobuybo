@@ -172,12 +172,40 @@ def load_or_generate_hooks(products):
     history[history_key] = enriched
     save_history(history)
 
-    # Ping search engines after fresh generation
     Thread(target=ping_search_engines, daemon=True).start()
 
-    # ← Add this line here (Step 4)
-    cache.clear()  # Clears all cached rendered pages so new hooks show immediately
+    cache.clear()  # if you already added caching
 
+    return enriched
+
+def load_history():
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_history(data):
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+def refresh_products(background=False):
+    today = str(datetime.date.today())
+
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                cache = json.load(f)
+            cache_date_str = cache.get("date", "")
+            if cache_date_str.startswith(today):
+                return cache.get("products", [])
+            cache_date = datetime.datetime.fromisoformat(cache_date_str)
+            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
+               cache.get("prompt_version") == PROMPT_VERSION:
+                return cache.get("products", [])
+        except Exception as e:
+            print(f"Cache read failed: {e} — regenerating")
+
+    enriched = load_or_generate_hooks(PRODUCTS)
     return enriched
 
 # ---------------- HELPERS ---------------- #
