@@ -1,4 +1,5 @@
-# --- Full app.py with SEO improvements ---
+# --- Section 1: Setup, SEO, Themes, AI Hooks, Caching --- #
+
 import os, json, re, datetime, random
 from threading import Thread
 from products_data import PRODUCTS
@@ -42,14 +43,14 @@ if os.environ.get("STAGING") == "true":
         response.headers['X-Robots-Tag'] = 'noindex, nofollow'
         return response
 
-CACHE_FILE = "/data/cache.json"
-HISTORY_FILE = "/data/history.json"
+# --- Cache / History files ---
+CACHE_FILE = "data/cache.json"
+HISTORY_FILE = "data/history.json"
 os.makedirs("data", exist_ok=True)
-DATA_PATH = "data"
-
 
 # ---------------- THEMES ---------------- #
-THEMES = [{"bg":"#0f172a","card":"#1e293b","accent":"#38bdf8","button":"#0284c7","tag":"#7dd3fc","text_accent":"#bae6fd","gradient":"linear-gradient(90deg,#0284c7,#38bdf8)"}]
+THEMES = [{"bg":"#0f172a","card":"#1e293b","accent":"#38bdf8","button":"#0284c7",
+           "tag":"#7dd3fc","text_accent":"#bae6fd","gradient":"linear-gradient(90deg,#0284c7,#38bdf8)"}]
 
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
@@ -120,6 +121,16 @@ def should_refresh_cache():
     except:
         return True
 
+def load_history():
+    if os.path.exists(HISTORY_FILE):
+        with open(HISTORY_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_history(data):
+    with open(HISTORY_FILE,"w",encoding="utf-8") as f:
+        json.dump(data,f,indent=2,ensure_ascii=False)
+
 def load_or_generate_hooks(products):
     enriched = []
     for p in products:
@@ -135,17 +146,11 @@ def load_or_generate_hooks(products):
     history_key = datetime.date.today().isoformat()
     history[history_key] = enriched
     save_history(history)
+
+    # --- SEO: ping Google/Bing asynchronously after sitemap updates ---
+    Thread(target=ping_search_engines, daemon=True).start()
+
     return enriched
-
-def load_history():
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {}
-
-def save_history(data):
-    with open(HISTORY_FILE,"w",encoding="utf-8") as f:
-        json.dump(data,f,indent=2,ensure_ascii=False)
 
 def refresh_products(background=False):
     today = str(datetime.date.today())
@@ -229,196 +234,200 @@ def ensure_hook(p):
         p["hook"] = FALLBACK_HOOK
     return p
 
-# ---------------- CSS ---------------- #
-CSS_TEMPLATE = """<style>
-body { margin:0; background:{{bg}}; color:#fff; font-family:'Outfit',sans-serif; padding:20px 20px 40px; }
-h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:40px 0 10px; }
-.subtitle { text-align:center; opacity:.85; max-width:900px; margin:20px auto; color:{{text_accent}}; font-size:1.1rem; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1400px; margin:auto; }
-.card { background:{{card}}; border-radius:22px; padding:20px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,.6); transition:transform .3s,box-shadow .3s; }
-.card:hover { transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,.7); }
-img { width:100%; border-radius:16px; margin:16px 0; }
-.tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
-button {
-    background:{{button}}; border:none; padding:16px 36px; border-radius:50px; font-size:1.1rem; font-weight:900;
-    color:white; cursor:pointer; transition:.3s; animation: pulse 2.5s infinite ease-in-out;
-}
-button:hover { opacity:.9; transform:scale(1.05); animation:none; }
-@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);} 70%{box-shadow:0 0 0 12px rgba(2,132,199,0);} 100%{box-shadow:0 0 0 0 rgba(2,132,199,0);} }
-@media (prefers-reduced-motion: reduce) { button{animation:none;} }
-footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
-a { color:{{text_accent}}; text-decoration:none; }
-nav { background:{{card}}; padding:16px; margin:20px 0 40px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center; position:relative; }
-nav a { margin:0 16px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
-nav a:hover { opacity:.8; }
-nav .season-link { color: #f472b6; }
-nav .season-link:hover { opacity: 0.9; color: #fda4af; }
-.seasons-dropdown { display: none; position: relative; margin: 0 8px; }
-.seasons-dropdown button { background: #334155; color: #bae6fd; border: 1px solid #475569; padding: 8px 16px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s; }
-.seasons-dropdown button:hover { background: #475569; color: white; }
-.dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 180px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px; }
-.dropdown-content a { display: block; padding: 10px 20px; color: {{text_accent}}; text-decoration: none; font-size: 1rem; white-space: nowrap; }
-.dropdown-content a:hover { background: #334155; }
-.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
-.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
-.pagination a:hover { opacity:.9; }
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
-.grid:has(> .card:only-child) .card { max-width: 600px; margin: 0 auto; }
-.grid:has(> .card:only-child) img { max-width: 500px; width: 100%; height: auto; margin: 20px auto; display: block; border-radius: 16px; }
-.card h2 { min-height: 70px; display: flex; align-items: center; justify-content: center; margin: 12px 0; font-size: 1.25rem; line-height: 1.3; font-weight: 900; }
-.card img { width: 100%; max-height: 380px; object-fit: contain; background: #111827; border-radius: 16px; margin: 16px 0; }
-.card > a[onclick] { margin: 20px 0 10px; }
-.card p:last-of-type { margin: 10px 0; font-size: .85rem; opacity: .7; }
-@media (max-width:768px) { nav a { margin:0 10px; font-size:1rem; } .grid { grid-template-columns:1fr; } nav a.season-link { display: none; } .seasons-dropdown { display: inline-block; } }
-@media (min-width:769px) { .seasons-dropdown { display: none !important; } }
-</style>"""
 
-# ---------------- BASE HTML ---------------- #
+# --- Section 2: CSS, Base HTML Template, and Page Rendering --- #
+
+from flask import render_template_string, Markup
+
+# ---------------- BASE_CSS ---------------- #
+BASE_CSS = """
+/* ==========================
+   Global & Layout
+   ========================== */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: {{ theme.bg }};
+    color: #e2e8f0;
+    margin: 0;
+    padding: 0;
+}
+a { text-decoration: none; color: inherit; }
+header { background: {{ theme.card }}; padding: 1rem; text-align: center; }
+header h1 { margin: 0; font-size: 2rem; }
+header nav { margin-top: 0.5rem; }
+header nav a { margin: 0 0.8rem; color: {{ theme.accent }}; font-weight: 600; }
+.container { max-width: 1300px; margin: auto; padding: 1rem; }
+
+/* ==========================
+   Cards
+   ========================== */
+.product-card {
+    background: {{ theme.card }};
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+.product-name { font-weight: 700; margin-bottom: 0.4rem; font-size: 1.4rem; }
+.product-hook { font-style: italic; color: {{ theme.text_accent }}; margin-bottom: 0.6rem; }
+.blog-card { border-left: 4px solid {{ theme.accent }}; padding-left: 1rem; }
+
+/* ==========================
+   Buttons
+   ========================== */
+button {
+    background: {{ theme.button }};
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover { opacity: 0.9; }
+
+/* ==========================
+   Breadcrumbs & Pagination
+   ========================== */
+.breadcrumb { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+.pagination { display: flex; gap: 12px; justify-content: center; margin: 1.6rem 0; }
+.pagination button { padding: 0.5rem 1rem; }
+
+/* ==========================
+   Tags / Season Labels
+   ========================== */
+.season-tag {
+    background: {{ theme.tag }};
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
+}
+
+/* ==========================
+   Responsive
+   ========================== */
+@media (max-width: 768px) {
+    header nav { font-size: .9rem; }
+}
+"""
+
+
+# ---------------- BASE_HTML ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ title }}</title>
-<meta name="description" content="{{ description }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} – FyboBuyBo</title>
+<meta name="description" content="{{ meta_description }}">
+<meta name="keywords" content="{{ meta_keywords }}">
 <link rel="canonical" href="{{ canonical_url }}">
-{% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
-{% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
-<meta property="og:title" content="{{ title }}">
-<meta property="og:description" content="{{ description }}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ canonical_url }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-{{ css|safe }}
+
+<style>{{ base_css }}</style>
 </head>
 <body>
-<nav>
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-    {% for cat in nav_items.categories %}
-        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-    {% endfor %}
-    {% if nav_items.seasons %}
-        <span style="margin:0 14px;opacity:0.5;">•</span>
-        {% for season in nav_items.seasons %}
-            <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+<header>
+    <h1><a href="/">FyboBuyBo</a></h1>
+    <nav>
+        {% for cat in nav.categories %}
+            <a href="{{ url_for('category', slug=slugify(cat)) }}">{{ cat }}</a>
         {% endfor %}
-        <div class="seasons-dropdown">
-            <button>Seasons ▼</button>
-            <div class="dropdown-content">
-                {% for season in nav_items.seasons %}
-                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-                {% endfor %}
-            </div>
+        {% if nav.seasons %}
+            {% for season in nav.seasons %}
+                <a href="{{ url_for('seasonal_collection', season_slug=slugify(season)) }}"
+                   class="season-link">{{ season }}</a>
+            {% endfor %}
+        {% endif %}
+        <a href="/blog">Blog</a>
+    </nav>
+</header>
+
+<main class="container">
+    {% if breadcrumbs %}
+    <div class="breadcrumb">
+        {% for crumb in breadcrumbs %}
+            {% if not loop.last %}
+                <a href="{{ crumb.url }}">{{ crumb.name }}</a> &raquo;
+            {% else %}
+                {{ crumb.name }}
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if products %}
+        {% for p in products %}
+            {{ render_product_card(p)|safe }}
+        {% endfor %}
+    {% elif blog_posts %}
+        {% for post in blog_posts %}
+        <div class="product-card blog-card">
+            <h2 class="product-name">{{ post.title }}</h2>
+            {% if post.date %}
+            <p class="post-date">{{ post.date }}</p>
+            {% endif %}
+            <p class="product-hook">{{ post.description }}</p>
+            <a href="{{ SITE_URL }}/blog/{{ post.slug }}">
+                <button>Read More</button>
+            </a>
         </div>
+        {% endfor %}
     {% endif %}
-</nav>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll(".seasons-dropdown");
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector("button");
-        const content = dropdown.querySelector(".dropdown-content");
-        if (!btn || !content) return;
-        btn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-            content.style.display = isOpen ? "none" : "block";
-        });
-    });
-    document.addEventListener("click", function(e) {
-        if (!e.target.closest(".seasons-dropdown")) {
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-        }
-    });
-});
-</script>
-<h1>{{ heading }}</h1>
-<p class="subtitle">{{ subtitle }}</p>
-{% if products %}
-<div class="grid">
-{% for p in products %}
-<div class="card">
-    <span class="tag">{{ p.category }}</span>
-    <a href="/product/{{ slugify(p.name) }}">
-        <h2>{{ shorten_product_name(p.name) }}</h2>
-    </a>
-    <a href="/product/{{ slugify(p.name) }}">
-        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
-    </a>
-    <p>{{ p.hook|safe }}</p>
-    {% if p.date_added %}
-    <p style="font-size:0.85rem;opacity:.7;margin:16px 0 8px;color:#94a3b8;text-align:center;">
-        ↳ Featured on {{ p.date_added }}
-    </p>
+
+    {% if next_page_url or prev_page_url %}
+    <div class="pagination">
+        {% if prev_page_url %}<a href="{{ prev_page_url }}"><button>« Previous</button></a>{% endif %}
+        {% if next_page_url %}<a href="{{ next_page_url }}"><button>Next »</button></a>{% endif %}
+    </div>
     {% endif %}
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored">
-        <button>View on Amazon</button>
-    </a>
-</div>
-{% endfor %}
-</div>
-{% else %}
-<p class="loading">Loading today's gifts...</p>
-{% endif %}
+</main>
+
 <footer>
-    <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-    <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+    <p>&copy; {{ current_year }} FyboBuyBo. All rights reserved.</p>
+    <p>As an Amazon Associate, I earn from qualifying purchases.</p>
 </footer>
 </body>
 </html>
 """
 
-# ---------------- PAGE RENDER ---------------- #
-# ---------------- ROUTES ---------------- #
+
+# ---------------- BREADCRUMB HELPERS ---------------- #
+def make_breadcrumbs(items):
+    crumbs = [{"name": "Home", "url": url_for("home")}]
+    for name, url in items:
+        crumbs.append({"name": name, "url": url})
+    return crumbs
+
+
+# ---------------- ROUTES / PAGES ---------------- #
 def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    
-    nav_items = get_nav_items()
-    
-    canonical = SITE_URL + request.path
-    page_num = int(request.args.get("page", 1))
-    if page_num > 1:
-        canonical += f"?page={page_num}"
-
-    paged_products, total_items = paginate(products, page)
-    total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
-
-    next_page_url = page_url(page + 1) if page < total_pages else None
-    prev_page_url = page_url(page - 1) if page > 1 else None
-
     return render_template_string(
         BASE_HTML,
         title=title,
-        description=description,
-        heading=heading,
-        subtitle=subtitle,
-        products=paged_products,
-        nav_items=nav_items,
-        css=css,
-        canonical_url=canonical,
+        meta_description=description,
+        meta_keywords="",
+        canonical_url=SITE_URL + request.path,
+        base_css=BASE_CSS,
+        theme=theme,
+        nav=get_nav_items(),
+        breadcrumbs=None,
+        products=products,
+        blog_posts=[],
+        current_year=datetime.datetime.now().year,
         SITE_URL=SITE_URL,
         slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        related_products=related_products or [],
-        total_pages=total_pages,
-        page=page,
-        page_url=page_url,
-        button=theme["button"],
-        gradient=theme["gradient"],
-        next_page_url=next_page_url,
-        prev_page_url=prev_page_url
+        render_product_card=render_product_card,
+        next_page_url=page_url(page+1) if page_url and products else None,
+        prev_page_url=page_url(page-1) if page_url and page>1 else None
     )
 
-@app.route("/debug-routes")
-def debug_routes():
-    rules = sorted(str(rule) for rule in app.url_map.iter_rules())
-    return "<pre>" + "\n".join(rules) + "</pre>"
-
+# ---------------- HOME PAGE ---------------- #
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
@@ -430,15 +439,16 @@ def home():
         products=products
     )
 
+# ---------------- CATEGORY PAGE ---------------- #
 @app.route("/category/<slug>")
-def category(slug):
+@app.route("/category/<slug>/page/<int:page>")
+def category(slug, page=1):
     products = refresh_products(background=True)
-    filtered = [p for p in products if slugify(p["category"]) == slug]
+    filtered = [p for p in products if slugify(p.get("category","")) == slug]
     if not filtered:
         abort(404)
     cat_name = filtered[0]["category"]
-    def page_url(p): return url_for("category", slug=slug, page=p)
-    page = int(request.args.get("page", 1))
+    def page_url(p_num): return url_for("category", slug=slug, page=p_num)
     return render_page(
         title=f"{cat_name} – FyboBuybo",
         description=f"Explore popular {cat_name.lower()} in the UK.",
@@ -449,16 +459,20 @@ def category(slug):
         page_url=page_url
     )
 
+# ---------------- SEASONAL COLLECTION ---------------- #
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
     products = refresh_products(background=True)
     season_name = season_slug.replace('-', ' ').title()
     norm_slug = normalize_for_match(season_slug)
-    filtered = [p for p in products if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))]
+    filtered = [
+        p for p in products
+        if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))
+    ]
     if not filtered:
         abort(404)
-    filtered.sort(key=lambda p: p.get("date_added", "2000-01-01"), reverse=True)
+    filtered.sort(key=lambda p: p.get("date_added","2000-01-01"), reverse=True)
     def page_url(p_num): return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
     title_season = season_name
     if "day" in season_name.lower() or "christmas" in season_name.lower():
@@ -473,6 +487,7 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
+# ---------------- PRODUCT DETAIL ---------------- #
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     products = refresh_products(background=True)
@@ -489,70 +504,96 @@ def product_detail(product_slug):
         related_products=related
     )
 
+# ---------------- BLOG LIST ---------------- #
+POSTS_PER_PAGE = 8
+
+def load_blog_posts():
+    # Flatten BLOG_POSTS dict to a list of posts sorted by date descending
+    posts = [
+        {**v, "slug": k} for k, v in BLOG_POSTS.items()
+    ]
+    posts.sort(key=lambda x: x.get("date", "1900-01-01"), reverse=True)
+    return posts
+
+# ---------------- BLOG LIST ---------------- #
 @app.route("/blog")
-def blog_index():
-    sorted_posts = sorted(BLOG_POSTS.items(), key=lambda x: x[1].get("date", "1900-01-01"), reverse=True)
-    post_list_html = "<div style='max-width:900px;margin:60px auto;padding:20px;'><h2 style='text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>Latest Articles</h2><div class='grid' style='grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;'>"
-    for slug, post in sorted_posts:
-        date_obj = datetime.datetime.strptime(post["date"], "%Y-%m-%d")
-        formatted_date = date_obj.strftime("%B %d, %Y")
-        post_list_html += f"<div class='card'><h3 style='font-size:1.5rem;margin-bottom:8px;'><a href='/blog/{slug}' style='color:#bae6fd;text-decoration:none;'>{post['title']}</a></h3><p style='opacity:.7;font-size:0.95rem;margin:0 0 12px 0;color:#94a3b8;'>{formatted_date}</p><p style='opacity:.85;font-size:1rem;line-height:1.6;'>{post['description']}</p></div>"
-    post_list_html += "</div></div>"
+@app.route("/blog/page/<int:page>")
+def blog_list(page=1):
+    posts = load_blog_posts()
+    start = (page - 1) * POSTS_PER_PAGE
+    end = start + POSTS_PER_PAGE
+    paginated = posts[start:end]
+    if not paginated:
+        abort(404)
+
+    # Breadcrumbs: Home → Blog
+    breadcrumbs = make_breadcrumbs([("Blog", url_for("blog_list"))])
+
     theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    rendered = render_template_string(
+
+    return render_template_string(
         BASE_HTML,
-        title="Blog – FyboBuybo",
-        description="Gift guides, home tips, and trending product recommendations",
-        heading="FyboBuybo Blog",
-        subtitle="Latest articles on gifts and home inspiration",
-        products=[],
-        nav_items=get_nav_items(),
-        css=css,
-        canonical_url=SITE_URL + "/blog",
+        title="FyboBuybo Blog – Tips, Guides & Gift Ideas",
+        meta_description="Read the latest gift guides, trends, and tips from FyboBuybo Blog.",
+        meta_keywords="blog, gifts, UK, tips, guides",
+        canonical_url=SITE_URL + request.path,
+        base_css=BASE_CSS,
+        theme=theme,
+        nav=get_nav_items(),
+        breadcrumbs=breadcrumbs,
+        products=[],            # no product cards
+        blog_posts=paginated,   # display blog posts
+        current_year=datetime.datetime.now().year,
         SITE_URL=SITE_URL,
         slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        related_products=[],
-        gradient=theme["gradient"],
-        next_page_url=None,
-        prev_page_url=None
+        render_product_card=render_product_card,
+        next_page_url=url_for("blog_list", page=page+1) if end < len(posts) else None,
+        prev_page_url=url_for("blog_list", page=page-1) if page > 1 else None
     )
-    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
-    rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
-    return rendered
 
+
+# ---------------- BLOG DETAIL ---------------- #
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
-    if not post: abort(404)
+    if not post:
+        abort(404)
+
+    # Breadcrumbs: Home → Blog → Post
+    breadcrumbs = make_breadcrumbs([
+        ("Blog", url_for("blog_list")),
+        (post["title"], request.path)
+    ])
+
     all_products = refresh_products(background=True)
     related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+
     theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    rendered = render_template_string(
+
+    return render_template_string(
         BASE_HTML,
         title=post["title"],
-        description=post["description"],
-        heading=post["heading"],
-        subtitle=post["subtitle"],
-        products=[],
-        nav_items=get_nav_items(),
-        css=css,
+        meta_description=post.get("description", ""),
+        meta_keywords="blog, gifts, UK, tips, guides",
         canonical_url=SITE_URL + request.path,
+        base_css=BASE_CSS,
+        theme=theme,
+        nav=get_nav_items(),
+        breadcrumbs=breadcrumbs,
+        products=[],            # no product cards
+        blog_posts=[post],      # single post
+        current_year=datetime.datetime.now().year,
         SITE_URL=SITE_URL,
         slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        related_products=related,
-        gradient=theme["gradient"],
+        render_product_card=render_product_card,
         next_page_url=None,
         prev_page_url=None
     )
-    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
-    rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
-    return rendered
 
-# ---------------- SEO FILES ---------------- #
+
+
+
+# ---------------- ROBOTS.TXT ---------------- #
 @app.route("/robots.txt")
 def robots():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
@@ -563,17 +604,18 @@ Sitemap: {sitemap_url}
 """
     return Response(txt, mimetype="text/plain")
 
+# ---------------- SITEMAP.XML ---------------- #
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
     urls = set()
     today = str(datetime.date.today())
 
-    # --- Homepage ---
+    # Homepage
     urls.add((SITE_URL + "/", today))
 
-    # --- Products & Categories ---
-    all_products = [p for day in history.values() for p in day]  # flatten
+    # Products & Categories
+    all_products = [p for day in history.values() for p in day]
     for p in all_products:
         lastmod = p.get("date_added", today)
         if p.get("category"):
@@ -581,43 +623,26 @@ def sitemap():
         if p.get("name"):
             urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", lastmod))
 
-    # --- Seasonal Pages ---
-    seasons = [
-        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-        "Summer Gifts", "Back to School", "Halloween", "Christmas"
-    ]
+    # Seasonal pages
+    seasons = ["Valentine's Day", "Mother's Day", "Easter", "Father's Day",
+               "Summer Gifts", "Back to School", "Halloween", "Christmas"]
     for season in seasons:
         season_slug = slugify(season)
-        season_products = [
-            p for p in all_products
-            if p.get("season") and season.lower() in p["season"].lower()
-        ]
-        lastmod = max(
-            (p.get("date_added", today) for p in season_products),
-            default=today
-        )
+        season_products = [p for p in all_products if p.get("season") and season.lower() in p["season"].lower()]
+        lastmod = max((p.get("date_added", today) for p in season_products), default=today)
         urls.add((f"{SITE_URL}/season/{season_slug}", lastmod))
 
-    # --- Blog Pages ---
+    # Blog pages
     for slug, post in BLOG_POSTS.items():
         lastmod = post.get("date", today)
         urls.add((f"{SITE_URL}/blog/{slug}", lastmod))
-    urls.add((SITE_URL + "/blog", max(
-        (post.get("date", today) for post in BLOG_POSTS.values()),
-        default=today
-    )))
+    blog_lastmod = max((post.get("date", today) for post in BLOG_POSTS.values()), default=today)
+    urls.add((SITE_URL + "/blog", blog_lastmod))
 
-    # --- Build XML ---
+    # Build XML
     sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-
     for url, lastmod in sorted(urls):
         sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
-
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
-
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
