@@ -360,10 +360,6 @@ BASE_HTML = """<!DOCTYPE html>
     {% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
     {% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 
-    <!-- Staging reinforcement -->
-    {% if os.environ.get("STAGING") == "true" %}
-    <meta name="robots" content="noindex, nofollow">
-    {% endif %}
 
     <!-- Open Graph -->
     <meta property="og:title" content="{{ title }}">
