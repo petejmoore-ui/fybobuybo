@@ -1,13 +1,13 @@
 # ---------------- PRODUCTS ---------------- #
 PRODUCTS = [
     {
-    "name": "Ariceleo 24K Gold Dipped Rose - Eternal Real Rose Hand-Dipped in Pure Gold",
-    "category": "Home & Kitchen",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX466_.jpg",
-    "url": "https://amzn.to/4sFizer?tag=whoaccepts-21",
-    "info": "Luxurious preserved real rose hand-dipped in genuine 24K gold, lasting forever as a timeless symbol of love and romance – the perfect unique, one-of-a-kind gift for her on Valentine's Day, anniversaries, birthdays, Mother's Day, or any special occasion.",
-    "date_added": "2026-01-14"
+        "name": "Ariceleo 24K Gold Dipped Rose - Eternal Real Rose Hand-Dipped in Pure Gold",
+        "category": "Home & Kitchen",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX466_.jpg",
+        "url": "https://amzn.to/4sFizer?tag=whoaccepts-21",
+        "info": "Luxurious preserved real rose hand-dipped in genuine 24K gold, lasting forever as a timeless symbol of love and romance – the perfect unique, one-of-a-kind gift for her on Valentine's Day, anniversaries, birthdays, Mother's Day, or any special occasion.",
+        "date_added": "2026-01-14"
     },
     {
         "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
