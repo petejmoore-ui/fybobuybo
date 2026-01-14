@@ -6,6 +6,7 @@ from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
 
 from flask import Flask, render_template_string, request, url_for, abort, Response
+from markupsafe import Markup
 from groq import Groq
 from dotenv import load_dotenv
 import requests
