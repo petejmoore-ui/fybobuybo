@@ -7,7 +7,29 @@ from blog_data import BLOG_POSTS
 from flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
 from dotenv import load_dotenv
+import requests
 
+# --- Core site settings ---
+SITE_URL = "https://www.fybobuybo.com"
+ITEMS_PER_PAGE = 12
+CACHE_REFRESH_DAYS = 10
+AFFILIATE_TAG = "whoaccepts-21"
+PROMPT_VERSION = "v2.2-uk-seo-2026"
+
+# --- SEO: automatic search engine ping ---
+def ping_search_engines():
+    sitemap_url = f"{SITE_URL}/sitemap.xml"
+    engines = [
+        f"https://www.google.com/ping?sitemap={sitemap_url}",
+        f"https://www.bing.com/ping?sitemap={sitemap_url}"
+    ]
+    for url in engines:
+        try:
+            requests.get(url, timeout=5)
+        except Exception:
+            pass  # silently ignore failures
+
+# --- Environment setup ---
 load_dotenv()
 
 app = Flask(__name__)
@@ -22,14 +44,9 @@ if os.environ.get("STAGING") == "true":
 
 CACHE_FILE = "/data/cache.json"
 HISTORY_FILE = "/data/history.json"
-AFFILIATE_TAG = "whoaccepts-21"
-SITE_URL = "https://www.fybobuybo.com"
-ITEMS_PER_PAGE = 12
-CACHE_REFRESH_DAYS = 10
-PROMPT_VERSION = "v2.2-uk-seo-2026"
-
 os.makedirs("data", exist_ok=True)
 DATA_PATH = "data"
+
 
 # ---------------- THEMES ---------------- #
 THEMES = [{"bg":"#0f172a","card":"#1e293b","accent":"#38bdf8","button":"#0284c7","tag":"#7dd3fc","text_accent":"#bae6fd","gradient":"linear-gradient(90deg,#0284c7,#38bdf8)"}]
@@ -538,27 +555,68 @@ def blog_detail(slug):
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
 def robots():
-    txt = f"User-agent: *\nDisallow:\n\nSitemap: {SITE_URL}/sitemap.xml"
+    sitemap_url = f"{SITE_URL}/sitemap.xml"
+    txt = f"""User-agent: *
+Disallow:
+
+Sitemap: {sitemap_url}
+"""
     return Response(txt, mimetype="text/plain")
 
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
     urls = set()
-    urls.add((SITE_URL + "/", str(datetime.date.today())))
-    for day_products in history.values():
-        for p in day_products:
-            cat = p.get("category")
-            name = p.get("name")
-            if cat: urls.add((f"{SITE_URL}/category/{slugify(cat)}", str(datetime.date.today())))
-            if name: urls.add((f"{SITE_URL}/product/{slugify(name)}", str(datetime.date.today())))
-    for season in ["Valentine's Day","Mother's Day","Easter","Father's Day","Summer Gifts","Back to School","Halloween","Christmas"]:
-        urls.add((f"{SITE_URL}/season/{slugify(season)}", str(datetime.date.today())))
-    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    today = str(datetime.date.today())
+
+    # --- Homepage ---
+    urls.add((SITE_URL + "/", today))
+
+    # --- Products & Categories ---
+    all_products = [p for day in history.values() for p in day]  # flatten
+    for p in all_products:
+        lastmod = p.get("date_added", today)
+        if p.get("category"):
+            urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", lastmod))
+        if p.get("name"):
+            urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", lastmod))
+
+    # --- Seasonal Pages ---
+    seasons = [
+        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
+        "Summer Gifts", "Back to School", "Halloween", "Christmas"
+    ]
+    for season in seasons:
+        season_slug = slugify(season)
+        season_products = [
+            p for p in all_products
+            if p.get("season") and season.lower() in p["season"].lower()
+        ]
+        lastmod = max(
+            (p.get("date_added", today) for p in season_products),
+            default=today
+        )
+        urls.add((f"{SITE_URL}/season/{season_slug}", lastmod))
+
+    # --- Blog Pages ---
+    for slug, post in BLOG_POSTS.items():
+        lastmod = post.get("date", today)
+        urls.add((f"{SITE_URL}/blog/{slug}", lastmod))
+    urls.add((SITE_URL + "/blog", max(
+        (post.get("date", today) for post in BLOG_POSTS.values()),
+        default=today
+    )))
+
+    # --- Build XML ---
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+
     for url, lastmod in sorted(urls):
-        sitemap_xml += f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n"
-    sitemap_xml += "</urlset>"
+        sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
+
+    sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 
 if __name__ == "__main__":
