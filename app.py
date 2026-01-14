@@ -17,6 +17,13 @@ load_dotenv()
 app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
+from flask_caching import Cache
+
+cache = Cache(app, config={
+    'CACHE_TYPE': 'SimpleCache',    # in-memory, perfect for small/medium traffic
+    'CACHE_DEFAULT_TIMEOUT': 300    # 5 minutes – good balance for daily refresh
+})
+
 # --- Staging SEO safeguard ---
 if os.environ.get("STAGING") == "true":
     @app.after_request
@@ -168,36 +175,9 @@ def load_or_generate_hooks(products):
     # Ping search engines after fresh generation
     Thread(target=ping_search_engines, daemon=True).start()
 
-    return enriched
+    # ← Add this line here (Step 4)
+    cache.clear()  # Clears all cached rendered pages so new hooks show immediately
 
-def load_history():
-    if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    return {}
-
-def save_history(data):
-    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-def refresh_products(background=False):
-    today = str(datetime.date.today())
-
-    if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE, encoding="utf-8") as f:
-                cache = json.load(f)
-            cache_date_str = cache.get("date", "")
-            if cache_date_str.startswith(today):
-                return cache.get("products", [])
-            cache_date = datetime.datetime.fromisoformat(cache_date_str)
-            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
-               cache.get("prompt_version") == PROMPT_VERSION:
-                return cache.get("products", [])
-        except Exception as e:
-            print(f"Cache read failed: {e} — regenerating")
-
-    enriched = load_or_generate_hooks(PRODUCTS)
     return enriched
 
 # ---------------- HELPERS ---------------- #
@@ -648,6 +628,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 # ---------------- ROUTES / PAGE RENDERER ---------------- #
+@cache.cached(timeout=300, key_prefix=lambda: request.full_path)
 def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
