@@ -302,8 +302,22 @@ nav {
 }
 nav a { margin:0 16px; color:{{text_accent}}; font-weight:700; font-size:1.1rem; transition:.2s; }
 nav a:hover { opacity:.8; }
-nav .season-link { color: #f472b6; }
-nav .season-link:hover { opacity: 0.9; color: #fda4af; }
+nav .season-link { color: #a5b4fc; }          
+nav .season-link:hover { opacity: 0.9; color: #c7d2fe; }  
+nav .season-link {
+    color: #a5b4fc;
+    font-size: 1rem;          /* slightly smaller than main links */
+    font-weight: 600;         /* less bold */
+    padding: 4px 10px;        /* breathing room */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+nav .season-link:hover {
+    opacity: 1;
+    color: #c7d2fe;
+    background: rgba(56, 189, 248, 0.12);  /* very subtle glow – matches accent */
+}
 
 /* Mobile Seasons Dropdown */
 .seasons-dropdown {
