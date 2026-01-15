@@ -47,28 +47,29 @@ os.makedirs("data", exist_ok=True)
 # ---------------- THEMES ---------------- #
 THEMES = [
     {
-        "bg": "#f9fafb",        # Light background
-        "card": "#ffffff",       # Card background
-        "accent": "#111827",     # Primary text
-        "button": "#3b82f6",     # Buttons
-        "tag": "#e0f2fe",        # Tags
-        "text_accent": "#334155",# Secondary text
-        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"
+        "name": "Light Elegance",
+        "bg": "#fdfdfd",            # Light, soft neutral
+        "card": "#ffffff",           # Clean card background
+        "accent": "#1f2937",         # Slate-800 for primary text
+        "button": "#3b82f6",         # Bright, modern blue
+        "tag": "#dbeafe",            # Soft light blue for tags
+        "text_accent": "#475569",    # Slightly muted slate for secondary text
+        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"  # Smooth professional gradient
     },
     {
-        "bg": "#111827",         # Dark background
-        "card": "#1f2937",       # Card background
-        "accent": "#f9fafb",     # Primary text
-        "button": "#2563eb",     # Buttons
-        "tag": "#1e40af",        # Tags
-        "text_accent": "#e5e7eb",# Secondary text
-        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"
+        "name": "Dark Luxe",
+        "bg": "#0f172a",             # Deep navy/charcoal
+        "card": "#1e293b",           # Slightly lighter than bg for contrast
+        "accent": "#f8fafc",         # Off-white primary text
+        "button": "#2563eb",         # Vivid, accessible blue
+        "tag": "#1e40af",            # Darker, subtle accent
+        "text_accent": "#cbd5e1",    # Light slate for secondary text
+        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"  # Elegant, soft contrast
     }
 ]
 
 def get_daily_theme():
     import datetime
-    # Rotate daily
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
 
@@ -343,9 +344,14 @@ h1 {
     padding:20px; 
     text-align:center; 
     box-shadow:0 20px 40px rgba(0,0,0,.6); 
-    transition:transform .3s, box-shadow .3s; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* updated */
     position: relative; 
     overflow: hidden; 
+    opacity: 1; /* default visible */
+}
+.card.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 .card:hover { 
     transform: translateY(-6px); 
@@ -629,9 +635,7 @@ BASE_HTML = """<!DOCTYPE html>
 <body>
 
 <!-- Day/Night Toggle -->
-<button id="theme-toggle" style="position:fixed;bottom:24px;right:24px;padding:10px 16px;border-radius:12px;background:#3b82f6;color:white;border:none;cursor:pointer;z-index:999;">
-    🌙 / ☀️
-</button>
+<button id="theme-toggle" aria-label="Toggle light/dark mode">🌙 / ☀️</button>
 
 <script>
 const THEMES = [
@@ -646,7 +650,7 @@ function applyTheme(theme) {
     document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
     document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
     document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
-    document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a").forEach(el => el.style.color = theme.text_accent);
+    document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a, nav .season-link").forEach(el => el.style.color = theme.text_accent);
     document.querySelectorAll("h1").forEach(h => {
         h.style.background = theme.gradient;
         h.style.webkitBackgroundClip = "text";
@@ -677,75 +681,59 @@ document.addEventListener("DOMContentLoaded", function() {
             const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
             const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
             const matches = name.includes(query) || hook.includes(query) || category.includes(query);
-            card.style.display = matches ? "" : "none";
-        });
-        const visibleCards = Array.from(cards).filter(c => c.style.display !== "none");
-        let noResults = document.getElementById("no-results");
-        if (query.length > 0 && visibleCards.length === 0) {
-            if (!noResults) {
-                noResults = document.createElement("p");
-                noResults.id = "no-results";
-                noResults.style.textAlign = "center";
-                noResults.style.opacity = "0.8";
-                noResults.style.margin = "40px 0";
-                noResults.style.fontSize = "1.1rem";
-                noResults.textContent = "No matching gifts found – try a different search.";
-                document.querySelector(".grid")?.after(noResults);
+            if(matches) {
+                card.classList.remove("hidden");
+            } else {
+                card.classList.add("hidden");
             }
-        } else if (noResults) {
-            noResults.remove();
-        }
+        });
     });
 });
 </script>
 
 <!-- Navigation: top + desktop + mobile -->
 <nav aria-label="Main navigation">
-<!-- Top row -->
-<div class="nav-top">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-</div>
+    <div class="nav-top">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+    </div>
 
-<!-- Desktop categories + seasons -->
-<div class="nav-desktop">
-    {% for cat in nav_items.categories %}
-        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-    {% endfor %}
-    {% if nav_items.seasons %}
-        <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
-        {% for season in nav_items.seasons %}
-            <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+    <div class="nav-desktop">
+        {% for cat in nav_items.categories %}
+            <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
         {% endfor %}
-    {% endif %}
-</div>
-
-<!-- Mobile dropdowns -->
-<div class="nav-middle">
-    <div class="categories-dropdown">
-        <button aria-expanded="false" aria-controls="categories-menu">Categories ▼</button>
-        <div id="categories-menu" class="dropdown-content">
-            {% for cat in nav_items.categories %}
-                <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-            {% endfor %}
-        </div>
-    </div>
-    {% if nav_items.seasons %}
-    <div class="seasons-dropdown">
-        <button aria-expanded="false" aria-controls="seasons-menu">Seasonal ▼</button>
-        <div id="seasons-menu" class="dropdown-content">
+        {% if nav_items.seasons %}
+            <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
             {% for season in nav_items.seasons %}
-                <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+                <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
             {% endfor %}
-        </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 
-<!-- Search bar -->
-<form id="search-form" role="search">
-    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
-</form>
+    <div class="nav-middle">
+        <div class="categories-dropdown">
+            <button aria-expanded="false" aria-controls="categories-menu">Categories ▼</button>
+            <div id="categories-menu" class="dropdown-content">
+                {% for cat in nav_items.categories %}
+                    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% if nav_items.seasons %}
+        <div class="seasons-dropdown">
+            <button aria-expanded="false" aria-controls="seasons-menu">Seasonal ▼</button>
+            <div id="seasons-menu" class="dropdown-content">
+                {% for season in nav_items.seasons %}
+                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <form id="search-form" role="search">
+        <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
+    </form>
 </nav>
 
 <!-- Dropdown JS -->
@@ -816,7 +804,6 @@ document.addEventListener("DOMContentLoaded", function() {
     </p>
     {% endif %}
 
-    <!-- Schema.org Product -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -854,6 +841,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
+
+
 """
 
 # ---------------- ROUTES / PAGE RENDERER ---------------- #
