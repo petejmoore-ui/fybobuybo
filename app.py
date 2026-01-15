@@ -48,29 +48,38 @@ os.makedirs("data", exist_ok=True)
 THEMES = [
     {
         "name": "Light Elegance",
-        "bg": "#fdfdfd",            # Light, soft neutral
-        "card": "#ffffff",           # Clean card background
-        "accent": "#1f2937",         # Slate-800 for primary text
-        "button": "#3b82f6",         # Bright, modern blue
-        "tag": "#dbeafe",            # Soft light blue for tags
-        "text_accent": "#475569",    # Slightly muted slate for secondary text
-        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"  # Smooth professional gradient
+        "bg": "#fdfdfd",
+        "card": "#ffffff",
+        "accent": "#1f2937",
+        "button": "#3b82f6",
+        "tag": "#dbeafe",
+        "text_accent": "#475569",
+        "gradient": "linear-gradient(90deg, #3b82f6, #06b6d4)"
     },
     {
         "name": "Dark Luxe",
-        "bg": "#0f172a",             # Deep navy/charcoal
-        "card": "#1e293b",           # Slightly lighter than bg for contrast
-        "accent": "#f8fafc",         # Off-white primary text
-        "button": "#2563eb",         # Vivid, accessible blue
-        "tag": "#1e40af",            # Darker, subtle accent
-        "text_accent": "#cbd5e1",    # Light slate for secondary text
-        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"  # Elegant, soft contrast
+        "bg": "#0f172a",
+        "card": "#1e293b",
+        "accent": "#f8fafc",
+        "button": "#3b82f6",          # kept vivid blue — works better on dark
+        "tag": "#1e40af",
+        "text_accent": "#cbd5e1",
+        "gradient": "linear-gradient(90deg, #3b82f6, #60a5fa)"
     }
 ]
 
-def get_daily_theme():
-    import datetime
-    return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
+# We now use a fixed default + let user override via JS/localStorage
+DEFAULT_THEME = THEMES[0]  # Light Elegance
+
+# In render_page() — just use the default theme for server-side rendering
+# (client JS will handle user preference override)
+def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
+    theme = DEFAULT_THEME
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    
+    nav_items = get_nav_items()
+    
+  
 
 
 
@@ -291,185 +300,214 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
-# ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
 :root {
-  --bg: #f9fafb;
-  --card: #ffffff;
-  --accent: #0f172a;
-  --button: #2563eb;
-  --tag: #e0f2fe;
-  --text-accent: #334155;
-  --nav-bg: rgba(255,255,255,.85);
-  --dropdown-bg: #ffffff;
-  --shadow: 0 20px 40px rgba(15,23,42,.12);
-  --gradient: linear-gradient(90deg,#2563eb,#06b6d4);
+    --bg: {{bg | default('#fdfdfd')}};
+    --card: {{card | default('#ffffff')}};
+    --accent: {{accent | default('#1f2937')}};
+    --button: {{button | default('#3b82f6')}};
+    --tag: {{tag | default('#dbeafe')}};
+    --text-accent: {{text_accent | default('#475569')}};
+    --gradient: {{gradient | default('linear-gradient(90deg, #3b82f6, #06b6d4)')}};
+    --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-:root[data-theme="dark"] {
-  --bg: #0b1220;
-  --card: #111827;
-  --accent: #f8fafc;
-  --button: #3b82f6;
-  --tag: #1e40af;
-  --text-accent: #cbd5f5;
-  --nav-bg: rgba(17,24,39,.85);
-  --dropdown-bg: #0f172a;
-  --shadow: 0 30px 60px rgba(0,0,0,.55);
-  --gradient: linear-gradient(90deg,#3b82f6,#6366f1);
-}
+* { box-sizing: border-box; margin:0; padding:0; }
 
-/* Base */
 body {
-  margin:0;
-  background:var(--bg);
-  color:var(--accent);
-  font-family:'Outfit',sans-serif;
-  padding:20px 20px 40px;
-  transition:background .4s,color .4s;
+    background: var(--bg);
+    color: var(--accent);
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    line-height: 1.58;
+    min-height: 100vh;
+    padding: 1.5rem 1rem 4rem;
+    transition: var(--transition);
 }
 
 h1 {
-  text-align:center;
-  font-size:3rem;
-  margin:40px 0 10px;
-  background:var(--gradient);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    text-align: center;
+    margin: 2.5rem 0 0.75rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .subtitle {
-  text-align:center;
-  color:var(--text-accent);
-  max-width:900px;
-  margin:20px auto;
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 1.5rem;
+    color: var(--text-accent);
+    font-size: 1.15rem;
+    opacity: 0.9;
 }
 
-/* Grid */
 .grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-  max-width:1400px;
-  margin:auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Cards */
 .card {
-  background:var(--card);
-  border-radius:22px;
-  padding:20px;
-  text-align:center;
-  box-shadow:var(--shadow);
-  transition:.3s;
+    background: var(--card);
+    border-radius: 1.375rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid color-mix(in srgb, var(--card) 85%, #000);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
+
 .card:hover {
-  transform:translateY(-6px);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
 
 .card img {
-  width:100%;
-  max-height:380px;
-  object-fit:contain;
-  border-radius:16px;
-  margin:16px 0;
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    transition: transform 0.5s ease;
 }
 
-/* Hide filter */
-.grid .card.hidden {
-  opacity:0;
-  pointer-events:none;
+.card:hover img {
+    transform: scale(1.06);
 }
 
-/* Tag */
 .tag {
-  background:var(--tag);
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:.85rem;
+    background: var(--tag);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
 }
 
-/* Buttons */
-button {
-  background:var(--button);
-  border:none;
-  padding:12px 28px;
-  border-radius:999px;
-  font-weight:900;
-  color:white;
-  cursor:pointer;
+button,
+a.button-like {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
 }
 
-/* Nav */
-nav {
-  background:var(--nav-bg);
-  backdrop-filter:blur(14px);
-  padding:16px 24px;
-  border-radius:18px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:var(--shadow);
+button:hover,
+a.button-like:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+    background-position: 100% 50%;
+    background-size: 200% 200%;
 }
 
-nav a {
-  color:var(--text-accent);
-  font-weight:600;
-  margin:0 12px;
-}
-nav a:hover { color:var(--accent); }
-
-/* Dropdowns */
-.categories-dropdown button,
-.seasons-dropdown button {
-  background:var(--card);
-  color:var(--accent);
-  border:1px solid rgba(148,163,184,.3);
-  padding:10px 22px;
-  border-radius:999px;
-}
-
-.dropdown-content {
-  display:none;
-  position:absolute;
-  background:var(--dropdown-bg);
-  border-radius:12px;
-  box-shadow:var(--shadow);
-  margin-top:10px;
-}
-
-.dropdown-content a {
-  display:block;
-  padding:10px 24px;
-  color:var(--text-accent);
-}
-
-.dropdown-content a:hover {
-  background:rgba(99,102,241,.12);
-  color:var(--accent);
-}
-
-/* Theme toggle */
 #theme-toggle {
-  position:fixed;
-  top:16px;
-  right:16px;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid rgba(148,163,184,.25);
-  background:var(--card);
-  cursor:pointer;
-  box-shadow:var(--shadow);
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: var(--button);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
 }
-#theme-toggle svg {
-  width:20px;
-  height:20px;
-  fill:var(--accent);
+
+#theme-toggle:hover {
+    transform: scale(1.1);
 }
-</style>
-"""
+
+nav {
+    background: var(--card);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 1400px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-top a,
+.nav-desktop a,
+.dropdown-content a {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+}
+
+.nav-top a:hover,
+.nav-desktop a:hover,
+.dropdown-content a:hover {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--tag) 30%, transparent);
+    border-radius: 0.5rem;
+}
+
+#search-input {
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--text-accent);
+    background: transparent;
+    color: var(--accent);
+    width: 100%;
+    max-width: 360px;
+    font-size: 1rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 6rem;
+    color: var(--text-accent);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    nav { flex-direction: column; }
+}
+
+/* Loading / empty state */
+.loading {
+    text-align: center;
+    padding: 6rem 1rem;
+    color: var(--text-accent);
+    font-size: 1.25rem;
+}
+</style>"""
 
 
 
@@ -479,189 +517,133 @@ nav a:hover { color:var(--accent); }
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description | truncate(160, true, '...') }}">
+    <link rel="canonical" href="{{ canonical_url }}">
 
-<title>{{ title }}</title>
-<meta name="description" content="{{ description | truncate(155, true, '...') }}">
-<link rel="canonical" href="{{ canonical_url }}">
-{% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
-{% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description | truncate(200) }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:image" content="{{ SITE_URL }}/static/og-default.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
-<!-- Open Graph -->
-<meta property="og:title" content="{{ title }}">
-<meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
-<meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
-<meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:site_name" content="FyboBuybo">
-<meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-
-{{ css|safe }}
+    {{ css|safe }}
 </head>
-
 <body>
 
-<!-- Theme Toggle -->
-<button id="theme-toggle" aria-label="Toggle theme">
-  <svg viewBox="0 0 24 24">
-    <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>
-  </svg>
-</button>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+    </button>
 
-<script>
-(function () {
-  const root = document.documentElement;
-  const saved = localStorage.getItem("theme");
-  if (saved) root.dataset.theme = saved;
+    <nav aria-label="Main navigation">
+        <div class="nav-top">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+        </div>
 
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    const next = root.dataset.theme === "dark" ? "light" : "dark";
-    root.dataset.theme = next;
-    localStorage.setItem("theme", next);
-  });
-})();
-</script>
+        <div class="nav-desktop">
+            {% for cat in nav_items.categories %}
+                <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+            {% endfor %}
+            {% if nav_items.seasons %}
+                <span style="margin:0 1rem; opacity:0.4;">•</span>
+                {% for season in nav_items.seasons %}
+                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
 
-<nav aria-label="Main navigation">
-  <div class="nav-top">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-  </div>
+        <form id="search-form" role="search">
+            <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts">
+        </form>
+    </nav>
 
-  <div class="nav-desktop">
-    {% for cat in nav_items.categories %}
-      <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-    {% endfor %}
-    {% if nav_items.seasons %}
-      <span aria-hidden="true">•</span>
-      {% for season in nav_items.seasons %}
-        <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
-      {% endfor %}
-    {% endif %}
-  </div>
+    <h1>{{ heading }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
 
-  <div class="nav-middle">
-    <div class="categories-dropdown">
-      <button>Categories</button>
-      <div class="dropdown-content">
-        {% for cat in nav_items.categories %}
-          <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-        {% endfor %}
-      </div>
-    </div>
-
-    {% if nav_items.seasons %}
-    <div class="seasons-dropdown">
-      <button>Seasonal</button>
-      <div class="dropdown-content">
-        {% for season in nav_items.seasons %}
-          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-  </div>
-
-  <form id="search-form" role="search">
-    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts">
-  </form>
-</nav>
-
-<h1>{{ heading }}</h1>
-<p class="subtitle">{{ subtitle }}</p>
-
-<p style="text-align:center;opacity:.7;margin-bottom:40px;">
-✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
-</p>
-
-{% if products %}
-<div class="grid">
-{% for p in products %}
-  <div class="card" itemscope itemtype="https://schema.org/Product">
-    <span class="tag">{{ p.category }}</span>
-
-    <a href="/product/{{ slugify(p.name) }}">
-      <h2>{{ shorten_product_name(p.name) }}</h2>
-    </a>
-
-    <a href="/product/{{ slugify(p.name) }}">
-      <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy">
-    </a>
-
-    <p>{{ p.hook|safe }}</p>
-
-    {% if p.date_added %}
-      <p style="font-size:.85rem;opacity:.6;">↳ Featured on {{ p.date_added }}</p>
+    {% if products %}
+        <div class="grid">
+            {% for p in products %}
+            <div class="card" itemscope itemtype="https://schema.org/Product">
+                <span class="tag">{{ p.category }}</span>
+                <a href="/product/{{ slugify(p.name) }}" itemprop="url">
+                    <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
+                </a>
+                <a href="/product/{{ slugify(p.name) }}">
+                    <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
+                </a>
+                <p itemprop="description">{{ p.hook|safe }}</p>
+                <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" class="button-like">
+                    Check price on Amazon
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="loading">Loading curated gifts...</p>
     {% endif %}
 
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
-      <button>Check price</button>
-    </a>
+    <footer>
+        <p>As an Amazon Associate, I earn from qualifying purchases.</p>
+        <p>FyboBuybo – thoughtful UK gift ideas • independent site</p>
+    </footer>
 
-    <p style="font-size:.85rem;opacity:.7;margin-top:10px;">
-      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
-    </p>
-  </div>
-{% endfor %}
-</div>
+    <script>
+        const THEMES = [
+            { name: "Light", bg: "#fdfdfd", card: "#ffffff", accent: "#1f2937", button: "#3b82f6", tag: "#dbeafe", text_accent: "#475569", gradient: "linear-gradient(90deg, #3b82f6, #06b6d4)" },
+            { name: "Dark",  bg: "#0f172a", card: "#1e293b", accent: "#f8fafc", button: "#3b82f6", tag: "#1e40af", text_accent: "#cbd5e1", gradient: "linear-gradient(90deg, #3b82f6, #60a5fa)" }
+        ];
 
-{% if similar_products %}
-<h2 style="text-align:center;margin:60px 0 20px;">You might also like</h2>
-<div class="grid">
-{% for p in similar_products %}
-  <div class="card">
-    <span class="tag">{{ p.category }}</span>
-    <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
-    <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy">
-  </div>
-{% endfor %}
-</div>
-{% endif %}
+        let currentTheme = parseInt(localStorage.getItem('theme')) || 0;
 
-{% else %}
-<p class="loading">Loading today’s gifts…</p>
-{% endif %}
+        function applyTheme(idx) {
+            const t = THEMES[idx];
+            document.documentElement.style.setProperty('--bg', t.bg);
+            document.documentElement.style.setProperty('--card', t.card);
+            document.documentElement.style.setProperty('--accent', t.accent);
+            document.documentElement.style.setProperty('--button', t.button);
+            document.documentElement.style.setProperty('--tag', t.tag);
+            document.documentElement.style.setProperty('--text-accent', t.text_accent);
+            document.documentElement.style.setProperty('--gradient', t.gradient);
 
-<footer>
-  <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-  <p>FyboBuybo is an independent UK gifts site.</p>
-</footer>
+            // Force repaint on dynamic elements
+            document.querySelectorAll('.card').forEach(el => el.style.background = t.card);
+            document.querySelectorAll('.tag').forEach(el => el.style.background = t.tag);
+            document.querySelectorAll('button, a.button-like').forEach(el => el.style.background = t.gradient);
+            document.querySelectorAll('h1').forEach(el => el.style.background = t.gradient);
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const input = document.getElementById("search-input");
-  if (!input) return;
+            localStorage.setItem('theme', idx);
+        }
 
-  const cards = document.querySelectorAll(".grid .card");
+        applyTheme(currentTheme);
 
-  input.addEventListener("input", e => {
-    const q = e.target.value.toLowerCase().trim();
-    cards.forEach(card => {
-      const text = card.textContent.toLowerCase();
-      card.classList.toggle("hidden", !text.includes(q));
-    });
-  });
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            currentTheme = (currentTheme + 1) % 2;
+            applyTheme(currentTheme);
+        });
+    </script>
 
-  document.querySelectorAll(".categories-dropdown, .seasons-dropdown").forEach(d => {
-    const btn = d.querySelector("button");
-    const menu = d.querySelector(".dropdown-content");
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      document.querySelectorAll(".dropdown-content").forEach(m => m.style.display = "none");
-      menu.style.display = "block";
-    });
-  });
-
-  document.addEventListener("click", () =>
-    document.querySelectorAll(".dropdown-content").forEach(m => m.style.display = "none")
-  );
-});
-</script>
-
+    <!-- Your existing search + dropdown scripts can stay here -->
 </body>
 </html>"""
 
