@@ -7,4 +7,5 @@ python-amazon-paapi
 requests
 markupsafe
 flask-caching
-paapi5-python-sdk
+git+https://github.com/amzn/paapi5-python-sdk.git
+
