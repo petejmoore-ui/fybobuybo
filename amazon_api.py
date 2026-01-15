@@ -10,7 +10,7 @@ import time
 import datetime
 from pathlib import Path
 
-from amazon_paapi import AmazonApi, AmazonApiException
+from amazon_paapi import AmazonApi  # PyPI package only
 
 # Amazon API Credentials from environment
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
@@ -78,11 +78,12 @@ def get_amazon_product_data(asin: str) -> dict | None:
         save_to_cache(asin, product_data)
         return product_data
 
-    except AmazonApiException as e:
-        print(f"Amazon API error for {asin}: {e}")
-        return None
     except Exception as e:
-        print(f"Unexpected error for {asin}: {e}")
+        err_msg = str(e)
+        if "API" in err_msg or "Request" in err_msg:
+            print(f"Amazon API error for {asin}: {err_msg}")
+        else:
+            print(f"Unexpected error for {asin}: {err_msg}")
         return None
 
 
@@ -191,7 +192,6 @@ def format_rating_display(product: dict) -> dict:
     return display
 
 
-# Optional test
 def test_api():
     if not AMAZON_ACCESS_KEY or not AMAZON_SECRET_KEY:
         print("Set your AMAZON_ACCESS_KEY and AMAZON_SECRET_KEY in the environment.")
