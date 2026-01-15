@@ -47,12 +47,12 @@ os.makedirs("data", exist_ok=True)
 # ---------------- THEMES ---------------- #
 THEMES = [
   {
-  "bg": "#f6f4ef",        
+  "bg": "#fbf8f3",
   "card": "#ffffff",
-  "accent": "#2f5d50",    
-  "button": "#1f4d40",
-  "tag": "#e6edea",
-  "text_accent": "#2f5d50",
+  "accent": "#2b2b2b",    # true ink
+  "button": "#2b2b2b",
+  "tag": "#f1ebe3",
+  "text_accent": "#2b2b2b",
   "gradient": "none"
 }
 
