@@ -46,21 +46,32 @@ os.makedirs("data", exist_ok=True)
 
 # ---------------- THEMES ---------------- #
 THEMES = [
-  {
-  "bg": "#f5f5f4",
-  "card": "#fafafa",
-  "accent": "#374151",    # slate ink
-  "button": "#111827",
-  "tag": "#e7e5e4",
-  "text_accent": "#374151",
-  "gradient": "none"
-}
-
+    {
+        "bg": "#f9fafb",        # Light background
+        "card": "#ffffff",       # Card background
+        "accent": "#111827",     # Primary text
+        "button": "#3b82f6",     # Buttons
+        "tag": "#e0f2fe",        # Tags
+        "text_accent": "#334155",# Secondary text
+        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"
+    },
+    {
+        "bg": "#111827",         # Dark background
+        "card": "#1f2937",       # Card background
+        "accent": "#f9fafb",     # Primary text
+        "button": "#2563eb",     # Buttons
+        "tag": "#1e40af",        # Tags
+        "text_accent": "#e5e7eb",# Secondary text
+        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"
+    }
 ]
 
-
 def get_daily_theme():
+    import datetime
+    # Rotate daily
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
+
+
 
 # ---------------- SEO: ping search engines ---------------- #
 def ping_search_engines():
@@ -281,123 +292,242 @@ FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday
 
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-body { margin:0; background:{{bg}}; color:#fff; font-family:'Outfit',sans-serif; padding:20px 20px 40px; }
-h1 { text-align:center; font-size:3rem; background:{{gradient}}; -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:40px 0 10px; }
-.subtitle { text-align:center; opacity:.85; max-width:900px; margin:20px auto; color:{{text_accent}}; font-size:1.1rem; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1400px; margin:auto; }
-.card { background:{{card}}; border-radius:22px; padding:20px; text-align:center; box-shadow:0 20px 40px rgba(0,0,0,.6); transition:transform .3s,box-shadow .3s; }
-.card:hover { transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,.7); }
+:root {
+    --bg: {{bg}};
+    --card: {{card}};
+    --accent: {{accent}};
+    --button: {{button}};
+    --tag: {{tag}};
+    --text_accent: {{text_accent}};
+    --gradient: {{gradient}};
+}
 
-/* Images - restored original sizing */
-img { width:100%; border-radius:16px; margin:16px 0; }
+/* Body & text */
+body { 
+    margin:0; 
+    background: var(--bg); 
+    color: var(--accent); 
+    font-family:'Outfit',sans-serif; 
+    padding:20px 20px 40px; 
+}
+h1 { 
+    text-align:center; 
+    font-size:3rem; 
+    margin:40px 0 10px; 
+    background: var(--gradient); 
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent; 
+}
+.subtitle { 
+    text-align:center; 
+    opacity:.85; 
+    max-width:900px; 
+    margin:20px auto; 
+    color:var(--text_accent); 
+    font-size:1.1rem; 
+}
+
+/* Grid layout */
+.grid { 
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
+    gap:24px; 
+    max-width:1400px; 
+    margin:auto; 
+}
+
+/* Cards */
+.card { 
+    background:var(--card); 
+    border-radius:22px; 
+    padding:20px; 
+    text-align:center; 
+    box-shadow:0 20px 40px rgba(0,0,0,.6); 
+    transition:transform .3s, box-shadow .3s; 
+    position: relative; 
+    overflow: hidden; 
+}
+.card:hover { 
+    transform: translateY(-6px); 
+    box-shadow:0 28px 60px rgba(0,0,0,.45); 
+}
 .card img { 
-    width: 100%; 
-    max-height: 380px; 
-    object-fit: contain; 
+    width:100%; 
+    max-height:380px; 
+    object-fit:contain; 
     background: #111827; 
-    border-radius: 16px; 
-    margin: 16px 0; 
-    display: block; 
+    border-radius:16px; 
+    margin:16px 0; 
+    display:block; 
+    transition: transform 0.4s ease; 
+}
+.card:hover img { 
+    transform: scale(1.05); 
+}
+/* Gradient overlay on hover */
+.card::before { 
+    content:""; 
+    position:absolute; 
+    top:0; left:0; right:0; bottom:0; 
+    background:linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0)); 
+    opacity:0; 
+    transition:opacity 0.4s ease; 
+    pointer-events:none; 
+    border-radius:16px; 
+}
+.card:hover::before { opacity:1; }
+
+/* Tags */
+.tag { 
+    background:var(--tag); 
+    padding:6px 14px; 
+    border-radius:20px; 
+    font-size:.85rem; 
+    display:inline-block; 
+    margin-bottom:12px; 
 }
 
-/* Single product detail page - prevent massive images */
-.grid:has(> .card:only-child) .card img {
-    max-height: 500px;          /* bigger than grid cards but contained */
-    max-width: 80%;             /* prevent full-width stretch */
-    width: auto; 
-    height: auto; 
-    margin: 20px auto; 
-    display: block; 
+/* Buttons */
+button { 
+    background:var(--button); 
+    border:none; 
+    padding:12px 28px; 
+    border-radius:50px; 
+    font-size:1rem; 
+    font-weight:900; 
+    color:white; 
+    cursor:pointer; 
+    transition:transform 0.25s ease, opacity 0.25s ease; 
 }
-.grid:has(> .card:only-child) {
-    justify-items: center;      /* center single card */
+button:hover { 
+    transform:scale(1.03); 
+    opacity:0.9; 
 }
 
-.tag { background:{{tag}}; padding:6px 14px; border-radius:20px; font-size:.85rem; display:inline-block; margin-bottom:12px; }
-button {
-    background:{{button}}; border:none; padding:12px 28px; border-radius:50px; font-size:1rem; font-weight:900;
-    color:white; cursor:pointer; transition:.3s;
+/* Footer */
+footer { 
+    text-align:center; 
+    opacity:.7; 
+    margin:80px 0 40px; 
+    font-size:.9rem; 
+    line-height:1.6; 
 }
-button:hover { opacity:.9; transform:scale(1.03); }
-footer { text-align:center; opacity:.7; margin:80px 0 40px; font-size:.9rem; line-height:1.6; }
-a { color:{{text_accent}}; text-decoration:none; }
+
+/* Links */
+a { 
+    color:var(--text_accent); 
+    text-decoration:none; 
+}
 
 /* Nav container */
-nav {
-    background:{{card}}; padding:16px; margin:20px 0 40px; border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4); text-align:center;
-    display:flex; flex-direction:column; align-items:center; gap:16px;
+nav { 
+    background:var(--card); 
+    padding:16px; 
+    margin:20px 0 40px; 
+    border-radius:16px; 
+    box-shadow:0 10px 30px rgba(0,0,0,.4); 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    gap:16px; 
 }
 
 /* Top row: Home + Blog */
-.nav-top {
-    display:flex; justify-content:center; gap:40px; width:100%;
+.nav-top { 
+    display:flex; 
+    justify-content:center; 
+    gap:40px; 
+    width:100%; 
 }
-.nav-top a {
-    color:{{text_accent}}; font-weight:700; font-size:1.2rem; transition:.2s;
+.nav-top a { 
+    color:var(--text_accent); 
+    font-weight:700; 
+    font-size:1.2rem; 
+    transition:.2s; 
 }
 .nav-top a:hover { opacity:.8; }
 
 /* Desktop horizontal categories + seasons */
-.nav-desktop {
-    display: none;
-    flex-wrap: wrap; justify-content:center; gap:16px; width:100%;
-}
-.nav-desktop a {
-    margin: 0 12px;
-}
+.nav-desktop { display:none; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
+.nav-desktop a { margin: 0 12px; }
 
 /* Mobile dropdowns */
-.nav-middle {
-    display:flex; justify-content:center; gap:24px; flex-wrap:nowrap;
-}
-
-/* Dropdown buttons */
-.categories-dropdown, .seasons-dropdown {
-    position: relative;
-}
-.categories-dropdown button, .seasons-dropdown button {
-    background: #334155; color: #bae6fd; border: 1px solid #475569;
-    padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: 1rem;
-    cursor: pointer; transition: all 0.2s; min-width:140px;
+.nav-middle { display:flex; justify-content:center; gap:24px; flex-wrap:nowrap; }
+.categories-dropdown, .seasons-dropdown { position: relative; }
+.categories-dropdown button, .seasons-dropdown button { 
+    background:#334155; 
+    color:#bae6fd; 
+    border:1px solid #475569; 
+    padding:10px 24px; 
+    border-radius:999px; 
+    font-weight:600; 
+    font-size:1rem; 
+    cursor:pointer; 
+    transition: all 0.2s; 
+    min-width:140px; 
 }
 .categories-dropdown button:hover, .seasons-dropdown button:hover { 
-    background: #475569; color: white; transform: translateY(-1px); 
+    background:#475569; 
+    color:white; 
+    transform: translateY(-1px); 
 }
-.dropdown-content {
-    display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-    background: {{card}}; border-radius: 12px; padding: 12px 0; min-width: 240px;
-    max-height: 60vh; overflow-y: auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 100; margin-top: 8px;
+.dropdown-content { 
+    display:none; 
+    position:absolute; 
+    top:100%; left:50%; 
+    transform:translateX(-50%); 
+    background:var(--card); 
+    border-radius:12px; 
+    padding:12px 0; 
+    min-width:240px; 
+    max-height:60vh; 
+    overflow-y:auto; 
+    box-shadow:0 10px 25px rgba(0,0,0,0.5); 
+    z-index:100; 
+    margin-top:8px; 
 }
-.dropdown-content a {
-    display: block; padding: 10px 24px; color: {{text_accent}}; text-decoration: none;
-    font-size: 1rem; white-space: nowrap;
+.dropdown-content a { 
+    display:block; 
+    padding:10px 24px; 
+    color:var(--text_accent); 
+    text-decoration:none; 
+    font-size:1rem; 
+    white-space:nowrap; 
 }
-.dropdown-content a:hover { background: #334155; }
+.dropdown-content a:hover { background:#334155; }
 
 /* Search bar */
-#search-form {
-    width:100%; max-width:400px; text-align:center;
-}
-#search-input {
-    padding:10px 20px; border-radius:999px; border:1px solid {{text_accent}}; 
-    background:transparent; color:white; width:100%; font-size:1rem; text-align:center;
+#search-form { width:100%; max-width:400px; text-align:center; }
+#search-input { 
+    padding:10px 20px; 
+    border-radius:999px; 
+    border:1px solid var(--text_accent); 
+    background:transparent; 
+    color:white; 
+    width:100%; 
+    font-size:1rem; 
+    text-align:center; 
 }
 
 /* Seasons horizontal links (desktop only) */
 nav .season-link { 
-    color: #a5b4fc; font-size: 1rem; font-weight: 600; padding: 4px 10px; 
-    border-radius: 8px; transition: all 0.2s ease; 
+    color:#a5b4fc; 
+    font-size:1rem; 
+    font-weight:600; 
+    padding:4px 10px; 
+    border-radius:8px; 
+    transition: all 0.2s ease; 
 }
 nav .season-link:hover { 
-    opacity: 1; color: #c7d2fe; background: rgba(56, 189, 248, 0.12); 
+    opacity:1; 
+    color:#c7d2fe; 
+    background: rgba(56, 189, 248, 0.12); 
 }
 
 /* Mobile */
 @media (max-width:768px) {
-    .nav-desktop { display: none !important; }
-    .nav-middle { display: flex !important; gap:20px; justify-content:center; }
+    .nav-desktop { display:none !important; }
+    .nav-middle { display:flex !important; gap:20px; justify-content:center; }
     .grid { grid-template-columns:1fr; }
 }
 
@@ -406,91 +536,149 @@ nav .season-link:hover {
     nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:wrap; }
     .nav-top { flex:0 0 auto; }
     .nav-middle { display:none !important; }
-    .nav-desktop { display: flex !important; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
+    .nav-desktop { display:flex !important; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
     #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
-    .categories-dropdown, .seasons-dropdown { display: none !important; }
+    .categories-dropdown, .seasons-dropdown { display:none !important; }
     nav a { margin:0 12px; }
 }
 
-/* Rest unchanged */
+/* Pagination */
 .pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
-.pagination a { background:{{button}}; padding:10px 16px; border-radius:12px; color:white; text-decoration:none; font-weight:700; transition:.2s; }
+.pagination a { 
+    background:var(--button); 
+    padding:10px 16px; 
+    border-radius:12px; 
+    color:white; 
+    text-decoration:none; 
+    font-weight:700; 
+    transition:.2s; 
+}
 .pagination a:hover { opacity:.9; }
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:{{text_accent}}; }
+
+/* Loading state */
+.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:var(--text_accent); }
+
+/* Day/Night toggle button */
+#theme-toggle {
+    position:fixed; 
+    top:16px; 
+    right:16px; 
+    z-index:999; 
+    padding:8px 16px; 
+    border-radius:12px; 
+    border:none; 
+    cursor:pointer; 
+    font-size:1rem;
+    background:var(--button);
+    color:white;
+}
+#theme-toggle:hover { opacity:0.85; }
 </style>"""
+
+
+
 
 
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
 
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description | truncate(155, true, '...') }}">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description | truncate(155, true, '...') }}">
+<link rel="canonical" href="{{ canonical_url }}">
+{% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
+{% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 
-    <link rel="canonical" href="{{ canonical_url }}">
-    {% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
-    {% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
+<!-- Open Graph -->
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
+<meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:site_name" content="FyboBuybo">
+<meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ title }} – UK gift ideas">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
-    <meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
-    <meta property="og:url" content="{{ canonical_url }}">
-    <meta property="og:site_name" content="FyboBuybo">
-    <meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="{{ title }} – UK gift ideas">
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CryptoSolGood">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
+<meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta name="twitter:image:alt" content="{{ title }} – popular UK presents">
 
-    <!-- Twitter / X Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@CryptoSolGood">
-    <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
-    <meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-    <meta name="twitter:image:alt" content="{{ title }} – popular UK presents">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C1YNKZS6PG');
+</script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-C1YNKZS6PG');
-    </script>
-
-    {{ css|safe }}
+{{ css|safe }}
 </head>
 <body>
 
-<!-- Search JS (client-side filtering) -->
+<!-- Day/Night Toggle -->
+<button id="theme-toggle" style="position:fixed;bottom:24px;right:24px;padding:10px 16px;border-radius:12px;background:#3b82f6;color:white;border:none;cursor:pointer;z-index:999;">
+    🌙 / ☀️
+</button>
+
+<script>
+const THEMES = [
+    { bg: "#f9fafb", card: "#ffffff", accent: "#111827", button: "#3b82f6", tag: "#e0f2fe", text_accent: "#334155", gradient: "linear-gradient(90deg,#3b82f6,#06b6d4)" },
+    { bg: "#111827", card: "#1f2937", accent: "#f9fafb", button: "#2563eb", tag: "#1e40af", text_accent: "#e5e7eb", gradient: "linear-gradient(90deg,#2563eb,#3b82f6)" }
+];
+
+function applyTheme(theme) {
+    document.body.style.background = theme.bg;
+    document.body.style.color = theme.accent;
+
+    document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
+    document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
+    document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
+    document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a").forEach(el => el.style.color = theme.text_accent);
+    document.querySelectorAll("h1").forEach(h => {
+        h.style.background = theme.gradient;
+        h.style.webkitBackgroundClip = "text";
+        h.style.webkitTextFillColor = "transparent";
+    });
+}
+
+// Default theme = light
+let currentTheme = 0;
+applyTheme(THEMES[currentTheme]);
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+    currentTheme = (currentTheme + 1) % THEMES.length;
+    applyTheme(THEMES[currentTheme]);
+});
+</script>
+
+<!-- Search JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
     if (!searchInput) return;
-
     const cards = document.querySelectorAll(".grid .card");
-
     searchInput.addEventListener("input", function(e) {
         const query = e.target.value.toLowerCase().trim();
-
         cards.forEach(card => {
             const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
             const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
             const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
-
             const matches = name.includes(query) || hook.includes(query) || category.includes(query);
-
             card.style.display = matches ? "" : "none";
         });
-
         const visibleCards = Array.from(cards).filter(c => c.style.display !== "none");
         let noResults = document.getElementById("no-results");
         if (query.length > 0 && visibleCards.length === 0) {
@@ -511,68 +699,63 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- Navigation: top + desktop + mobile -->
 <nav aria-label="Main navigation">
-    <!-- Top row: Home + Blog (always visible) -->
-    <div class="nav-top">
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
-    </div>
+<!-- Top row -->
+<div class="nav-top">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+</div>
 
-    <!-- Horizontal categories + seasons (desktop only) -->
-    <div class="nav-desktop">
-        {% for cat in nav_items.categories %}
-            <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+<!-- Desktop categories + seasons -->
+<div class="nav-desktop">
+    {% for cat in nav_items.categories %}
+        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+    {% endfor %}
+    {% if nav_items.seasons %}
+        <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
+        {% for season in nav_items.seasons %}
+            <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
         {% endfor %}
+    {% endif %}
+</div>
 
-        {% if nav_items.seasons %}
-            <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
-
-            {% for season in nav_items.seasons %}
-                <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+<!-- Mobile dropdowns -->
+<div class="nav-middle">
+    <div class="categories-dropdown">
+        <button aria-expanded="false" aria-controls="categories-menu">Categories ▼</button>
+        <div id="categories-menu" class="dropdown-content">
+            {% for cat in nav_items.categories %}
+                <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
             {% endfor %}
-        {% endif %}
-    </div>
-
-    <!-- Mobile dropdowns: Categories + Seasonal -->
-    <div class="nav-middle">
-        <div class="categories-dropdown">
-            <button>Categories ▼</button>
-            <div class="dropdown-content">
-                {% for cat in nav_items.categories %}
-                    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-                {% endfor %}
-            </div>
         </div>
-
-        {% if nav_items.seasons %}
-            <div class="seasons-dropdown">
-                <button>Seasonal ▼</button>
-                <div class="dropdown-content">
-                    {% for season in nav_items.seasons %}
-                        <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
     </div>
+    {% if nav_items.seasons %}
+    <div class="seasons-dropdown">
+        <button aria-expanded="false" aria-controls="seasons-menu">Seasonal ▼</button>
+        <div id="seasons-menu" class="dropdown-content">
+            {% for season in nav_items.seasons %}
+                <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
 
-    <!-- Search bar (bottom on mobile, right on desktop) -->
-    <form id="search-form">
-        <input type="search" id="search-input" placeholder="Search gifts..." />
-    </form>
+<!-- Search bar -->
+<form id="search-form" role="search">
+    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
+</form>
 </nav>
 
 <!-- Dropdown JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
-    
     dropdowns.forEach(dropdown => {
         const btn = dropdown.querySelector("button");
         const content = dropdown.querySelector(".dropdown-content");
-        
         if (!btn || !content) return;
-        
         btn.addEventListener("click", function(e) {
             e.stopPropagation();
             const isOpen = content.style.display === "block";
@@ -580,7 +763,6 @@ document.addEventListener("DOMContentLoaded", function() {
             content.style.display = isOpen ? "none" : "block";
         });
     });
-
     document.addEventListener("click", function(e) {
         if (!e.target.closest(".categories-dropdown, .seasons-dropdown")) {
             document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
@@ -591,7 +773,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
-
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
     ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
 </p>
@@ -605,32 +786,37 @@ document.addEventListener("DOMContentLoaded", function() {
         <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
     </a>
     <a href="/product/{{ slugify(p.name) }}">
-        <img src="{{ p.image }}" 
-             alt="{{ p.name }} – {{ p.info | truncate(100) }}" 
-             loading="lazy" 
-             itemprop="image">
+        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy" itemprop="image">
     </a>
     <p itemprop="description">{{ p.hook|safe }}</p>
+
     {% if p.date_added %}
-    <p style="font-size:0.85rem;opacity:.7;margin:16px 0 8px;color:#94a3b8;text-align:center;">
+    <p style="font-size:0.85rem; opacity:.7; margin:16px 0 8px; color:#94a3b8; text-align:center;">
         ↳ Featured on {{ p.date_added }}
     </p>
     {% endif %}
+
     <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" 
-       aria-label="View {{ p.name }} on Amazon"
+       aria-label="Check price for {{ p.name }} on Amazon"
        onclick="gtag('event', 'affiliate_click', { 
            'event_category': '{{ p.category }}', 
            'event_label': '{{ p.name }}', 
            'value': 1
        });">
-        <button>View on Amazon</button>
+        <button>Check price</button>
     </a>
+
+    <p style="margin-top:8px; font-size:.85rem; opacity:.75; text-align:center;">
+        <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
+    </p>
+
     {% if p.category %}
-    <p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+    <p style="font-size:.85rem; opacity:.7; margin-top:16px;">
         More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
     </p>
     {% endif %}
 
+    <!-- Schema.org Product -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -651,44 +837,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 {% endfor %}
 </div>
-
-<!-- Page-level Breadcrumb -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ SITE_URL }}/"}
-    {% if request.path != "/" %},
-    {"@type": "ListItem", "position": 2, "name": "{{ heading }}", "item": "{{ canonical_url }}"}
-    {% endif %}
-  ]
-}
-</script>
-
-{% if related_products %}
-<h2 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-    More Popular {{ related_products[0].category if related_products else 'UK' }} Gifts
-</h2>
-<div class="grid">
-    {% for rp in related_products %}
-    <div class="card" itemscope itemtype="https://schema.org/Product">
-        <span class="tag">{{ rp.category }}</span>
-        <a href="/product/{{ slugify(rp.name) }}" itemprop="url">
-            <h2 itemprop="name">{{ shorten_product_name(rp.name) }}</h2>
-        </a>
-        <a href="/product/{{ slugify(rp.name) }}">
-            <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info | truncate(100) }}" loading="lazy" itemprop="image">
-        </a>
-        <p itemprop="description">{{ rp.hook|safe }}</p>
-        <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored noopener">
-            <button>View on Amazon</button>
-        </a>
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
 {% else %}
 <p class="loading">
     Loading today's gifts...<br>
@@ -703,35 +851,6 @@ document.addEventListener("DOMContentLoaded", function() {
         All product information, prices, and availability are accurate at the time of publication and subject to change.
     </p>
 </footer>
-
-<!-- Homepage structured data -->
-{% if request.path == "/" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "FyboBuybo",
-  "url": "{{ SITE_URL }}",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ SITE_URL }}/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "FyboBuybo",
-  "url": "{{ SITE_URL }}",
-  "sameAs": [
-    "https://twitter.com/CryptoSolGood",
-    "https://www.pinterest.co.uk/petejmoore/"
-  ]
-}
-</script>
-{% endif %}
 
 </body>
 </html>
