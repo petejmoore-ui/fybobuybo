@@ -3,7 +3,7 @@ groq
 apscheduler
 gunicorn
 python-dotenv
-amazon-paapi5
+python-amazon-paapi>=5.0.0
 requests
 markupsafe
 flask-caching
