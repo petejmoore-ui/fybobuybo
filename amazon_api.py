@@ -1,83 +1,79 @@
 """
-Amazon Product Advertising API Integration
-Using amazon-paapi5 (PyPI)
+Amazon Product Advertising API Integration (UK)
+Using amightygirl.paapi5-python-sdk (PyPI)
 Handles fetching product data, caching, and formatting
 """
 
 import os
-import json
 import datetime
 from pathlib import Path
+import json
 
-from amazon_paapi5 import AmazonApi, AmazonApiException
+# Correct import for amazon-paapi5
+from amightygirl.paapi5_python_sdk import AmazonApi, AmazonApiException
 
-# Amazon API credentials from environment variables
+# Amazon API Credentials from environment
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
 AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY")
-AMAZON_PARTNER_TAG = os.environ.get("AMAZON_PARTNER_TAG")
-AMAZON_MARKETPLACE = "www.amazon.co.uk"  # UK marketplace
+AMAZON_PARTNER_TAG = os.environ.get("AMAZON_PARTNER_TAG")  # Your Associate Tag
+AMAZON_COUNTRY = "uk"  # UK store
 
-# Cache folder
-CACHE_DIR = Path("cache")
+# Cache directory
+CACHE_DIR = Path("./cache")
 CACHE_DIR.mkdir(exist_ok=True)
 
+def cache_file_path(asin: str) -> Path:
+    """Return the cache file path for a given ASIN."""
+    return CACHE_DIR / f"{asin}.json"
+
+def save_to_cache(asin: str, data: dict):
+    """Save product data to a cache file."""
+    with open(cache_file_path(asin), "w", encoding="utf-8") as f:
+        json.dump({"timestamp": datetime.datetime.utcnow().isoformat(), "data": data}, f)
 
 def load_from_cache(asin: str) -> dict | None:
-    cache_file = CACHE_DIR / f"{asin}.json"
-    if cache_file.exists():
-        with open(cache_file, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return None
+    """Load product data from cache if it's recent (24h)."""
+    path = cache_file_path(asin)
+    if not path.exists():
+        return None
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            cached = json.load(f)
+        timestamp = datetime.datetime.fromisoformat(cached["timestamp"])
+        if (datetime.datetime.utcnow() - timestamp).total_seconds() > 86400:  # 24h
+            return None
+        return cached["data"]
+    except Exception:
+        return None
 
+def format_price_display(price: float | None) -> str:
+    if price is None:
+        return "Price not available"
+    return f"£{price:.2f}"
 
-def save_to_cache(asin: str, data: dict) -> None:
-    cache_file = CACHE_DIR / f"{asin}.json"
-    with open(cache_file, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-
-def format_price_display(price: dict) -> str:
-    if not price or "Amount" not in price or "Currency" not in price:
-        return "N/A"
-    return f"{price['Amount']} {price['Currency']}"
-
-
-def format_rating_display(rating: dict) -> str:
-    if not rating or "Value" not in rating or "TotalReviews" not in rating:
-        return "N/A"
-    return f"{rating['Value']} / 5 ({rating['TotalReviews']} reviews)"
-
+def format_rating_display(rating: float | None) -> str:
+    if rating is None:
+        return "No rating"
+    return f"{rating:.1f}/5"
 
 def enrich_products_with_amazon_data(asin: str) -> dict | None:
+    """Fetch product data from Amazon, with caching."""
+    # Return cached data if available
     cached = load_from_cache(asin)
     if cached:
         return cached
 
     try:
-        amazon = AmazonApi(
-            access_key=AMAZON_ACCESS_KEY,
-            secret_key=AMAZON_SECRET_KEY,
-            partner_tag=AMAZON_PARTNER_TAG,
-            marketplace=AMAZON_MARKETPLACE,
-        )
-
-        response = amazon.get_items([asin])
-        if not response or not response.get("ItemsResult", {}).get("Items"):
-            return None
-
-        item = response["ItemsResult"]["Items"][0]
-
+        api = AmazonApi(AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY, AMAZON_PARTNER_TAG, AMAZON_COUNTRY)
+        product = api.get_items([asin])[0]  # get_items returns a list
         product_data = {
-            "asin": asin,
-            "title": item.get("ItemInfo", {}).get("Title", {}).get("DisplayValue"),
-            "price": format_price_display(
-                item.get("Offers", {}).get("Listings", [{}])[0].get("Price")
-            ),
-            "rating": format_rating_display(item.get("CustomerReviews")),
-            "url": item.get("DetailPageURL"),
-            "last_updated": datetime.datetime.utcnow().isoformat(),
+            "title": product.title,
+            "asin": product.asin,
+            "price": product.price.amount if product.price else None,
+            "currency": product.price.currency if product.price else "GBP",
+            "rating": product.rating,
+            "url": product.detail_page_url,
         }
-
         save_to_cache(asin, product_data)
         return product_data
 
