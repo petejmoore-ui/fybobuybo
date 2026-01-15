@@ -20,16 +20,17 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 from flask_caching import Cache
 
 cache = Cache(app, config={
-    'CACHE_TYPE': 'SimpleCache',
-    'CACHE_DEFAULT_TIMEOUT': 300
+    'CACHE_TYPE': 'SimpleCache',    # in-memory, perfect for small/medium traffic
+    'CACHE_DEFAULT_TIMEOUT': 300    # 5 minutes – good balance for daily refresh
 })
 
-# Staging SEO safeguard
+# --- Staging SEO safeguard ---
 if os.environ.get("STAGING") == "true":
     @app.after_request
     def add_header(response):
         response.headers['X-Robots-Tag'] = 'noindex, nofollow'
         return response
+# -----------------------------
 
 CACHE_FILE = "data/cache.json"
 HISTORY_FILE = "data/history.json"
@@ -37,6 +38,7 @@ AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
+# Cache settings
 CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v2.2-uk-seo-2026"
 
@@ -46,27 +48,31 @@ os.makedirs("data", exist_ok=True)
 THEMES = [
     {
         "name": "Light Elegance",
-        "bg": "#fdfdfd",
-        "card": "#ffffff",
-        "accent": "#1f2937",
-        "button": "#3b82f6",
-        "tag": "#dbeafe",
-        "text_accent": "#475569",
-        "gradient": "linear-gradient(90deg, #3b82f6, #06b6d4)"
+        "bg": "#fdfdfd",            # Light, soft neutral
+        "card": "#ffffff",           # Clean card background
+        "accent": "#1f2937",         # Slate-800 for primary text
+        "button": "#3b82f6",         # Bright, modern blue
+        "tag": "#dbeafe",            # Soft light blue for tags
+        "text_accent": "#475569",    # Slightly muted slate for secondary text
+        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"  # Smooth professional gradient
     },
     {
         "name": "Dark Luxe",
-        "bg": "#0f172a",
-        "card": "#1e293b",
-        "accent": "#f8fafc",
-        "button": "#3b82f6",
-        "tag": "#1e40af",
-        "text_accent": "#cbd5e1",
-        "gradient": "linear-gradient(90deg, #3b82f6, #60a5fa)"
+        "bg": "#0f172a",             # Deep navy/charcoal
+        "card": "#1e293b",           # Slightly lighter than bg for contrast
+        "accent": "#f8fafc",         # Off-white primary text
+        "button": "#2563eb",         # Vivid, accessible blue
+        "tag": "#1e40af",            # Darker, subtle accent
+        "text_accent": "#cbd5e1",    # Light slate for secondary text
+        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"  # Elegant, soft contrast
     }
 ]
 
-DEFAULT_THEME = THEMES[0]  # Light Elegance is the fixed default
+def get_daily_theme():
+    import datetime
+    return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
+
+
 
 # ---------------- SEO: ping search engines ---------------- #
 def ping_search_engines():
@@ -79,7 +85,7 @@ def ping_search_engines():
         try:
             requests.get(url, timeout=5)
         except Exception:
-            pass
+            pass  # silent fail
 
 # ---------------- AI HOOK GENERATION ---------------- #
 HOOK_STYLES = ["benefit-first", "lifestyle-story", "quality-craft", "quiet-genius"]
@@ -182,7 +188,7 @@ def load_or_generate_hooks(products):
 
     Thread(target=ping_search_engines, daemon=True).start()
 
-    cache.clear()
+    cache.clear()  # if you already added caching
 
     return enriched
 
@@ -285,352 +291,588 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
+# ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
 :root {
-    --bg: {{bg | default('#fdfdfd')}};
-    --card: {{card | default('#ffffff')}};
-    --accent: {{accent | default('#1f2937')}};
-    --button: {{button | default('#3b82f6')}};
-    --tag: {{tag | default('#dbeafe')}};
-    --text-accent: {{text_accent | default('#475569')}};
-    --gradient: {{gradient | default('linear-gradient(90deg, #3b82f6, #06b6d4)')}};
-    --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg: {{bg}};
+    --card: {{card}};
+    --accent: {{accent}};
+    --button: {{button}};
+    --tag: {{tag}};
+    --text_accent: {{text_accent}};
+    --gradient: {{gradient}};
 }
 
-* { box-sizing: border-box; margin:0; padding:0; }
-
-body {
-    background: var(--bg);
-    color: var(--accent);
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-    line-height: 1.58;
-    min-height: 100vh;
-    padding: 1.5rem 1rem 4rem;
-    transition: var(--transition);
+/* Body & text */
+body { 
+    margin:0; 
+    background: var(--bg); 
+    color: var(--accent); 
+    font-family:'Outfit',sans-serif; 
+    padding:20px 20px 40px; 
+    transition: background 0.4s, color 0.4s;
+}
+h1 { 
+    text-align:center; 
+    font-size:3rem; 
+    margin:40px 0 10px; 
+    background: var(--gradient); 
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent; 
+    transition: background 0.4s;
+}
+.subtitle { 
+    text-align:center; 
+    opacity:.85; 
+    max-width:900px; 
+    margin:20px auto; 
+    color:var(--text_accent); 
+    font-size:1.1rem; 
+    transition: color 0.4s;
 }
 
-h1 {
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
-    font-weight: 900;
-    letter-spacing: -0.025em;
-    text-align: center;
-    margin: 2.5rem 0 0.75rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* Grid layout */
+.grid { 
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
+    gap:24px; 
+    max-width:1400px; 
+    margin:auto; 
 }
 
-.subtitle {
-    text-align: center;
-    max-width: 42rem;
-    margin: 0 auto 1.5rem;
-    color: var(--text-accent);
-    font-size: 1.15rem;
-    opacity: 0.9;
+/* Cards */
+.card { 
+    background:var(--card); 
+    border-radius:22px; 
+    padding:20px; 
+    text-align:center; 
+    box-shadow:0 20px 40px rgba(0,0,0,.6); 
+    transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.4s, opacity 0.3s ease; 
+    position: relative; 
+    overflow: hidden; 
+    opacity:1;
+}
+.card:hover { 
+    transform: translateY(-6px); 
+    box-shadow:0 28px 60px rgba(0,0,0,.45); 
+}
+.card img { 
+    width:100%; 
+    max-height:380px; 
+    object-fit:contain; 
+    border-radius:16px; 
+    margin:16px 0; 
+    display:block; 
+    transition: transform 0.4s ease, filter 0.4s;
+}
+.card:hover img { 
+    transform: scale(1.05); 
+}
+/* Gradient overlay on hover */
+.card::before { 
+    content:""; 
+    position:absolute; 
+    top:0; left:0; right:0; bottom:0; 
+    background:linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0)); 
+    opacity:0; 
+    transition:opacity 0.4s ease; 
+    pointer-events:none; 
+    border-radius:16px; 
+}
+.card:hover::before { opacity:1; }
+
+/* Card hide animation (search filter) */
+.grid .card.hidden {
+    opacity:0;
+    pointer-events:none;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.75rem;
-    max-width: 1400px;
-    margin: 0 auto;
+/* Tags */
+.tag { 
+    background:var(--tag); 
+    padding:6px 14px; 
+    border-radius:20px; 
+    font-size:.85rem; 
+    display:inline-block; 
+    margin-bottom:12px; 
+    transition: background 0.4s;
 }
 
-.card {
-    background: var(--card);
-    border-radius: 1.375rem;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid color-mix(in srgb, var(--card) 85%, #000);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+/* Buttons */
+button { 
+    background:var(--button); 
+    border:none; 
+    padding:12px 28px; 
+    border-radius:50px; 
+    font-size:1rem; 
+    font-weight:900; 
+    color:white; 
+    cursor:pointer; 
+    transition:transform 0.25s ease, opacity 0.25s ease, background 0.4s; 
+}
+button:hover { 
+    transform:scale(1.03); 
+    opacity:0.9; 
 }
 
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+/* Footer */
+footer { 
+    text-align:center; 
+    opacity:.7; 
+    margin:80px 0 40px; 
+    font-size:.9rem; 
+    line-height:1.6; 
+    transition: color 0.4s;
 }
 
-.card img {
-    width: 100%;
-    height: 320px;
-    object-fit: contain;
-    border-radius: 1rem;
-    margin: 1rem 0;
-    transition: transform 0.5s ease;
+/* Links */
+a { 
+    color:var(--text_accent); 
+    text-decoration:none; 
+    transition: color 0.4s;
 }
 
-.card:hover img {
-    transform: scale(1.06);
+/* Nav container */
+nav { 
+    background:var(--card); 
+    padding:16px; 
+    margin:20px 0 40px; 
+    border-radius:16px; 
+    box-shadow:0 10px 30px rgba(0,0,0,.4); 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    gap:16px; 
+    transition: background 0.4s, color 0.4s;
 }
 
-.tag {
-    background: var(--tag);
-    color: var(--accent);
-    padding: 0.4rem 1rem;
-    border-radius: 999px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-bottom: 1rem;
+/* Top row: Home + Blog */
+.nav-top { 
+    display:flex; 
+    justify-content:center; 
+    gap:40px; 
+    width:100%; 
+}
+.nav-top a { 
+    color:var(--text_accent); 
+    font-weight:700; 
+    font-size:1.2rem; 
+    transition:.2s, color 0.4s; 
+}
+.nav-top a:hover { opacity:.8; }
+
+/* Desktop horizontal categories + seasons */
+.nav-desktop { display:none; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
+.nav-desktop a { margin: 0 12px; }
+
+/* Mobile dropdowns */
+.nav-middle { display:flex; justify-content:center; gap:24px; flex-wrap:nowrap; }
+.categories-dropdown, .seasons-dropdown { position: relative; }
+.categories-dropdown button, .seasons-dropdown button { 
+    background:#334155; 
+    color:#bae6fd; 
+    border:1px solid #475569; 
+    padding:10px 24px; 
+    border-radius:999px; 
+    font-weight:600; 
+    font-size:1rem; 
+    cursor:pointer; 
+    transition: all 0.2s; 
+    min-width:140px; 
+}
+.categories-dropdown button:hover, .seasons-dropdown button:hover { 
+    background:#475569; 
+    color:white; 
+    transform: translateY(-1px); 
+}
+.dropdown-content { 
+    display:none; 
+    position:absolute; 
+    top:100%; left:50%; 
+    transform:translateX(-50%); 
+    background:var(--card); 
+    border-radius:12px; 
+    padding:12px 0; 
+    min-width:240px; 
+    max-height:60vh; 
+    overflow-y:auto; 
+    box-shadow:0 10px 25px rgba(0,0,0,0.5); 
+    z-index:100; 
+    margin-top:8px; 
+    transition: background 0.4s;
+}
+.dropdown-content a { 
+    display:block; 
+    padding:10px 24px; 
+    color:var(--text_accent); 
+    text-decoration:none; 
+    font-size:1rem; 
+    white-space:nowrap; 
+    transition: color 0.4s;
+}
+.dropdown-content a:hover { background:#334155; }
+
+/* Search bar */
+#search-form { width:100%; max-width:400px; text-align:center; }
+#search-input { 
+    padding:10px 20px; 
+    border-radius:999px; 
+    border:1px solid var(--text_accent); 
+    background:transparent; 
+    color:var(--accent); 
+    width:100%; 
+    font-size:1rem; 
+    text-align:center; 
+    transition: border-color 0.4s, color 0.4s;
 }
 
-button,
-a.button-like {
-    background: var(--gradient);
-    color: white;
-    border: none;
-    padding: 0.85rem 2rem;
-    border-radius: 999px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: var(--transition);
-    display: inline-block;
-    text-decoration: none;
+/* Seasons horizontal links (desktop only) */
+nav .season-link { 
+    color:#a5b4fc; 
+    font-size:1rem; 
+    font-weight:600; 
+    padding:4px 10px; 
+    border-radius:8px; 
+    transition: all 0.2s ease; 
+}
+nav .season-link:hover { 
+    opacity:1; 
+    color:#c7d2fe; 
+    background: rgba(56, 189, 248, 0.12); 
 }
 
-button:hover,
-a.button-like:hover {
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 10px 25px rgba(59,130,246,0.3);
-    background-position: 100% 50%;
-    background-size: 200% 200%;
+/* Mobile */
+@media (max-width:768px) {
+    .nav-desktop { display:none !important; }
+    .nav-middle { display:flex !important; gap:20px; justify-content:center; }
+    .grid { grid-template-columns:1fr; }
 }
 
+/* Desktop */
+@media (min-width:769px) {
+    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:wrap; }
+    .nav-top { flex:0 0 auto; }
+    .nav-middle { display:none !important; }
+    .nav-desktop { display:flex !important; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
+    #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
+    .categories-dropdown, .seasons-dropdown { display:none !important; }
+    nav a { margin:0 12px; }
+}
+
+/* Pagination */
+.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
+.pagination a { 
+    background:var(--button); 
+    padding:10px 16px; 
+    border-radius:12px; 
+    color:white; 
+    text-decoration:none; 
+    font-weight:700; 
+    transition:.2s; 
+}
+.pagination a:hover { opacity:.9; }
+
+/* Loading state */
+.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:var(--text_accent); }
+
+/* Day/Night toggle professional button */
 #theme-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: var(--button);
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
+    position:fixed; 
+    top:16px; 
+    right:16px; 
+    z-index:999; 
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:var(--button);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.25s ease;
 }
-
 #theme-toggle:hover {
-    transform: scale(1.1);
+    transform:scale(1.05);
+    box-shadow:0 6px 16px rgba(0,0,0,0.35);
 }
-
-nav {
-    background: var(--card);
-    border-radius: 1rem;
-    padding: 1rem 1.5rem;
-    margin: 1.5rem auto;
-    max-width: 1400px;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-top a,
-.nav-desktop a,
-.dropdown-content a {
-    color: var(--text-accent);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    transition: var(--transition);
-}
-
-.nav-top a:hover,
-.nav-desktop a:hover,
-.dropdown-content a:hover {
-    color: var(--accent);
-    background: color-mix(in srgb, var(--tag) 30%, transparent);
-    border-radius: 0.5rem;
-}
-
-#search-input {
-    padding: 0.75rem 1.25rem;
-    border-radius: 999px;
-    border: 1px solid var(--text-accent);
-    background: transparent;
-    color: var(--accent);
-    width: 100%;
-    max-width: 360px;
-    font-size: 1rem;
-}
-
-footer {
-    text-align: center;
-    margin-top: 6rem;
-    color: var(--text-accent);
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
-    nav { flex-direction: column; }
-}
-
-/* Loading / empty state */
-.loading {
-    text-align: center;
-    padding: 6rem 1rem;
-    color: var(--text-accent);
-    font-size: 1.25rem;
+#theme-toggle svg {
+    width:20px;
+    height:20px;
+    fill:white;
+    transition: transform 0.3s ease;
 }
 </style>"""
+
+
+
+
 
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    <meta name="description" content="{{ description | truncate(160, true, '...') }}">
-    <link rel="canonical" href="{{ canonical_url }}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description | truncate(200) }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ canonical_url }}">
-    <meta property="og:image" content="{{ SITE_URL }}/static/og-default.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description | truncate(155, true, '...') }}">
+<link rel="canonical" href="{{ canonical_url }}">
+{% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
+{% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+<!-- Open Graph -->
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
+<meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:site_name" content="FyboBuybo">
+<meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ title }} – UK gift ideas">
 
-    {{ css|safe }}
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CryptoSolGood">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
+<meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta name="twitter:image:alt" content="{{ title }} – popular UK presents">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+
+{{ css|safe }}
 </head>
 <body>
 
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" aria-label="Toggle dark mode">
-        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-    </button>
+<!-- Day/Night Toggle -->
+<button id="theme-toggle" aria-label="Toggle theme">
+  <!-- Sun / Moon SVG icons will swap -->
+  <svg id="theme-icon" viewBox="0 0 24 24">
+    <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.657 2.343a1 1 0 0 1 1.414 1.414l-1.414 1.414a1 1 0 0 1-1.414-1.414l1.414-1.414zM20 11h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zm-2.343 5.657a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-5.657-2.343a1 1 0 0 1 0 1.414L5.343 20a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM4 11H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm2.343-5.657a1 1 0 0 1-1.414 0L3.515 4.929a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+  </svg>
+</button>
 
-    <nav aria-label="Main navigation">
-        <div class="nav-top">
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-        </div>
+<script>
+const THEMES = [
+  { bg: "#f9fafb", card: "#ffffff", accent: "#111827", button: "#3b82f6", tag: "#e0f2fe", text_accent: "#334155", gradient: "linear-gradient(90deg,#3b82f6,#06b6d4)" },
+  { bg: "#111827", card: "#1f2937", accent: "#f9fafb", button: "#2563eb", tag: "#1e40af", text_accent: "#e5e7eb", gradient: "linear-gradient(90deg,#2563eb,#3b82f6)" }
+];
 
-        <div class="nav-desktop">
-            {% for cat in nav_items.categories %}
-                <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-            {% endfor %}
-            {% if nav_items.seasons %}
-                <span style="margin:0 1rem; opacity:0.4;">•</span>
-                {% for season in nav_items.seasons %}
-                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-                {% endfor %}
-            {% endif %}
-        </div>
+let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
 
-        <form id="search-form" role="search">
-            <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts">
-        </form>
-    </nav>
+function applyTheme(themeIndex) {
+  const theme = THEMES[themeIndex];
+  document.body.style.background = theme.bg;
+  document.body.style.color = theme.accent;
+  document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
+  document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
+  document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
+  document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a").forEach(el => el.style.color = theme.text_accent);
+  document.querySelectorAll("h1").forEach(h => {
+    h.style.background = theme.gradient;
+    h.style.webkitBackgroundClip = "text";
+    h.style.webkitTextFillColor = "transparent";
+  });
 
-    <h1>{{ heading }}</h1>
-    <p class="subtitle">{{ subtitle }}</p>
+  // Update icon: sun for light, moon for dark
+  const icon = document.getElementById("theme-icon");
+  if(themeIndex === 0){
+    icon.style.transform = "rotate(0deg)";
+  } else {
+    icon.style.transform = "rotate(180deg)";
+  }
 
-    {% if products %}
-        <div class="grid">
-            {% for p in products %}
-            <div class="card" itemscope itemtype="https://schema.org/Product">
-                <span class="tag">{{ p.category }}</span>
-                <a href="/product/{{ slugify(p.name) }}" itemprop="url">
-                    <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
-                </a>
-                <a href="/product/{{ slugify(p.name) }}">
-                    <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
-                </a>
-                <p itemprop="description">{{ p.hook|safe }}</p>
-                <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" class="button-like">
-                    Check price on Amazon
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p class="loading">Loading curated gifts...</p>
+  localStorage.setItem('themeIndex', themeIndex);
+}
+
+applyTheme(currentTheme);
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  currentTheme = (currentTheme + 1) % THEMES.length;
+  applyTheme(currentTheme);
+});
+</script>
+
+<!-- Search & Nav (unchanged from your previous template) -->
+<nav aria-label="Main navigation">
+  <div class="nav-top">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+  </div>
+  <div class="nav-desktop">
+    {% for cat in nav_items.categories %}
+        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+    {% endfor %}
+    {% if nav_items.seasons %}
+      <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
+      {% for season in nav_items.seasons %}
+          <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+      {% endfor %}
     {% endif %}
+  </div>
+  <div class="nav-middle">
+    <div class="categories-dropdown">
+      <button aria-expanded="false">Categories ▼</button>
+      <div class="dropdown-content">
+        {% for cat in nav_items.categories %}
+          <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% if nav_items.seasons %}
+    <div class="seasons-dropdown">
+      <button aria-expanded="false">Seasonal ▼</button>
+      <div class="dropdown-content">
+        {% for season in nav_items.seasons %}
+          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <form id="search-form" role="search">
+    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
+  </form>
+</nav>
 
-    <footer>
-        <p>As an Amazon Associate, I earn from qualifying purchases.</p>
-        <p>FyboBuybo – thoughtful UK gift ideas • independent site</p>
-    </footer>
+<h1>{{ heading }}</h1>
+<p class="subtitle">{{ subtitle }}</p>
+<p style="text-align:center;opacity:.7;margin-bottom:40px;">
+    ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
+</p>
 
-    <script>
-        const THEMES = [
-            { name: "Light", bg: "#fdfdfd", card: "#ffffff", accent: "#1f2937", button: "#3b82f6", tag: "#dbeafe", text_accent: "#475569", gradient: "linear-gradient(90deg, #3b82f6, #06b6d4)" },
-            { name: "Dark",  bg: "#0f172a", card: "#1e293b", accent: "#f8fafc", button: "#3b82f6", tag: "#1e40af", text_accent: "#cbd5e1", gradient: "linear-gradient(90deg, #3b82f6, #60a5fa)" }
-        ];
+{% if products %}
+<div class="grid">
+  {% for p in products %}
+  <div class="card" itemscope itemtype="https://schema.org/Product">
+      <span class="tag">{{ p.category }}</span>
+      <a href="/product/{{ slugify(p.name) }}" itemprop="url">
+          <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
+      </a>
+      <a href="/product/{{ slugify(p.name) }}">
+          <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy" itemprop="image">
+      </a>
+      <p itemprop="description">{{ p.hook|safe }}</p>
 
-        let currentTheme = parseInt(localStorage.getItem('theme')) || 0;
+      {% if p.date_added %}
+      <p style="font-size:0.85rem; opacity:.7; margin:16px 0 8px; color:#94a3b8; text-align:center;">
+          ↳ Featured on {{ p.date_added }}
+      </p>
+      {% endif %}
 
-        function applyTheme(idx) {
-            const t = THEMES[idx];
-            document.documentElement.style.setProperty('--bg', t.bg);
-            document.documentElement.style.setProperty('--card', t.card);
-            document.documentElement.style.setProperty('--accent', t.accent);
-            document.documentElement.style.setProperty('--button', t.button);
-            document.documentElement.style.setProperty('--tag', t.tag);
-            document.documentElement.style.setProperty('--text-accent', t.text_accent);
-            document.documentElement.style.setProperty('--gradient', t.gradient);
+      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
+          <button>Check price</button>
+      </a>
+      <p style="margin-top:8px; font-size:.85rem; opacity:.75; text-align:center;">
+          <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
+      </p>
+      {% if p.category %}
+      <p style="font-size:.85rem; opacity:.7; margin-top:16px;">
+          More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+      </p>
+      {% endif %}
+  </div>
+  {% endfor %}
+</div>
 
-            document.querySelectorAll('.card').forEach(el => el.style.background = t.card);
-            document.querySelectorAll('.tag').forEach(el => el.style.background = t.tag);
-            document.querySelectorAll('button, a.button-like').forEach(el => el.style.background = t.gradient);
-            document.querySelectorAll('h1').forEach(el => el.style.background = t.gradient);
+<!-- Similar Products restored -->
+{% if similar_products %}
+<h2 style="text-align:center; margin-top:60px;">You might also like</h2>
+<div class="grid">
+  {% for p in similar_products %}
+    <div class="card">
+      <span class="tag">{{ p.category }}</span>
+      <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
+      <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy"></a>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
 
-            localStorage.setItem('theme', idx);
-        }
+{% else %}
+<p class="loading">
+    Loading today's gifts...<br>
+    <small>Generating fresh AI descriptions – this only happens once per day.</small>
+</p>
+{% endif %}
 
-        applyTheme(currentTheme);
+<footer>
+    <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
+    <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+    <p style="opacity:.8;font-size:.9rem;margin-top:20px;">
+        All product information, prices, and availability are accurate at the time of publication and subject to change.
+    </p>
+</footer>
 
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            currentTheme = (currentTheme + 1) % 2;
-            applyTheme(currentTheme);
+<script>
+// Search filter
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("search-input");
+    if (!searchInput) return;
+    const cards = document.querySelectorAll(".grid .card");
+    searchInput.addEventListener("input", function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+            const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
+            const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
+            const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
+            const matches = name.includes(query) || hook.includes(query) || category.includes(query);
+            card.classList.toggle('hidden', !matches);
         });
-    </script>
+        const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+        let noResults = document.getElementById("no-results");
+        if (query.length > 0 && visibleCards.length === 0) {
+            if (!noResults) {
+                noResults = document.createElement("p");
+                noResults.id = "no-results";
+                noResults.style.textAlign = "center";
+                noResults.style.opacity = "0.8";
+                noResults.style.margin = "40px 0";
+                noResults.style.fontSize = "1.1rem";
+                noResults.textContent = "No matching gifts found – try a different search.";
+                document.querySelector(".grid")?.after(noResults);
+            }
+        } else if (noResults) {
+            noResults.remove();
+        }
+    });
+});
 
-    <!-- Add your existing search + dropdown JavaScript here if needed -->
+// Dropdown functionality
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector("button");
+        const content = dropdown.querySelector(".dropdown-content");
+        btn?.addEventListener("click", function(e) {
+            e.stopPropagation();
+            const isOpen = content.style.display === "block";
+            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
+            content.style.display = isOpen ? "none" : "block";
+        });
+    });
+    document.addEventListener("click", function() {
+        document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
+    });
+});
+</script>
+
 </body>
-</html>"""
+</html>
+
+
+
+"""
 
 # ---------------- ROUTES / PAGE RENDERER ---------------- #
 @cache.cached(timeout=300, key_prefix=lambda: request.full_path)
 def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
-    theme = DEFAULT_THEME
+    theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
     nav_items = get_nav_items()
@@ -667,6 +909,7 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         prev_page_url=prev_url
     )
 
+
 # ---------------- HOME ---------------- #
 @app.route("/")
 def home():
@@ -678,6 +921,7 @@ def home():
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
     )
+
 
 # ---------------- CATEGORY ---------------- #
 @app.route("/category/<slug>")
@@ -702,6 +946,7 @@ def category(slug, page=1):
         page=page,
         page_url=page_url
     )
+
 
 # ---------------- SEASONAL ---------------- #
 @app.route("/season/<season_slug>")
@@ -737,6 +982,7 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
+
 # ---------------- PRODUCT DETAIL ---------------- #
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
@@ -759,6 +1005,7 @@ def product_detail(product_slug):
         related_products=related
     )
 
+
 # ---------------- BLOG ---------------- #
 POSTS_PER_PAGE = 8
 
@@ -775,12 +1022,15 @@ def load_blog_posts(page=1):
     
     return paginated, total_pages, len(posts)
 
+
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
     paginated, total_pages, total_posts = load_blog_posts(page)
     if not paginated and page > 1:
         abort(404)
+
+    theme = get_daily_theme()  # Get theme for accent color
 
     def page_url(p_num):
         return url_for("blog_list", page=p_num) if p_num <= total_pages else None
@@ -790,17 +1040,14 @@ def blog_list(page=1):
         description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
         heading="FyboBuybo Blog",
         subtitle="Gift guides, trends and inspiration for UK shoppers",
-        products=None,
+        products=None,  # no products grid
         page=page,
         page_url=page_url
     )
 
     # Inject blog list after subtitle
     blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    
-    # Use accent from the default theme (consistent with site theme)
-    accent_color = DEFAULT_THEME["accent"]
-    
+    accent_color = theme["accent"]
     for post in paginated:
         date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
         blog_html += f'''
@@ -813,11 +1060,13 @@ def blog_list(page=1):
         '''
     blog_html += '</div>'
 
-    insert_point = rendered.find('<p class="subtitle">')
+    # Insert after subtitle block
+    insert_point = rendered.find('<p class="subtitle">') 
     if insert_point > -1:
         insert_after = rendered.find('</p>', insert_point) + 4
         rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
 
+    # Add pagination if needed
     if total_pages > 1:
         pag_html = '<div class="pagination">'
         if page > 1:
@@ -829,6 +1078,7 @@ def blog_list(page=1):
 
     return rendered
 
+
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
@@ -838,7 +1088,7 @@ def blog_detail(slug):
     all_products = refresh_products(background=True)
     related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
-    return render_page(
+    rendered = render_page(
         title=post["title"],
         description=post.get("description", "Gift inspiration and practical tips from FyboBuybo."),
         heading=post.get("heading", post["title"]),
@@ -846,6 +1096,21 @@ def blog_detail(slug):
         products=None,
         related_products=related
     )
+
+    # Inject full blog content after subtitle
+    content_html = f'''
+    <div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">
+        {post.get("content", "<p>Content coming soon.</p>")}
+    </div>
+    '''
+
+    insert_point = rendered.find('<p class="subtitle">')
+    if insert_point > -1:
+        insert_after = rendered.find('</p>', insert_point) + 4
+        rendered = rendered[:insert_after] + content_html + rendered[insert_after:]
+
+    return rendered
+
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
@@ -857,6 +1122,7 @@ Disallow:
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
+
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -881,10 +1147,11 @@ def sitemap():
     for season in seasons:
         urls.add((f"{SITE_URL}/season/{slugify(season)}", today))
 
+    # Blog
     blog_lastmod = today
     if BLOG_POSTS:
         blog_dates = [post.get("date", today) for post in BLOG_POSTS.values()]
-        blog_lastmod = max(blog_dates) if blog_dates else today
+        blog_lastmod = max(blog_dates)
         for slug, post in BLOG_POSTS.items():
             urls.add((f"{SITE_URL}/blog/{slug}", post.get("date", today)))
     urls.add((f"{SITE_URL}/blog", blog_lastmod))
@@ -895,6 +1162,7 @@ def sitemap():
         sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
