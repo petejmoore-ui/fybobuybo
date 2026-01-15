@@ -10,7 +10,7 @@ import time
 import datetime
 from pathlib import Path
 
-from python_amazon_paapi import AmazonApi, AmazonApiException
+from amazon_paapi import AmazonApi, AmazonApiException
 
 # Amazon API Credentials from environment
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
