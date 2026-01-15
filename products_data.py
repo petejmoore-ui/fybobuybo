@@ -5,8 +5,9 @@ PRODUCTS = [
         "category": "Beauty",
         "season": "Valentine's Day",
         "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX679_.jpg",
-        "url": f"https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
-        "info": "Iconic Korean skincare essence with 96% snail secretion filtrate for intense hydration, skin repair, and improved texture – lightweight, fast-absorbing formula that boosts glow, fades scars, and strengthens skin barrier. CPNP registered, cruelty-free, paraben-free, alcohol-free – bestselling daily serum for plump, dewy 'glass skin' results.",
+        "url": "https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
+        "asin": "B00PBX3L7K",  # ✅ ADDED - Extract from URL or find on Amazon
+        "info": "Iconic Korean skincare essence with 96% snail secretion filtrate for intense hydration...",
         "date_added": "2026-01-08"
     },
     {
