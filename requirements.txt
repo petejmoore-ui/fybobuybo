@@ -7,7 +7,7 @@ python-amazon-paapi
 requests
 markupsafe
 flask-caching
-
+paapi5-python-sdk
 
 
 
