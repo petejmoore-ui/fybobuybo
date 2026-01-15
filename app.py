@@ -46,16 +46,17 @@ os.makedirs("data", exist_ok=True)
 
 # ---------------- THEMES ---------------- #
 THEMES = [
-    {
-        "bg": "#0f172a",
-        "card": "#1e293b",
-        "accent": "#38bdf8",
-        "button": "#0284c7",
-        "tag": "#7dd3fc",
-        "text_accent": "#bae6fd",
-        "gradient": "linear-gradient(90deg,#0284c7,#38bdf8)"
-    }
+  {
+    "bg": "#f8fafc",          # light slate
+    "card": "#ffffff",
+    "accent": "#2563eb",      # blue-600
+    "button": "#1d4ed8",
+    "tag": "#e0e7ff",
+    "text_accent": "#1e293b",
+    "gradient": "linear-gradient(90deg,#1d4ed8,#2563eb)"
+  }
 ]
+
 
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
