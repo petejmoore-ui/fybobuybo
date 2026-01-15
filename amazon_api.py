@@ -1,100 +1,87 @@
 """
 Amazon Product Advertising API Integration
-Using amazon-paapi (PyPI)
+Using amazon-paapi5 (PyPI)
 Handles fetching product data, caching, and formatting
 """
 
 import os
 import datetime
+import json
 from pathlib import Path
-from amazon_paapi import AmazonApi  # No more AmazonApiException
 
-# Optional: caching folder
-CACHE_DIR = Path("cache")
-CACHE_DIR.mkdir(exist_ok=True)
+from amazon_paapi5 import AmazonApi, AmazonApiException
 
-# Amazon API credentials from environment
+# Amazon API Credentials from environment
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
 AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY")
 AMAZON_ASSOC_TAG = os.environ.get("AMAZON_ASSOC_TAG")
-AMAZON_COUNTRY = "UK"  # For UK marketplace
+AMAZON_MARKETPLACE = "www.amazon.co.uk"  # UK
 
-# Initialize API client
+# Simple local cache directory
+CACHE_DIR = Path("./amazon_cache")
+CACHE_DIR.mkdir(exist_ok=True)
+
+# Initialize Amazon API client
 amazon = AmazonApi(
     access_key=AMAZON_ACCESS_KEY,
     secret_key=AMAZON_SECRET_KEY,
     partner_tag=AMAZON_ASSOC_TAG,
-    country=AMAZON_COUNTRY
+    marketplace=AMAZON_MARKETPLACE
 )
 
-# -------------------------------
-# Caching helpers
-# -------------------------------
-def get_cache_file(asin: str) -> Path:
+def cache_path(asin: str) -> Path:
     return CACHE_DIR / f"{asin}.json"
 
-def load_from_cache(asin: str):
-    path = get_cache_file(asin)
+def save_to_cache(asin: str, data: dict):
+    with open(cache_path(asin), "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+def load_from_cache(asin: str) -> dict | None:
+    path = cache_path(asin)
     if path.exists():
-        import json
-        with path.open("r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     return None
 
-def save_to_cache(asin: str, data):
-    path = get_cache_file(asin)
-    import json
-    with path.open("w", encoding="utf-8") as f:
-        json.dump(data, f)
+def format_price_display(price: dict) -> str:
+    if not price:
+        return "N/A"
+    return f"{price.get('Amount', 'N/A')} {price.get('Currency', '')}"
 
-# -------------------------------
-# Fetch product data
-# -------------------------------
+def format_rating_display(rating: dict) -> str:
+    if not rating:
+        return "N/A"
+    return f"{rating.get('Rating', 0)} / 5 ({rating.get('Count', 0)} reviews)"
+
 def get_amazon_product_data(asin: str) -> dict | None:
-    """Fetch Amazon product data with caching"""
+    """
+    Fetch product data from Amazon, with local caching.
+    """
+    # Check cache first
     cached = load_from_cache(asin)
     if cached:
         return cached
 
     try:
-        product_data = amazon.get_items([asin])
+        response = amazon.get_items([asin])
+        item = response.get("ItemsResult", {}).get("Items", [{}])[0]
+
+        product_data = {
+            "asin": asin,
+            "title": item.get("ItemInfo", {}).get("Title", {}).get("DisplayValue"),
+            "url": item.get("DetailPageURL"),
+            "price": item.get("Offers", {}).get("Listings", [{}])[0].get("Price"),
+            "rating": item.get("CustomerReviews", {}),
+            "images": item.get("Images", {}),
+            "last_updated": datetime.datetime.utcnow().isoformat(),
+        }
+
         save_to_cache(asin, product_data)
         return product_data
-    except Exception as e:
+
+    except AmazonApiException as e:
         print(f"Amazon API error for {asin}: {e}")
         return None
-
-# -------------------------------
-# Optional formatting helpers
-# -------------------------------
-def format_price_display(price: dict) -> str:
-    """Format price dict returned by API"""
-    if not price:
-        return "N/A"
-    amount = price.get("Amount")
-    currency = price.get("Currency")
-    if amount and currency:
-        return f"{amount:.2f} {currency}"
-    return "N/A"
-
-def format_rating_display(rating: dict) -> str:
-    """Format rating dict returned by API"""
-    if not rating:
-        return "N/A"
-    stars = rating.get("AverageRating")
-    count = rating.get("TotalReviews")
-    if stars is not None and count is not None:
-        return f"{stars} stars ({count} reviews)"
-    return "N/A"
-
-# -------------------------------
-# Optional enrich helper
-# -------------------------------
-def enrich_products_with_amazon_data(products: list[dict]) -> list[dict]:
-    """Add Amazon data to a list of products with ASINs"""
-    for product in products:
-        asin = product.get("asin")
-        if asin:
-            data = get_amazon_product_data(asin)
-            product["amazon_data"] = data
-    return products
+    except Exception as e:
+        print(f"Unexpected error for {asin}: {e}")
+        return None
