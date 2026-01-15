@@ -6,6 +6,7 @@ import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
+from amazon_api import enrich_products_with_amazon_data, format_price_display, format_rating_display
 
 from flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
@@ -217,7 +218,8 @@ def refresh_products(background=False):
         except Exception as e:
             print(f"Cache read failed: {e} — regenerating")
     enriched = load_or_generate_hooks(PRODUCTS)
-    return enriched
+    enriched_with_amazon = enrich_products_with_amazon_data(enriched)
+    return enriched_with_amazon
 
 def slugify(text):
     text = text.lower()
@@ -1129,6 +1131,8 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         next_page_url=next_url,
         prev_page_url=prev_url,
         themes_json=themes_json
+        format_price_display=format_price_display,
+        format_rating_display=format_rating_display
     )
 
 # [Keep all your routes: home, category, seasonal_collection, product_detail, blog_list, blog_detail, robots, sitemap]
