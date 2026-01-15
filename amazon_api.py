@@ -109,15 +109,22 @@ def save_to_cache(asin: str, data: dict):
 
 
 def enrich_products_with_amazon_data(products: list[dict]) -> list[dict]:
+    """
+    Adds Amazon pricing and rating info to your products without overwriting
+    your site's own content (name, image, info, etc.).
+    """
     enriched = []
-    for p in products:
-        if not p.get("asin"):
-            enriched.append(p)
+    for product in products:
+        # Skip products without ASIN
+        if not product.get("asin"):
+            enriched.append(product)
             continue
-        amazon_data = get_amazon_product_data(p["asin"])
+
+        amazon_data = get_amazon_product_data(product["asin"])
+
         if amazon_data:
-            p_copy = dict(p)
-            p_copy.update({
+            # Only append Amazon-specific fields
+            amazon_fields = {
                 "amazon_price": amazon_data.get("price"),
                 "amazon_list_price": amazon_data.get("list_price"),
                 "amazon_savings": amazon_data.get("savings_amount"),
@@ -125,11 +132,17 @@ def enrich_products_with_amazon_data(products: list[dict]) -> list[dict]:
                 "amazon_rating": amazon_data.get("rating"),
                 "amazon_reviews": amazon_data.get("review_count"),
                 "price_last_updated": amazon_data.get("last_updated")
-            })
-            enriched.append(p_copy)
+            }
+
+            # Merge with your product without overwriting your existing keys
+            enriched_product = dict(product)
+            enriched_product.update(amazon_fields)
+            enriched.append(enriched_product)
         else:
-            enriched.append(p)
+            enriched.append(product)
+
     return enriched
+
 
 
 def format_price_display(product: dict) -> dict:
@@ -188,15 +201,7 @@ def format_rating_display(product: dict) -> dict:
     return display
 
 
-# Optional test
-def test_api():
-    if not AMAZON_ACCESS_KEY or not AMAZON_SECRET_KEY:
-        print("Set your AMAZON_ACCESS_KEY and AMAZON_SECRET_KEY in the environment.")
-        return
-    sample_asin = "B08XYZ123"  # replace with a real ASIN
-    print("Fetching data for", sample_asin)
-    data = get_amazon_product_data(sample_asin)
-    print(json.dumps(data, indent=2))
+
 
 
 if __name__ == "__main__":
