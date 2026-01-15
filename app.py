@@ -20,8 +20,8 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 from flask_caching import Cache
 
 cache = Cache(app, config={
-    'CACHE_TYPE': 'SimpleCache',    # in-memory, perfect for small/medium traffic
-    'CACHE_DEFAULT_TIMEOUT': 300    # 5 minutes – good balance for daily refresh
+    'CACHE_TYPE': 'SimpleCache',
+    'CACHE_DEFAULT_TIMEOUT': 300
 })
 
 # --- Staging SEO safeguard ---
@@ -30,7 +30,6 @@ if os.environ.get("STAGING") == "true":
     def add_header(response):
         response.headers['X-Robots-Tag'] = 'noindex, nofollow'
         return response
-# -----------------------------
 
 CACHE_FILE = "data/cache.json"
 HISTORY_FILE = "data/history.json"
@@ -38,43 +37,51 @@ AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
-# Cache settings
 CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v2.2-uk-seo-2026"
 
 os.makedirs("data", exist_ok=True)
 
-# ---------------- THEMES ---------------- #
+# ---------------- ENHANCED THEMES ---------------- #
 THEMES = [
     {
-        "name": "Light Elegance",
-        "bg": "#fdfdfd",            # Light, soft neutral
-        "card": "#ffffff",           # Clean card background
-        "accent": "#1f2937",         # Slate-800 for primary text
-        "button": "#3b82f6",         # Bright, modern blue
-        "tag": "#dbeafe",            # Soft light blue for tags
-        "text_accent": "#475569",    # Slightly muted slate for secondary text
-        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"  # Smooth professional gradient
+        "name": "Daylight Elegance",
+        "bg": "#fdfbf7",
+        "card": "#ffffff",
+        "accent": "#1a1614",
+        "button": "#0066ff",
+        "button_hover": "#0052cc",
+        "tag": "#e8f4ff",
+        "text_accent": "#5a5654",
+        "text_muted": "#8a8684",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
+        "shadow": "0 8px 32px rgba(0, 0, 0, 0.08)",
+        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.12)"
     },
     {
-        "name": "Dark Luxe",
-        "bg": "#0f172a",             # Deep navy/charcoal
-        "card": "#1e293b",           # Slightly lighter than bg for contrast
-        "accent": "#f8fafc",         # Off-white primary text
-        "button": "#2563eb",         # Vivid, accessible blue
-        "tag": "#1e40af",            # Darker, subtle accent
-        "text_accent": "#cbd5e1",    # Light slate for secondary text
-        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"  # Elegant, soft contrast
+        "name": "Midnight Luxe",
+        "bg": "#0a0e14",
+        "card": "#151922",
+        "accent": "#f5f5f0",
+        "button": "#4d7fff",
+        "button_hover": "#6d93ff",
+        "tag": "#1e2838",
+        "text_accent": "#b8bcc8",
+        "text_muted": "#7a7e8a",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
+        "shadow": "0 8px 32px rgba(0, 0, 0, 0.4)",
+        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.6)"
     }
 ]
 
 def get_daily_theme():
-    import datetime
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
+# [Keep all your existing functions: ping_search_engines, generate_hook, etc.]
+# ... (all the caching, hook generation, and helper functions remain the same)
 
-
-# ---------------- SEO: ping search engines ---------------- #
 def ping_search_engines():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
     engines = [
@@ -85,9 +92,8 @@ def ping_search_engines():
         try:
             requests.get(url, timeout=5)
         except Exception:
-            pass  # silent fail
+            pass
 
-# ---------------- AI HOOK GENERATION ---------------- #
 HOOK_STYLES = ["benefit-first", "lifestyle-story", "quality-craft", "quiet-genius"]
 
 def generate_hook(product):
@@ -134,20 +140,15 @@ Output only the 1–2 sentences. End with a complete sentence. No explanations.
             max_tokens=90
         )
         hook = r.choices[0].message.content.strip()
-
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
         hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
-
         if not re.search(r'[.!?]$', hook):
-            hook += " It’s quietly appreciated among UK shoppers."
-
+            hook += " It's quietly appreciated among UK shoppers."
         return hook
-
     except Exception as e:
         print(f"Groq error for '{name}': {e}")
         return f"Appreciated for its <b>lasting quality</b> and thoughtful design in everyday British life."
 
-# ---------------- CACHING ---------------- #
 def should_refresh_cache():
     if not os.path.exists(CACHE_FILE):
         return True
@@ -187,9 +188,7 @@ def load_or_generate_hooks(products):
     save_history(history)
 
     Thread(target=ping_search_engines, daemon=True).start()
-
-    cache.clear()  # if you already added caching
-
+    cache.clear()
     return enriched
 
 def load_history():
@@ -204,7 +203,6 @@ def save_history(data):
 
 def refresh_products(background=False):
     today = str(datetime.date.today())
-
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
@@ -218,11 +216,9 @@ def refresh_products(background=False):
                 return cache.get("products", [])
         except Exception as e:
             print(f"Cache read failed: {e} — regenerating")
-
     enriched = load_or_generate_hooks(PRODUCTS)
     return enriched
 
-# ---------------- HELPERS ---------------- #
 def slugify(text):
     text = text.lower()
     text = re.sub(r'&', '-and-', text)
@@ -291,325 +287,554 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
-# ---------------- CSS ---------------- #
+# ---------------- ENHANCED CSS ---------------- #
 CSS_TEMPLATE = """<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
+
 :root {
     --bg: {{bg}};
     --card: {{card}};
     --accent: {{accent}};
     --button: {{button}};
+    --button-hover: {{button_hover}};
     --tag: {{tag}};
-    --text_accent: {{text_accent}};
+    --text-accent: {{text_accent}};
+    --text-muted: {{text_muted}};
     --gradient: {{gradient}};
+    --card-gradient: {{card_gradient}};
+    --shadow: {{shadow}};
+    --shadow-hover: {{shadow_hover}};
 }
 
-/* Body & text */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body { 
-    margin:0; 
     background: var(--bg); 
     color: var(--accent); 
-    font-family:'Outfit',sans-serif; 
-    padding:20px 20px 40px; 
-    transition: background 0.4s, color 0.4s;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 20px;
+    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
 }
+
+/* Typography */
 h1 { 
-    text-align:center; 
-    font-size:3rem; 
-    margin:40px 0 10px; 
-    background: var(--gradient); 
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color:transparent; 
-    transition: background 0.4s;
+    text-align: center; 
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    margin: 60px 0 20px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .subtitle { 
-    text-align:center; 
-    opacity:.85; 
-    max-width:900px; 
-    margin:20px auto; 
-    color:var(--text_accent); 
-    font-size:1.1rem; 
-    transition: color 0.4s;
+    text-align: center; 
+    color: var(--text-accent); 
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 900px; 
+    margin: 20px auto 40px;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
 }
 
-/* Grid layout */
+/* Grid with staggered animations */
 .grid { 
-    display:grid; 
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
-    gap:24px; 
-    max-width:1400px; 
-    margin:auto; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 32px; 
+    max-width: 1600px; 
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-/* Cards */
+/* Enhanced Cards */
 .card { 
-    background:var(--card); 
-    border-radius:22px; 
-    padding:20px; 
-    text-align:center; 
-    box-shadow:0 20px 40px rgba(0,0,0,.6); 
-    transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.4s, opacity 0.3s ease; 
+    background: var(--card);
+    border-radius: 24px; 
+    padding: 28px; 
+    text-align: center; 
+    box-shadow: var(--shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative; 
-    overflow: hidden; 
-    opacity:1;
+    overflow: hidden;
+    opacity: 0;
+    animation: cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.05s);
 }
-.card:hover { 
-    transform: translateY(-6px); 
-    box-shadow:0 28px 60px rgba(0,0,0,.45); 
-}
-.card img { 
-    width:100%; 
-    max-height:380px; 
-    object-fit:contain; 
-    border-radius:16px; 
-    margin:16px 0; 
-    display:block; 
-    transition: transform 0.4s ease, filter 0.4s;
-}
-.card:hover img { 
-    transform: scale(1.05); 
-}
-/* Gradient overlay on hover */
-.card::before { 
-    content:""; 
-    position:absolute; 
-    top:0; left:0; right:0; bottom:0; 
-    background:linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0)); 
-    opacity:0; 
-    transition:opacity 0.4s ease; 
-    pointer-events:none; 
-    border-radius:16px; 
-}
-.card:hover::before { opacity:1; }
 
-/* Card hide animation (search filter) */
-.grid .card.hidden {
-    opacity:0;
-    pointer-events:none;
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card::before { 
+    content: "";
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: var(--card-gradient);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    border-radius: 24px;
+}
+
+.card:hover { 
+    transform: translateY(-12px) scale(1.02); 
+    box-shadow: var(--shadow-hover);
+}
+
+.card:hover::before { 
+    opacity: 1; 
+}
+
+.card img { 
+    width: 100%; 
+    max-height: 380px; 
+    object-fit: contain; 
+    border-radius: 16px; 
+    margin: 20px 0; 
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s;
+}
+
+.card:hover img { 
+    transform: scale(1.08); 
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 16px 0;
+    color: var(--accent);
+    line-height: 1.3;
+    transition: color 0.3s;
+}
+
+.card p {
+    color: var(--text-accent);
+    line-height: 1.7;
+    margin: 16px 0;
+    transition: color 0.3s;
 }
 
 /* Tags */
 .tag { 
-    background:var(--tag); 
-    padding:6px 14px; 
-    border-radius:20px; 
-    font-size:.85rem; 
-    display:inline-block; 
-    margin-bottom:12px; 
-    transition: background 0.4s;
+    background: var(--tag); 
+    color: var(--button);
+    padding: 8px 18px; 
+    border-radius: 24px; 
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block; 
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .tag {
+    transform: scale(1.05);
 }
 
 /* Buttons */
 button { 
-    background:var(--button); 
-    border:none; 
-    padding:12px 28px; 
-    border-radius:50px; 
-    font-size:1rem; 
-    font-weight:900; 
-    color:white; 
-    cursor:pointer; 
-    transition:transform 0.25s ease, opacity 0.25s ease, background 0.4s; 
+    background: var(--button); 
+    border: none; 
+    padding: 14px 32px; 
+    border-radius: 50px; 
+    font-size: 1rem; 
+    font-weight: 700;
+    color: white; 
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+    position: relative;
+    overflow: hidden;
 }
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
 button:hover { 
-    transform:scale(1.03); 
-    opacity:0.9; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    background: var(--button-hover);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Navigation */
+nav { 
+    background: var(--card); 
+    padding: 20px; 
+    margin: 20px 0 60px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+.nav-top { 
+    display: flex; 
+    justify-content: center; 
+    gap: 48px; 
+    width: 100%; 
+}
+
+.nav-top a { 
+    color: var(--text-accent); 
+    font-weight: 700; 
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.nav-top a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--button);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-top a:hover::after {
+    width: 100%;
+}
+
+.nav-top a:hover { 
+    color: var(--button);
+    transform: translateY(-2px);
+}
+
+/* Search */
+#search-form { 
+    width: 100%; 
+    max-width: 500px; 
+}
+
+#search-input { 
+    padding: 14px 24px; 
+    border-radius: 50px; 
+    border: 2px solid transparent;
+    background: var(--tag);
+    color: var(--accent); 
+    width: 100%; 
+    font-size: 1rem; 
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--button);
+    background: var(--card);
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
+    transform: scale(1.02);
+}
+
+#search-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Theme Toggle */
+#theme-toggle {
+    position: fixed; 
+    top: 24px; 
+    right: 24px; 
+    z-index: 999; 
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: var(--button);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 8px 28px rgba(0, 102, 255, 0.4);
+}
+
+#theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Footer */
 footer { 
-    text-align:center; 
-    opacity:.7; 
-    margin:80px 0 40px; 
-    font-size:.9rem; 
-    line-height:1.6; 
-    transition: color 0.4s;
+    text-align: center; 
+    color: var(--text-muted);
+    margin: 100px 0 60px; 
+    font-size: 0.95rem; 
+    line-height: 1.8;
+    transition: color 0.3s;
+}
+
+footer p {
+    margin: 12px 0;
 }
 
 /* Links */
 a { 
-    color:var(--text_accent); 
-    text-decoration:none; 
-    transition: color 0.4s;
+    color: var(--text-accent); 
+    text-decoration: none;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Nav container */
-nav { 
-    background:var(--card); 
-    padding:16px; 
-    margin:20px 0 40px; 
-    border-radius:16px; 
-    box-shadow:0 10px 30px rgba(0,0,0,.4); 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; 
-    gap:16px; 
-    transition: background 0.4s, color 0.4s;
-}
-
-/* Top row: Home + Blog */
-.nav-top { 
-    display:flex; 
-    justify-content:center; 
-    gap:40px; 
-    width:100%; 
-}
-.nav-top a { 
-    color:var(--text_accent); 
-    font-weight:700; 
-    font-size:1.2rem; 
-    transition:.2s, color 0.4s; 
-}
-.nav-top a:hover { opacity:.8; }
-
-/* Desktop horizontal categories + seasons */
-.nav-desktop { display:none; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
-.nav-desktop a { margin: 0 12px; }
-
-/* Mobile dropdowns */
-.nav-middle { display:flex; justify-content:center; gap:24px; flex-wrap:nowrap; }
-.categories-dropdown, .seasons-dropdown { position: relative; }
-.categories-dropdown button, .seasons-dropdown button { 
-    background:#334155; 
-    color:#bae6fd; 
-    border:1px solid #475569; 
-    padding:10px 24px; 
-    border-radius:999px; 
-    font-weight:600; 
-    font-size:1rem; 
-    cursor:pointer; 
-    transition: all 0.2s; 
-    min-width:140px; 
-}
-.categories-dropdown button:hover, .seasons-dropdown button:hover { 
-    background:#475569; 
-    color:white; 
-    transform: translateY(-1px); 
-}
-.dropdown-content { 
-    display:none; 
-    position:absolute; 
-    top:100%; left:50%; 
-    transform:translateX(-50%); 
-    background:var(--card); 
-    border-radius:12px; 
-    padding:12px 0; 
-    min-width:240px; 
-    max-height:60vh; 
-    overflow-y:auto; 
-    box-shadow:0 10px 25px rgba(0,0,0,0.5); 
-    z-index:100; 
-    margin-top:8px; 
-    transition: background 0.4s;
-}
-.dropdown-content a { 
-    display:block; 
-    padding:10px 24px; 
-    color:var(--text_accent); 
-    text-decoration:none; 
-    font-size:1rem; 
-    white-space:nowrap; 
-    transition: color 0.4s;
-}
-.dropdown-content a:hover { background:#334155; }
-
-/* Search bar */
-#search-form { width:100%; max-width:400px; text-align:center; }
-#search-input { 
-    padding:10px 20px; 
-    border-radius:999px; 
-    border:1px solid var(--text_accent); 
-    background:transparent; 
-    color:var(--accent); 
-    width:100%; 
-    font-size:1rem; 
-    text-align:center; 
-    transition: border-color 0.4s, color 0.4s;
-}
-
-/* Seasons horizontal links (desktop only) */
-nav .season-link { 
-    color:#a5b4fc; 
-    font-size:1rem; 
-    font-weight:600; 
-    padding:4px 10px; 
-    border-radius:8px; 
-    transition: all 0.2s ease; 
-}
-nav .season-link:hover { 
-    opacity:1; 
-    color:#c7d2fe; 
-    background: rgba(56, 189, 248, 0.12); 
-}
-
-/* Mobile */
-@media (max-width:768px) {
-    .nav-desktop { display:none !important; }
-    .nav-middle { display:flex !important; gap:20px; justify-content:center; }
-    .grid { grid-template-columns:1fr; }
-}
-
-/* Desktop */
-@media (min-width:769px) {
-    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:wrap; }
-    .nav-top { flex:0 0 auto; }
-    .nav-middle { display:none !important; }
-    .nav-desktop { display:flex !important; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
-    #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
-    .categories-dropdown, .seasons-dropdown { display:none !important; }
-    nav a { margin:0 12px; }
+a:hover {
+    color: var(--button);
 }
 
 /* Pagination */
-.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
+.pagination { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    margin: 60px 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+}
+
 .pagination a { 
-    background:var(--button); 
-    padding:10px 16px; 
-    border-radius:12px; 
-    color:white; 
-    text-decoration:none; 
-    font-weight:700; 
-    transition:.2s; 
+    background: var(--button); 
+    padding: 12px 24px; 
+    border-radius: 50px; 
+    color: white; 
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
 }
-.pagination a:hover { opacity:.9; }
 
-/* Loading state */
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:var(--text_accent); }
+.pagination a:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    background: var(--button-hover);
+}
 
-/* Day/Night toggle professional button */
-#theme-toggle {
-    position:fixed; 
-    top:16px; 
-    right:16px; 
-    z-index:999; 
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    border:none;
-    cursor:pointer;
-    background:var(--button);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    transition: all 0.25s ease;
+/* Loading */
+.loading { 
+    text-align: center; 
+    color: var(--text-accent);
+    margin: 100px 0; 
+    font-size: 1.4rem;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
-#theme-toggle:hover {
-    transform:scale(1.05);
-    box-shadow:0 6px 16px rgba(0,0,0,0.35);
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }
-#theme-toggle svg {
-    width:20px;
-    height:20px;
-    fill:white;
-    transition: transform 0.3s ease;
+
+/* Dropdown styling */
+.nav-desktop { 
+    display: none; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+    width: 100%; 
+}
+
+.nav-desktop a { 
+    margin: 0 16px;
+    font-weight: 600;
+    color: var(--text-accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-middle { 
+    display: flex; 
+    justify-content: center; 
+    gap: 24px; 
+}
+
+.categories-dropdown, .seasons-dropdown { 
+    position: relative; 
+}
+
+.categories-dropdown button, .seasons-dropdown button { 
+    background: var(--tag);
+    color: var(--button);
+    border: 2px solid transparent;
+    padding: 12px 28px; 
+    border-radius: 50px; 
+    font-weight: 600; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 160px;
+}
+
+.categories-dropdown button:hover, .seasons-dropdown button:hover { 
+    background: var(--button);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+}
+
+.dropdown-content { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    background: var(--card);
+    border-radius: 16px; 
+    padding: 12px 0; 
+    min-width: 260px; 
+    max-height: 60vh; 
+    overflow-y: auto; 
+    box-shadow: var(--shadow-hover);
+    z-index: 100; 
+    margin-top: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-content a { 
+    display: block; 
+    padding: 12px 28px; 
+    color: var(--text-accent); 
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-content a:hover { 
+    background: var(--tag);
+    color: var(--button);
+    padding-left: 32px;
+}
+
+/* Hidden cards animation */
+.grid .card.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-desktop { 
+        display: none !important; 
+    }
+    .nav-middle { 
+        display: flex !important; 
+    }
+    .grid { 
+        grid-template-columns: 1fr; 
+        gap: 24px;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    #theme-toggle {
+        width: 48px;
+        height: 48px;
+        top: 16px;
+        right: 16px;
+    }
+}
+
+@media (min-width: 769px) {
+    nav { 
+        flex-direction: row; 
+        justify-content: space-between; 
+        padding: 20px 32px;
+    }
+    .nav-middle { 
+        display: none !important; 
+    }
+    .nav-desktop { 
+        display: flex !important; 
+    }
+    #search-form { 
+        margin-left: auto; 
+        max-width: 400px; 
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--button);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover);
 }
 </style>"""
 
-
-
-
-
-# ---------------- HTML TEMPLATE ---------------- #
+# [Keep BASE_HTML mostly the same but update the theme toggle script]
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -629,76 +854,75 @@ BASE_HTML = """<!DOCTYPE html>
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{{ title }} – UK gift ideas">
 
-<!-- Twitter / X Cards -->
+<!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@CryptoSolGood">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
 <meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-<meta name="twitter:image:alt" content="{{ title }} – popular UK presents">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 
 {{ css|safe }}
 </head>
 <body>
 
-<!-- Day/Night Toggle -->
+<!-- Theme Toggle -->
 <button id="theme-toggle" aria-label="Toggle theme">
-  <!-- Sun / Moon SVG icons will swap -->
-  <svg id="theme-icon" viewBox="0 0 24 24">
+  <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display: block;">
     <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.657 2.343a1 1 0 0 1 1.414 1.414l-1.414 1.414a1 1 0 0 1-1.414-1.414l1.414-1.414zM20 11h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zm-2.343 5.657a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-5.657-2.343a1 1 0 0 1 0 1.414L5.343 20a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM4 11H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm2.343-5.657a1 1 0 0 1-1.414 0L3.515 4.929a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+  </svg>
+  <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display: none;">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 </button>
 
 <script>
-const THEMES = [
-  { bg: "#f9fafb", card: "#ffffff", accent: "#111827", button: "#3b82f6", tag: "#e0f2fe", text_accent: "#334155", gradient: "linear-gradient(90deg,#3b82f6,#06b6d4)" },
-  { bg: "#111827", card: "#1f2937", accent: "#f9fafb", button: "#2563eb", tag: "#1e40af", text_accent: "#e5e7eb", gradient: "linear-gradient(90deg,#2563eb,#3b82f6)" }
-];
+const THEMES = {{ themes_json|safe }};
 
 let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
 
 function applyTheme(themeIndex) {
   const theme = THEMES[themeIndex];
-  document.body.style.background = theme.bg;
-  document.body.style.color = theme.accent;
-  document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
-  document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
-  document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
-  document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a").forEach(el => el.style.color = theme.text_accent);
-  document.querySelectorAll("h1").forEach(h => {
-    h.style.background = theme.gradient;
-    h.style.webkitBackgroundClip = "text";
-    h.style.webkitTextFillColor = "transparent";
-  });
+  const root = document.documentElement;
+  
+  // Update CSS variables
+  root.style.setProperty('--bg', theme.bg);
+  root.style.setProperty('--card', theme.card);
+  root.style.setProperty('--accent', theme.accent);
+  root.style.setProperty('--button', theme.button);
+  root.style.setProperty('--button-hover', theme.button_hover);
+  root.style.setProperty('--tag', theme.tag);
+  root.style.setProperty('--text-accent', theme.text_accent);
+  root.style.setProperty('--text-muted', theme.text_muted);
+  root.style.setProperty('--gradient', theme.gradient);
+  root.style.setProperty('--card-gradient', theme.card_gradient);
+  root.style.setProperty('--shadow', theme.shadow);
+  root.style.setProperty('--shadow-hover', theme.shadow_hover);
 
-  // Update icon: sun for light, moon for dark
-  const icon = document.getElementById("theme-icon");
-  if(themeIndex === 0){
-    icon.style.transform = "rotate(0deg)";
+  // Update icons
+  const sunIcon = document.getElementById('theme-icon-sun');
+  const moonIcon = document.getElementById('theme-icon-moon');
+  
+  if (themeIndex === 0) {
+    sunIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
   } else {
-    icon.style.transform = "rotate(180deg)";
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
   }
 
   localStorage.setItem('themeIndex', themeIndex);
 }
 
+// Apply saved theme on load
 applyTheme(currentTheme);
 
-document.getElementById("theme-toggle").addEventListener("click", () => {
+document.getElementById('theme-toggle').addEventListener('click', () => {
   currentTheme = (currentTheme + 1) % THEMES.length;
   applyTheme(currentTheme);
 });
 </script>
 
-<!-- Search & Nav (unchanged from your previous template) -->
+<!-- Navigation -->
 <nav aria-label="Main navigation">
   <div class="nav-top">
     <a href="/">Home</a>
@@ -711,7 +935,7 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
     {% if nav_items.seasons %}
       <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
       {% for season in nav_items.seasons %}
-          <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
       {% endfor %}
     {% endif %}
   </div>
@@ -742,50 +966,49 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
-<p style="text-align:center;opacity:.7;margin-bottom:40px;">
-    ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
+<p style="text-align:center;color:var(--text-muted);margin-bottom:60px;font-weight:500;">
+    ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated
 </p>
 
 {% if products %}
 <div class="grid">
   {% for p in products %}
-  <div class="card" itemscope itemtype="https://schema.org/Product">
+  <div class="card" style="--card-index: {{ loop.index0 }};" itemscope itemtype="https://schema.org/Product">
       <span class="tag">{{ p.category }}</span>
       <a href="/product/{{ slugify(p.name) }}" itemprop="url">
           <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
       </a>
       <a href="/product/{{ slugify(p.name) }}">
-          <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy" itemprop="image">
+          <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
       </a>
       <p itemprop="description">{{ p.hook|safe }}</p>
 
       {% if p.date_added %}
-      <p style="font-size:0.85rem; opacity:.7; margin:16px 0 8px; color:#94a3b8; text-align:center;">
-          ↳ Featured on {{ p.date_added }}
+      <p style="font-size:0.85rem; opacity:.65; margin:16px 0 8px; color:var(--text-muted);">
+          ↳ Featured {{ p.date_added }}
       </p>
       {% endif %}
 
       <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
           <button>Check price</button>
       </a>
-      <p style="margin-top:8px; font-size:.85rem; opacity:.75; text-align:center;">
+      <p style="margin-top:12px; font-size:.9rem; opacity:.75;">
           <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
       </p>
       {% if p.category %}
-      <p style="font-size:.85rem; opacity:.7; margin-top:16px;">
-          More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+      <p style="font-size:.9rem; opacity:.7; margin-top:20px;">
+          More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a>
       </p>
       {% endif %}
   </div>
   {% endfor %}
 </div>
 
-<!-- Similar Products restored -->
 {% if similar_products %}
-<h2 style="text-align:center; margin-top:60px;">You might also like</h2>
+<h2 style="text-align:center; margin-top:80px; font-family:'Playfair Display',serif; font-size:2.5rem;">You might also like</h2>
 <div class="grid">
   {% for p in similar_products %}
-    <div class="card">
+    <div class="card" style="--card-index: {{ loop.index0 + 3 }};">
       <span class="tag">{{ p.category }}</span>
       <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
       <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy"></a>
@@ -796,44 +1019,42 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
 
 {% else %}
 <p class="loading">
-    Loading today's gifts...<br>
-    <small>Generating fresh AI descriptions – this only happens once per day.</small>
+    Loading today's gifts...
 </p>
 {% endif %}
 
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-    <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
-    <p style="opacity:.8;font-size:.9rem;margin-top:20px;">
-        All product information, prices, and availability are accurate at the time of publication and subject to change.
-    </p>
+    <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc.</p>
 </footer>
 
 <script>
-// Search filter
+// Search functionality
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
     if (!searchInput) return;
     const cards = document.querySelectorAll(".grid .card");
+    
     searchInput.addEventListener("input", function(e) {
         const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+        
         cards.forEach(card => {
             const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
-            const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
+            const hook = card.querySelector("p[itemprop='description']")?.textContent.toLowerCase() || "";
             const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
             const matches = name.includes(query) || hook.includes(query) || category.includes(query);
+            
             card.classList.toggle('hidden', !matches);
+            if (matches) visibleCount++;
         });
-        const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+        
         let noResults = document.getElementById("no-results");
-        if (query.length > 0 && visibleCards.length === 0) {
+        if (query.length > 0 && visibleCount === 0) {
             if (!noResults) {
                 noResults = document.createElement("p");
                 noResults.id = "no-results";
-                noResults.style.textAlign = "center";
-                noResults.style.opacity = "0.8";
-                noResults.style.margin = "40px 0";
-                noResults.style.fontSize = "1.1rem";
+                noResults.style.cssText = "text-align:center;color:var(--text-muted);margin:60px 0;font-size:1.2rem;";
                 noResults.textContent = "No matching gifts found – try a different search.";
                 document.querySelector(".grid")?.after(noResults);
             }
@@ -864,12 +1085,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
-
-
 """
 
-# ---------------- ROUTES / PAGE RENDERER ---------------- #
+# ---------------- RENDERING FUNCTION ---------------- #
 @cache.cached(timeout=300, key_prefix=lambda: request.full_path)
 def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
     theme = get_daily_theme()
@@ -891,6 +1109,9 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     next_url = page_url(page + 1) if page_url and page < total_pages else None
     prev_url = page_url(page - 1) if page_url and page > 1 else None
 
+    # Convert themes to JSON for JavaScript
+    themes_json = json.dumps(THEMES)
+
     return render_template_string(
         BASE_HTML,
         title=title,
@@ -906,11 +1127,12 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         shorten_product_name=shorten_product_name,
         related_products=related_products or [],
         next_page_url=next_url,
-        prev_page_url=prev_url
+        prev_page_url=prev_url,
+        themes_json=themes_json
     )
 
+# [Keep all your routes: home, category, seasonal_collection, product_detail, blog_list, blog_detail, robots, sitemap]
 
-# ---------------- HOME ---------------- #
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
@@ -922,8 +1144,6 @@ def home():
         products=products
     )
 
-
-# ---------------- CATEGORY ---------------- #
 @app.route("/category/<slug>")
 @app.route("/category/<slug>/page/<int:page>")
 def category(slug, page=1):
@@ -947,8 +1167,6 @@ def category(slug, page=1):
         page_url=page_url
     )
 
-
-# ---------------- SEASONAL ---------------- #
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
@@ -982,8 +1200,6 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
-
-# ---------------- PRODUCT DETAIL ---------------- #
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     all_products = refresh_products(background=True)
@@ -1005,8 +1221,6 @@ def product_detail(product_slug):
         related_products=related
     )
 
-
-# ---------------- BLOG ---------------- #
 POSTS_PER_PAGE = 8
 
 def load_blog_posts(page=1):
@@ -1022,7 +1236,6 @@ def load_blog_posts(page=1):
     
     return paginated, total_pages, len(posts)
 
-
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
@@ -1030,7 +1243,7 @@ def blog_list(page=1):
     if not paginated and page > 1:
         abort(404)
 
-    theme = get_daily_theme()  # Get theme for accent color
+    theme = get_daily_theme()
 
     def page_url(p_num):
         return url_for("blog_list", page=p_num) if p_num <= total_pages else None
@@ -1040,12 +1253,11 @@ def blog_list(page=1):
         description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
         heading="FyboBuybo Blog",
         subtitle="Gift guides, trends and inspiration for UK shoppers",
-        products=None,  # no products grid
+        products=None,
         page=page,
         page_url=page_url
     )
 
-    # Inject blog list after subtitle
     blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
     accent_color = theme["accent"]
     for post in paginated:
@@ -1060,13 +1272,11 @@ def blog_list(page=1):
         '''
     blog_html += '</div>'
 
-    # Insert after subtitle block
     insert_point = rendered.find('<p class="subtitle">') 
     if insert_point > -1:
         insert_after = rendered.find('</p>', insert_point) + 4
         rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
 
-    # Add pagination if needed
     if total_pages > 1:
         pag_html = '<div class="pagination">'
         if page > 1:
@@ -1077,7 +1287,6 @@ def blog_list(page=1):
         rendered = rendered.replace('</body>', pag_html + '</body>')
 
     return rendered
-
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
@@ -1097,7 +1306,6 @@ def blog_detail(slug):
         related_products=related
     )
 
-    # Inject full blog content after subtitle
     content_html = f'''
     <div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">
         {post.get("content", "<p>Content coming soon.</p>")}
@@ -1111,8 +1319,6 @@ def blog_detail(slug):
 
     return rendered
 
-
-# ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
 def robots():
     txt = f"""
@@ -1122,7 +1328,6 @@ Disallow:
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
-
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -1147,7 +1352,6 @@ def sitemap():
     for season in seasons:
         urls.add((f"{SITE_URL}/season/{slugify(season)}", today))
 
-    # Blog
     blog_lastmod = today
     if BLOG_POSTS:
         blog_dates = [post.get("date", today) for post in BLOG_POSTS.values()]
@@ -1162,7 +1366,6 @@ def sitemap():
         sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
