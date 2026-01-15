@@ -5,7 +5,7 @@ Handles fetching product data, caching, and formatting
 """
 
 import os
-from amazon_paapi5 import AmazonApi, AmazonApiException
+from amazon_paapi import AmazonApi, AmazonApiException
 from pathlib import Path
 import json
 import datetime
