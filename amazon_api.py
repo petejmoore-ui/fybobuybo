@@ -7,53 +7,75 @@ Handles fetching product data, caching, and formatting
 import os
 import datetime
 from pathlib import Path
-
-from amazon_paapi import AmazonApi, AmazonApiException
+from amazon_paapi import AmazonApi  # Only import AmazonApi
 
 # Amazon API Credentials from environment
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
 AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY")
-AMAZON_ASSOC_TAG = os.environ.get("AMAZON_ASSOC_TAG")
-AMAZON_REGION = os.environ.get("AMAZON_REGION", "co.uk")  # default to UK
+AMAZON_ASSOCIATE_TAG = os.environ.get("AMAZON_ASSOCIATE_TAG")
+AMAZON_COUNTRY = "co.uk"  # UK site
 
-# Initialize Amazon API client
-amazon_api = AmazonApi(
-    access_key=AMAZON_ACCESS_KEY,
-    secret_key=AMAZON_SECRET_KEY,
-    partner_tag=AMAZON_ASSOC_TAG,
-    country=AMAZON_REGION
-)
-
-# Cache folder
-CACHE_DIR = Path("cache")
+# Optional cache directory
+CACHE_DIR = Path("amazon_cache")
 CACHE_DIR.mkdir(exist_ok=True)
 
-def cache_file_path(asin: str) -> Path:
-    return CACHE_DIR / f"{asin}.json"
 
 def save_to_cache(asin: str, data: dict):
-    path = cache_file_path(asin)
-    path.write_text(str(data))
+    """Save product data to cache"""
+    cache_file = CACHE_DIR / f"{asin}.json"
+    import json
+    with open(cache_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
 
 def load_from_cache(asin: str) -> dict | None:
-    path = cache_file_path(asin)
-    if path.exists():
-        return eval(path.read_text())
+    """Load product data from cache if available"""
+    cache_file = CACHE_DIR / f"{asin}.json"
+    if cache_file.exists():
+        import json
+        with open(cache_file, "r", encoding="utf-8") as f:
+            return json.load(f)
     return None
 
+
 def get_amazon_product_data(asin: str) -> dict | None:
-    # Try cache first
+    """Fetch product data from Amazon API, with caching"""
+    # Check cache first
     cached = load_from_cache(asin)
     if cached:
         return cached
 
     try:
-        product_data = amazon_api.get_items([asin])
+        amazon = AmazonApi(
+            access_key=AMAZON_ACCESS_KEY,
+            secret_key=AMAZON_SECRET_KEY,
+            associate_tag=AMAZON_ASSOCIATE_TAG,
+            country=AMAZON_COUNTRY
+        )
+
+        product_data = amazon.get_items([asin])[0]  # Returns a list of products
         save_to_cache(asin, product_data)
         return product_data
-    except AmazonApiException as e:
+
+    except Exception as e:
+        # Catch all errors from the API
         print(f"Amazon API error for {asin}: {e}")
         return None
-    except Exception as e:
-        print(f"Unexpected error for {asin}: {e}")
-        return None
+
+
+def format_price_display(price: dict | None) -> str:
+    """Format Amazon price dictionary for display"""
+    if not price:
+        return "N/A"
+    amount = price.get("Amount")
+    currency = price.get("Currency")
+    if amount is None or currency is None:
+        return "N/A"
+    return f"{currency} {amount:.2f}"
+
+
+def format_rating_display(rating: float | None) -> str:
+    """Format Amazon rating for display"""
+    if rating is None:
+        return "No rating"
+    return f"{rating:.1f} / 5"
