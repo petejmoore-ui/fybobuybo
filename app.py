@@ -1130,7 +1130,7 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         related_products=related_products or [],
         next_page_url=next_url,
         prev_page_url=prev_url,
-        themes_json=themes_json
+        themes_json=themes_json,
         format_price_display=format_price_display,
         format_rating_display=format_rating_display
     )
