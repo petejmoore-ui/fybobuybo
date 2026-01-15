@@ -886,7 +886,6 @@ function applyTheme(themeIndex) {
   const theme = THEMES[themeIndex];
   const root = document.documentElement;
   
-  // Update CSS variables
   root.style.setProperty('--bg', theme.bg);
   root.style.setProperty('--card', theme.card);
   root.style.setProperty('--accent', theme.accent);
@@ -900,7 +899,6 @@ function applyTheme(themeIndex) {
   root.style.setProperty('--shadow', theme.shadow);
   root.style.setProperty('--shadow-hover', theme.shadow_hover);
 
-  // Update icons
   const sunIcon = document.getElementById('theme-icon-sun');
   const moonIcon = document.getElementById('theme-icon-moon');
   
@@ -915,7 +913,6 @@ function applyTheme(themeIndex) {
   localStorage.setItem('themeIndex', themeIndex);
 }
 
-// Apply saved theme on load
 applyTheme(currentTheme);
 
 document.getElementById('theme-toggle').addEventListener('click', () => {
@@ -991,14 +988,40 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
       </p>
       {% endif %}
 
+      <!-- Amazon price & rating display -->
+      <div style="margin: 20px 0; text-align: center; font-size: 1.1rem;">
+          {% if p.price %}
+          <span style="font-weight: 700; color: #006600; margin-right: 8px;">
+              {{ format_price_display(p.price) }}
+          </span>
+          {% endif %}
+          {% if p.rating %}
+          <span style="color: var(--text-accent);">
+              {{ format_rating_display(p.rating, p.total_reviews) }}
+          </span>
+          {% endif %}
+          {% if not p.price and not p.rating %}
+          <span style="color: var(--text-muted); font-style: italic;">
+              Price & rating loading...
+          </span>
+          {% endif %}
+      </div>
+
+      {% if p.url %}
       <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
-          <button>Check price</button>
+          <button>Check current price</button>
       </a>
-      <p style="margin-top:12px; font-size:.9rem; opacity:.75;">
-          <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
+      <p style="margin-top:12px; font-size:.9rem; opacity:.75; text-align:center;">
+          <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon UK</a>
       </p>
+      {% else %}
+      <p style="margin: 20px 0; color: var(--text-muted); font-style: italic; text-align:center;">
+          Amazon details currently unavailable
+      </p>
+      {% endif %}
+
       {% if p.category %}
-      <p style="font-size:.9rem; opacity:.7; margin-top:20px;">
+      <p style="font-size:.9rem; opacity:.7; margin-top:20px; text-align:center;">
           More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a>
       </p>
       {% endif %}
