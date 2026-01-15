@@ -20,17 +20,16 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 from flask_caching import Cache
 
 cache = Cache(app, config={
-    'CACHE_TYPE': 'SimpleCache',    # in-memory, perfect for small/medium traffic
-    'CACHE_DEFAULT_TIMEOUT': 300    # 5 minutes – good balance for daily refresh
+    'CACHE_TYPE': 'SimpleCache',
+    'CACHE_DEFAULT_TIMEOUT': 300
 })
 
-# --- Staging SEO safeguard ---
+# Staging SEO safeguard
 if os.environ.get("STAGING") == "true":
     @app.after_request
     def add_header(response):
         response.headers['X-Robots-Tag'] = 'noindex, nofollow'
         return response
-# -----------------------------
 
 CACHE_FILE = "data/cache.json"
 HISTORY_FILE = "data/history.json"
@@ -38,7 +37,6 @@ AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
-# Cache settings
 CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v2.2-uk-seo-2026"
 
@@ -61,27 +59,14 @@ THEMES = [
         "bg": "#0f172a",
         "card": "#1e293b",
         "accent": "#f8fafc",
-        "button": "#3b82f6",          # kept vivid blue — works better on dark
+        "button": "#3b82f6",
         "tag": "#1e40af",
         "text_accent": "#cbd5e1",
         "gradient": "linear-gradient(90deg, #3b82f6, #60a5fa)"
     }
 ]
 
-# We now use a fixed default + let user override via JS/localStorage
-DEFAULT_THEME = THEMES[0]  # Light Elegance
-
-# In render_page() — just use the default theme for server-side rendering
-# (client JS will handle user preference override)
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
-    theme = DEFAULT_THEME
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    
-    nav_items = get_nav_items()
-    
-  
-
-
+DEFAULT_THEME = THEMES[0]  # Light Elegance is the fixed default
 
 # ---------------- SEO: ping search engines ---------------- #
 def ping_search_engines():
@@ -94,7 +79,7 @@ def ping_search_engines():
         try:
             requests.get(url, timeout=5)
         except Exception:
-            pass  # silent fail
+            pass
 
 # ---------------- AI HOOK GENERATION ---------------- #
 HOOK_STYLES = ["benefit-first", "lifestyle-story", "quality-craft", "quiet-genius"]
@@ -197,7 +182,7 @@ def load_or_generate_hooks(products):
 
     Thread(target=ping_search_engines, daemon=True).start()
 
-    cache.clear()  # if you already added caching
+    cache.clear()
 
     return enriched
 
@@ -509,10 +494,6 @@ footer {
 }
 </style>"""
 
-
-
-
-
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
@@ -626,7 +607,6 @@ BASE_HTML = """<!DOCTYPE html>
             document.documentElement.style.setProperty('--text-accent', t.text_accent);
             document.documentElement.style.setProperty('--gradient', t.gradient);
 
-            // Force repaint on dynamic elements
             document.querySelectorAll('.card').forEach(el => el.style.background = t.card);
             document.querySelectorAll('.tag').forEach(el => el.style.background = t.tag);
             document.querySelectorAll('button, a.button-like').forEach(el => el.style.background = t.gradient);
@@ -643,14 +623,14 @@ BASE_HTML = """<!DOCTYPE html>
         });
     </script>
 
-    <!-- Your existing search + dropdown scripts can stay here -->
+    <!-- Add your existing search + dropdown JavaScript here if needed -->
 </body>
 </html>"""
 
 # ---------------- ROUTES / PAGE RENDERER ---------------- #
 @cache.cached(timeout=300, key_prefix=lambda: request.full_path)
 def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
-    theme = get_daily_theme()
+    theme = DEFAULT_THEME
     css = render_template_string(CSS_TEMPLATE, **theme)
     
     nav_items = get_nav_items()
@@ -687,7 +667,6 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         prev_page_url=prev_url
     )
 
-
 # ---------------- HOME ---------------- #
 @app.route("/")
 def home():
@@ -699,7 +678,6 @@ def home():
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
     )
-
 
 # ---------------- CATEGORY ---------------- #
 @app.route("/category/<slug>")
@@ -724,7 +702,6 @@ def category(slug, page=1):
         page=page,
         page_url=page_url
     )
-
 
 # ---------------- SEASONAL ---------------- #
 @app.route("/season/<season_slug>")
@@ -760,7 +737,6 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
-
 # ---------------- PRODUCT DETAIL ---------------- #
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
@@ -783,7 +759,6 @@ def product_detail(product_slug):
         related_products=related
     )
 
-
 # ---------------- BLOG ---------------- #
 POSTS_PER_PAGE = 8
 
@@ -800,15 +775,12 @@ def load_blog_posts(page=1):
     
     return paginated, total_pages, len(posts)
 
-
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
     paginated, total_pages, total_posts = load_blog_posts(page)
     if not paginated and page > 1:
         abort(404)
-
-    theme = get_daily_theme()  # Get theme for accent color
 
     def page_url(p_num):
         return url_for("blog_list", page=p_num) if p_num <= total_pages else None
@@ -818,14 +790,17 @@ def blog_list(page=1):
         description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
         heading="FyboBuybo Blog",
         subtitle="Gift guides, trends and inspiration for UK shoppers",
-        products=None,  # no products grid
+        products=None,
         page=page,
         page_url=page_url
     )
 
     # Inject blog list after subtitle
     blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    accent_color = theme["accent"]
+    
+    # Use accent from the default theme (consistent with site theme)
+    accent_color = DEFAULT_THEME["accent"]
+    
     for post in paginated:
         date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
         blog_html += f'''
@@ -838,13 +813,11 @@ def blog_list(page=1):
         '''
     blog_html += '</div>'
 
-    # Insert after subtitle block
-    insert_point = rendered.find('<p class="subtitle">') 
+    insert_point = rendered.find('<p class="subtitle">')
     if insert_point > -1:
         insert_after = rendered.find('</p>', insert_point) + 4
         rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
 
-    # Add pagination if needed
     if total_pages > 1:
         pag_html = '<div class="pagination">'
         if page > 1:
@@ -856,7 +829,6 @@ def blog_list(page=1):
 
     return rendered
 
-
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
@@ -866,7 +838,7 @@ def blog_detail(slug):
     all_products = refresh_products(background=True)
     related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
-    rendered = render_page(
+    return render_page(
         title=post["title"],
         description=post.get("description", "Gift inspiration and practical tips from FyboBuybo."),
         heading=post.get("heading", post["title"]),
@@ -874,21 +846,6 @@ def blog_detail(slug):
         products=None,
         related_products=related
     )
-
-    # Inject full blog content after subtitle
-    content_html = f'''
-    <div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">
-        {post.get("content", "<p>Content coming soon.</p>")}
-    </div>
-    '''
-
-    insert_point = rendered.find('<p class="subtitle">')
-    if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + content_html + rendered[insert_after:]
-
-    return rendered
-
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
@@ -900,7 +857,6 @@ Disallow:
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
-
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -925,11 +881,10 @@ def sitemap():
     for season in seasons:
         urls.add((f"{SITE_URL}/season/{slugify(season)}", today))
 
-    # Blog
     blog_lastmod = today
     if BLOG_POSTS:
         blog_dates = [post.get("date", today) for post in BLOG_POSTS.values()]
-        blog_lastmod = max(blog_dates)
+        blog_lastmod = max(blog_dates) if blog_dates else today
         for slug, post in BLOG_POSTS.items():
             urls.add((f"{SITE_URL}/blog/{slug}", post.get("date", today)))
     urls.add((f"{SITE_URL}/blog", blog_lastmod))
@@ -940,7 +895,6 @@ def sitemap():
         sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
