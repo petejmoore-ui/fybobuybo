@@ -10,87 +10,51 @@ from blog_data import BLOG_POSTS
 from flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
 from dotenv import load_dotenv
-import requests
 
 load_dotenv()
 
 app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
-from flask_caching import Cache
-
-cache = Cache(app, config={
-    'CACHE_TYPE': 'SimpleCache',    # in-memory, perfect for small/medium traffic
-    'CACHE_DEFAULT_TIMEOUT': 300    # 5 minutes – good balance for daily refresh
-})
-
-# --- Staging SEO safeguard ---
-if os.environ.get("STAGING") == "true":
-    @app.after_request
-    def add_header(response):
-        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
-        return response
-# -----------------------------
-
-CACHE_FILE = "data/cache.json"
-HISTORY_FILE = "data/history.json"
+CACHE_FILE = "/data/cache.json"
+HISTORY_FILE = "/data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
-# Cache settings
+# Cache settings - controls how often we regenerate hooks (bigger = cheaper)
 CACHE_REFRESH_DAYS = 10
-PROMPT_VERSION = "v2.2-uk-seo-2026"
+PROMPT_VERSION = "v2.2-uk-seo-2026"  # Change this when you update prompt/styles
 
-os.makedirs("data", exist_ok=True)
+# Ensure data directory exists
+os.makedirs("/data", exist_ok=True)
 
 # ---------------- THEMES ---------------- #
 THEMES = [
     {
-        "name": "Light Elegance",
-        "bg": "#fdfdfd",            # Light, soft neutral
-        "card": "#ffffff",           # Clean card background
-        "accent": "#1f2937",         # Slate-800 for primary text
-        "button": "#3b82f6",         # Bright, modern blue
-        "tag": "#dbeafe",            # Soft light blue for tags
-        "text_accent": "#475569",    # Slightly muted slate for secondary text
-        "gradient": "linear-gradient(90deg,#3b82f6,#06b6d4)"  # Smooth professional gradient
-    },
-    {
-        "name": "Dark Luxe",
-        "bg": "#0f172a",             # Deep navy/charcoal
-        "card": "#1e293b",           # Slightly lighter than bg for contrast
-        "accent": "#f8fafc",         # Off-white primary text
-        "button": "#2563eb",         # Vivid, accessible blue
-        "tag": "#1e40af",            # Darker, subtle accent
-        "text_accent": "#cbd5e1",    # Light slate for secondary text
-        "gradient": "linear-gradient(90deg,#2563eb,#3b82f6)"  # Elegant, soft contrast
+        "bg": "#0f172a",
+        "card": "#1e293b",
+        "accent": "#38bdf8",
+        "button": "#0284c7",
+        "tag": "#7dd3fc",
+        "text_accent": "#bae6fd",
+        "gradient": "linear-gradient(90deg,#0284c7,#38bdf8)"
     }
 ]
 
 def get_daily_theme():
-    import datetime
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
-
-
-# ---------------- SEO: ping search engines ---------------- #
-def ping_search_engines():
-    sitemap_url = f"{SITE_URL}/sitemap.xml"
-    engines = [
-        f"https://www.google.com/ping?sitemap={sitemap_url}",
-        f"https://www.bing.com/ping?sitemap={sitemap_url}"
-    ]
-    for url in engines:
-        try:
-            requests.get(url, timeout=5)
-        except Exception:
-            pass  # silent fail
-
-# ---------------- AI HOOK GENERATION ---------------- #
-HOOK_STYLES = ["benefit-first", "lifestyle-story", "quality-craft", "quiet-genius"]
+# ---------------- IMPROVED + SEO-FRIENDLY AI HOOK ---------------- #
+HOOK_STYLES = [
+    "benefit-first",       # Lead with primary practical benefit
+    "lifestyle-story",     # Gentle relatable British daily-life moment
+    "quality-craft",       # Focus on materials, durability, heritage
+    "quiet-genius"         # Understated clever fix for common UK issue
+]
 
 def generate_hook(product):
+    # Manual override takes priority
     if "hook_override" in product and product["hook_override"].strip():
         return product["hook_override"].strip()
 
@@ -115,11 +79,16 @@ Core rules:
 - Naturally weave in UK context (weather, homes, seasons, value mindset) where organic
 
 Style to use exactly: {style}
-Extra context if relevant:
+- benefit-first:      Start directly with the #1 real-world benefit
+- lifestyle-story:    Paint a gentle, relatable moment in British daily life
+- quality-craft:      Emphasise materials, build quality, longevity
+- quiet-genius:       Highlight clever, understated solution to a common UK annoyance
+
+Extra context to blend naturally if relevant:
 Category: {category}
 Price feel: {price_tier}
-Common UK context: {', '.join(pain_points) if pain_points else 'everyday practicality and lasting value'}
-Target phrases (subtle): {', '.join(keywords) if keywords else 'none'}
+Common UK shopper context: {', '.join(pain_points) if pain_points else 'everyday practicality and lasting value'}
+Target search phrases to echo subtly (NO stuffing): {', '.join(keywords) if keywords else 'none'}
 
 Product: {name}
 
@@ -135,9 +104,11 @@ Output only the 1–2 sentences. End with a complete sentence. No explanations.
         )
         hook = r.choices[0].message.content.strip()
 
+        # Normalise bold formatting
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
         hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
 
+        # Ensure it ends properly
         if not re.search(r'[.!?]$', hook):
             hook += " It’s quietly appreciated among UK shoppers."
 
@@ -147,7 +118,7 @@ Output only the 1–2 sentences. End with a complete sentence. No explanations.
         print(f"Groq error for '{name}': {e}")
         return f"Appreciated for its <b>lasting quality</b> and thoughtful design in everyday British life."
 
-# ---------------- CACHING ---------------- #
+# ---------------- SMART CACHING LOGIC ---------------- #
 def should_refresh_cache():
     if not os.path.exists(CACHE_FILE):
         return True
@@ -165,6 +136,13 @@ def should_refresh_cache():
         return True
 
 def load_or_generate_hooks(products):
+    if not should_refresh_cache():
+        try:
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                return json.load(f)["products"]
+        except:
+            pass  # fall through and regenerate
+
     enriched = []
     for p in products:
         p_copy = dict(p)
@@ -186,10 +164,6 @@ def load_or_generate_hooks(products):
     history[history_key] = enriched
     save_history(history)
 
-    Thread(target=ping_search_engines, daemon=True).start()
-
-    cache.clear()  # if you already added caching
-
     return enriched
 
 def load_history():
@@ -206,21 +180,33 @@ def refresh_products(background=False):
     today = str(datetime.date.today())
 
     if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE, encoding="utf-8") as f:
-                cache = json.load(f)
-            cache_date_str = cache.get("date", "")
-            if cache_date_str.startswith(today):
-                return cache.get("products", [])
-            cache_date = datetime.datetime.fromisoformat(cache_date_str)
-            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
-               cache.get("prompt_version") == PROMPT_VERSION:
-                return cache.get("products", [])
-        except Exception as e:
-            print(f"Cache read failed: {e} — regenerating")
+        with open(CACHE_FILE, encoding="utf-8") as f:
+            cache = json.load(f)
+            if cache.get("date", "").startswith(today) or not should_refresh_cache():
+                return cache["products"]
 
-    enriched = load_or_generate_hooks(PRODUCTS)
-    return enriched
+    def do_refresh():
+        load_or_generate_hooks(PRODUCTS)
+
+    if background:
+        Thread(target=do_refresh).start()
+        if os.path.exists(CACHE_FILE):
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                cached = json.load(f).get("products", [])
+                if cached:
+                    return cached
+        return [{
+            "name": p["name"],
+            "category": p["category"],
+            "image": p["image"],
+            "url": p["url"],
+            "info": p["info"],
+            "hook": p["info"]
+        } for p in PRODUCTS]
+    else:
+        do_refresh()
+        with open(CACHE_FILE, encoding="utf-8") as f:
+            return json.load(f)["products"]
 
 # ---------------- HELPERS ---------------- #
 def slugify(text):
@@ -230,43 +216,17 @@ def slugify(text):
     text = re.sub(r'[^\w\-]', '', text)
     return text
 
-def normalize_for_match(text):
-    if not text:
-        return ""
-    return text.lower().replace("'", "").replace(" ", "").replace("-", "")
+def get_categories(history):
+    today_str = str(datetime.date.today())
+    today_products = history.get(today_str, []) or PRODUCTS
 
-def get_nav_items():
-    products = PRODUCTS
-    if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE, encoding="utf-8") as f:
-                cache = json.load(f)
-            products = cache.get("products", PRODUCTS)
-        except:
-            pass
+    cats = set()
+    for p in today_products:
+        if "category" in p and p["category"].strip():
+            cats.add(p["category"].strip())
 
-    categories = sorted({p["category"] for p in products if p.get("category")})
+    return sorted(cats)
 
-    seasons_set = set()
-    for p in products:
-        if p.get("season"):
-            for s in p["season"].split(","):
-                clean = s.strip()
-                if clean:
-                    seasons_set.add(clean)
-
-    important_seasons_order = [
-        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-        "Summer Gifts", "Back to School", "Halloween", "Christmas"
-    ]
-    important_seasons = [s for s in important_seasons_order if s in seasons_set]
-    other_seasons = sorted(seasons_set - set(important_seasons))
-    seasons = other_seasons + important_seasons
-
-    return {
-        "categories": categories,
-        "seasons": seasons
-    }
 
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
@@ -291,508 +251,279 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
+def ensure_hook(p):
+    if "hook" not in p or not p["hook"]:
+        p["hook"] = FALLBACK_HOOK
+    return p
+
+# ---------------- CSS ---------------- #
+
+
 # ---------------- CSS ---------------- #
 CSS_TEMPLATE = """<style>
-:root {
-    --bg: {{bg}};
-    --card: {{card}};
-    --accent: {{accent}};
-    --button: {{button}};
-    --tag: {{tag}};
-    --text_accent: {{text_accent}};
-    --gradient: {{gradient}};
-}
-
-/* Body & text */
-body { 
-    margin:0; 
-    background: var(--bg); 
-    color: var(--accent); 
-    font-family:'Outfit',sans-serif; 
-    padding:20px 20px 40px; 
-    transition: background 0.4s, color 0.4s;
-}
-h1 { 
-    text-align:center; 
-    font-size:3rem; 
-    margin:40px 0 10px; 
-    background: var(--gradient); 
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color:transparent; 
-    transition: background 0.4s;
-}
-.subtitle { 
-    text-align:center; 
-    opacity:.85; 
-    max-width:900px; 
-    margin:20px auto; 
-    color:var(--text_accent); 
-    font-size:1.1rem; 
-    transition: color 0.4s;
-}
-
-/* Grid layout */
-.grid { 
-    display:grid; 
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
-    gap:24px; 
-    max-width:1400px; 
-    margin:auto; 
-}
-
-/* Cards */
-.card { 
-    background:var(--card); 
-    border-radius:22px; 
-    padding:20px; 
-    text-align:center; 
-    box-shadow:0 20px 40px rgba(0,0,0,.6); 
-    transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.4s, opacity 0.3s ease; 
-    position: relative; 
-    overflow: hidden; 
-    opacity:1;
-}
-.card:hover { 
-    transform: translateY(-6px); 
-    box-shadow:0 28px 60px rgba(0,0,0,.45); 
-}
-.card img { 
-    width:100%; 
-    max-height:380px; 
-    object-fit:contain; 
-    border-radius:16px; 
-    margin:16px 0; 
-    display:block; 
-    transition: transform 0.4s ease, filter 0.4s;
-}
-.card:hover img { 
-    transform: scale(1.05); 
-}
-/* Gradient overlay on hover */
-.card::before { 
-    content:""; 
-    position:absolute; 
-    top:0; left:0; right:0; bottom:0; 
-    background:linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0)); 
-    opacity:0; 
-    transition:opacity 0.4s ease; 
-    pointer-events:none; 
-    border-radius:16px; 
-}
-.card:hover::before { opacity:1; }
-
-/* Card hide animation (search filter) */
-.grid .card.hidden {
-    opacity:0;
-    pointer-events:none;
-}
-
-/* Tags */
-.tag { 
-    background:var(--tag); 
-    padding:6px 14px; 
-    border-radius:20px; 
-    font-size:.85rem; 
-    display:inline-block; 
-    margin-bottom:12px; 
-    transition: background 0.4s;
-}
-
-/* Buttons */
-button { 
-    background:var(--button); 
-    border:none; 
-    padding:12px 28px; 
-    border-radius:50px; 
-    font-size:1rem; 
-    font-weight:900; 
-    color:white; 
-    cursor:pointer; 
-    transition:transform 0.25s ease, opacity 0.25s ease, background 0.4s; 
-}
-button:hover { 
-    transform:scale(1.03); 
-    opacity:0.9; 
-}
-
-/* Footer */
-footer { 
-    text-align:center; 
-    opacity:.7; 
-    margin:80px 0 40px; 
-    font-size:.9rem; 
-    line-height:1.6; 
-    transition: color 0.4s;
-}
-
-/* Links */
-a { 
-    color:var(--text_accent); 
-    text-decoration:none; 
-    transition: color 0.4s;
-}
-
-/* Nav container */
-nav { 
-    background:var(--card); 
-    padding:16px; 
-    margin:20px 0 40px; 
-    border-radius:16px; 
-    box-shadow:0 10px 30px rgba(0,0,0,.4); 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; 
-    gap:16px; 
-    transition: background 0.4s, color 0.4s;
-}
-
-/* Top row: Home + Blog */
-.nav-top { 
-    display:flex; 
-    justify-content:center; 
-    gap:40px; 
-    width:100%; 
-}
-.nav-top a { 
-    color:var(--text_accent); 
-    font-weight:700; 
-    font-size:1.2rem; 
-    transition:.2s, color 0.4s; 
-}
-.nav-top a:hover { opacity:.8; }
-
-/* Desktop horizontal categories + seasons */
-.nav-desktop { display:none; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
-.nav-desktop a { margin: 0 12px; }
-
-/* Mobile dropdowns */
-.nav-middle { display:flex; justify-content:center; gap:24px; flex-wrap:nowrap; }
-.categories-dropdown, .seasons-dropdown { position: relative; }
-.categories-dropdown button, .seasons-dropdown button { 
-    background:#334155; 
-    color:#bae6fd; 
-    border:1px solid #475569; 
-    padding:10px 24px; 
-    border-radius:999px; 
-    font-weight:600; 
-    font-size:1rem; 
-    cursor:pointer; 
-    transition: all 0.2s; 
-    min-width:140px; 
-}
-.categories-dropdown button:hover, .seasons-dropdown button:hover { 
-    background:#475569; 
-    color:white; 
-    transform: translateY(-1px); 
-}
-.dropdown-content { 
-    display:none; 
-    position:absolute; 
-    top:100%; left:50%; 
-    transform:translateX(-50%); 
-    background:var(--card); 
-    border-radius:12px; 
-    padding:12px 0; 
-    min-width:240px; 
-    max-height:60vh; 
-    overflow-y:auto; 
-    box-shadow:0 10px 25px rgba(0,0,0,0.5); 
-    z-index:100; 
-    margin-top:8px; 
-    transition: background 0.4s;
-}
-.dropdown-content a { 
-    display:block; 
-    padding:10px 24px; 
-    color:var(--text_accent); 
-    text-decoration:none; 
-    font-size:1rem; 
-    white-space:nowrap; 
-    transition: color 0.4s;
-}
-.dropdown-content a:hover { background:#334155; }
-
-/* Search bar */
-#search-form { width:100%; max-width:400px; text-align:center; }
-#search-input { 
-    padding:10px 20px; 
-    border-radius:999px; 
-    border:1px solid var(--text_accent); 
-    background:transparent; 
-    color:var(--accent); 
-    width:100%; 
-    font-size:1rem; 
-    text-align:center; 
-    transition: border-color 0.4s, color 0.4s;
-}
-
-/* Seasons horizontal links (desktop only) */
-nav .season-link { 
-    color:#a5b4fc; 
-    font-size:1rem; 
-    font-weight:600; 
-    padding:4px 10px; 
-    border-radius:8px; 
-    transition: all 0.2s ease; 
-}
-nav .season-link:hover { 
-    opacity:1; 
-    color:#c7d2fe; 
-    background: rgba(56, 189, 248, 0.12); 
-}
-
-/* Mobile */
-@media (max-width:768px) {
-    .nav-desktop { display:none !important; }
-    .nav-middle { display:flex !important; gap:20px; justify-content:center; }
-    .grid { grid-template-columns:1fr; }
-}
-
-/* Desktop */
-@media (min-width:769px) {
-    nav { flex-direction:row; justify-content:space-between; align-items:center; padding:16px 24px; flex-wrap:wrap; }
-    .nav-top { flex:0 0 auto; }
-    .nav-middle { display:none !important; }
-    .nav-desktop { display:flex !important; flex-wrap:wrap; justify-content:center; gap:16px; width:100%; }
-    #search-form { flex:0 0 auto; margin-left:auto; max-width:300px; }
-    .categories-dropdown, .seasons-dropdown { display:none !important; }
-    nav a { margin:0 12px; }
-}
-
-/* Pagination */
-.pagination { display:flex; justify-content:center; gap:16px; margin:40px 0; }
-.pagination a { 
-    background:var(--button); 
-    padding:10px 16px; 
-    border-radius:12px; 
-    color:white; 
-    text-decoration:none; 
-    font-weight:700; 
-    transition:.2s; 
-}
-.pagination a:hover { opacity:.9; }
-
-/* Loading state */
-.loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:var(--text_accent); }
-
-/* Day/Night toggle professional button */
-#theme-toggle {
-    position:fixed; 
-    top:16px; 
-    right:16px; 
-    z-index:999; 
-    width:42px;
-    height:42px;
-    border-radius:50%;
+body{margin:0;background:{{bg}};color:#fff;font-family:'Outfit',sans-serif;padding:20px 20px 40px}
+h1{text-align:center;font-size:3rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:40px 0 10px}
+.subtitle{text-align:center;opacity:.85;max-width:900px;margin:20px auto;color:{{text_accent}};font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:auto}
+.card{background:{{card}};border-radius:22px;padding:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.7)}
+img{width:100%;border-radius:16px;margin:16px 0}
+.tag{background:{{tag}};padding:6px 14px;border-radius:20px;font-size:.85rem;display:inline-block;margin-bottom:12px}
+button{
+    background:{{button}};
     border:none;
+    padding:16px 36px;
+    border-radius:50px;
+    font-size:1.1rem;
+    font-weight:900;
+    color:white;
     cursor:pointer;
-    background:var(--button);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    transition: all 0.25s ease;
+    transition:.3s;
+    animation: pulse 2.5s infinite ease-in-out;
 }
-#theme-toggle:hover {
+button:hover{
+    opacity:.9;
     transform:scale(1.05);
-    box-shadow:0 6px 16px rgba(0,0,0,0.35);
+    animation:none;
 }
-#theme-toggle svg {
-    width:20px;
-    height:20px;
-    fill:white;
-    transition: transform 0.3s ease;
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(2,132,199,0.4);}
+    70%{box-shadow:0 0 0 12px rgba(2,132,199,0);}
+    100%{box-shadow:0 0 0 0 rgba(2,132,199,0);}
+}
+@media (prefers-reduced-motion: reduce){
+    button{animation:none;}
+}
+footer{text-align:center;opacity:.7;margin:80px 0 40px;font-size:.9rem;line-height:1.6}
+a{color:{{text_accent}};text-decoration:none}
+nav{background:{{card}};padding:16px;margin:20px 0 40px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
+nav a{margin:0 16px;color:{{text_accent}};font-weight:700;font-size:1.1rem;transition:.2s}
+nav a:hover{opacity:.8}
+.pagination{display:flex;justify-content:center;gap:16px;margin:40px 0}
+.pagination a{background:{{button}};padding:10px 16px;border-radius:12px;color:white;text-decoration:none;font-weight:700;transition:.2s}
+.pagination a:hover{opacity:.9}
+.loading{text-align:center;opacity:.8;margin:80px 0;font-size:1.3rem;color:{{text_accent}};}
+@media (max-width:768px){
+    nav a{margin:0 10px;font-size:1rem}
+    .grid{grid-template-columns:1fr}
+}
+
+/* Single product page - center card & constrain image */
+.grid:has(> .card:only-child) .card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.grid:has(> .card:only-child) img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 16px;
+}
+
+/* Uniform titles & aligned images */
+.card h2 {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 900;
+}
+
+.card img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: contain;
+    background: #111827;
+    border-radius: 16px;
+    margin: 16px 0;
+}
+
+/* Button & "More" spacing */
+.card > a[onclick] {
+    margin: 20px 0 10px;
+}
+.card p:last-of-type {
+    margin: 10px 0;
+    font-size: .85rem;
+    opacity: .7;
 }
 </style>"""
 
-
-
-
-
 # ---------------- HTML TEMPLATE ---------------- #
 BASE_HTML = """<!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title }}</title>
-<meta name="description" content="{{ description | truncate(155, true, '...') }}">
+<meta name="description" content="{{ description }}">
 <link rel="canonical" href="{{ canonical_url }}">
-{% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
-{% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
+{% if next_page_url %}
+<link rel="next" href="{{ next_page_url }}">
+{% endif %}
+{% if prev_page_url %}
+<link rel="prev" href="{{ prev_page_url }}">
+{% endif %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<!-- Open Graph -->
+  gtag('config', 'G-C1YNKZS6PG');
+</script>
 <meta property="og:title" content="{{ title }}">
-<meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
-<meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
 <meta property="og:url" content="{{ canonical_url }}">
-<meta property="og:site_name" content="FyboBuybo">
-<meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{{ title }} – UK gift ideas">
-
-<!-- Twitter / X Cards -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@CryptoSolGood">
-<meta name="twitter:title" content="{{ title }}">
-<meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
-<meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-<meta name="twitter:image:alt" content="{{ title }} – popular UK presents">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
-
 {{ css|safe }}
 </head>
 <body>
 
-<!-- Day/Night Toggle -->
-<button id="theme-toggle" aria-label="Toggle theme">
-  <!-- Sun / Moon SVG icons will swap -->
-  <svg id="theme-icon" viewBox="0 0 24 24">
-    <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.657 2.343a1 1 0 0 1 1.414 1.414l-1.414 1.414a1 1 0 0 1-1.414-1.414l1.414-1.414zM20 11h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zm-2.343 5.657a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-5.657-2.343a1 1 0 0 1 0 1.414L5.343 20a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM4 11H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm2.343-5.657a1 1 0 0 1-1.414 0L3.515 4.929a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
-  </svg>
-</button>
-
-<script>
-const THEMES = [
-  { bg: "#f9fafb", card: "#ffffff", accent: "#111827", button: "#3b82f6", tag: "#e0f2fe", text_accent: "#334155", gradient: "linear-gradient(90deg,#3b82f6,#06b6d4)" },
-  { bg: "#111827", card: "#1f2937", accent: "#f9fafb", button: "#2563eb", tag: "#1e40af", text_accent: "#e5e7eb", gradient: "linear-gradient(90deg,#2563eb,#3b82f6)" }
-];
-
-let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
-
-function applyTheme(themeIndex) {
-  const theme = THEMES[themeIndex];
-  document.body.style.background = theme.bg;
-  document.body.style.color = theme.accent;
-  document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
-  document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
-  document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
-  document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a").forEach(el => el.style.color = theme.text_accent);
-  document.querySelectorAll("h1").forEach(h => {
-    h.style.background = theme.gradient;
-    h.style.webkitBackgroundClip = "text";
-    h.style.webkitTextFillColor = "transparent";
-  });
-
-  // Update icon: sun for light, moon for dark
-  const icon = document.getElementById("theme-icon");
-  if(themeIndex === 0){
-    icon.style.transform = "rotate(0deg)";
-  } else {
-    icon.style.transform = "rotate(180deg)";
-  }
-
-  localStorage.setItem('themeIndex', themeIndex);
-}
-
-applyTheme(currentTheme);
-
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  currentTheme = (currentTheme + 1) % THEMES.length;
-  applyTheme(currentTheme);
-});
-</script>
-
-<!-- Search & Nav (unchanged from your previous template) -->
-<nav aria-label="Main navigation">
-  <div class="nav-top">
+<nav>
     <a href="/">Home</a>
     <a href="/blog">Blog</a>
-  </div>
-  <div class="nav-desktop">
-    {% for cat in nav_items.categories %}
-        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+    {% for cat in categories %}
+    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
     {% endfor %}
-    {% if nav_items.seasons %}
-      <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
-      {% for season in nav_items.seasons %}
-          <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
-      {% endfor %}
-    {% endif %}
-  </div>
-  <div class="nav-middle">
-    <div class="categories-dropdown">
-      <button aria-expanded="false">Categories ▼</button>
-      <div class="dropdown-content">
-        {% for cat in nav_items.categories %}
-          <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-        {% endfor %}
-      </div>
-    </div>
-    {% if nav_items.seasons %}
-    <div class="seasons-dropdown">
-      <button aria-expanded="false">Seasonal ▼</button>
-      <div class="dropdown-content">
-        {% for season in nav_items.seasons %}
-          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-  </div>
-  <form id="search-form" role="search">
-    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
-  </form>
 </nav>
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
+
 <p style="text-align:center;opacity:.7;margin-bottom:40px;">
-    ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
+✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated gifts
 </p>
 
 {% if products %}
 <div class="grid">
-  {% for p in products %}
-  <div class="card" itemscope itemtype="https://schema.org/Product">
-      <span class="tag">{{ p.category }}</span>
-      <a href="/product/{{ slugify(p.name) }}" itemprop="url">
-          <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
-      </a>
-      <a href="/product/{{ slugify(p.name) }}">
-          <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy" itemprop="image">
-      </a>
-      <p itemprop="description">{{ p.hook|safe }}</p>
+{% for p in products %}
+<div class="card">
+    <span class="tag">{{ p.category }}</span>
+    <a href="/product/{{ slugify(p.name) }}">
+        <h2>{{ shorten_product_name(p.name) }}</h2>
+    </a>
 
-      {% if p.date_added %}
-      <p style="font-size:0.85rem; opacity:.7; margin:16px 0 8px; color:#94a3b8; text-align:center;">
-          ↳ Featured on {{ p.date_added }}
-      </p>
-      {% endif %}
+    <a href="/product/{{ slugify(p.name) }}">
+        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info }}" loading="lazy">
+    </a>
 
-      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
-          <button>Check price</button>
-      </a>
-      <p style="margin-top:8px; font-size:.85rem; opacity:.75; text-align:center;">
-          <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
-      </p>
-      {% if p.category %}
-      <p style="font-size:.85rem; opacity:.7; margin-top:16px;">
-          More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
-      </p>
-      {% endif %}
-  </div>
-  {% endfor %}
-</div>
+       <p>{{ p.hook|safe }}</p>
 
-<!-- Similar Products restored -->
-{% if similar_products %}
-<h2 style="text-align:center; margin-top:60px;">You might also like</h2>
-<div class="grid">
-  {% for p in similar_products %}
-    <div class="card">
-      <span class="tag">{{ p.category }}</span>
-      <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
-      <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy"></a>
-    </div>
-  {% endfor %}
-</div>
+    {% if p.date_added %}
+    <p style="font-size:0.85rem;opacity:.7;margin:16px 0 8px;color:#94a3b8;text-align:center;">
+        ↳ Featured on {{ p.date_added }}
+    </p>
+    {% endif %}
+
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ shorten_product_name(p.name) }}",
+  "image": "{{ p.image }}",
+  "description": "{{ p.info }}",
+  "url": "{{ p.url }}",
+  "brand": {"@type": "Brand", "name": "{{ p.brand or 'Various' }}"},
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ p.url }}",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Amazon"
+    }
+  }
+}
+</script>
+
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ SITE_URL }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ p.category }}",
+      "item": "{{ SITE_URL }}/category/{{ slugify(p.category) }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ shorten_product_name(p.name) }}"
+    }
+  ]
+}
+</script>
+
+    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored" 
+       aria-label="View {{ p.name }} on Amazon"
+       onclick="gtag('event', 'affiliate_click', { 
+           'event_category': '{{ p.category }}', 
+           'event_label': '{{ p.name }}', 
+           'value': 1,
+           'page_path': window.location.pathname
+       });">
+        <button>View on Amazon</button>
+    </a>
+
+    {% if p.category %}
+<p style="font-size:.85rem;opacity:.7;margin-top:16px;">
+    More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+</p>
 {% endif %}
+
+</div>
+{% endfor %}
+</div>
+
+{# === RELATED PRODUCTS SECTION (only shows on single product pages) === #}
+
+<h2 style="text-align:center;margin:60px 0 20px;font-size:2rem;background:{{gradient}};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+    More Popular {{ related_products[0].category if related_products else 'UK' }} Gifts
+</h2>
+
+{% if related_products %}
+<div class="grid">
+    {% for rp in related_products %}
+    <div class="card">
+        <span class="tag">{{ rp.category }}</span>
+        <a href="/product/{{ slugify(rp.name) }}">
+            <h2>{{ shorten_product_name(rp.name) }}</h2>
+        </a>
+        <a href="/product/{{ slugify(rp.name) }}">
+            <img src="{{ rp.image }}" alt="{{ rp.name }} – {{ rp.info }}" loading="lazy">
+        </a>
+        <p>{{ rp.hook|safe }}</p>
+        <a href="{{ rp.url }}" target="_blank" rel="nofollow sponsored" 
+           aria-label="View {{ rp.name }} on Amazon">
+            <button>View on Amazon</button>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p style="text-align:center;opacity:.7;">Check out more top gifts across the UK!</p>
+{% endif %}
+
+
 
 {% else %}
 <p class="loading">
@@ -804,92 +535,58 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
     <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
+    
     <p style="opacity:.8;font-size:.9rem;margin-top:20px;">
         All product information, prices, and availability are accurate at the time of publication and subject to change.
     </p>
+    
+    <div style="margin:50px 0 30px;text-align:center;">
+        <p style="opacity:.8;font-size:.95rem;margin-bottom:20px;">Follow us for more gift ideas</p>
+        
+        <!-- Pinterest -->
+        <a href="https://www.pinterest.co.uk/petejmoore/" target="_blank" aria-label="Pinterest" style="margin:0 10px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.03-.655 2.568-.994 3.995-.281 1.195.597 2.169 1.774 2.169 2.131 0 3.766-2.248 3.766-5.495 0-2.871-2.064-4.877-5.01-4.877-3.411 0-5.409 2.562-5.409 5.209 0 1.032.396 2.142.89 2.744.099.121.112.226.085.345-.087.377-.284 1.187-.322 1.352-.05.217-.165.262-.388.159-1.459-.677-2.37-2.8-2.37-4.507 0-3.67 2.665-7.033 7.689-7.033 4.041 0 7.186 2.876 7.186 6.72 0 4.004-2.526 7.225-6.05 7.225-1.183 0-2.298-.616-2.683-1.342 0 0-.589 2.241-.732 2.791-.269 1.036-1.004 2.332-1.497 3.122 1.126.347 2.317.535 3.552.535 6.627 0 12-5.373 12-12S18.627 0 12 0z" fill="#E60023"/>
+            </svg>
+        </a>
+        
+        <!-- X (Twitter) -->
+        <a href="https://twitter.com/yourusername" target="_blank" aria-label="X (Twitter)" style="margin:0 10px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l12.01 15.644z" fill="#000000"/>
+            </svg>
+        </a>
+        
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/yourusername/" target="_blank" aria-label="Instagram" style="margin:0 10px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%;background:#fff;padding:4px;vertical-align:middle;">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="#E4405F"/>
+            </svg>
+        </a>
+    </div>
 </footer>
-
-<script>
-// Search filter
-document.addEventListener("DOMContentLoaded", function() {
-    const searchInput = document.getElementById("search-input");
-    if (!searchInput) return;
-    const cards = document.querySelectorAll(".grid .card");
-    searchInput.addEventListener("input", function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        cards.forEach(card => {
-            const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
-            const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
-            const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
-            const matches = name.includes(query) || hook.includes(query) || category.includes(query);
-            card.classList.toggle('hidden', !matches);
-        });
-        const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
-        let noResults = document.getElementById("no-results");
-        if (query.length > 0 && visibleCards.length === 0) {
-            if (!noResults) {
-                noResults = document.createElement("p");
-                noResults.id = "no-results";
-                noResults.style.textAlign = "center";
-                noResults.style.opacity = "0.8";
-                noResults.style.margin = "40px 0";
-                noResults.style.fontSize = "1.1rem";
-                noResults.textContent = "No matching gifts found – try a different search.";
-                document.querySelector(".grid")?.after(noResults);
-            }
-        } else if (noResults) {
-            noResults.remove();
-        }
-    });
-});
-
-// Dropdown functionality
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector("button");
-        const content = dropdown.querySelector(".dropdown-content");
-        btn?.addEventListener("click", function(e) {
-            e.stopPropagation();
-            const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-            content.style.display = isOpen ? "none" : "block";
-        });
-    });
-    document.addEventListener("click", function() {
-        document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-    });
-});
-</script>
 
 </body>
 </html>
-
-
-
 """
 
-# ---------------- ROUTES / PAGE RENDERER ---------------- #
-@cache.cached(timeout=300, key_prefix=lambda: request.full_path)
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
+# ---------------- ROUTES ---------------- #
+def render_page(title, description, heading, subtitle, products, page=1, page_url=lambda p: "#", related_products=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
-    
-    nav_items = get_nav_items()
-    
+    history = load_history()
+    categories = get_categories(history)
     canonical = SITE_URL + request.path
     page_num = int(request.args.get("page", 1))
     if page_num > 1:
         canonical += f"?page={page_num}"
 
-    paged_products = []
-    total_pages = 1
-    if products:
-        paged_products, total_items = paginate(products, page)
-        total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
+    paged_products, total_items = paginate(products, page)
+    total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
 
-    next_url = page_url(page + 1) if page_url and page < total_pages else None
-    prev_url = page_url(page - 1) if page_url and page > 1 else None
+    # ---------------- Pagination rel links ---------------- #
+    next_page_url = page_url(page + 1) if page < total_pages else None
+    prev_page_url = page_url(page - 1) if page > 1 else None
 
     return render_template_string(
         BASE_HTML,
@@ -898,107 +595,79 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         heading=heading,
         subtitle=subtitle,
         products=paged_products,
-        nav_items=nav_items,
+        categories=categories,
         css=css,
         canonical_url=canonical,
         SITE_URL=SITE_URL,
         slugify=slugify,
         shorten_product_name=shorten_product_name,
         related_products=related_products or [],
-        next_page_url=next_url,
-        prev_page_url=prev_url
+        total_pages=total_pages,
+        page=page,
+        page_url=page_url,
+        button=theme["button"],
+        next_page_url=next_page_url,
+        prev_page_url=prev_page_url
     )
 
 
-# ---------------- HOME ---------------- #
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
     return render_page(
-        title="FyboBuybo – Trending UK Gifts & Popular Presents 2026",
-        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily with thoughtful picks for British shoppers.",
+        title="FyboBuybo – Trending UK Gifts & Popular Presents",
+        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics and more.",
         heading="FyboBuybo – Trending UK Gifts",
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
     )
 
-
-# ---------------- CATEGORY ---------------- #
 @app.route("/category/<slug>")
-@app.route("/category/<slug>/page/<int:page>")
-def category(slug, page=1):
-    all_products = refresh_products(background=True)
-    filtered = [p for p in all_products if slugify(p.get("category", "")) == slug]
-    if not filtered:
-        abort(404)
-    
-    cat_name = filtered[0]["category"]
-    
-    def page_url(p_num):
-        return url_for("category", slug=slug, page=p_num)
-    
-    return render_page(
-        title=f"{cat_name} Gifts – FyboBuybo",
-        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily with quality picks.",
-        heading=cat_name,
-        subtitle=f"Hand-picked {cat_name.lower()}, refreshed daily.",
-        products=filtered,
-        page=page,
-        page_url=page_url
-    )
-
-
-# ---------------- SEASONAL ---------------- #
-@app.route("/season/<season_slug>")
-@app.route("/season/<season_slug>/page/<int:page>")
-def seasonal_collection(season_slug, page=1):
-    all_products = refresh_products(background=True)
-    season_name = season_slug.replace('-', ' ').title()
-    norm_slug = normalize_for_match(season_slug)
+def category(slug):
+    ### FIX: always read from cached enriched products
+    products = refresh_products(background=True)
 
     filtered = [
-        p for p in all_products
-        if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))
+        p for p in products
+        if slugify(p["category"]) == slug
+        or ("season" in p and slugify(slug) in [slugify(s.strip()) for s in p["season"].split(",")])
     ]
+
     if not filtered:
         abort(404)
-    
-    filtered.sort(key=lambda p: p.get("date_added", "2000-01-01"), reverse=True)
-    
-    def page_url(p_num):
-        return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
-    
-    title_season = season_name
-    if "day" in season_name.lower() or "christmas" in season_name.lower():
-        title_season += " Gifts"
 
+    cat_name = filtered[0]["category"]
+
+    def page_url(p):
+        return url_for("category", slug=slug, page=p)
+
+    page = int(request.args.get("page", 1))
     return render_page(
-        title=f"Best {title_season} 2026 – FyboBuybo",
-        description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026 – thoughtful, trending & updated daily.",
-        heading=title_season,
-        subtitle="Perfect seasonal presents • refreshed every day",
+        title=f"{cat_name} – FyboBuybo",
+        description=f"Explore popular {cat_name.lower()} in the UK.",
+        heading=cat_name,
+        subtitle=f"Hand-picked selection of {cat_name.lower()}, updated daily.",
         products=filtered,
         page=page,
         page_url=page_url
     )
 
-
-# ---------------- PRODUCT DETAIL ---------------- #
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    all_products = refresh_products(background=True)
-    found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
+    products = refresh_products(background=True)
+    found = next((p for p in products if slugify(p["name"]) == product_slug), None)
+
     if not found:
         abort(404)
-    
+
     related = [
-        p for p in all_products
+        p for p in products
         if p["category"] == found["category"] and p["name"] != found["name"]
     ][:6]
 
     return render_page(
         title=f"{shorten_product_name(found['name'])} – FyboBuybo",
-        description=found.get("info", "A thoughtful gift choice popular among UK shoppers."),
+        description=found["info"],
         heading=shorten_product_name(found["name"]),
         subtitle="A popular UK gift choice",
         products=[found],
@@ -1006,111 +675,149 @@ def product_detail(product_slug):
     )
 
 
-# ---------------- BLOG ---------------- #
-POSTS_PER_PAGE = 8
+    # ---------------- Related products ----------------
+    related = []
+    for day_prods in all_days.values():
+        for p in day_prods:
+            if p["category"] == found_product["category"] and p["name"] != found_product["name"]:
+                related.append(ensure_hook(p))
 
-def load_blog_posts(page=1):
-    posts = [
-        {**v, "slug": k} for k, v in BLOG_POSTS.items()
-    ]
-    posts.sort(key=lambda x: x.get("date", "1900-01-01"), reverse=True)
-    
-    start = (page - 1) * POSTS_PER_PAGE
-    end = start + POSTS_PER_PAGE
-    paginated = posts[start:end]
-    total_pages = (len(posts) + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
-    
-    return paginated, total_pages, len(posts)
+    # Remove duplicates and limit to 6
+    related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
 
+    # Fallback: if no related products, show other popular items from the same season
+    if not related and "season" in found_product:
+        for day_prods in all_days.values():
+            for p in day_prods:
+                if p["name"] != found_product["name"] and any(
+                    s.strip() in p.get("season", "") for s in found_product["season"].split(",")
+                ):
+                    related.append(ensure_hook(p))
+        related = list({p["name"] + p["url"]: p for p in related}.values())[:6]
 
-@app.route("/blog")
-@app.route("/blog/page/<int:page>")
-def blog_list(page=1):
-    paginated, total_pages, total_posts = load_blog_posts(page)
-    if not paginated and page > 1:
-        abort(404)
-
-    theme = get_daily_theme()  # Get theme for accent color
-
-    def page_url(p_num):
-        return url_for("blog_list", page=p_num) if p_num <= total_pages else None
-
-    rendered = render_page(
-        title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
-        description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
-        heading="FyboBuybo Blog",
-        subtitle="Gift guides, trends and inspiration for UK shoppers",
-        products=None,  # no products grid
-        page=page,
-        page_url=page_url
+    return render_page(
+        title=f"{shorten_product_name(found_product['name'])} – FyboBuybo",
+        description=found_product["info"],
+        heading=shorten_product_name(found_product["name"]),
+        subtitle="A popular UK gift choice",
+        products=[found_product],
+        related_products=related
     )
-
-    # Inject blog list after subtitle
-    blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    accent_color = theme["accent"]
-    for post in paginated:
-        date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-        blog_html += f'''
-        <div class="card" style="text-align:left; padding:24px;">
-            <h2 style="font-size:1.6rem; margin-bottom:8px;"><a href="/blog/{post["slug"]}">{post["title"]}</a></h2>
-            <p style="opacity:0.7; font-size:0.95rem; margin:0 0 12px;">{date_str}</p>
-            <p style="line-height:1.6;">{post.get("description", "")}</p>
-            <a href="/blog/{post["slug"]}" style="color:{accent_color}; font-weight:600;">Read more →</a>
+    
+@app.route("/blog")
+def blog_index():
+    # Sort posts by date descending (newest first)
+    sorted_posts = sorted(
+        BLOG_POSTS.items(),
+        key=lambda x: x[1].get("date", "1900-01-01"),
+        reverse=True
+    )
+    
+    post_list_html = """
+    <div style="max-width:900px;margin:60px auto;padding:20px;">
+        <h2 style="text-align:center;margin-bottom:40px;font-size:2rem;background:{{ gradient }};-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            Latest Articles
+        </h2>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
+    """
+    
+    for slug, post in sorted_posts:
+        # Format date nicely: December 31, 2025
+        from datetime import datetime
+        date_obj = datetime.strptime(post["date"], "%Y-%m-%d")
+        formatted_date = date_obj.strftime("%B %d, %Y")
+        
+        post_list_html += f"""
+            <div class="card">
+                <h3 style="font-size:1.5rem;margin-bottom:8px;">
+                    <a href="/blog/{slug}" style="color:#bae6fd;text-decoration:none;">
+                        {post['title']}
+                    </a>
+                </h3>
+                <p style="opacity:.7;font-size:0.95rem;margin:0 0 12px 0;color:#94a3b8;">
+                    {formatted_date}
+                </p>
+                <p style="opacity:.85;font-size:1rem;line-height:1.6;">
+                    {post['description']}
+                </p>
+            </div>
+        """
+    
+    post_list_html += """
         </div>
-        '''
-    blog_html += '</div>'
-
-    # Insert after subtitle block
-    insert_point = rendered.find('<p class="subtitle">') 
-    if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
-
-    # Add pagination if needed
-    if total_pages > 1:
-        pag_html = '<div class="pagination">'
-        if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">« Previous</a>'
-        if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
-        pag_html += '</div>'
-        rendered = rendered.replace('</body>', pag_html + '</body>')
-
+    </div>
+    """
+    
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    
+    rendered = render_template_string(
+        BASE_HTML,
+        title="Blog – FyboBuybo",
+        description="Gift guides, home tips, and trending product recommendations",
+        heading="FyboBuybo Blog",
+        subtitle="Latest articles on gifts and home inspiration",
+        products=[],
+        categories=[], 
+        css=css,
+        canonical_url=SITE_URL + "/blog",
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        related_products=[],
+        gradient=theme["gradient"],
+        next_page_url=None,
+        prev_page_url=None
+    )
+    
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    
+    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
+    rendered = rendered[:subtitle_end] + post_list_html + rendered[subtitle_end:]
+    
+    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
+    
     return rendered
-
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
     if not post:
         abort(404)
-
+    
     all_products = refresh_products(background=True)
     related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
-
-    rendered = render_page(
+    
+    theme = get_daily_theme()
+    css = render_template_string(CSS_TEMPLATE, **theme)
+    
+    rendered = render_template_string(
+        BASE_HTML,
         title=post["title"],
-        description=post.get("description", "Gift inspiration and practical tips from FyboBuybo."),
-        heading=post.get("heading", post["title"]),
-        subtitle=post.get("subtitle", "Gift guide & inspiration"),
-        products=None,
-        related_products=related
+        description=post["description"],
+        heading=post["heading"],
+        subtitle=post["subtitle"],
+        products=[],
+        categories=[],
+        css=css,
+        canonical_url=SITE_URL + request.path,
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        related_products=related,
+        gradient=theme["gradient"],
+        next_page_url=None,
+        prev_page_url=None
     )
-
-    # Inject full blog content after subtitle
-    content_html = f'''
-    <div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">
-        {post.get("content", "<p>Content coming soon.</p>")}
-    </div>
-    '''
-
-    insert_point = rendered.find('<p class="subtitle">')
-    if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + content_html + rendered[insert_after:]
-
+    
+    rendered = rendered.replace('{% for cat in categories %}\n    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>\n    {% endfor %}', '')
+    
+    subtitle_end = rendered.find('</p>', rendered.find('<p class="subtitle">')) + 4
+    rendered = rendered[:subtitle_end] + post["content"] + rendered[subtitle_end:]
+    
+    rendered = rendered.replace('<div class="grid">\n</div>', '').replace('<div class="grid"></div>', '')
+    
     return rendered
-
 
 # ---------------- SEO FILES ---------------- #
 @app.route("/robots.txt")
@@ -1123,44 +830,31 @@ Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
 
-
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
-    today = str(datetime.date.today())
-    urls = set()
-    urls.add((SITE_URL + "/", today))
+    urls = {
+        (SITE_URL + "/", str(datetime.date.today())),
+    }
 
-    all_products = []
     for day_products in history.values():
-        all_products.extend(day_products)
+        for p in day_products:
+            # Category URLs
+            urls.add((SITE_URL + "/category/" + slugify(p["category"]), str(datetime.date.today())))
+            # Product URLs
+            urls.add((SITE_URL + "/product/" + slugify(p["name"]), str(datetime.date.today())))
 
-    for p in all_products:
-        lastmod = p.get("date_added", today)
-        if p.get("category"):
-            urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", lastmod))
-        if p.get("name"):
-            urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", lastmod))
+    sitemap_xml = "<?xml version='1.0' encoding='UTF-8'?>\n"
+    sitemap_xml += "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
 
-    seasons = ["Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-               "Summer Gifts", "Back to School", "Halloween", "Christmas"]
-    for season in seasons:
-        urls.add((f"{SITE_URL}/season/{slugify(season)}", today))
-
-    # Blog
-    blog_lastmod = today
-    if BLOG_POSTS:
-        blog_dates = [post.get("date", today) for post in BLOG_POSTS.values()]
-        blog_lastmod = max(blog_dates)
-        for slug, post in BLOG_POSTS.items():
-            urls.add((f"{SITE_URL}/blog/{slug}", post.get("date", today)))
-    urls.add((f"{SITE_URL}/blog", blog_lastmod))
-
-    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for url, lastmod in sorted(urls):
-        sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
-    sitemap_xml += '</urlset>'
+        sitemap_xml += f"""
+  <url>
+    <loc>{url}</loc>
+    <lastmod>{lastmod}</lastmod>
+  </url>"""
+
+    sitemap_xml += "\n</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
 
 
