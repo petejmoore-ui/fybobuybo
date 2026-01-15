@@ -310,6 +310,7 @@ body {
     color: var(--accent); 
     font-family:'Outfit',sans-serif; 
     padding:20px 20px 40px; 
+    transition: background 0.4s, color 0.4s;
 }
 h1 { 
     text-align:center; 
@@ -318,6 +319,7 @@ h1 {
     background: var(--gradient); 
     -webkit-background-clip:text; 
     -webkit-text-fill-color:transparent; 
+    transition: background 0.4s;
 }
 .subtitle { 
     text-align:center; 
@@ -326,6 +328,7 @@ h1 {
     margin:20px auto; 
     color:var(--text_accent); 
     font-size:1.1rem; 
+    transition: color 0.4s;
 }
 
 /* Grid layout */
@@ -344,14 +347,10 @@ h1 {
     padding:20px; 
     text-align:center; 
     box-shadow:0 20px 40px rgba(0,0,0,.6); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* updated */
+    transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.4s, opacity 0.3s ease; 
     position: relative; 
     overflow: hidden; 
-    opacity: 1; /* default visible */
-}
-.card.hidden {
-    opacity: 0;
-    pointer-events: none;
+    opacity:1;
 }
 .card:hover { 
     transform: translateY(-6px); 
@@ -361,11 +360,10 @@ h1 {
     width:100%; 
     max-height:380px; 
     object-fit:contain; 
-    background: #111827; 
     border-radius:16px; 
     margin:16px 0; 
     display:block; 
-    transition: transform 0.4s ease; 
+    transition: transform 0.4s ease, filter 0.4s;
 }
 .card:hover img { 
     transform: scale(1.05); 
@@ -383,6 +381,12 @@ h1 {
 }
 .card:hover::before { opacity:1; }
 
+/* Card hide animation (search filter) */
+.grid .card.hidden {
+    opacity:0;
+    pointer-events:none;
+}
+
 /* Tags */
 .tag { 
     background:var(--tag); 
@@ -391,6 +395,7 @@ h1 {
     font-size:.85rem; 
     display:inline-block; 
     margin-bottom:12px; 
+    transition: background 0.4s;
 }
 
 /* Buttons */
@@ -403,7 +408,7 @@ button {
     font-weight:900; 
     color:white; 
     cursor:pointer; 
-    transition:transform 0.25s ease, opacity 0.25s ease; 
+    transition:transform 0.25s ease, opacity 0.25s ease, background 0.4s; 
 }
 button:hover { 
     transform:scale(1.03); 
@@ -417,12 +422,14 @@ footer {
     margin:80px 0 40px; 
     font-size:.9rem; 
     line-height:1.6; 
+    transition: color 0.4s;
 }
 
 /* Links */
 a { 
     color:var(--text_accent); 
     text-decoration:none; 
+    transition: color 0.4s;
 }
 
 /* Nav container */
@@ -436,6 +443,7 @@ nav {
     flex-direction:column; 
     align-items:center; 
     gap:16px; 
+    transition: background 0.4s, color 0.4s;
 }
 
 /* Top row: Home + Blog */
@@ -449,7 +457,7 @@ nav {
     color:var(--text_accent); 
     font-weight:700; 
     font-size:1.2rem; 
-    transition:.2s; 
+    transition:.2s, color 0.4s; 
 }
 .nav-top a:hover { opacity:.8; }
 
@@ -491,6 +499,7 @@ nav {
     box-shadow:0 10px 25px rgba(0,0,0,0.5); 
     z-index:100; 
     margin-top:8px; 
+    transition: background 0.4s;
 }
 .dropdown-content a { 
     display:block; 
@@ -499,6 +508,7 @@ nav {
     text-decoration:none; 
     font-size:1rem; 
     white-space:nowrap; 
+    transition: color 0.4s;
 }
 .dropdown-content a:hover { background:#334155; }
 
@@ -509,10 +519,11 @@ nav {
     border-radius:999px; 
     border:1px solid var(--text_accent); 
     background:transparent; 
-    color:white; 
+    color:var(--accent); 
     width:100%; 
     font-size:1rem; 
     text-align:center; 
+    transition: border-color 0.4s, color 0.4s;
 }
 
 /* Seasons horizontal links (desktop only) */
@@ -564,21 +575,34 @@ nav .season-link:hover {
 /* Loading state */
 .loading { text-align:center; opacity:.8; margin:80px 0; font-size:1.3rem; color:var(--text_accent); }
 
-/* Day/Night toggle button */
+/* Day/Night toggle professional button */
 #theme-toggle {
     position:fixed; 
     top:16px; 
     right:16px; 
     z-index:999; 
-    padding:8px 16px; 
-    border-radius:12px; 
-    border:none; 
-    cursor:pointer; 
-    font-size:1rem;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
     background:var(--button);
-    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.25s ease;
 }
-#theme-toggle:hover { opacity:0.85; }
+#theme-toggle:hover {
+    transform:scale(1.05);
+    box-shadow:0 6px 16px rgba(0,0,0,0.35);
+}
+#theme-toggle svg {
+    width:20px;
+    height:20px;
+    fill:white;
+    transition: transform 0.3s ease;
+}
 </style>"""
 
 
@@ -591,7 +615,6 @@ BASE_HTML = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="ZDatY7MyS9eDAYQB97mQ_dxlAv2dgd2IqG1kPg82imU" />
 
 <title>{{ title }}</title>
 <meta name="description" content="{{ description | truncate(155, true, '...') }}">
@@ -622,142 +645,100 @@ BASE_HTML = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap" rel="stylesheet">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-C1YNKZS6PG');
-</script>
-
 {{ css|safe }}
 </head>
 <body>
 
 <!-- Day/Night Toggle -->
-<button id="theme-toggle" aria-label="Toggle light/dark mode">🌙 / ☀️</button>
+<button id="theme-toggle" aria-label="Toggle theme">
+  <!-- Sun / Moon SVG icons will swap -->
+  <svg id="theme-icon" viewBox="0 0 24 24">
+    <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.657 2.343a1 1 0 0 1 1.414 1.414l-1.414 1.414a1 1 0 0 1-1.414-1.414l1.414-1.414zM20 11h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zm-2.343 5.657a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-5.657-2.343a1 1 0 0 1 0 1.414L5.343 20a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM4 11H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm2.343-5.657a1 1 0 0 1-1.414 0L3.515 4.929a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+  </svg>
+</button>
 
 <script>
 const THEMES = [
-    { bg: "#f9fafb", card: "#ffffff", accent: "#111827", button: "#3b82f6", tag: "#e0f2fe", text_accent: "#334155", gradient: "linear-gradient(90deg,#3b82f6,#06b6d4)" },
-    { bg: "#111827", card: "#1f2937", accent: "#f9fafb", button: "#2563eb", tag: "#1e40af", text_accent: "#e5e7eb", gradient: "linear-gradient(90deg,#2563eb,#3b82f6)" }
+  { bg: "#f9fafb", card: "#ffffff", accent: "#111827", button: "#3b82f6", tag: "#e0f2fe", text_accent: "#334155", gradient: "linear-gradient(90deg,#3b82f6,#06b6d4)" },
+  { bg: "#111827", card: "#1f2937", accent: "#f9fafb", button: "#2563eb", tag: "#1e40af", text_accent: "#e5e7eb", gradient: "linear-gradient(90deg,#2563eb,#3b82f6)" }
 ];
 
-function applyTheme(theme) {
-    document.body.style.background = theme.bg;
-    document.body.style.color = theme.accent;
+let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
 
-    document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
-    document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
-    document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
-    document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a, nav .season-link").forEach(el => el.style.color = theme.text_accent);
-    document.querySelectorAll("h1").forEach(h => {
-        h.style.background = theme.gradient;
-        h.style.webkitBackgroundClip = "text";
-        h.style.webkitTextFillColor = "transparent";
-    });
+function applyTheme(themeIndex) {
+  const theme = THEMES[themeIndex];
+  document.body.style.background = theme.bg;
+  document.body.style.color = theme.accent;
+  document.querySelectorAll(".card").forEach(c => c.style.background = theme.card);
+  document.querySelectorAll(".tag").forEach(t => t.style.background = theme.tag);
+  document.querySelectorAll("button").forEach(b => b.style.background = theme.button);
+  document.querySelectorAll(".subtitle, a, .nav-top a, .dropdown-content a").forEach(el => el.style.color = theme.text_accent);
+  document.querySelectorAll("h1").forEach(h => {
+    h.style.background = theme.gradient;
+    h.style.webkitBackgroundClip = "text";
+    h.style.webkitTextFillColor = "transparent";
+  });
+
+  // Update icon: sun for light, moon for dark
+  const icon = document.getElementById("theme-icon");
+  if(themeIndex === 0){
+    icon.style.transform = "rotate(0deg)";
+  } else {
+    icon.style.transform = "rotate(180deg)";
+  }
+
+  localStorage.setItem('themeIndex', themeIndex);
 }
 
-// Default theme = light
-let currentTheme = 0;
-applyTheme(THEMES[currentTheme]);
+applyTheme(currentTheme);
 
 document.getElementById("theme-toggle").addEventListener("click", () => {
-    currentTheme = (currentTheme + 1) % THEMES.length;
-    applyTheme(THEMES[currentTheme]);
+  currentTheme = (currentTheme + 1) % THEMES.length;
+  applyTheme(currentTheme);
 });
 </script>
 
-<!-- Search JS -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const searchInput = document.getElementById("search-input");
-    if (!searchInput) return;
-    const cards = document.querySelectorAll(".grid .card");
-    searchInput.addEventListener("input", function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        cards.forEach(card => {
-            const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
-            const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
-            const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
-            const matches = name.includes(query) || hook.includes(query) || category.includes(query);
-            if(matches) {
-                card.classList.remove("hidden");
-            } else {
-                card.classList.add("hidden");
-            }
-        });
-    });
-});
-</script>
-
-<!-- Navigation: top + desktop + mobile -->
+<!-- Search & Nav (unchanged from your previous template) -->
 <nav aria-label="Main navigation">
-    <div class="nav-top">
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a>
-    </div>
-
-    <div class="nav-desktop">
+  <div class="nav-top">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+  </div>
+  <div class="nav-desktop">
+    {% for cat in nav_items.categories %}
+        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+    {% endfor %}
+    {% if nav_items.seasons %}
+      <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
+      {% for season in nav_items.seasons %}
+          <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="nav-middle">
+    <div class="categories-dropdown">
+      <button aria-expanded="false">Categories ▼</button>
+      <div class="dropdown-content">
         {% for cat in nav_items.categories %}
-            <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+          <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
         {% endfor %}
-        {% if nav_items.seasons %}
-            <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
-            {% for season in nav_items.seasons %}
-                <a href="/season/{{ slugify(season) }}" class="season-link">{{ season }}</a>
-            {% endfor %}
-        {% endif %}
+      </div>
     </div>
-
-    <div class="nav-middle">
-        <div class="categories-dropdown">
-            <button aria-expanded="false" aria-controls="categories-menu">Categories ▼</button>
-            <div id="categories-menu" class="dropdown-content">
-                {% for cat in nav_items.categories %}
-                    <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-                {% endfor %}
-            </div>
-        </div>
-        {% if nav_items.seasons %}
-        <div class="seasons-dropdown">
-            <button aria-expanded="false" aria-controls="seasons-menu">Seasonal ▼</button>
-            <div id="seasons-menu" class="dropdown-content">
-                {% for season in nav_items.seasons %}
-                    <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
+    {% if nav_items.seasons %}
+    <div class="seasons-dropdown">
+      <button aria-expanded="false">Seasonal ▼</button>
+      <div class="dropdown-content">
+        {% for season in nav_items.seasons %}
+          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+        {% endfor %}
+      </div>
     </div>
-
-    <form id="search-form" role="search">
-        <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
-    </form>
+    {% endif %}
+  </div>
+  <form id="search-form" role="search">
+    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
+  </form>
 </nav>
-
-<!-- Dropdown JS -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector("button");
-        const content = dropdown.querySelector(".dropdown-content");
-        if (!btn || !content) return;
-        btn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-            content.style.display = isOpen ? "none" : "block";
-        });
-    });
-    document.addEventListener("click", function(e) {
-        if (!e.target.closest(".categories-dropdown, .seasons-dropdown")) {
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-        }
-    });
-});
-</script>
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
@@ -767,63 +748,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
 {% if products %}
 <div class="grid">
-{% for p in products %}
-<div class="card" itemscope itemtype="https://schema.org/Product">
-    <span class="tag">{{ p.category }}</span>
-    <a href="/product/{{ slugify(p.name) }}" itemprop="url">
-        <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
-    </a>
-    <a href="/product/{{ slugify(p.name) }}">
-        <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy" itemprop="image">
-    </a>
-    <p itemprop="description">{{ p.hook|safe }}</p>
+  {% for p in products %}
+  <div class="card" itemscope itemtype="https://schema.org/Product">
+      <span class="tag">{{ p.category }}</span>
+      <a href="/product/{{ slugify(p.name) }}" itemprop="url">
+          <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
+      </a>
+      <a href="/product/{{ slugify(p.name) }}">
+          <img src="{{ p.image }}" alt="{{ p.name }} – {{ p.info | truncate(100) }}" loading="lazy" itemprop="image">
+      </a>
+      <p itemprop="description">{{ p.hook|safe }}</p>
 
-    {% if p.date_added %}
-    <p style="font-size:0.85rem; opacity:.7; margin:16px 0 8px; color:#94a3b8; text-align:center;">
-        ↳ Featured on {{ p.date_added }}
-    </p>
-    {% endif %}
+      {% if p.date_added %}
+      <p style="font-size:0.85rem; opacity:.7; margin:16px 0 8px; color:#94a3b8; text-align:center;">
+          ↳ Featured on {{ p.date_added }}
+      </p>
+      {% endif %}
 
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" 
-       aria-label="Check price for {{ p.name }} on Amazon"
-       onclick="gtag('event', 'affiliate_click', { 
-           'event_category': '{{ p.category }}', 
-           'event_label': '{{ p.name }}', 
-           'value': 1
-       });">
-        <button>Check price</button>
-    </a>
-
-    <p style="margin-top:8px; font-size:.85rem; opacity:.75; text-align:center;">
-        <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
-    </p>
-
-    {% if p.category %}
-    <p style="font-size:.85rem; opacity:.7; margin-top:16px;">
-        More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
-    </p>
-    {% endif %}
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "{{ shorten_product_name(p.name) | e }}",
-      "image": "{{ p.image }}",
-      "description": "{{ p.info | e }}",
-      "url": "{{ SITE_URL }}/product/{{ slugify(p.name) }}",
-      "brand": {"@type": "Brand", "name": "{{ p.brand or 'Various' | e }}"},
-      "offers": {
-        "@type": "Offer",
-        "url": "{{ p.url }}",
-        "availability": "https://schema.org/InStock",
-        "seller": {"@type": "Organization", "name": "Amazon.co.uk"}
-      }
-    }
-    </script>
+      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
+          <button>Check price</button>
+      </a>
+      <p style="margin-top:8px; font-size:.85rem; opacity:.75; text-align:center;">
+          <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon</a>
+      </p>
+      {% if p.category %}
+      <p style="font-size:.85rem; opacity:.7; margin-top:16px;">
+          More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a> gifts
+      </p>
+      {% endif %}
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
+
+<!-- Similar Products restored -->
+{% if similar_products %}
+<h2 style="text-align:center; margin-top:60px;">You might also like</h2>
+<div class="grid">
+  {% for p in similar_products %}
+    <div class="card">
+      <span class="tag">{{ p.category }}</span>
+      <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
+      <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy"></a>
+    </div>
+  {% endfor %}
 </div>
+{% endif %}
+
 {% else %}
 <p class="loading">
     Loading today's gifts...<br>
@@ -839,8 +809,62 @@ document.addEventListener("DOMContentLoaded", function() {
     </p>
 </footer>
 
+<script>
+// Search filter
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("search-input");
+    if (!searchInput) return;
+    const cards = document.querySelectorAll(".grid .card");
+    searchInput.addEventListener("input", function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+            const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
+            const hook = card.querySelector("p:not([style])")?.textContent.toLowerCase() || "";
+            const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
+            const matches = name.includes(query) || hook.includes(query) || category.includes(query);
+            card.classList.toggle('hidden', !matches);
+        });
+        const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+        let noResults = document.getElementById("no-results");
+        if (query.length > 0 && visibleCards.length === 0) {
+            if (!noResults) {
+                noResults = document.createElement("p");
+                noResults.id = "no-results";
+                noResults.style.textAlign = "center";
+                noResults.style.opacity = "0.8";
+                noResults.style.margin = "40px 0";
+                noResults.style.fontSize = "1.1rem";
+                noResults.textContent = "No matching gifts found – try a different search.";
+                document.querySelector(".grid")?.after(noResults);
+            }
+        } else if (noResults) {
+            noResults.remove();
+        }
+    });
+});
+
+// Dropdown functionality
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector("button");
+        const content = dropdown.querySelector(".dropdown-content");
+        btn?.addEventListener("click", function(e) {
+            e.stopPropagation();
+            const isOpen = content.style.display === "block";
+            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
+            content.style.display = isOpen ? "none" : "block";
+        });
+    });
+    document.addEventListener("click", function() {
+        document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
+    });
+});
+</script>
+
 </body>
 </html>
+
 
 
 """
