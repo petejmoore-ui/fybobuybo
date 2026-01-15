@@ -1,6 +1,6 @@
 """
 Amazon Product Advertising API Integration
-Using amazon-paapi5 (PyPI wrapper)
+Using amazon-paapi5 (PyPI)
 Handles fetching product data, caching, and formatting
 """
 
@@ -9,8 +9,7 @@ import json
 import datetime
 from pathlib import Path
 
-# Correct import for amazon-paapi5
-from amightygirl.paapi5_python_sdk import AmazonApi, AmazonApiException
+from amazon_paapi5 import AmazonApi, AmazonApiException
 
 # Amazon API credentials from environment variables
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
@@ -38,22 +37,18 @@ def save_to_cache(asin: str, data: dict) -> None:
 
 
 def format_price_display(price: dict) -> str:
-    """Format price dictionary returned by Amazon API"""
     if not price or "Amount" not in price or "Currency" not in price:
         return "N/A"
     return f"{price['Amount']} {price['Currency']}"
 
 
 def format_rating_display(rating: dict) -> str:
-    """Format rating dictionary returned by Amazon API"""
     if not rating or "Value" not in rating or "TotalReviews" not in rating:
         return "N/A"
     return f"{rating['Value']} / 5 ({rating['TotalReviews']} reviews)"
 
 
 def enrich_products_with_amazon_data(asin: str) -> dict | None:
-    """Fetch product data from Amazon API with caching"""
-    # Check cache first
     cached = load_from_cache(asin)
     if cached:
         return cached
