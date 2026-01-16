@@ -1,29 +1,29 @@
 import os
 import time
 from typing import List, Dict, Optional
-from amazon_paapi import AmazonApi  # Note: AmazonApi (capital A, lowercase i)
+from amazon_paapi import AmazonApi  # Correct import: AmazonApi (capital A, lowercase i)
 
 # Amazon Product Advertising API Configuration
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY", "")
 AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY", "")
-AMAZON_PARTNER_TAG = os.environ.get("AMAZON_PARTNER_TAG", "whoaccepts-21")
-AMAZON_COUNTRY = "UK"
+AMAZON_ASSOC_TAG = os.environ.get("AMAZON_ASSOC_TAG", "whoaccepts-21")  # or "AMAZON_PARTNER_TAG" if your env uses that
+AMAZON_COUNTRY = "UK"  # Uppercase as per lib docs/examples; lib handles lowercase too
 
-# Rate limiting
+# Rate limiting (global, simple)
 LAST_API_CALL = 0
-MIN_API_INTERVAL = 1.0  # 1 second between calls to respect API limits
+MIN_API_INTERVAL = 1.0  # seconds between calls
 
-def get_amazon_api():
+def get_amazon_api() -> Optional[AmazonApi]:
     """Initialize Amazon API client if credentials are available."""
     if not AMAZON_ACCESS_KEY or not AMAZON_SECRET_KEY:
         print("Warning: Amazon API credentials not set in environment variables")
         return None
     
     try:
-        api = AmazonAPI(
+        api = AmazonApi(
             access_key=AMAZON_ACCESS_KEY,
             secret_key=AMAZON_SECRET_KEY,
-            partner_tag=AMAZON_PARTNER_TAG,
+            associate_tag=AMAZON_ASSOC_TAG,
             country=AMAZON_COUNTRY
         )
         return api
@@ -31,13 +31,13 @@ def get_amazon_api():
         print(f"Error initializing Amazon API: {e}")
         return None
 
-def fetch_product_info(asin: str, api: Optional[AmazonAPI] = None) -> Optional[Dict]:
+def fetch_product_info(asin: str, api: Optional[AmazonApi] = None) -> Optional[Dict]:
     """
     Fetch product information from Amazon Product Advertising API.
     
     Args:
         asin: Amazon Standard Identification Number
-        api: Optional pre-initialized AmazonAPI instance
+        api: Optional pre-initialized AmazonApi instance
         
     Returns:
         Dictionary with price and rating information, or None if unavailable
@@ -61,7 +61,7 @@ def fetch_product_info(asin: str, api: Optional[AmazonAPI] = None) -> Optional[D
         time.sleep(MIN_API_INTERVAL - time_since_last_call)
     
     try:
-        # Fetch product details
+        # Fetch product details with specific resources (efficient)
         response = api.get_items(
             item_ids=[asin],
             resources=[
@@ -74,31 +74,30 @@ def fetch_product_info(asin: str, api: Optional[AmazonAPI] = None) -> Optional[D
         
         LAST_API_CALL = time.time()
         
-        if not response or not response.items:
+        if not response or not response.items_result or not response.items_result.items:
             print(f"No data returned for ASIN: {asin}")
             return None
         
-        item = response.items[0]
+        item = response.items_result.items[0]
         result = {}
         
         # Extract price
         try:
-            if hasattr(item, 'offers') and item.offers and item.offers.listings:
+            if item.offers and item.offers.listings:
                 listing = item.offers.listings[0]
-                if hasattr(listing, 'price') and listing.price:
-                    if hasattr(listing.price, 'display_amount'):
-                        result['price'] = listing.price.display_amount
-                    elif hasattr(listing.price, 'amount'):
-                        result['price'] = f"£{listing.price.amount:.2f}"
+                if listing.price and listing.price.display_amount:
+                    result['price'] = listing.price.display_amount
+                elif listing.price and listing.price.amount:
+                    result['price'] = f"£{float(listing.price.amount):.2f}"
         except Exception as e:
             print(f"Error extracting price for {asin}: {e}")
         
-        # Extract rating
+        # Extract rating & reviews
         try:
-            if hasattr(item, 'customer_reviews') and item.customer_reviews:
-                if hasattr(item.customer_reviews, 'star_rating'):
+            if item.customer_reviews:
+                if item.customer_reviews.star_rating:
                     result['rating'] = item.customer_reviews.star_rating.value
-                if hasattr(item.customer_reviews, 'count'):
+                if item.customer_reviews.count:
                     result['total_reviews'] = item.customer_reviews.count
         except Exception as e:
             print(f"Error extracting rating for {asin}: {e}")
@@ -131,9 +130,9 @@ def enrich_products_with_amazon_data(products: List[Dict]) -> List[Dict]:
     for product in products:
         enriched_product = product.copy()
         
-        # Only fetch if product has ASIN and doesn't already have fresh data
+        # Only fetch if product has ASIN and doesn't already have price
         asin = product.get('asin')
-        if asin and not product.get('price'):
+        if asin and 'price' not in product:
             amazon_data = fetch_product_info(asin, api)
             if amazon_data:
                 enriched_product.update(amazon_data)
@@ -146,40 +145,27 @@ def enrich_products_with_amazon_data(products: List[Dict]) -> List[Dict]:
 def format_price_display(price: Optional[str]) -> str:
     """
     Format price for display.
-    
-    Args:
-        price: Price string from Amazon API
-        
-    Returns:
-        Formatted price string
     """
     if not price:
-        return ""
-    
-    # Price is already formatted from API (e.g., "£29.99")
-    return price
+        return "N/A"
+    return price  # Already formatted like "£29.99" from API
 
 def format_rating_display(rating: Optional[str], total_reviews: Optional[int] = None) -> str:
     """
-    Format rating for display.
-    
-    Args:
-        rating: Rating value (e.g., "4.5")
-        total_reviews: Optional number of reviews
-        
-    Returns:
-        Formatted rating string with stars
+    Format rating for display with stars.
     """
     if not rating:
-        return ""
+        return "No rating"
     
     try:
         rating_value = float(rating)
-        stars = "★" * int(rating_value) + "☆" * (5 - int(rating_value))
+        full_stars = "★" * int(rating_value)
+        half_star = "½" if rating_value % 1 >= 0.5 else ""
+        empty_stars = "☆" * (5 - int(rating_value) - (1 if half_star else 0))
+        stars = full_stars + half_star + empty_stars
         
         if total_reviews:
-            return f"{stars} {rating_value}/5 ({total_reviews:,} reviews)"
-        else:
-            return f"{stars} {rating_value}/5"
+            return f"{stars} {rating_value:.1f} ({total_reviews:,} reviews)"
+        return f"{stars} {rating_value:.1f}"
     except (ValueError, TypeError):
-        return ""
+        return "No rating"
