@@ -53,12 +53,15 @@ THEMES = [
         "button": "#0066ff",
         "button_hover": "#0052cc",
         "tag": "#e8f4ff",
-        "text_accent": "#5a5654",
-        "text_muted": "#8a8684",
+        "text_accent": "#2c2c2c",
+        "text_muted": "#666666",
         "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
         "shadow": "0 8px 32px rgba(0, 0, 0, 0.08)",
-        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.12)"
+        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.12)",
+        "dropdown_bg": "#ffffff",
+        "dropdown_border": "rgba(0, 0, 0, 0.1)",
+        "nav_bg": "#ffffff"
     },
     {
         "name": "Midnight Luxe",
@@ -68,20 +71,20 @@ THEMES = [
         "button": "#4d7fff",
         "button_hover": "#6d93ff",
         "tag": "#1e2838",
-        "text_accent": "#b8bcc8",
-        "text_muted": "#7a7e8a",
+        "text_accent": "#e0e0e0",
+        "text_muted": "#a0a0a0",
         "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
         "shadow": "0 8px 32px rgba(0, 0, 0, 0.4)",
-        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.6)"
+        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.6)",
+        "dropdown_bg": "#1a1f2e",
+        "dropdown_border": "rgba(255, 255, 255, 0.1)",
+        "nav_bg": "#151922"
     }
 ]
 
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
-
-# [Keep all your existing functions: ping_search_engines, generate_hook, etc.]
-# ... (all the caching, hook generation, and helper functions remain the same)
 
 def ping_search_engines():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
@@ -207,14 +210,16 @@ def refresh_products(background=False):
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
-                cache = json.load(f)
-            cache_date_str = cache.get("date", "")
+                cache_data = json.load(f)
+            cache_date_str = cache_data.get("date", "")
             if cache_date_str.startswith(today):
-                return cache.get("products", [])
+                products = cache_data.get("products", [])
+                return enrich_products_with_amazon_data(products)
             cache_date = datetime.datetime.fromisoformat(cache_date_str)
             if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
-               cache.get("prompt_version") == PROMPT_VERSION:
-                return cache.get("products", [])
+               cache_data.get("prompt_version") == PROMPT_VERSION:
+                products = cache_data.get("products", [])
+                return enrich_products_with_amazon_data(products)
         except Exception as e:
             print(f"Cache read failed: {e} — regenerating")
     enriched = load_or_generate_hooks(PRODUCTS)
@@ -238,8 +243,8 @@ def get_nav_items():
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, encoding="utf-8") as f:
-                cache = json.load(f)
-            products = cache.get("products", PRODUCTS)
+                cache_data = json.load(f)
+            products = cache_data.get("products", PRODUCTS)
         except:
             pass
 
@@ -306,6 +311,9 @@ CSS_TEMPLATE = """<style>
     --card-gradient: {{card_gradient}};
     --shadow: {{shadow}};
     --shadow-hover: {{shadow_hover}};
+    --dropdown-bg: {{dropdown_bg}};
+    --dropdown-border: {{dropdown_border}};
+    --nav-bg: {{nav_bg}};
 }
 
 * {
@@ -319,7 +327,7 @@ body {
     color: var(--accent); 
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     padding: 20px;
-    transition: background 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
 }
 
@@ -377,7 +385,7 @@ h1 {
     padding: 28px; 
     text-align: center; 
     box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative; 
     overflow: hidden;
     opacity: 0;
@@ -405,13 +413,13 @@ h1 {
     bottom: 0; 
     background: var(--card-gradient);
     opacity: 0;
-    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     border-radius: 24px;
 }
 
 .card:hover { 
-    transform: translateY(-12px) scale(1.02); 
+    transform: translateY(-8px); 
     box-shadow: var(--shadow-hover);
 }
 
@@ -426,11 +434,11 @@ h1 {
     border-radius: 16px; 
     margin: 20px 0; 
     display: block;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover img { 
-    transform: scale(1.08); 
+    transform: scale(1.05); 
 }
 
 .card h2 {
@@ -478,33 +486,13 @@ button {
     color: white; 
     cursor: pointer;
     letter-spacing: 0.02em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-button:hover::before {
-    width: 300px;
-    height: 300px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
 }
 
 button:hover { 
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
     background: var(--button-hover);
 }
 
@@ -512,55 +500,44 @@ button:active {
     transform: translateY(0);
 }
 
-/* Navigation */
+/* Navigation - Improved */
 nav { 
-    background: var(--card); 
-    padding: 20px; 
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    padding: 16px 24px; 
     margin: 20px 0 60px; 
-    border-radius: 20px; 
+    border-radius: 16px; 
     box-shadow: var(--shadow);
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    gap: 20px;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 16px;
+    transition: all 0.3s ease;
     animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+    border: 1px solid var(--dropdown-border);
 }
 
 .nav-top { 
     display: flex; 
     justify-content: center; 
-    gap: 48px; 
+    gap: 40px; 
     width: 100%; 
 }
 
 .nav-top a { 
     color: var(--text-accent); 
     font-weight: 700; 
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     letter-spacing: -0.01em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     position: relative;
-}
-
-.nav-top a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--button);
-    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-top a:hover::after {
-    width: 100%;
+    padding: 8px 16px;
+    border-radius: 8px;
 }
 
 .nav-top a:hover { 
     color: var(--button);
-    transform: translateY(-2px);
+    background: var(--tag);
 }
 
 /* Search */
@@ -572,20 +549,19 @@ nav {
 #search-input { 
     padding: 14px 24px; 
     border-radius: 50px; 
-    border: 2px solid transparent;
-    background: var(--tag);
+    border: 2px solid var(--dropdown-border);
+    background: var(--card);
     color: var(--accent); 
     width: 100%; 
     font-size: 1rem; 
     text-align: center;
     font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 #search-input:focus {
     outline: none;
     border-color: var(--button);
-    background: var(--card);
     box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
     transform: scale(1.02);
 }
@@ -594,35 +570,37 @@ nav {
     color: var(--text-muted);
 }
 
-/* Theme Toggle */
+/* Theme Toggle - Improved */
 #theme-toggle {
     position: fixed; 
-    top: 24px; 
-    right: 24px; 
+    top: 20px; 
+    right: 20px; 
     z-index: 999; 
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    border: none;
+    border: 2px solid var(--dropdown-border);
     cursor: pointer;
-    background: var(--button);
+    background: var(--card);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
 }
 
 #theme-toggle:hover {
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 8px 28px rgba(0, 102, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--button);
 }
 
 #theme-toggle svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 22px;
+    height: 22px;
+    fill: var(--accent);
+    transition: all 0.3s ease;
 }
 
 /* Footer */
@@ -643,7 +621,7 @@ footer p {
 a { 
     color: var(--text-accent); 
     text-decoration: none;
-    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 0.3s ease;
 }
 
 a:hover {
@@ -665,13 +643,13 @@ a:hover {
     border-radius: 50px; 
     color: white; 
     font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
 }
 
 .pagination a:hover { 
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
     background: var(--button-hover);
 }
 
@@ -681,7 +659,7 @@ a:hover {
     color: var(--text-accent);
     margin: 100px 0; 
     font-size: 1.4rem;
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: pulse 2s ease infinite;
 }
 
 @keyframes pulse {
@@ -689,7 +667,7 @@ a:hover {
     50% { opacity: 1; }
 }
 
-/* Dropdown styling */
+/* Dropdown styling - FIXED */
 .nav-desktop { 
     display: none; 
     flex-wrap: wrap; 
@@ -699,10 +677,17 @@ a:hover {
 }
 
 .nav-desktop a { 
-    margin: 0 16px;
+    margin: 0 12px;
     font-weight: 600;
     color: var(--text-accent);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-desktop a:hover {
+    background: var(--tag);
+    color: var(--button);
 }
 
 .nav-middle { 
@@ -716,57 +701,60 @@ a:hover {
 }
 
 .categories-dropdown button, .seasons-dropdown button { 
-    background: var(--tag);
-    color: var(--button);
-    border: 2px solid transparent;
+    background: var(--card);
+    color: var(--accent);
+    border: 2px solid var(--dropdown-border);
     padding: 12px 28px; 
     border-radius: 50px; 
     font-weight: 600; 
     font-size: 1rem; 
     cursor: pointer; 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     min-width: 160px;
 }
 
 .categories-dropdown button:hover, .seasons-dropdown button:hover { 
-    background: var(--button);
-    color: white;
+    background: var(--tag);
+    color: var(--button);
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
 }
 
+/* FIXED: Solid dropdown background */
 .dropdown-content { 
     display: none; 
     position: absolute; 
     top: 100%; 
     left: 50%; 
     transform: translateX(-50%);
-    background: var(--card);
-    border-radius: 16px; 
-    padding: 12px 0; 
+    background: var(--dropdown-bg);
+    border: 1px solid var(--dropdown-border);
+    border-radius: 12px; 
+    padding: 8px 0; 
     min-width: 260px; 
     max-height: 60vh; 
     overflow-y: auto; 
     box-shadow: var(--shadow-hover);
     z-index: 100; 
     margin-top: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .dropdown-content a { 
     display: block; 
-    padding: 12px 28px; 
+    padding: 12px 24px; 
     color: var(--text-accent); 
     font-size: 1rem;
     font-weight: 500;
     white-space: nowrap; 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 }
 
 .dropdown-content a:hover { 
     background: var(--tag);
     color: var(--button);
-    padding-left: 32px;
+    padding-left: 28px;
 }
 
 /* Hidden cards animation */
@@ -792,8 +780,8 @@ a:hover {
         font-size: 2.5rem;
     }
     #theme-toggle {
-        width: 48px;
-        height: 48px;
+        width: 45px;
+        height: 45px;
         top: 16px;
         right: 16px;
     }
@@ -803,7 +791,7 @@ a:hover {
     nav { 
         flex-direction: row; 
         justify-content: space-between; 
-        padding: 20px 32px;
+        padding: 16px 28px;
     }
     .nav-middle { 
         display: none !important; 
@@ -819,7 +807,7 @@ a:hover {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -828,15 +816,40 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
     background: var(--button);
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--button-hover);
 }
+
+/* Blog content styling - FIXED readability */
+article {
+    color: var(--text-accent);
+}
+
+article h2 {
+    color: var(--accent);
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+article p {
+    color: var(--text-accent);
+    line-height: 1.8;
+}
+
+article a {
+    color: var(--button);
+    font-weight: 600;
+}
+
+article a:hover {
+    color: var(--button-hover);
+    text-decoration: underline;
+}
 </style>"""
 
-# [Keep BASE_HTML mostly the same but update the theme toggle script]
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -863,17 +876,33 @@ BASE_HTML = """<!DOCTYPE html>
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
 <meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://m.media-amazon.com">
+
 {{ css|safe }}
 </head>
 <body>
 
-<!-- Theme Toggle -->
+<!-- Theme Toggle - Improved Icon -->
 <button id="theme-toggle" aria-label="Toggle theme">
   <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display: block;">
-    <path d="M12 2a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm5.657 2.343a1 1 0 0 1 1.414 1.414l-1.414 1.414a1 1 0 0 1-1.414-1.414l1.414-1.414zM20 11h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zm-2.343 5.657a1 1 0 0 1 1.414 0l1.414 1.414a1 1 0 0 1-1.414 1.414l-1.414-1.414a1 1 0 0 1 0-1.414zM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zm-5.657-2.343a1 1 0 0 1 0 1.414L5.343 20a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM4 11H2a1 1 0 1 1 0-2h2a1 1 0 1 1 0 2zm2.343-5.657a1 1 0 0 1-1.414 0L3.515 4.929a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+    <circle cx="12" cy="12" r="5" fill="currentColor"/>
+    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg>
   <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display: none;">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
   </svg>
 </button>
 
@@ -898,6 +927,9 @@ function applyTheme(themeIndex) {
   root.style.setProperty('--card-gradient', theme.card_gradient);
   root.style.setProperty('--shadow', theme.shadow);
   root.style.setProperty('--shadow-hover', theme.shadow_hover);
+  root.style.setProperty('--dropdown-bg', theme.dropdown_bg);
+  root.style.setProperty('--dropdown-border', theme.dropdown_border);
+  root.style.setProperty('--nav-bg', theme.nav_bg);
 
   const sunIcon = document.getElementById('theme-icon-sun');
   const moonIcon = document.getElementById('theme-icon-moon');
@@ -1002,7 +1034,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
           {% endif %}
           {% if not p.price and not p.rating %}
           <span style="color: var(--text-muted); font-style: italic;">
-              Price & rating loading...
+              View on Amazon for pricing
           </span>
           {% endif %}
       </div>
@@ -1112,7 +1144,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </html>
 """
 
-# ---------------- RENDERING FUNCTION ---------------- #
 @cache.cached(timeout=300, key_prefix=lambda: request.full_path)
 def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
     theme = get_daily_theme()
@@ -1134,7 +1165,6 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     next_url = page_url(page + 1) if page_url and page < total_pages else None
     prev_url = page_url(page - 1) if page_url and page > 1 else None
 
-    # Convert themes to JSON for JavaScript
     themes_json = json.dumps(THEMES)
 
     return render_template_string(
@@ -1157,8 +1187,6 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         format_price_display=format_price_display,
         format_rating_display=format_rating_display
     )
-
-# [Keep all your routes: home, category, seasonal_collection, product_detail, blog_list, blog_detail, robots, sitemap]
 
 @app.route("/")
 def home():
@@ -1348,8 +1376,7 @@ def blog_detail(slug):
 
 @app.route("/robots.txt")
 def robots():
-    txt = f"""
-User-agent: *
+    txt = f"""User-agent: *
 Disallow:
 
 Sitemap: {SITE_URL}/sitemap.xml
