@@ -1111,6 +1111,10 @@ def product_detail(product_slug):
     found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
     if not found:
         abort(404)
+
+    
+    found = enrich_products_with_amazon_data([found])[0]
+
     
     related = [
         p for p in all_products
