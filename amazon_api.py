@@ -1,162 +1,185 @@
-"""
-Amazon Product Advertising API Integration
-Using python-amazon-paapi (PyPI: python-amazon-paapi >=5.0.0)
-Handles fetching product data, caching, batch enrichment, and formatting
-"""
-
 import os
-from amazon_paapi import AmazonApi
-from pathlib import Path
-import json
-import datetime
+import time
 from typing import List, Dict, Optional
+from amazon.paapi import AmazonAPI
 
-# Amazon API Credentials from environment
-AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY")
-AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY")
-AMAZON_ASSOC_TAG = os.environ.get("AMAZON_ASSOC_TAG")
-AMAZON_REGION = "uk"  # UK marketplace
+# Amazon Product Advertising API Configuration
+AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY", "")
+AMAZON_SECRET_KEY = os.environ.get("AMAZON_SECRET_KEY", "")
+AMAZON_PARTNER_TAG = os.environ.get("AMAZON_PARTNER_TAG", "whoaccepts-21")
+AMAZON_COUNTRY = "UK"
 
-# Cache folder (ephemeral on Render)
-CACHE_DIR = Path("./cache")
-CACHE_DIR.mkdir(exist_ok=True)
+# Rate limiting
+LAST_API_CALL = 0
+MIN_API_INTERVAL = 1.0  # 1 second between calls to respect API limits
 
-def get_from_cache(asin: str) -> Optional[Dict]:
-    cache_file = CACHE_DIR / f"{asin}.json"
-    if cache_file.exists():
-        with open(cache_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        cached_time_str = data.get("cached_at")
-        if cached_time_str:
-            cached_time = datetime.datetime.fromisoformat(cached_time_str)
-            if datetime.datetime.utcnow() - cached_time < datetime.timedelta(days=1):
-                return data
-    return None
-
-def save_to_cache(asin: str, product_data: Dict):
-    cache_file = CACHE_DIR / f"{asin}.json"
-    product_data["cached_at"] = datetime.datetime.utcnow().isoformat()
-    with open(cache_file, "w", encoding="utf-8") as f:
-        json.dump(product_data, f, ensure_ascii=False, indent=2)
-
-def get_amazon_product_data(asin: str) -> Optional[Dict]:
-    cached = get_from_cache(asin)
-    if cached:
-        return cached
-
-    if not all([AMAZON_ACCESS_KEY, AMAZON_SECRET_KEY, AMAZON_ASSOC_TAG]):
-        print(f"Missing Amazon API credentials for ASIN {asin}")
+def get_amazon_api():
+    """Initialize Amazon API client if credentials are available."""
+    if not AMAZON_ACCESS_KEY or not AMAZON_SECRET_KEY:
+        print("Warning: Amazon API credentials not set in environment variables")
         return None
-
+    
     try:
-        api = AmazonApi(
+        api = AmazonAPI(
             access_key=AMAZON_ACCESS_KEY,
             secret_key=AMAZON_SECRET_KEY,
-            associate_tag=AMAZON_ASSOC_TAG,
-            country=AMAZON_REGION,
-            throttling=2,  # seconds between requests
+            partner_tag=AMAZON_PARTNER_TAG,
+            country=AMAZON_COUNTRY
         )
-
-        response = api.get_items(item_ids=[asin])
-
-        if not response.items_result or not response.items_result.items:
-            print(f"No items found for ASIN {asin}")
-            return None
-
-        item = response.items_result.items[0]
-
-        price = None
-        if item.offers and item.offers.listings and item.offers.listings[0].price:
-            price = item.offers.listings[0].price.display_amount
-
-        rating = None
-        total_reviews = None
-        if item.customer_reviews:
-            rating = item.customer_reviews.rating
-            total_reviews = item.customer_reviews.total_reviews
-
-        image_url = None
-        if item.images and item.images.primary and item.images.primary.large:
-            image_url = item.images.primary.large.url
-
-        title = None
-        if item.item_info and item.item_info.title:
-            title = item.item_info.title.display_value
-
-        product_data = {
-            "asin": asin,
-            "title": title,
-            "url": item.detail_page_url,
-            "price": price,
-            "rating": rating,
-            "total_reviews": total_reviews,
-            "image_url": image_url,
-        }
-
-        save_to_cache(asin, product_data)
-        return product_data
-
+        return api
     except Exception as e:
-        print(f"Amazon API error for ASIN {asin}: {type(e).__name__} - {str(e)}")
+        print(f"Error initializing Amazon API: {e}")
+        return None
+
+def fetch_product_info(asin: str, api: Optional[AmazonAPI] = None) -> Optional[Dict]:
+    """
+    Fetch product information from Amazon Product Advertising API.
+    
+    Args:
+        asin: Amazon Standard Identification Number
+        api: Optional pre-initialized AmazonAPI instance
+        
+    Returns:
+        Dictionary with price and rating information, or None if unavailable
+    """
+    global LAST_API_CALL
+    
+    if not asin:
+        return None
+    
+    # Initialize API if not provided
+    if api is None:
+        api = get_amazon_api()
+    
+    if api is None:
+        return None
+    
+    # Rate limiting
+    current_time = time.time()
+    time_since_last_call = current_time - LAST_API_CALL
+    if time_since_last_call < MIN_API_INTERVAL:
+        time.sleep(MIN_API_INTERVAL - time_since_last_call)
+    
+    try:
+        # Fetch product details
+        response = api.get_items(
+            item_ids=[asin],
+            resources=[
+                "ItemInfo.Title",
+                "Offers.Listings.Price",
+                "CustomerReviews.StarRating",
+                "CustomerReviews.Count"
+            ]
+        )
+        
+        LAST_API_CALL = time.time()
+        
+        if not response or not response.items:
+            print(f"No data returned for ASIN: {asin}")
+            return None
+        
+        item = response.items[0]
+        result = {}
+        
+        # Extract price
+        try:
+            if hasattr(item, 'offers') and item.offers and item.offers.listings:
+                listing = item.offers.listings[0]
+                if hasattr(listing, 'price') and listing.price:
+                    if hasattr(listing.price, 'display_amount'):
+                        result['price'] = listing.price.display_amount
+                    elif hasattr(listing.price, 'amount'):
+                        result['price'] = f"£{listing.price.amount:.2f}"
+        except Exception as e:
+            print(f"Error extracting price for {asin}: {e}")
+        
+        # Extract rating
+        try:
+            if hasattr(item, 'customer_reviews') and item.customer_reviews:
+                if hasattr(item.customer_reviews, 'star_rating'):
+                    result['rating'] = item.customer_reviews.star_rating.value
+                if hasattr(item.customer_reviews, 'count'):
+                    result['total_reviews'] = item.customer_reviews.count
+        except Exception as e:
+            print(f"Error extracting rating for {asin}: {e}")
+        
+        return result if result else None
+        
+    except Exception as e:
+        print(f"Error fetching Amazon data for ASIN {asin}: {e}")
+        LAST_API_CALL = time.time()
         return None
 
 def enrich_products_with_amazon_data(products: List[Dict]) -> List[Dict]:
     """
-    Enrich a list of product dicts with Amazon data.
-    Each product must have an 'asin' key.
-    Returns the enriched list (original dicts updated in-place + returns it).
+    Enrich product list with Amazon API data.
+    
+    Args:
+        products: List of product dictionaries
+        
+    Returns:
+        List of products enriched with Amazon data
     """
-    enriched = []
-    asin_to_product = {}
-
-    # Collect ASINs and map back to original products
-    asins = []
+    api = get_amazon_api()
+    
+    if api is None:
+        print("Amazon API not available - skipping enrichment")
+        return products
+    
+    enriched_products = []
+    
     for product in products:
-        asin = product.get("asin")
-        if asin:
-            asins.append(asin)
-            asin_to_product[asin] = product
+        enriched_product = product.copy()
+        
+        # Only fetch if product has ASIN and doesn't already have fresh data
+        asin = product.get('asin')
+        if asin and not product.get('price'):
+            amazon_data = fetch_product_info(asin, api)
+            if amazon_data:
+                enriched_product.update(amazon_data)
+                print(f"Enriched product: {product.get('name', 'Unknown')} with Amazon data")
+        
+        enriched_products.append(enriched_product)
+    
+    return enriched_products
 
-    if not asins:
-        return products  # Nothing to enrich
-
-    # Batch fetch (library supports up to 10 per call)
-    batch_size = 10
-    for i in range(0, len(asins), batch_size):
-        batch_asins = asins[i:i + batch_size]
-        try:
-            api = AmazonApi(
-                access_key=AMAZON_ACCESS_KEY,
-                secret_key=AMAZON_SECRET_KEY,
-                associate_tag=AMAZON_ASSOC_TAG,
-                country=AMAZON_REGION,
-                throttling=2,
-            )
-            response = api.get_items(item_ids=batch_asins)
-
-            if response.items_result and response.items_result.items:
-                for item in response.items_result.items:
-                    asin = item.asin  # or item.asin if available; fallback to input order if needed
-                    amazon_data = get_amazon_product_data(asin)  # Reuse single fetch + cache
-                    if amazon_data:
-                        original_product = asin_to_product.get(asin, {})
-                        original_product.update(amazon_data)
-                        enriched.append(original_product)
-        except Exception as e:
-            print(f"Batch enrichment error for ASINs {batch_asins}: {type(e).__name__} - {str(e)}")
-
-    # Add back any products without ASIN or failed enrichment
-    for product in products:
-        if product.get("asin") not in asin_to_product:
-            enriched.append(product)
-
-    return enriched
-
-# Formatting helpers
 def format_price_display(price: Optional[str]) -> str:
-    return price or "N/A"
+    """
+    Format price for display.
+    
+    Args:
+        price: Price string from Amazon API
+        
+    Returns:
+        Formatted price string
+    """
+    if not price:
+        return ""
+    
+    # Price is already formatted from API (e.g., "£29.99")
+    return price
 
-def format_rating_display(rating: Optional[float], total_reviews: Optional[int]) -> str:
-    if rating is not None and total_reviews is not None:
-        return f"{rating:.1f} ⭐ ({total_reviews})"
-    return "No reviews"
+def format_rating_display(rating: Optional[str], total_reviews: Optional[int] = None) -> str:
+    """
+    Format rating for display.
+    
+    Args:
+        rating: Rating value (e.g., "4.5")
+        total_reviews: Optional number of reviews
+        
+    Returns:
+        Formatted rating string with stars
+    """
+    if not rating:
+        return ""
+    
+    try:
+        rating_value = float(rating)
+        stars = "★" * int(rating_value) + "☆" * (5 - int(rating_value))
+        
+        if total_reviews:
+            return f"{stars} {rating_value}/5 ({total_reviews:,} reviews)"
+        else:
+            return f"{stars} {rating_value}/5"
+    except (ValueError, TypeError):
+        return ""
