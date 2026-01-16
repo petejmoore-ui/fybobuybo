@@ -57,11 +57,12 @@ THEMES = [
         "text_muted": "#666666",
         "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
-        "shadow": "0 8px 32px rgba(0, 0, 0, 0.08)",
-        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.12)",
+        "shadow": "0 4px 12px rgba(0, 0, 0, 0.08)",
+        "shadow_hover": "0 8px 24px rgba(0, 0, 0, 0.12)",
         "dropdown_bg": "#ffffff",
-        "dropdown_border": "rgba(0, 0, 0, 0.1)",
-        "nav_bg": "#ffffff"
+        "dropdown_border": "rgba(0, 0, 0, 0.12)",
+        "nav_bg": "#ffffff",
+        "nav_border": "rgba(0, 0, 0, 0.08)"
     },
     {
         "name": "Midnight Luxe",
@@ -75,11 +76,12 @@ THEMES = [
         "text_muted": "#a0a0a0",
         "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
-        "shadow": "0 8px 32px rgba(0, 0, 0, 0.4)",
-        "shadow_hover": "0 16px 48px rgba(0, 0, 0, 0.6)",
+        "shadow": "0 4px 12px rgba(0, 0, 0, 0.4)",
+        "shadow_hover": "0 8px 24px rgba(0, 0, 0, 0.6)",
         "dropdown_bg": "#1a1f2e",
-        "dropdown_border": "rgba(255, 255, 255, 0.1)",
-        "nav_bg": "#151922"
+        "dropdown_border": "rgba(255, 255, 255, 0.12)",
+        "nav_bg": "#151922",
+        "nav_border": "rgba(255, 255, 255, 0.08)"
     }
 ]
 
@@ -294,7 +296,7 @@ def shorten_product_name(name, max_length=80):
 
 FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
 
-# ---------------- ENHANCED CSS ---------------- #
+# ---------------- CLEAN CSS WITH FIXED NAVIGATION ---------------- #
 CSS_TEMPLATE = """<style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
 
@@ -314,6 +316,7 @@ CSS_TEMPLATE = """<style>
     --dropdown-bg: {{dropdown_bg}};
     --dropdown-border: {{dropdown_border}};
     --nav-bg: {{nav_bg}};
+    --nav-border: {{nav_border}};
 }
 
 * {
@@ -344,18 +347,12 @@ h1 {
     background-clip: text;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.8s ease;
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .subtitle { 
@@ -365,10 +362,9 @@ h1 {
     max-width: 900px; 
     margin: 20px auto 40px;
     line-height: 1.6;
-    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
 }
 
-/* Grid with staggered animations */
+/* Grid */
 .grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -378,44 +374,27 @@ h1 {
     padding: 0 20px;
 }
 
-/* Enhanced Cards */
+/* Cards */
 .card { 
     background: var(--card);
-    border-radius: 24px; 
+    border-radius: 20px; 
     padding: 28px; 
     text-align: center; 
     box-shadow: var(--shadow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     position: relative; 
     overflow: hidden;
-    opacity: 0;
-    animation: cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-delay: calc(var(--card-index, 0) * 0.05s);
-}
-
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .card::before { 
     content: "";
     position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
+    top: 0; left: 0; right: 0; bottom: 0; 
     background: var(--card-gradient);
     opacity: 0;
-    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.3s ease;
     pointer-events: none;
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 .card:hover { 
@@ -423,9 +402,7 @@ h1 {
     box-shadow: var(--shadow-hover);
 }
 
-.card:hover::before { 
-    opacity: 1; 
-}
+.card:hover::before { opacity: 1; }
 
 .card img { 
     width: 100%; 
@@ -434,12 +411,10 @@ h1 {
     border-radius: 16px; 
     margin: 20px 0; 
     display: block;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s ease;
 }
 
-.card:hover img { 
-    transform: scale(1.05); 
-}
+.card:hover img { transform: scale(1.05); }
 
 .card h2 {
     font-size: 1.3rem;
@@ -447,14 +422,12 @@ h1 {
     margin: 16px 0;
     color: var(--accent);
     line-height: 1.3;
-    transition: color 0.3s;
 }
 
 .card p {
     color: var(--text-accent);
     line-height: 1.7;
     margin: 16px 0;
-    transition: color 0.3s;
 }
 
 /* Tags */
@@ -467,12 +440,6 @@ h1 {
     font-weight: 600;
     display: inline-block; 
     margin-bottom: 12px;
-    letter-spacing: 0.02em;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover .tag {
-    transform: scale(1.05);
 }
 
 /* Buttons */
@@ -485,7 +452,6 @@ button {
     font-weight: 700;
     color: white; 
     cursor: pointer;
-    letter-spacing: 0.02em;
     transition: all 0.3s ease;
     box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
 }
@@ -496,93 +462,151 @@ button:hover {
     background: var(--button-hover);
 }
 
-button:active {
-    transform: translateY(0);
-}
-
-/* Navigation - Improved */
+/* ========== CLEAN NAVIGATION - FIXED ========== */
 nav { 
     background: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    padding: 16px 24px; 
+    padding: 20px; 
     margin: 20px 0 60px; 
     border-radius: 16px; 
     box-shadow: var(--shadow);
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 16px;
-    transition: all 0.3s ease;
-    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
-    border: 1px solid var(--dropdown-border);
+    border: 1px solid var(--nav-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.nav-top { 
-    display: flex; 
-    justify-content: center; 
-    gap: 40px; 
-    width: 100%; 
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
 }
 
-.nav-top a { 
-    color: var(--text-accent); 
-    font-weight: 700; 
-    font-size: 1.1rem;
-    letter-spacing: -0.01em;
-    transition: all 0.3s ease;
-    position: relative;
+.nav-links a {
+    color: var(--text-accent);
+    font-weight: 600;
+    font-size: 1.05rem;
     padding: 8px 16px;
     border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
-.nav-top a:hover { 
-    color: var(--button);
+.nav-links a:hover {
     background: var(--tag);
+    color: var(--button);
+}
+
+/* Dropdowns - SOLID BACKGROUNDS */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: var(--card);
+    color: var(--accent);
+    border: 1px solid var(--dropdown-border);
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-toggle:hover {
+    background: var(--tag);
+    border-color: var(--button);
+}
+
+.dropdown-toggle::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+}
+
+.dropdown.active .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: var(--dropdown-bg);  /* SOLID BACKGROUND - KEY FIX */
+    border: 1px solid var(--dropdown-border);
+    border-radius: 12px;
+    padding: 8px 0;
+    min-width: 220px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-hover);
+    z-index: 1000;
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--text-accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: var(--tag);
+    color: var(--button);
+    padding-left: 24px;
 }
 
 /* Search */
-#search-form { 
-    width: 100%; 
-    max-width: 500px; 
+#search-form {
+    flex: 1;
+    max-width: 400px;
 }
 
-#search-input { 
-    padding: 14px 24px; 
-    border-radius: 50px; 
-    border: 2px solid var(--dropdown-border);
+#search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 24px;
+    border: 1px solid var(--dropdown-border);
     background: var(--card);
-    color: var(--accent); 
-    width: 100%; 
-    font-size: 1rem; 
-    text-align: center;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    color: var(--accent);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
 }
 
 #search-input:focus {
     outline: none;
     border-color: var(--button);
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
-    transform: scale(1.02);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
 }
 
 #search-input::placeholder {
     color: var(--text-muted);
 }
 
-/* Theme Toggle - Improved */
+/* Theme Toggle */
 #theme-toggle {
-    position: fixed; 
-    top: 20px; 
-    right: 20px; 
-    z-index: 999; 
-    width: 50px;
-    height: 50px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    border: 2px solid var(--dropdown-border);
+    border: 1px solid var(--dropdown-border);
     cursor: pointer;
     background: var(--card);
-    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -593,237 +617,57 @@ nav {
 #theme-toggle:hover {
     transform: scale(1.1);
     box-shadow: var(--shadow-hover);
-    border-color: var(--button);
 }
 
 #theme-toggle svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     fill: var(--accent);
-    transition: all 0.3s ease;
 }
 
 /* Footer */
-footer { 
-    text-align: center; 
+footer {
+    text-align: center;
     color: var(--text-muted);
-    margin: 100px 0 60px; 
-    font-size: 0.95rem; 
+    margin: 100px 0 60px;
+    font-size: 0.95rem;
     line-height: 1.8;
-    transition: color 0.3s;
 }
 
-footer p {
-    margin: 12px 0;
-}
+footer p { margin: 12px 0; }
 
 /* Links */
-a { 
-    color: var(--text-accent); 
+a {
+    color: var(--text-accent);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
-a:hover {
-    color: var(--button);
-}
+a:hover { color: var(--button); }
 
 /* Pagination */
-.pagination { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     margin: 60px 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
 }
 
-.pagination a { 
-    background: var(--button); 
-    padding: 12px 24px; 
-    border-radius: 50px; 
-    color: white; 
+.pagination a {
+    background: var(--button);
+    padding: 12px 24px;
+    border-radius: 50px;
+    color: white;
     font-weight: 700;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
 }
 
-.pagination a:hover { 
+.pagination a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
     background: var(--button-hover);
 }
 
-/* Loading */
-.loading { 
-    text-align: center; 
-    color: var(--text-accent);
-    margin: 100px 0; 
-    font-size: 1.4rem;
-    animation: pulse 2s ease infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-}
-
-/* Dropdown styling - FIXED */
-.nav-desktop { 
-    display: none; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 20px; 
-    width: 100%; 
-}
-
-.nav-desktop a { 
-    margin: 0 12px;
-    font-weight: 600;
-    color: var(--text-accent);
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.nav-desktop a:hover {
-    background: var(--tag);
-    color: var(--button);
-}
-
-.nav-middle { 
-    display: flex; 
-    justify-content: center; 
-    gap: 24px; 
-}
-
-.categories-dropdown, .seasons-dropdown { 
-    position: relative; 
-}
-
-.categories-dropdown button, .seasons-dropdown button { 
-    background: var(--card);
-    color: var(--accent);
-    border: 2px solid var(--dropdown-border);
-    padding: 12px 28px; 
-    border-radius: 50px; 
-    font-weight: 600; 
-    font-size: 1rem; 
-    cursor: pointer; 
-    transition: all 0.3s ease;
-    min-width: 160px;
-}
-
-.categories-dropdown button:hover, .seasons-dropdown button:hover { 
-    background: var(--tag);
-    color: var(--button);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
-}
-
-/* FIXED: Solid dropdown background */
-.dropdown-content { 
-    display: none; 
-    position: absolute; 
-    top: 100%; 
-    left: 50%; 
-    transform: translateX(-50%);
-    background: var(--dropdown-bg);
-    border: 1px solid var(--dropdown-border);
-    border-radius: 12px; 
-    padding: 8px 0; 
-    min-width: 260px; 
-    max-height: 60vh; 
-    overflow-y: auto; 
-    box-shadow: var(--shadow-hover);
-    z-index: 100; 
-    margin-top: 12px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.dropdown-content a { 
-    display: block; 
-    padding: 12px 24px; 
-    color: var(--text-accent); 
-    font-size: 1rem;
-    font-weight: 500;
-    white-space: nowrap; 
-    transition: all 0.3s ease;
-}
-
-.dropdown-content a:hover { 
-    background: var(--tag);
-    color: var(--button);
-    padding-left: 28px;
-}
-
-/* Hidden cards animation */
-.grid .card.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.9);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-desktop { 
-        display: none !important; 
-    }
-    .nav-middle { 
-        display: flex !important; 
-    }
-    .grid { 
-        grid-template-columns: 1fr; 
-        gap: 24px;
-    }
-    h1 {
-        font-size: 2.5rem;
-    }
-    #theme-toggle {
-        width: 45px;
-        height: 45px;
-        top: 16px;
-        right: 16px;
-    }
-}
-
-@media (min-width: 769px) {
-    nav { 
-        flex-direction: row; 
-        justify-content: space-between; 
-        padding: 16px 28px;
-    }
-    .nav-middle { 
-        display: none !important; 
-    }
-    .nav-desktop { 
-        display: flex !important; 
-    }
-    #search-form { 
-        margin-left: auto; 
-        max-width: 400px; 
-    }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--button);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--button-hover);
-}
-
-/* Blog content styling - FIXED readability */
+/* Blog content */
 article {
     color: var(--text-accent);
 }
@@ -844,9 +688,73 @@ article a {
     font-weight: 600;
 }
 
-article a:hover {
-    color: var(--button-hover);
-    text-decoration: underline;
+/* Hidden cards */
+.grid .card.hidden {
+    display: none;
+}
+
+/* ========== RESPONSIVE - MOBILE FIXES ========== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .nav-links a {
+        text-align: center;
+    }
+    
+    .dropdown {
+        width: 100%;
+    }
+    
+    .dropdown-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .dropdown-menu {
+        left: 0;
+        right: 0;
+        min-width: auto;
+    }
+    
+    #search-form {
+        max-width: none;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--button);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--button-hover);
 }
 </style>"""
 
@@ -870,16 +778,12 @@ BASE_HTML = """<!DOCTYPE html>
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 
-<!-- Twitter Cards -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
-<meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-<!-- Preconnect for performance -->
+<!-- Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
@@ -888,10 +792,10 @@ BASE_HTML = """<!DOCTYPE html>
 </head>
 <body>
 
-<!-- Theme Toggle - Improved Icon -->
+<!-- Theme Toggle -->
 <button id="theme-toggle" aria-label="Toggle theme">
-  <svg id="theme-icon-sun" viewBox="0 0 24 24" style="display: block;">
-    <circle cx="12" cy="12" r="5" fill="currentColor"/>
+  <svg id="theme-icon-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="5"/>
     <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -902,96 +806,39 @@ BASE_HTML = """<!DOCTYPE html>
     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg>
   <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display: none;">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 </button>
 
-<script>
-const THEMES = {{ themes_json|safe }};
-
-let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
-
-function applyTheme(themeIndex) {
-  const theme = THEMES[themeIndex];
-  const root = document.documentElement;
-  
-  root.style.setProperty('--bg', theme.bg);
-  root.style.setProperty('--card', theme.card);
-  root.style.setProperty('--accent', theme.accent);
-  root.style.setProperty('--button', theme.button);
-  root.style.setProperty('--button-hover', theme.button_hover);
-  root.style.setProperty('--tag', theme.tag);
-  root.style.setProperty('--text-accent', theme.text_accent);
-  root.style.setProperty('--text-muted', theme.text_muted);
-  root.style.setProperty('--gradient', theme.gradient);
-  root.style.setProperty('--card-gradient', theme.card_gradient);
-  root.style.setProperty('--shadow', theme.shadow);
-  root.style.setProperty('--shadow-hover', theme.shadow_hover);
-  root.style.setProperty('--dropdown-bg', theme.dropdown_bg);
-  root.style.setProperty('--dropdown-border', theme.dropdown_border);
-  root.style.setProperty('--nav-bg', theme.nav_bg);
-
-  const sunIcon = document.getElementById('theme-icon-sun');
-  const moonIcon = document.getElementById('theme-icon-moon');
-  
-  if (themeIndex === 0) {
-    sunIcon.style.display = 'block';
-    moonIcon.style.display = 'none';
-  } else {
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'block';
-  }
-
-  localStorage.setItem('themeIndex', themeIndex);
-}
-
-applyTheme(currentTheme);
-
-document.getElementById('theme-toggle').addEventListener('click', () => {
-  currentTheme = (currentTheme + 1) % THEMES.length;
-  applyTheme(currentTheme);
-});
-</script>
-
-<!-- Navigation -->
-<nav aria-label="Main navigation">
-  <div class="nav-top">
+<!-- Clean Navigation - FIXED -->
+<nav>
+  <div class="nav-links">
     <a href="/">Home</a>
     <a href="/blog">Blog</a>
   </div>
-  <div class="nav-desktop">
-    {% for cat in nav_items.categories %}
+  
+  <div class="dropdown categories-dropdown">
+    <button class="dropdown-toggle" type="button">Categories</button>
+    <div class="dropdown-menu">
+      {% for cat in nav_items.categories %}
         <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-    {% endfor %}
-    {% if nav_items.seasons %}
-      <span style="margin:0 14px;opacity:0.5;" aria-hidden="true">•</span>
-      {% for season in nav_items.seasons %}
-          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
       {% endfor %}
-    {% endif %}
-  </div>
-  <div class="nav-middle">
-    <div class="categories-dropdown">
-      <button aria-expanded="false">Categories ▼</button>
-      <div class="dropdown-content">
-        {% for cat in nav_items.categories %}
-          <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
-        {% endfor %}
-      </div>
     </div>
-    {% if nav_items.seasons %}
-    <div class="seasons-dropdown">
-      <button aria-expanded="false">Seasonal ▼</button>
-      <div class="dropdown-content">
-        {% for season in nav_items.seasons %}
-          <a href="/season/{{ slugify(season) }}">{{ season }}</a>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
   </div>
+  
+  {% if nav_items.seasons %}
+  <div class="dropdown seasons-dropdown">
+    <button class="dropdown-toggle" type="button">Seasonal</button>
+    <div class="dropdown-menu">
+      {% for season in nav_items.seasons %}
+        <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  
   <form id="search-form" role="search">
-    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search gifts" />
+    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search">
   </form>
 </nav>
 
@@ -1004,7 +851,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 {% if products %}
 <div class="grid">
   {% for p in products %}
-  <div class="card" style="--card-index: {{ loop.index0 }};" itemscope itemtype="https://schema.org/Product">
+  <div class="card" itemscope itemtype="https://schema.org/Product">
       <span class="tag">{{ p.category }}</span>
       <a href="/product/{{ slugify(p.name) }}" itemprop="url">
           <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
@@ -1020,7 +867,6 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
       </p>
       {% endif %}
 
-      <!-- Amazon price & rating display -->
       <div style="margin: 20px 0; text-align: center; font-size: 1.1rem;">
           {% if p.price %}
           <span style="font-weight: 700; color: #006600; margin-right: 8px;">
@@ -1046,10 +892,6 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
       <p style="margin-top:12px; font-size:.9rem; opacity:.75; text-align:center;">
           <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon UK</a>
       </p>
-      {% else %}
-      <p style="margin: 20px 0; color: var(--text-muted); font-style: italic; text-align:center;">
-          Amazon details currently unavailable
-      </p>
       {% endif %}
 
       {% if p.category %}
@@ -1065,7 +907,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 <h2 style="text-align:center; margin-top:80px; font-family:'Playfair Display',serif; font-size:2.5rem;">You might also like</h2>
 <div class="grid">
   {% for p in similar_products %}
-    <div class="card" style="--card-index: {{ loop.index0 + 3 }};">
+    <div class="card">
       <span class="tag">{{ p.category }}</span>
       <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
       <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy"></a>
@@ -1075,7 +917,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 {% endif %}
 
 {% else %}
-<p class="loading">
+<p style="text-align:center; color:var(--text-accent); margin:100px 0; font-size:1.4rem;">
     Loading today's gifts...
 </p>
 {% endif %}
@@ -1086,58 +928,66 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
 </footer>
 
 <script>
-// Search functionality
-document.addEventListener("DOMContentLoaded", function() {
-    const searchInput = document.getElementById("search-input");
-    if (!searchInput) return;
-    const cards = document.querySelectorAll(".grid .card");
-    
-    searchInput.addEventListener("input", function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        let visibleCount = 0;
-        
-        cards.forEach(card => {
-            const name = card.querySelector("h2")?.textContent.toLowerCase() || "";
-            const hook = card.querySelector("p[itemprop='description']")?.textContent.toLowerCase() || "";
-            const category = card.querySelector(".tag")?.textContent.toLowerCase() || "";
-            const matches = name.includes(query) || hook.includes(query) || category.includes(query);
-            
-            card.classList.toggle('hidden', !matches);
-            if (matches) visibleCount++;
-        });
-        
-        let noResults = document.getElementById("no-results");
-        if (query.length > 0 && visibleCount === 0) {
-            if (!noResults) {
-                noResults = document.createElement("p");
-                noResults.id = "no-results";
-                noResults.style.cssText = "text-align:center;color:var(--text-muted);margin:60px 0;font-size:1.2rem;";
-                noResults.textContent = "No matching gifts found – try a different search.";
-                document.querySelector(".grid")?.after(noResults);
-            }
-        } else if (noResults) {
-            noResults.remove();
-        }
-    });
+const THEMES = {{ themes_json|safe }};
+let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
+
+function applyTheme(themeIndex) {
+  const theme = THEMES[themeIndex];
+  const root = document.documentElement;
+  
+  Object.keys(theme).forEach(key => {
+    if (key !== 'name') {
+      root.style.setProperty(`--${key.replace(/_/g, '-')}`, theme[key]);
+    }
+  });
+
+  document.getElementById('theme-icon-sun').style.display = themeIndex === 0 ? 'block' : 'none';
+  document.getElementById('theme-icon-moon').style.display = themeIndex === 1 ? 'block' : 'none';
+  localStorage.setItem('themeIndex', themeIndex);
+}
+
+applyTheme(currentTheme);
+
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  currentTheme = (currentTheme + 1) % THEMES.length;
+  applyTheme(currentTheme);
 });
 
-// Dropdown functionality
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdowns = document.querySelectorAll(".categories-dropdown, .seasons-dropdown");
-    dropdowns.forEach(dropdown => {
-        const btn = dropdown.querySelector("button");
-        const content = dropdown.querySelector(".dropdown-content");
-        btn?.addEventListener("click", function(e) {
-            e.stopPropagation();
-            const isOpen = content.style.display === "block";
-            document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-            content.style.display = isOpen ? "none" : "block";
-        });
+// Dropdown functionality - FIXED
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Close other dropdowns
+    document.querySelectorAll('.dropdown').forEach(d => {
+      if (d !== dropdown) d.classList.remove('active');
     });
-    document.addEventListener("click", function() {
-        document.querySelectorAll(".dropdown-content").forEach(el => el.style.display = "none");
-    });
+    // Toggle this dropdown
+    dropdown.classList.toggle('active');
+  });
 });
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+});
+
+// Search functionality
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+  searchInput.addEventListener('input', function(e) {
+    const query = e.target.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.grid .card');
+    
+    cards.forEach(card => {
+      const name = card.querySelector('h2')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('p[itemprop="description"]')?.textContent.toLowerCase() || '';
+      const cat = card.querySelector('.tag')?.textContent.toLowerCase() || '';
+      const matches = name.includes(query) || desc.includes(query) || cat.includes(query);
+      card.classList.toggle('hidden', !matches);
+    });
+  });
+}
 </script>
 
 </body>
