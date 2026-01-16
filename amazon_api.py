@@ -1,7 +1,7 @@
 import os
 import time
 from typing import List, Dict, Optional
-from amazon.paapi import AmazonAPI
+from amazon_paapi import AmazonApi  # Note: AmazonApi (capital A, lowercase i)
 
 # Amazon Product Advertising API Configuration
 AMAZON_ACCESS_KEY = os.environ.get("AMAZON_ACCESS_KEY", "")
