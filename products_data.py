@@ -28,7 +28,7 @@ PRODUCTS = [
         # Optional: Manual hook (if you want to override AI generation)
         "hook_override": "",
         
-        # Product highlights for detail page
+        
         "highlights": [
             "96% snail secretion filtrate for deep skin repair",
             "Suitable for all skin types including sensitive",
@@ -37,7 +37,7 @@ PRODUCTS = [
             "Cruelty-free and dermatologist-tested"
         ],
         
-        # FAQ section (great for SEO)
+       
         "faqs": [
             {
                 "q": "Is snail mucin suitable for sensitive skin?",
