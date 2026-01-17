@@ -26,7 +26,7 @@ PRODUCTS = [
         "price_tier": "affordable luxury",
         
         # Optional: Manual hook (if you want to override AI generation)
-        "hook_override": "This cult <b>K-beauty essence</b> delivers instant hydration and a natural glow — beloved by thousands for transforming dull, tired skin.",
+        "hook_override": "",
         
         # Product highlights for detail page
         "highlights": [
