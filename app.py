@@ -6,7 +6,6 @@ import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
-from amazon_api import enrich_products_with_amazon_data, format_price_display, format_rating_display
 
 from flask import Flask, render_template_string, request, url_for, abort, Response
 from groq import Groq
@@ -39,11 +38,13 @@ SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
 CACHE_REFRESH_DAYS = 10
-PROMPT_VERSION = "v2.2-uk-seo-2026"
+PROMPT_VERSION = "v3.0-elite-2026"
 
 os.makedirs("data", exist_ok=True)
 
-# ---------------- ENHANCED THEMES ---------------- #
+# ============================================================================
+# THEMES
+# ============================================================================
 THEMES = [
     {
         "name": "Daylight Elegance",
@@ -88,6 +89,78 @@ THEMES = [
 def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
+# ============================================================================
+# ELITE HELPER FUNCTIONS - NEW!
+# ============================================================================
+
+def get_product_price_rating(product):
+    """Extract price and rating with manual override support"""
+    price = product.get("manual_price") or None
+    rating = product.get("manual_rating") or None
+    reviews = product.get("manual_reviews") or None
+    
+    return {
+        "price": price,
+        "rating": rating,
+        "reviews": reviews
+    }
+
+def format_price_display(price_data):
+    """Format price for display - handles both manual and API prices"""
+    if isinstance(price_data, str):
+        return price_data  # Already formatted (e.g., "£16.95")
+    if isinstance(price_data, dict):
+        return f"£{price_data['amount']:.2f}"
+    return str(price_data) if price_data else ""
+
+def format_rating_display(rating, review_count=None):
+    """Format rating with stars for display"""
+    if not rating:
+        return ""
+    try:
+        rating_float = float(rating)
+        stars = "⭐" * int(rating_float)
+        half_star = "½⭐" if (rating_float % 1) >= 0.5 else ""
+        
+        if review_count:
+            if isinstance(review_count, str):
+                formatted_count = review_count
+            else:
+                formatted_count = f"{review_count:,}"
+            return f"{stars}{half_star} {rating_float}/5 ({formatted_count} reviews)"
+        return f"{stars}{half_star} {rating_float}/5"
+    except:
+        return ""
+
+def get_similar_products(product, all_products, limit=6):
+    """Get similar products for SEO and user engagement"""
+    similar = []
+    
+    # Same category
+    category_matches = [
+        p for p in all_products 
+        if p.get("category") == product.get("category") 
+        and p["name"] != product["name"]
+    ]
+    similar.extend(category_matches[:limit])
+    
+    if len(similar) < limit:
+        # Add same season products
+        product_seasons = set(s.strip() for s in product.get("season", "").split(",") if s.strip())
+        season_matches = [
+            p for p in all_products
+            if p["name"] != product["name"]
+            and p not in similar
+            and any(s.strip() in product_seasons for s in p.get("season", "").split(","))
+        ]
+        similar.extend(season_matches[:(limit - len(similar))])
+    
+    return similar[:limit]
+
+# ============================================================================
+# EXISTING HELPER FUNCTIONS
+# ============================================================================
+
 def ping_search_engines():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
     engines = [
@@ -99,6 +172,72 @@ def ping_search_engines():
             requests.get(url, timeout=5)
         except Exception:
             pass
+
+def slugify(text):
+    text = text.lower()
+    text = re.sub(r'&', '-and-', text)
+    text = re.sub(r'\s+', '-', text)
+    text = re.sub(r'[^\w\-]', '', text)
+    return text
+
+def normalize_for_match(text):
+    if not text:
+        return ""
+    return text.lower().replace("'", "").replace(" ", "").replace("-", "")
+
+def get_nav_items():
+    products = PRODUCTS
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, encoding="utf-8") as f:
+                cache_data = json.load(f)
+            products = cache_data.get("products", PRODUCTS)
+        except:
+            pass
+
+    categories = sorted({p["category"] for p in products if p.get("category")})
+
+    seasons_set = set()
+    for p in products:
+        if p.get("season"):
+            for s in p["season"].split(","):
+                clean = s.strip()
+                if clean:
+                    seasons_set.add(clean)
+
+    important_seasons_order = [
+        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
+        "Summer Gifts", "Back to School", "Halloween", "Christmas"
+    ]
+    important_seasons = [s for s in important_seasons_order if s in seasons_set]
+    other_seasons = sorted(seasons_set - set(important_seasons))
+    seasons = other_seasons + important_seasons
+
+    return {
+        "categories": categories,
+        "seasons": seasons
+    }
+
+def paginate(items, page):
+    start = (page - 1) * ITEMS_PER_PAGE
+    end = start + ITEMS_PER_PAGE
+    return items[start:end], len(items)
+
+def shorten_product_name(name, max_length=80):
+    if len(name) <= max_length:
+        return name
+    for sep in [',', '(']:
+        if sep in name:
+            short = name.split(sep, 1)[0].strip()
+            if len(short) <= max_length:
+                return short
+    words, out = name.split(), ""
+    for w in words:
+        if len(out + " " + w) <= max_length - 3:
+            out += (" " if out else "") + w
+        else:
+            break
+    return out + "..."
 
 HOOK_STYLES = ["benefit-first", "lifestyle-story", "quality-craft", "quiet-genius"]
 
@@ -215,88 +354,21 @@ def refresh_products(background=False):
                 cache_data = json.load(f)
             cache_date_str = cache_data.get("date", "")
             if cache_date_str.startswith(today):
-                products = cache_data.get("products", [])
-                return enrich_products_with_amazon_data(products)
+                return cache_data.get("products", [])
             cache_date = datetime.datetime.fromisoformat(cache_date_str)
             if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
                cache_data.get("prompt_version") == PROMPT_VERSION:
-                products = cache_data.get("products", [])
-                return enrich_products_with_amazon_data(products)
+                return cache_data.get("products", [])
         except Exception as e:
             print(f"Cache read failed: {e} — regenerating")
+    
     enriched = load_or_generate_hooks(PRODUCTS)
-    enriched_with_amazon = enrich_products_with_amazon_data(enriched)
-    return enriched_with_amazon
+    return enriched
 
-def slugify(text):
-    text = text.lower()
-    text = re.sub(r'&', '-and-', text)
-    text = re.sub(r'\s+', '-', text)
-    text = re.sub(r'[^\w\-]', '', text)
-    return text
+# ============================================================================
+# ENHANCED CSS WITH ELITE STYLES
+# ============================================================================
 
-def normalize_for_match(text):
-    if not text:
-        return ""
-    return text.lower().replace("'", "").replace(" ", "").replace("-", "")
-
-def get_nav_items():
-    products = PRODUCTS
-    if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE, encoding="utf-8") as f:
-                cache_data = json.load(f)
-            products = cache_data.get("products", PRODUCTS)
-        except:
-            pass
-
-    categories = sorted({p["category"] for p in products if p.get("category")})
-
-    seasons_set = set()
-    for p in products:
-        if p.get("season"):
-            for s in p["season"].split(","):
-                clean = s.strip()
-                if clean:
-                    seasons_set.add(clean)
-
-    important_seasons_order = [
-        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-        "Summer Gifts", "Back to School", "Halloween", "Christmas"
-    ]
-    important_seasons = [s for s in important_seasons_order if s in seasons_set]
-    other_seasons = sorted(seasons_set - set(important_seasons))
-    seasons = other_seasons + important_seasons
-
-    return {
-        "categories": categories,
-        "seasons": seasons
-    }
-
-def paginate(items, page):
-    start = (page - 1) * ITEMS_PER_PAGE
-    end = start + ITEMS_PER_PAGE
-    return items[start:end], len(items)
-
-def shorten_product_name(name, max_length=80):
-    if len(name) <= max_length:
-        return name
-    for sep in [',', '(']:
-        if sep in name:
-            short = name.split(sep, 1)[0].strip()
-            if len(short) <= max_length:
-                return short
-    words, out = name.split(), ""
-    for w in words:
-        if len(out + " " + w) <= max_length - 3:
-            out += (" " if out else "") + w
-        else:
-            break
-    return out + "..."
-
-FALLBACK_HOOK = "A popular choice among UK shoppers for its quality and everyday appeal."
-
-# ---------------- CLEAN CSS WITH FIXED NAVIGATION ---------------- #
 CSS_TEMPLATE = """<style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
 
@@ -334,7 +406,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Typography */
 h1 { 
     text-align: center; 
     font-family: 'Playfair Display', serif;
@@ -364,7 +435,6 @@ h1 {
     line-height: 1.6;
 }
 
-/* Grid */
 .grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -374,7 +444,6 @@ h1 {
     padding: 0 20px;
 }
 
-/* Cards */
 .card { 
     background: var(--card);
     border-radius: 20px; 
@@ -430,7 +499,6 @@ h1 {
     margin: 16px 0;
 }
 
-/* Tags */
 .tag { 
     background: var(--tag); 
     color: var(--button);
@@ -442,9 +510,51 @@ h1 {
     margin-bottom: 12px;
 }
 
-/* Buttons */
+/* ELITE PRODUCT METRICS - NEW! */
+.product-metrics {
+    background: linear-gradient(to bottom, transparent, var(--tag));
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+}
+
+.price-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.price-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #006600;
+    letter-spacing: -0.02em;
+}
+
+.rating-display {
+    text-align: center;
+    color: var(--text-accent);
+    font-size: 0.95rem;
+}
+
+.check-amazon-notice {
+    text-align: center;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* ELITE AMAZON CTA - NEW! */
 button { 
-    background: var(--button); 
+    background: linear-gradient(135deg, #ff9900 0%, #ff8c00 100%);
     border: none; 
     padding: 14px 32px; 
     border-radius: 50px; 
@@ -453,16 +563,14 @@ button {
     color: white; 
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 153, 0, 0.3);
 }
 
 button:hover { 
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
-    background: var(--button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 153, 0, 0.4);
 }
 
-/* ========== CLEAN NAVIGATION - FIXED ========== */
 nav { 
     background: var(--nav-bg);
     padding: 20px; 
@@ -497,7 +605,6 @@ nav {
     color: var(--button);
 }
 
-/* Dropdowns - SOLID BACKGROUNDS */
 .dropdown {
     position: relative;
 }
@@ -537,7 +644,7 @@ nav {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-    background: var(--dropdown-bg);  /* SOLID BACKGROUND - KEY FIX */
+    background: var(--dropdown-bg);
     border: 1px solid var(--dropdown-border);
     border-radius: 12px;
     padding: 8px 0;
@@ -568,7 +675,6 @@ nav {
     padding-left: 24px;
 }
 
-/* Search */
 #search-form {
     flex: 1;
     max-width: 400px;
@@ -595,7 +701,6 @@ nav {
     color: var(--text-muted);
 }
 
-/* Theme Toggle */
 #theme-toggle {
     position: fixed;
     top: 20px;
@@ -625,7 +730,6 @@ nav {
     fill: var(--accent);
 }
 
-/* Footer */
 footer {
     text-align: center;
     color: var(--text-muted);
@@ -636,7 +740,6 @@ footer {
 
 footer p { margin: 12px 0; }
 
-/* Links */
 a {
     color: var(--text-accent);
     text-decoration: none;
@@ -645,7 +748,6 @@ a {
 
 a:hover { color: var(--button); }
 
-/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -667,7 +769,6 @@ a:hover { color: var(--button); }
     background: var(--button-hover);
 }
 
-/* Blog content */
 article {
     color: var(--text-accent);
 }
@@ -688,12 +789,91 @@ article a {
     font-weight: 600;
 }
 
-/* Hidden cards */
 .grid .card.hidden {
     display: none;
 }
 
-/* ========== RESPONSIVE - MOBILE FIXES ========== */
+/* SIMILAR PRODUCTS SECTION - NEW! */
+.similar-products-section {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 40px 20px;
+}
+
+.similar-products-heading {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: var(--accent);
+}
+
+.similar-products-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.similar-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 28px;
+}
+
+.similar-product-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.similar-product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.similar-product-card img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.similar-product-card h3 {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: var(--accent);
+    min-height: 2.8em;
+}
+
+.similar-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #006600;
+}
+
+/* INFO FOOTER - NEW! */
+.product-info-footer {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px;
+    background: var(--tag);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.product-info-footer p {
+    margin: 8px 0;
+    color: var(--text-muted);
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -739,7 +919,6 @@ article a {
     }
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -758,6 +937,10 @@ article a {
 }
 </style>"""
 
+# ============================================================================
+# BASE HTML TEMPLATE WITH ENHANCEMENTS
+# ============================================================================
+
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -770,7 +953,6 @@ BASE_HTML = """<!DOCTYPE html>
 {% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
 {% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 
-<!-- Open Graph -->
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
 <meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
@@ -778,12 +960,10 @@ BASE_HTML = """<!DOCTYPE html>
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
 
-<!-- Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
@@ -792,7 +972,6 @@ BASE_HTML = """<!DOCTYPE html>
 </head>
 <body>
 
-<!-- Theme Toggle -->
 <button id="theme-toggle" aria-label="Toggle theme">
   <svg id="theme-icon-sun" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="5"/>
@@ -810,7 +989,6 @@ BASE_HTML = """<!DOCTYPE html>
   </svg>
 </button>
 
-<!-- Clean Navigation - FIXED -->
 <nav>
   <div class="nav-links">
     <a href="/">Home</a>
@@ -867,21 +1045,28 @@ BASE_HTML = """<!DOCTYPE html>
       </p>
       {% endif %}
 
-      <div style="margin: 20px 0; text-align: center; font-size: 1.1rem;">
-          {% if p.price %}
-          <span style="font-weight: 700; color: #006600; margin-right: 8px;">
-              {{ format_price_display(p.price) }}
-          </span>
+      <div class="product-metrics">
+          {% set price_info = get_product_price_rating(p) %}
+          
+          {% if price_info.price %}
+          <div class="price-display">
+              <span class="price-label">Price:</span>
+              <span class="price-value">{{ format_price_display(price_info.price) }}</span>
+          </div>
           {% endif %}
-          {% if p.rating %}
-          <span style="color: var(--text-accent);">
-              {{ format_rating_display(p.rating, p.total_reviews) }}
-          </span>
+          
+          {% if price_info.rating %}
+          <div class="rating-display">
+              {{ format_rating_display(price_info.rating, price_info.reviews) }}
+          </div>
           {% endif %}
-          {% if not p.price and not p.rating %}
-          <span style="color: var(--text-muted); font-style: italic;">
-              View on Amazon for pricing
-          </span>
+          
+          {% if not price_info.price and not price_info.rating %}
+          <div class="check-amazon-notice">
+              <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">
+                  View on Amazon for pricing
+              </span>
+          </div>
           {% endif %}
       </div>
 
@@ -904,15 +1089,31 @@ BASE_HTML = """<!DOCTYPE html>
 </div>
 
 {% if similar_products %}
-<h2 style="text-align:center; margin-top:80px; font-family:'Playfair Display',serif; font-size:2.5rem;">You might also like</h2>
-<div class="grid">
-  {% for p in similar_products %}
-    <div class="card">
-      <span class="tag">{{ p.category }}</span>
-      <a href="/product/{{ slugify(p.name) }}"><h2>{{ shorten_product_name(p.name) }}</h2></a>
-      <a href="/product/{{ slugify(p.name) }}"><img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy"></a>
+<section class="similar-products-section">
+    <h2 class="similar-products-heading">Customers Also Viewed</h2>
+    <p class="similar-products-subtitle">Popular alternatives in {{ products[0].category if products else 'this category' }}</p>
+    
+    <div class="similar-products-grid">
+        {% for similar in similar_products %}
+        <div class="similar-product-card">
+            <a href="/product/{{ slugify(similar.name) }}">
+                <img src="{{ similar.image }}" alt="{{ similar.name }}" loading="lazy">
+                <h3>{{ shorten_product_name(similar.name, 60) }}</h3>
+            </a>
+            {% set similar_price = get_product_price_rating(similar) %}
+            {% if similar_price.price %}
+            <p class="similar-price">{{ format_price_display(similar_price.price) }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
     </div>
-  {% endfor %}
+</section>
+{% endif %}
+
+{% if products and products|length == 1 %}
+<div class="product-info-footer">
+    <p><strong>Information Accuracy:</strong> Product details verified as of <time datetime="{{ today }}">{{ today_formatted }}</time>. Amazon prices may vary.</p>
+    <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong></p>
 </div>
 {% endif %}
 
@@ -953,26 +1154,21 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   applyTheme(currentTheme);
 });
 
-// Dropdown functionality - FIXED
 document.querySelectorAll('.dropdown').forEach(dropdown => {
   const toggle = dropdown.querySelector('.dropdown-toggle');
   toggle.addEventListener('click', (e) => {
     e.stopPropagation();
-    // Close other dropdowns
     document.querySelectorAll('.dropdown').forEach(d => {
       if (d !== dropdown) d.classList.remove('active');
     });
-    // Toggle this dropdown
     dropdown.classList.toggle('active');
   });
 });
 
-// Close dropdowns when clicking outside
 document.addEventListener('click', () => {
   document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
 });
 
-// Search functionality
 const searchInput = document.getElementById('search-input');
 if (searchInput) {
   searchInput.addEventListener('input', function(e) {
@@ -994,8 +1190,12 @@ if (searchInput) {
 </html>
 """
 
+# ============================================================================
+# RENDER PAGE FUNCTION
+# ============================================================================
+
 @cache.cached(timeout=300, key_prefix=lambda: request.full_path)
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, related_products=None):
+def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
@@ -1016,6 +1216,11 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     prev_url = page_url(page - 1) if page_url and page > 1 else None
 
     themes_json = json.dumps(THEMES)
+    
+    # Add today's date if not provided
+    if not today:
+        today = datetime.date.today().isoformat()
+        today_formatted = datetime.date.today().strftime("%B %d, %Y")
 
     return render_template_string(
         BASE_HTML,
@@ -1030,13 +1235,20 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         SITE_URL=SITE_URL,
         slugify=slugify,
         shorten_product_name=shorten_product_name,
-        related_products=related_products or [],
+        similar_products=similar_products or [],
         next_page_url=next_url,
         prev_page_url=prev_url,
         themes_json=themes_json,
+        get_product_price_rating=get_product_price_rating,
         format_price_display=format_price_display,
-        format_rating_display=format_rating_display
+        format_rating_display=format_rating_display,
+        today=today,
+        today_formatted=today_formatted
     )
+
+# ============================================================================
+# ROUTES
+# ============================================================================
 
 @app.route("/")
 def home():
@@ -1112,14 +1324,12 @@ def product_detail(product_slug):
     if not found:
         abort(404)
 
+    # Get similar products for SEO
+    similar = get_similar_products(found, all_products, limit=6)
     
-    found = enrich_products_with_amazon_data([found])[0]
-
-    
-    related = [
-        p for p in all_products
-        if p["category"] == found["category"] and p["name"] != found["name"]
-    ][:6]
+    # Add today's date for footer
+    today = datetime.date.today()
+    today_formatted = today.strftime("%B %d, %Y")
 
     return render_page(
         title=f"{shorten_product_name(found['name'])} – FyboBuybo",
@@ -1127,7 +1337,9 @@ def product_detail(product_slug):
         heading=shorten_product_name(found["name"]),
         subtitle="A popular UK gift choice",
         products=[found],
-        related_products=related
+        similar_products=similar,
+        today=today.isoformat(),
+        today_formatted=today_formatted
     )
 
 POSTS_PER_PAGE = 8
@@ -1212,7 +1424,7 @@ def blog_detail(slug):
         heading=post.get("heading", post["title"]),
         subtitle=post.get("subtitle", "Gift guide & inspiration"),
         products=None,
-        related_products=related
+        similar_products=related
     )
 
     content_html = f'''
