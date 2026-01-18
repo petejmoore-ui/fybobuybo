@@ -278,7 +278,7 @@ BLOG_POSTS = {
         ]
     },
 
-    BLOG_POSTS = {
+    
     "10-essential-running-accessories-for-everyday-training-2026": {
         # Core SEO Fields
         "title": "10 Essential Running Accessories for Everyday Training in 2026 (UK-Friendly & Budget-Smart)",
