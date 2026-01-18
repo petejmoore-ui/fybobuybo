@@ -781,7 +781,7 @@ PRODUCTS = [
         "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades.",
         "date_added": "2025-12-26"
     }
-]
+
 
     
     # Add the rest of your products here following the same pattern
