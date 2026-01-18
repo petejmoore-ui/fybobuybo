@@ -56,7 +56,7 @@ PRODUCTS = [
 # Part 1 of 3
 # All products now include: manual pricing, SEO fields, highlights, FAQs
 
-PRODUCTS = [
+
     # ============================================================================
     # BEAUTY & SKINCARE
     # ============================================================================
