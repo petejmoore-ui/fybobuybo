@@ -599,52 +599,638 @@ BLOG_POSTS = {
 
 
     "7-best-selling-valentines-gifts-for-her-2026": {
-        # (your original content here – unchanged)
-        "title": "7 Best-Selling Valentine’s Gifts for Her (Last-Minute & Meaningful) in 2026",
-        "description": "Discover the top Valentine’s gifts for her in 2026 — romantic, meaningful, and perfect for last-minute shoppers. Proven favourites that women actually love and rate highly.",
-        "heading": "7 Best-Selling Valentine’s Gifts for Her in 2026",
-        "subtitle": "Romantic, reliable gift ideas that delight — even if you’re shopping last-minute.",
-        "date": "2026-01-04",
-        "content": """
-<article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
+    "title": "7 Best-Selling Valentine’s Gifts for Her (Last-Minute & Meaningful) in 2026",
+    "meta_description": "Discover the top Valentine’s gifts for her in 2026 — romantic, meaningful, and perfect for last-minute shoppers. Proven favourites that women actually love and rate highly.",
+    
+    "heading": "7 Best-Selling Valentine’s Gifts for Her in 2026",
+    "subtitle": "Romantic, reliable gift ideas that delight — even if you’re shopping last-minute.",
+    
+    "date": "2026-01-04",
+    "last_updated": "2026-01-18",
+    "author": "FyboBuybo Editorial Team",
+    
+    "keywords": [
+        "valentines gifts for her 2026",
+        "best valentines gifts UK",
+        "last minute valentines gifts",
+        "romantic gifts for girlfriend",
+        "meaningful valentines presents"
+    ],
+    "featured_image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
+    "featured_image_alt": "Personalised name necklace – elegant romantic Valentine’s gift for her",
+    
+    "article_type": "Article",
+    "word_count": 1100,
+    "reading_time": "5 min read",
+    
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    
+    "related_products": [],
+    "related_posts": [
+        "valentines-gifts-for-her-under-50",
+        "valentines-gifts-for-her-under-100"
+    ],
+    
+    "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="7 Best-Selling Valentine’s Gifts for Her in 2026">
+  <meta itemprop="datePublished" content="2026-01-04">
+  <meta itemprop="dateModified" content="2026-01-18">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+  <meta itemprop="image" content="https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg">
+  
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <!-- ... your full Valentine's post content here ... -->
+  <p itemprop="description">Valentine’s Day doesn’t have to be stressful. Whether early or last-minute, these 7 best-selling gifts for her are romantic, meaningful and backed by thousands of glowing reviews — perfect for making someone feel truly special in 2026.</p>
 
+  <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
+    <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
+    <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#personalised-necklace">Personalised Initial or Name Necklace</a></li>
+      <li><a href="#scented-candle">Luxury Scented Candle Gift Set</a></li>
+      <li><a href="#beauty-gift-box">Skincare or Beauty Gift Box</a></li>
+      <li><a href="#photo-memory">Custom Photo Frame or Memory Book</a></li>
+      <li><a href="#satin-pyjamas">Silk or Satin Pyjama Set</a></li>
+      <li><a href="#date-night">At-Home Date Night or Couples Gift Box</a></li>
+      <li><a href="#mini-printer">Mini Photo Printer or Smart Keepsake</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="personalised-necklace" itemprop="headline" style="scroll-margin-top:100px;">1. Personalised Initial or Name Necklace</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+      <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' 
+           alt='Personalised name or initial necklace – custom gold, silver or rose-gold pendant' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">A <strong>personalised name necklace</strong> turns jewellery into something uniquely hers. Thoughtful, elegant and timeless — it shows attention to detail and becomes a cherished everyday piece.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+        <button aria-label='View personalised name necklace details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4aJ2cXO?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy personalised name necklace on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">2. Luxury Scented Candle Gift Set</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
+           alt='Luxury scented candle gift set – lavender, rose, vanilla and jasmine fragrances' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Fill the room with romance using a <strong>luxury scented candle set</strong>. Calming, long-lasting scents in elegant packaging — the perfect way to create a cosy, intimate atmosphere.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+        <button aria-label='View luxury candle gift set details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy luxury scented candle set on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">3. Skincare or Beauty Gift Box</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
+           alt='Sanctuary Spa luxury beauty gift set – bath, body and skincare pamper collection' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Treat her to relaxation with a <strong>skincare and beauty gift box</strong>. Premium, pampering products in a beautiful hamper — ideal for self-care evenings she’ll love.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+        <button aria-label='View beauty gift box details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy Sanctuary Spa gift set on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="photo-memory" itemprop="headline" style="scroll-margin-top:100px;">4. Custom Photo Frame or Memory Book</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+      <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' 
+           alt='Personalised photo album scrapbook – custom memory book with gift box' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Capture your moments with a <strong>custom photo memory book</strong>. Add pictures, notes and mementos — a deeply personal gift she’ll treasure for years.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+        <button aria-label='View custom memory book details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4qgKrUo?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy personalised photo album on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="satin-pyjamas" itemprop="headline" style="scroll-margin-top:100px;">5. Silk or Satin Pyjama Set</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+      <img src='https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg' 
+           alt='Women’s satin pyjama set – long-sleeve luxurious loungewear' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Wrap her in comfort with a <strong>satin pyjama set</strong>. Silky soft, elegant and cosy — the ultimate indulgent gift for relaxing evenings at home.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+        <button aria-label='View satin pyjama set details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4qgKEqE?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy satin pyjama set on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="date-night" itemprop="headline" style="scroll-margin-top:100px;">6. At-Home Date Night or Couples Gift Box</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/servd-couples-card-game---hilarious-real-life-date-night-challenges-for-him--and--her'>
+      <img src='https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg' 
+           alt='Couples card game – fun real-life date night challenges for him and her' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Spark connection with an <strong>at-home date night gift box</strong>. Playful, interactive and intimate — creates laughter and memories without leaving the house.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/servd-couples-card-game---hilarious-real-life-date-night-challenges-for-him--and--her'>
+        <button aria-label='View couples date night game details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4qWBiAH?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy couples card game on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="mini-printer" itemprop="headline" style="scroll-margin-top:100px;">7. Mini Photo Printer or Smart Keepsake</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' 
+           alt='Kodak Mini 2 Retro portable instant photo printer – sticky-back prints' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Print instant memories with a <strong>mini photo printer</strong>. Portable, fun and creative — turns shared moments into tangible keepsakes she’ll adore.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+        <button aria-label='View mini photo printer details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy Kodak mini printer on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <section style="margin-top:60px;padding:30px;background:var(--card);border-radius:16px;">
+    <h2>Why These Valentine’s Gifts Stand Out in 2026</h2>
+    <p>UK shoppers increasingly value <strong>thoughtful and meaningful</strong> over extravagant. These best-sellers blend sentiment, quality and practicality — gifts that feel personal and create lasting memories.</p>
+    
+    <h3 style="margin-top:24px;">Key Trends We're Seeing:</h3>
+    <ul style="margin-left:20px;line-height:1.8;">
+      <li><strong>Personalisation:</strong> Custom jewellery and photo gifts feel uniquely special</li>
+      <li><strong>Self-Care Focus:</strong> Candles, skincare and pyjamas top wish lists for relaxation</li>
+      <li><strong>Shared Experiences:</strong> Date-night games build connection without going out</li>
+      <li><strong>Last-Minute Friendly:</strong> Fast delivery and high ratings make them reliable choices</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What is the best last-minute Valentine’s gift for her in 2026?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">A personalised necklace, luxury candle set or skincare hamper — all offer fast UK shipping, beautiful presentation and thousands of positive reviews. Pair with a handwritten card for extra sentiment.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">Are these suitable for long-term relationships?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Absolutely. Memory books, date-night games and custom keepsakes add depth and nostalgia — perfect for wives or long-term partners who value shared history and thoughtfulness.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:60px;padding:30px;background:var(--tag);border-radius:12px;">
+    <p style="font-size:0.95rem;margin-bottom:12px;"><strong>Information Accuracy:</strong> All product details, prices, and availability were verified as of <time datetime="2026-01-18">January 18, 2026</time>. Amazon prices and stock levels may change.</p>
+    <p style="font-size:0.95rem;"><strong>Editorial Independence:</strong> We independently select all products featured. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>
+  </footer>
+
+  </div>
 </article>
-"""
-    },
+""",
+    
+    "internal_links": [
+        {"text": "Valentine’s Gifts Under £50", "url": "/valentines-gifts-for-her-under-50"},
+        {"text": "Valentine’s Gifts Under £100", "url": "/valentines-gifts-for-her-under-100"},
+        {"text": "Seasonal Gifts", "url": "/season/valentines-day"}
+    ]
+},
 
-    "valentines-gifts-for-her-under-50": {
-        # (your original content here – unchanged)
-        "title": "Valentine’s Gifts for Her Under £50 (Affordable, Thoughtful & Highly Rated)",
-        "description": "Affordable Valentine’s gifts for her under £50 that are romantic, useful, and meaningful — proven ideas women actually love and highly rate.",
-        "heading": "Valentine’s Gifts for Her Under £50",
-        "subtitle": "Budget‑friendly Valentine’s gifts that feel premium and thoughtful.",
-        "date": "2026-01-04",
-        "content": """
-<article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
+"valentines-gifts-for-her-under-50": {
+    "title": "Valentine’s Gifts for Her Under £50 (Affordable, Thoughtful & Highly Rated)",
+    "meta_description": "Affordable Valentine’s gifts for her under £50 that are romantic, useful, and meaningful — proven ideas women actually love and highly rate.",
+    
+    "heading": "Valentine’s Gifts for Her Under £50",
+    "subtitle": "Budget-friendly Valentine’s gifts that feel premium and thoughtful.",
+    
+    "date": "2026-01-04",
+    "last_updated": "2026-01-18",
+    "author": "FyboBuybo Editorial Team",
+    
+    "keywords": [
+        "valentines gifts under 50",
+        "cheap valentines gifts for her",
+        "affordable romantic gifts UK",
+        "valentines day presents under £50",
+        "best budget valentines gifts 2026"
+    ],
+    "featured_image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+    "featured_image_alt": "Luxury scented candle gift set – affordable romantic Valentine’s gift",
+    
+    "article_type": "Article",
+    "word_count": 950,
+    "reading_time": "4 min read",
+    
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    
+    "related_products": [],
+    "related_posts": [
+        "7-best-selling-valentines-gifts-for-her-2026",
+        "valentines-gifts-for-her-under-100"
+    ],
+    
+    "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="Valentine’s Gifts for Her Under £50">
+  <meta itemprop="datePublished" content="2026-01-04">
+  <meta itemprop="dateModified" content="2026-01-18">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+  <meta itemprop="image" content="https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg">
+  
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <!-- ... your full under-50 post content here ... -->
+  <p itemprop="description">Valentine’s Day doesn’t have to be expensive. These thoughtful, highly rated gifts under £50 feel luxurious and meaningful — perfect for showing love without overspending in 2026.</p>
 
+  <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
+    <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
+    <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#scented-candle">Luxury Scented Candle Gift Set</a></li>
+      <li><a href="#beauty-gift-box">Skincare or Beauty Gift Box</a></li>
+      <li><a href="#photo-memory">Custom Photo Frame or Memory Book</a></li>
+      <li><a href="#snail-mucin">COSRX Snail Mucin Power Essence</a></li>
+      <li><a href="#hydrogel-mask">BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</a></li>
+      <li><a href="#azelaic-serum">Anua Azelaic Acid Redness Soothing Serum</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">1. Luxury Scented Candle Gift Set</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
+           alt='IdealHouse luxury scented candle gift set – lavender, rose, vanilla and jasmine' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Elevate any evening with a <strong>luxury scented candle set</strong>. Warm, romantic fragrances in elegant packaging — feels premium while staying well under £50.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+        <button aria-label='View candle gift set details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy luxury candle set on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">2. Skincare or Beauty Gift Box</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
+           alt='Sanctuary Spa lost in the moment beauty gift set – bath and body pamper hamper' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Deliver instant relaxation with a <strong>beauty gift box</strong>. Fragrant, high-quality products in a lovely hamper — spa vibes at home for under £50.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+        <button aria-label='View Sanctuary Spa gift set details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy beauty gift box on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="photo-memory" itemprop="headline" style="scroll-margin-top:100px;">3. Custom Photo Frame or Memory Book</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+      <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' 
+           alt='Dazspirit personalised photo album scrapbook – customizable memory book' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Turn memories into something tangible with a <strong>custom photo memory book</strong>. Add pictures and messages — sentimental, personal and always appreciated.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+        <button aria-label='View personalised memory book details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4qgKrUo?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy custom photo book on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="snail-mucin" itemprop="headline" style="scroll-margin-top:100px;">4. COSRX Snail Mucin Power Essence</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
+      <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' 
+           alt='COSRX Advanced Snail 96 Mucin Power Essence – hydrating K-beauty serum' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Give glowing, hydrated skin with the cult-favourite <strong>COSRX Snail Mucin Essence</strong>. Lightweight, effective and loved by thousands — a smart beauty win under £50.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
+        <button aria-label='View COSRX Snail Mucin details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy COSRX Snail Mucin on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="hydrogel-mask" itemprop="headline" style="scroll-margin-top:100px;">5. BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
+      <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0-SH20_.jpg' 
+           alt='BIODANCE Bio-Collagen hydrogel face masks – 4 pack for glowing skin' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Offer spa-level hydration with <strong>BIODANCE hydrogel masks</strong>. Visible glow, pore-minimising and plumping — a pampering treat she’ll use and love.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
+        <button aria-label='View BIODANCE mask details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.eu/d/49cMTit?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy BIODANCE hydrogel masks on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="azelaic-serum" itemprop="headline" style="scroll-margin-top:100px;">6. Anua Azelaic Acid Redness Soothing Serum</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
+      <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg' 
+           alt='Anua Azelaic Acid 10% Hyaluron Redness Soothing Serum – calming for sensitive skin' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Calm and hydrate with the <strong>Anua Azelaic Acid Serum</strong>. Gentle on sensitive skin, reduces redness — a caring, effective beauty gift under £50.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
+        <button aria-label='View Anua soothing serum details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy Anua Azelaic Serum on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <section style="margin-top:60px;padding:30px;background:var(--card);border-radius:16px;">
+    <h2>Why These Affordable Valentine’s Gifts Work So Well</h2>
+    <p>Thoughtful doesn’t mean expensive. These under-£50 picks feel special, perform beautifully and earn rave reviews — perfect for meaningful romance on a sensible budget in 2026.</p>
+    
+    <h3 style="margin-top:24px;">Key Trends We're Seeing:</h3>
+    <ul style="margin-left:20px;line-height:1.8;">
+      <li><strong>Self-Care Wins:</strong> Skincare and candles top affordable wish lists</li>
+      <li><strong>Sentimental Value:</strong> Custom photo gifts create emotional impact</li>
+      <li><strong>K-Beauty Boom:</strong> Effective, gentle products at great prices</li>
+      <li><strong>Universal Appeal:</strong> Items most women love and actually use</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What’s the best Valentine’s gift under £50 for her?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The Sanctuary Spa gift box or COSRX Snail Mucin Essence — both feel luxurious, are highly rated, and suit almost everyone. Add a personal note to make it extra special.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">How do I choose skincare gifts for someone with sensitive skin?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Opt for gentle, hydrating options like Anua Azelaic Serum or BIODANCE hydrogel masks — both calm redness and are widely praised for sensitive skin compatibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:60px;padding:30px;background:var(--tag);border-radius:12px;">
+    <p style="font-size:0.95rem;margin-bottom:12px;"><strong>Information Accuracy:</strong> All product details, prices, and availability were verified as of <time datetime="2026-01-18">January 18, 2026</time>. Amazon prices and stock levels may change.</p>
+    <p style="font-size:0.95rem;"><strong>Editorial Independence:</strong> We independently select all products featured. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>
+  </footer>
+
+  </div>
 </article>
-"""
-    },
+""",
+    
+    "internal_links": [
+        {"text": "Best-Selling Valentine’s Gifts", "url": "/7-best-selling-valentines-gifts-for-her-2026"},
+        {"text": "Valentine’s Gifts Under £100", "url": "/valentines-gifts-for-her-under-100"}
+    ]
+},
 
-    "valentines-gifts-for-her-under-100": {
-        # (your original content here – unchanged)
-        "title": "Valentine’s Gifts for Her Under £100 (Premium Without Overspending in 2026)",
-        "description": "Luxurious Valentine’s gifts for her under £100 — elegant jewellery, beauty, and tech-inspired keepsakes that feel premium without the price tag in 2026.",
-        "heading": "Valentine’s Gifts for Her Under £100 in 2026",
-        "subtitle": "Luxury-feel Valentine’s ideas that won’t break the bank.",
-        "date": "2026-01-04",
-        "content": """
-<article style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:#fff;'>
+"valentines-gifts-for-her-under-100": {
+    "title": "Valentine’s Gifts for Her Under £100 (Premium Without Overspending in 2026)",
+    "meta_description": "Luxurious Valentine’s gifts for her under £100 — elegant jewellery, beauty, and tech-inspired keepsakes that feel premium without the price tag in 2026.",
+    
+    "heading": "Valentine’s Gifts for Her Under £100 in 2026",
+    "subtitle": "Luxury-feel Valentine’s ideas that won’t break the bank.",
+    
+    "date": "2026-01-04",
+    "last_updated": "2026-01-18",
+    "author": "FyboBuybo Editorial Team",
+    
+    "keywords": [
+        "valentines gifts under 100",
+        "luxury valentines gifts for her",
+        "premium valentines presents UK",
+        "valentines day gifts under £100",
+        "best valentines gifts 2026"
+    ],
+    "featured_image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
+    "featured_image_alt": "Personalised name necklace – premium Valentine’s gift under £100",
+    
+    "article_type": "Article",
+    "word_count": 900,
+    "reading_time": "4 min read",
+    
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    
+    "related_products": [],
+    "related_posts": [
+        "7-best-selling-valentines-gifts-for-her-2026",
+        "valentines-gifts-for-her-under-50"
+    ],
+    
+    "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="Valentine’s Gifts for Her Under £100 in 2026">
+  <meta itemprop="datePublished" content="2026-01-04">
+  <meta itemprop="dateModified" content="2026-01-18">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+  <meta itemprop="image" content="https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg">
+  
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <!-- ... your full under-100 post content here ... -->
+  <p itemprop="description">Want to give something that feels high-end without the high price? These under-£100 Valentine’s gifts combine elegance, quality and thoughtfulness — perfect for impressing her in 2026.</p>
 
+  <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
+    <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
+    <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#personalised-necklace">Personalised Initial or Name Necklace</a></li>
+      <li><a href="#satin-pyjamas">Silk or Satin Pyjama Set</a></li>
+      <li><a href="#scented-candle">Luxury Scented Candle Gift Set</a></li>
+      <li><a href="#beauty-gift-box">Skincare or Beauty Gift Box</a></li>
+      <li><a href="#mini-printer">Mini Photo Printer or Smart Keepsake</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="personalised-necklace" itemprop="headline" style="scroll-margin-top:100px;">1. Personalised Initial or Name Necklace</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+      <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' 
+           alt='Personalised nameplate necklace – custom pendant in gold, silver or rose-gold' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Timeless elegance meets personal meaning with a <strong>custom name necklace</strong>. Polished, dainty and meaningful — a premium-feeling gift under £100.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+        <button aria-label='View personalised necklace details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4aJ2cXO?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy personalised necklace on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="satin-pyjamas" itemprop="headline" style="scroll-margin-top:100px;">2. Silk or Satin Pyjama Set</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+      <img src='https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg' 
+           alt='Swomog women’s long-sleeve satin pyjama set – luxurious loungewear' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Indulgent comfort in a <strong>satin pyjama set</strong>. Silky, stylish and cosy — feels like a high-end treat without the luxury price tag.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+        <button aria-label='View satin pyjama set details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4qgKEqE?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy satin pyjama set on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">3. Luxury Scented Candle Gift Set</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
+           alt='IdealHouse luxury scented candle gift set – premium home fragrance' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Transform any space with a <strong>luxury candle gift set</strong>. Sophisticated scents and beautiful packaging — romantic ambience that feels expensive.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+        <button aria-label='View premium candle set details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy luxury candle gift set on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">4. Skincare or Beauty Gift Box</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
+           alt='Sanctuary Spa signature collection bath and body pamper hamper' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Pamper her properly with a <strong>luxury beauty gift box</strong>. High-quality, fragrant products in a stunning hamper — indulgent without excess cost.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+        <button aria-label='View beauty gift box details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy skincare gift box on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="mini-printer" itemprop="headline" style="scroll-margin-top:100px;">5. Mini Photo Printer or Smart Keepsake</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' 
+           alt='Kodak Mini 2 Retro portable instant photo printer – sticky-back keepsake prints' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Create instant joy with a <strong>mini photo printer</strong>. Portable, fun and sentimental — prints memories on the spot for a modern, meaningful gift.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+        <button aria-label='View Kodak mini printer details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy mini photo printer on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <section style="margin-top:60px;padding:30px;background:var(--card);border-radius:16px;">
+    <h2>Why These Under-£100 Gifts Feel Premium</h2>
+    <p>Quality and thoughtfulness trump price. These picks deliver luxury feel, lasting value and high satisfaction — ideal for meaningful Valentine’s gestures without financial strain in 2026.</p>
+    
+    <h3 style="margin-top:24px;">Key Trends We're Seeing:</h3>
+    <ul style="margin-left:20px;line-height:1.8;">
+      <li><strong>Elegant Personalisation:</strong> Custom pieces add emotional weight</li>
+      <li><strong>Home Indulgence:</strong> Pyjamas, candles and beauty sets elevate everyday life</li>
+      <li><strong>Tech + Sentiment:</strong> Photo printers blend modern fun with nostalgia</li>
+      <li><strong>Balanced Value:</strong> High ratings and perceived luxury at sensible prices</li>
+    </ul>
+  </section>
+
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What’s the best Valentine’s gift under £100 for her?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">A personalised necklace or satin pyjama set — both feel expensive, look stunning and receive consistent 5-star feedback. They balance luxury with practicality perfectly.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">Should I choose personalised or practical for Valentine’s?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">If you know her well, personalised (necklace, photo printer) wins for sentiment. If unsure, practical luxury (pyjamas, candles, skincare) is safer and still feels special.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:60px;padding:30px;background:var(--tag);border-radius:12px;">
+    <p style="font-size:0.95rem;margin-bottom:12px;"><strong>Information Accuracy:</strong> All product details, prices, and availability were verified as of <time datetime="2026-01-18">January 18, 2026</time>. Amazon prices and stock levels may change.</p>
+    <p style="font-size:0.95rem;"><strong>Editorial Independence:</strong> We independently select all products featured. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>
+  </footer>
+
+  </div>
 </article>
-"""
-    },
-
-    # Add more posts here later
+""",
+    
+    "internal_links": [
+        {"text": "Best-Selling Valentine’s Gifts", "url": "/7-best-selling-valentines-gifts-for-her-2026"},
+        {"text": "Valentine’s Gifts Under £50", "url": "/valentines-gifts-for-her-under-50"}
+    ]
 }
