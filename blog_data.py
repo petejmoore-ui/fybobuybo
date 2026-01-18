@@ -596,7 +596,7 @@ BLOG_POSTS = {
         ]
     },
     # ... add your other posts here ...
-}
+
 
     "7-best-selling-valentines-gifts-for-her-2026": {
         # (your original content here – unchanged)
