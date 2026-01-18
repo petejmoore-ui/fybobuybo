@@ -60,63 +60,6 @@ PRODUCTS = [
     # ============================================================================
     # BEAUTY & SKINCARE
     # ============================================================================
-    {
-        "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
-        "category": "Beauty",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX679_.jpg",
-        "url": "https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
-        "asin": "B00PBX3L7K",
-        "info": "Iconic Korean skincare essence with 96% snail secretion filtrate for intense hydration, skin repair, and visible glow. Lightweight texture absorbs quickly, reducing fine lines and improving skin texture.",
-        "manual_price": "£16.95",
-        "manual_rating": "4.6",
-        "manual_reviews": "28,453",
-        "keywords": ["Korean skincare", "snail mucin", "hydration", "anti-aging", "K-beauty"],
-        "pain_points": ["dry skin", "fine lines", "dull complexion"],
-        "benefits": ["intense hydration", "skin repair", "radiant glow", "lightweight"],
-        "price_tier": "affordable luxury",
-        "hook_override": "",
-        "highlights": [
-            "96% snail secretion filtrate for deep skin repair",
-            "Suitable for all skin types including sensitive",
-            "Lightweight, fast-absorbing texture",
-            "Clinically proven to improve skin elasticity",
-            "Cruelty-free and dermatologist-tested"
-        ],
-        "faqs": [
-            {"q": "Is snail mucin suitable for sensitive skin?", "a": "Yes, COSRX Snail Mucin is gentle enough for sensitive skin and has been dermatologist-tested."},
-            {"q": "How long does one bottle last?", "a": "With daily use (morning and evening), one 100ml bottle typically lasts 2-3 months."}
-        ],
-        "date_added": "2026-01-08"
-    },
-
-    {
-        "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
-        "category": "Beauty",
-        "season": "Christmas, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag=whoaccepts-21",
-        "info": "Affordable electric toothbrush with 3 brushing modes including Sensitive Plus for gentle cleaning, 2-minute timer, and superior plaque removal vs manual brushing. Bestselling entry-level Oral-B model for everyday oral care and healthier gums.",
-        "manual_price": "£24.99",
-        "manual_rating": "4.5",
-        "manual_reviews": "67,234",
-        "keywords": ["electric toothbrush", "Oral-B", "dental care", "plaque removal"],
-        "pain_points": ["gum health", "plaque buildup", "sensitive teeth"],
-        "benefits": ["3 brushing modes", "2-min timer", "gentle on gums", "affordable"],
-        "price_tier": "budget dental care",
-        "highlights": [
-            "3 brushing modes including Sensitive Plus for gentle care",
-            "Built-in 2-minute timer ensures optimal brushing time",
-            "Removes up to 100% more plaque than manual brush",
-            "Compatible with all Oral-B replacement heads",
-            "Rechargeable with 10-day battery life"
-        ],
-        "faqs": [
-            {"q": "Is this suitable for sensitive teeth?", "a": "Yes - the Sensitive Plus mode is specifically designed for gentle cleaning on sensitive teeth and gums."},
-            {"q": "How often do I need to replace the head?", "a": "Every 3 months for optimal cleaning performance - compatible with all Oral-B heads."}
-        ],
-        "date_added": "2025-12-28"
-    },
 
     {
         "name": "L'Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
