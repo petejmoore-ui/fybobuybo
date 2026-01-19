@@ -71,7 +71,7 @@ PRODUCTS = [
         "url": "https://amzn.to/4ppgXmf?tag=whoaccepts-21",
         "asin": "B09P8ZJ5K4",
         "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting, water-resistant photos with protective layer. Compatible with iOS & Android, includes starter cartridge – perfect for instant memories, date nights, scrapbooking, or gifting.",
-        "manual_price": "£84,99",
+        "manual_price": "£84.99",
         "manual_rating": "4.4",
         "manual_reviews": "5,192",
         "keywords": ["instant photo printer", "portable printer", "sticky-back prints", "Bluetooth printer", "Kodak Mini"],
