@@ -322,7 +322,7 @@ PRODUCTS = [
             {"q": "Does it come with a charger?", "a": "Yes – includes charging stand and UK plug."}
         ],
         "date_added": "2025-12-28"
-    }
+    },
     {
         "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
         "category": "Beauty",
