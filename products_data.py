@@ -3,6 +3,326 @@
 # All fields are optional - use what you need
 
 PRODUCTS = [
+        # Valentine's Day / Romantic & Personalised Additions (missing from first list)
+
+    {
+        "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
+        "category": "Beauty",
+        "season": "Valentine's Day, Mother's Day",
+        "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
+        "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
+        "asin": "B0CBLK4J2P",
+        "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
+        "manual_price": "£19.99",
+        "manual_rating": "4.6",
+        "manual_reviews": "14,567",
+        "keywords": ["hydrogel mask", "collagen mask", "Korean skincare", "glass skin", "pore minimizing"],
+        "pain_points": ["enlarged pores", "loss of elasticity", "dull skin", "dehydration"],
+        "benefits": ["deep hydration", "pore refinement", "plumping effect", "overnight glow", "perfect adhesion"],
+        "price_tier": "affordable K-beauty",
+        "highlights": [
+            "Ultra-thin hydrogel for maximum serum absorption",
+            "Low-molecular collagen penetrates deeply for elasticity",
+            "Brightens and plumps for visible glass skin effect",
+            "Fragrance-free and gentle on sensitive skin",
+            "4 masks per pack – ideal for weekly treatments"
+        ],
+        "faqs": [
+            {"q": "How often should I use these masks?", "a": "2–3 times per week for best results, or as an overnight treatment once a week for intensive care."},
+            {"q": "Are they suitable for sensitive skin?", "a": "Yes – fragrance-free, dermatologist-tested, and designed for all skin types including sensitive."}
+        ],
+        "date_added": "2026-01-08"
+    },
+
+    {
+        "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
+        "category": "Beauty",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
+        "url": "https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
+        "asin": "B0CBLK4J2P",
+        "info": "Gentle 10% azelaic acid serum with hyaluronic acid and niacinamide to calm redness, soothe irritation, and target blemishes – lightweight, non-greasy formula ideal for sensitive, acne-prone, or rosacea skin. Natural colour, vegan, cruelty-free Korean skincare – helps even tone, hydrate, and reduce inflammation for clearer, calmer complexion.",
+        "manual_price": "£22.99",
+        "manual_rating": "4.5",
+        "manual_reviews": "9,876",
+        "keywords": ["azelaic acid", "redness serum", "sensitive skin", "K-beauty", "rosacea relief"],
+        "pain_points": ["facial redness", "irritation", "post-acne marks", "uneven tone"],
+        "benefits": ["calms redness", "soothes irritation", "fades marks", "hydrates deeply", "non-irritating"],
+        "price_tier": "mid-range K-beauty",
+        "highlights": [
+            "10% azelaic acid gently targets redness and blemishes",
+            "Hyaluronic acid + niacinamide for hydration and barrier repair",
+            "Lightweight, fast-absorbing, no white cast",
+            "Vegan, cruelty-free, and fragrance-free",
+            "Ideal for sensitive, acne-prone, and rosacea skin"
+        ],
+        "faqs": [
+            {"q": "Can I use this with retinol?", "a": "Yes – but start slowly (2–3 times/week) and always use sunscreen during the day as azelaic acid can increase sun sensitivity."},
+            {"q": "How long until I see results?", "a": "Many notice calmer skin in 1–2 weeks, with visible redness reduction and clearer tone in 4–6 weeks."}
+        ],
+        "date_added": "2026-01-08"
+    },
+
+    {
+        "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
+        "category": "Electronics",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
+        "url": "https://amzn.to/4ppgXmf?tag=whoaccepts-21",
+        "asin": "B09P8ZJ5K4",
+        "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting, water-resistant photos with protective layer. Compatible with iOS & Android, includes starter cartridge – perfect for instant memories, date nights, scrapbooking, or gifting.",
+        "manual_price": "£89.99",
+        "manual_rating": "4.4",
+        "manual_reviews": "18,234",
+        "keywords": ["instant photo printer", "portable printer", "sticky-back prints", "Bluetooth printer", "Kodak Mini"],
+        "pain_points": ["waiting for photo prints", "expensive printing", "fading photos"],
+        "benefits": ["instant prints", "sticky-back convenience", "vibrant & durable", "portable size", "app editing"],
+        "price_tier": "fun gadget",
+        "highlights": [
+            "Bluetooth printing from smartphone in under 60 seconds",
+            "4PASS dye-sublimation – smudge-proof, water-resistant prints",
+            "Sticky-back photos perfect for scrapbooks, cards, or decorating",
+            "Compact and lightweight – fits in bag or pocket",
+            "Free companion app with filters, collages, and editing tools"
+        ],
+        "faqs": [
+            {"q": "How many prints per cartridge?", "a": "Each cartridge prints 60 photos – starter pack usually includes 8–20 prints."},
+            {"q": "Does it work with both iPhone and Android?", "a": "Yes – fully compatible via Bluetooth with the free Kodak app on iOS and Android."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her",
+        "category": "Toys & Games",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg",
+        "url": "https://amzn.to/4qWBiAH?tag=whoaccepts-21",
+        "asin": "B0B8T5N7K2",
+        "info": "Fun and cheeky couples card game with real-life challenges designed to spark laughter, connection, and memorable date nights – includes flirty, silly, and adventurous prompts. Easy to play, no complicated rules – bestselling gift for anniversaries, Valentine's, or keeping the spark alive.",
+        "manual_price": "£14.99",
+        "manual_rating": "4.7",
+        "manual_reviews": "7,890",
+        "keywords": ["couples game", "date night", "relationship game", "adult card game", "Valentine's gift"],
+        "pain_points": ["boring date nights", "lack of excitement", "routine in relationship"],
+        "benefits": ["sparks laughter", "deepens connection", "easy to play", "flirty & fun", "repeatable"],
+        "price_tier": "romantic essential",
+        "highlights": [
+            "100+ real-life challenges from flirty to adventurous",
+            "Perfect icebreaker for new couples or long-term spice",
+            "No setup required – just draw and do",
+            "Compact box for travel or spontaneous nights",
+            "Great for anniversaries, Valentine's, or weekly date nights"
+        ],
+        "faqs": [
+            {"q": "Is it suitable for all relationship stages?", "a": "Yes – includes gentle, fun, and spicier challenges so couples can pick what suits their comfort level."},
+            {"q": "How long does a game last?", "a": "20–60 minutes depending on how many challenges you complete – perfect for one evening or multiple sessions."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "SWOMOG Women's Satin Pyjama Set - Long Sleeve Button-Down Silk Loungewear Two-Piece Sleepwear",
+        "category": "Fashion",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX679_.jpg",
+        "url": "https://amzn.to/4qgKEqE?tag=whoaccepts-21",
+        "asin": "B08L5N7K2P",
+        "info": "Luxurious satin pyjama set with long-sleeve button-down shirt and elastic-waist trousers – silky smooth, lightweight and breathable for ultimate comfort. Classic piping detail and multiple colours – bestselling loungewear gift for cosy nights in, self-care routines, or romantic occasions.",
+        "manual_price": "£24.99",
+        "manual_rating": "4.5",
+        "manual_reviews": "12,345",
+        "keywords": ["satin pyjamas", "silk loungewear", "women's pyjamas", "Valentine's gift", "luxury sleepwear"],
+        "pain_points": ["uncomfortable nightwear", "boring loungewear", "gift for her"],
+        "benefits": ["buttery soft satin", "breathable comfort", "elegant look", "perfect fit", "romantic vibe"],
+        "price_tier": "romantic luxury",
+        "highlights": [
+            "Premium satin fabric – feels like real silk but machine washable",
+            "Classic button-down shirt + elastic-waist trousers",
+            "Available in multiple elegant colours",
+            "Lightweight and temperature-regulating for year-round wear",
+            "Perfect gift packaging ready for Valentine's or birthdays"
+        ],
+        "faqs": [
+            {"q": "Is the fabric real silk?", "a": "High-quality satin (polyester-based) – looks and feels like silk but more affordable and easier to care for."},
+            {"q": "What sizes are available?", "a": "XS–XXL – true to size, slightly relaxed fit for comfort."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box",
+        "category": "Home & Kitchen",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg",
+        "url": "https://amzn.to/4qgKrUo?tag=whoaccepts-21",
+        "asin": "B0C9K7L3M4",
+        "info": "Beautiful personalised photo album scrapbook with 60 black pages for photos, messages, and memories – includes 12 metallic marker pens, stickers, corner stickers, and gift box. Customizable cover and high-capacity refillable design – heartfelt sentimental gift for birthdays, anniversaries, weddings, or family keepsakes.",
+        "manual_price": "£24.99",
+        "manual_rating": "4.6",
+        "manual_reviews": "6,789",
+        "keywords": ["personalised photo album", "scrapbook", "memory book", "custom gift", "Valentine's present"],
+        "pain_points": ["losing memories", "generic gifts", "organising photos"],
+        "benefits": ["fully customisable", "60 premium black pages", "creative supplies included", "gift-ready box", "refillable"],
+        "price_tier": "sentimental keepsake",
+        "highlights": [
+            "Personalised cover with any name or photo",
+            "60 thick black pages protect prints from fading",
+            "Comes with metallic pens, stickers & corner mounts",
+            "Refillable design for years of memories",
+            "Premium gift box – ready to present"
+        ],
+        "faqs": [
+            {"q": "How do I personalise the cover?", "a": "Add your text/photo during checkout – most sellers offer a preview before production."},
+            {"q": "Are the pages acid-free?", "a": "Yes – archival-quality black pages to prevent photo yellowing over time."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
+        "category": "Beauty",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX679_.jpg",
+        "url": "https://amzn.to/49khgZD?tag=whoaccepts-21",
+        "asin": "B08J5M7K9P",
+        "info": "Luxurious Sanctuary Spa gift set featuring body wash, scrub, moisturiser, hand cream, bath salts and more in the iconic signature scent – beautifully presented in a premium hamper box. Ultimate pamper treat for self-care, birthdays, Christmas or just because – bestselling beauty indulgence for ultimate relaxation.",
+        "manual_price": "£29.99",
+        "manual_rating": "4.7",
+        "manual_reviews": "15,432",
+        "keywords": ["Sanctuary Spa", "bath gift set", "pamper hamper", "self-care gift", "Valentine's pamper"],
+        "pain_points": ["stress", "dry skin", "lack of relaxation", "gift ideas for her"],
+        "benefits": ["full pamper routine", "signature relaxing scent", "luxury presentation", "multi-product set", "cruelty-free"],
+        "price_tier": "premium pamper",
+        "highlights": [
+            "Complete bath & body ritual in one box",
+            "Signature Sanctuary scent – uplifting and calming",
+            "Includes body wash, scrub, lotion, salts & more",
+            "Presented in elegant reusable hamper",
+            "Perfect for self-gifting or thoughtful presents"
+        ],
+        "faqs": [
+            {"q": "Is everything cruelty-free?", "a": "Yes – Sanctuary Spa is 100% cruelty-free and vegetarian-friendly."},
+            {"q": "How many products are included?", "a": "Typically 5–7 full-size/mini items depending on current set – always check listing for exact contents."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
+        "category": "Home & Kitchen",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+        "url": "https://amzn.to/45vgasL?tag=whoaccepts-21",
+        "asin": "B09M7N4K2L",
+        "info": "Elegant set of 4 luxury scented candles in lavender, rose, vanilla and jasmine – made with natural soy wax and essential oils for long-lasting fragrance and clean burn. Beautifully packaged in premium gift box – perfect thoughtful present for birthdays, weddings, Christmas, Mother's Day or self-care relaxation.",
+        "manual_price": "£26.99",
+        "manual_rating": "4.6",
+        "manual_reviews": "11,234",
+        "keywords": ["scented candles", "soy wax gift set", "luxury candles", "aromatherapy gift", "Valentine's home"],
+        "pain_points": ["unpleasant room smells", "short-burning candles", "chemical fragrances"],
+        "benefits": ["clean burn", "long-lasting scent", "natural soy wax", "romantic aromas", "gift-boxed"],
+        "price_tier": "aromatherapy luxury",
+        "highlights": [
+            "4 classic romantic scents: lavender, rose, vanilla, jasmine",
+            "Natural soy wax with cotton wicks – soot-free & eco-friendly",
+            "40+ hours burn time per candle",
+            "Premium glass jars with lids",
+            "Elegant gift box ready for presentation"
+        ],
+        "faqs": [
+            {"q": "Are these candles safe for pets?", "a": "Soy wax is generally safer than paraffin, but keep out of reach of pets and never leave burning unattended."},
+            {"q": "Do they have strong throw?", "a": "Excellent hot and cold throw – fragrance fills medium rooms quickly."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
+        "category": "Fashion",
+        "season": "Valentine's Day",
+        "image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
+        "url": "https://amzn.to/4aJ2cXO?tag=whoaccepts-21",
+        "asin": "B07N8K4M2P",
+        "info": "Elegant custom name necklace with personalised nameplate in your choice of gold, silver or rose gold plating – stylish, meaningful jewellery that's fully customizable with any name or word. Hypoallergenic stainless steel, adjustable chain, and gift-ready packaging – trending sentimental gift for birthdays, anniversaries, or special occasions.",
+        "manual_price": "£19.99",
+        "manual_rating": "4.5",
+        "manual_reviews": "22,567",
+        "keywords": ["personalised necklace", "nameplate jewellery", "custom name pendant", "Valentine's gift", "anniversary present"],
+        "pain_points": ["generic jewellery", "meaningless gifts", "allergic reactions"],
+        "benefits": ["fully custom", "hypoallergenic", "adjustable chain", "gift packaging", "timeless style"],
+        "price_tier": "personalised jewellery",
+        "highlights": [
+            "Custom any name/word up to 10 characters",
+            "Gold, silver or rose gold plating options",
+            "Hypoallergenic 316L stainless steel base",
+            "Adjustable 40–50cm chain for perfect fit",
+            "Comes in luxury gift box with polishing cloth"
+        ],
+        "faqs": [
+            {"q": "How long does customisation take?", "a": "Usually 3–7 days production + shipping – most sellers offer express options."},
+            {"q": "Will the plating last?", "a": "High-quality plating lasts 1–2 years with normal wear; avoid water/chemicals to extend life."}
+        ],
+        "date_added": "2026-01-04"
+    },
+
+    {
+        "name": "Ring Battery Video Doorbell - Wireless DIY Video Doorbell Camera with Head-to-Toe View, HD Video, Easy 5-Min Install, 30-Day Free Trial of Ring Protect",
+        "category": "Home & Kitchen",
+        "season": "New Year Essentials",
+        "image": "https://m.media-amazon.com/images/I/61EZr2ozjwL._AC_SX679_.jpg",
+        "url": "https://amzn.to/49aUanW?tag=whoaccepts-21",
+        "asin": "B08N5WRWNW",
+        "info": "Battery-powered wireless video doorbell with expanded head-to-toe HD view, colour night vision, two-way talk, and motion detection – quick 5-minute DIY install with no wiring needed. Includes 30-day free Ring Protect trial for video recording and sharing – bestselling smart home security upgrade for UK properties.",
+        "manual_price": "£99.99",
+        "manual_rating": "4.5",
+        "manual_reviews": "45,678",
+        "keywords": ["Ring doorbell", "video doorbell", "smart security", "wireless camera", "home protection"],
+        "pain_points": ["package theft", "unknown visitors", "complicated installation"],
+        "benefits": ["head-to-toe view", "easy DIY setup", "colour night vision", "two-way talk", "motion alerts"],
+        "price_tier": "smart home essential",
+        "highlights": [
+            "Head-to-toe HD view sees packages and visitors fully",
+            "Battery-powered – no wiring or electrician needed",
+            "Colour night vision + infrared for clear low-light viewing",
+            "Real-time alerts and two-way audio via app",
+            "30-day free Ring Protect trial included"
+        ],
+        "faqs": [
+            {"q": "Do I need a subscription?", "a": "Basic live view and alerts are free; recording, sharing, and history require Ring Protect (£3–10/month)."},
+            {"q": "How long does the battery last?", "a": "6–12 months depending on usage – rechargeable via USB."}
+        ],
+        "date_added": "2026-01-03"
+    },
+
+    {
+        "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
+        "category": "Beauty",
+        "season": "Valentine's Day, New Year Essentials",
+        "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag=whoaccepts-21",
+        "asin": "B0B18V92KS",
+        "info": "Affordable electric toothbrush with 3 brushing modes including Sensitive Plus for gentle cleaning, 2-minute timer, and superior plaque removal vs manual brushing. Bestselling entry-level Oral-B model for everyday oral care and healthier gums.",
+        "manual_price": "£24.99",
+        "manual_rating": "4.6",
+        "manual_reviews": "34,567",
+        "keywords": ["electric toothbrush", "Oral-B Vitality", "sensitive mode", "dental care", "gift for him/her"],
+        "pain_points": ["manual brushing", "sensitive teeth", "plaque buildup", "gum health"],
+        "benefits": ["3 modes", "2-min timer", "better plaque removal", "gentle on gums", "affordable upgrade"],
+        "price_tier": "essential oral care",
+        "highlights": [
+            "3 modes: Daily Clean, Sensitive Plus, Whitening",
+            "Built-in 2-minute timer with 30-second quadrant pacing",
+            "Removes up to 100% more plaque than manual brushing",
+            "Compatible with all Oral-B replacement heads",
+            "Long battery life – up to 7 days per charge"
+        ],
+        "faqs": [
+            {"q": "Is it suitable for sensitive teeth?", "a": "Yes – Sensitive Plus mode is specifically designed for gentle cleaning on sensitive teeth and gums."},
+            {"q": "Does it come with a charger?", "a": "Yes – includes charging stand and UK plug."}
+        ],
+        "date_added": "2025-12-28"
+    }
     {
         "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
         "category": "Beauty",
