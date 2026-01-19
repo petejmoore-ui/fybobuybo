@@ -750,7 +750,7 @@ PRODUCTS = [
 
     {
         "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
-        "category": "Sports & Outdoors",
+        "category": "Sports & Outdoors, Electronics",
         "season": "New Year Essentials",
         "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
         "url": "https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag=whoaccepts-21",
@@ -1148,7 +1148,7 @@ PRODUCTS = [
 
     {
         "name": "Shark Stratos Cordless Pet Pro Stick Vacuum Cleaner IZ402UKTSB - Anti Hair Wrap Plus, Clean Sense IQ, DuoClean, 60min Run-Time, Removable Battery, Anti-Allergen, White/Navy",
-        "category": "Home & Kitchen",
+        "category": "Home & Kitchen, Electronics",
         "season": "New Year Essentials",
         "image": "https://m.media-amazon.com/images/I/615kcyMiPJL._AC_SX679_.jpg",
         "url": "https://amzn.to/4jguATc?tag=whoaccepts-21",
@@ -1176,7 +1176,7 @@ PRODUCTS = [
 
     {
         "name": "eufy X10 Pro Omni Robot Vacuum Cleaner With Mop, AI Obstacle Avoidance",
-        "category": "Home & Kitchen",
+        "category": "Home & Kitchen, Electronics",
         "season": "New Year Essentials",
         "image": "https://m.media-amazon.com/images/I/612vDNxMmtL._AC_SX679_.jpg",
         "url": "https://amzn.to/3LoiHhx?tag=whoaccepts-21",
