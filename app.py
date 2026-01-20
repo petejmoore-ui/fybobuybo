@@ -551,7 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <small>Generating fresh AI descriptions – this only happens once per day.</small>
 </p>
 {% endif %}
-{% endif %}
+
 
 {% if products and (next_page_url or prev_page_url) %}
 <div class="pagination">
