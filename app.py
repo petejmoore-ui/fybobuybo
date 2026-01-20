@@ -551,7 +551,17 @@ document.addEventListener("DOMContentLoaded", function() {
     <small>Generating fresh AI descriptions – this only happens once per day.</small>
 </p>
 {% endif %}
+{% endif %}
 
+{% if products and (next_page_url or prev_page_url) %}
+<div class="pagination">
+    {% if prev_page_url %}<a href="{{ prev_page_url }}">← Previous</a>{% endif %}
+    {% if next_page_url %}<a href="{{ next_page_url }}">Next →</a>{% endif %}
+</div>
+{% endif %}
+
+<footer>
+    <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
     <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
