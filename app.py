@@ -1122,7 +1122,6 @@ BASE_HTML = """<!DOCTYPE html>
     Loading today's gifts...
 </p>
 {% endif %}
-{% endif %}
 
 {% if products and (next_page_url or prev_page_url) %}
 <div class="pagination">
