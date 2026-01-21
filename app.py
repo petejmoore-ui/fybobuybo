@@ -1141,6 +1141,7 @@ BASE_HTML = """<!DOCTYPE html>
 
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
+    <p>Information Accuracy: All product details, prices, and availability were verified as of date featured. Amazon prices and stock levels may change.</p>
     <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc.</p>
 </footer>
 
