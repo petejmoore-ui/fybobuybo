@@ -92,7 +92,7 @@ BLOG_POSTS = {
 
   <h2 id="ninja-air-fryer" itemprop="headline" style="scroll-margin-top:100px;">2. Ninja Foodi Max Dual Zone Air Fryer AF400UK – 9.5L</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l'>
+    <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk---95l'>
       <img src='https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg' 
            alt='Ninja Foodi Max Dual Zone Air Fryer 9.5L – Healthy Cooking, Two Independent Zones, Family-Sized Appliance' 
            loading='lazy' 
@@ -101,7 +101,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Cook healthier, crispier meals with less oil using the <strong>Ninja Foodi Max Dual Zone Air Fryer</strong>. Dual independent zones let you prepare two dishes at once with different settings — perfect for busy UK families seeking convenience without compromise.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l'>
+      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk---95l'>
         <button aria-label='View Ninja Foodi air fryer product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45kdy0K?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
