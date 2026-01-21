@@ -1129,6 +1129,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% endif %}
 
 
+
 {% if products and (next_page_url or prev_page_url) %}
 <div class="pagination">
     {% if prev_page_url %}<a href="{{ prev_page_url }}">← Previous</a>{% endif %}
