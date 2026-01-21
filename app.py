@@ -1110,6 +1110,8 @@ BASE_HTML = """<!DOCTYPE html>
 </section>
 {% endif %}
 
+{% endif %}
+
 {% if products %}
     {% if products|length == 1 %}
     <div class="product-info-footer">
