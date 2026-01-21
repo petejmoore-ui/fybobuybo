@@ -1110,18 +1110,24 @@ BASE_HTML = """<!DOCTYPE html>
 </section>
 {% endif %}
 
-{% if products and products|length == 1 %}
-<div class="product-info-footer">
-    <p><strong>Information Accuracy:</strong> Product details verified as of <time datetime="{{ today }}">{{ today_formatted }}</time>. Amazon prices may vary.</p>
-    <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong></p>
-</div>
+{% if products %}
+    {% if products|length == 1 %}
+    <div class="product-info-footer">
+        <p>
+            <strong>Information Accuracy:</strong>
+            Product details verified as of
+            <time datetime="{{ today }}">{{ today_formatted }}</time>.
+            Amazon prices may vary.
+        </p>
+        <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong></p>
+    </div>
+    {% endif %}
+{% else %}
+    <p style="text-align:center; color:var(--text-accent); margin:100px 0; font-size:1.4rem;">
+        Loading today's gifts...
+    </p>
 {% endif %}
 
-{% else %}
-<p style="text-align:center; color:var(--text-accent); margin:100px 0; font-size:1.4rem;">
-    Loading today's gifts...
-</p>
-{% endif %}
 
 {% if products and (next_page_url or prev_page_url) %}
 <div class="pagination">
