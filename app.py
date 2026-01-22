@@ -242,6 +242,8 @@ def slugify(text):
     text = re.sub(r'&', '-and-', text)
     text = re.sub(r'\s+', '-', text)
     text = re.sub(r'[^\w\-]', '', text)
+    text = re.sub(r'-+', '-', text)  # Collapse multiple hyphens to single hyphen
+    text = text.strip('-')  # Remove leading/trailing hyphens
     return text
 
 def normalize_for_match(text):
