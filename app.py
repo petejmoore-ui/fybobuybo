@@ -24,12 +24,7 @@ cache = Cache(app, config={
     'CACHE_DEFAULT_TIMEOUT': 300
 })
 
-# --- Staging SEO safeguard ---
-if os.environ.get("STAGING") == "true":
-    @app.after_request
-    def add_header(response):
-        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
-        return response
+
 
 CACHE_FILE = "data/cache.json"
 HISTORY_FILE = "data/history.json"
@@ -156,6 +151,75 @@ def get_similar_products(product, all_products, limit=6):
         similar.extend(season_matches[:(limit - len(similar))])
     
     return similar[:limit]
+
+def generate_product_schema(product):
+    """Generate JSON-LD schema for product pages"""
+    price_info = get_product_price_rating(product)
+    
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": product["name"],
+        "description": product.get("info", product.get("hook", "")),
+        "image": product.get("image", ""),
+        "brand": {
+            "@type": "Brand",
+            "name": "Various"
+        }
+    }
+    
+    if price_info.get("price"):
+        price_str = format_price_display(price_info["price"])
+        price_value = re.sub(r'[^\d.]', '', price_str)
+        if price_value:
+            schema["offers"] = {
+                "@type": "Offer",
+                "url": product.get("url", ""),
+                "priceCurrency": "GBP",
+                "price": price_value,
+                "availability": "https://schema.org/InStock",
+                "seller": {
+                    "@type": "Organization",
+                    "name": "Amazon UK"
+                }
+            }
+    
+    if price_info.get("rating"):
+        try:
+            rating_val = float(price_info["rating"])
+            review_count = price_info.get("reviews", "1")
+            if isinstance(review_count, str):
+                review_count = re.sub(r'[^\d]', '', review_count) or "1"
+            
+            schema["aggregateRating"] = {
+                "@type": "AggregateRating",
+                "ratingValue": str(rating_val),
+                "bestRating": "5",
+                "reviewCount": str(review_count)
+            }
+        except:
+            pass
+    
+    return json.dumps(schema, ensure_ascii=False)
+
+def generate_breadcrumb_schema(breadcrumbs):
+    """Generate breadcrumb schema for navigation"""
+    items = []
+    for idx, (name, url) in enumerate(breadcrumbs, 1):
+        items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "name": name,
+            "item": SITE_URL + url
+        })
+    
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": items
+    }
+    
+    return json.dumps(schema, ensure_ascii=False)
 
 # ============================================================================
 # EXISTING HELPER FUNCTIONS
@@ -946,6 +1010,10 @@ BASE_HTML = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="FyboBuybo">
+<meta name="language" content="English">
+<meta name="revisit-after" content="1 days">
 
 <title>{{ title }}</title>
 <meta name="description" content="{{ description | truncate(155, true, '...') }}">
@@ -958,15 +1026,36 @@ BASE_HTML = """<!DOCTYPE html>
 <meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
+<meta property="og:locale" content="en_GB">
 <meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
+<meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+
+{% if '/blog' in request.path and products|length == 0 %}
+<meta property="article:published_time" content="{{ article_date }}">
+<meta property="article:author" content="FyboBuybo">
+{% endif %}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
+
+{% if structured_data %}
+<script type="application/ld+json">
+{{ structured_data|safe }}
+</script>
+{% endif %}
+
+{% if breadcrumb_schema %}
+<script type="application/ld+json">
+{{ breadcrumb_schema|safe }}
+</script>
+{% endif %}
 
 {{ css|safe }}
 </head>
@@ -1208,11 +1297,10 @@ if (searchInput) {
 """
 
 # ============================================================================
-# RENDER PAGE FUNCTION
+# RENDER PAGE FUNCTION - UPDATED WITH SEO ENHANCEMENTS
 # ============================================================================
 
-@cache.cached(timeout=300, key_prefix=lambda: request.full_path)
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None):
+def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None, article_date=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
@@ -1239,6 +1327,32 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         today = datetime.date.today().isoformat()
         today_formatted = datetime.date.today().strftime("%B %d, %Y")
 
+    # Generate structured data for product pages
+    structured_data = None
+    if paged_products and len(paged_products) == 1:
+        structured_data = generate_product_schema(paged_products[0])
+    
+    # Generate breadcrumb schema
+    breadcrumb_schema = None
+    breadcrumbs = [("Home", "/")]
+    
+    if '/category/' in request.path and paged_products:
+        breadcrumbs.append((paged_products[0]['category'], request.path))
+    elif '/season/' in request.path:
+        season_name = request.path.split('/')[-1].replace('-', ' ').title()
+        breadcrumbs.append((season_name, request.path))
+    elif '/product/' in request.path and paged_products:
+        if paged_products[0].get('category'):
+            breadcrumbs.append((paged_products[0]['category'], f"/category/{slugify(paged_products[0]['category'])}"))
+        breadcrumbs.append((paged_products[0]['name'], request.path))
+    elif '/blog' in request.path:
+        breadcrumbs.append(("Blog", "/blog"))
+        if request.path != '/blog' and not '/page/' in request.path:
+            breadcrumbs.append((title.split(' – ')[0], request.path))
+    
+    if len(breadcrumbs) > 1:
+        breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
+
     return render_template_string(
         BASE_HTML,
         title=title,
@@ -1260,11 +1374,14 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         format_price_display=format_price_display,
         format_rating_display=format_rating_display,
         today=today,
-        today_formatted=today_formatted
+        today_formatted=today_formatted,
+        structured_data=structured_data,
+        breadcrumb_schema=breadcrumb_schema,
+        article_date=article_date
     )
 
 # ============================================================================
-# ROUTES
+# ROUTES - CACHING REMOVED FROM SEO-CRITICAL PAGES
 # ============================================================================
 
 @app.route("/")
@@ -1441,7 +1558,8 @@ def blog_detail(slug):
         heading=post.get("heading", post["title"]),
         subtitle=post.get("subtitle", "Gift guide & inspiration"),
         products=None,
-        similar_products=related
+        similar_products=related,
+        article_date=post.get("date", datetime.date.today().isoformat())
     )
 
     content_html = f'''
@@ -1460,7 +1578,10 @@ def blog_detail(slug):
 @app.route("/robots.txt")
 def robots():
     txt = f"""User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /data/
+Crawl-delay: 1
 
 Sitemap: {SITE_URL}/sitemap.xml
 """
@@ -1471,36 +1592,56 @@ def sitemap():
     history = load_history()
     today = str(datetime.date.today())
     urls = set()
-    urls.add((SITE_URL + "/", today))
+    
+    # Homepage - highest priority
+    urls.add((SITE_URL + "/", today, "1.0", "daily"))
+    
+    # Blog listing
+    urls.add((SITE_URL + "/blog", today, "0.9", "daily"))
 
     all_products = []
     for day_products in history.values():
         all_products.extend(day_products)
 
+    # Categories - high priority
+    categories_seen = set()
     for p in all_products:
-        lastmod = p.get("date_added", today)
-        if p.get("category"):
-            urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", lastmod))
-        if p.get("name"):
-            urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", lastmod))
+        if p.get("category") and p["category"] not in categories_seen:
+            categories_seen.add(p["category"])
+            lastmod = p.get("date_added", today)
+            urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", lastmod, "0.8", "weekly"))
+    
+    # Products - medium priority
+    products_seen = set()
+    for p in all_products:
+        if p.get("name") and p["name"] not in products_seen:
+            products_seen.add(p["name"])
+            lastmod = p.get("date_added", today)
+            urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", lastmod, "0.7", "weekly"))
 
+    # Seasonal collections
     seasons = ["Valentine's Day", "Mother's Day", "Easter", "Father's Day",
                "Summer Gifts", "Back to School", "Halloween", "Christmas"]
     for season in seasons:
-        urls.add((f"{SITE_URL}/season/{slugify(season)}", today))
+        urls.add((f"{SITE_URL}/season/{slugify(season)}", today, "0.8", "weekly"))
 
-    blog_lastmod = today
-    if BLOG_POSTS:
-        blog_dates = [post.get("date", today) for post in BLOG_POSTS.values()]
-        blog_lastmod = max(blog_dates)
-        for slug, post in BLOG_POSTS.items():
-            urls.add((f"{SITE_URL}/blog/{slug}", post.get("date", today)))
-    urls.add((f"{SITE_URL}/blog", blog_lastmod))
+    # Blog posts
+    for slug, post in BLOG_POSTS.items():
+        urls.add((f"{SITE_URL}/blog/{slug}", post.get("date", today), "0.6", "monthly"))
 
     sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for url, lastmod in sorted(urls):
-        sitemap_xml += f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
+    
+    for url_data in sorted(urls):
+        url, lastmod, priority, changefreq = url_data
+        sitemap_xml += f'''  <url>
+    <loc>{url}</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>{changefreq}</changefreq>
+    <priority>{priority}</priority>
+  </url>
+'''
+    
     sitemap_xml += '</urlset>'
     return Response(sitemap_xml, mimetype="application/xml")
 
