@@ -101,7 +101,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Cook healthier, crispier meals with less oil using the <strong>Ninja Foodi Max Dual Zone Air Fryer</strong>. Dual independent zones let you prepare two dishes at once with different settings — perfect for busy UK families seeking convenience without compromise.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk---95l'>
+      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l'>
         <button aria-label='View Ninja Foodi air fryer product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45kdy0K?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -141,7 +141,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Add instant luxury underfoot with the <strong>Utopia Towels Fluffy Bath Mat</strong>. Ultra-soft, highly absorbent fibres with non-slip backing dry quickly and feel plush — an affordable bathroom refresh that brings spa-like comfort home.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm---grey'>
+      <a href='/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey'>
         <button aria-label='View Utopia Towels bath mat product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4si7AHt?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -386,7 +386,7 @@ BLOG_POSTS = {
 
   <h2 id="hydration-vest" itemprop="headline" style="scroll-margin-top:100px;">3. Lightweight Hydration Vest for Long Runs</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/lumefit-running-vest-phone-holder---hydration-vest-with-water-bottle--reflective-vest-for-men-and-women'>
+    <a href='/product/lumefit-running-vest-phone-holder-hydration-vest-with-water-bottle-reflective-vest-for-men-and-women'>
       <img src='https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg' 
            alt='LumeFit Hydration Vest – Lightweight Running Pack with Bottles, Phone Pocket & Reflective Details' 
            loading='lazy' 
@@ -395,7 +395,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Stay fuelled on longer runs with the <strong>Lightweight Hydration Vest</strong>. Snug fit, minimal bounce, multiple pockets for bottles/phone/snacks — great for UK trails or marathon training.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/lumefit-running-vest-phone-holder---hydration-vest-with-water-bottle--reflective-vest-for-men-and-women'>
+      <a href='/product/lumefit-running-vest-phone-holder-hydration-vest-with-water-bottle-reflective-vest-for-men-and-women'>
         <button aria-label='View hydration vest product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4sAitou?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -651,14 +651,14 @@ BLOG_POSTS = {
 
   <h2 id="personalised-necklace" itemprop="headline" style="scroll-margin-top:100px;">1. Personalised Initial or Name Necklace</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+    <a href='/product/umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-goldsilverrose-gold'>
       <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' 
            alt='Personalised name or initial necklace – custom gold, silver or rose-gold pendant' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">A <strong>personalised name necklace</strong> turns jewellery into something uniquely hers. Thoughtful, elegant and timeless — it shows attention to detail and becomes a cherished everyday piece.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+      <a href='/product/umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-goldsilverrose-gold'>
         <button aria-label='View personalised name necklace details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4aJ2cXO?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -669,14 +669,14 @@ BLOG_POSTS = {
 
   <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">2. Luxury Scented Candle Gift Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
       <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
            alt='Luxury scented candle gift set – lavender, rose, vanilla and jasmine fragrances' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Fill the room with romance using a <strong>luxury scented candle set</strong>. Calming, long-lasting scents in elegant packaging — the perfect way to create a cosy, intimate atmosphere.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
         <button aria-label='View luxury candle gift set details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -687,14 +687,14 @@ BLOG_POSTS = {
 
   <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">3. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
       <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
            alt='Sanctuary Spa luxury beauty gift set – bath, body and skincare pamper collection' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Treat her to relaxation with a <strong>skincare and beauty gift box</strong>. Premium, pampering products in a beautiful hamper — ideal for self-care evenings she’ll love.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
         <button aria-label='View beauty gift box details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -705,14 +705,14 @@ BLOG_POSTS = {
 
   <h2 id="photo-memory" itemprop="headline" style="scroll-margin-top:100px;">4. Custom Photo Frame or Memory Book</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+    <a href='/product/dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box'>
       <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' 
            alt='Personalised photo album scrapbook – custom memory book with gift box' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Capture your moments with a <strong>custom photo memory book</strong>. Add pictures, notes and mementos — a deeply personal gift she’ll treasure for years.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+      <a href='/product/dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box'>
         <button aria-label='View custom memory book details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4qgKrUo?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -723,14 +723,14 @@ BLOG_POSTS = {
 
   <h2 id="satin-pyjamas" itemprop="headline" style="scroll-margin-top:100px;">5. Silk or Satin Pyjama Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+    <a href='/product/swomog-womens-satin-pyjama-set-long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
       <img src='https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg' 
            alt='Women’s satin pyjama set – long-sleeve luxurious loungewear' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Wrap her in comfort with a <strong>satin pyjama set</strong>. Silky soft, elegant and cosy — the ultimate indulgent gift for relaxing evenings at home.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+      <a href='/product/swomog-womens-satin-pyjama-set-long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
         <button aria-label='View satin pyjama set details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4qgKEqE?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -741,14 +741,14 @@ BLOG_POSTS = {
 
   <h2 id="date-night" itemprop="headline" style="scroll-margin-top:100px;">6. At-Home Date Night or Couples Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/servd-couples-card-game---hilarious-real-life-date-night-challenges-for-him--and--her'>
+    <a href='/product/servd-couples-card-game-hilarious-real-life-date-night-challenges-for-him-and-her'>
       <img src='https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg' 
            alt='Couples card game – fun real-life date night challenges for him and her' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Spark connection with an <strong>at-home date night gift box</strong>. Playful, interactive and intimate — creates laughter and memories without leaving the house.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/servd-couples-card-game---hilarious-real-life-date-night-challenges-for-him--and--her'>
+      <a href='/product/servd-couples-card-game-hilarious-real-life-date-night-challenges-for-him-and-her'>
         <button aria-label='View couples date night game details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4qWBiAH?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -759,14 +759,14 @@ BLOG_POSTS = {
 
   <h2 id="mini-printer" itemprop="headline" style="scroll-margin-top:100px;">7. Mini Photo Printer or Smart Keepsake</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints'>
       <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' 
            alt='Kodak Mini 2 Retro portable instant photo printer – sticky-back prints' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Print instant memories with a <strong>mini photo printer</strong>. Portable, fun and creative — turns shared moments into tangible keepsakes she’ll adore.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints'>
         <button aria-label='View mini photo printer details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -878,14 +878,14 @@ BLOG_POSTS = {
 
   <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">1. Luxury Scented Candle Gift Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
       <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
            alt='IdealHouse luxury scented candle gift set – lavender, rose, vanilla and jasmine' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Elevate any evening with a <strong>luxury scented candle set</strong>. Warm, romantic fragrances in elegant packaging — feels premium while staying well under £50.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
         <button aria-label='View candle gift set details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -896,14 +896,14 @@ BLOG_POSTS = {
 
   <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">2. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
       <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
            alt='Sanctuary Spa lost in the moment beauty gift set – bath and body pamper hamper' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Deliver instant relaxation with a <strong>beauty gift box</strong>. Fragrant, high-quality products in a lovely hamper — spa vibes at home for under £50.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
         <button aria-label='View Sanctuary Spa gift set details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -914,14 +914,14 @@ BLOG_POSTS = {
 
   <h2 id="photo-memory" itemprop="headline" style="scroll-margin-top:100px;">3. Custom Photo Frame or Memory Book</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+    <a href='/product/dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box'>
       <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' 
            alt='Dazspirit personalised photo album scrapbook – customizable memory book' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Turn memories into something tangible with a <strong>custom photo memory book</strong>. Add pictures and messages — sentimental, personal and always appreciated.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/dazspirit-personalised-photo-album-scrapbook---customizable-memory-book-with-60-black-pages--and--gift-box'>
+      <a href='/product/dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box'>
         <button aria-label='View personalised memory book details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4qgKrUo?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -932,14 +932,14 @@ BLOG_POSTS = {
 
   <h2 id="snail-mucin" itemprop="headline" style="scroll-margin-top:100px;">4. COSRX Snail Mucin Power Essence</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
+    <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml-snail-secretion-filtrate-96-skin-repair-serum'>
       <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' 
            alt='COSRX Advanced Snail 96 Mucin Power Essence – hydrating K-beauty serum' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Give glowing, hydrated skin with the cult-favourite <strong>COSRX Snail Mucin Essence</strong>. Lightweight, effective and loved by thousands — a smart beauty win under £50.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml---snail-secretion-filtrate-96-skin-repair-serum'>
+      <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml-snail-secretion-filtrate-96-skin-repair-serum'>
         <button aria-label='View COSRX Snail Mucin details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -950,14 +950,14 @@ BLOG_POSTS = {
 
   <h2 id="hydrogel-mask" itemprop="headline" style="scroll-margin-top:100px;">5. BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
+    <a href='/product/biodance-bio-collagen-real-deep-mask-hydrogel-face-mask-for-pore-minimizing-and-elasticity-improvement'>
       <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0-SH20_.jpg' 
            alt='BIODANCE Bio-Collagen hydrogel face masks – 4 pack for glowing skin' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Offer spa-level hydration with <strong>BIODANCE hydrogel masks</strong>. Visible glow, pore-minimising and plumping — a pampering treat she’ll use and love.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/biodance-bio-collagen-real-deep-mask---hydrogel-face-mask-for-pore-minimizing--and--elasticity-improvement'>
+      <a href='/product/biodance-bio-collagen-real-deep-mask-hydrogel-face-mask-for-pore-minimizing-and-elasticity-improvement'>
         <button aria-label='View BIODANCE mask details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.eu/d/49cMTit?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -968,14 +968,14 @@ BLOG_POSTS = {
 
   <h2 id="azelaic-serum" itemprop="headline" style="scroll-margin-top:100px;">6. Anua Azelaic Acid Redness Soothing Serum</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
+    <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum-facial-serum-for-sensitive-skin'>
       <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg' 
            alt='Anua Azelaic Acid 10% Hyaluron Redness Soothing Serum – calming for sensitive skin' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Calm and hydrate with the <strong>Anua Azelaic Acid Serum</strong>. Gentle on sensitive skin, reduces redness — a caring, effective beauty gift under £50.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum---facial-serum-for-sensitive-skin'>
+      <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum-facial-serum-for-sensitive-skin'>
         <button aria-label='View Anua soothing serum details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -1085,14 +1085,14 @@ BLOG_POSTS = {
 
   <h2 id="personalised-necklace" itemprop="headline" style="scroll-margin-top:100px;">1. Personalised Initial or Name Necklace</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+    <a href='/product/umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-goldsilverrose-gold'>
       <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' 
            alt='Personalised nameplate necklace – custom pendant in gold, silver or rose-gold' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Timeless elegance meets personal meaning with a <strong>custom name necklace</strong>. Polished, dainty and meaningful — a premium-feeling gift under £100.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/umagicbox-personalised-name-necklace---custom-nameplate-pendant-in-goldsilverrose-gold'>
+      <a href='/product/umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-goldsilverrose-gold'>
         <button aria-label='View personalised necklace details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4aJ2cXO?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -1103,14 +1103,14 @@ BLOG_POSTS = {
 
   <h2 id="satin-pyjamas" itemprop="headline" style="scroll-margin-top:100px;">2. Silk or Satin Pyjama Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+    <a href='/product/swomog-womens-satin-pyjama-set-long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
       <img src='https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX569_.jpg' 
            alt='Swomog women’s long-sleeve satin pyjama set – luxurious loungewear' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Indulgent comfort in a <strong>satin pyjama set</strong>. Silky, stylish and cosy — feels like a high-end treat without the luxury price tag.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/swomog-womens-satin-pyjama-set---long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
+      <a href='/product/swomog-womens-satin-pyjama-set-long-sleeve-button-down-silk-loungewear-two-piece-sleepwear'>
         <button aria-label='View satin pyjama set details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4qgKEqE?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -1121,14 +1121,14 @@ BLOG_POSTS = {
 
   <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">3. Luxury Scented Candle Gift Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+    <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
       <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
            alt='IdealHouse luxury scented candle gift set – premium home fragrance' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Transform any space with a <strong>luxury candle gift set</strong>. Sophisticated scents and beautiful packaging — romantic ambience that feels expensive.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/idealhouse-luxury-scented-candle-gift-set---lavender-rose-vanilla--and--jasmine'>
+      <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
         <button aria-label='View premium candle set details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45vgasL?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -1139,14 +1139,14 @@ BLOG_POSTS = {
 
   <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">4. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+    <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
       <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
            alt='Sanctuary Spa signature collection bath and body pamper hamper' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Pamper her properly with a <strong>luxury beauty gift box</strong>. High-quality, fragrant products in a stunning hamper — indulgent without excess cost.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set---signature-collection-bath--and--body-pamper-hamper'>
+      <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
         <button aria-label='View beauty gift box details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/49khgZD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -1157,14 +1157,14 @@ BLOG_POSTS = {
 
   <h2 id="mini-printer" itemprop="headline" style="scroll-margin-top:100px;">5. Mini Photo Printer or Smart Keepsake</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+    <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints'>
       <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' 
            alt='Kodak Mini 2 Retro portable instant photo printer – sticky-back keepsake prints' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Create instant joy with a <strong>mini photo printer</strong>. Portable, fun and sentimental — prints memories on the spot for a modern, meaningful gift.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer---21x34-inches-sticky-back-prints'>
+      <a href='/product/kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints'>
         <button aria-label='View Kodak mini printer details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4ppgXmf?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
