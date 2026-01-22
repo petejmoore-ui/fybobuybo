@@ -642,6 +642,26 @@ button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 30px rgba(255, 153, 0, 0.4);
 }
+a.button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff9900 0%, #ff8c00 100%);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255, 153, 0, 0.3);
+}
+
+a.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 153, 0, 0.4);
+    color: white;
+}
+
 
 nav { 
     background: var(--nav-bg);
