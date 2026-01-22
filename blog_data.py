@@ -1220,11 +1220,6 @@ BLOG_POSTS = {
     </div>
   </section>
 
-  <footer style="margin-top:60px;padding:30px;background:var(--tag);border-radius:12px;">
-    <p style="font-size:0.95rem;margin-bottom:12px;"><strong>Information Accuracy:</strong> All product details, prices, and availability were verified as of <time datetime="2026-01-18">January 18, 2026</time>. Amazon prices and stock levels may change.</p>
-    <p style="font-size:0.95rem;"><strong>Editorial Independence:</strong> We independently select all products featured. As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>
-  </footer>
-
   </div>
 </article>
 """,
