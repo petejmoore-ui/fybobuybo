@@ -35,7 +35,7 @@ BLOG_POSTS = {
         
         # Related Content
         "related_products": [
-            "philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit",
+            "philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap-dimmable-bluetooth-and-zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit",
             "ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l",
             "meacodry-arete-two-12l-dehumidifier-and-air-purifier"
         ],
@@ -72,7 +72,7 @@ BLOG_POSTS = {
 
   <h2 id="philips-hue" itemprop="headline" style="scroll-margin-top:100px;">1. Philips Hue Smart Bulbs</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit'>
+    <a href='/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap-dimmable-bluetooth-and-zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit'>
       <img src='https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg' 
            alt='Philips Hue Smart Bulbs – Energy-Saving Smart LED Lighting Compatible with Alexa, Google Assistant, Apple HomeKit' 
            loading='lazy' 
@@ -81,7 +81,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Set the perfect mood for any room with <strong>Philips Hue Smart Bulbs</strong>. Control your lights from your phone, save energy, and enjoy seamless integration with Alexa, Google Assistant, or Apple HomeKit — ideal for making 2026 brighter and smarter.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap--dimmable-bluetooth--and--zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit'>
+      <a href='/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap-dimmable-bluetooth-and-zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit'>
         <button aria-label='View Philips Hue smart bulb product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4pWqfaj?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -92,7 +92,7 @@ BLOG_POSTS = {
 
   <h2 id="ninja-air-fryer" itemprop="headline" style="scroll-margin-top:100px;">2. Ninja Foodi Max Dual Zone Air Fryer AF400UK – 9.5L</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk---95l'>
+    <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-95l'>
       <img src='https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg' 
            alt='Ninja Foodi Max Dual Zone Air Fryer 9.5L – Healthy Cooking, Two Independent Zones, Family-Sized Appliance' 
            loading='lazy' 
@@ -132,7 +132,7 @@ BLOG_POSTS = {
 
   <h2 id="bath-mat" itemprop="headline" style="scroll-margin-top:100px;">4. Utopia Towels Luxury Fluffy Bath Mat Rug (50x80cm)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm---grey'>
+    <a href='/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey'>
       <img src='https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg' 
            alt='Utopia Towels Luxury Fluffy Bath Mat – Soft Plush, Quick-Dry, Non-Slip, Super Absorbent Grey Bathroom Rug' 
            loading='lazy' 
