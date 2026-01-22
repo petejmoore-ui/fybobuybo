@@ -1,4 +1,4 @@
-import os
+jinhaimport os
 import json
 import re
 import datetime
@@ -1340,11 +1340,11 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     structured_data = None
     if paged_products and len(paged_products) == 1:
         structured_data = generate_product_schema(paged_products[0])
-    
+
     # Generate breadcrumb schema
     breadcrumb_schema = None
     breadcrumbs = [("Home", "/")]
-    
+
     if '/category/' in request.path and paged_products:
         breadcrumbs.append((paged_products[0]['category'], request.path))
     elif '/season/' in request.path:
@@ -1358,46 +1358,47 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         breadcrumbs.append(("Blog", "/blog"))
         if request.path != '/blog' and not '/page/' in request.path:
             breadcrumbs.append((title.split(' – ')[0], request.path))
-    
+
     if len(breadcrumbs) > 1:
         breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
 
     from jinja2 import Template
 
-# Only do this for blog pages
-if "/blog/" in request.path or "/blog" in request.path:
-    raw_content = BLOG_POSTS[slug]["content"]
-    content = Template(raw_content).render(slugify=slugify)
-else:
-    content = ""
-    
-return render_template_string(
-    BASE_HTML,
-    title=title,
-    description=description,
-    heading=heading,
-    subtitle=subtitle,
-    products=paged_products,
-    nav_items=nav_items,
-    css=css,
-    canonical_url=canonical,
-    SITE_URL=SITE_URL,
-    slugify=slugify,
-    shorten_product_name=shorten_product_name,
-    similar_products=similar_products or [],
-    next_page_url=next_url,
-    prev_page_url=prev_url,
-    themes_json=themes_json,
-    get_product_price_rating=get_product_price_rating,
-    format_price_display=format_price_display,
-    format_rating_display=format_rating_display,
-    today=today,
-    today_formatted=today_formatted,
-    structured_data=structured_data,
-    breadcrumb_schema=breadcrumb_schema,
-    article_date=article_date,
-    content=content   # <-- note the comma above this line
-)
+    # Only do this for blog pages
+    if "/blog/" in request.path or "/blog" in request.path:
+        raw_content = BLOG_POSTS[slug]["content"]
+        content = Template(raw_content).render(slugify=slugify)
+    else:
+        content = ""
+
+    return render_template_string(
+        BASE_HTML,
+        title=title,
+        description=description,
+        heading=heading,
+        subtitle=subtitle,
+        products=paged_products,
+        nav_items=nav_items,
+        css=css,
+        canonical_url=canonical,
+        SITE_URL=SITE_URL,
+        slugify=slugify,
+        shorten_product_name=shorten_product_name,
+        similar_products=similar_products or [],
+        next_page_url=next_url,
+        prev_page_url=prev_url,
+        themes_json=themes_json,
+        get_product_price_rating=get_product_price_rating,
+        format_price_display=format_price_display,
+        format_rating_display=format_rating_display,
+        today=today,
+        today_formatted=today_formatted,
+        structured_data=structured_data,
+        breadcrumb_schema=breadcrumb_schema,
+        article_date=article_date,
+        content=content
+    )
+
 
 
 # ============================================================================
