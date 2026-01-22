@@ -1020,8 +1020,6 @@ BASE_HTML = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="FyboBuybo">
-<meta name="language" content="English">
-<meta name="revisit-after" content="1 days">
 
 <title>{{ title }}</title>
 <meta name="description" content="{{ description | truncate(155, true, '...') }}">
@@ -1035,14 +1033,14 @@ BASE_HTML = """<!DOCTYPE html>
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta property="og:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
-<meta name="twitter:image" content="{% if products and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta name="twitter:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 
 {% if '/blog' in request.path and products|length == 0 %}
 <meta property="article:published_time" content="{{ article_date }}">
@@ -1081,17 +1079,17 @@ BASE_HTML = """<!DOCTYPE html>
     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg>
-  <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display: none;">
+  <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display:none;">
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 </button>
 
-<nav>
+<nav aria-label="Primary navigation">
   <div class="nav-links">
     <a href="/">Home</a>
     <a href="/blog">Blog</a>
   </div>
-  
+
   <div class="dropdown categories-dropdown">
     <button class="dropdown-toggle" type="button">Categories</button>
     <div class="dropdown-menu">
@@ -1100,7 +1098,7 @@ BASE_HTML = """<!DOCTYPE html>
       {% endfor %}
     </div>
   </div>
-  
+
   {% if nav_items.seasons %}
   <div class="dropdown seasons-dropdown">
     <button class="dropdown-toggle" type="button">Seasonal</button>
@@ -1111,7 +1109,7 @@ BASE_HTML = """<!DOCTYPE html>
     </div>
   </div>
   {% endif %}
-  
+
   <form id="search-form" role="search">
     <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search">
   </form>
@@ -1120,162 +1118,146 @@ BASE_HTML = """<!DOCTYPE html>
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
 <p style="text-align:center;color:var(--text-muted);margin-bottom:60px;font-weight:500;">
-    ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated
+  ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated
 </p>
 
 {% if products %}
 <div class="grid">
-  {% for p in products %}
-  <div class="card" itemscope itemtype="https://schema.org/Product">
-      <span class="tag">{{ p.category }}</span>
-      <a href="/product/{{ slugify(p.name) }}" itemprop="url">
-          <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
-      </a>
-      <a href="/product/{{ slugify(p.name) }}">
-          <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
-      </a>
-      <p itemprop="description">{{ p.hook|safe }}</p>
+{% for p in products %}
+<div class="card" itemscope itemtype="https://schema.org/Product">
+  <span class="tag">{{ p.category }}</span>
 
-      {% if p.date_added %}
-      <p style="font-size:0.85rem; opacity:.65; margin:16px 0 8px; color:var(--text-muted);">
-          ↳ Featured {{ p.date_added }}
-      </p>
-      {% endif %}
+  <a href="/product/{{ slugify(p.name) }}" itemprop="url">
+    <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
+  </a>
 
-      <div class="product-metrics">
-          {% set price_info = get_product_price_rating(p) %}
-          
-          {% if price_info.price %}
-          <div class="price-display">
-              <span class="price-label">Price:</span>
-              <span class="price-value">{{ format_price_display(price_info.price) }}</span>
-          </div>
-          {% endif %}
-          
-          {% if price_info.rating %}
-          <div class="rating-display">
-              {{ format_rating_display(price_info.rating, price_info.reviews) }}
-          </div>
-          {% endif %}
-          
-          {% if not price_info.price and not price_info.rating %}
-          <div class="check-amazon-notice">
-              <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">
-                  View on Amazon for pricing
-              </span>
-          </div>
-          {% endif %}
-      </div>
+  <a href="/product/{{ slugify(p.name) }}">
+    <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
+  </a>
 
-      {% if p.url %}
-      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
-          <button>Check current price</button>
-      </a>
-      <p style="margin-top:12px; font-size:.9rem; opacity:.75; text-align:center;">
-          <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">View on Amazon UK</a>
-      </p>
-      {% endif %}
+  <p itemprop="description">{{ p.hook|safe }}</p>
 
-      {% if p.category %}
-      <p style="font-size:.9rem; opacity:.7; margin-top:20px; text-align:center;">
-          More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a>
-      </p>
-      {% endif %}
+  {% if p.date_added %}
+  <p style="font-size:.85rem;opacity:.65;margin:16px 0 8px;">
+    ↳ Featured {{ p.date_added }}
+  </p>
+  {% endif %}
+
+  <div class="product-metrics">
+    {% set price_info = get_product_price_rating(p) %}
+
+    {% if price_info.price %}
+    <div class="price-display">
+      <span class="price-label">Price:</span>
+      <span class="price-value">{{ format_price_display(price_info.price) }}</span>
+    </div>
+    {% endif %}
+
+    {% if price_info.rating %}
+    <div class="rating-display">
+      {{ format_rating_display(price_info.rating, price_info.reviews) }}
+    </div>
+    {% endif %}
+
+    {% if not price_info.price and not price_info.rating %}
+    <div class="check-amazon-notice">
+      <span style="font-style:italic;opacity:.75;">
+        View on Amazon for pricing
+      </span>
+    </div>
+    {% endif %}
   </div>
-  {% endfor %}
+
+  {% if p.url %}
+  <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="button">
+    Check current price
+  </a>
+  <p style="margin-top:12px;font-size:.9rem;opacity:.75;text-align:center;">
+    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
+      View on Amazon UK
+    </a>
+  </p>
+  {% endif %}
+
+  {% if p.category %}
+  <p style="font-size:.9rem;opacity:.7;margin-top:20px;text-align:center;">
+    More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a>
+  </p>
+  {% endif %}
 </div>
+{% endfor %}
+</div>
+{% endif %}
 
 {% if similar_products %}
 <section class="similar-products-section">
-    <h2 class="similar-products-heading">Customers Also Viewed</h2>
-    <p class="similar-products-subtitle">Popular alternatives in {{ products[0].category if products else 'this category' }}</p>
-    
-    <div class="similar-products-grid">
-        {% for similar in similar_products %}
-        <div class="similar-product-card">
-            <a href="/product/{{ slugify(similar.name) }}">
-                <img src="{{ similar.image }}" alt="{{ similar.name }}" loading="lazy">
-                <h3>{{ shorten_product_name(similar.name, 60) }}</h3>
-            </a>
-            {% set similar_price = get_product_price_rating(similar) %}
-            {% if similar_price.price %}
-            <p class="similar-price">{{ format_price_display(similar_price.price) }}</p>
-            {% endif %}
-        </div>
-        {% endfor %}
+  <h2 class="similar-products-heading">Customers Also Viewed</h2>
+  <p class="similar-products-subtitle">
+    Popular alternatives in {{ products[0].category if products|length > 0 else 'this category' }}
+  </p>
+
+  <div class="similar-products-grid">
+    {% for similar in similar_products %}
+    <div class="similar-product-card">
+      <a href="/product/{{ slugify(similar.name) }}">
+        <img src="{{ similar.image }}" alt="{{ similar.name }}" loading="lazy">
+        <h3>{{ shorten_product_name(similar.name, 60) }}</h3>
+      </a>
+      {% set similar_price = get_product_price_rating(similar) %}
+      {% if similar_price.price %}
+      <p class="similar-price">{{ format_price_display(similar_price.price) }}</p>
+      {% endif %}
     </div>
+    {% endfor %}
+  </div>
 </section>
 {% endif %}
 
-{% endif %}
-
-{% if products %}
-    {% if products|length == 1 %}
-    <div class="product-info-footer">
-        <p>
-            <strong>Information Accuracy:</strong>
-            Product details verified as of
-            <time datetime="{{ today }}">{{ today_formatted }}</time>.
-            Amazon prices may vary.
-        </p>
-        <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong></p>
-    </div>
-    {% endif %}
-{% else %}
-    <p style="text-align:center; color:var(--text-accent); margin:100px 0; font-size:1.4rem;">
-        Loading today's gifts...
-    </p>
-{% endif %}
-
-
-
 {% if products and (next_page_url or prev_page_url) %}
 <div class="pagination">
-    {% if prev_page_url %}<a href="{{ prev_page_url }}">← Previous</a>{% endif %}
-    {% if next_page_url %}<a href="{{ next_page_url }}">Next →</a>{% endif %}
+  {% if prev_page_url %}<a href="{{ prev_page_url }}">← Previous</a>{% endif %}
+  {% if next_page_url %}<a href="{{ next_page_url }}">Next →</a>{% endif %}
 </div>
 {% endif %}
 
 <footer>
-    <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-    <p>Information Accuracy: All product details, prices, and availability were verified as of date featured. Amazon prices and stock levels may change.</p>
-    <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc.</p>
+  <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
+  <p>All product details were verified as of date featured. Prices and availability may change.</p>
+  <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc.</p>
 </footer>
 
 <script>
-const THEMES = {{ themes_json|safe }};
+const THEMES = {{ themes_json|default('[]')|safe }};
 let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
 
-function applyTheme(themeIndex) {
-  const theme = THEMES[themeIndex];
+function applyTheme(index) {
+  if (!THEMES.length) return;
+  const theme = THEMES[index % THEMES.length];
   const root = document.documentElement;
-  
-  Object.keys(theme).forEach(key => {
-    if (key !== 'name') {
-      root.style.setProperty(`--${key.replace(/_/g, '-')}`, theme[key]);
+
+  Object.keys(theme).forEach(k => {
+    if (k !== 'name') {
+      root.style.setProperty(`--${k.replace(/_/g,'-')}`, theme[k]);
     }
   });
 
-  document.getElementById('theme-icon-sun').style.display = themeIndex === 0 ? 'block' : 'none';
-  document.getElementById('theme-icon-moon').style.display = themeIndex === 1 ? 'block' : 'none';
-  localStorage.setItem('themeIndex', themeIndex);
+  document.getElementById('theme-icon-sun').style.display = index === 0 ? 'block' : 'none';
+  document.getElementById('theme-icon-moon').style.display = index === 1 ? 'block' : 'none';
+  localStorage.setItem('themeIndex', index);
 }
 
 applyTheme(currentTheme);
 
-document.getElementById('theme-toggle').addEventListener('click', () => {
+document.getElementById('theme-toggle')?.addEventListener('click', () => {
   currentTheme = (currentTheme + 1) % THEMES.length;
   applyTheme(currentTheme);
 });
 
-document.querySelectorAll('.dropdown').forEach(dropdown => {
-  const toggle = dropdown.querySelector('.dropdown-toggle');
-  toggle.addEventListener('click', (e) => {
+document.querySelectorAll('.dropdown').forEach(d => {
+  d.querySelector('.dropdown-toggle')?.addEventListener('click', e => {
     e.stopPropagation();
-    document.querySelectorAll('.dropdown').forEach(d => {
-      if (d !== dropdown) d.classList.remove('active');
-    });
-    dropdown.classList.toggle('active');
+    document.querySelectorAll('.dropdown').forEach(x => x !== d && x.classList.remove('active'));
+    d.classList.toggle('active');
   });
 });
 
@@ -1285,16 +1267,11 @@ document.addEventListener('click', () => {
 
 const searchInput = document.getElementById('search-input');
 if (searchInput) {
-  searchInput.addEventListener('input', function(e) {
-    const query = e.target.value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.grid .card');
-    
-    cards.forEach(card => {
-      const name = card.querySelector('h2')?.textContent.toLowerCase() || '';
-      const desc = card.querySelector('p[itemprop="description"]')?.textContent.toLowerCase() || '';
-      const cat = card.querySelector('.tag')?.textContent.toLowerCase() || '';
-      const matches = name.includes(query) || desc.includes(query) || cat.includes(query);
-      card.classList.toggle('hidden', !matches);
+  searchInput.addEventListener('input', e => {
+    const q = e.target.value.toLowerCase().trim();
+    document.querySelectorAll('.grid .card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.classList.toggle('hidden', !text.includes(q));
     });
   });
 }
