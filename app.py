@@ -562,7 +562,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <footer>
     <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-    <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
     <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.</p>
     <p style="opacity:.8;font-size:.9rem;margin-top:20px;">
         All product information, prices, and availability are accurate at the time of publication and subject to change.
