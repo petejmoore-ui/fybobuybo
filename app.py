@@ -1309,7 +1309,7 @@ if (searchInput) {
 # RENDER PAGE FUNCTION - UPDATED WITH SEO ENHANCEMENTS
 # ============================================================================
 
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None, article_date=None):
+def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None, article_date=None, content=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     
@@ -1362,15 +1362,6 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     if len(breadcrumbs) > 1:
         breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
 
-    from jinja2 import Template
-
-    # Only do this for blog pages
-    if "/blog/" in request.path or "/blog" in request.path:
-        raw_content = BLOG_POSTS[slug]["content"]
-        content = Template(raw_content).render(slugify=slugify)
-    else:
-        content = ""
-
     return render_template_string(
         BASE_HTML,
         title=title,
@@ -1396,7 +1387,7 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         structured_data=structured_data,
         breadcrumb_schema=breadcrumb_schema,
         article_date=article_date,
-        content=content
+        content=content or ""
     )
 
 
@@ -1573,6 +1564,11 @@ def blog_detail(slug):
     all_products = refresh_products(background=True)
     related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
+    # Render blog content with Jinja2 for any template variables
+    from jinja2 import Template
+    raw_content = post.get("content", "<p>Content coming soon.</p>")
+    content_html = f'<div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">{Template(raw_content).render(slugify=slugify)}</div>'
+
     rendered = render_page(
         title=post["title"],
         description=post.get("description", "Gift inspiration and practical tips from FyboBuybo."),
@@ -1580,19 +1576,9 @@ def blog_detail(slug):
         subtitle=post.get("subtitle", "Gift guide & inspiration"),
         products=None,
         similar_products=related,
-        article_date=post.get("date", datetime.date.today().isoformat())
+        article_date=post.get("date", datetime.date.today().isoformat()),
+        content=content_html
     )
-
-    content_html = f'''
-    <div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">
-        {post.get("content", "<p>Content coming soon.</p>")}
-    </div>
-    '''
-
-    insert_point = rendered.find('<p class="subtitle">')
-    if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + content_html + rendered[insert_after:]
 
     return rendered
 
