@@ -101,7 +101,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Cook healthier, crispier meals with less oil using the <strong>Ninja Foodi Max Dual Zone Air Fryer</strong>. Dual independent zones let you prepare two dishes at once with different settings — perfect for busy UK families seeking convenience without compromise.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l'>
+      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-95l'>
         <button aria-label='View Ninja Foodi air fryer product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45kdy0K?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -192,7 +192,7 @@ BLOG_POSTS = {
 
   <h2 id="vacuum" itemprop="headline" style="scroll-margin-top:100px;">7. Dyson V15 Detect Advanced Cordless Vacuum Cleaner</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/dyson-v15-detect-advanced-cordless-vacuum-cleaner'>
+    <a href='/product/dyson-v8-advanced-cordless-vacuum-cleaner'>
       <img src='https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg' 
            alt='Dyson V15 Detect Advanced Cordless Vacuum – Laser Dust Detection, Powerful Suction, HEPA Filtration, Smart Cleaning' 
            loading='lazy' 
@@ -201,7 +201,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Reveal and remove microscopic dust with the <strong>Dyson V15 Detect</strong>. Laser illumination, powerful suction, de-tangling technology, and automatic power adjustment make cleaning faster and more thorough — a premium upgrade for spotless UK homes.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/dyson-v15-detect-advanced-cordless-vacuum-cleaner'>
+      <a href='/product/dyson-v8-advanced-cordless-vacuum-cleaner'>
         <button aria-label='View Dyson V15 Detect product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3MZbchx?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -268,7 +268,6 @@ BLOG_POSTS = {
         
         # Internal linking strategy
         "internal_links": [
-            {"text": "Valentine's Day gifts", "url": "/season/valentines-day"},
             {"text": "Home & Kitchen products", "url": "/category/home-and-kitchen"},
             {"text": "Electronics", "url": "/category/electronics"}
         ]
