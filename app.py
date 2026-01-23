@@ -225,7 +225,195 @@ PRIVACY_POLICY_HTML = """
 
 # Terms of Service HTML content  
 TERMS_OF_SERVICE_HTML = """
-[Copy entire content from terms_of_service.py here - it's too long to include inline]
+<article style="max-width: 900px; margin: 40px auto; padding: 20px;">
+  <div style="background: var(--card); padding: 30px; border-radius: 16px; margin-bottom: 30px;">
+    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+      <strong>Last Updated:</strong> January 23, 2026
+    </p>
+    <p style="font-size: 1.05rem; line-height: 1.8;">
+      Welcome to FyboBuybo. By accessing and using www.fybobuybo.com, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.
+    </p>
+  </div>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">1. About FyboBuybo</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    FyboBuybo is a UK-based product discovery and affiliate marketing website. We curate and recommend products available on Amazon.co.uk and other retailers, earning a commission when you make purchases through our affiliate links.
+  </p>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    <strong>Important:</strong> We are not a retailer. We do not sell products directly, handle transactions, or ship items. All purchases are made through third-party retailers (primarily Amazon UK).
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">2. Use of Our Website</h2>
+  
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">2.1 Permitted Use</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    You may use FyboBuybo for:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>Browsing and discovering gift ideas and product recommendations</li>
+    <li>Reading our blog content and seasonal guides</li>
+    <li>Clicking through to retailer websites to make purchases</li>
+    <li>Sharing our content on social media (with attribution)</li>
+  </ul>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">2.2 Prohibited Use</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    You must not:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>Use our website for any unlawful purpose</li>
+    <li>Attempt to gain unauthorised access to our systems or data</li>
+    <li>Copy, reproduce, or redistribute our content without permission (except for personal, non-commercial use)</li>
+    <li>Use automated systems (bots, scrapers) to access our website</li>
+    <li>Interfere with the proper functioning of our website</li>
+    <li>Remove or obscure our affiliate disclosures or links</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">3. Affiliate Disclosure</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    FyboBuybo participates in the Amazon EU Associates Programme and other affiliate programmes. This means:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>We earn a commission when you purchase products through our affiliate links</li>
+    <li>This commission does not increase your purchase price</li>
+    <li>Our recommendations are based on product quality and suitability for UK shoppers</li>
+    <li>We may receive products for review, but this does not influence our honest assessments</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">4. Product Information and Accuracy</h2>
+  
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">4.1 Information Accuracy</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We make reasonable efforts to ensure product information (descriptions, prices, availability) is accurate at the time of publication. However:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Prices change:</strong> Retailers frequently update pricing. Always check current prices on the retailer's website</li>
+    <li><strong>Stock varies:</strong> Product availability changes constantly</li>
+    <li><strong>Specifications may differ:</strong> Manufacturers may update products without notice</li>
+    <li><strong>AI-generated content:</strong> Product descriptions may be partially generated using AI technology</li>
+  </ul>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">4.2 No Guarantees</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We provide product recommendations in good faith, but we do not guarantee:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>Product performance, quality, or suitability for your specific needs</li>
+    <li>Availability or delivery times</li>
+    <li>That prices shown match current retailer prices</li>
+    <li>That products meet your expectations</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">5. Third-Party Retailers and Transactions</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    When you purchase through our affiliate links:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>You are entering into a contract with the retailer (e.g., Amazon), not with FyboBuybo</li>
+    <li>The retailer's terms and conditions apply to your purchase</li>
+    <li>Returns, refunds, and customer service are handled by the retailer</li>
+    <li>We are not responsible for order fulfilment, shipping, or product quality</li>
+    <li>Any disputes must be resolved with the retailer directly</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">6. Intellectual Property</h2>
+  
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">6.1 Our Content</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    All content on FyboBuybo (text, images, design, code, logos) is owned by or licensed to us and is protected by UK and international copyright laws.
+  </p>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">6.2 Product Images</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Product images are sourced from Amazon and other retailers for the purpose of product identification and affiliate linking. These images remain the property of their respective owners.
+  </p>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">6.3 Permitted Use</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    You may view and share our content for personal, non-commercial use. For commercial use, republication, or large-scale copying, please contact us for permission.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">7. Limitation of Liability</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    To the fullest extent permitted by UK law:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>FyboBuybo is provided "as is" without warranties of any kind</li>
+    <li>We are not liable for any direct, indirect, or consequential damages arising from your use of our website</li>
+    <li>We are not liable for product quality, delivery issues, or retailer problems</li>
+    <li>We are not liable for losses resulting from inaccurate product information</li>
+    <li>Our total liability shall not exceed £100 for any claim</li>
+  </ul>
+  <p style="line-height: 1.8; margin-bottom: 20px; font-style: italic; color: var(--text-muted);">
+    Nothing in these terms excludes or limits our liability for death or personal injury caused by negligence, fraud, or any liability that cannot be excluded by UK law.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">8. Links to Third-Party Websites</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Our website contains links to third-party websites (primarily Amazon). We are not responsible for:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>The content, privacy practices, or terms of third-party websites</li>
+    <li>Any damages or losses from your use of third-party websites</li>
+    <li>The availability or accuracy of external websites</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">9. User-Generated Content</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    If we add features allowing user comments or reviews in the future, you agree that:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>You grant us a non-exclusive licence to use, display, and distribute your content</li>
+    <li>Your content must be lawful, truthful, and not infringe others' rights</li>
+    <li>We may remove any content at our discretion</li>
+    <li>You are responsible for any content you post</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">10. Changes to Our Website and Terms</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We reserve the right to:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>Modify or discontinue our website or any features at any time</li>
+    <li>Update these Terms of Service (changes take effect when posted)</li>
+    <li>Change our product selection, affiliate partners, or business model</li>
+  </ul>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Continued use of our website after changes constitutes acceptance of updated terms.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">11. Governing Law and Jurisdiction</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    These Terms of Service are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">12. Severability</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    If any provision of these terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms of Service will otherwise remain in full force and effect.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">13. Contact Information</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    For questions about these Terms of Service, please contact us:
+  </p>
+  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <p style="line-height: 1.8;">
+      <strong>Email:</strong> legal@fybobuybo.com<br>
+      <strong>Website:</strong> www.fybobuybo.com
+    </p>
+  </div>
+
+  <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); padding: 30px; border-radius: 16px; margin-top: 50px;">
+    <h3 style="color: var(--accent); margin-bottom: 15px;">Key Takeaways</h3>
+    <ul style="margin-left: 20px; line-height: 2;">
+      <li>We're an affiliate site, not a retailer—purchases happen on Amazon</li>
+      <li>Prices and availability may change—always verify on the retailer's site</li>
+      <li>We earn commissions but it doesn't affect your price</li>
+      <li>Use our site respectfully and lawfully</li>
+      <li>Contact the retailer for purchase issues, contact us for website questions</li>
+    </ul>
+  </div>
+</article>
 """
 
 # Cookie Consent Banner
