@@ -35,9 +35,9 @@ BLOG_POSTS = {
         
         # Related Content
         "related_products": [
-            "philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap-dimmable-bluetooth-and-zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit",
-            "ninja-foodi-max-dual-zone-air-fryer-af400uk-9-5l",
-            "meacodry-arete-two-12l-dehumidifier-and-air-purifier"
+            "ring-battery-video-doorbell-wireless-diy-video-doorbell-camera-with-head-to-toe-view-hd-video-easy-5-min-install-30-day-free-trial-of-ring-protect",
+            "eufy-x10-pro-omni-robot-vacuum-cleaner-with-mop-ai-obstacle-avoidance",
+            "ooni-karu-16-multi-fuel-outdoor-pizza-oven-wood-charcoal-or-gas-fired"
         ],
         "related_posts": [
             "10-essential-running-accessories-for-everyday-training-2026"
