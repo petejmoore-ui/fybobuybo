@@ -43,6 +43,127 @@ PROMPT_VERSION = "v3.0-elite-2026"
 
 os.makedirs("data", exist_ok=True)
 
+# Privacy Policy HTML content
+PRIVACY_POLICY_HTML = """
+[Copy entire content from privacy_policy.py here - it's too long to include inline]
+"""
+
+# Terms of Service HTML content  
+TERMS_OF_SERVICE_HTML = """
+[Copy entire content from terms_of_service.py here - it's too long to include inline]
+"""
+
+# Cookie Consent Banner
+COOKIE_CONSENT_HTML = """
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); padding: 20px 30px; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15); z-index: 10000; border-top: 3px solid var(--button);">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px;">
+      <h3 style="margin: 0 0 10px 0; font-size: 1.1rem; color: var(--accent);">🍪 We Value Your Privacy</h3>
+      <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-accent);">
+        We use essential cookies to remember your preferences (like theme choice) and affiliate cookies to track product clicks. 
+        <a href="/privacy-policy" style="color: var(--button); font-weight: 600; text-decoration: underline;">Learn more in our Privacy Policy</a>
+      </p>
+    </div>
+    <div style="display: flex; gap: 15px; flex-shrink: 0; flex-wrap: wrap;">
+      <button id="cookie-accept" style="background: var(--button); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.95rem; white-space: nowrap;">
+        Accept All
+      </button>
+      <button id="cookie-essential" style="background: transparent; color: var(--text-accent); padding: 12px 30px; border: 2px solid var(--dropdown-border); border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.95rem; white-space: nowrap;">
+        Essential Only
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+#cookie-consent button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+#cookie-accept:hover {
+  background: var(--button-hover);
+}
+#cookie-essential:hover {
+  background: var(--tag);
+}
+@media (max-width: 768px) {
+  #cookie-consent {
+    padding: 20px;
+  }
+  #cookie-consent > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #cookie-consent button {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const CONSENT_KEY = 'fybobuybo_cookie_consent';
+  const CONSENT_VERSION = '1.0';
+  
+  function getCookieConsent() {
+    try {
+      const consent = localStorage.getItem(CONSENT_KEY);
+      return consent ? JSON.parse(consent) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+  
+  function setCookieConsent(level) {
+    const consent = {
+      level: level,
+      version: CONSENT_VERSION,
+      timestamp: new Date().toISOString()
+    };
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
+  }
+  
+  function showCookieBanner() {
+    const banner = document.getElementById('cookie-consent');
+    if (banner) {
+      banner.style.display = 'block';
+    }
+  }
+  
+  function hideCookieBanner() {
+    const banner = document.getElementById('cookie-consent');
+    if (banner) {
+      banner.style.display = 'none';
+    }
+  }
+  
+  const consent = getCookieConsent();
+  
+  if (!consent || consent.version !== CONSENT_VERSION) {
+    showCookieBanner();
+  }
+  
+  const acceptBtn = document.getElementById('cookie-accept');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function() {
+      setCookieConsent('all');
+      hideCookieBanner();
+    });
+  }
+  
+  const essentialBtn = document.getElementById('cookie-essential');
+  if (essentialBtn) {
+    essentialBtn.addEventListener('click', function() {
+      setCookieConsent('essential');
+      hideCookieBanner();
+    });
+  }
+})();
+</script>
+"""
+
 # ============================================================================
 # THEMES
 # ============================================================================
@@ -1626,6 +1747,17 @@ BASE_HTML = """<!DOCTYPE html>
   <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
   <p>All product details were verified as of date featured. Prices and availability may change.</p>
   <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc.</p>
+  
+  <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--dropdown-border);">
+    <p style="margin: 10px 0;">
+      <a href="/privacy-policy" style="margin: 0 15px;">Privacy Policy</a> · 
+      <a href="/terms" style="margin: 0 15px;">Terms of Service</a> · 
+      <a href="mailto:hello@fybobuybo.com" style="margin: 0 15px;">Contact</a>
+    </p>
+    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 15px;">
+      © 2026 FyboBuybo. All rights reserved.
+    </p>
+  </div>
 </footer>
 
 <script>
@@ -1816,6 +1948,8 @@ document.addEventListener('keydown', (e) => {
 });
 </script>
 
+{{ cookie_consent|safe }}
+
 </body>
 </html>
 """
@@ -1902,7 +2036,8 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
         structured_data=structured_data,
         breadcrumb_schema=breadcrumb_schema,
         article_date=article_date,
-        content=content or ""
+        content=content or "",
+        cookie_consent=COOKIE_CONSENT_HTML
     )
 
 
@@ -1911,6 +2046,27 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
 # ROUTES - CACHING REMOVED FROM SEO-CRITICAL PAGES
 # ============================================================================
 
+@app.route("/privacy-policy")
+def privacy_policy():
+    """Privacy policy page - required by UK GDPR"""
+    return render_page(
+        title="Privacy Policy – FyboBuybo",
+        description="Our commitment to protecting your privacy and data in accordance with UK GDPR and Data Protection Act 2018.",
+        heading="Privacy Policy",
+        subtitle="How we collect, use, and protect your data",
+        content=PRIVACY_POLICY_HTML
+    )
+
+@app.route("/terms")
+def terms_of_service():
+    """Terms of Service page - legal requirements for affiliate site"""
+    return render_page(
+        title="Terms of Service – FyboBuybo",
+        description="Terms and conditions for using FyboBuybo, including affiliate disclosures and limitation of liability.",
+        heading="Terms of Service",
+        subtitle="Legal terms for using our website",
+        content=TERMS_OF_SERVICE_HTML
+    )
 # API endpoint for search
 @app.route("/api/search-products")
 def api_search_products():
