@@ -1960,6 +1960,16 @@ BASE_HTML = """<!DOCTYPE html>
 <meta property="og:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta name="google-site-verification" content="googleb2fd2d2e239922f5" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C1YNKZS6PG');
+</script>
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
