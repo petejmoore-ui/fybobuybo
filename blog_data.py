@@ -559,7 +559,7 @@ BLOG_POSTS = {
     </ul>
   </section>
 
-  <p style="margin-top:24px;">For more sportswear ideas, check out our <a href="/category/sports-and-outdoors">Sports & Outdoors category</a> or explore our <a href="/category/health-and-personal-care">Health & Personal Care</a> for the latest listings.</p>
+  <p style="margin-top:24px;">For more sportswear ideas, check out our <a href="/category/sports-and-outdoors">Sports & Outdoors category</a> or explore our <a href="/category/health-and-personal-care">Health & Personal Care items</a> for the latest listings.</p>
   </section>
 
   <section style="margin-top:40px;">
