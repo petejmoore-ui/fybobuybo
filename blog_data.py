@@ -792,6 +792,14 @@ BLOG_POSTS = {
     </ul>
   </section>
 
+  <p style="margin-top:24px;">
+    Looking for something more budget-specific? Browse our
+    <a href="/valentines-gifts-for-her-under-50">Valentine’s Gifts Under £50</a>,
+    <a href="/valentines-gifts-for-her-under-100">Valentine’s Gifts Under £100</a>,
+    or explore all
+    <a href="/season/valentines-day">Valentine’s Day gift ideas</a>.
+  </p>
+
   <section style="margin-top:40px;">
     <h2>Frequently Asked Questions</h2>
     
@@ -867,6 +875,21 @@ BLOG_POSTS = {
   <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
   <p itemprop="description">Valentine’s Day doesn’t have to be expensive. These thoughtful, highly rated gifts under £50 feel luxurious and meaningful — perfect for showing love without overspending in 2026.</p>
+
+  <p itemprop="description">
+    Valentine’s Day doesn’t have to be expensive. These thoughtful, highly rated gifts under £50 feel luxurious and meaningful — perfect for showing love without overspending in 2026.
+  </p>
+
+  <p style="margin-top:20px;">
+    Want more inspiration? See our
+    <a href="/7-best-selling-valentines-gifts-for-her-2026">
+      best-selling Valentine’s gifts
+    </a>
+    or explore
+    <a href="/valentines-gifts-for-her-under-100">
+      premium gifts under £100
+    </a>.
+  </p>
 
   <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
     <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
@@ -1189,6 +1212,17 @@ BLOG_POSTS = {
       <li><strong>Balanced Value:</strong> High ratings and perceived luxury at sensible prices</li>
     </ul>
   </section>
+
+  <p style="margin-top:24px;">
+    Still deciding? Compare with our
+    <a href="/7-best-selling-valentines-gifts-for-her-2026">
+      best-selling Valentine’s gifts
+    </a>
+    or check out
+    <a href="/valentines-gifts-for-her-under-50">
+      great gifts under £50
+    </a>.
+  </p>
 
   <section style="margin-top:40px;">
     <h2>Frequently Asked Questions</h2>
