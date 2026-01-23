@@ -559,6 +559,9 @@ BLOG_POSTS = {
     </ul>
   </section>
 
+  <p style="margin-top:24px;">For more sportswear ideas, check out our <a href="/category/sports-and-outdoors">Sports & Outdoors category</a> or explore our <a href="/category/health-and-personal-care">Health & Personal Care</a> for the latest listings.</p>
+  </section>
+
   <section style="margin-top:40px;">
     <h2>Frequently Asked Questions</h2>
     
@@ -584,12 +587,11 @@ BLOG_POSTS = {
         
         # Internal linking strategy (adapt as needed)
         "internal_links": [
-            {"text": "Home upgrades", "url": "/8-essential-home-products-to-upgrade-your-space-in-2026"},
             {"text": "Sports & Outdoors", "url": "/category/sports-and-outdoors"},
-            {"text": "Fitness gear", "url": "/category/fitness"}
+            {"text": "Health & Personal Care", "url": "/category/health-and-personal-care"}
         ]
     },
-    # ... add your other posts here ...
+   
 
 
     "7-best-selling-valentines-gifts-for-her-2026": {
