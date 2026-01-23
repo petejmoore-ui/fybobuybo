@@ -2167,7 +2167,7 @@ BASE_HTML = """<!DOCTYPE html>
     <p style="margin: 10px 0;">
       <a href="/privacy-policy" style="margin: 0 15px;">Privacy Policy</a> · 
       <a href="/terms" style="margin: 0 15px;">Terms of Service</a> · 
-      <a href="mailto:hello@fybobuybo.com" style="margin: 0 15px;">Contact</a>
+      <a href="mailto:infofybobuybo@gmail.com" style="margin: 0 15px;">Contact</a>
     </p>
     <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 15px;">
       © 2026 FyboBuybo. All rights reserved.
