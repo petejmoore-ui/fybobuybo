@@ -794,8 +794,8 @@ BLOG_POSTS = {
 
   <p style="margin-top:24px;">
     Looking for something more budget-specific? Browse our
-    <a href="/valentines-gifts-for-her-under-50">Valentine’s Gifts Under £50</a>,
-    <a href="/valentines-gifts-for-her-under-100">Valentine’s Gifts Under £100</a>,
+    <a href="/blog/valentines-gifts-for-her-under-50">Valentine’s Gifts Under £50</a>,
+    <a href="/blog/valentines-gifts-for-her-under-100">Valentine’s Gifts Under £100</a>,
     or explore all
     <a href="/season/valentines-day">Valentine’s Day gift ideas</a>.
   </p>
@@ -882,11 +882,11 @@ BLOG_POSTS = {
 
   <p style="margin-top:20px;">
     Want more inspiration? See our
-    <a href="/7-best-selling-valentines-gifts-for-her-2026">
+    <a href="/blog/7-best-selling-valentines-gifts-for-her-2026">
       best-selling Valentine’s gifts
     </a>
     or explore
-    <a href="/valentines-gifts-for-her-under-100">
+    <a href="/blog/valentines-gifts-for-her-under-100">
       premium gifts under £100
     </a>.
   </p>
@@ -1215,11 +1215,11 @@ BLOG_POSTS = {
 
   <p style="margin-top:24px;">
     Still deciding? Compare with our
-    <a href="/7-best-selling-valentines-gifts-for-her-2026">
+    <a href="/blog/7-best-selling-valentines-gifts-for-her-2026">
       best-selling Valentine’s gifts
     </a>
     or check out
-    <a href="/valentines-gifts-for-her-under-50">
+    <a href="/blog/valentines-gifts-for-her-under-50">
       great gifts under £50
     </a>.
   </p>
