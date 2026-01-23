@@ -190,7 +190,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="vacuum" itemprop="headline" style="scroll-margin-top:100px;">7. Dyson V15 Detect Advanced Cordless Vacuum Cleaner</h2>
+  <h2 id="vacuum" itemprop="headline" style="scroll-margin-top:100px;">7. Dyson V8 Detect Advanced Cordless Vacuum Cleaner</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/dyson-v8-advanced-cordless-vacuum-cleaner'>
       <img src='https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg' 
@@ -199,7 +199,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Reveal and remove microscopic dust with the <strong>Dyson V15 Detect</strong>. Laser illumination, powerful suction, de-tangling technology, and automatic power adjustment make cleaning faster and more thorough — a premium upgrade for spotless UK homes.</p>
+    <p itemprop="text">Reveal and remove microscopic dust with the <strong>Dyson V8 Detect</strong>. Laser illumination, powerful suction, de-tangling technology, and automatic power adjustment make cleaning faster and more thorough — a premium upgrade for spotless UK homes.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/dyson-v8-advanced-cordless-vacuum-cleaner'>
         <button aria-label='View Dyson V15 Detect product details'>View Details & Buy</button>
