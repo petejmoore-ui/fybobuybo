@@ -824,8 +824,8 @@ BLOG_POSTS = {
 """,
     
     "internal_links": [
-        {"text": "Valentine’s Gifts Under £50", "url": "/valentines-gifts-for-her-under-50"},
-        {"text": "Valentine’s Gifts Under £100", "url": "/valentines-gifts-for-her-under-100"},
+        {"text": "Valentine’s Gifts Under £50", "url": "/blog/valentines-gifts-for-her-under-50"},
+        {"text": "Valentine’s Gifts Under £100", "url": "/blog/valentines-gifts-for-her-under-100"},
         {"text": "Seasonal Gifts", "url": "/season/valentines-day"}
     ]
 },
@@ -1048,8 +1048,8 @@ BLOG_POSTS = {
 """,
     
     "internal_links": [
-        {"text": "Best-Selling Valentine’s Gifts", "url": "/7-best-selling-valentines-gifts-for-her-2026"},
-        {"text": "Valentine’s Gifts Under £100", "url": "/valentines-gifts-for-her-under-100"}
+        {"text": "Best-Selling Valentine’s Gifts", "url": "/blog/7-best-selling-valentines-gifts-for-her-2026"},
+        {"text": "Valentine’s Gifts Under £100", "url": "/blog/valentines-gifts-for-her-under-100"}
     ]
 },
 
@@ -1247,8 +1247,8 @@ BLOG_POSTS = {
 """,
     
     "internal_links": [
-        {"text": "Best-Selling Valentine’s Gifts", "url": "/7-best-selling-valentines-gifts-for-her-2026"},
-        {"text": "Valentine’s Gifts Under £50", "url": "/valentines-gifts-for-her-under-50"}
+        {"text": "Best-Selling Valentine’s Gifts", "url": "/blog/7-best-selling-valentines-gifts-for-her-2026"},
+        {"text": "Valentine’s Gifts Under £50", "url": "/blog/valentines-gifts-for-her-under-50"}
     ]
 }
 }
