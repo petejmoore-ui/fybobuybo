@@ -1959,6 +1959,16 @@ BASE_HTML = """<!DOCTYPE html>
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
 <meta name="twitter:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta name="google-site-verification" content="googleb2fd2d2e239922f5" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C1YNKZS6PG');
+</script>
 
 {% if '/blog' in request.path and products|length == 0 %}
 <meta property="article:published_time" content="{{ article_date }}">
