@@ -72,7 +72,7 @@ BLOG_POSTS = {
 
   <h2 id="philips-hue" itemprop="headline" style="scroll-margin-top:100px;">1. Philips Hue Smart Bulbs</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap-dimmable-bluetooth-and-zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit'>
+    <a href='/product/{{ slugify("Philips Hue White Smart Bulb Twin Pack, LED [B22 Bayonet Cap] Dimmable, Bluetooth and Zigbee Compatible (Works with Alexa, Google Assistant and Apple HomeKit)") }}'>
       <img src='https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg' 
            alt='Philips Hue Smart Bulbs – Energy-Saving Smart LED Lighting Compatible with Alexa, Google Assistant, Apple HomeKit' 
            loading='lazy' 
@@ -81,7 +81,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Set the perfect mood for any room with <strong>Philips Hue Smart Bulbs</strong>. Control your lights from your phone, save energy, and enjoy seamless integration with Alexa, Google Assistant, or Apple HomeKit — ideal for making 2026 brighter and smarter.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/philips-hue-white-smart-bulb-twin-pack-led-b22-bayonet-cap-dimmable-bluetooth-and-zigbee-compatible-works-with-alexa-google-assistant-and-apple-homekit'>
+      <a href='/product/{{ slugify("Philips Hue White Smart Bulb Twin Pack, LED [B22 Bayonet Cap] Dimmable, Bluetooth and Zigbee Compatible (Works with Alexa, Google Assistant and Apple HomeKit)") }}'>
         <button aria-label='View Philips Hue smart bulb product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4pWqfaj?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -92,7 +92,7 @@ BLOG_POSTS = {
 
   <h2 id="ninja-air-fryer" itemprop="headline" style="scroll-margin-top:100px;">2. Ninja Foodi Max Dual Zone Air Fryer AF400UK – 9.5L</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-95l'>
+    <a href='/product/{{ slugify("Ninja Foodi Max Dual Zone Air Fryer AF400UK, 9.5L") }}'>
       <img src='https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg' 
            alt='Ninja Foodi Max Dual Zone Air Fryer 9.5L – Healthy Cooking, Two Independent Zones, Family-Sized Appliance' 
            loading='lazy' 
@@ -101,7 +101,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Cook healthier, crispier meals with less oil using the <strong>Ninja Foodi Max Dual Zone Air Fryer</strong>. Dual independent zones let you prepare two dishes at once with different settings — perfect for busy UK families seeking convenience without compromise.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/ninja-foodi-max-dual-zone-air-fryer-af400uk-95l'>
+      <a href='/product/{{ slugify("Ninja Foodi Max Dual Zone Air Fryer AF400UK, 9.5L") }}'>
         <button aria-label='View Ninja Foodi air fryer product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/45kdy0K?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -112,7 +112,7 @@ BLOG_POSTS = {
 
   <h2 id="dehumidifier" itemprop="headline" style="scroll-margin-top:100px;">3. MeacoDry Arete Two 12L Dehumidifier & Air Purifier</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/meacodry-arete-two-12l-dehumidifier-and-air-purifier'>
+    <a href='/product/{{ slugify("MeacoDry Arete Two 12L Dehumidifier and Air Purifier") }}'>
       <img src='https://m.media-amazon.com/images/I/51MY3VTr3pL._AC_SX679_.jpg' 
            alt='MeacoDry Arete Two 12L Dehumidifier & HEPA Air Purifier – Quiet, Energy-Saving, Ideal for Damp UK Homes' 
            loading='lazy' 
@@ -121,7 +121,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Fight damp, mould, and allergens while drying laundry quicker with the <strong>MeacoDry Arete Two</strong>. It combines powerful dehumidification with HEPA air purification in a quiet, efficient unit — essential for healthier, drier UK living spaces.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/meacodry-arete-two-12l-dehumidifier-and-air-purifier'>
+      <a href='/product/{{ slugify("MeacoDry Arete Two 12L Dehumidifier and Air Purifier") }}'>
         <button aria-label='View MeacoDry Arete Two product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/49hEeAD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -132,7 +132,7 @@ BLOG_POSTS = {
 
   <h2 id="bath-mat" itemprop="headline" style="scroll-margin-top:100px;">4. Utopia Towels Luxury Fluffy Bath Mat Rug (50x80cm)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey'>
+    <a href='/product/{{ slugify("Utopia Towels Luxury Fluffy Bath Mat Rug (50x80cm, Grey)") }}'>
       <img src='https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg' 
            alt='Utopia Towels Luxury Fluffy Bath Mat – Soft Plush, Quick-Dry, Non-Slip, Super Absorbent Grey Bathroom Rug' 
            loading='lazy' 
@@ -141,7 +141,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Add instant luxury underfoot with the <strong>Utopia Towels Fluffy Bath Mat</strong>. Ultra-soft, highly absorbent fibres with non-slip backing dry quickly and feel plush — an affordable bathroom refresh that brings spa-like comfort home.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/utopia-towels-luxury-fluffy-bath-mat-rug-50x80cm-grey'>
+      <a href='/product/{{ slugify("Utopia Towels Luxury Fluffy Bath Mat Rug (50x80cm, Grey)") }}'>
         <button aria-label='View Utopia Towels bath mat product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4si7AHt?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -152,7 +152,7 @@ BLOG_POSTS = {
 
   <h2 id="diffuser" itemprop="headline" style="scroll-margin-top:100px;">5. SALKING Aromatherapy Essential Oil Diffuser 500ml</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/salking-aromatherapy-essential-oil-diffuser-500ml-ultrasonic-cool-mist-humidifier'>
+    <a href='/product/{{ slugify("SALKING Aromatherapy Essential Oil Diffuser 500ml, Ultrasonic Cool Mist Humidifier") }}'>
       <img src='https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg' 
            alt='SALKING 500ml Aromatherapy Diffuser – Ultrasonic Cool Mist, 7 LED Colours, Remote, Long Runtime Humidifier' 
            loading='lazy' 
@@ -161,7 +161,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Transform any room into a relaxing oasis with the <strong>SALKING Essential Oil Diffuser</strong>. Large 500ml tank for up to 15 hours of mist, 7 soothing LED colours, remote control, and auto shut-off — perfect for wellness, sleep, or home fragrance.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/salking-aromatherapy-essential-oil-diffuser-500ml-ultrasonic-cool-mist-humidifier'>
+      <a href='/product/{{ slugify("SALKING Aromatherapy Essential Oil Diffuser 500ml, Ultrasonic Cool Mist Humidifier") }}'>
         <button aria-label='View SALKING diffuser product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3MZhjCD?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -172,7 +172,7 @@ BLOG_POSTS = {
 
   <h2 id="heated-blanket" itemprop="headline" style="scroll-margin-top:100px;">6. Mia & Coco Electric Heated Throw Blanket (120x160cm)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/mia-and-coco-electric-heated-throw-blanket-120x160cm'>
+    <a href='/product/{{ slugify("Mia and Coco Electric Heated Throw Blanket (120x160cm)") }}'>
       <img src='https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg' 
            alt='Mia & Coco Electric Heated Throw 120x160cm – Ultra-Soft Flannel Sherpa, 10 Heat Levels, Timer, Safe & Cozy' 
            loading='lazy' 
@@ -181,7 +181,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Wrap yourself in instant warmth with the <strong>Mia & Coco Heated Throw</strong>. Soft flannel-sherpa fabric, 10 heat settings, auto shut-off timer, and machine-washable design — energy-smart cosiness for chilly UK winters.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/mia-and-coco-electric-heated-throw-blanket-120x160cm'>
+      <a href='/product/{{ slugify("Mia and Coco Electric Heated Throw Blanket (120x160cm)") }}'>
         <button aria-label='View Mia & Coco heated throw product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3YmgAhc?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -192,7 +192,7 @@ BLOG_POSTS = {
 
   <h2 id="vacuum" itemprop="headline" style="scroll-margin-top:100px;">7. Dyson V8 Detect Advanced Cordless Vacuum Cleaner</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/dyson-v8-advanced-cordless-vacuum-cleaner'>
+    <a href='/product/{{ slugify("Dyson V8 Advanced Cordless Vacuum Cleaner") }}'>
       <img src='https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg' 
            alt='Dyson V15 Detect Advanced Cordless Vacuum – Laser Dust Detection, Powerful Suction, HEPA Filtration, Smart Cleaning' 
            loading='lazy' 
@@ -201,7 +201,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Reveal and remove microscopic dust with the <strong>Dyson V8 Detect</strong>. Laser illumination, powerful suction, de-tangling technology, and automatic power adjustment make cleaning faster and more thorough — a premium upgrade for spotless UK homes.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/dyson-v8-advanced-cordless-vacuum-cleaner'>
+      <a href='/product/{{ slugify("Dyson V8 Advanced Cordless Vacuum Cleaner") }}'>
         <button aria-label='View Dyson V15 Detect product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3MZbchx?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -212,7 +212,7 @@ BLOG_POSTS = {
 
   <h2 id="storage" itemprop="headline" style="scroll-margin-top:100px;">8. Lifewit Large-Capacity Under Bed Storage Bags (Pack of 2)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/lifewit-large-capacity-under-bed-storage-organiser-bags-pack-of-2'>
+    <a href='/product/{{ slugify("Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)") }}'>
       <img src='https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg' 
            alt='Lifewit Under Bed Storage Bags 100L Pack of 2 – Durable, Zippered, Clear Window Organisers for Clothes & Bedding' 
            loading='lazy' 
@@ -221,7 +221,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Reclaim valuable floor space with <strong>Lifewit Under Bed Storage Bags</strong>. Large 100L capacity per bag, reinforced handles, clear windows, and sturdy zippers — ideal for neatly storing duvets, seasonal clothes, or extra bedding.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/lifewit-large-capacity-under-bed-storage-organiser-bags-pack-of-2'>
+      <a href='/product/{{ slugify("Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)") }}'>
         <button aria-label='View Lifewit under-bed storage product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/49fUzWa?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
@@ -241,6 +241,8 @@ BLOG_POSTS = {
       <li><strong>Health & Wellness:</strong> Products that improve air quality and comfort are prioritized</li>
       <li><strong>Space Optimization:</strong> Smaller UK homes benefit from clever storage solutions</li>
     </ul>
+    
+    <p style="margin-top:24px;">For more home improvement ideas, check out our <a href="/category/home-and-kitchen">Home & Kitchen category</a> or explore our <a href="/category/electronics">Electronics section</a> for the latest smart home gadgets.</p>
   </section>
 
   <section style="margin-top:40px;">
@@ -272,6 +274,7 @@ BLOG_POSTS = {
             {"text": "Electronics", "url": "/category/electronics"}
         ]
     },
+
 
     
     "10-essential-running-accessories-for-everyday-training-2026": {
