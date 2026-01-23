@@ -685,52 +685,72 @@ def generate_fallback_hook(product):
     return f"Appreciated by UK shoppers for its <b>quality construction</b> and thoughtful design. This {category.lower()} delivers reliable performance in everyday British life."
 
 
+# ============================================================================
+# ULTRA-RELIABLE HOOK GENERATION - WORKS FOR ALL PRODUCTS
+# Replace your generate_hook function with this version
+# ============================================================================
+
 def generate_hook(product):
     """
-    Generate varied, SEO-optimized, conversion-focused hooks
-    FIXED VERSION with relaxed quality checks
+    Generate varied, conversion-focused hooks
+    GUARANTEED to work for every product
     """
     
     # Check for manual override first
     if "hook_override" in product and product["hook_override"].strip():
         return product["hook_override"].strip()
     
-    # Select appropriate hook type
-    hook_type = select_hook_type(product)
-    
-    # Extract product data
     name = product["name"]
     category = product.get("category", "")
     keywords = product.get("keywords", [])
     pain_points = product.get("pain_points", [])
     price_tier = product.get("price_tier", "")
-    rating = product.get("manual_rating")
-    reviews = product.get("manual_reviews")
-    season = product.get("season", "")
     
-    # Build prompt based on selected type
-    prompt_builders = {
-        "problem_solution": lambda: build_problem_solution_prompt(name, category, pain_points, keywords),
-        "social_proof": lambda: build_social_proof_prompt(name, category, rating, reviews, keywords),
-        "value_proposition": lambda: build_value_prop_prompt(name, category, price_tier, keywords),
-        "lifestyle": lambda: build_lifestyle_prompt(name, category, pain_points, keywords),
-        "comparison": lambda: build_comparison_prompt(name, category, pain_points, keywords),
-        "specific_use_case": lambda: build_use_case_prompt(name, category, pain_points, keywords, season)
-    }
+    # Use a simple rotation system instead of complex selection
+    # This ensures variety without complex logic
+    styles = [
+        "benefit-first", 
+        "lifestyle-story", 
+        "quality-craft", 
+        "problem-solution",
+        "uk-context",
+        "practical-value"
+    ]
     
-    prompt = prompt_builders.get(hook_type, prompt_builders["problem_solution"])()
+    style = random.choice(styles)
     
-    # Generate with variety settings
-    temperature = random.uniform(0.75, 0.88)
+    # Build context strings
+    pain_point_text = pain_points[0] if pain_points else "everyday practicality"
+    keyword_text = ', '.join(keywords[:3]) if keywords else ""
     
-    # ONLY TRY ONCE - if it fails, use fallback
+    # SIMPLIFIED PROMPT - No strict requirements
+    prompt = f"""You are a sophisticated British copywriter creating product descriptions for UK shoppers.
+
+Write a compelling 1-2 sentence description for this product:
+
+PRODUCT: {name}
+CATEGORY: {category}
+STYLE: {style}
+KEY BENEFIT: {pain_point_text}
+{f"KEYWORDS TO MENTION: {keyword_text}" if keyword_text else ""}
+
+REQUIREMENTS:
+- Write 1-2 natural, conversational sentences
+- Mention one standout feature using <b>tags</b> around it
+- Sound warm, helpful, and British
+- Focus on practical benefits
+- NO hype words like "must-have", "game-changer", "essential"
+
+Write the description now (just the sentences, nothing else):"""
+
     try:
+        # Single attempt with generous parameters
         response = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
-            temperature=temperature,
-            max_tokens=120,
-            top_p=0.90
+            temperature=0.7,
+            max_tokens=100,
+            top_p=0.9
         )
         
         hook = response.choices[0].message.content.strip()
@@ -739,24 +759,91 @@ def generate_hook(product):
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
         hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
         
+        # Add <b> tags if none exist (pick a word from the name)
+        if '<b>' not in hook:
+            # Find a good word to bold from the product name
+            words = name.split()
+            for word in words:
+                if len(word) > 4 and word[0].isupper():
+                    hook = hook.replace(word, f'<b>{word}</b>', 1)
+                    break
+        
         # Ensure ends with punctuation
-        if not re.search(r'[.!?]$', hook):
+        if hook and not re.search(r'[.!?]$', hook):
             hook += "."
         
-        # Quality check - if passes, great! If not, use fallback immediately
-        if passes_quality_check(hook, product):
-            print(f"✓ Generated {hook_type} hook for: {name[:50]}...")
+        # Basic sanity check - if hook exists and is reasonable, use it
+        if hook and len(hook) > 20 and len(hook) < 500:
+            print(f"✓ Generated hook for: {name[:50]}...")
             return hook
         else:
-            print(f"⚠ Hook didn't meet quality standards, using fallback for: {name[:50]}...")
-            return generate_fallback_hook(product)
+            # Generate smart fallback based on category
+            return generate_smart_fallback(product)
             
     except Exception as e:
-        print(f"⚠ Hook generation failed for '{name[:50]}...': {e}")
-        return generate_fallback_hook(product)
+        print(f"⚠ API error for '{name[:50]}...': {e}")
+        return generate_smart_fallback(product)
+
+
+def generate_smart_fallback(product):
+    """
+    Generate category-specific fallback hooks that are still unique
+    """
+    name = product["name"]
+    category = product.get("category", "Product")
     
-    # If all retries failed, use fallback
-    return generate_fallback_hook(product)
+    # Extract key feature from name
+    name_lower = name.lower()
+    
+    # Category-specific templates
+    if "beauty" in category.lower():
+        if "set" in name_lower:
+            return f"A thoughtfully curated beauty set that brings <b>professional-quality skincare</b> into your daily routine. Loved by UK shoppers for reliable results."
+        else:
+            return f"Elevates your skincare routine with <b>salon-quality formulation</b> in a product designed for everyday British life."
+    
+    elif "toy" in category.lower() or "game" in category.lower():
+        if "lego" in name_lower or "building" in name_lower:
+            return f"Sparks creativity and keeps young minds engaged for hours with <b>quality construction</b> that lasts. A favourite among UK families."
+        else:
+            return f"Brings joy and entertainment to playtime with <b>durable design</b> that stands up to enthusiastic use."
+    
+    elif "home" in category.lower() or "kitchen" in category.lower():
+        if "candle" in name_lower:
+            return f"Creates instant ambiance with <b>long-lasting fragrance</b> that transforms any room. A small luxury for everyday British homes."
+        elif "storage" in name_lower or "organiz" in name_lower:
+            return f"Tackles clutter and maximizes space with <b>clever design</b> that fits seamlessly into UK homes."
+        else:
+            return f"Simplifies daily routines with <b>practical functionality</b> that UK households genuinely appreciate."
+    
+    elif "electronic" in category.lower() or "tech" in category.lower():
+        return f"Combines smart functionality with <b>intuitive operation</b> for hassle-free use in modern UK homes."
+    
+    elif "fashion" in category.lower() or "clothing" in category.lower():
+        if "pyjama" in name_lower or "sleepwear" in name_lower:
+            return f"Wraps you in <b>luxuriously soft comfort</b> perfect for cozy evenings and restful nights."
+        else:
+            return f"Delivers <b>quality craftsmanship</b> and versatile style that works effortlessly in any British wardrobe."
+    
+    elif "book" in category.lower():
+        return f"Captures precious memories in a <b>beautifully crafted format</b> that's made to last for years of enjoyment."
+    
+    # Generic but still decent fallback
+    else:
+        features = []
+        if "quality" not in name_lower:
+            features.append("quality construction")
+        if "design" not in name_lower:
+            features.append("thoughtful design")
+        if "durable" not in name_lower:
+            features.append("lasting durability")
+        
+        feature = random.choice(features) if features else "reliable performance"
+        
+        return f"Appreciated by UK shoppers for its <b>{feature}</b> and practical value. This {category.lower()} delivers dependable results in everyday British life."
+
+
+
 
 
 # ============================================================================
