@@ -45,7 +45,182 @@ os.makedirs("data", exist_ok=True)
 
 # Privacy Policy HTML content
 PRIVACY_POLICY_HTML = """
-[Copy entire content from privacy_policy.py here - it's too long to include inline]
+<article style="max-width: 900px; margin: 40px auto; padding: 20px;">
+  <div style="background: var(--card); padding: 30px; border-radius: 16px; margin-bottom: 30px;">
+    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+      <strong>Last Updated:</strong> January 23, 2026
+    </p>
+    <p style="font-size: 1.05rem; line-height: 1.8;">
+      FyboBuybo ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website www.fybobuybo.com.
+    </p>
+  </div>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">1. Information We Collect</h2>
+  
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">1.1 Automatically Collected Information</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    When you visit our website, we automatically collect certain information about your device and browsing behaviour through cookies and similar technologies:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Device Information:</strong> Browser type, operating system, device type</li>
+    <li><strong>Usage Data:</strong> Pages visited, time spent on pages, links clicked</li>
+    <li><strong>Location Data:</strong> Approximate geographic location based on IP address</li>
+    <li><strong>Referral Data:</strong> Website you came from before visiting us</li>
+  </ul>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">1.2 Information You Provide</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We do not currently collect personal information directly from you (such as name or email) unless you choose to contact us. Our website does not require registration or account creation.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">2. How We Use Your Information</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We use the automatically collected information for:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Website Functionality:</strong> To remember your preferences (like theme selection)</li>
+    <li><strong>Analytics:</strong> To understand how visitors use our site and improve user experience</li>
+    <li><strong>Affiliate Tracking:</strong> To track product clicks for our Amazon Associates affiliate programme</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">3. Cookies and Tracking Technologies</h2>
+  
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">3.1 What Are Cookies?</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Cookies are small text files stored on your device when you visit websites. They help websites remember your preferences and improve your browsing experience.
+  </p>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">3.2 Cookies We Use</h3>
+  
+  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <h4 style="color: var(--accent); margin-bottom: 10px;">Essential Cookies (Required)</h4>
+    <p style="line-height: 1.7; margin-bottom: 10px;">
+      <strong>Cookie Name:</strong> <code>themeIndex</code><br>
+      <strong>Purpose:</strong> Remembers your light/dark theme preference<br>
+      <strong>Duration:</strong> Persistent (until you clear browser data)<br>
+      <strong>Legal Basis:</strong> Legitimate interest (website functionality)
+    </p>
+  </div>
+
+  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <h4 style="color: var(--accent); margin-bottom: 10px;">Third-Party Cookies</h4>
+    <p style="line-height: 1.7; margin-bottom: 10px;">
+      <strong>Amazon Associates:</strong> When you click affiliate links, Amazon may set cookies to track your session for commission purposes. These cookies are controlled by Amazon and subject to <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener">Amazon's Privacy Notice</a>.
+    </p>
+  </div>
+
+  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">3.3 Managing Cookies</h3>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    You can control and delete cookies through your browser settings:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Chrome:</strong> Settings > Privacy and security > Cookies and other site data</li>
+    <li><strong>Firefox:</strong> Settings > Privacy & Security > Cookies and Site Data</li>
+    <li><strong>Safari:</strong> Preferences > Privacy > Manage Website Data</li>
+    <li><strong>Edge:</strong> Settings > Cookies and site permissions</li>
+  </ul>
+  <p style="line-height: 1.8; margin-bottom: 20px; font-style: italic; color: var(--text-muted);">
+    Note: Blocking all cookies may affect website functionality, such as theme preferences.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">4. Affiliate Relationships and Amazon</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    FyboBuybo is a participant in the Amazon EU Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.co.uk.
+  </p>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    When you click on product links and make a purchase on Amazon, we may earn a small commission at no extra cost to you. Amazon handles all transaction data and personal information according to their own privacy policy. We do not receive any of your personal or payment information from Amazon.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">5. Data Sharing and Third Parties</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We do not sell, trade, or rent your personal information to third parties. We may share aggregated, anonymised data with:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Amazon:</strong> For affiliate programme tracking (when you click product links)</li>
+    <li><strong>Hosting Provider:</strong> Our website hosting service (necessary for site operation)</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">6. Your Rights Under UK GDPR</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Under the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018, you have the following rights:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Right to Access:</strong> Request a copy of data we hold about you</li>
+    <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
+    <li><strong>Right to Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
+    <li><strong>Right to Restrict Processing:</strong> Request limitation on how we use your data</li>
+    <li><strong>Right to Data Portability:</strong> Request transfer of your data to another service</li>
+    <li><strong>Right to Object:</strong> Object to processing of your data</li>
+    <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for data processing at any time</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">7. Data Retention</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We retain automatically collected data for as long as necessary to provide our services and comply with legal obligations:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li><strong>Cookie Data:</strong> Stored locally on your device until you clear it or it expires</li>
+    <li><strong>Server Logs:</strong> Retained for up to 90 days for security and troubleshooting</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">8. Data Security</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We implement appropriate technical and organisational measures to protect your data, including:
+  </p>
+  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
+    <li>HTTPS encryption for all website traffic</li>
+    <li>Secure hosting infrastructure</li>
+    <li>Regular security updates and monitoring</li>
+    <li>Limited data collection (we only collect what's necessary)</li>
+  </ul>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">9. Children's Privacy</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Our website is not directed at children under 13 years of age. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">10. International Data Transfers</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    Our website is hosted in the UK/EU. If you access our site from outside the UK or EU, your data may be transferred to and processed in the UK in accordance with UK GDPR standards.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">11. Changes to This Privacy Policy</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The "Last Updated" date at the top will indicate when changes were made. Continued use of our website after changes constitutes acceptance of the updated policy.
+  </p>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">12. Contact Us</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    If you have questions about this Privacy Policy or wish to exercise your data protection rights, please contact us:
+  </p>
+  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <p style="line-height: 1.8;">
+      <strong>Email:</strong> privacy@fybobuybo.com<br>
+      <strong>Website:</strong> www.fybobuybo.com<br>
+      <strong>Response Time:</strong> We aim to respond within 30 days
+    </p>
+  </div>
+
+  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">13. Complaints</h2>
+  <p style="line-height: 1.8; margin-bottom: 20px;">
+    If you believe we have not handled your data properly, you have the right to lodge a complaint with the UK's data protection authority:
+  </p>
+  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <p style="line-height: 1.8;">
+      <strong>Information Commissioner's Office (ICO)</strong><br>
+      Website: <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a><br>
+      Telephone: 0303 123 1113<br>
+      Address: Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF
+    </p>
+  </div>
+
+  <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); padding: 30px; border-radius: 16px; margin-top: 50px;">
+    <h3 style="color: var(--accent); margin-bottom: 15px;">Summary</h3>
+    <p style="line-height: 1.8;">
+      We collect minimal data (just browsing behaviour and preferences), use it to improve our site, share affiliate tracking data with Amazon, and respect your privacy rights under UK law. You can control cookies through your browser and contact us anytime with questions.
+    </p>
+  </div>
+</article>
 """
 
 # Terms of Service HTML content  
@@ -432,9 +607,6 @@ def shorten_product_name(name, max_length=80):
             break
     return out + "..."
 
-# ============================================================================
-# ELITE HOOK GENERATION SYSTEM
-# ============================================================================
 
 # ============================================================================
 # FIXED ELITE HOOK GENERATION - RELAXED QUALITY CHECKS
