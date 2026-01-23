@@ -7,7 +7,7 @@ from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
 
-from flask import Flask, render_template_string, request, url_for, abort, Response
+from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
 from groq import Groq
 from dotenv import load_dotenv
 import requests
@@ -793,6 +793,66 @@ nav {
     color: var(--text-muted);
 }
 
+/* SEARCH RESULTS MODAL */
+#search-results {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 40px 20px;
+}
+
+#search-results.active {
+    display: block;
+}
+
+.search-modal {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+}
+
+.search-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--card);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-close:hover {
+    background: var(--tag);
+}
+
+.search-results-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.search-results-count {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
 #theme-toggle {
     position: fixed;
     top: 20px;
@@ -1131,9 +1191,19 @@ BASE_HTML = """<!DOCTYPE html>
   {% endif %}
 
   <form id="search-form" role="search">
-    <input type="search" id="search-input" placeholder="Search gifts..." aria-label="Search">
+    <input type="search" id="search-input" placeholder="Search all gifts..." aria-label="Search">
   </form>
 </nav>
+
+<!-- Search Results Modal -->
+<div id="search-results">
+  <div class="search-modal">
+    <button class="search-close" aria-label="Close search">&times;</button>
+    <h2 class="search-results-title">Search Results</h2>
+    <p class="search-results-count"></p>
+    <div id="search-results-grid" class="grid"></div>
+  </div>
+</div>
 
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
@@ -1289,16 +1359,153 @@ document.addEventListener('click', () => {
   document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
 });
 
+// GLOBAL SEARCH FUNCTIONALITY
 const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+const searchResultsGrid = document.getElementById('search-results-grid');
+const searchResultsCount = document.querySelector('.search-results-count');
+const searchClose = document.querySelector('.search-close');
+
+let searchTimeout;
+let allProducts = [];
+
+// Fetch all products for search
+async function loadAllProducts() {
+  try {
+    const response = await fetch('/api/search-products');
+    const data = await response.json();
+    allProducts = data.products || [];
+  } catch (error) {
+    console.error('Failed to load products:', error);
+  }
+}
+
+// Initialize product data
+loadAllProducts();
+
 if (searchInput) {
   searchInput.addEventListener('input', e => {
-    const q = e.target.value.toLowerCase().trim();
-    document.querySelectorAll('.grid .card').forEach(card => {
-      const text = card.textContent.toLowerCase();
-      card.classList.toggle('hidden', !text.includes(q));
-    });
+    const query = e.target.value.trim();
+    
+    clearTimeout(searchTimeout);
+    
+    if (query.length < 2) {
+      searchResults.classList.remove('active');
+      return;
+    }
+    
+    searchTimeout = setTimeout(() => {
+      performSearch(query);
+    }, 300);
   });
 }
+
+function performSearch(query) {
+  const queryLower = query.toLowerCase();
+  
+  const matches = allProducts.filter(product => {
+    const searchableText = [
+      product.name,
+      product.category,
+      product.hook,
+      product.info,
+      ...(product.keywords || []),
+      product.season
+    ].join(' ').toLowerCase();
+    
+    return searchableText.includes(queryLower);
+  });
+  
+  displaySearchResults(matches, query);
+}
+
+function displaySearchResults(products, query) {
+  searchResultsCount.textContent = `Found ${products.length} result${products.length !== 1 ? 's' : ''} for "${query}"`;
+  
+  searchResultsGrid.innerHTML = '';
+  
+  if (products.length === 0) {
+    searchResultsGrid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">No products found. Try a different search term.</p>';
+  } else {
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <span class="tag">${p.category}</span>
+        <a href="/product/${slugify(p.name)}">
+          <h2>${shortenProductName(p.name)}</h2>
+        </a>
+        <a href="/product/${slugify(p.name)}">
+          <img src="${p.image}" alt="${p.name}" loading="lazy">
+        </a>
+        <p>${p.hook || ''}</p>
+        ${p.url ? `<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="button">View on Amazon</a>` : ''}
+      `;
+      searchResultsGrid.appendChild(card);
+    });
+  }
+  
+  searchResults.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function slugify(text) {
+  return text.toLowerCase()
+    .replace(/&/g, '-and-')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function shortenProductName(name, maxLength = 80) {
+  if (name.length <= maxLength) return name;
+  
+  const separators = [',', '('];
+  for (const sep of separators) {
+    if (name.includes(sep)) {
+      const short = name.split(sep)[0].trim();
+      if (short.length <= maxLength) return short;
+    }
+  }
+  
+  const words = name.split(' ');
+  let result = '';
+  for (const word of words) {
+    if ((result + ' ' + word).length <= maxLength - 3) {
+      result += (result ? ' ' : '') + word;
+    } else {
+      break;
+    }
+  }
+  return result + '...';
+}
+
+if (searchClose) {
+  searchClose.addEventListener('click', () => {
+    searchResults.classList.remove('active');
+    document.body.style.overflow = '';
+    searchInput.value = '';
+  });
+}
+
+// Close on background click
+searchResults?.addEventListener('click', (e) => {
+  if (e.target === searchResults) {
+    searchResults.classList.remove('active');
+    document.body.style.overflow = '';
+    searchInput.value = '';
+  }
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && searchResults.classList.contains('active')) {
+    searchResults.classList.remove('active');
+    document.body.style.overflow = '';
+    searchInput.value = '';
+  }
+});
 </script>
 
 </body>
@@ -1395,6 +1602,24 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
 # ============================================================================
 # ROUTES - CACHING REMOVED FROM SEO-CRITICAL PAGES
 # ============================================================================
+
+# API endpoint for search
+@app.route("/api/search-products")
+def api_search_products():
+    all_products = refresh_products(background=True)
+    # Return minimal data needed for search
+    search_data = [{
+        'name': p['name'],
+        'category': p.get('category', ''),
+        'image': p.get('image', ''),
+        'hook': p.get('hook', ''),
+        'info': p.get('info', ''),
+        'keywords': p.get('keywords', []),
+        'season': p.get('season', ''),
+        'url': p.get('url', '')
+    } for p in all_products]
+    
+    return jsonify({'products': search_data})
 
 @app.route("/")
 def home():
@@ -1562,7 +1787,18 @@ def blog_detail(slug):
         abort(404)
 
     all_products = refresh_products(background=True)
-    related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+    
+    # Get related products based on the post's related_products field
+    related = []
+    if post.get("related_products"):
+        for product_slug in post["related_products"]:
+            product = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
+            if product:
+                related.append(product)
+    
+    # If no specific related products, fall back to category-based
+    if not related:
+        related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
     # Render blog content with Jinja2 for any template variables
     from jinja2 import Template
@@ -1571,7 +1807,7 @@ def blog_detail(slug):
 
     rendered = render_page(
         title=post["title"],
-        description=post.get("description", "Gift inspiration and practical tips from FyboBuybo."),
+        description=post.get("meta_description", post.get("description", "Gift inspiration and practical tips from FyboBuybo.")),
         heading=post.get("heading", post["title"]),
         subtitle=post.get("subtitle", "Gift guide & inspiration"),
         products=None,
