@@ -311,60 +311,368 @@ def shorten_product_name(name, max_length=80):
             break
     return out + "..."
 
-HOOK_STYLES = ["benefit-first", "lifestyle-story", "quality-craft", "quiet-genius"]
+# ============================================================================
+# ELITE HOOK GENERATION SYSTEM
+# ============================================================================
+
+def select_hook_type(product):
+    """Intelligently select hook type based on product attributes"""
+    
+    category = product.get("category", "").lower()
+    price_tier = product.get("price_tier", "").lower()
+    rating = product.get("manual_rating")
+    reviews = product.get("manual_reviews")
+    price = product.get("manual_price", "")
+    
+    # Extract numeric price if available
+    price_value = 0
+    if price:
+        price_str = str(price)
+        price_nums = re.findall(r'\d+\.?\d*', price_str)
+        if price_nums:
+            price_value = float(price_nums[0])
+    
+    # Social proof for highly-rated products with many reviews
+    if rating:
+        try:
+            rating_float = float(rating)
+            if rating_float >= 4.5 and reviews:
+                review_count_str = re.sub(r'[^\d]', '', str(reviews))
+                if review_count_str and int(review_count_str) > 3000:
+                    return "social_proof"
+        except:
+            pass
+    
+    # Value proposition for premium products
+    if price_tier in ["premium", "luxury"] or price_value > 100:
+        return "value_proposition"
+    
+    # Lifestyle for gifts, beauty, comfort
+    lifestyle_keywords = ["beauty", "gift", "toy", "comfort", "decor", "fashion", "personal", "wellness"]
+    if any(kw in category for kw in lifestyle_keywords):
+        return "lifestyle"
+    
+    # Problem-solution for practical home items
+    practical_keywords = ["home", "kitchen", "storage", "cleaning", "appliance", "organization"]
+    if any(kw in category for kw in practical_keywords):
+        return "problem_solution"
+    
+    # Comparison for tech, upgrades, replacements
+    tech_keywords = ["electronic", "tech", "gadget", "device", "smart", "digital"]
+    if any(kw in category for kw in tech_keywords):
+        return "comparison"
+    
+    # Specific use case for seasonal/specialized
+    if product.get("season"):
+        return "specific_use_case"
+    
+    # Default fallback - rotate between top 3
+    return random.choice(["problem_solution", "lifestyle", "comparison"])
+
+
+def build_problem_solution_prompt(name, category, pain_points, keywords):
+    """Build prompt for problem-solution hook"""
+    pain_point = pain_points[0] if pain_points else "everyday challenges"
+    keyword_text = ', '.join(keywords[:3]) if keywords else "practical benefits"
+    
+    return f"""You are a UK e-commerce copywriter specializing in problem-solution messaging.
+
+TASK: Write a compelling 2-sentence product hook that:
+1. First sentence: Identifies a relatable UK household frustration or pain point
+2. Second sentence: Presents this product as the elegant solution
+
+PRODUCT: {name}
+CATEGORY: {category}
+KEY PAIN POINT: {pain_point}
+TARGET PHRASES (weave naturally): {keyword_text}
+
+RULES:
+- Start with "Tired of..." OR "Struggling with..." OR "Fed up with..." OR "Banish..." OR "Say goodbye to..."
+- Use <b></b> tags on ONE key product feature (not generic words like "quality" or "great")
+- Include specific numbers/specs when possible (e.g., "12L capacity", "75% less energy", "10-year warranty")
+- Reference UK context naturally (British weather, home types, energy costs, daily routines)
+- BANNED WORDS: essential, must-have, game-changer, iconic, revolutionary, amazing
+- Professional yet warm tone—like a knowledgeable friend's recommendation
+- Each sentence should be substantial—no one-liners
+
+OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+
+
+def build_social_proof_prompt(name, category, rating, reviews, keywords):
+    """Build prompt for social proof hook"""
+    keyword_text = ', '.join(keywords[:3]) if keywords else "key benefits"
+    review_text = f"{rating}/5 from {reviews} reviews" if rating and reviews else "thousands of 5-star reviews"
+    
+    return f"""You are a UK e-commerce copywriter specializing in social proof messaging.
+
+TASK: Write a compelling 2-sentence hook that leverages product popularity:
+1. First sentence: Lead with impressive rating/review statistic from UK buyers
+2. Second sentence: Explain the specific reason so many people love it
+
+PRODUCT: {name}
+RATING DATA: {review_text}
+CATEGORY: {category}
+MAIN BENEFITS: {keyword_text}
+
+RULES:
+- Start with review statistic: "Over [X] UK shoppers rate this..." OR "With [X] 5-star reviews..." OR "[X] British buyers trust..."
+- Use <b></b> tags on the standout benefit that drives the ratings
+- Include specific, measurable benefit (time saved, money saved, problem solved)
+- Reference why UK buyers specifically appreciate it
+- BANNED WORDS: everyone, bestseller, trending, popular, amazing, incredible
+- Trust-building, factual tone with warmth
+- Make the numbers impressive but believable
+
+OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+
+
+def build_value_prop_prompt(name, category, price_tier, keywords):
+    """Build prompt for value proposition hook"""
+    keyword_text = ', '.join(keywords[:3]) if keywords else "premium features"
+    
+    return f"""You are a UK e-commerce copywriter specializing in premium product positioning.
+
+TASK: Frame this as a worthwhile investment with long-term value:
+1. First sentence: Position as an investment with lasting benefit or superior quality
+2. Second sentence: Specific quality feature, material, or technology that justifies the price
+
+PRODUCT: {name}
+CATEGORY: {category}
+PRICE TIER: {price_tier}
+QUALITY MARKERS: {keyword_text}
+
+RULES:
+- Start with investment framing: "A genuine investment in..." OR "Worth every penny for..." OR "Built to last with..." OR "Premium quality means..."
+- Use <b></b> tags on premium feature, material, technology, or warranty
+- Include longevity, durability, performance metrics, or cost-per-use logic
+- Sophisticated British tone—understated luxury, not flashy
+- BANNED WORDS: cheap, bargain, steal, affordable, expensive, pricey
+- Focus on value over time, not just upfront cost
+- Emphasize what makes it genuinely better, not just pricier
+
+OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+
+
+def build_lifestyle_prompt(name, category, pain_points, keywords):
+    """Build prompt for lifestyle integration hook"""
+    context = pain_points[0] if pain_points else "everyday moments"
+    feeling = ', '.join(keywords[:2]) if keywords else "comfort and satisfaction"
+    
+    return f"""You are a UK e-commerce copywriter specializing in lifestyle and aspirational messaging.
+
+TASK: Paint a vivid picture of life with this product:
+1. First sentence: Create an evocative scene or moment of using/experiencing the product
+2. Second sentence: Emotional benefit or small transformation it brings to daily life
+
+PRODUCT: {name}
+CATEGORY: {category}
+LIFESTYLE CONTEXT: {context}
+DESIRED FEELING: {feeling}
+
+RULES:
+- Start with scene-setting: "Picture this..." OR "Imagine..." OR describe a specific moment/routine
+- Use <b></b> tags on sensory detail or emotional benefit (not product name)
+- Include UK lifestyle references (Sunday mornings, rainy afternoons, cozy evenings, bank holidays)
+- Warm, inviting tone—makes reader want to experience it
+- BANNED WORDS: luxury, premium, exclusive, treat yourself, indulgent, perfect
+- Focus on feeling and experience, not just features
+- Create desire through relatability, not aspiration
+
+OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+
+
+def build_comparison_prompt(name, category, pain_points, keywords):
+    """Build prompt for comparison/upgrade hook"""
+    replaces = pain_points[0] if pain_points else "standard alternatives"
+    advantage = ', '.join(keywords[:2]) if keywords else "key improvements"
+    
+    return f"""You are a UK e-commerce copywriter specializing in comparison and upgrade messaging.
+
+TASK: Position this as superior to common alternatives:
+1. First sentence: "Unlike [common alternative]..." + key disadvantage of alternatives
+2. Second sentence: How this product solves that problem better with specific improvement
+
+PRODUCT: {name}
+CATEGORY: {category}
+REPLACES/IMPROVES ON: {replaces}
+KEY ADVANTAGE: {advantage}
+
+RULES:
+- Start with: "Unlike traditional/basic/standard [X]..." OR "While most [X]..." OR "Forget [old solution]..."
+- Use <b></b> tags on the specific differentiating feature or technology
+- Be specific about the improvement with numbers, materials, or technology terms
+- Educational, helpful tone—guiding them to better choice
+- BANNED WORDS: revolutionary, groundbreaking, better than everything, superior
+- Focus on ONE clear, meaningful, measurable difference
+- Explain why the difference matters in daily use
+
+OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+
+
+def build_use_case_prompt(name, category, pain_points, keywords, season=""):
+    """Build prompt for specific use case hook"""
+    scenario = pain_points[0] if pain_points else "specific needs"
+    perfect_for = ', '.join(keywords[:2]) if keywords else "this purpose"
+    season_context = f"SEASONAL CONTEXT: {season}" if season else "TIMING: Year-round use"
+    
+    return f"""You are a UK e-commerce copywriter specializing in use-case-specific messaging.
+
+TASK: Address a very specific scenario, need, or type of user:
+1. First sentence: Describe the exact situation, problem, or user type this is perfect for
+2. Second sentence: Why this product is ideal for that specific need with concrete details
+
+PRODUCT: {name}
+CATEGORY: {category}
+SPECIFIC SCENARIO: {scenario}
+{season_context}
+PERFECT FOR: {perfect_for}
+
+RULES:
+- Start with: "For [specific people/situation]..." OR "Perfect when..." OR "Ideal if you..." OR "When you need..."
+- Use <b></b> tags on the feature that makes it perfect for this specific use
+- Include seasonal, situational, demographic, or geographic specifics (UK climate, home types, lifestyles)
+- Helpful, advisory tone—"I know exactly what you need for this"
+- BANNED WORDS: anyone, everyone, all purposes, versatile, multi-use
+- Hyper-targeted to capture long-tail searches
+- Address the specific situation with empathy and expertise
+
+OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+
+
+def passes_quality_check(hook, product):
+    """Verify hook meets quality standards"""
+    
+    if not hook or len(hook) < 50:  # Too short
+        return False
+    
+    if len(hook) > 350:  # Too long
+        return False
+    
+    # Check for banned words
+    banned = ["essential", "must-have", "game-changer", "iconic", "revolutionary", 
+              "amazing", "incredible"]
+    hook_lower = hook.lower()
+    if any(word in hook_lower for word in banned):
+        return False
+    
+    # Must have <b> tags (product specificity requirement)
+    if '<b>' not in hook:
+        return False
+    
+    # Check sentence count (should be 2-3 sentences)
+    sentences = [s.strip() for s in hook.split('.') if s.strip()]
+    if len(sentences) < 2 or len(sentences) > 3:
+        return False
+    
+    # Should have some specificity (numbers, measurements, or technical terms)
+    has_numbers = any(char.isdigit() for char in hook)
+    technical_indicators = ['%', 'L', 'cm', 'kg', 'W', 'V', 'GB', 'TB', 'hrs', 'year', 'years']
+    has_technical = any(indicator in hook for indicator in technical_indicators)
+    
+    if not (has_numbers or has_technical):
+        return False
+    
+    return True
+
+
+def generate_fallback_hook(product):
+    """Generate a safe fallback hook if AI generation fails"""
+    name = product["name"]
+    category = product.get("category", "product")
+    
+    # Extract a key feature from the name
+    feature = ""
+    if "Smart" in name:
+        feature = "smart features"
+    elif any(word in name for word in ["LED", "OLED", "4K"]):
+        feature = "advanced display"
+    elif any(word in name for word in ["Wireless", "Bluetooth"]):
+        feature = "wireless connectivity"
+    else:
+        feature = "quality construction"
+    
+    return f"Appreciated by UK shoppers for its <b>{feature}</b> and thoughtful design. This {category.lower()} delivers reliable performance in everyday British life."
+
 
 def generate_hook(product):
+    """
+    Generate varied, SEO-optimized, conversion-focused hooks
+    Uses 6 different hook types based on product attributes
+    """
+    
+    # Check for manual override first
     if "hook_override" in product and product["hook_override"].strip():
         return product["hook_override"].strip()
-
+    
+    # Select appropriate hook type based on product attributes
+    hook_type = select_hook_type(product)
+    
+    # Extract product data
     name = product["name"]
     category = product.get("category", "")
     keywords = product.get("keywords", [])
     pain_points = product.get("pain_points", [])
     price_tier = product.get("price_tier", "")
+    rating = product.get("manual_rating")
+    reviews = product.get("manual_reviews")
+    season = product.get("season", "")
+    
+    # Build prompt based on selected type
+    prompt_builders = {
+        "problem_solution": lambda: build_problem_solution_prompt(name, category, pain_points, keywords),
+        "social_proof": lambda: build_social_proof_prompt(name, category, rating, reviews, keywords),
+        "value_proposition": lambda: build_value_prop_prompt(name, category, price_tier, keywords),
+        "lifestyle": lambda: build_lifestyle_prompt(name, category, pain_points, keywords),
+        "comparison": lambda: build_comparison_prompt(name, category, pain_points, keywords),
+        "specific_use_case": lambda: build_use_case_prompt(name, category, pain_points, keywords, season)
+    }
+    
+    prompt = prompt_builders.get(hook_type, prompt_builders["problem_solution"])()
+    
+    # Generate with variety settings - higher temperature for more creativity
+    temperature = random.uniform(0.75, 0.88)
+    
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=temperature,
+                max_tokens=120,
+                top_p=0.90
+            )
+            
+            hook = response.choices[0].message.content.strip()
+            
+            # Clean up formatting
+            hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
+            hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
+            
+            # Ensure ends with punctuation
+            if not re.search(r'[.!?]$', hook):
+                hook += "."
+            
+            # Quality check
+            if passes_quality_check(hook, product):
+                print(f"✓ Generated {hook_type} hook for: {name[:50]}...")
+                return hook
+            else:
+                print(f"⚠ Hook failed quality check (attempt {attempt + 1}), regenerating...")
+                temperature += 0.05  # Slightly increase temperature for retry
+                
+        except Exception as e:
+            print(f"⚠ Hook generation attempt {attempt + 1} failed for '{name}': {e}")
+            if attempt == max_retries - 1:
+                return generate_fallback_hook(product)
+    
+    # If all retries failed, use fallback
+    return generate_fallback_hook(product)
 
-    style = random.choice(HOOK_STYLES)
 
-    prompt = f"""
-You are a sophisticated British copywriter creating calm, elegant 1–2 sentence product highlights 
-loved by UK shoppers in 2026.
-
-Core rules:
-- Maximum 2 sentences, very concise yet evocative
-- Focus purely on practical benefits, real daily value, quality or subtle lifestyle improvement
-- Never use these words: staple, essential, go-to, must-have, iconic, game-changer
-- Use <b> tags subtly around 1–2 truly standout features only
-- Sound understated, refined, trustworthy — quiet confidence, not hype
-- Naturally weave in UK context (weather, homes, seasons, value mindset) where organic
-
-Style to use exactly: {style}
-Extra context if relevant:
-Category: {category}
-Price feel: {price_tier}
-Common UK context: {', '.join(pain_points) if pain_points else 'everyday practicality and lasting value'}
-Target phrases (subtle): {', '.join(keywords) if keywords else 'none'}
-
-Product: {name}
-
-Output only the 1–2 sentences. End with a complete sentence. No explanations.
-"""
-
-    try:
-        r = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.72 + random.uniform(-0.08, 0.08),
-            max_tokens=90
-        )
-        hook = r.choices[0].message.content.strip()
-        hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
-        hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
-        if not re.search(r'[.!?]$', hook):
-            hook += " It's quietly appreciated among UK shoppers."
-        return hook
-    except Exception as e:
-        print(f"Groq error for '{name}': {e}")
-        return f"Appreciated for its <b>lasting quality</b> and thoughtful design in everyday British life."
+# ============================================================================
+# CACHE AND PRODUCT MANAGEMENT
+# ============================================================================
 
 def should_refresh_cache():
     if not os.path.exists(CACHE_FILE):
