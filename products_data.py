@@ -3,7 +3,6 @@
 # All fields are optional - use what you need
 
 PRODUCTS = [
-        # Valentine's Day / Romantic & Personalised Additions (missing from first list)
 
     {
         "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
@@ -11,7 +10,7 @@ PRODUCTS = [
         "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
         "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
-        "asin": "B0CBLK4J2P",
+        "asin": "B0B2RM68G2",
         "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
         "manual_price": "£12.00",
         "manual_rating": "4.4",
