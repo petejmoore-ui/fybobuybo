@@ -195,7 +195,7 @@ PRIVACY_POLICY_HTML = """
   </p>
   <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
     <p style="line-height: 1.8;">
-      <strong>Email:</strong> privacy@fybobuybo.com<br>
+      <strong>Email:</strong> infofybobuybo@gmail.com<br>
       <strong>Website:</strong> www.fybobuybo.com<br>
       <strong>Response Time:</strong> We aim to respond within 30 days
     </p>
@@ -398,7 +398,7 @@ TERMS_OF_SERVICE_HTML = """
   </p>
   <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
     <p style="line-height: 1.8;">
-      <strong>Email:</strong> legal@fybobuybo.com<br>
+      <strong>Email:</strong> infofybobuybo@gmail.com<br>
       <strong>Website:</strong> www.fybobuybo.com
     </p>
   </div>
