@@ -540,54 +540,54 @@ BLOG_POSTS = {
 
     
     "kitchen-gadgets-arthritis-pain-relief-2026": {
-        # Core SEO Fields
-        "title": "8 Essential Kitchen Gadgets for Arthritic Hands (2026 UK Guide) - Pain-Free Cooking",
-        "meta_description": "Discover kitchen tools designed for arthritic hands — from electric can openers to ergonomic knives. Cook with confidence and less pain using these highly-rated Amazon products.",
-        
-        # Display Fields
-        "heading": "8 Kitchen Gadgets That Make Cooking Easier with Arthritis",
-        "subtitle": "Pain-reducing tools and clever gadgets that restore the joy of cooking for people with arthritic hands, weak grip, or joint pain.",
-        
-        # Publication Details
-        "date": "2026-01-30",
-        "last_updated": "2026-01-30",
-        "author": "FyboBuybo Editorial Team",
-        
-        # SEO Enhancement
-        "keywords": [
-            "kitchen gadgets for arthritis",
-            "arthritis cooking tools UK",
-            "easy grip kitchen utensils",
-            "ergonomic kitchen tools",
-            "kitchen aids for weak hands",
-            "arthritis-friendly kitchen",
-            "adaptive kitchen equipment"
-        ],
-        "featured_image": "https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg",
-        "featured_image_alt": "Electric can opener for arthritic hands - easy one-touch operation",
-        
-        # Schema.org Article structured data
-        "article_type": "Article",
-        "word_count": 1500,
-        "reading_time": "7 min read",
-        
-        # Social Media
-        "og_type": "article",
-        "twitter_card": "summary_large_image",
-        
-        # Related Content
-        "related_products": [
-            "hamilton-beach-smooth-touch-electric-can-opener",
-            "oxo-good-grips-jar-opener",
-            "victorinox-swiss-classic-tomato-and-sausage-knife"
-        ],
-        "related_posts": [
-            "mobility-aids-elderly-independence-2026",
-            "8-essential-home-products-to-upgrade-your-space-in-2026"
-        ],
-        
-        # Main Content
-        "content": """
+    # Core SEO Fields
+    "title": "8 Essential Kitchen Gadgets for Arthritic Hands (2026 UK Guide) - Pain-Free Cooking",
+    "meta_description": "Discover kitchen tools designed for arthritic hands — from electric can openers to ergonomic peelers. Cook with confidence and less pain using these highly-rated Amazon UK products.",
+    
+    # Display Fields
+    "heading": "8 Kitchen Gadgets That Make Cooking Easier with Arthritis",
+    "subtitle": "Pain-reducing tools and clever gadgets that restore the joy of cooking for people with arthritic hands, weak grip, or joint pain.",
+    
+    # Publication Details
+    "date": "2026-01-30",
+    "last_updated": "2026-01-30",
+    "author": "FyboBuybo Editorial Team",
+    
+    # SEO Enhancement
+    "keywords": [
+        "kitchen gadgets for arthritis UK",
+        "arthritis cooking tools Amazon UK",
+        "easy grip kitchen utensils",
+        "ergonomic kitchen tools UK",
+        "kitchen aids for weak hands",
+        "arthritis-friendly kitchen gadgets",
+        "adaptive kitchen equipment UK"
+    ],
+    "featured_image": "https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg",
+    "featured_image_alt": "Electric can opener for arthritic hands - easy one-touch operation",
+    
+    # Schema.org Article structured data
+    "article_type": "Article",
+    "word_count": 1500,
+    "reading_time": "7 min read",
+    
+    # Social Media
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    
+    # Related Content
+    "related_products": [
+        "hamilton-beach-electric-can-opener",
+        "oxo-good-grips-jar-opener",
+        "victorinox-serrated-paring-knife"
+    ],
+    "related_posts": [
+        "mobility-aids-elderly-independence-2026",
+        "8-essential-home-products-to-upgrade-your-space-in-2026"
+    ],
+    
+    # Main Content
+    "content": """
 <article itemscope itemtype="https://schema.org/Article">
   <meta itemprop="headline" content="8 Essential Kitchen Gadgets for Arthritic Hands - Pain-Free Cooking in 2026">
   <meta itemprop="datePublished" content="2026-01-30">
@@ -597,17 +597,17 @@ BLOG_POSTS = {
   
   <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <p itemprop="description">Living with arthritis shouldn't mean giving up the joy of cooking. These eight kitchen gadgets — from electric can openers to ergonomic peelers — are specifically designed to reduce hand strain, eliminate painful grip requirements, and restore confidence in the kitchen. Each has been loved by thousands of UK buyers dealing with arthritis, carpal tunnel, or reduced hand strength.</p>
+  <p itemprop="description">Living with arthritis shouldn't mean giving up the joy of cooking. These eight kitchen gadgets — from electric can openers to ergonomic peelers — are specifically designed to reduce hand strain, eliminate painful grip requirements, and restore confidence in the kitchen. Each has been loved by thousands of UK buyers dealing with arthritis, carpal tunnel, or reduced hand strength on Amazon UK.</p>
 
   <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
     <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
     <ol style="margin-left:20px;line-height:2;">
       <li><a href="#can-opener">Electric Can Opener</a></li>
       <li><a href="#jar-opener">OXO Good Grips Jar Opener</a></li>
-      <li><a href="#ergonomic-peeler">Y-Peeler with Large Handle</a></li>
-      <li><a href="#serrated-knife">Lightweight Serrated Knife</a></li>
+      <li><a href="#ergonomic-peeler">OXO Good Grips Y-Peeler</a></li>
+      <li><a href="#serrated-knife">Victorinox Serrated Paring Knife</a></li>
       <li><a href="#tap-turner">Tap Turner for Stiff Taps</a></li>
-      <li><a href="#chopper">Manual Food Chopper</a></li>
+      <li><a href="#chopper">Zyliss Easy Pull Food Chopper</a></li>
       <li><a href="#easy-grip-utensils">Weighted Easy-Grip Utensils</a></li>
       <li><a href="#silicone-grips">Silicone Jar Grippers</a></li>
     </ol>
@@ -618,22 +618,22 @@ BLOG_POSTS = {
     <p>Arthritis affects over 10 million people in the UK, with hands and wrists being among the most commonly impacted joints. Standard kitchen tools require significant grip strength and repetitive motions that aggravate inflammation. Ergonomically designed alternatives reduce strain by up to 70% while maintaining full cooking functionality.</p>
   </section>
 
-  <h2 id="can-opener" itemprop="headline" style="scroll-margin-top:100px;">1. Hamilton Beach Smooth Touch Electric Can Opener</h2>
+  <h2 id="can-opener" itemprop="headline" style="scroll-margin-top:100px;">1. Hamilton Beach Electric Automatic Can Opener</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Hamilton Beach Smooth Touch Electric Automatic Can Opener") }}'>
+    <a href='/product/{{ slugify("Hamilton Beach Electric Automatic Can Opener") }}'>
       <img src='https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg' 
            alt='Hamilton Beach Electric Can Opener - One-Touch Automatic Operation for Arthritic Hands, No Sharp Edges' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Smooth Touch Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press the lever and it does everything. Cuts along the side rather than top, leaving smooth edges. Essential for anyone with arthritis, weak grip, or hand pain.</p>
+    <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Electric Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press and it does everything. Cuts smoothly, leaving no sharp edges. Essential for anyone with arthritis, weak grip, or hand pain. Highly rated on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Hamilton Beach Smooth Touch Electric Automatic Can Opener") }}'>
+      <a href='/product/{{ slugify("Hamilton Beach Electric Automatic Can Opener") }}'>
         <button aria-label='View Hamilton Beach can opener details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4bX8K5M' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy electric can opener on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/Hamilton-Beach-Easy-Clean-Detachable-76702/dp/B09Q4SPG73' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy electric can opener on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
@@ -647,133 +647,133 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Never struggle with stubborn jar lids again using the <strong>OXO Good Grips Jar Opener</strong>. Fits jar sizes from 1-4 inches, non-slip base pad stabilises jars, and the stainless steel teeth grip lids firmly. Uses leverage instead of hand strength — simply twist the handle rather than the lid. Game-changing for arthritic hands.</p>
+    <p itemprop="text">Never struggle with stubborn jar lids again using the <strong>OXO Good Grips Jar Opener</strong>. Fits various jar sizes, non-slip base stabilises, and sharp teeth grip firmly. Leverage design means twist the handle, not the lid — perfect for arthritic hands. A bestseller on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("OXO Good Grips Jar Opener with Base Pad") }}'>
         <button aria-label='View OXO jar opener product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4c2mNvP' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy OXO jar opener on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/OXO-Good-Grips-Opener-Base/dp/B002DWA6KM' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy OXO jar opener on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
 
   <h2 id="ergonomic-peeler" itemprop="headline" style="scroll-margin-top:100px;">3. OXO Good Grips Y-Peeler with Soft Grip Handle</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("OXO Good Grips Swivel Peeler Y Peeler") }}'>
+    <a href='/product/{{ slugify("OXO Good Grips Y-Peeler") }}'>
       <img src='https://m.media-amazon.com/images/I/618U88L50zL._AC_SX679_.jpg' 
            alt='OXO Y-Peeler - Ergonomic Soft Grip Handle, Sharp Swivel Blade for Easy Vegetable Peeling with Arthritis' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Peel vegetables effortlessly with the <strong>OXO Good Grips Y-Peeler</strong>. Y-shape design requires less wrist rotation and uses arm motion instead of finger strength. Oversized soft grip handle accommodates all hand sizes comfortably, while sharp Japanese stainless steel blade glides through produce. Dramatically reduces hand fatigue during food prep.</p>
+    <p itemprop="text">Peel vegetables effortlessly with the <strong>OXO Good Grips Y-Peeler</strong>. Y-shape reduces wrist rotation, oversized soft grip fits comfortably, and sharp blade glides easily. Less finger strength needed — great for reducing fatigue in food prep. Popular UK choice.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("OXO Good Grips Swivel Peeler Y Peeler") }}'>
+      <a href='/product/{{ slugify("OXO Good Grips Y-Peeler") }}'>
         <button aria-label='View OXO Y-peeler product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4c1hLmK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy OXO Y-peeler on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/s?k=OXO+Good+Grips+Y+Peeler' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy OXO Y-peeler on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
 
-  <h2 id="serrated-knife" itemprop="headline" style="scroll-margin-top:100px;">4. Victorinox Swiss Classic Lightweight Serrated Knife</h2>
+  <h2 id="serrated-knife" itemprop="headline" style="scroll-margin-top:100px;">4. Victorinox Swiss Classic Serrated Paring Knife</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Victorinox Swiss Classic Paring Knife Serrated 8cm Black") }}'>
+    <a href='/product/{{ slugify("Victorinox Swiss Classic Serrated Paring Knife") }}'>
       <img src='https://m.media-amazon.com/images/I/51t+lfqLvCL._AC_SX679_.jpg' 
            alt='Victorinox Serrated Paring Knife - Ultra-Light, Sharp Wavy Edge for Effortless Cutting with Weak Grip' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Cut through tomatoes, bread, and soft fruits without pressure using the <strong>Victorinox Swiss Classic Serrated Knife</strong>. Ultra-lightweight design (just 25g) reduces wrist strain, while the wavy edge does the work — no sawing motion required. Ergonomic handle provides secure grip even with limited hand strength. Swiss precision at an affordable price.</p>
+    <p itemprop="text">Cut tomatoes, bread, and soft fruits easily with the <strong>Victorinox Swiss Classic Serrated Knife</strong>. Lightweight (around 25g), wavy edge slices without pressure or sawing. Ergonomic handle for secure hold even with limited strength. Swiss quality, affordable on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Victorinox Swiss Classic Paring Knife Serrated 8cm Black") }}'>
+      <a href='/product/{{ slugify("Victorinox Swiss Classic Serrated Paring Knife") }}'>
         <button aria-label='View Victorinox knife product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4c4wUfT' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy Victorinox serrated knife on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/Victorinox-Swiss-Classic-Paring-Serrated/dp/B005LRYEJU' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy Victorinox serrated knife on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
 
-  <h2 id="tap-turner" itemprop="headline" style="scroll-margin-top:100px;">5. Large-Grip Tap Turner for Kitchen & Bathroom</h2>
+  <h2 id="tap-turner" itemprop="headline" style="scroll-margin-top:100px;">5. Etac or Homecraft Large-Grip Tap Turner</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Tap Turner - Large Grip Handle for Arthritic Hands") }}'>
+    <a href='/product/{{ slugify("Tap Turner Large Grip for Arthritic Hands") }}'>
       <img src='https://m.media-amazon.com/images/I/51EUXV8rB2L._AC_SX679_.jpg' 
            alt='Tap Turner Large Grip - Arthritis Aid for Turning Stiff Taps and Knobs with Weak Hands' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Turn stiff taps and knobs easily with this <strong>Large-Grip Tap Turner</strong>. Fits most standard taps and cooker knobs, providing 5x the leverage of bare hands. Chunky rubber grip stays put during use and requires minimal finger strength. Simple but transformative for people with arthritis struggling with kitchen and bathroom taps.</p>
+    <p itemprop="text">Turn stiff taps and knobs with ease using this <strong>Large-Grip Tap Turner</strong> (Etac/Homecraft style). Fits standard kitchen/bathroom taps, provides extra leverage (up to 5x), chunky grip needs minimal finger strength. Simple and effective for arthritis sufferers on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Tap Turner - Large Grip Handle for Arthritic Hands") }}'>
+      <a href='/product/{{ slugify("Tap Turner Large Grip for Arthritic Hands") }}'>
         <button aria-label='View tap turner product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4bWBXcY' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy tap turner on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/Etac-Knob-Tap-Turner-Healthcare/dp/B00DI5XWX6' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy tap turner on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
 
   <h2 id="chopper" itemprop="headline" style="scroll-margin-top:100px;">6. Zyliss Easy Pull Food Chopper</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper and Manual Food Processor") }}'>
+    <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper") }}'>
       <img src='https://m.media-amazon.com/images/I/71WAoKEqKGL._AC_SX679_.jpg' 
            alt='Zyliss Easy Pull Chopper - String-Pull Manual Food Processor for Onions, Vegetables, No Grip Required' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Chop onions, herbs, and vegetables without wielding a knife using the <strong>Zyliss Easy Pull Chopper</strong>. Simple pull-cord mechanism requires arm motion only — no gripping, twisting, or finger strength needed. Comes with two blade options for coarse or fine chopping. Dishwasher-safe and incredibly effective for arthritis sufferers avoiding repetitive knife work.</p>
+    <p itemprop="text">Chop onions, herbs, and veg without a knife using the <strong>Zyliss Easy Pull Chopper</strong>. Pull-cord uses arm motion only — no gripping or twisting. Multiple pulls for chop level, dishwasher-safe. Ideal for avoiding repetitive strain, top-rated on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper and Manual Food Processor") }}'>
+      <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper") }}'>
         <button aria-label='View Zyliss chopper product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4bUTnmX' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy Zyliss food chopper on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/Zyliss-Easy-Pull-Processor-White/dp/B00XYRVZHI' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy Zyliss food chopper on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
 
-  <h2 id="easy-grip-utensils" itemprop="headline" style="scroll-margin-top:100px;">7. Weighted Easy-Grip Utensil Set (4-Piece)</h2>
+  <h2 id="easy-grip-utensils" itemprop="headline" style="scroll-margin-top:100px;">7. Weighted Easy-Grip Adaptive Utensil Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Adaptive Utensils Set - Weighted Easy Grip Cutlery for Arthritis") }}'>
+    <a href='/product/{{ slugify("Weighted Easy Grip Cutlery Set for Arthritis") }}'>
       <img src='https://m.media-amazon.com/images/I/71mpFGb5VJL._AC_SX679_.jpg' 
            alt='Weighted Easy-Grip Cutlery Set - Thick Foam Handles, Built-Up Utensils for Tremors and Arthritis' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Eat comfortably with the <strong>Weighted Easy-Grip Utensil Set</strong>. Thick foam handles (3.5cm diameter) eliminate pinch-grip requirements, while weighted design provides stability for tremors. Set includes fork, knife, spoon, and teaspoon — all built-up for easier holding. Dishwasher-safe and ideal for arthritis, Parkinson's, or stroke recovery.</p>
+    <p itemprop="text">Eat comfortably with this <strong>Weighted Easy-Grip Utensil Set</strong>. Thick handles reduce pinch-grip needs, weighted for stability (great for tremors). Includes fork, knife, spoon, teaspoon — dishwasher-safe. Supports arthritis, Parkinson's, or similar on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Adaptive Utensils Set - Weighted Easy Grip Cutlery for Arthritis") }}'>
+      <a href='/product/{{ slugify("Weighted Easy Grip Cutlery Set for Arthritis") }}'>
         <button aria-label='View weighted utensils product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4c5lNfR' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy weighted utensils on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/Handles-Cutlery-Corfort-Disability-Dining/dp/B09YN9K7DB' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy weighted utensils on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
 
-  <h2 id="silicone-grips" itemprop="headline" style="scroll-margin-top:100px;">8. Multi-Purpose Silicone Jar Grippers (Set of 4)</h2>
+  <h2 id="silicone-grips" itemprop="headline" style="scroll-margin-top:100px;">8. Multi-Purpose Silicone Jar Grippers (Set of 4+)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Silicone Jar Opener Grips - Multi-Size Bottle Openers Pack of 4") }}'>
+    <a href='/product/{{ slugify("Silicone Jar Opener Grips Set") }}'>
       <img src='https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg' 
-           alt='Silicone Jar Grippers Set - Non-Slip Bottle Openers in 4 Sizes for Easy Opening with Arthritis' 
+           alt='Silicone Jar Grippers Set - Non-Slip Bottle Openers in Multiple Sizes for Easy Opening with Arthritis' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Gain instant grip on any jar or bottle with this <strong>4-Piece Silicone Gripper Set</strong>. Four sizes (from small medicine bottles to large pickle jars) provide flexibility, while grippy silicone texture multiplies hand strength. Heat-resistant to 230°C — also works for opening hot jar lids. Inexpensive insurance against struggling with stuck lids.</p>
+    <p itemprop="text">Boost grip on jars/bottles with this <strong>Silicone Gripper Set</strong>. Multiple sizes for flexibility, grippy texture multiplies strength. Heat-resistant — safe for hot lids too. Affordable, effective aid against stuck lids on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Silicone Jar Opener Grips - Multi-Size Bottle Openers Pack of 4") }}'>
+      <a href='/product/{{ slugify("Silicone Jar Opener Grips Set") }}'>
         <button aria-label='View silicone grippers product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/4bYnQ0P' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy silicone jar grippers on Amazon'>View on Amazon</button>
+      <a href='https://www.amazon.co.uk/s?k=silicone+jar+opener+grips+set' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy silicone jar grippers on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
   </div>
@@ -834,14 +834,14 @@ BLOG_POSTS = {
   </div>
 </article>
 """,
-        
-        # Internal linking strategy
-        "internal_links": [
-            {"text": "Home & Kitchen products", "url": "/category/home-and-kitchen"},
-            {"text": "Health & Personal Care", "url": "/category/health-and-personal-care"},
-            {"text": "Mobility aids for elderly", "url": "/blog/mobility-aids-elderly-independence-2026"}
-        ]
-    },
+    
+    # Internal linking strategy
+    "internal_links": [
+        {"text": "Home & Kitchen products", "url": "/category/home-and-kitchen"},
+        {"text": "Health & Personal Care", "url": "/category/health-and-personal-care"},
+        {"text": "Mobility aids for elderly", "url": "/blog/mobility-aids-elderly-independence-2026"}
+    ]
+},
 
 
     
