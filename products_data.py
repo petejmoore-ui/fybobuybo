@@ -5,6 +5,35 @@
 PRODUCTS = [
 
     {
+    "name": "Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women",
+    "category": "Home & Kitchen",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4bofGsl",
+    "asin": "B0C7LGWD8C",
+    "info": "Genuine real rose hand-dipped in 24K gold plating (over brass base) for a luxurious, everlasting symbol of love and devotion. Preserved to last forever unlike fresh flowers – perfect elegant display piece for anniversaries, birthdays, Mother's Day, Valentine's Day, weddings, or any romantic occasion. Comes in a protective, elegant gift box to prevent damage during shipping.",
+    "manual_price": "£39.99",
+    "manual_rating": "4.7",
+    "manual_reviews": "920",
+    "keywords": ["gold dipped rose", "24K gold rose", "preserved rose", "eternal rose", "romantic gift", "Valentine's gift"],
+    "pain_points": ["short-lived fresh flowers", "wanting a lasting romantic gesture", "finding unique meaningful gifts"],
+    "benefits": ["lasts forever", "symbolizes eternal love", "luxurious shiny gold finish", "elegant home decor display", "thoughtful sentimental gift"],
+    "price_tier": "mid-range luxury gift",
+    "highlights": [
+        "Real rose preserved and plated in 24K gold for timeless beauty",
+        "Symbol of forever love, loyalty, and romance",
+        "Better than fresh flowers – no wilting, long-lasting display",
+        "Comes in protective elegant gift box, shake-proof packaging",
+        "Perfect for girlfriend, wife, mom, or any special woman in your life"
+    ],
+    "faqs": [
+        {"q": "Is it real 24K gold?", "a": "Yes, it's 24K gold plated (electroplated over a brass base) – not solid gold, but features a genuine shining 24K gold surface with two clad layers."},
+        {"q": "How long does it last?", "a": "Indefinitely as a preserved decorative piece – no maintenance needed, just display away from direct harsh conditions."}
+    ],
+    "date_added": "2026-01-30"
+},
+
+    {
         "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
         "category": "Beauty",
         "season": "Valentine's Day, Mother's Day",
