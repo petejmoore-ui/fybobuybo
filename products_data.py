@@ -4,7 +4,7 @@
 
 PRODUCTS = [
 
-    [
+    
     {
         "name": "Vive Suction Cup Grab Bar - Bathroom Safety Rail Handle",
         "category": "Health & Personal Care",
