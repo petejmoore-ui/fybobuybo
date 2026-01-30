@@ -347,7 +347,7 @@ BLOG_POSTS = {
   <h2 id="grab-rails" itemprop="headline" style="scroll-margin-top:100px;">1. Newthinking Portable Suction Cup Grab Rail for Bathroom Safety</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
   <a href='/product/{{ slugify("Newthinking Suction Bathroom Grab Rail Hand Rail for Disabled") }}'>
-    <img src='https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg' 
+    <img src='https://m.media-amazon.com/images/I/51c4IdXAWYL._AC_SX679_.jpg' 
          alt='Newthinking Suction Grab Rail - Portable Bathroom Safety Handle with Non-Slip Grip for Elderly, Disabled, No Drilling Needed' 
          loading='lazy' 
          style='border-radius:16px;'
@@ -358,76 +358,76 @@ BLOG_POSTS = {
     <a href='/product/{{ slugify("Newthinking Suction Bathroom Grab Rail Hand Rail for Disabled") }}'>
       <button aria-label='View Newthinking grab rail product details'>View Details & Buy</button>
     </a>
-    <a href='https://www.amazon.co.uk/Newthinking-Bathroom-Disabled-Portable-Disability/dp/B07G2WCNVB' target='_blank' rel='nofollow sponsored noopener'>
+    <a href='https://amzn.to/4t7CRNJ' target='_blank' rel='nofollow sponsored noopener'>
       <button style='background:#ff9900;' aria-label='Buy Newthinking suction grab rail on Amazon UK'>View on Amazon UK</button>
     </a>
   </div>
 </div>
 
-  <h2 id="reacher-grabber" itemprop="headline" style="scroll-margin-top:100px;">2. Long-Reach Grabber Tool (32-Inch)</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
+<h2 id="reacher-grabber" itemprop="headline" style="scroll-margin-top:100px;">2. Long-Reach Grabber Tool (32-Inch)</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("Vive Reacher Grabber Tool 32 Inch") }}'>
+    <img src='https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg' 
+         alt='Vive 32-Inch Reacher Grabber Tool - Lightweight Magnetic Tip, Rotating Jaw for Elderly Mobility Aid' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Eliminate bending and stretching with the <strong>Vive 32-Inch Reacher Grabber</strong>. Magnetic tip for picking up small metal objects, rotating jaw for awkward angles, and rubberized grip prevent items from slipping. Essential for anyone with limited mobility or arthritis who wants to maintain independence around the home. Popular choice on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("Vive Reacher Grabber Tool 32 Inch") }}'>
-      <img src='https://m.media-amazon.com/images/I/61IA8o9iEyL._AC_SX679_.jpg' 
-           alt='Vive 32-Inch Reacher Grabber Tool - Lightweight Magnetic Tip, Rotating Jaw for Elderly Mobility Aid' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+      <button aria-label='View Vive reacher grabber product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">Eliminate bending and stretching with the <strong>Vive 32-Inch Reacher Grabber</strong>. Magnetic tip for picking up small metal objects, rotating jaw for awkward angles, and rubberized grip prevent items from slipping. Essential for anyone with limited mobility or arthritis who wants to maintain independence around the home. Popular choice on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Vive Reacher Grabber Tool 32 Inch") }}'>
-        <button aria-label='View Vive reacher grabber product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/Vive-Reacher-Grabber-Mobility-Extension/dp/B00O47NWE6' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy Vive reacher tool on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://amzn.to/3OdoZBC' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy Vive reacher tool on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
-  <h2 id="pill-organizer" itemprop="headline" style="scroll-margin-top:100px;">3. Large Compartment Weekly Pill Organizer (4 Times a Day)</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
+<h2 id="pill-organizer" itemprop="headline" style="scroll-margin-top:100px;">3. Large Compartment Weekly Pill Organizer (4 Times a Day)</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("AUVON Weekly Pill Organizer 4 Times a Day") }}'>
+    <img src='https://m.media-amazon.com/images/I/61TT1bAUYgL._AC_SX679_.jpg' 
+         alt='AUVON Weekly Pill Organizer - 4 Times Daily, Large Compartments for Medication and Supplements' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Managing multiple medications becomes simple with the <strong>AUVON Weekly Pill Organizer (4 times a day)</strong>. Four spacious compartments per day across seven days, with easy-open lids and clear labelling. Large enough for vitamins and supplements too — reduces confusion and missed doses for elderly users taking regular medication. A top-rated bestseller on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("AUVON Weekly Pill Organizer 4 Times a Day") }}'>
-      <img src='https://m.media-amazon.com/images/I/81ywcrYYJFL._AC_SX679_.jpg' 
-           alt='AUVON Weekly Pill Organizer - 4 Times Daily, Large Compartments for Medication and Supplements' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+      <button aria-label='View pill organizer product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">Managing multiple medications becomes simple with the <strong>AUVON Weekly Pill Organizer (4 times a day)</strong>. Four spacious compartments per day across seven days, with easy-open lids and clear labelling. Large enough for vitamins and supplements too — reduces confusion and missed doses for elderly users taking regular medication. A top-rated bestseller on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("AUVON Weekly Pill Organizer 4 Times a Day") }}'>
-        <button aria-label='View pill organizer product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/AUVON-Pill-Boxes-Times-Portable/dp/B0DMVZZ32L' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy pill organizer on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://amzn.to/49PLdCj' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy pill organizer on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
-  <h2 id="cushioned-mat" itemprop="headline" style="scroll-margin-top:100px;">4. Anti-Fatigue Comfort Mat for Kitchen & Bathroom</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
+<h2 id="cushioned-mat" itemprop="headline" style="scroll-margin-top:100px;">4. Anti-Fatigue Comfort Mat for Kitchen & Bathroom</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("ComfiLife Anti Fatigue Floor Mat") }}'>
+    <img src='https://m.media-amazon.com/images/I/7168kjOtn3L._AC_SX679_.jpg' 
+         alt='ComfiLife Anti-Fatigue Mat - Ergonomic Cushioned Standing Surface for Kitchen, Elderly Joint Support' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Standing at the sink or stove becomes more comfortable with the <strong>ComfiLife Anti-Fatigue Mat</strong>. Thick ergonomic cushioning reduces pressure on feet, knees, and hips — especially valuable for elderly people with arthritis or circulation issues. Non-slip bottom keeps it securely in place. Widely available on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("ComfiLife Anti Fatigue Floor Mat") }}'>
-      <img src='https://m.media-amazon.com/images/I/71hjPqkHbwL._AC_SX679_.jpg' 
-           alt='ComfiLife Anti-Fatigue Mat - Ergonomic Cushioned Standing Surface for Kitchen, Elderly Joint Support' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+      <button aria-label='View ComfiLife mat product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">Standing at the sink or stove becomes more comfortable with the <strong>ComfiLife Anti-Fatigue Mat</strong>. Thick ergonomic cushioning reduces pressure on feet, knees, and hips — especially valuable for elderly people with arthritis or circulation issues. Non-slip bottom keeps it securely in place. Widely available on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("ComfiLife Anti Fatigue Floor Mat") }}'>
-        <button aria-label='View ComfiLife mat product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/ComfiLife-Anti-Fatigue-Floor-Mat/dp/B07SCV87VT' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy ComfiLife anti-fatigue mat on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://amzn.to/3ZHhrtq' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy ComfiLife anti-fatigue mat on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
-  <h2 id="bed-rail" itemprop="headline" style="scroll-margin-top:100px;">5. Yornoli Adjustable Bed Rail with Motion-Sensing Light</h2>
+<h2 id="bed-rail" itemprop="headline" style="scroll-margin-top:100px;">5. Yornoli Adjustable Bed Rail with Motion-Sensing Light</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
   <a href='/product/{{ slugify("Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light") }}'>
-    <img src='https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg' 
+    <img src='https://m.media-amazon.com/images/I/61vvBKqWKzL._AC_SX679_.jpg' 
          alt='Yornoli Bed Rail - Adjustable Safety Support with Motion-Sensing Light, Non-Slip Handle and Storage Pocket for Elderly' 
          loading='lazy' 
          style='border-radius:16px;'
@@ -438,51 +438,51 @@ BLOG_POSTS = {
     <a href='/product/{{ slugify("Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light") }}'>
       <button aria-label='View Yornoli bed rail product details'>View Details & Buy</button>
     </a>
-    <a href='https://www.amazon.co.uk/Yornoli-Motion-Sensing-Adjustable-Non-Slip-Installation/dp/B0DJ564N28' target='_blank' rel='nofollow sponsored noopener'>
+    <a href='https://amzn.to/4alfHMy' target='_blank' rel='nofollow sponsored noopener'>
       <button style='background:#ff9900;' aria-label='Buy Yornoli bed rail on Amazon UK'>View on Amazon UK</button>
     </a>
   </div>
 </div>
 
-  <h2 id="slip-resistant-socks" itemprop="headline" style="scroll-margin-top:100px;">6. Non-Slip Grip Socks (Multi-Pack)</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
+<h2 id="slip-resistant-socks" itemprop="headline" style="scroll-margin-top:100px;">6. Non-Slip Grip Socks (Multi-Pack)</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("Non-Slip Grip Socks for Elderly") }}'>
+    <img src='https://m.media-amazon.com/images/I/71BpU0vjrgL._AC_SX679_.jpg' 
+         alt='Non-Slip Grip Socks - Hospital-Grade for Elderly Fall Prevention, Multi-Pack' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Reduce slip risks on hard floors with <strong>non-slip grip socks</strong>. Hospital-grade grip dots on soles, soft comfortable fabric, and they stay up without tight elastic. Essential for elderly people moving around the house, especially on wooden or tiled surfaces. Available in multi-packs on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("Non-Slip Grip Socks for Elderly") }}'>
-      <img src='https://m.media-amazon.com/images/I/71gTa+lp3pL._AC_SX679_.jpg' 
-           alt='Non-Slip Grip Socks - Hospital-Grade for Elderly Fall Prevention, Multi-Pack' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+      <button aria-label='View non-slip socks product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">Reduce slip risks on hard floors with <strong>non-slip grip socks</strong>. Hospital-grade grip dots on soles, soft comfortable fabric, and they stay up without tight elastic. Essential for elderly people moving around the house, especially on wooden or tiled surfaces. Available in multi-packs on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Non-Slip Grip Socks for Elderly") }}'>
-        <button aria-label='View non-slip socks product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/s?k=non+slip+grip+socks+elderly' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy non-slip grip socks on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://amzn.to/4rlakCC' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy non-slip grip socks on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
-  <h2 id="jar-opener" itemprop="headline" style="scroll-margin-top:100px;">7. 6-in-1 Multi-Function Jar & Bottle Opener</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Multi-Function Jar Opener for Seniors with Arthritis") }}'>
-      <img src='https://m.media-amazon.com/images/I/71xrVl5lMrL._AC_SX679_.jpg' 
-           alt='Multi-Function Jar Opener - 6-in-1 for Arthritic Hands, Elderly Kitchen Aid' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+<h2 id="jar-opener" itemprop="headline" style="scroll-margin-top:100px;">7. 6-in-1 Multi-Function Jar & Bottle Opener</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("6-in-1 Jar & Bottle Opener for Seniors with Arthritis") }}'>
+    <img src='https://m.media-amazon.com/images/I/71ZSzOdYoSL._AC_SX679_.jpg' 
+         alt='6-in-1 Multi-Function Jar Opener - For Arthritic Hands, Elderly Kitchen Aid' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Opening jars and bottles becomes effortless with the <strong>6-in-1 Multi-Function Jar Opener</strong>. Six different-sized grips handle everything from small medicine bottles to large jam jars. Requires minimal hand strength — ideal for elderly people with arthritis or reduced grip strength who want to stay independent in the kitchen. Popular on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+    <a href='/product/{{ slugify("6-in-1 Jar & Bottle Opener for Seniors with Arthritis") }}'>
+      <button aria-label='View jar opener product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">Opening jars and bottles becomes effortless with the <strong>6-in-1 Multi-Function Jar Opener</strong>. Six different-sized grips handle everything from small medicine bottles to large jam jars. Requires minimal hand strength — ideal for elderly people with arthritis or reduced grip strength who want to stay independent in the kitchen. Popular on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Multi-Function Jar Opener for Seniors with Arthritis") }}'>
-        <button aria-label='View jar opener product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/s?k=jar+opener+for+seniors+arthritis' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy jar opener on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://amzn.to/4keYeJi' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy jar opener on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
   <section style="margin-top:60px;padding:30px;background:var(--card);border-radius:16px;">
     <h2>Supporting Independence with Dignity</h2>
