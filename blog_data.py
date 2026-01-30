@@ -1,4 +1,4 @@
-    BLOG_POSTS = {
+BLOG_POSTS = {
     "8-essential-home-products-to-upgrade-your-space-in-2026": {
         # Core SEO Fields
         "title": "8 Essential Home Products to Upgrade Your Space in 2026 (UK-Friendly & Budget-Smart)",
