@@ -621,7 +621,7 @@ BLOG_POSTS = {
   <h2 id="can-opener" itemprop="headline" style="scroll-margin-top:100px;">1. Hamilton Beach Electric Automatic Can Opener</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Hamilton Beach Electric Automatic Can Opener") }}'>
-      <img src='https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/61D4SGO41jL._AC_SX679_.jpg' 
            alt='Hamilton Beach Electric Can Opener - One-Touch Automatic Operation for Arthritic Hands, No Sharp Edges' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -632,7 +632,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Hamilton Beach Openstation Electric Automatic Can Opener") }}'>
         <button aria-label='View Hamilton Beach can opener details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/Hamilton-Beach-Easy-Clean-Detachable-76702/dp/B09Q4SPG73' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3NXyRiO' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy electric can opener on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
@@ -641,7 +641,7 @@ BLOG_POSTS = {
   <h2 id="jar-opener" itemprop="headline" style="scroll-margin-top:100px;">2. OXO Good Grips Jar Opener with Base Pad</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("OXO Good Grips Jar Opener with Base Pad") }}'>
-      <img src='https://m.media-amazon.com/images/I/61Y4eAZ3G4L._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/71HJ2tTRY2L._AC_SX679_.jpg' 
            alt='OXO Good Grips Jar Opener - Multi-Size Lid Remover with Non-Slip Base for Weak Hands' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -652,7 +652,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("OXO Good Grips Jar Opener with Base Pad") }}'>
         <button aria-label='View OXO jar opener product details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/OXO-Good-Grips-Opener-Base/dp/B002DWA6KM' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3NLT2jO' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy OXO jar opener on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
@@ -661,7 +661,7 @@ BLOG_POSTS = {
   <h2 id="ergonomic-peeler" itemprop="headline" style="scroll-margin-top:100px;">3. OXO Good Grips Y-Peeler with Soft Grip Handle</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("OXO Good Grips Y-Peeler") }}'>
-      <img src='https://m.media-amazon.com/images/I/618U88L50zL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/91tIpGES+KL._AC_SX679_.jpg' 
            alt='OXO Y-Peeler - Ergonomic Soft Grip Handle, Sharp Swivel Blade for Easy Vegetable Peeling with Arthritis' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -672,7 +672,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("OXO Good Grips Y-Peeler") }}'>
         <button aria-label='View OXO Y-peeler product details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/s?k=OXO+Good+Grips+Y+Peeler' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/45GTR3z' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy OXO Y-peeler on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
@@ -681,7 +681,7 @@ BLOG_POSTS = {
   <h2 id="serrated-knife" itemprop="headline" style="scroll-margin-top:100px;">4. Victorinox Swiss Classic Serrated Paring Knife</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Victorinox Swiss Classic Serrated Paring Knife") }}'>
-      <img src='https://m.media-amazon.com/images/I/51t+lfqLvCL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/315S-MIODQL._AC_.jpg' 
            alt='Victorinox Serrated Paring Knife - Ultra-Light, Sharp Wavy Edge for Effortless Cutting with Weak Grip' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -692,7 +692,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Victorinox Swiss Classic Serrated Paring Knife") }}'>
         <button aria-label='View Victorinox knife product details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/Victorinox-Swiss-Classic-Paring-Serrated/dp/B005LRYEJU' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4kbW4tK' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Victorinox serrated knife on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
@@ -701,7 +701,7 @@ BLOG_POSTS = {
   <h2 id="tap-turner" itemprop="headline" style="scroll-margin-top:100px;">5. Otstar Multi-Function Jar & Bottle Opener for Weak Hands</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
   <a href='/product/{{ slugify("otstar jar opener bottle opener and ring pull can opener for weak hands arthritis hands elderly") }}'>
-    <img src='https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg' 
+    <img src='https://m.media-amazon.com/images/I/618cdu3k1HL._AC_SX679_.jpg' 
          alt='Otstar Multi-Function Opener - Jar, Bottle, Ring Pull, Can Opener for Arthritic Hands, Elderly, Weak Grip' 
          loading='lazy' 
          style='border-radius:16px;'
@@ -712,7 +712,7 @@ BLOG_POSTS = {
     <a href='/product/{{ slugify("Otstar Multi Function Jar Bottle Opener Arthritis") }}'>
       <button aria-label='View Otstar multi-function opener product details'>View Details & Buy</button>
     </a>
-    <a href='https://www.amazon.co.uk/Bottle-Opener-Arthritis-Elderly-Children/dp/B07QVWJ6VN' target='_blank' rel='nofollow sponsored noopener'>
+    <a href='https://amzn.to/49RVVYU' target='_blank' rel='nofollow sponsored noopener'>
       <button style='background:#ff9900;' aria-label='Buy Otstar multi-function opener on Amazon UK'>View on Amazon UK</button>
     </a>
   </div>
@@ -721,7 +721,7 @@ BLOG_POSTS = {
   <h2 id="chopper" itemprop="headline" style="scroll-margin-top:100px;">6. Zyliss Easy Pull Food Chopper</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper") }}'>
-      <img src='https://m.media-amazon.com/images/I/71WAoKEqKGL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/81sMo53VO1L._AC_SX679_.jpg' 
            alt='Zyliss Easy Pull Chopper - String-Pull Manual Food Processor for Onions, Vegetables, No Grip Required' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -732,7 +732,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper") }}'>
         <button aria-label='View Zyliss chopper product details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/Zyliss-Easy-Pull-Processor-White/dp/B00XYRVZHI' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4k954Q9' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Zyliss food chopper on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
@@ -741,7 +741,7 @@ BLOG_POSTS = {
   <h2 id="easy-grip-utensils" itemprop="headline" style="scroll-margin-top:100px;">7. Weighted Easy-Grip Adaptive Utensil Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Weighted Easy Grip Cutlery Set for Arthritis") }}'>
-      <img src='https://m.media-amazon.com/images/I/71mpFGb5VJL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/713Uo25zIJL._AC_SX679_.jpg' 
            alt='Weighted Easy-Grip Cutlery Set - Thick Foam Handles, Built-Up Utensils for Tremors and Arthritis' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -752,7 +752,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Weighted Easy Grip Cutlery Set for Arthritis") }}'>
         <button aria-label='View weighted utensils product details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/Handles-Cutlery-Corfort-Disability-Dining/dp/B09YN9K7DB' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4rHWivp' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy weighted utensils on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
@@ -761,7 +761,7 @@ BLOG_POSTS = {
   <h2 id="silicone-grips" itemprop="headline" style="scroll-margin-top:100px;">8. Multi-Purpose Silicone Jar Grippers</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("silicone-jar-opener-grips-set-multi-pack") }}'>
-      <img src='https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/71zKaYCuD3L._AC_SX679_.jpg' 
            alt='Silicone Jar Grippers Set - Non-Slip Bottle Openers in Multiple Sizes for Easy Opening with Arthritis' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -772,7 +772,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Silicone Jar Opener Grips Set") }}'>
         <button aria-label='View silicone grippers product details'>View Details & Buy</button>
       </a>
-      <a href='https://www.amazon.co.uk/s?k=silicone+jar+opener+grips+set' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4qjAEMU' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy silicone jar grippers on Amazon UK'>View on Amazon UK</button>
       </a>
     </div>
