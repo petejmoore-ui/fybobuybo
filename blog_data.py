@@ -698,25 +698,25 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="tap-turner" itemprop="headline" style="scroll-margin-top:100px;">5. Etac or Homecraft Large-Grip Tap Turner</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Tap Turner Large Grip for Arthritic Hands") }}'>
-      <img src='https://m.media-amazon.com/images/I/51EUXV8rB2L._AC_SX679_.jpg' 
-           alt='Tap Turner Large Grip - Arthritis Aid for Turning Stiff Taps and Knobs with Weak Hands' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+  <h2 id="tap-turner" itemprop="headline" style="scroll-margin-top:100px;">5. Otstar Multi-Function Jar & Bottle Opener for Weak Hands</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("Otstar Multi Function Jar Bottle Opener Arthritis") }}'>
+    <img src='https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg' 
+         alt='Otstar Multi-Function Opener - Jar, Bottle, Ring Pull, Can Opener for Arthritic Hands, Elderly, Weak Grip' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Gain effortless control over stubborn lids, bottles, cans, and ring pulls with the <strong>Otstar Multi-Function Opener</strong>. This 6-in-1 tool uses leverage and non-slip grips instead of direct hand strength — ideal for arthritic hands, seniors, or anyone with weak grip. Multiple sized openings handle various jars, soda caps, bean cans, and pull tabs without twisting or straining fingers. A simple, effective kitchen aid available on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+    <a href='/product/{{ slugify("Otstar Multi Function Jar Bottle Opener Arthritis") }}'>
+      <button aria-label='View Otstar multi-function opener product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">Turn stiff taps and knobs with ease using this <strong>Large-Grip Tap Turner</strong> (Etac/Homecraft style). Fits standard kitchen/bathroom taps, provides extra leverage (up to 5x), chunky grip needs minimal finger strength. Simple and effective for arthritis sufferers on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Tap Turner Large Grip for Arthritic Hands") }}'>
-        <button aria-label='View tap turner product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/Etac-Knob-Tap-Turner-Healthcare/dp/B00DI5XWX6' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy tap turner on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://www.amazon.co.uk/Bottle-Opener-Arthritis-Elderly-Children/dp/B07QVWJ6VN' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy Otstar multi-function opener on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
   <h2 id="chopper" itemprop="headline" style="scroll-margin-top:100px;">6. Zyliss Easy Pull Food Chopper</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
