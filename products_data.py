@@ -3,205 +3,6 @@
 # All fields are optional - use what you need
 
 PRODUCTS = [
-  
-  
-  {
-    "name": "Newthinking Suction Bathroom Grab Rails, Hand Rail for Disabled, Portable Mobility Aids Safety Handle with Suction Cup Fitting, No Fixings Needed for Bathroom, Children and Disability Aids (1 Pack)",
-    "category": "Health & Personal Care",
-    "season": "",
-    "image": "https://m.media-amazon.com/images/I/51c4IdXAWYL._AC_SX679_.jpg",  
-    "url": "https://amzn.to/4t7CRNJ",
-    "asin": "B07G2WCNVB",
-    "info": "Portable suction cup grab rail for bathroom safety, providing extra support and balance in slippery areas like showers, baths, or near toilets. No drilling or permanent fixings required — strong suction on non-porous flat surfaces (tiles, glass, porcelain). Textured non-slip grip for secure hold, even when wet; ideal for elderly, disabled, injured, or those with weak grip/arthritis needing temporary mobility aid.",
-    "manual_price": "£16.99", 
-    "manual_rating": "4.3",
-    "manual_reviews": "8,020",
-    "keywords": ["suction grab bar", "bathroom safety rail elderly", "portable grab handle disabled", "suction cup shower handle UK", "mobility aid no drill"],
-    "pain_points": ["fear of slipping in wet bathroom areas", "need for extra support without permanent installation", "limited mobility or weak grip causing instability", "high fall risk for elderly/disabled in shower/bath"],
-    "benefits": ["instant tool-free installation and removal", "strong suction for reliable balance assistance", "non-slip textured grip for wet conditions", "portable for travel or temporary use", "promotes independence and safety for seniors/arthritis users"],
-    "price_tier": "affordable portable safety aid",
-    "highlights": [
-        "Strong suction on smooth non-porous surfaces",
-        "No drilling or fixings needed — renter-friendly",
-        "Textured rubber grip for secure hold when wet",
-        "Portable and easy to reposition",
-        "Supports balance (not full body weight) for elderly/disabled"
-    ],
-    "faqs": [
-        {"q": "How much weight can it hold?", "a": "Provides balance assistance; not for full body leverage — test suction before use and reattach as needed."},
-        {"q": "Suitable for textured surfaces?", "a": "Best on smooth, flat non-porous surfaces like tiles/glass; may not adhere well to textured or porous materials."}
-    ],
-    "date_added": "2026-01-30"
-},
-  {
-    "name": "Vive Reacher Grabber Tool 32 Inch - Lightweight Extra Long Handy Picker",
-    "category": "Health & Personal Care",
-    "season":  "",
-    "image": "https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg",
-    "url": "https://amzn.to/3OdoZBC",
-    "asin": "B00O47NWE6",
-    "info": "32-inch lightweight reacher with rotating jaw, magnetic tip, and rubber grip for picking up items without bending or stretching. Essential for limited mobility or arthritis, helping maintain home independence effortlessly.",
-    "manual_price": "£22.99",
-    "manual_rating": "4.2",
-    "manual_reviews": "4,519",
-    "keywords": ["reacher grabber tool", "long reach picker elderly", "mobility aid grabber", "32 inch reacher", "arthritis reach tool UK"],
-    "pain_points": ["difficulty bending to pick up dropped items", "straining to reach high shelves", "limited mobility reducing daily independence"],
-    "benefits": ["extends reach by 32 inches to avoid bending", "rotating head for awkward angles", "magnetic tip for small metal objects", "lightweight and easy to handle", "supports confident, independent living"],
-    "price_tier": "practical everyday aid",
-    "highlights": [
-      "Extra-long 32-inch reach for floors and shelves",
-      "Rotating jaw grabs from any angle",
-      "Strong rubber grip prevents slips",
-      "Foldable for easy storage",
-      "Durable build trusted by thousands"
-    ],
-    "faqs": [
-      {"q": "Is it foldable?", "a": "Yes, many Vive models fold for compact storage."},
-      {"q": "Weight capacity?", "a": "Holds typical household items up to ~2kg."}
-    ],
-    "date_added": "2026-01-30"
-  },
-  {
-    "name": "AUVON Weekly Pill Organizer 4 Times a Day - Extra Large Compartments",
-    "category": "Health & Personal Care",
-    "season":  "",
-    "image": "https://m.media-amazon.com/images/I/61TT1bAUYgL._AC_SX679_.jpg",
-    "url": "https://amzn.to/49PLdCj",
-    "asin": "B0DMVZZ32L",
-    "info": "Weekly pill box with 4 large daily compartments per day (28 total), moisture-proof, easy-open lids, and clear AM/PM labels. Perfect for seniors managing multiple medications or supplements to avoid missed doses and stay organized independently.",
-    "manual_price": "£13.00",
-    "manual_rating": "4.7",
-    "manual_reviews": "1,532",
-    "keywords": ["weekly pill organizer 4 times", "large pill box elderly", "medication planner UK", "arthritis pill organizer", "daily pill case"],
-    "pain_points": ["forgetting or mixing up daily medications", "small compartments not fitting larger pills", "confusion leading to health risks"],
-    "benefits": ["spacious compartments for big pills/vitamins", "weekly view reduces errors", "easy one-hand open for limited dexterity", "portable and travel-friendly", "promotes safe, independent medication management"],
-    "price_tier": "essential health organizer",
-    "highlights": [
-      "4 compartments per day for multiple doses",
-      "Large size fits supplements easily",
-      "Moisture-proof to protect pills",
-      "Clear labeling for each day/time",
-      "BPA-free and durable"
-    ],
-    "faqs": [
-      {"q": "How many compartments?", "a": "28 total (7 days x 4 times a day)."},
-      {"q": "Suitable for arthritis?", "a": "Yes, easy-push lids designed for weak hands."}
-    ],
-    "date_added": "2026-01-30"
-  },
-  {
-    "name": "ComfiLife Anti-Fatigue Floor Mat - Ergonomic Thick Standing Mat",
-    "category": "Home & Kitchen",
-    "season":  "",
-    "image": "https://m.media-amazon.com/images/I/7168kjOtn3L._AC_SX679_.jpg",
-    "url": "https://amzn.to/3ZHhrtq",
-    "asin": "B07SCV87VT",
-    "info": "Thick 3/4-inch ergonomic cushion mat with non-slip base reduces joint pressure during prolonged standing in kitchen or bathroom. Great for elderly with arthritis, improving comfort and circulation for safer daily tasks.",
-    "manual_price": "£239.48",
-    "manual_rating": "4.7",
-    "manual_reviews": "37,745",
-    "keywords": ["anti fatigue mat", "standing mat kitchen elderly", "comfort mat arthritis", "floor cushion mat UK", "joint relief mat"],
-    "pain_points": ["foot/knee/hip pain from standing too long", "hard floors causing fatigue", "circulation issues in elderly"],
-    "benefits": ["cushions and supports joints for hours", "non-slip for safety on wet floors", "durable and easy to clean", "enhances comfort in daily chores", "supports prolonged independence at home"],
-    "price_tier": "mid-range comfort upgrade",
-    "highlights": [
-      "3/4-inch thick foam for superior cushioning",
-      "Non-slip backing stays in place",
-      "Stain-resistant and waterproof",
-      "Ideal for kitchen sinks or bathroom vanities",
-      "Highly rated for pain relief"
-    ],
-    "faqs": [
-      {"q": "Thickness?", "a": "3/4 inch (19mm) for optimal comfort."},
-      {"q": "Sizes available?", "a": "Various, including standard kitchen sizes."}
-    ],
-    "date_added": "2026-01-30"
-  },
-  {
-    "name": "Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light, Adjustable Non-Slip Grip Handle, Sturdy Steel Frame, Easy Installation, Storage Pocket – Safety & Support for Seniors (104CM)",
-    "category": "Health & Personal Care",
-    "season": "",
-    "image": "https://m.media-amazon.com/images/I/61vvBKqWKzL._AC_SX679_.jpg",  
-    "url": "https://amzn.to/4alfHMy",
-    "asin": "B0DJ564N28",
-    "info": "Adjustable bed support rail with built-in motion-sensing LED light for nighttime visibility, sturdy steel frame for safe bed transfers, non-slip ergonomic grip handle, tool-free easy installation, and convenient side storage pocket. Designed for elderly/seniors to prevent falls, provide stability getting in/out of bed, and support independence — ideal for limited mobility, arthritis, or weak grip.",
-    "manual_price": "£29.99",  
-    "manual_rating": "4.8",
-    "manual_reviews": "65+",
-    "keywords": ["bed rail elderly", "motion sensing bed support rail", "adjustable bed assist handle UK", "non-slip grip bed rail seniors", "easy install bed safety rail"],
-    "pain_points": ["nighttime falls when getting out of bed in the dark", "instability or fear during bed transfers with weak grip", "lack of support for elderly/arthritis users", "complicated installation on beds"],
-    "benefits": ["automatic motion-sensing light for safe nighttime use", "adjustable fit for single/double/king beds", "sturdy steel with non-slip handle for secure grip", "tool-free quick setup", "storage pocket keeps essentials close, promotes dignified independence"],
-    "price_tier": "mid-range bedtime safety aid",
-    "highlights": [
-        "Built-in motion-activated LED light prevents dark accidents",
-        "Durable steel frame for reliable support during transfers",
-        "Adjustable height/length fits most bed types",
-        "Non-slip ergonomic foam handle for comfortable, secure grip",
-        "Tool-free installation and handy side pocket for phone/glasses/meds"
-    ],
-    "faqs": [
-        {"q": "How is it installed?", "a": "Quick tool-free setup — slides under mattress and secures with adjustable straps/clamps."},
-        {"q": "Suitable for arthritis or weak hands?", "a": "Yes, non-slip handle and sturdy frame reduce grip strain while providing balance support."}
-    ],
-    "date_added": "2026-01-30"
-},
-  {
-    "name": "Non-Slip Grip Socks Multi-Pack - Hospital-Grade for Elderly Fall Prevention",
-    "category": "Health & Personal Care",
-    "season":  "",
-    "image": "https://m.media-amazon.com/images/I/71BpU0vjrgL._AC_SX679_.jpg",
-    "url": "https://amzn.to/4rlakCC",
-    "asin": "B0C... (varies by pack)",
-    "info": "Soft, comfortable grip socks with hospital-grade non-slip dots on soles to prevent slips on hard floors. Multi-pack for everyday use, gentle elastic-free fit ideal for elderly circulation issues or indoor mobility.",
-    "manual_price": "£24.99",
-    "manual_rating": "4.3",
-    "manual_reviews": "388",
-    "keywords": ["non slip socks elderly", "grip socks fall prevention", "hospital socks UK", "anti slip slippers socks", "elderly non slip footwear"],
-    "pain_points": ["slipping on tiles or wood floors indoors", "cold feet without safe traction", "tight socks restricting circulation"],
-    "benefits": ["strong grip dots for secure steps", "soft fabric for all-day comfort", "no tight bands for swollen feet", "washable and durable multi-pack", "boosts confidence moving around home"],
-    "price_tier": "budget safety basic",
-    "highlights": [
-      "Hospital-style grip for reliable traction",
-      "Multi-pack for rotation and spares",
-      "Breathable and comfortable material",
-      "Suitable for indoor hard floors",
-      "Helps reduce fall risks daily"
-    ],
-    "faqs": [
-      {"q": "Pack size?", "a": "Typically 3-6 pairs depending on brand."},
-      {"q": "Sizes?", "a": "Wide range, including for swollen feet."}
-    ],
-    "date_added": "2026-01-30"
-  },
-  {
-    "name": "6-in-1 Jar & Bottle Opener for Seniors with Arthritis",
-    "category": "Home & Kitchen",
-    "season":  "",
-    "image": "https://m.media-amazon.com/images/I/71ZSzOdYoSL._AC_SX679_.jpg",
-    "url": "https://amzn.to/4keYeJi",
-    "asin": "B071V3G23Y (or similar)",
-    "info": "Adjustable multi-grip opener handles jars, bottles, caps of various sizes with minimal effort. Ideal for arthritic or weak hands, enabling independent kitchen tasks without strain.",
-    "manual_price": "£5.88",
-    "manual_rating": "4.3",
-    "manual_reviews": "1,470",
-    "keywords": ["jar opener arthritis", "multi function bottle opener", "senior jar opener UK", "easy grip jar lid opener", "kitchen aid elderly"],
-    "pain_points": ["struggling to open tight jars or bottles", "reduced hand strength from arthritis", "frustration leading to dependence on others"],
-    "benefits": ["6 grip sizes for any container", "leverage design requires little force", "non-slip handles for secure use", "compact and drawer-friendly", "restores kitchen independence easily"],
-    "price_tier": "inexpensive kitchen helper",
-    "highlights": [
-      "Handles small to large jars/bottles",
-      "Minimal hand strength needed",
-      "Durable stainless steel/rubber build",
-      "Multi-use for caps, lids, bottles",
-      "Popular choice for seniors"
-    ],
-    "faqs": [
-      {"q": "How many functions?", "a": "6-in-1 for different sizes/types."},
-      {"q": "Easy for weak hands?", "a": "Yes, designed specifically for arthritis."}
-    ],
-    "date_added": "2026-01-30"
-  },
-
     
     {
     "name": "Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women",
@@ -457,6 +258,204 @@ PRODUCTS = [
         ],
         "date_added": "2026-01-04"
     },
+
+  {
+    "name": "Newthinking Suction Bathroom Grab Rails, Hand Rail for Disabled, Portable Mobility Aids Safety Handle with Suction Cup Fitting, No Fixings Needed for Bathroom, Children and Disability Aids (1 Pack)",
+    "category": "Health & Personal Care",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/51c4IdXAWYL._AC_SX679_.jpg",  
+    "url": "https://amzn.to/4t7CRNJ",
+    "asin": "B07G2WCNVB",
+    "info": "Portable suction cup grab rail for bathroom safety, providing extra support and balance in slippery areas like showers, baths, or near toilets. No drilling or permanent fixings required — strong suction on non-porous flat surfaces (tiles, glass, porcelain). Textured non-slip grip for secure hold, even when wet; ideal for elderly, disabled, injured, or those with weak grip/arthritis needing temporary mobility aid.",
+    "manual_price": "£16.99", 
+    "manual_rating": "4.3",
+    "manual_reviews": "8,020",
+    "keywords": ["suction grab bar", "bathroom safety rail elderly", "portable grab handle disabled", "suction cup shower handle UK", "mobility aid no drill"],
+    "pain_points": ["fear of slipping in wet bathroom areas", "need for extra support without permanent installation", "limited mobility or weak grip causing instability", "high fall risk for elderly/disabled in shower/bath"],
+    "benefits": ["instant tool-free installation and removal", "strong suction for reliable balance assistance", "non-slip textured grip for wet conditions", "portable for travel or temporary use", "promotes independence and safety for seniors/arthritis users"],
+    "price_tier": "affordable portable safety aid",
+    "highlights": [
+        "Strong suction on smooth non-porous surfaces",
+        "No drilling or fixings needed — renter-friendly",
+        "Textured rubber grip for secure hold when wet",
+        "Portable and easy to reposition",
+        "Supports balance (not full body weight) for elderly/disabled"
+    ],
+    "faqs": [
+        {"q": "How much weight can it hold?", "a": "Provides balance assistance; not for full body leverage — test suction before use and reattach as needed."},
+        {"q": "Suitable for textured surfaces?", "a": "Best on smooth, flat non-porous surfaces like tiles/glass; may not adhere well to textured or porous materials."}
+    ],
+    "date_added": "2026-01-30"
+},
+  {
+    "name": "Vive Reacher Grabber Tool 32 Inch - Lightweight Extra Long Handy Picker",
+    "category": "Health & Personal Care",
+    "season":  "",
+    "image": "https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3OdoZBC",
+    "asin": "B00O47NWE6",
+    "info": "32-inch lightweight reacher with rotating jaw, magnetic tip, and rubber grip for picking up items without bending or stretching. Essential for limited mobility or arthritis, helping maintain home independence effortlessly.",
+    "manual_price": "£22.99",
+    "manual_rating": "4.2",
+    "manual_reviews": "4,519",
+    "keywords": ["reacher grabber tool", "long reach picker elderly", "mobility aid grabber", "32 inch reacher", "arthritis reach tool UK"],
+    "pain_points": ["difficulty bending to pick up dropped items", "straining to reach high shelves", "limited mobility reducing daily independence"],
+    "benefits": ["extends reach by 32 inches to avoid bending", "rotating head for awkward angles", "magnetic tip for small metal objects", "lightweight and easy to handle", "supports confident, independent living"],
+    "price_tier": "practical everyday aid",
+    "highlights": [
+      "Extra-long 32-inch reach for floors and shelves",
+      "Rotating jaw grabs from any angle",
+      "Strong rubber grip prevents slips",
+      "Foldable for easy storage",
+      "Durable build trusted by thousands"
+    ],
+    "faqs": [
+      {"q": "Is it foldable?", "a": "Yes, many Vive models fold for compact storage."},
+      {"q": "Weight capacity?", "a": "Holds typical household items up to ~2kg."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "AUVON Weekly Pill Organizer 4 Times a Day - Extra Large Compartments",
+    "category": "Health & Personal Care",
+    "season":  "",
+    "image": "https://m.media-amazon.com/images/I/61TT1bAUYgL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49PLdCj",
+    "asin": "B0DMVZZ32L",
+    "info": "Weekly pill box with 4 large daily compartments per day (28 total), moisture-proof, easy-open lids, and clear AM/PM labels. Perfect for seniors managing multiple medications or supplements to avoid missed doses and stay organized independently.",
+    "manual_price": "£13.00",
+    "manual_rating": "4.7",
+    "manual_reviews": "1,532",
+    "keywords": ["weekly pill organizer 4 times", "large pill box elderly", "medication planner UK", "arthritis pill organizer", "daily pill case"],
+    "pain_points": ["forgetting or mixing up daily medications", "small compartments not fitting larger pills", "confusion leading to health risks"],
+    "benefits": ["spacious compartments for big pills/vitamins", "weekly view reduces errors", "easy one-hand open for limited dexterity", "portable and travel-friendly", "promotes safe, independent medication management"],
+    "price_tier": "essential health organizer",
+    "highlights": [
+      "4 compartments per day for multiple doses",
+      "Large size fits supplements easily",
+      "Moisture-proof to protect pills",
+      "Clear labeling for each day/time",
+      "BPA-free and durable"
+    ],
+    "faqs": [
+      {"q": "How many compartments?", "a": "28 total (7 days x 4 times a day)."},
+      {"q": "Suitable for arthritis?", "a": "Yes, easy-push lids designed for weak hands."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "ComfiLife Anti-Fatigue Floor Mat - Ergonomic Thick Standing Mat",
+    "category": "Home & Kitchen",
+    "season":  "",
+    "image": "https://m.media-amazon.com/images/I/7168kjOtn3L._AC_SX679_.jpg",
+    "url": "https://amzn.to/3ZHhrtq",
+    "asin": "B07SCV87VT",
+    "info": "Thick 3/4-inch ergonomic cushion mat with non-slip base reduces joint pressure during prolonged standing in kitchen or bathroom. Great for elderly with arthritis, improving comfort and circulation for safer daily tasks.",
+    "manual_price": "£239.48",
+    "manual_rating": "4.7",
+    "manual_reviews": "37,745",
+    "keywords": ["anti fatigue mat", "standing mat kitchen elderly", "comfort mat arthritis", "floor cushion mat UK", "joint relief mat"],
+    "pain_points": ["foot/knee/hip pain from standing too long", "hard floors causing fatigue", "circulation issues in elderly"],
+    "benefits": ["cushions and supports joints for hours", "non-slip for safety on wet floors", "durable and easy to clean", "enhances comfort in daily chores", "supports prolonged independence at home"],
+    "price_tier": "mid-range comfort upgrade",
+    "highlights": [
+      "3/4-inch thick foam for superior cushioning",
+      "Non-slip backing stays in place",
+      "Stain-resistant and waterproof",
+      "Ideal for kitchen sinks or bathroom vanities",
+      "Highly rated for pain relief"
+    ],
+    "faqs": [
+      {"q": "Thickness?", "a": "3/4 inch (19mm) for optimal comfort."},
+      {"q": "Sizes available?", "a": "Various, including standard kitchen sizes."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light, Adjustable Non-Slip Grip Handle, Sturdy Steel Frame, Easy Installation, Storage Pocket – Safety & Support for Seniors (104CM)",
+    "category": "Health & Personal Care",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/61vvBKqWKzL._AC_SX679_.jpg",  
+    "url": "https://amzn.to/4alfHMy",
+    "asin": "B0DJ564N28",
+    "info": "Adjustable bed support rail with built-in motion-sensing LED light for nighttime visibility, sturdy steel frame for safe bed transfers, non-slip ergonomic grip handle, tool-free easy installation, and convenient side storage pocket. Designed for elderly/seniors to prevent falls, provide stability getting in/out of bed, and support independence — ideal for limited mobility, arthritis, or weak grip.",
+    "manual_price": "£29.99",  
+    "manual_rating": "4.8",
+    "manual_reviews": "65+",
+    "keywords": ["bed rail elderly", "motion sensing bed support rail", "adjustable bed assist handle UK", "non-slip grip bed rail seniors", "easy install bed safety rail"],
+    "pain_points": ["nighttime falls when getting out of bed in the dark", "instability or fear during bed transfers with weak grip", "lack of support for elderly/arthritis users", "complicated installation on beds"],
+    "benefits": ["automatic motion-sensing light for safe nighttime use", "adjustable fit for single/double/king beds", "sturdy steel with non-slip handle for secure grip", "tool-free quick setup", "storage pocket keeps essentials close, promotes dignified independence"],
+    "price_tier": "mid-range bedtime safety aid",
+    "highlights": [
+        "Built-in motion-activated LED light prevents dark accidents",
+        "Durable steel frame for reliable support during transfers",
+        "Adjustable height/length fits most bed types",
+        "Non-slip ergonomic foam handle for comfortable, secure grip",
+        "Tool-free installation and handy side pocket for phone/glasses/meds"
+    ],
+    "faqs": [
+        {"q": "How is it installed?", "a": "Quick tool-free setup — slides under mattress and secures with adjustable straps/clamps."},
+        {"q": "Suitable for arthritis or weak hands?", "a": "Yes, non-slip handle and sturdy frame reduce grip strain while providing balance support."}
+    ],
+    "date_added": "2026-01-30"
+},
+  {
+    "name": "Non-Slip Grip Socks Multi-Pack - Hospital-Grade for Elderly Fall Prevention",
+    "category": "Health & Personal Care",
+    "season":  "",
+    "image": "https://m.media-amazon.com/images/I/71BpU0vjrgL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4rlakCC",
+    "asin": "B0C... (varies by pack)",
+    "info": "Soft, comfortable grip socks with hospital-grade non-slip dots on soles to prevent slips on hard floors. Multi-pack for everyday use, gentle elastic-free fit ideal for elderly circulation issues or indoor mobility.",
+    "manual_price": "£24.99",
+    "manual_rating": "4.3",
+    "manual_reviews": "388",
+    "keywords": ["non slip socks elderly", "grip socks fall prevention", "hospital socks UK", "anti slip slippers socks", "elderly non slip footwear"],
+    "pain_points": ["slipping on tiles or wood floors indoors", "cold feet without safe traction", "tight socks restricting circulation"],
+    "benefits": ["strong grip dots for secure steps", "soft fabric for all-day comfort", "no tight bands for swollen feet", "washable and durable multi-pack", "boosts confidence moving around home"],
+    "price_tier": "budget safety basic",
+    "highlights": [
+      "Hospital-style grip for reliable traction",
+      "Multi-pack for rotation and spares",
+      "Breathable and comfortable material",
+      "Suitable for indoor hard floors",
+      "Helps reduce fall risks daily"
+    ],
+    "faqs": [
+      {"q": "Pack size?", "a": "Typically 3-6 pairs depending on brand."},
+      {"q": "Sizes?", "a": "Wide range, including for swollen feet."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "6-in-1 Jar & Bottle Opener for Seniors with Arthritis",
+    "category": "Home & Kitchen",
+    "season":  "",
+    "image": "https://m.media-amazon.com/images/I/71ZSzOdYoSL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4keYeJi",
+    "asin": "B071V3G23Y (or similar)",
+    "info": "Adjustable multi-grip opener handles jars, bottles, caps of various sizes with minimal effort. Ideal for arthritic or weak hands, enabling independent kitchen tasks without strain.",
+    "manual_price": "£5.88",
+    "manual_rating": "4.3",
+    "manual_reviews": "1,470",
+    "keywords": ["jar opener arthritis", "multi function bottle opener", "senior jar opener UK", "easy grip jar lid opener", "kitchen aid elderly"],
+    "pain_points": ["struggling to open tight jars or bottles", "reduced hand strength from arthritis", "frustration leading to dependence on others"],
+    "benefits": ["6 grip sizes for any container", "leverage design requires little force", "non-slip handles for secure use", "compact and drawer-friendly", "restores kitchen independence easily"],
+    "price_tier": "inexpensive kitchen helper",
+    "highlights": [
+      "Handles small to large jars/bottles",
+      "Minimal hand strength needed",
+      "Durable stainless steel/rubber build",
+      "Multi-use for caps, lids, bottles",
+      "Popular choice for seniors"
+    ],
+    "faqs": [
+      {"q": "How many functions?", "a": "6-in-1 for different sizes/types."},
+      {"q": "Easy for weak hands?", "a": "Yes, designed specifically for arthritis."}
+    ],
+    "date_added": "2026-01-30"
+  },
+
 
   {
     "name": "Hamilton Beach OpenStation Electric Automatic Can Opener",
