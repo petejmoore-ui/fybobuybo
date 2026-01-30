@@ -91,34 +91,7 @@ PRODUCTS = [
     "date_added": "2026-01-30"
 },
 
-    {
-    "name": "Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black",
-    "category": "Beauty",
-    "season": "Valentine's Day",
-    "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
-    "url": "https://amzn.to/4akAVds",
-    "asin": "B08WR5CPNB",
-    "info": "The UK's #1 mascara delivers sky-high volume and limitless length from every angle. Exclusive Flex Tower brush bends to capture, volumize, and extend every lash from root to tip. Washable, flake-free formula infused with bamboo extract for long, full, weightless lashes – allergy tested, ophthalmologist tested, suitable for contact lens wearers. Easy to remove, no clumping or smudging. Transform lashes for bold, eye-opening looks – ideal everyday or special occasion beauty boost.",
-    "manual_price": "£7.39",
-    "manual_rating": "4.3",
-    "manual_reviews": "70,970",
-    "keywords": ["sky high mascara", "maybelline mascara", "volumizing mascara", "lengthening mascara", "bamboo extract mascara", "best mascara UK", "valentines beauty gift"],
-    "pain_points": ["short or sparse lashes", "clumpy or flaky mascara", "wanting volume without heaviness", "difficult application on every lash", "needing long-lasting but easy-remove formula"],
-    "benefits": ["extreme volume and length", "flexible brush for full coverage", "lightweight, flake-free wear", "nourishing bamboo infusion", "dramatic yet natural-looking lashes"],
-    "price_tier": "affordable drugstore beauty",
-    "highlights": [
-        "UK's #1 Mascara – trusted by thousands for sky-high results",
-        "Flex Tower brush bends to volumize and extend every single lash",
-        "Infused with bamboo extract for nourished, weightless lashes",
-        "Washable, flake-free, no clumps – easy to apply and remove",
-        "Perfect thoughtful Valentine's add-on: enhances her confidence and glow"
-    ],
-    "faqs": [
-        {"q": "Is it suitable for sensitive eyes?", "a": "Yes – allergy tested, ophthalmologist tested, and safe for contact lens wearers; removes easily without harsh tugging."},
-        {"q": "How does it compare to other Maybelline mascaras?", "a": "Sky High stands out for its extreme length + volume combo with the unique flexible brush – many users say it outperforms classics like Great Lash for dramatic effect without heaviness."}
-    ],
-    "date_added": "2026-01-30"
-},
+    
     {
     "name": "LEGO Speed Champions McLaren F1 Team MCL38 Race Car - Model Kit with Driver Minifigure (77251)",
     "category": "Toys & Games",
@@ -144,6 +117,35 @@ PRODUCTS = [
     "faqs": [
         {"q": "Is this suitable for beginners?", "a": "Yes – clear step-by-step instructions make it enjoyable for kids 10+ and adults; no advanced tools needed."},
         {"q": "Can it be used for play or just display?", "a": "Both – sturdy for racing play scenarios with other LEGO vehicles, but detailed enough for static display as a collectible."}
+    ],
+    "date_added": "2026-01-30"
+},
+
+    {
+    "name": "Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
+    "url": "https://amzn.to/4akAVds",
+    "asin": "B08WR5CPNB",
+    "info": "The UK's #1 mascara delivers sky-high volume and limitless length from every angle. Exclusive Flex Tower brush bends to capture, volumize, and extend every lash from root to tip. Washable, flake-free formula infused with bamboo extract for long, full, weightless lashes – allergy tested, ophthalmologist tested, suitable for contact lens wearers. Easy to remove, no clumping or smudging. Transform lashes for bold, eye-opening looks – ideal everyday or special occasion beauty boost.",
+    "manual_price": "£7.39",
+    "manual_rating": "4.3",
+    "manual_reviews": "70,970",
+    "keywords": ["sky high mascara", "maybelline mascara", "volumizing mascara", "lengthening mascara", "bamboo extract mascara", "best mascara UK", "valentines beauty gift"],
+    "pain_points": ["short or sparse lashes", "clumpy or flaky mascara", "wanting volume without heaviness", "difficult application on every lash", "needing long-lasting but easy-remove formula"],
+    "benefits": ["extreme volume and length", "flexible brush for full coverage", "lightweight, flake-free wear", "nourishing bamboo infusion", "dramatic yet natural-looking lashes"],
+    "price_tier": "affordable drugstore beauty",
+    "highlights": [
+        "UK's #1 Mascara – trusted by thousands for sky-high results",
+        "Flex Tower brush bends to volumize and extend every single lash",
+        "Infused with bamboo extract for nourished, weightless lashes",
+        "Washable, flake-free, no clumps – easy to apply and remove",
+        "Perfect thoughtful Valentine's add-on: enhances her confidence and glow"
+    ],
+    "faqs": [
+        {"q": "Is it suitable for sensitive eyes?", "a": "Yes – allergy tested, ophthalmologist tested, and safe for contact lens wearers; removes easily without harsh tugging."},
+        {"q": "How does it compare to other Maybelline mascaras?", "a": "Sky High stands out for its extreme length + volume combo with the unique flexible brush – many users say it outperforms classics like Great Lash for dramatic effect without heaviness."}
     ],
     "date_added": "2026-01-30"
 },
