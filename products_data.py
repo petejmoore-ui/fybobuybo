@@ -34,6 +34,151 @@ PRODUCTS = [
 },
 
     {
+    "name": "cabpay Red Light Therapy Mat - 1280 LEDs Full Body Pad for Pain Relief & Skin Health (71'' x 31'')",
+    "category": "Health & Personal Care",
+    "season": "Mother's Day",
+    "image": "https://m.media-amazon.com/images/I/81SMRg8rI8L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4q6dQQg",
+    "asin": "B0G6TDPYYX",
+    "info": "Large full-body red light therapy mat (71'' x 31'') with 1280 powerful LEDs (660 nm red + 850 nm near-infrared) for deep tissue penetration, pain relief, inflammation reduction, muscle recovery, and skin rejuvenation. Features 5 brightness levels, 3 modes (constant, 10 Hz pulse, 40 Hz gentle pulse), 10–90 min auto timer. Plug-in design for home use — promotes cellular repair, circulation, collagen boost, and relaxation. Ideal caring gift for loved ones dealing with aches, stress, or wanting better skin health; thoughtful for Valentine's Day, birthdays, or self-care occasions.",
+    "manual_price": "£299.99",
+    "manual_rating": "Presale",
+    "manual_reviews": "Presale",
+    "keywords": ["red light therapy mat", "full body LED pad", "pain relief device", "infrared therapy", "skin rejuvenation", "Valentine's wellness gift", "recovery mat"],
+    "pain_points": ["chronic body pain or muscle soreness", "inflammation and slow recovery", "skin damage or dullness", "lack of at-home relaxation tools", "wanting non-invasive health support"],
+    "benefits": ["deep pain relief and reduced inflammation", "improved skin health and collagen production", "enhanced circulation and cellular energy", "relaxing warmth and stress relief", "easy home use with customizable modes/timer"],
+    "price_tier": "premium wellness device",
+    "highlights": [
+        "1280 LEDs with dual 660 nm red + 850 nm near-infrared for surface and deep benefits",
+        "Full-body coverage (71'' x 31'') as a comfortable mat/blanket",
+        "5 brightness levels + 3 modes (constant, 10 Hz pulse, 40 Hz gentle pulse for sensitive users)",
+        "Auto shut-off timer (10–90 minutes) for safe, convenient sessions",
+        "Perfect thoughtful gift for Valentine's Day or any occasion – shows care through wellness"
+    ],
+    "faqs": [
+        {"q": "How does red light therapy work?", "a": "It uses specific wavelengths to stimulate mitochondria in cells, boosting energy production (ATP), reducing inflammation, and promoting repair — red for skin surface, infrared for deeper tissues/muscles."},
+        {"q": "Is it suitable as a Valentine's gift?", "a": "Yes — marketed for occasions like Valentine's Day; provides soothing, relaxing care and shows thoughtfulness for their health and comfort."}
+    ],
+    "date_added": "2026-01-30"
+},
+
+    {
+    "name": "Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)",
+    "category": "Sports & Outdoors",
+    "season": "Father's Day",
+    "image": "https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3Z85IUA",
+    "asin": "B0FQJXB6H5",
+    "info": "Portable, foldable LED lighting ring that clips easily to the top of any standard steel-tip dartboard for bright, even 120° white illumination — eliminates shadows for better accuracy and visibility during play. Lightweight alloy construction, tool-free setup, open design for quick dart retrieval, USB-C powered (compatible with power banks or chargers). Ideal upgrade for home dart setups, pub games, or romantic game nights — makes dart playing more enjoyable in dim rooms without harsh overhead lights.",
+    "manual_price": "£24.95",
+    "manual_rating": "4.5",
+    "manual_reviews": "113",
+    "keywords": ["dartboard light", "LED dart light", "dart board lighting", "Mission Torus", "portable dart illumination", "shadow-free darts", "dart accessory"],
+    "pain_points": ["poor visibility in low light", "shadows on dartboard affecting aim", "harsh room lighting or no dedicated light", "wanting better home game experience"],
+    "benefits": ["bright even lighting reduces shadows", "portable and easy to store/travel", "quick clip-on setup no tools needed", "USB-C flexible power options", "enhances fun for couples or friends playing darts"],
+    "price_tier": "mid-range dart accessory",
+    "highlights": [
+        "Bright white 120° LED for shadow-free dartboard illumination",
+        "Lightweight, foldable portable design for easy storage and travel",
+        "Tool-free clip attachment fits most steel-tip dartboards",
+        "Open frame allows fast dart retrieval after throws",
+        "USB-C powered – use with power bank, laptop, or charger for convenience"
+    ],
+    "faqs": [
+        {"q": "Does it fit any dartboard?", "a": "Yes, it clips securely to the top of most standard steel-tip bristle dartboards (not electronic/soft-tip unless compatible rim). Check dimensions if unsure."},
+        {"q": "Is it battery powered?", "a": "No built-in battery, but USB-C allows easy powering via power bank, wall charger, or device for portable use anywhere."}
+    ],
+    "date_added": "2026-01-30"
+},
+
+    
+    {
+    "name": "LEGO Speed Champions McLaren F1 Team MCL38 Race Car - Model Kit with Driver Minifigure (77251)",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/8117Cs8gahL._AC_SX679_.jpg",
+    "url": "https://amzn.to/46okZo6",
+    "asin": "B0DHS9Y192",
+    "info": "Build your own authentic 2024 McLaren F1 Team MCL38 race car with this LEGO Speed Champions set – 269 pieces featuring realistic details like halo bar, rear wing, sponsor stickers, and Pirelli tyres. Includes a collectible driver minifigure in full McLaren outfit and helmet for cockpit display. Perfect for F1 fans to recreate race action, display on a shelf, or enjoy quality building time together. Part of the growing LEGO F1 collection – educational fun that develops engineering skills, patience, and creativity. Great gift for motorsport lovers, kids 10+, or adults who enjoy detailed model kits.",
+    "manual_price": "£15.99",
+    "manual_rating": "4.8",
+    "manual_reviews": "12,572",
+    "keywords": ["LEGO McLaren F1", "Speed Champions", "F1 model kit", "race car toy", "building set", "McLaren MCL38", "Formula 1 gift"],
+    "pain_points": ["wanting authentic F1 replicas without high cost", "boring toys lacking detail", "seeking engaging activities for kids/adults", "gifts that encourage creativity and play", "display pieces that feel premium"],
+    "benefits": ["highly detailed authentic 2024 McLaren design", "fun building experience with clear instructions", "collectible minifigure for play/display", "durable LEGO quality for long-lasting enjoyment", "family-friendly activity or solo hobby"],
+    "price_tier": "affordable LEGO building set",
+    "highlights": [
+        "Authentic 2024 McLaren F1 MCL38 replica with halo, wing, and sponsor details",
+        "Includes poseable driver minifigure in cockpit",
+        "269 pieces – satisfying build (around 2-3 hours) for ages 10+",
+        "Display-ready after assembly – perfect shelf or bedside model",
+        "Top-rated bestseller; ideal gift for F1 fans or car enthusiasts"
+    ],
+    "faqs": [
+        {"q": "Is this suitable for beginners?", "a": "Yes – clear step-by-step instructions make it enjoyable for kids 10+ and adults; no advanced tools needed."},
+        {"q": "Can it be used for play or just display?", "a": "Both – sturdy for racing play scenarios with other LEGO vehicles, but detailed enough for static display as a collectible."}
+    ],
+    "date_added": "2026-01-30"
+},
+
+    {
+    "name": "Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
+    "url": "https://amzn.to/4akAVds",
+    "asin": "B08WR5CPNB",
+    "info": "The UK's #1 mascara delivers sky-high volume and limitless length from every angle. Exclusive Flex Tower brush bends to capture, volumize, and extend every lash from root to tip. Washable, flake-free formula infused with bamboo extract for long, full, weightless lashes – allergy tested, ophthalmologist tested, suitable for contact lens wearers. Easy to remove, no clumping or smudging. Transform lashes for bold, eye-opening looks – ideal everyday or special occasion beauty boost.",
+    "manual_price": "£7.39",
+    "manual_rating": "4.3",
+    "manual_reviews": "70,970",
+    "keywords": ["sky high mascara", "maybelline mascara", "volumizing mascara", "lengthening mascara", "bamboo extract mascara", "best mascara UK", "valentines beauty gift"],
+    "pain_points": ["short or sparse lashes", "clumpy or flaky mascara", "wanting volume without heaviness", "difficult application on every lash", "needing long-lasting but easy-remove formula"],
+    "benefits": ["extreme volume and length", "flexible brush for full coverage", "lightweight, flake-free wear", "nourishing bamboo infusion", "dramatic yet natural-looking lashes"],
+    "price_tier": "affordable drugstore beauty",
+    "highlights": [
+        "UK's #1 Mascara – trusted by thousands for sky-high results",
+        "Flex Tower brush bends to volumize and extend every single lash",
+        "Infused with bamboo extract for nourished, weightless lashes",
+        "Washable, flake-free, no clumps – easy to apply and remove",
+        "Perfect thoughtful Valentine's add-on: enhances her confidence and glow"
+    ],
+    "faqs": [
+        {"q": "Is it suitable for sensitive eyes?", "a": "Yes – allergy tested, ophthalmologist tested, and safe for contact lens wearers; removes easily without harsh tugging."},
+        {"q": "How does it compare to other Maybelline mascaras?", "a": "Sky High stands out for its extreme length + volume combo with the unique flexible brush – many users say it outperforms classics like Great Lash for dramatic effect without heaviness."}
+    ],
+    "date_added": "2026-01-30"
+},
+
+    {
+    "name": "Vitamin D3 4000 IU & K2 MK7 100μg - 1 Year Supply, 365 Easy-Swallow Vegetarian Tablets",
+    "category": "Health & Personal Care",
+    "season": "Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/71l1gMTmsAL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3Z47XIB",
+    "asin": "B0CR57HRDV",
+    "info": "High-strength 1-year supply (365 x 1-a-day tablets) combining 4000 IU Vitamin D3 (sunshine vitamin) with 100 μg Vitamin K2 as MK7 for synergistic support. Helps maintain normal bones, teeth, muscle function, and immune system; K2 MK7 aids calcium absorption and directs it to bones while preventing buildup in arteries. Vegetarian, easy-to-swallow tablets in a convenient pouch — no fillers, suitable for daily use year-round, especially in low-sunlight UK winters. Thoughtful wellness gift showing care for long-term health, energy, and vitality.",
+    "manual_price": "£9.99",
+    "manual_rating": "4.6",
+    "manual_reviews": "14,516",
+    "keywords": ["vitamin D3 K2", "4000 IU D3", "MK7 100mcg", "bone health supplement", "immune support", "valentines wellness gift", "year supply vitamins"],
+    "pain_points": ["vitamin D deficiency in winter/low sun", "poor calcium absorption or bone concerns", "weak immune system/fatigue", "wanting convenient long-term health support", "finding affordable high-strength combos"],
+    "benefits": ["stronger bones/teeth and better calcium use", "enhanced immune function and energy", "synergistic D3 + K2 for heart/arterial health", "easy daily tablet with 1-year convenience", "vegetarian and gentle on stomach"],
+    "price_tier": "affordable wellness supplement",
+    "highlights": [
+        "4000 IU Vitamin D3 + 100 μg K2 MK7 per tablet for potent daily support",
+        "1 full year supply (365 tablets) – great value and no monthly re-orders",
+        "Vegetarian, easy-to-swallow formula – ideal for consistent use",
+        "Supports bones, immune system, muscle function, and calcium direction",
+        "Perfect caring Valentine's gift: prioritize her health and well-being"
+    ],
+    "faqs": [
+        {"q": "Why combine D3 and K2?", "a": "Vitamin D3 increases calcium absorption, while K2 (MK7 form) helps direct calcium to bones/teeth and away from arteries/soft tissues for balanced benefits."},
+        {"q": "Is this suitable as a gift?", "a": "Yes – wellness supplements like this show thoughtful care; many use it for seasonal health boosts, and the long supply makes it practical and appreciated."}
+    ],
+    "date_added": "2026-01-30"
+},
+    {
         "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
         "category": "Beauty",
         "season": "Valentine's Day, Mother's Day",
