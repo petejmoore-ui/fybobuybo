@@ -344,25 +344,25 @@ BLOG_POSTS = {
     <p>Falls and daily living challenges are among the top concerns for elderly people living independently in the UK. Small, thoughtful aids can make an enormous difference to confidence and safety — without feeling institutional or overwhelming. These Amazon UK-available products preserve dignity while providing practical support.</p>
   </section>
 
-  <h2 id="grab-rails" itemprop="headline" style="scroll-margin-top:100px;">1. Suction Cup Grab Rails for Bathroom Safety</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Vive Suction Cup Grab Bar - Bathroom Safety Rail Handle") }}'>
-      <img src='https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg' 
-           alt='Vive Suction Cup Grab Bar - Non-Slip Bathroom Safety Rail for Elderly, Shower Handle with Indicator' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+  <h2 id="grab-rails" itemprop="headline" style="scroll-margin-top:100px;">1. Newthinking Portable Suction Cup Grab Rail for Bathroom Safety</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("Newthinking Suction Bathroom Grab Rail Hand Rail for Disabled") }}'>
+    <img src='https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg' 
+         alt='Newthinking Suction Grab Rail - Portable Bathroom Safety Handle with Non-Slip Grip for Elderly, Disabled, No Drilling Needed' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">The <strong>Newthinking Suction Grab Rail</strong> offers instant, portable bathroom safety without any drilling or permanent fixings. Strong suction cups adhere securely to smooth, non-porous surfaces (tiles, glass, porcelain), with a textured non-slip grip for confident hold even when wet. Ideal for showers, baths, or near toilets — providing balance support for elderly users, disabled individuals, or those with weak grip/arthritis. Affordable, highly rated, and readily available on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+    <a href='/product/{{ slugify("Newthinking Suction Bathroom Grab Rail Hand Rail for Disabled") }}'>
+      <button aria-label='View Newthinking grab rail product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">The <strong>Vive Suction Cup Grab Bar</strong> provides instant bathroom safety without drilling or permanent installation. Strong suction indicators show secure attachment, supporting up to 136kg. Perfect for showers, bathtubs, or near toilets — giving elderly users confidence when moving around wet surfaces. Highly rated and available on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Vive Suction Cup Grab Bar - Bathroom Safety Rail Handle") }}'>
-        <button aria-label='View Vive grab bar product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/Vive-Suction-Shower-Bathroom-Balance/dp/B07K4GV8LV' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy Vive suction grab bar on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://www.amazon.co.uk/Newthinking-Bathroom-Disabled-Portable-Disability/dp/B07G2WCNVB' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy Newthinking suction grab rail on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
   <h2 id="reacher-grabber" itemprop="headline" style="scroll-margin-top:100px;">2. Long-Reach Grabber Tool (32-Inch)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
@@ -424,25 +424,25 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="bed-rail" itemprop="headline" style="scroll-margin-top:100px;">5. Adjustable Bed Safety Rail & Handle</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Carex Bed Support Rail") }}'>
-      <img src='https://m.media-amazon.com/images/I/618s-oGYmWL._AC_SX679_.jpg' 
-           alt='Carex Bed Rail Handle - Adjustable Safety Support Rail for Elderly Getting In and Out of Bed' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
+  <h2 id="bed-rail" itemprop="headline" style="scroll-margin-top:100px;">5. Yornoli Adjustable Bed Rail with Motion-Sensing Light</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light") }}'>
+    <img src='https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg' 
+         alt='Yornoli Bed Rail - Adjustable Safety Support with Motion-Sensing Light, Non-Slip Handle and Storage Pocket for Elderly' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">The <strong>Yornoli Bed Rail</strong> offers reliable nighttime safety with a built-in motion-sensing LED light that automatically illuminates when you move, helping prevent falls in the dark. Adjustable to fit most beds (single to king), sturdy steel frame, non-slip ergonomic grip handle, tool-free installation, and a convenient side storage pocket for phone, glasses, or meds. Ideal for elderly users or those with limited mobility, arthritis, or weak grip — promotes safe, independent bed transfers. Available on Amazon UK.</p>
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+    <a href='/product/{{ slugify("Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light") }}'>
+      <button aria-label='View Yornoli bed rail product details'>View Details & Buy</button>
     </a>
-    <p itemprop="text">The <strong>Carex Bed Support Rail</strong> provides stable support for getting in and out of bed safely. Tool-free installation that fits most beds, adjustable height, and sturdy steel construction. Helps prevent falls during vulnerable nighttime movements. Readily available on Amazon UK.</p>
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Carex Bed Support Rail") }}'>
-        <button aria-label='View Carex bed rail product details'>View Details & Buy</button>
-      </a>
-      <a href='https://www.amazon.co.uk/P56600-Carex-Bed-Support-Rail/dp/B001AFEQ0E' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy Carex bed rail on Amazon UK'>View on Amazon UK</button>
-      </a>
-    </div>
+    <a href='https://www.amazon.co.uk/Yornoli-Motion-Sensing-Adjustable-Non-Slip-Installation/dp/B0DJ564N28' target='_blank' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy Yornoli bed rail on Amazon UK'>View on Amazon UK</button>
+    </a>
   </div>
+</div>
 
   <h2 id="slip-resistant-socks" itemprop="headline" style="scroll-margin-top:100px;">6. Non-Slip Grip Socks (Multi-Pack)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
