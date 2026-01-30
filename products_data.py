@@ -11,20 +11,20 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg",
     "url": "https://amzn.to/4bofGsl",
     "asin": "B0C7LGWD8C",
-    "info": "Genuine real rose hand-dipped in 24K gold plating (over brass base) for a luxurious, everlasting symbol of love and devotion. Preserved to last forever unlike fresh flowers – perfect elegant display piece for anniversaries, birthdays, Mother's Day, Valentine's Day, weddings, or any romantic occasion. Comes in a protective, elegant gift box to prevent damage during shipping.",
+    "info": "Discover the timeless elegance of a genuine rose hand-dipped in luxurious 24K gold plating, creating an everlasting symbol of love and devotion. Unlike fleeting fresh flowers, this preserved beauty shines forever as a stunning display piece — ideal for expressing romance on Valentine's Day, anniversaries, birthdays, or any heartfelt occasion. Arrives in a protective, elegant gift box for a truly special unboxing experience.",
     "manual_price": "£39.99",
     "manual_rating": "4.7",
     "manual_reviews": "920",
     "keywords": ["gold dipped rose", "24K gold rose", "preserved rose", "eternal rose", "romantic gift", "Valentine's gift"],
-    "pain_points": ["short-lived fresh flowers", "wanting a lasting romantic gesture", "finding unique meaningful gifts"],
-    "benefits": ["lasts forever", "symbolizes eternal love", "luxurious shiny gold finish", "elegant home decor display", "thoughtful sentimental gift"],
+    "pain_points": ["fresh flowers that fade too quickly", "desire for a meaningful, lasting keepsake", "searching for unique and sentimental gifts"],
+    "benefits": ["endures forever with zero maintenance", "radiates eternal love and loyalty", "captivating gold shine that elevates any space", "beautiful, ready-to-display home accent", "heartfelt gesture she'll treasure"],
     "price_tier": "mid-range luxury gift",
     "highlights": [
-        "Real rose preserved and plated in 24K gold for timeless beauty",
-        "Symbol of forever love, loyalty, and romance",
-        "Better than fresh flowers – no wilting, long-lasting display",
-        "Comes in protective elegant gift box, shake-proof packaging",
-        "Perfect for girlfriend, wife, mom, or any special woman in your life"
+        "Authentic rose hand-dipped in real 24K gold for enduring brilliance",
+        "Powerful symbol of everlasting romance and commitment",
+        "Outlasts fresh blooms — no wilting, always perfect",
+        "Protective elegant box ensures safe arrival and gifting",
+        "A romantic favorite for girlfriends, wives, moms, and special women"
     ],
     "faqs": [
         {"q": "Is it real 24K gold?", "a": "Yes, it's 24K gold plated (electroplated over a brass base) – not solid gold, but features a genuine shining 24K gold surface with two clad layers."},
@@ -32,28 +32,27 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
-
-    {
+{
     "name": "cabpay Red Light Therapy Mat - 1280 LEDs Full Body Pad for Pain Relief & Skin Health (71'' x 31'')",
     "category": "Health & Personal Care",
-    "season": "Mother's Day",
+    "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/81SMRg8rI8L._AC_SX679_.jpg",
     "url": "https://amzn.to/4q6dQQg",
     "asin": "B0G6TDPYYX",
-    "info": "Large full-body red light therapy mat (71'' x 31'') with 1280 powerful LEDs (660 nm red + 850 nm near-infrared) for deep tissue penetration, pain relief, inflammation reduction, muscle recovery, and skin rejuvenation. Features 5 brightness levels, 3 modes (constant, 10 Hz pulse, 40 Hz gentle pulse), 10–90 min auto timer. Plug-in design for home use — promotes cellular repair, circulation, collagen boost, and relaxation. Ideal caring gift for loved ones dealing with aches, stress, or wanting better skin health; thoughtful for Valentine's Day, birthdays, or self-care occasions.",
+    "info": "Elevate your self-care routine with this expansive full-body red light therapy mat featuring 1280 powerful LEDs (660 nm red + 850 nm near-infrared) for deep, soothing benefits. Enjoy customizable sessions with 5 brightness levels, 3 modes, and an auto timer — perfect for unwinding, supporting recovery, and nurturing glowing skin from head to toe. A thoughtful wellness gift that shows you care about comfort, vitality, and long-term well-being.",
     "manual_price": "£299.99",
     "manual_rating": "Presale",
     "manual_reviews": "Presale",
     "keywords": ["red light therapy mat", "full body LED pad", "pain relief device", "infrared therapy", "skin rejuvenation", "Valentine's wellness gift", "recovery mat"],
-    "pain_points": ["chronic body pain or muscle soreness", "inflammation and slow recovery", "skin damage or dullness", "lack of at-home relaxation tools", "wanting non-invasive health support"],
-    "benefits": ["deep pain relief and reduced inflammation", "improved skin health and collagen production", "enhanced circulation and cellular energy", "relaxing warmth and stress relief", "easy home use with customizable modes/timer"],
+    "pain_points": ["occasional aches and tension", "desire for deeper recovery and relaxation", "seeking glowing, revitalized skin at home"],
+    "benefits": ["gentle deep-tissue comfort and renewal", "radiant skin with boosted collagen", "improved energy and circulation", "personalized at-home sessions", "caring way to prioritize health and pampering"],
     "price_tier": "premium wellness device",
     "highlights": [
-        "1280 LEDs with dual 660 nm red + 850 nm near-infrared for surface and deep benefits",
-        "Full-body coverage (71'' x 31'') as a comfortable mat/blanket",
-        "5 brightness levels + 3 modes (constant, 10 Hz pulse, 40 Hz gentle pulse for sensitive users)",
-        "Auto shut-off timer (10–90 minutes) for safe, convenient sessions",
-        "Perfect thoughtful gift for Valentine's Day or any occasion – shows care through wellness"
+        "1280 dual-wavelength LEDs for comprehensive surface and deep benefits",
+        "Generous full-body size (71'' x 31'') for complete coverage",
+        "Flexible modes and brightness — tailor every session",
+        "Built-in timer for effortless, safe use",
+        "Meaningful gift that celebrates wellness and self-love"
     ],
     "faqs": [
         {"q": "How does red light therapy work?", "a": "It uses specific wavelengths to stimulate mitochondria in cells, boosting energy production (ATP), reducing inflammation, and promoting repair — red for skin surface, infrared for deeper tissues/muscles."},
@@ -61,28 +60,27 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
-
-    {
+{
     "name": "Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)",
     "category": "Sports & Outdoors",
-    "season": "Father's Day",
+    "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg",
     "url": "https://amzn.to/3Z85IUA",
     "asin": "B0FQJXB6H5",
-    "info": "Portable, foldable LED lighting ring that clips easily to the top of any standard steel-tip dartboard for bright, even 120° white illumination — eliminates shadows for better accuracy and visibility during play. Lightweight alloy construction, tool-free setup, open design for quick dart retrieval, USB-C powered (compatible with power banks or chargers). Ideal upgrade for home dart setups, pub games, or romantic game nights — makes dart playing more enjoyable in dim rooms without harsh overhead lights.",
+    "info": "Transform any dart game with this sleek, portable LED lighting ring that clips on effortlessly for bright, even illumination. Enjoy shadow-free visibility and quick dart retrieval in a lightweight, foldable design — powered conveniently via USB-C. A fun upgrade for home setups, casual evenings, or shared game nights that makes every throw clearer and more enjoyable.",
     "manual_price": "£24.95",
     "manual_rating": "4.5",
     "manual_reviews": "113",
     "keywords": ["dartboard light", "LED dart light", "dart board lighting", "Mission Torus", "portable dart illumination", "shadow-free darts", "dart accessory"],
-    "pain_points": ["poor visibility in low light", "shadows on dartboard affecting aim", "harsh room lighting or no dedicated light", "wanting better home game experience"],
-    "benefits": ["bright even lighting reduces shadows", "portable and easy to store/travel", "quick clip-on setup no tools needed", "USB-C flexible power options", "enhances fun for couples or friends playing darts"],
+    "pain_points": ["dim lighting during play", "unwanted shadows on the board", "need for better focus and enjoyment"],
+    "benefits": ["crystal-clear, even lighting", "easy portability and setup", "tool-free clip for instant use", "versatile USB-C power", "more fun and accurate games together"],
     "price_tier": "mid-range dart accessory",
     "highlights": [
-        "Bright white 120° LED for shadow-free dartboard illumination",
-        "Lightweight, foldable portable design for easy storage and travel",
-        "Tool-free clip attachment fits most steel-tip dartboards",
-        "Open frame allows fast dart retrieval after throws",
-        "USB-C powered – use with power bank, laptop, or charger for convenience"
+        "Bright 120° white LEDs eliminate shadows for perfect visibility",
+        "Compact, foldable design travels or stores easily",
+        "Simple clip-on fit for most steel-tip dartboards",
+        "Open frame for fast, hassle-free dart retrieval",
+        "USB-C convenience — power from anywhere"
     ],
     "faqs": [
         {"q": "Does it fit any dartboard?", "a": "Yes, it clips securely to the top of most standard steel-tip bristle dartboards (not electronic/soft-tip unless compatible rim). Check dimensions if unsure."},
@@ -90,29 +88,27 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
-
-    
-    {
+{
     "name": "LEGO Speed Champions McLaren F1 Team MCL38 Race Car - Model Kit with Driver Minifigure (77251)",
     "category": "Toys & Games",
-    "season": "Christmas",
+    "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/8117Cs8gahL._AC_SX679_.jpg",
     "url": "https://amzn.to/46okZo6",
     "asin": "B0DHS9Y192",
-    "info": "Build your own authentic 2024 McLaren F1 Team MCL38 race car with this LEGO Speed Champions set – 269 pieces featuring realistic details like halo bar, rear wing, sponsor stickers, and Pirelli tyres. Includes a collectible driver minifigure in full McLaren outfit and helmet for cockpit display. Perfect for F1 fans to recreate race action, display on a shelf, or enjoy quality building time together. Part of the growing LEGO F1 collection – educational fun that develops engineering skills, patience, and creativity. Great gift for motorsport lovers, kids 10+, or adults who enjoy detailed model kits.",
+    "info": "Capture the thrill of Formula 1 with this detailed LEGO Speed Champions replica of the 2024 McLaren MCL38 — complete with authentic features, sponsor details, and a collectible driver minifigure. A rewarding build that sparks creativity, perfect for display or imaginative play. Ideal for motorsport fans who love precision engineering and exciting race recreations.",
     "manual_price": "£15.99",
     "manual_rating": "4.8",
     "manual_reviews": "12,572",
     "keywords": ["LEGO McLaren F1", "Speed Champions", "F1 model kit", "race car toy", "building set", "McLaren MCL38", "Formula 1 gift"],
-    "pain_points": ["wanting authentic F1 replicas without high cost", "boring toys lacking detail", "seeking engaging activities for kids/adults", "gifts that encourage creativity and play", "display pieces that feel premium"],
-    "benefits": ["highly detailed authentic 2024 McLaren design", "fun building experience with clear instructions", "collectible minifigure for play/display", "durable LEGO quality for long-lasting enjoyment", "family-friendly activity or solo hobby"],
+    "pain_points": ["lack of detailed, authentic F1 models", "desire for engaging, creative activities", "wanting premium-feeling collectibles at a great value"],
+    "benefits": ["stunningly accurate 2024 McLaren design", "satisfying build with clear steps", "fun minifigure for display and play", "durable, high-quality LEGO enjoyment", "perfect for solo hobby or shared fun"],
     "price_tier": "affordable LEGO building set",
     "highlights": [
-        "Authentic 2024 McLaren F1 MCL38 replica with halo, wing, and sponsor details",
-        "Includes poseable driver minifigure in cockpit",
-        "269 pieces – satisfying build (around 2-3 hours) for ages 10+",
-        "Display-ready after assembly – perfect shelf or bedside model",
-        "Top-rated bestseller; ideal gift for F1 fans or car enthusiasts"
+        "Faithful 2024 McLaren MCL38 replica with halo, wing, and sponsor accuracy",
+        "Poseable driver minifigure ready for the cockpit",
+        "269-piece build — engaging and achievable in 2–3 hours",
+        "Display-worthy model for shelves or desks",
+        "Bestseller loved by F1 enthusiasts and builders"
     ],
     "faqs": [
         {"q": "Is this suitable for beginners?", "a": "Yes – clear step-by-step instructions make it enjoyable for kids 10+ and adults; no advanced tools needed."},
@@ -120,28 +116,27 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
-
-    {
+{
     "name": "Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black",
     "category": "Beauty",
     "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
     "url": "https://amzn.to/4akAVds",
     "asin": "B08WR5CPNB",
-    "info": "The UK's #1 mascara delivers sky-high volume and limitless length from every angle. Exclusive Flex Tower brush bends to capture, volumize, and extend every lash from root to tip. Washable, flake-free formula infused with bamboo extract for long, full, weightless lashes – allergy tested, ophthalmologist tested, suitable for contact lens wearers. Easy to remove, no clumping or smudging. Transform lashes for bold, eye-opening looks – ideal everyday or special occasion beauty boost.",
+    "info": "Achieve sky-high lashes with the UK's #1 mascara — its innovative Flex Tower brush captures and extends every lash for dramatic volume and length. Infused with bamboo extract, this flake-free, lightweight formula delivers bold, fluttery results that last all day. A beauty essential that boosts confidence for everyday wear or special romantic moments.",
     "manual_price": "£7.39",
     "manual_rating": "4.3",
     "manual_reviews": "70,970",
     "keywords": ["sky high mascara", "maybelline mascara", "volumizing mascara", "lengthening mascara", "bamboo extract mascara", "best mascara UK", "valentines beauty gift"],
-    "pain_points": ["short or sparse lashes", "clumpy or flaky mascara", "wanting volume without heaviness", "difficult application on every lash", "needing long-lasting but easy-remove formula"],
-    "benefits": ["extreme volume and length", "flexible brush for full coverage", "lightweight, flake-free wear", "nourishing bamboo infusion", "dramatic yet natural-looking lashes"],
+    "pain_points": ["wanting fuller, longer-looking lashes", "dealing with clumpy or heavy formulas", "needing easy, reliable everyday glam"],
+    "benefits": ["sky-high volume and endless length", "flexible brush for complete lash coverage", "light, nourished feel with no flakes", "bamboo-enriched for healthier-looking lashes", "instant eye-opening transformation"],
     "price_tier": "affordable drugstore beauty",
     "highlights": [
-        "UK's #1 Mascara – trusted by thousands for sky-high results",
-        "Flex Tower brush bends to volumize and extend every single lash",
-        "Infused with bamboo extract for nourished, weightless lashes",
-        "Washable, flake-free, no clumps – easy to apply and remove",
-        "Perfect thoughtful Valentine's add-on: enhances her confidence and glow"
+        "UK's favorite mascara for trusted, dramatic results",
+        "Unique Flex Tower brush bends to lift and extend every lash",
+        "Bamboo-infused formula keeps lashes soft and weightless",
+        "Flake-free, easy-on/easy-off wear all day",
+        "Lovely Valentine's touch — adds sparkle and confidence"
     ],
     "faqs": [
         {"q": "Is it suitable for sensitive eyes?", "a": "Yes – allergy tested, ophthalmologist tested, and safe for contact lens wearers; removes easily without harsh tugging."},
@@ -149,28 +144,27 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
-
-    {
+{
     "name": "Vitamin D3 4000 IU & K2 MK7 100μg - 1 Year Supply, 365 Easy-Swallow Vegetarian Tablets",
     "category": "Health & Personal Care",
-    "season": "Winter Essentials",
+    "season": "Valentine's Day",
     "image": "https://m.media-amazon.com/images/I/71l1gMTmsAL._AC_SX679_.jpg",
     "url": "https://amzn.to/3Z47XIB",
     "asin": "B0CR57HRDV",
-    "info": "High-strength 1-year supply (365 x 1-a-day tablets) combining 4000 IU Vitamin D3 (sunshine vitamin) with 100 μg Vitamin K2 as MK7 for synergistic support. Helps maintain normal bones, teeth, muscle function, and immune system; K2 MK7 aids calcium absorption and directs it to bones while preventing buildup in arteries. Vegetarian, easy-to-swallow tablets in a convenient pouch — no fillers, suitable for daily use year-round, especially in low-sunlight UK winters. Thoughtful wellness gift showing care for long-term health, energy, and vitality.",
+    "info": "Support your daily vitality with this convenient 1-year supply of high-strength Vitamin D3 (4000 IU) paired with K2 MK7 (100 μg) — a powerful duo for bone, immune, and overall wellness. Vegetarian, easy-to-swallow tablets designed for consistent use, especially during low-sun seasons. A caring, practical gift that helps nurture long-term energy and health.",
     "manual_price": "£9.99",
     "manual_rating": "4.6",
     "manual_reviews": "14,516",
     "keywords": ["vitamin D3 K2", "4000 IU D3", "MK7 100mcg", "bone health supplement", "immune support", "valentines wellness gift", "year supply vitamins"],
-    "pain_points": ["vitamin D deficiency in winter/low sun", "poor calcium absorption or bone concerns", "weak immune system/fatigue", "wanting convenient long-term health support", "finding affordable high-strength combos"],
-    "benefits": ["stronger bones/teeth and better calcium use", "enhanced immune function and energy", "synergistic D3 + K2 for heart/arterial health", "easy daily tablet with 1-year convenience", "vegetarian and gentle on stomach"],
+    "pain_points": ["limited sunlight exposure in winter", "interest in stronger bone and immune support", "need for simple, long-lasting supplements"],
+    "benefits": ["optimal bone, teeth, and muscle health", "boosted immune function and daily energy", "smart calcium direction with D3 + K2 synergy", "year-long convenience in one pouch", "gentle vegetarian formula"],
     "price_tier": "affordable wellness supplement",
     "highlights": [
-        "4000 IU Vitamin D3 + 100 μg K2 MK7 per tablet for potent daily support",
-        "1 full year supply (365 tablets) – great value and no monthly re-orders",
-        "Vegetarian, easy-to-swallow formula – ideal for consistent use",
-        "Supports bones, immune system, muscle function, and calcium direction",
-        "Perfect caring Valentine's gift: prioritize her health and well-being"
+        "Potent 4000 IU D3 + 100 μg K2 MK7 combo per tablet",
+        "Full 365-day supply — excellent value and no refills needed",
+        "Easy-swallow vegetarian tablets for daily ease",
+        "Supports bones, immunity, muscles, and balanced calcium use",
+        "Thoughtful gift that shows you value their well-being"
     ],
     "faqs": [
         {"q": "Why combine D3 and K2?", "a": "Vitamin D3 increases calcium absorption, while K2 (MK7 form) helps direct calcium to bones/teeth and away from arteries/soft tissues for balanced benefits."},
@@ -178,35 +172,34 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
-    {
-        "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
-        "category": "Beauty",
-        "season": "Valentine's Day, Mother's Day",
-        "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
-        "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
-        "asin": "B0B2RM68G2",
-        "info": "Pack of 4 ultra-thin hydrogel masks infused with low-molecular collagen for deep hydration, pore minimising, and improved skin elasticity – adheres perfectly for maximum absorption. Korean skincare favourite for glass skin glow, plumping fine lines, and overnight radiance – gentle, fragrance-free formula suitable for all skin types.",
-        "manual_price": "£12.00",
-        "manual_rating": "4.4",
-        "manual_reviews": "28,208",
-        "keywords": ["hydrogel mask", "collagen mask", "Korean skincare", "glass skin", "pore minimizing"],
-        "pain_points": ["enlarged pores", "loss of elasticity", "dull skin", "dehydration"],
-        "benefits": ["deep hydration", "pore refinement", "plumping effect", "overnight glow", "perfect adhesion"],
-        "price_tier": "affordable K-beauty",
-        "highlights": [
-            "Ultra-thin hydrogel for maximum serum absorption",
-            "Low-molecular collagen penetrates deeply for elasticity",
-            "Brightens and plumps for visible glass skin effect",
-            "Fragrance-free and gentle on sensitive skin",
-            "4 masks per pack – ideal for weekly treatments"
-        ],
-        "faqs": [
-            {"q": "How often should I use these masks?", "a": "2–3 times per week for best results, or as an overnight treatment once a week for intensive care."},
-            {"q": "Are they suitable for sensitive skin?", "a": "Yes – fragrance-free, dermatologist-tested, and designed for all skin types including sensitive."}
-        ],
-        "date_added": "2026-01-08"
-    },
-
+{
+    "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
+    "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
+    "asin": "B0B2RM68G2",
+    "info": "Indulge in spa-like radiance with these ultra-thin hydrogel masks packed with low-molecular collagen for deep hydration and visible skin refinement. Adhere seamlessly to deliver plumping, pore-minimizing, and elasticity-boosting benefits — a Korean beauty favorite for that coveted glass-skin glow. Perfect for weekly pampering or as a lovely self-care treat.",
+    "manual_price": "£12.00",
+    "manual_rating": "4.4",
+    "manual_reviews": "28,208",
+    "keywords": ["hydrogel mask", "collagen mask", "Korean skincare", "glass skin", "pore minimizing"],
+    "pain_points": ["enlarged pores or loss of firmness", "desire for deeper hydration and glow", "looking for gentle, effective at-home treatments"],
+    "benefits": ["intense moisture and plumpness", "refined pores and smoother texture", "enhanced elasticity and radiance", "comfortable, fragrance-free wear", "easy addition to any routine"],
+    "price_tier": "affordable K-beauty",
+    "highlights": [
+        "Ultra-thin hydrogel delivers maximum serum absorption",
+        "Low-molecular collagen for deep penetration and bounce",
+        "Promotes glass-skin brightness and plumpness",
+        "Gentle, fragrance-free for all skin types",
+        "4 masks per pack — ideal for regular glow-ups"
+    ],
+    "faqs": [
+        {"q": "How often should I use these masks?", "a": "2–3 times per week for best results, or as an overnight treatment once a week for intensive care."},
+        {"q": "Are they suitable for sensitive skin?", "a": "Yes – fragrance-free, dermatologist-tested, and designed for all skin types including sensitive."}
+    ],
+    "date_added": "2026-01-08"
+},
     {
         "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
         "category": "Beauty",
