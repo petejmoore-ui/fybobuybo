@@ -629,7 +629,7 @@ BLOG_POSTS = {
     </a>
     <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Electric Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press and it does everything. Cuts smoothly, leaving no sharp edges. Essential for anyone with arthritis, weak grip, or hand pain. Highly rated on Amazon UK.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Hamilton Beach Electric Automatic Can Opener") }}'>
+      <a href='/product/{{ slugify("Hamilton Beach Openstation Electric Automatic Can Opener") }}'>
         <button aria-label='View Hamilton Beach can opener details'>View Details & Buy</button>
       </a>
       <a href='https://www.amazon.co.uk/Hamilton-Beach-Easy-Clean-Detachable-76702/dp/B09Q4SPG73' target='_blank' rel='nofollow sponsored noopener'>
@@ -700,7 +700,7 @@ BLOG_POSTS = {
 
   <h2 id="tap-turner" itemprop="headline" style="scroll-margin-top:100px;">5. Otstar Multi-Function Jar & Bottle Opener for Weak Hands</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("Otstar Multi Function Jar Bottle Opener Arthritis") }}'>
+  <a href='/product/{{ slugify("otstar jar opener bottle opener and ring pull can opener for weak hands arthritis hands elderly") }}'>
     <img src='https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg' 
          alt='Otstar Multi-Function Opener - Jar, Bottle, Ring Pull, Can Opener for Arthritic Hands, Elderly, Weak Grip' 
          loading='lazy' 
@@ -758,9 +758,9 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="silicone-grips" itemprop="headline" style="scroll-margin-top:100px;">8. Multi-Purpose Silicone Jar Grippers (Set of 4+)</h2>
+  <h2 id="silicone-grips" itemprop="headline" style="scroll-margin-top:100px;">8. Multi-Purpose Silicone Jar Grippers</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Silicone Jar Opener Grips Set") }}'>
+    <a href='/product/{{ slugify("silicone-jar-opener-grips-set-multi-pack") }}'>
       <img src='https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg' 
            alt='Silicone Jar Grippers Set - Non-Slip Bottle Openers in Multiple Sizes for Easy Opening with Arthritis' 
            loading='lazy' 
