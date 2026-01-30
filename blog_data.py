@@ -346,7 +346,7 @@ BLOG_POSTS = {
 
   <h2 id="grab-rails" itemprop="headline" style="scroll-margin-top:100px;">1. Newthinking Portable Suction Cup Grab Rail for Bathroom Safety</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("Newthinking Suction Bathroom Grab Rail Hand Rail for Disabled") }}'>
+  <a href='/product/{{ slugify("newthinking-suction-bathroom-grab-rails-hand-rail-for-disabled-portable-mobility-aids-safety-handle-with-suction-cup-fitting-no-fixings-needed-for-bathroom-children-and-disability-aids-1-pack") }}'>
     <img src='https://m.media-amazon.com/images/I/51c4IdXAWYL._AC_SX679_.jpg' 
          alt='Newthinking Suction Grab Rail - Portable Bathroom Safety Handle with Non-Slip Grip for Elderly, Disabled, No Drilling Needed' 
          loading='lazy' 
@@ -355,7 +355,7 @@ BLOG_POSTS = {
   </a>
   <p itemprop="text">The <strong>Newthinking Suction Grab Rail</strong> offers instant, portable bathroom safety without any drilling or permanent fixings. Strong suction cups adhere securely to smooth, non-porous surfaces (tiles, glass, porcelain), with a textured non-slip grip for confident hold even when wet. Ideal for showers, baths, or near toilets — providing balance support for elderly users, disabled individuals, or those with weak grip/arthritis. Affordable, highly rated, and readily available on Amazon UK.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("Newthinking Suction Bathroom Grab Rail Hand Rail for Disabled") }}'>
+    <a href='/product/{{ slugify("newthinking-suction-bathroom-grab-rails-hand-rail-for-disabled-portable-mobility-aids-safety-handle-with-suction-cup-fitting-no-fixings-needed-for-bathroom-children-and-disability-aids-1-pack") }}'>
       <button aria-label='View Newthinking grab rail product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/4t7CRNJ' target='_blank' rel='nofollow sponsored noopener'>
