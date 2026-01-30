@@ -3,6 +3,231 @@
 # All fields are optional - use what you need
 
 PRODUCTS = [
+  
+  {
+    "name": "Hamilton Beach OpenStation Electric Automatic Can Opener",
+    "category": "Home & Kitchen",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Hamilton-Beach-OpenStation-Technology-76382/dp/B0B1356B1J",
+    "asin": "B0B1356B1J",
+    "info": "One-touch automatic electric can opener with Sure-Cut technology for reliable opening without twisting or gripping. Leaves smooth edges, ideal for arthritic hands, weak grip, or anyone avoiding hand strain in the kitchen.",
+    "manual_price": "£34.99",
+    "manual_rating": "4.6",
+    "manual_reviews": "1200+",
+    "keywords": ["electric can opener arthritis", "automatic can opener UK", "easy open tins weak hands", "hamilton beach can opener", "no grip can opener"],
+    "pain_points": ["painful twisting of can lids", "weak grip causing slips or drops", "struggling with sharp edges after opening"],
+    "benefits": ["fully automatic one-touch operation", "smooth safe edges no sharp rims", "frees hands for other tasks", "reduces joint strain significantly", "highly rated for elderly and arthritis users"],
+    "price_tier": "mid-range kitchen essential",
+    "highlights": [
+      "Sure-Cut alignment for first-time opens",
+      "Auto shutoff and cord storage",
+      "Works on standard cans effortlessly",
+      "Durable stainless steel build",
+      "Great for arthritis pain relief"
+    ],
+    "faqs": [
+      {"q": "Does it require gripping?", "a": "No, just place the can and press the lever — no twisting needed."},
+      {"q": "Suitable for small cans?", "a": "Yes, handles most standard sizes reliably."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "OXO Good Grips Jar Opener with Base Pad",
+    "category": "Home & Kitchen",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/61Y4eAZ3G4L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/OXO-Good-Grips-Opener-Base/dp/B002DWA6KM",
+    "asin": "B002DWA6KM",
+    "info": "Leverage-based jar opener with non-slip base pad and sharp stainless steel teeth to grip lids firmly. Adjusts to various sizes, uses handle twist instead of lid grip — perfect for reducing arthritis hand pain during meal prep.",
+    "manual_price": "£12.99",
+    "manual_rating": "4.5",
+    "manual_reviews": "2500+",
+    "keywords": ["oxo jar opener", "good grips jar opener arthritis", "easy lid remover weak hands", "non slip jar opener UK", "base pad jar opener"],
+    "pain_points": ["struggling with tight jar lids", "hand pain from twisting", "jars slipping during opening"],
+    "benefits": ["leverage design minimises effort", "non-slip base for stability", "fits multiple lid sizes", "soft handle for comfortable grip", "trusted by arthritis sufferers"],
+    "price_tier": "affordable daily aid",
+    "highlights": [
+      "Sharp teeth for secure lid grip",
+      "Non-slip base pad prevents movement",
+      "Reduces strain on wrists and fingers",
+      "Durable stainless steel construction",
+      "Compact and easy to store"
+    ],
+    "faqs": [
+      {"q": "What sizes does it fit?", "a": "Most jar lids from small bottles to large pickle jars."},
+      {"q": "Easy for limited dexterity?", "a": "Yes, designed specifically for weak or arthritic hands."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "OXO Good Grips Y-Peeler",
+    "category": "Home & Kitchen",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/618U88L50zL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/s?k=OXO+Good+Grips+Y+Peeler",
+    "asin": "B00004OCIU (similar model)",
+    "info": "Ergonomic Y-shaped vegetable peeler with oversized soft non-slip handle and sharp swivel blade. Reduces wrist rotation and finger pressure, making peeling effortless for arthritic hands or reduced grip strength.",
+    "manual_price": "£9.99",
+    "manual_rating": "4.7",
+    "manual_reviews": "5000+",
+    "keywords": ["oxo y peeler", "ergonomic vegetable peeler arthritis", "good grips peeler UK", "easy peel swivel blade", "soft handle peeler"],
+    "pain_points": ["wrist strain from peeling", "slippery handles causing drops", "repetitive motion aggravating joints"],
+    "benefits": ["Y-design uses arm motion over fingers", "Comfortable soft grip for long sessions", "Sharp blade glides easily", "Reduces fatigue dramatically", "Popular for arthritis relief"],
+    "price_tier": "budget-friendly prep tool",
+    "highlights": [
+      "Oversized non-slip handle",
+      "Swivel blade follows contours",
+      "Cushioned grip reduces pressure",
+      "Durable stainless steel blade",
+      "Ideal for daily vegetable prep"
+    ],
+    "faqs": [
+      {"q": "Better than straight peelers?", "a": "Yes, less wrist twisting for arthritis users."},
+      {"q": "Sharp enough for tough skins?", "a": "Hardened steel blade handles potatoes, carrots, etc."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "Victorinox Swiss Classic Serrated Paring Knife",
+    "category": "Home & Kitchen",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/51t+lfqLvCL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Victorinox-Swiss-Classic-Paring-Serrated/dp/B005LRYEJU",
+    "asin": "B005LRYEJU",
+    "info": "Ultra-lightweight serrated paring knife with wavy edge for effortless slicing of tomatoes, bread, and soft fruits. Ergonomic handle provides secure grip with minimal pressure — excellent for weak hands or arthritis.",
+    "manual_price": "£8.99",
+    "manual_rating": "4.8",
+    "manual_reviews": "3000+",
+    "keywords": ["victorinox serrated paring knife", "lightweight knife arthritis", "serrated paring knife UK", "swiss classic knife", "easy cut weak grip"],
+    "pain_points": ["pressure needed for straight blades", "wrist fatigue from cutting", "slipping on soft produce"],
+    "benefits": ["Serrated edge slices without force", "Lightweight reduces strain", "Contoured handle for secure hold", "Swiss precision sharpness", "Affordable and durable"],
+    "price_tier": "essential cutting aid",
+    "highlights": [
+      "Wavy serrated edge does the work",
+      "Ultra-light at ~25g",
+      "Ergonomic Fibrox-style handle",
+      "High-carbon stainless steel",
+      "Trusted for effortless slicing"
+    ],
+    "faqs": [
+      {"q": "Blade length?", "a": "Typically 8-10cm, perfect for paring tasks."},
+      {"q": "Dishwasher safe?", "a": "Hand wash recommended for longevity."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "Etac Knob and Tap Turner",
+    "category": "Health & Personal Care",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/51EUXV8rB2L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Etac-Knob-Tap-Turner-Healthcare/dp/B00DI5XWX6",
+    "asin": "B00DI5XWX6",
+    "info": "Large-grip tap and knob turner for stiff kitchen/bathroom taps and appliance knobs. Provides extra leverage with ergonomic handle — minimal finger strength required, ideal for arthritis or reduced dexterity.",
+    "manual_price": "£14.99",
+    "manual_rating": "4.5",
+    "manual_reviews": "800+",
+    "keywords": ["etac tap turner", "knob turner arthritis", "large grip tap aid UK", "easy turn taps weak hands", "lever tap turner"],
+    "pain_points": ["stiff taps causing joint pain", "inability to grip small knobs", "frustration in kitchen/bathroom"],
+    "benefits": ["5x leverage for easy turning", "Chunky ergonomic handle", "Fits standard taps/knobs", "Reduces wrist strain", "Simple effective aid"],
+    "price_tier": "practical accessibility tool",
+    "highlights": [
+      "Large easy-grip handle",
+      "Effective for stiff controls",
+      "Lightweight and durable",
+      "Helps maintain independence",
+      "Popular in UK healthcare"
+    ],
+    "faqs": [
+      {"q": "Fits all taps?", "a": "Most standard cross-head or lever taps."},
+      {"q": "For knobs too?", "a": "Yes, works on oven/switch knobs."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "Zyliss Easy Pull Food Chopper",
+    "category": "Home & Kitchen",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/71WAoKEqKGL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Zyliss-Easy-Pull-Processor-White/dp/B00XYRVZHI",
+    "asin": "B00XYRVZHI",
+    "info": "Manual pull-cord food chopper for onions, herbs, and vegetables. Uses arm pulls instead of knife grip/twist — no repetitive chopping motion, perfect for arthritis sufferers avoiding hand strain.",
+    "manual_price": "£19.99",
+    "manual_rating": "4.6",
+    "manual_reviews": "4000+",
+    "keywords": ["zyliss easy pull chopper", "pull cord food chopper arthritis", "manual processor weak hands", "easy chop no knife UK", "vegetable chopper pull"],
+    "pain_points": ["knife gripping and chopping pain", "repetitive wrist motion", "onion/herb prep frustration"],
+    "benefits": ["Arm-pull mechanism only", "Coarse/fine chop control", "Dishwasher-safe parts", "Reduces joint inflammation", "Quick and effective"],
+    "price_tier": "versatile prep gadget",
+    "highlights": [
+      "Simple pull-cord operation",
+      "750ml capacity bowl",
+      "Non-slip base",
+      "Blade options included",
+      "Great arthritis alternative to knives"
+    ],
+    "faqs": [
+      {"q": "How many pulls needed?", "a": "3-5 for coarse, 8-10 for fine."},
+      {"q": "Safe for limited strength?", "a": "Yes, arm motion over hand grip."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "Weighted Easy Grip Cutlery Set for Arthritis",
+    "category": "Health & Personal Care",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/71mpFGb5VJL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Handles-Cutlery-Corfort-Disability-Dining/dp/B09YN9K7DB",
+    "asin": "B09YN9K7DB",
+    "info": "Weighted cutlery set with thick, soft-grip handles for stability and reduced tremor. Includes knife, fork, spoon — ideal for arthritis, Parkinson's, or weak grip to make eating comfortable and independent.",
+    "manual_price": "£18.99",
+    "manual_rating": "4.5",
+    "manual_reviews": "600+",
+    "keywords": ["weighted cutlery arthritis", "easy grip utensils UK", "adaptive cutlery elderly", "thick handle cutlery", "tremor stabilising utensils"],
+    "pain_points": ["tremors causing spills", "thin handles hard to hold", "hand fatigue during meals"],
+    "benefits": ["Weighted for steadier control", "Extra-wide soft grips", "Dishwasher-safe", "Supports independent eating", "Comfort for swollen joints"],
+    "price_tier": "essential dining aid",
+    "highlights": [
+      "Thick foam/rubber handles",
+      "Weighted design reduces shakes",
+      "Full set: knife, fork, spoon",
+      "Durable and easy to clean",
+      "Helps with daily independence"
+    ],
+    "faqs": [
+      {"q": "How many pieces?", "a": "Typically 3-4 piece set."},
+      {"q": "Weighted how much?", "a": "Moderate weight for stability without heaviness."}
+    ],
+    "date_added": "2026-01-30"
+  },
+  {
+    "name": "Silicone Jar Opener Grips Set (Multi-Pack)",
+    "category": "Home & Kitchen",
+    "season": null,
+    "image": "https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/s?k=silicone+jar+opener+grips+set",
+    "asin": "B0CXCS3327 (example pack)",
+    "info": "Multi-size silicone grip pads for jars, bottles, and lids. Non-slip texture multiplies hand strength, heat-resistant — easy to use for arthritic or weak hands to open stubborn containers without pain.",
+    "manual_price": "£7.99",
+    "manual_rating": "4.6",
+    "manual_reviews": "1500+",
+    "keywords": ["silicone jar grips", "jar opener pad arthritis", "non slip bottle opener UK", "rubber grip set", "multi function lid opener"],
+    "pain_points": ["slipping when opening jars", "pain from tight grips", "need for extra leverage"],
+    "benefits": ["Grippy silicone for instant traction", "Multiple sizes included", "Heat-resistant for hot jars", "Inexpensive multi-use pack", "Boosts hand power easily"],
+    "price_tier": "budget grip booster",
+    "highlights": [
+      "4+ pads in various sizes",
+      "Food-grade silicone",
+      "Reusable and washable",
+      "Works on bottles too",
+      "Simple arthritis helper"
+    ],
+    "faqs": [
+      {"q": "How many in set?", "a": "Usually 4-5 pieces for versatility."},
+      {"q": "Heat safe?", "a": "Yes, up to 230°C for hot lids."}
+    ],
+    "date_added": "2026-01-30"
+  },
 
   {
     "name": "Vive Suction Cup Grab Bar - Bathroom Safety Rail Handle with Indicator",
