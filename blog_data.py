@@ -906,14 +906,14 @@ BLOG_POSTS = {
 
   <h2 id="gold-rose" itemprop="headline" style="scroll-margin-top:100px;">1. 24K Gold Dipped Eternal Rose</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose'>
-      <img src='https://m.media-amazon.com/images/I/71iX2iF0oUL._AC_SX679_.jpg' 
+    <a href='/product/ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose-in-24k-gold-plating-romantic-gift-for-women'>
+      <img src='https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg' 
            alt='Ariceleo 24K gold dipped real preserved rose – eternal romantic gift in elegant box' 
            loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p itemprop="text">Symbolize forever love with a stunning <strong>real rose dipped in 24K gold</strong>. Preserved eternally, no wilting — a luxurious, sentimental keepsake that feels far more expensive than it is, perfect for Valentine's romance under £50.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose'>
+      <a href='/product/ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose-in-24k-gold-plating-romantic-gift-for-women'>
         <button aria-label='View gold dipped rose details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4bofGsl?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
