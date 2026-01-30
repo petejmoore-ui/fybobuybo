@@ -119,7 +119,7 @@ PRODUCTS = [
   {
     "name": "Otstar Jar Opener Bottle Opener and Ring Pull Can Opener for Weak Hands Arthritis Hands, Elderly",
     "category": "Home & Kitchen",
-    "season": null,
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/618cdu3k1HL._AC_SX679_.jpg",  
     "url": "https://amzn.to/49RVVYU",
     "asin": "B07QVWJ6VN",
