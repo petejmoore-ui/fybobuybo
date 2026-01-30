@@ -306,7 +306,7 @@ BLOG_POSTS = {
     "twitter_card": "summary_large_image",
     
     "related_products": [
-        "vive-suction-grab-bar",
+        "Newthinking-suction-grab-bar",
         "vive-reacher-grabber-32-inch",
         "auvon-weekly-pill-organizer-4-times"
     ],
@@ -504,7 +504,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">Are suction grab bars as safe as permanent ones?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Quality suction grab bars with indicator windows (like the Vive model) can support significant weight when properly installed on smooth, non-porous surfaces. They're ideal for renters or temporary support needs. For permanent, load-bearing support in high-risk areas, professionally installed grab rails are recommended.</p>
+        <p itemprop="text">Quality suction grab bars with indicator windows (like the Newthinking model) can support significant weight when properly installed on smooth, non-porous surfaces. They're ideal for renters or temporary support needs. For permanent, load-bearing support in high-risk areas, professionally installed grab rails are recommended.</p>
       </div>
     </div>
 
