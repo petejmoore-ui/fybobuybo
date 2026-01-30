@@ -7,7 +7,7 @@ PRODUCTS = [
   {
     "name": "Hamilton Beach OpenStation Electric Automatic Can Opener",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Hamilton-Beach-OpenStation-Technology-76382/dp/B0B1356B1J",
     "asin": "B0B1356B1J",
@@ -35,7 +35,7 @@ PRODUCTS = [
   {
     "name": "OXO Good Grips Jar Opener with Base Pad",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/61Y4eAZ3G4L._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/OXO-Good-Grips-Opener-Base/dp/B002DWA6KM",
     "asin": "B002DWA6KM",
@@ -63,7 +63,7 @@ PRODUCTS = [
   {
     "name": "OXO Good Grips Y-Peeler",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/618U88L50zL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/s?k=OXO+Good+Grips+Y+Peeler",
     "asin": "B00004OCIU (similar model)",
@@ -91,7 +91,7 @@ PRODUCTS = [
   {
     "name": "Victorinox Swiss Classic Serrated Paring Knife",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/51t+lfqLvCL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Victorinox-Swiss-Classic-Paring-Serrated/dp/B005LRYEJU",
     "asin": "B005LRYEJU",
@@ -119,7 +119,7 @@ PRODUCTS = [
   {
     "name": "Etac Knob and Tap Turner",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/51EUXV8rB2L._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Etac-Knob-Tap-Turner-Healthcare/dp/B00DI5XWX6",
     "asin": "B00DI5XWX6",
@@ -147,7 +147,7 @@ PRODUCTS = [
   {
     "name": "Zyliss Easy Pull Food Chopper",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71WAoKEqKGL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Zyliss-Easy-Pull-Processor-White/dp/B00XYRVZHI",
     "asin": "B00XYRVZHI",
@@ -175,7 +175,7 @@ PRODUCTS = [
   {
     "name": "Weighted Easy Grip Cutlery Set for Arthritis",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71mpFGb5VJL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Handles-Cutlery-Corfort-Disability-Dining/dp/B09YN9K7DB",
     "asin": "B09YN9K7DB",
@@ -203,7 +203,7 @@ PRODUCTS = [
   {
     "name": "Silicone Jar Opener Grips Set (Multi-Pack)",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71pQzM4HWNL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/s?k=silicone+jar+opener+grips+set",
     "asin": "B0CXCS3327 (example pack)",
@@ -232,7 +232,7 @@ PRODUCTS = [
   {
     "name": "Vive Suction Cup Grab Bar - Bathroom Safety Rail Handle with Indicator",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Vive-Suction-Shower-Bathroom-Balance/dp/B07K4GV8LV",
     "asin": "B07K4GV8LV",
@@ -260,7 +260,7 @@ PRODUCTS = [
   {
     "name": "Vive Reacher Grabber Tool 32 Inch - Lightweight Extra Long Handy Picker",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/61IA8o9iEyL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Vive-Reacher-Grabber-Mobility-Extension/dp/B00O47NWE6",
     "asin": "B00O47NWE6",
@@ -288,7 +288,7 @@ PRODUCTS = [
   {
     "name": "AUVON Weekly Pill Organizer 4 Times a Day - Extra Large Compartments",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/81ywcrYYJFL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/AUVON-Pill-Boxes-Times-Portable/dp/B0DMVZZ32L",
     "asin": "B0DMVZZ32L",
@@ -316,7 +316,7 @@ PRODUCTS = [
   {
     "name": "ComfiLife Anti-Fatigue Floor Mat - Ergonomic Thick Standing Mat",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71hjPqkHbwL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/ComfiLife-Anti-Fatigue-Floor-Mat/dp/B07SCV87VT",
     "asin": "B07SCV87VT",
@@ -344,7 +344,7 @@ PRODUCTS = [
   {
     "name": "Carex Bed Support Rail - Adjustable Adult Bed Safety Handle",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/618s-oGYmWL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/P56600-Carex-Bed-Support-Rail/dp/B001AFEQ0E",
     "asin": "B001AFEQ0E",
@@ -372,7 +372,7 @@ PRODUCTS = [
   {
     "name": "Non-Slip Grip Socks Multi-Pack - Hospital-Grade for Elderly Fall Prevention",
     "category": "Health & Personal Care",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71gTa+lp3pL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/s?k=non+slip+grip+socks+elderly",
     "asin": "B0C... (varies by pack)",
@@ -400,7 +400,7 @@ PRODUCTS = [
   {
     "name": "Kichwit 6-in-1 Jar & Bottle Opener for Seniors with Arthritis",
     "category": "Home & Kitchen",
-    "season": null,
+    "season":  "",
     "image": "https://m.media-amazon.com/images/I/71xrVl5lMrL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/s?k=jar+opener+for+seniors+arthritis",
     "asin": "B071V3G23Y (or similar)",
