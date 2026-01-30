@@ -838,7 +838,7 @@ BLOG_POSTS = {
     "subtitle": "Budget-friendly Valentine’s gifts that feel premium and thoughtful.",
     
     "date": "2026-01-04",
-    "last_updated": "2026-01-18",
+    "last_updated": "2026-01-30",
     "author": "FyboBuybo Editorial Team",
     
     "keywords": [
@@ -868,7 +868,7 @@ BLOG_POSTS = {
 <article itemscope itemtype="https://schema.org/Article">
   <meta itemprop="headline" content="Valentine’s Gifts for Her Under £50">
   <meta itemprop="datePublished" content="2026-01-04">
-  <meta itemprop="dateModified" content="2026-01-18">
+  <meta itemprop="dateModified" content="2026-01-30">
   <meta itemprop="author" content="FyboBuybo Editorial Team">
   <meta itemprop="image" content="https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg">
   
@@ -894,6 +894,7 @@ BLOG_POSTS = {
   <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
     <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
     <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#gold-rose">24K Gold Dipped Eternal Rose</a></li>
       <li><a href="#scented-candle">Luxury Scented Candle Gift Set</a></li>
       <li><a href="#beauty-gift-box">Skincare or Beauty Gift Box</a></li>
       <li><a href="#photo-memory">Custom Photo Frame or Memory Book</a></li>
@@ -903,7 +904,25 @@ BLOG_POSTS = {
     </ol>
   </nav>
 
-  <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">1. Luxury Scented Candle Gift Set</h2>
+  <h2 id="gold-rose" itemprop="headline" style="scroll-margin-top:100px;">1. 24K Gold Dipped Eternal Rose</h2>
+  <div class='card' style='max-width:600px;margin:40px auto;'>
+    <a href='/product/ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose-in-24k-gold-plating-romantic-gift-for-women'>
+      <img src='https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg' 
+           alt='Ariceleo 24K gold dipped real preserved rose – eternal romantic gift in elegant box' 
+           loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p itemprop="text">Symbolize forever love with a stunning <strong>real rose dipped in 24K gold</strong>. Preserved eternally, no wilting — a luxurious, sentimental keepsake that feels far more expensive than it is, perfect for Valentine's romance under £50.</p>
+    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose-in-24k-gold-plating-romantic-gift-for-women'>
+        <button aria-label='View gold dipped rose details'>View Details & Buy</button>
+      </a>
+      <a href='https://amzn.to/4bofGsl?tag=whoaccepts-21' target='_blank' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy 24K gold rose on Amazon'>View on Amazon</button>
+      </a>
+    </div>
+  </div>
+
+  <h2 id="scented-candle" itemprop="headline" style="scroll-margin-top:100px;">2. Luxury Scented Candle Gift Set</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine'>
       <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' 
@@ -921,7 +940,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">2. Skincare or Beauty Gift Box</h2>
+  <h2 id="beauty-gift-box" itemprop="headline" style="scroll-margin-top:100px;">3. Skincare or Beauty Gift Box</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper'>
       <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' 
@@ -939,7 +958,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="photo-memory" itemprop="headline" style="scroll-margin-top:100px;">3. Custom Photo Frame or Memory Book</h2>
+  <h2 id="photo-memory" itemprop="headline" style="scroll-margin-top:100px;">4. Custom Photo Frame or Memory Book</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box'>
       <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' 
@@ -957,7 +976,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="snail-mucin" itemprop="headline" style="scroll-margin-top:100px;">4. COSRX Snail Mucin Power Essence</h2>
+  <h2 id="snail-mucin" itemprop="headline" style="scroll-margin-top:100px;">5. COSRX Snail Mucin Power Essence</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/cosrx-advanced-snail-96-mucin-power-essence-100ml-snail-secretion-filtrate-96-skin-repair-serum'>
       <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX425_.jpg' 
@@ -975,7 +994,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="hydrogel-mask" itemprop="headline" style="scroll-margin-top:100px;">5. BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</h2>
+  <h2 id="hydrogel-mask" itemprop="headline" style="scroll-margin-top:100px;">6. BIODANCE Bio-Collagen Real Deep Mask (4-Pack)</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/biodance-bio-collagen-real-deep-mask-hydrogel-face-mask-for-pore-minimizing-and-elasticity-improvement'>
       <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX425_PIbundle-4,TopRight,0,0-SH20_.jpg' 
@@ -993,7 +1012,7 @@ BLOG_POSTS = {
     </div>
   </div>
 
-  <h2 id="azelaic-serum" itemprop="headline" style="scroll-margin-top:100px;">6. Anua Azelaic Acid Redness Soothing Serum</h2>
+  <h2 id="azelaic-serum" itemprop="headline" style="scroll-margin-top:100px;">7. Anua Azelaic Acid Redness Soothing Serum</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum-facial-serum-for-sensitive-skin'>
       <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX425_.jpg' 
