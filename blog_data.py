@@ -1,4 +1,4 @@
-BLOG_POSTS = {
+    BLOG_POSTS = {
     "8-essential-home-products-to-upgrade-your-space-in-2026": {
         # Core SEO Fields
         "title": "8 Essential Home Products to Upgrade Your Space in 2026 (UK-Friendly & Budget-Smart)",
@@ -324,7 +324,7 @@ BLOG_POSTS = {
   
   <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <p itemprop="description">Supporting an elderly loved one's independence at home doesn't require expensive renovations or medical equipment. These seven thoughtfully designed products — from trusted grab rails to easy-grip kitchen tools — help elderly relatives maintain dignity, safety, and confidence in their daily routines. Each has been highly rated by thousands of UK customers on Amazon UK.</p>
+  <p itemprop="description">Supporting an elderly loved one's independence at home doesn't require expensive renovations or medical equipment. These seven thoughtfully designed products — from trusted grab rails to easy-grip kitchen tools — help elderly relatives maintain dignity, safety, and confidence in their daily routines. Each has been highly rated by thousands of UK customers.</p>
 
   <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
     <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
@@ -542,7 +542,7 @@ BLOG_POSTS = {
     "kitchen-gadgets-arthritis-pain-relief-2026": {
     # Core SEO Fields
     "title": "8 Essential Kitchen Gadgets for Arthritic Hands (2026 UK Guide) - Pain-Free Cooking",
-    "meta_description": "Discover kitchen tools designed for arthritic hands — from electric can openers to ergonomic peelers. Cook with confidence and less pain using these highly-rated Amazon UK products.",
+    "meta_description": "Discover kitchen tools designed for arthritic hands — from electric can openers to ergonomic peelers. Cook with confidence and less pain using these highly-rated products.",
     
     # Display Fields
     "heading": "8 Kitchen Gadgets That Make Cooking Easier with Arthritis",
@@ -597,7 +597,7 @@ BLOG_POSTS = {
   
   <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <p itemprop="description">Living with arthritis shouldn't mean giving up the joy of cooking. These eight kitchen gadgets — from electric can openers to ergonomic peelers — are specifically designed to reduce hand strain, eliminate painful grip requirements, and restore confidence in the kitchen. Each has been loved by thousands of UK buyers dealing with arthritis, carpal tunnel, or reduced hand strength on Amazon UK.</p>
+  <p itemprop="description">Living with arthritis shouldn't mean giving up the joy of cooking. These eight kitchen gadgets — from electric can openers to ergonomic peelers — are specifically designed to reduce hand strain, eliminate painful grip requirements, and restore confidence in the kitchen. Each has been loved by thousands of UK buyers dealing with arthritis, carpal tunnel, or reduced hand strength.</p>
 
   <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
     <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
@@ -627,7 +627,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Electric Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press and it does everything. Cuts smoothly, leaving no sharp edges. Essential for anyone with arthritis, weak grip, or hand pain. Highly rated on Amazon.</p>
+    <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Electric Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press and it does everything. Cuts smoothly, leaving no sharp edges. Essential for anyone with arthritis, weak grip, or hand pain.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Hamilton Beach Openstation Electric Automatic Can Opener") }}'>
         <button aria-label='View Hamilton Beach can opener details'>View Details & Buy</button>
