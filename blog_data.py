@@ -353,7 +353,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">The <strong>Newthinking Suction Grab Rail</strong> offers instant, portable bathroom safety without any drilling or permanent fixings. Strong suction cups adhere securely to smooth, non-porous surfaces (tiles, glass, porcelain), with a textured non-slip grip for confident hold even when wet. Ideal for showers, baths, or near toilets — providing balance support for elderly users, disabled individuals, or those with weak grip/arthritis. Affordable, highly rated, and readily available on Amazon UK.</p>
+  <p itemprop="text">The <strong>Newthinking Suction Grab Rail</strong> offers instant, portable bathroom safety without any drilling or permanent fixings. Strong suction cups adhere securely to smooth, non-porous surfaces (tiles, glass, porcelain), with a textured non-slip grip for confident hold even when wet. Ideal for showers, baths, or near toilets — providing balance support for elderly users, disabled individuals, or those with weak grip/arthritis. Affordable, highly rated, and readily available.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("newthinking-suction-bathroom-grab-rails-hand-rail-for-disabled-portable-mobility-aids-safety-handle-with-suction-cup-fitting-no-fixings-needed-for-bathroom-children-and-disability-aids-1-pack") }}'>
       <button aria-label='View Newthinking grab rail product details'>View Details & Buy</button>
@@ -373,7 +373,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">Eliminate bending and stretching with the <strong>Vive 32-Inch Reacher Grabber</strong>. Magnetic tip for picking up small metal objects, rotating jaw for awkward angles, and rubberized grip prevent items from slipping. Essential for anyone with limited mobility or arthritis who wants to maintain independence around the home. Popular choice on Amazon UK.</p>
+  <p itemprop="text">Eliminate bending and stretching with the <strong>Vive 32-Inch Reacher Grabber</strong>. Magnetic tip for picking up small metal objects, rotating jaw for awkward angles, and rubberized grip prevent items from slipping. Essential for anyone with limited mobility or arthritis who wants to maintain independence around the home.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("vive-reacher-grabber-tool-32-inch-lightweight-extra-long-handy-picker") }}'>
       <button aria-label='View Vive reacher grabber product details'>View Details & Buy</button>
@@ -393,7 +393,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">Managing multiple medications becomes simple with the <strong>AUVON Weekly Pill Organizer (4 times a day)</strong>. Four spacious compartments per day across seven days, with easy-open lids and clear labelling. Large enough for vitamins and supplements too — reduces confusion and missed doses for elderly users taking regular medication. A top-rated bestseller on Amazon UK.</p>
+  <p itemprop="text">Managing multiple medications becomes simple with the <strong>AUVON Weekly Pill Organizer (4 times a day)</strong>. Four spacious compartments per day across seven days, with easy-open lids and clear labelling. Large enough for vitamins and supplements too — reduces confusion and missed doses for elderly users taking regular medication.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("auvon-weekly-pill-organizer-4-times-a-day-extra-large-compartments") }}'>
       <button aria-label='View pill organizer product details'>View Details & Buy</button>
@@ -413,7 +413,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">Standing at the sink or stove becomes more comfortable with the <strong>ComfiLife Anti-Fatigue Mat</strong>. Thick ergonomic cushioning reduces pressure on feet, knees, and hips — especially valuable for elderly people with arthritis or circulation issues. Non-slip bottom keeps it securely in place. Widely available on Amazon UK.</p>
+  <p itemprop="text">Standing at the sink or stove becomes more comfortable with the <strong>ComfiLife Anti-Fatigue Mat</strong>. Thick ergonomic cushioning reduces pressure on feet, knees, and hips — especially valuable for elderly people with arthritis or circulation issues. Non-slip bottom keeps it securely in place.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("comfilife-anti-fatigue-floor-mat-ergonomic-thick-standing-mat") }}'>
       <button aria-label='View ComfiLife mat product details'>View Details & Buy</button>
@@ -433,7 +433,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">The <strong>Yornoli Bed Rail</strong> offers reliable nighttime safety with a built-in motion-sensing LED light that automatically illuminates when you move, helping prevent falls in the dark. Adjustable to fit most beds (single to king), sturdy steel frame, non-slip ergonomic grip handle, tool-free installation, and a convenient side storage pocket for phone, glasses, or meds. Ideal for elderly users or those with limited mobility, arthritis, or weak grip — promotes safe, independent bed transfers. Available on Amazon UK.</p>
+  <p itemprop="text">The <strong>Yornoli Bed Rail</strong> offers reliable nighttime safety with a built-in motion-sensing LED light that automatically illuminates when you move, helping prevent falls in the dark. Adjustable to fit most beds (single to king), sturdy steel frame, non-slip ergonomic grip handle, tool-free installation, and a convenient side storage pocket for phone, glasses, or meds. Ideal for elderly users or those with limited mobility, arthritis, or weak grip — promotes safe, independent bed transfers.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("yornoli-bed-rail-for-elderly-adults-with-motion-sensing-light-adjustable-non-slip-grip-handle-sturdy-steel-frame-easy-installation-storage-pocket-safety-and-support-for-seniors-104cm") }}'>
       <button aria-label='View Yornoli bed rail product details'>View Details & Buy</button>
@@ -453,7 +453,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">Reduce slip risks on hard floors with <strong>non-slip grip socks</strong>. Hospital-grade grip dots on soles, soft comfortable fabric, and they stay up without tight elastic. Essential for elderly people moving around the house, especially on wooden or tiled surfaces. Available in multi-packs on Amazon UK.</p>
+  <p itemprop="text">Reduce slip risks on hard floors with <strong>non-slip grip socks</strong>. Hospital-grade grip dots on soles, soft comfortable fabric, and they stay up without tight elastic. Essential for elderly people moving around the house, especially on wooden or tiled surfaces.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("non-slip-grip-socks-multi-pack-hospital-grade-for-elderly-fall-prevention") }}'>
       <button aria-label='View non-slip socks product details'>View Details & Buy</button>
@@ -473,7 +473,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">Opening jars and bottles becomes effortless with the <strong>6-in-1 Multi-Function Jar Opener</strong>. Six different-sized grips handle everything from small medicine bottles to large jam jars. Requires minimal hand strength — ideal for elderly people with arthritis or reduced grip strength who want to stay independent in the kitchen. Popular on Amazon UK.</p>
+  <p itemprop="text">Opening jars and bottles becomes effortless with the <strong>6-in-1 Multi-Function Jar Opener</strong>. Six different-sized grips handle everything from small medicine bottles to large jam jars. Requires minimal hand strength — ideal for elderly people with arthritis or reduced grip strength who want to stay independent in the kitchen.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("6-in-1 Jar & Bottle Opener for Seniors with Arthritis") }}'>
       <button aria-label='View jar opener product details'>View Details & Buy</button>
@@ -620,14 +620,14 @@ BLOG_POSTS = {
 
   <h2 id="can-opener" itemprop="headline" style="scroll-margin-top:100px;">1. Hamilton Beach Electric Automatic Can Opener</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Hamilton Beach Electric Automatic Can Opener") }}'>
+    <a href='/product/{{ slugify("Hamilton Beach Openstation Electric Automatic Can Opener") }}'>
       <img src='https://m.media-amazon.com/images/I/61D4SGO41jL._AC_SX679_.jpg' 
            alt='Hamilton Beach Electric Can Opener - One-Touch Automatic Operation for Arthritic Hands, No Sharp Edges' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Electric Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press and it does everything. Cuts smoothly, leaving no sharp edges. Essential for anyone with arthritis, weak grip, or hand pain. Highly rated on Amazon UK.</p>
+    <p itemprop="text">Transform the painful task of opening tins with the <strong>Hamilton Beach Electric Can Opener</strong>. One-touch automatic operation eliminates all twisting and gripping — simply press and it does everything. Cuts smoothly, leaving no sharp edges. Essential for anyone with arthritis, weak grip, or hand pain. Highly rated on Amazon.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Hamilton Beach Openstation Electric Automatic Can Opener") }}'>
         <button aria-label='View Hamilton Beach can opener details'>View Details & Buy</button>
@@ -647,7 +647,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Never struggle with stubborn jar lids again using the <strong>OXO Good Grips Jar Opener</strong>. Fits various jar sizes, non-slip base stabilises, and sharp teeth grip firmly. Leverage design means twist the handle, not the lid — perfect for arthritic hands. A bestseller on Amazon UK.</p>
+    <p itemprop="text">Never struggle with stubborn jar lids again using the <strong>OXO Good Grips Jar Opener</strong>. Fits various jar sizes, non-slip base stabilises, and sharp teeth grip firmly. Leverage design means twist the handle, not the lid — perfect for arthritic hands.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("OXO Good Grips Jar Opener with Base Pad") }}'>
         <button aria-label='View OXO jar opener product details'>View Details & Buy</button>
@@ -687,7 +687,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Cut tomatoes, bread, and soft fruits easily with the <strong>Victorinox Swiss Classic Serrated Knife</strong>. Lightweight (around 25g), wavy edge slices without pressure or sawing. Ergonomic handle for secure hold even with limited strength. Swiss quality, affordable on Amazon UK.</p>
+    <p itemprop="text">Cut tomatoes, bread, and soft fruits easily with the <strong>Victorinox Swiss Classic Serrated Knife</strong>. Lightweight (around 25g), wavy edge slices without pressure or sawing. Ergonomic handle for secure hold even with limited strength.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Victorinox Swiss Classic Serrated Paring Knife") }}'>
         <button aria-label='View Victorinox knife product details'>View Details & Buy</button>
@@ -707,7 +707,7 @@ BLOG_POSTS = {
          style='border-radius:16px;'
          itemprop="image">
   </a>
-  <p itemprop="text">Gain effortless control over stubborn lids, bottles, cans, and ring pulls with the <strong>Otstar Multi-Function Opener</strong>. This 6-in-1 tool uses leverage and non-slip grips instead of direct hand strength — ideal for arthritic hands, seniors, or anyone with weak grip. Multiple sized openings handle various jars, soda caps, bean cans, and pull tabs without twisting or straining fingers. A simple, effective kitchen aid available on Amazon UK.</p>
+  <p itemprop="text">Gain effortless control over stubborn lids, bottles, cans, and ring pulls with the <strong>Otstar Multi-Function Opener</strong>. This 6-in-1 tool uses leverage and non-slip grips instead of direct hand strength — ideal for arthritic hands, seniors, or anyone with weak grip. Multiple sized openings handle various jars, soda caps, bean cans, and pull tabs without twisting or straining fingers.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
     <a href='/product/{{ slugify("Otstar Multi Function Jar Bottle Opener Arthritis") }}'>
       <button aria-label='View Otstar multi-function opener product details'>View Details & Buy</button>
@@ -727,7 +727,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Chop onions, herbs, and veg without a knife using the <strong>Zyliss Easy Pull Chopper</strong>. Pull-cord uses arm motion only — no gripping or twisting. Multiple pulls for chop level, dishwasher-safe. Ideal for avoiding repetitive strain, top-rated on Amazon UK.</p>
+    <p itemprop="text">Chop onions, herbs, and veg without a knife using the <strong>Zyliss Easy Pull Chopper</strong>. Pull-cord uses arm motion only — no gripping or twisting. Multiple pulls for chop level, dishwasher-safe. Ideal for avoiding repetitive strain, top-rated.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Zyliss Easy Pull Food Chopper") }}'>
         <button aria-label='View Zyliss chopper product details'>View Details & Buy</button>
@@ -747,7 +747,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Eat comfortably with this <strong>Weighted Easy-Grip Utensil Set</strong>. Thick handles reduce pinch-grip needs, weighted for stability (great for tremors). Includes fork, knife, spoon, teaspoon — dishwasher-safe. Supports arthritis, Parkinson's, or similar on Amazon UK.</p>
+    <p itemprop="text">Eat comfortably with this <strong>Weighted Easy-Grip Utensil Set</strong>. Thick handles reduce pinch-grip needs, weighted for stability (great for tremors). Includes fork, knife, spoon, teaspoon — dishwasher-safe. Supports arthritis, Parkinson's, or similar.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Weighted Easy Grip Cutlery Set for Arthritis") }}'>
         <button aria-label='View weighted utensils product details'>View Details & Buy</button>
@@ -767,9 +767,9 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Boost grip on jars/bottles with this <strong>Silicone Gripper Set</strong>. Multiple sizes for flexibility, grippy texture multiplies strength. Heat-resistant — safe for hot lids too. Affordable, effective aid against stuck lids on Amazon UK.</p>
+    <p itemprop="text">Boost grip on jars/bottles with this <strong>Silicone Gripper Set</strong>. Multiple sizes for flexibility, grippy texture multiplies strength. Heat-resistant — safe for hot lids too. Affordable, effective aid against stuck lids.</p>
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Silicone Jar Opener Grips Set") }}'>
+      <a href='/product/{{ slugify("Hamilton Beach Openstation Electric Automatic Can Opener") }}'>
         <button aria-label='View silicone grippers product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4qjAEMU' target='_blank' rel='nofollow sponsored noopener'>
