@@ -366,7 +366,7 @@ BLOG_POSTS = {
 
 <h2 id="reacher-grabber" itemprop="headline" style="scroll-margin-top:100px;">2. Long-Reach Grabber Tool (32-Inch)</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("Vive Reacher Grabber Tool 32 Inch") }}'>
+  <a href='/product/{{ slugify("vive-reacher-grabber-tool-32-inch-lightweight-extra-long-handy-picker") }}'>
     <img src='https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg' 
          alt='Vive 32-Inch Reacher Grabber Tool - Lightweight Magnetic Tip, Rotating Jaw for Elderly Mobility Aid' 
          loading='lazy' 
@@ -375,7 +375,7 @@ BLOG_POSTS = {
   </a>
   <p itemprop="text">Eliminate bending and stretching with the <strong>Vive 32-Inch Reacher Grabber</strong>. Magnetic tip for picking up small metal objects, rotating jaw for awkward angles, and rubberized grip prevent items from slipping. Essential for anyone with limited mobility or arthritis who wants to maintain independence around the home. Popular choice on Amazon UK.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("Vive Reacher Grabber Tool 32 Inch") }}'>
+    <a href='/product/{{ slugify("vive-reacher-grabber-tool-32-inch-lightweight-extra-long-handy-picker") }}'>
       <button aria-label='View Vive reacher grabber product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/3OdoZBC' target='_blank' rel='nofollow sponsored noopener'>
@@ -386,7 +386,7 @@ BLOG_POSTS = {
 
 <h2 id="pill-organizer" itemprop="headline" style="scroll-margin-top:100px;">3. Large Compartment Weekly Pill Organizer (4 Times a Day)</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("AUVON Weekly Pill Organizer 4 Times a Day") }}'>
+  <a href='/product/{{ slugify("auvon-weekly-pill-organizer-4-times-a-day-extra-large-compartments") }}'>
     <img src='https://m.media-amazon.com/images/I/61TT1bAUYgL._AC_SX679_.jpg' 
          alt='AUVON Weekly Pill Organizer - 4 Times Daily, Large Compartments for Medication and Supplements' 
          loading='lazy' 
@@ -395,7 +395,7 @@ BLOG_POSTS = {
   </a>
   <p itemprop="text">Managing multiple medications becomes simple with the <strong>AUVON Weekly Pill Organizer (4 times a day)</strong>. Four spacious compartments per day across seven days, with easy-open lids and clear labelling. Large enough for vitamins and supplements too — reduces confusion and missed doses for elderly users taking regular medication. A top-rated bestseller on Amazon UK.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("AUVON Weekly Pill Organizer 4 Times a Day") }}'>
+    <a href='/product/{{ slugify("auvon-weekly-pill-organizer-4-times-a-day-extra-large-compartments") }}'>
       <button aria-label='View pill organizer product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/49PLdCj' target='_blank' rel='nofollow sponsored noopener'>
@@ -406,7 +406,7 @@ BLOG_POSTS = {
 
 <h2 id="cushioned-mat" itemprop="headline" style="scroll-margin-top:100px;">4. Anti-Fatigue Comfort Mat for Kitchen & Bathroom</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("ComfiLife Anti Fatigue Floor Mat") }}'>
+  <a href='/product/{{ slugify("comfilife-anti-fatigue-floor-mat-ergonomic-thick-standing-mat") }}'>
     <img src='https://m.media-amazon.com/images/I/7168kjOtn3L._AC_SX679_.jpg' 
          alt='ComfiLife Anti-Fatigue Mat - Ergonomic Cushioned Standing Surface for Kitchen, Elderly Joint Support' 
          loading='lazy' 
@@ -415,7 +415,7 @@ BLOG_POSTS = {
   </a>
   <p itemprop="text">Standing at the sink or stove becomes more comfortable with the <strong>ComfiLife Anti-Fatigue Mat</strong>. Thick ergonomic cushioning reduces pressure on feet, knees, and hips — especially valuable for elderly people with arthritis or circulation issues. Non-slip bottom keeps it securely in place. Widely available on Amazon UK.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("ComfiLife Anti Fatigue Floor Mat") }}'>
+    <a href='/product/{{ slugify("comfilife-anti-fatigue-floor-mat-ergonomic-thick-standing-mat") }}'>
       <button aria-label='View ComfiLife mat product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/3ZHhrtq' target='_blank' rel='nofollow sponsored noopener'>
@@ -426,7 +426,7 @@ BLOG_POSTS = {
 
 <h2 id="bed-rail" itemprop="headline" style="scroll-margin-top:100px;">5. Yornoli Adjustable Bed Rail with Motion-Sensing Light</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light") }}'>
+  <a href='/product/{{ slugify("yornoli-bed-rail-for-elderly-adults-with-motion-sensing-light-adjustable-non-slip-grip-handle-sturdy-steel-frame-easy-installation-storage-pocket-safety-and-support-for-seniors-104cm") }}'>
     <img src='https://m.media-amazon.com/images/I/61vvBKqWKzL._AC_SX679_.jpg' 
          alt='Yornoli Bed Rail - Adjustable Safety Support with Motion-Sensing Light, Non-Slip Handle and Storage Pocket for Elderly' 
          loading='lazy' 
@@ -435,7 +435,7 @@ BLOG_POSTS = {
   </a>
   <p itemprop="text">The <strong>Yornoli Bed Rail</strong> offers reliable nighttime safety with a built-in motion-sensing LED light that automatically illuminates when you move, helping prevent falls in the dark. Adjustable to fit most beds (single to king), sturdy steel frame, non-slip ergonomic grip handle, tool-free installation, and a convenient side storage pocket for phone, glasses, or meds. Ideal for elderly users or those with limited mobility, arthritis, or weak grip — promotes safe, independent bed transfers. Available on Amazon UK.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light") }}'>
+    <a href='/product/{{ slugify("yornoli-bed-rail-for-elderly-adults-with-motion-sensing-light-adjustable-non-slip-grip-handle-sturdy-steel-frame-easy-installation-storage-pocket-safety-and-support-for-seniors-104cm") }}'>
       <button aria-label='View Yornoli bed rail product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/4alfHMy' target='_blank' rel='nofollow sponsored noopener'>
@@ -446,7 +446,7 @@ BLOG_POSTS = {
 
 <h2 id="slip-resistant-socks" itemprop="headline" style="scroll-margin-top:100px;">6. Non-Slip Grip Socks (Multi-Pack)</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("Non-Slip Grip Socks for Elderly") }}'>
+  <a href='/product/{{ slugify("non-slip-grip-socks-multi-pack-hospital-grade-for-elderly-fall-prevention") }}'>
     <img src='https://m.media-amazon.com/images/I/71BpU0vjrgL._AC_SX679_.jpg' 
          alt='Non-Slip Grip Socks - Hospital-Grade for Elderly Fall Prevention, Multi-Pack' 
          loading='lazy' 
@@ -455,7 +455,7 @@ BLOG_POSTS = {
   </a>
   <p itemprop="text">Reduce slip risks on hard floors with <strong>non-slip grip socks</strong>. Hospital-grade grip dots on soles, soft comfortable fabric, and they stay up without tight elastic. Essential for elderly people moving around the house, especially on wooden or tiled surfaces. Available in multi-packs on Amazon UK.</p>
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("Non-Slip Grip Socks for Elderly") }}'>
+    <a href='/product/{{ slugify("non-slip-grip-socks-multi-pack-hospital-grade-for-elderly-fall-prevention") }}'>
       <button aria-label='View non-slip socks product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/4rlakCC' target='_blank' rel='nofollow sponsored noopener'>
