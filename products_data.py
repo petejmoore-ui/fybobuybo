@@ -63,7 +63,7 @@ PRODUCTS = [
 {
     "name": "Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)",
     "category": "Sports & Outdoors",
-    "season": "Valentine's Day",
+    "season": "Christmas, Father's Day",
     "image": "https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg",
     "url": "https://amzn.to/3Z85IUA",
     "asin": "B0FQJXB6H5",
@@ -91,7 +91,7 @@ PRODUCTS = [
 {
     "name": "LEGO Speed Champions McLaren F1 Team MCL38 Race Car - Model Kit with Driver Minifigure (77251)",
     "category": "Toys & Games",
-    "season": "Valentine's Day",
+    "season": "Christmas",
     "image": "https://m.media-amazon.com/images/I/8117Cs8gahL._AC_SX679_.jpg",
     "url": "https://amzn.to/46okZo6",
     "asin": "B0DHS9Y192",
@@ -147,7 +147,7 @@ PRODUCTS = [
 {
     "name": "Vitamin D3 4000 IU & K2 MK7 100μg - 1 Year Supply, 365 Easy-Swallow Vegetarian Tablets",
     "category": "Health & Personal Care",
-    "season": "Valentine's Day",
+    "season": "Winter Essentials",
     "image": "https://m.media-amazon.com/images/I/71l1gMTmsAL._AC_SX679_.jpg",
     "url": "https://amzn.to/3Z47XIB",
     "asin": "B0CR57HRDV",
