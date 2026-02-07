@@ -69,7 +69,7 @@ BLOG_POSTS = {
 
   <h2 id="liforme-original" itemprop="headline" style="scroll-margin-top:100px;">1. Liforme Original Yoga Mat — Best Overall for Hardwood Floors</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/81hpK5qE4YL._AC_SX679_.jpg' 
+    <img src='https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg' 
          alt='Liforme Original Yoga Mat - Non-slip grip, alignment markers, eco-friendly for hardwood floors' 
          loading='lazy' 
          style='border-radius:16px;'
