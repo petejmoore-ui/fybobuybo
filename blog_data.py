@@ -198,7 +198,7 @@ BLOG_POSTS = {
         <li><strong>6mm Cushioning:</strong> Extra padding for hardwood comfort</li>
         <li><strong>Textured Surface:</strong> Ridged pattern prevents slipping</li>
         <li><strong>Latex-Free PVC:</strong> Allergy-friendly materials</li>
-        <li><strong>Budget Price:</strong> Under £25 — perfect starter mat</li>
+        <li><strong>Budget Price:</strong> Under £40 — perfect starter mat</li>
         <li><strong>Multiple Colours:</strong> 15+ designs to match your space</li>
         <li><strong>Lightweight:</strong> Easy to roll and store</li>
       </ul>
@@ -340,7 +340,7 @@ BLOG_POSTS = {
       <li><strong>Best Overall:</strong> Liforme Original — unbeatable grip, alignment markers, eco-friendly</li>
       <li><strong>Premium Choice:</strong> Manduka PRO — lifetime investment, maximum cushioning</li>
       <li><strong>Best Eco Mat:</strong> Jade Harmony — sustainable, instant grip, plants trees</li>
-      <li><strong>Best Budget:</strong> Gaiam Premium — under £25, 6mm cushioning, surprisingly good</li>
+      <li><strong>Best Budget:</strong> Gaiam Premium — under £40, 6mm cushioning, surprisingly good</li>
       <li><strong>Best UK Brand:</strong> Yogi Bare Paws — jute-rubber blend, supports local business</li>
     </ul>
   </section>
