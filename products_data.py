@@ -12,7 +12,7 @@ PRODUCTS = [
     "url": "https://amzn.to/4qnVRoL",
     "asin": "B0FC26NDX6",
     "info": "Compact and foldable under-desk treadmill with app connectivity for tracking steps, speed, distance, and calories — perfect for walking while working, light jogging, or building daily movement. Features a quiet 2.5HP motor (noise <55dB), speeds up to 12 km/h (depending on model variant), remote/app control, LED display, and easy storage. Ideal for home offices, apartments, or anyone wanting convenient fitness without gym trips — a thoughtful gift for health, productivity, and active lifestyles.",
-    "manual_price": "149.99)",
+    "manual_price": "£149.99",
     "manual_rating": "4.5",
     "manual_reviews": "206",
     "keywords": ["walking pad", "under desk treadmill", "foldable treadmill", "app controlled walking machine", "home cardio", "quiet treadmill", "office fitness"],
