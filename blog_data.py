@@ -99,7 +99,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Liforme Original Yoga Mat") }}'>
         <button aria-label='View Liforme Original Yoga Mat product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/LIFORME-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3MhwFSW' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Liforme Original Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
