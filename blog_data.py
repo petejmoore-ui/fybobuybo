@@ -69,7 +69,7 @@ BLOG_POSTS = {
 
   <h2 id="liforme-original" itemprop="headline" style="scroll-margin-top:100px;">1. Liforme Original Yoga Mat — Best Overall for Hardwood Floors</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Liforme Original Yoga Mat") }}'>
+    <a href='/product/{{ slugify("liforme-original-yoga-mat-eco-friendly-biodegradable-patented-alignment-system-warrior-like-grip-non-slip-42mm-thick") }}'>
       <img src='https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg' 
            alt='Liforme Original Yoga Mat - Non-slip grip, alignment markers, eco-friendly for hardwood floors' 
            loading='lazy' 
@@ -96,7 +96,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Liforme Original Yoga Mat") }}'>
+      <a href='/product/{{ slugify("liforme-original-yoga-mat-eco-friendly-biodegradable-patented-alignment-system-warrior-like-grip-non-slip-42mm-thick") }}'>
         <button aria-label='View Liforme Original Yoga Mat product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3MhwFSW' target='_blank' rel='nofollow sponsored noopener'>
@@ -107,7 +107,7 @@ BLOG_POSTS = {
 
   <h2 id="manduka-pro" itemprop="headline" style="scroll-margin-top:100px;">2. Manduka PRO Yoga Mat — Premium Lifetime Investment</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Manduka PRO Yoga Mat") }}'>
+    <a href='/product/{{ slugify("manduka-verve-yoga-and-pilates-mat-black-verve-6mm-thick-non-slip-durable-pvc-lifetime-guarantee") }}'>
       <img src='https://m.media-amazon.com/images/I/91na2EkCaHL._AC_SL1500_.jpg' 
            alt='Manduka PRO Yoga Mat - Ultra-dense 6mm, lifetime guarantee, non-slip for hardwood' 
            loading='lazy' 
@@ -134,7 +134,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Manduka PRO Yoga Mat") }}'>
+      <a href='/product/{{ slugify("manduka-verve-yoga-and-pilates-mat-black-verve-6mm-thick-non-slip-durable-pvc-lifetime-guarantee") }}'>
         <button aria-label='View Manduka PRO Yoga Mat product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3ZjhprE' target='_blank' rel='nofollow sponsored noopener'>
@@ -145,7 +145,7 @@ BLOG_POSTS = {
 
   <h2 id="jade-harmony" itemprop="headline" style="scroll-margin-top:100px;">3. Jade Harmony Professional Yoga Mat — Best Eco-Friendly Grip</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Jade Harmony Professional Yoga Mat") }}'>
+    <a href='/product/{{ slugify("jade-harmony-professional-yoga-mat-midnight-blue-natural-rubber-non-slip-ultra-grip-5mm-thick") }}'>
       <img src='https://m.media-amazon.com/images/I/61PUCJpCA+L._AC_SL1500_.jpg' 
            alt='Jade Harmony natural rubber yoga mat - sustainable, grippy, perfect for hardwood floors' 
            loading='lazy' 
@@ -172,7 +172,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Jade Harmony Professional Yoga Mat") }}'>
+      <a href='/product/{{ slugify("jade-harmony-professional-yoga-mat-midnight-blue-natural-rubber-non-slip-ultra-grip-5mm-thick") }}'>
         <button aria-label='View Jade Harmony Professional Yoga Mat product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3O4Jd0s'_blank' rel='nofollow sponsored noopener'>
