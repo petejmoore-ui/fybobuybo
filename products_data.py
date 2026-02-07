@@ -3,6 +3,7 @@
 # All fields are optional - use what you need
 
 PRODUCTS = [
+
     {
     "name": "Superun Raceable Walking Pad with App Control - Under Desk Treadmill for Home & Office, Foldable, 2.5HP Motor",
     "category": "Sports & Outdoors",
@@ -343,6 +344,155 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
   },
+
+    {
+    "name": "Liforme Original Yoga Mat - Eco-Friendly, Biodegradable, Patented Alignment System, Warrior-like Grip, Non-Slip, 4.2mm Thick",
+    "category": "Sports & Outdoors",
+    "season": "Summer Essentials",
+    "image": "https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg",
+    "url": "https://amzn.to/4bCkwST",
+    "asin": "B01CGLCG8O",
+    "info": "Elevate your yoga practice with the Liforme Original mat — crafted from eco-friendly, biodegradable materials with a patented AlignForMe® system that subtly guides perfect posture and alignment in every pose. The open-cell surface delivers warrior-like grip that improves with sweat, providing exceptional stability for vinyasa, hot yoga, and dynamic flows. At 4.2mm thick, it offers balanced cushioning and joint support while remaining lightweight and portable. Includes a free carry bag. A thoughtful, high-performance gift for yogis who value precision, sustainability, comfort, and long-term practice.",
+    "manual_price": "£129.00",
+    "manual_rating": "4.7",
+    "manual_reviews": "3,000",
+    "keywords": ["liforme original yoga mat", "alignment system yoga mat", "eco friendly yoga mat", "non slip grip mat", "biodegradable yoga mat", "hot yoga mat", "valentines wellness gift"],
+    "pain_points": ["inconsistent alignment in poses", "slipping during sweaty sessions", "eco concerns with traditional mats", "need for reliable grip and cushion balance"],
+    "benefits": ["patented alignment guides for perfect form and confidence", "sweat-activated grip for unshakable stability", "eco-friendly biodegradable construction", "balanced 4.2mm cushion for joint protection", "durable, lightweight design with free carry bag"],
+    "price_tier": "premium eco yoga mat",
+    "highlights": [
+        "Patented AlignForMe® system for intuitive posture guidance",
+        "Open-cell surface becomes grippier with moisture and sweat",
+        "Eco-friendly, biodegradable materials with no harmful chemicals",
+        "4.2mm thickness for comfort and support without bulk",
+        "Includes free carry bag — ideal thoughtful gift for dedicated yogis"
+    ],
+    "faqs": [
+        {"q": "How does the alignment system work?", "a": "The subtle, printed markers help you position hands, feet, and body correctly in poses, improving form, balance, and progress over time."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a luxurious, meaningful wellness item that supports their practice, shows care for their comfort and the planet, and is considered a 'forever' mat by many."}
+    ],
+    "date_added": "2026-02-07"
+},
+
+    {
+    "name": "Jade Harmony Professional Yoga Mat - Midnight Blue, Natural Rubber, Non-Slip Ultra Grip, 5mm Thick",
+    "category": "Sports & Outdoors",
+    "season": "Summer Essentials",
+    "image": "https://m.media-amazon.com/images/I/61PUCJpCA+L._AC_SL1500_.jpg",
+    "url": "https://amzn.to/4qjeFpj",
+    "asin": "B000EC9LMM",
+    "info": "Discover superior grip and sustainability with the Jade Harmony yoga mat — crafted from open-cell natural rubber tapped from rubber trees, this mat becomes even grippier as you sweat, providing rock-solid stability for hot yoga, vinyasa, flow sequences, and sweaty sessions. At 5mm (3/16'') thick, it offers a balanced cushion with joint support while staying lightweight and responsive. Eco-friendly, biodegradable, non-toxic (no PVC or harmful chemicals), and designed to last. The elegant Midnight Blue color adds style to your practice. A thoughtful, high-quality gift for yoga enthusiasts who value performance, planet-friendly materials, and confident movement.",
+    "manual_price": "£82.00",
+    "manual_rating": "4.2",
+    "manual_reviews": "3,459",
+    "keywords": ["jade harmony yoga mat", "natural rubber yoga mat", "hot yoga mat", "non slip grip mat", "eco friendly yoga mat", "professional yoga mat", "valentines wellness gift"],
+    "pain_points": ["slipping in sweaty or hot classes", "eco concerns with synthetic mats", "need for durable grip without constant readjustment", "wanting cushion without bulk"],
+    "benefits": ["sweat-activated grip for unshakable stability", "eco-conscious natural rubber that's biodegradable", "perfect balance of cushioning and grounded feel", "long-lasting durability for frequent practice", "stylish Midnight Blue design that inspires daily use"],
+    "price_tier": "premium eco yoga mat",
+    "highlights": [
+        "Natural open-cell rubber surface gets grippier with sweat and heat",
+        "Eco-friendly, biodegradable, and free from PVC/toxic chemicals",
+        "5mm thickness for balanced cushion and joint protection",
+        "Lightweight yet tough construction built for years of practice",
+        "Ideal thoughtful gift for yogis seeking performance and sustainability"
+    ],
+    "faqs": [
+        {"q": "Does the grip improve when wet?", "a": "Yes — the natural rubber is engineered to become stickier with moisture and sweat, making it one of the best options for hot yoga and dynamic flows."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a premium, meaningful wellness item that supports their practice, shows care for their comfort, and aligns with eco values."}
+    ],
+    "date_added": "2026-02-07"
+},
+
+
+    {
+    "name": "Manduka Verve Yoga & Pilates Mat - Black Verve, 6mm Thick, Non-Slip, Durable PVC, Lifetime Guarantee",
+    "category": "Sports & Outdoors",
+    "season": "Summer Essentials",
+    "image": "https://m.media-amazon.com/images/I/81UL7GyeitL._AC_SL1500_.jpg",
+    "url": "https://amzn.to/3Os1Lb2",
+    "asin": "B00DJQFAV6",
+    "info": "Experience unmatched comfort and durability with the Manduka Verve mat — a 6mm thick closed-cell PVC design that delivers excellent cushioning for joints during yoga, Pilates, stretching, and floor exercises. The textured surface provides dependable non-slip grip (even during moderate sweat), while the dense foam construction offers support without bottoming out. Lightweight for easy transport, odor-resistant, and backed by Manduka's lifetime guarantee against defects. The sophisticated Black Verve color adds elegance to any practice space. A thoughtful, long-lasting gift for anyone serious about their wellness routine, comfort, and reliable equipment.",
+    "manual_price": "£134.00",
+    "manual_rating": "4.6",
+    "manual_reviews": "8,092",
+    "keywords": ["manduka verve mat", "6mm yoga mat", "non slip pilates mat", "durable yoga mat", "manduka verve black", "premium exercise mat", "valentines wellness gift"],
+    "pain_points": ["thin mats lacking joint protection", "inconsistent grip during practice", "mats that wear out quickly", "need for reliable, long-term equipment"],
+    "benefits": ["superior 6mm cushioning for joint comfort", "consistent non-slip surface for secure poses", "dense, resilient build that lasts years", "lightweight and easy to roll/carry", "elegant black design with lifetime durability"],
+    "price_tier": "premium performance yoga mat",
+    "highlights": [
+        "6mm thick closed-cell PVC for excellent cushion and support",
+        "Textured surface ensures reliable grip in most conditions",
+        "Odor-resistant and easy to clean for daily use",
+        "Backed by Manduka's lifetime guarantee",
+        "Perfect thoughtful gift for yogis and fitness lovers seeking quality"
+    ],
+    "faqs": [
+        {"q": "How does it compare to the Manduka PRO?", "a": "The Verve is slightly lighter and more affordable while still offering strong cushioning and grip — great for home use, though the PRO is denser for studio professionals."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a premium, caring wellness item that supports their practice and shows investment in their comfort and long-term enjoyment."}
+    ],
+    "date_added": "2026-02-07"
+},
+
+{
+    "name": "Yogi Bare PAWS Original Sticky Grip Yoga Mat - Ultra-Grip, Non-Slip, FSC Certified Natural Rubber, 4mm Thick, Midnight Black",
+    "category": "Sports & Outdoors",
+    "season": "Summer Essentials",
+    "image": "https://m.media-amazon.com/images/I/71De4YBV9LL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3LZUH4R",
+    "asin": "B0FY2WMVKY",
+    "info": "Experience unbeatable grip with this FSC-certified natural rubber yoga mat from Yogi Bare — designed to get grippier as you sweat, offering rock-solid stability for hot yoga, vinyasa, Pilates, and dynamic flows. 4mm thickness provides balanced cushioning and joint support while remaining lightweight and durable. Tear-resistant, biodegradable, non-toxic construction (no PVC or harmful glues) with subtle alignment guides for perfect posture. A thoughtful, eco-conscious gift for anyone passionate about mindful movement, wellness, and sustainable practice.",
+    "manual_price": "£80.00",
+    "manual_rating": "4.7",
+    "manual_reviews": "1,008",
+    "keywords": ["yogi bare paws mat", "natural rubber yoga mat", "ultra grip yoga mat", "hot yoga mat", "eco friendly yoga mat", "non slip yoga mat", "valentines wellness gift"],
+    "pain_points": ["slipping during sweaty sessions", "lack of reliable grip in hot yoga or dynamic practice", "eco concerns with synthetic mats", "need for durable yet comfortable cushioning"],
+    "benefits": ["sweat-activated ultra-sticky grip for confidence in any pose", "eco-friendly natural rubber that's biodegradable and sustainable", "perfect balance of cushion and stability", "tear-resistant longevity for daily use", "mindful alignment aids for better form"],
+    "price_tier": "premium eco yoga mat",
+    "highlights": [
+        "Ultra-grip natural rubber surface that improves with moisture and heat",
+        "FSC certified, biodegradable, and free from PVC/toxic glues",
+        "4mm thickness for joint support without sacrificing grounded feel",
+        "Tear-resistant high-tensile construction built to last",
+        "Subtle alignment guides and generous size for precise, spacious practice"
+    ],
+    "faqs": [
+        {"q": "Does the grip really get better when you sweat?", "a": "Yes — the natural rubber is designed to become even stickier with heat and moisture, making it ideal for hot yoga and sweaty flows."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Absolutely — it's a thoughtful, high-quality wellness item that shows care for their practice, health, and the planet; many yogis consider it a lifetime mat."}
+    ],
+    "date_added": "2026-02-07"
+},
+
+    {
+    "name": "Gaiam Premium Print Reversible Yoga Mat - Extra Thick 6mm Non-Slip Cushioned Mat for Yoga, Pilates & Floor Workouts (68\" x 24\")",
+    "category": "Sports & Outdoors",
+    "season": "Summer Essentials",
+    "image": "https://m.media-amazon.com/images/I/81CEqdLfeSL._AC_SL1500_.jpg",
+    "url": "https://amzn.to/3Mu3igc",
+    "asin": "B086BTNSM9",
+    "info": "Elevate your practice with this premium reversible yoga mat from Gaiam — featuring 6mm extra-thick cushioning for superior joint support during yoga, Pilates, stretching, or floor exercises. The non-slip textured surface provides reliable grip (even in sweaty sessions), while the reversible design offers two beautiful patterns for variety and style. Lightweight yet durable, latex-free PVC construction, generous size (68\" x 24\"), and easy to roll up for home or studio use. A thoughtful wellness gift that encourages mindful movement, comfort, and daily self-care.",
+    "manual_price": "£35.62",
+    "manual_rating": "4.6",
+    "manual_reviews": "17,008",
+    "keywords": ["gaiam yoga mat", "reversible yoga mat", "6mm thick yoga mat", "non slip exercise mat", "premium yoga mat", "pilates mat", "valentines wellness gift"],
+    "pain_points": ["uncomfortable thin mats causing joint strain", "slipping during dynamic or sweaty poses", "wanting a stylish, versatile mat for different sessions"],
+    "benefits": ["extra cushioning protects knees, hips, and wrists", "secure non-slip grip for confident flow", "reversible patterns keep practice fresh and motivating", "lightweight and easy to carry/roll", "durable for regular home or studio use"],
+    "price_tier": "mid-range premium yoga mat",
+    "highlights": [    
+        "6mm extra-thick cushioning for joint protection and comfort",
+        "Reversible design with two unique, eye-catching patterns",
+        "Textured non-slip surface for stability in any workout",
+        "Generous 68\" x 24\" size for full-body poses and movement",
+        "Latex-free, durable construction — ideal thoughtful gift for yoga lovers"
+    ],
+    "faqs": [
+        {"q": "How thick is this mat compared to standard ones?", "a": "At 6mm, it's thicker than most standard 4–5mm mats, offering more padding for joints while still feeling stable and grounded."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, high-quality wellness item that supports their practice and shows thoughtfulness for comfort and self-care."}
+    ],
+    "date_added": "2026-02-07"
+},
+
+    
+    
   {
     "name": "AUVON Weekly Pill Organizer 4 Times a Day - Extra Large Compartments",
     "category": "Health & Personal Care",
