@@ -213,7 +213,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("gaiam-premium-print-reversible-yoga-mat-extra-thick-6mm-non-slip-cushioned-mat-for-yoga-pilates-and-floor-workouts-68-x-24") }}'>
         <button aria-label='View Gaiam Premium Yoga Mat product details'>View Details & Buy</button>
       </a>
-      <a https://amzn.to/3Osb7U9' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3Osb7U9' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Gaiam Premium Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
