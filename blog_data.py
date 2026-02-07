@@ -108,7 +108,7 @@ BLOG_POSTS = {
   <h2 id="manduka-pro" itemprop="headline" style="scroll-margin-top:100px;">2. Manduka PRO Yoga Mat — Premium Lifetime Investment</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Manduka PRO Yoga Mat") }}'>
-      <img src='https://m.media-amazon.com/images/I/71QpKZE6M7L._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/91na2EkCaHL._AC_SL1500_.jpg' 
            alt='Manduka PRO Yoga Mat - Ultra-dense 6mm, lifetime guarantee, non-slip for hardwood' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -137,7 +137,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Manduka PRO Yoga Mat") }}'>
         <button aria-label='View Manduka PRO Yoga Mat product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/MANDUKA-PRO-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3ZjhprE' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Manduka PRO Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
@@ -146,7 +146,7 @@ BLOG_POSTS = {
   <h2 id="jade-harmony" itemprop="headline" style="scroll-margin-top:100px;">3. Jade Harmony Professional Yoga Mat — Best Eco-Friendly Grip</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Jade Harmony Professional Yoga Mat") }}'>
-      <img src='https://m.media-amazon.com/images/I/71rM+hJKZmL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/61PUCJpCA+L._AC_SL1500_.jpg' 
            alt='Jade Harmony natural rubber yoga mat - sustainable, grippy, perfect for hardwood floors' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -175,7 +175,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Jade Harmony Professional Yoga Mat") }}'>
         <button aria-label='View Jade Harmony Professional Yoga Mat product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/JADE-HARMONY-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3O4Jd0s'_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Jade Harmony Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
@@ -184,13 +184,13 @@ BLOG_POSTS = {
   <h2 id="gaiam-premium" itemprop="headline" style="scroll-margin-top:100px;">4. Gaiam Premium Yoga Mat — Best Budget-Friendly Option</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Gaiam Premium Yoga Mat") }}'>
-      <img src='https://m.media-amazon.com/images/I/81F5tDZKgBL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/81CEqdLfeSL._AC_SX679_.jpg' 
            alt='Gaiam Premium 6mm yoga mat - affordable non-slip mat for hardwood floors' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Proving you don't need to spend £80+ for hardwood-friendly practice, the <strong>Gaiam Premium Mat</strong> delivers impressive performance at under £25. The 6mm thickness provides generous cushioning for sensitive knees and wrists, while the textured surface grips both floor and hands effectively. Made from latex-free PVC with a non-slip ridged surface, it stays put on polished wood without adhesive backing. At 173cm × 61cm, it's compact enough for smaller spaces yet accommodates most body types. Over 15,000 UK reviews average 4.5/5 stars — exceptional value for beginners or occasional practitioners working with hardwood floors on a budget.</p>
+    <p itemprop="text">Proving you don't need to spend £80+ for hardwood-friendly practice, the <strong>Gaiam Premium Mat</strong> delivers impressive performance at under £40. The 6mm thickness provides generous cushioning for sensitive knees and wrists, while the textured surface grips both floor and hands effectively. Made from latex-free PVC with a non-slip ridged surface, it stays put on polished wood without adhesive backing. At 173cm × 61cm, it's compact enough for smaller spaces yet accommodates most body types. Over 15,000 UK reviews average 4.5/5 stars — exceptional value for beginners or occasional practitioners working with hardwood floors on a budget.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
       <h4 style='margin-top:0;'>Key Features:</h4>
@@ -213,7 +213,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Gaiam Premium Yoga Mat") }}'>
         <button aria-label='View Gaiam Premium Yoga Mat product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/GAIAM-PREMIUM-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a https://amzn.to/3Osb7U9' target='_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Gaiam Premium Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
@@ -222,7 +222,7 @@ BLOG_POSTS = {
   <h2 id="yogi-bare" itemprop="headline" style="scroll-margin-top:100px;">5. Yogi Bare Paws Natural Rubber Mat — Best UK-Made Option</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Yogi Bare Paws Natural Rubber Yoga Mat") }}'>
-      <img src='https://m.media-amazon.com/images/I/71X9hPnR7PL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/71De4YBV9LL._AC_SX679_.jpg' 
            alt='Yogi Bare Paws natural rubber yoga mat - UK brand, eco-friendly, non-slip hardwood' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -251,7 +251,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Yogi Bare Paws Natural Rubber Yoga Mat") }}'>
         <button aria-label='View Yogi Bare Paws Natural Rubber Mat product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/YOGI-BARE-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4tCLccO'_blank' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Yogi Bare Paws Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
