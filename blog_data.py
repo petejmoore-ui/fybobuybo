@@ -707,7 +707,7 @@ BLOG_POSTS = {
 
   </div>
 </article>
-"""
+""",
         
         "internal_links": []
     },
