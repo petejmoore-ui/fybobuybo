@@ -353,7 +353,7 @@ PRODUCTS = [
     "url": "https://amzn.to/4bCkwST",
     "asin": "B01CGLCG8O",
     "info": "Elevate your yoga practice with the Liforme Original mat — crafted from eco-friendly, biodegradable materials with a patented AlignForMe® system that subtly guides perfect posture and alignment in every pose. The open-cell surface delivers warrior-like grip that improves with sweat, providing exceptional stability for vinyasa, hot yoga, and dynamic flows. At 4.2mm thick, it offers balanced cushioning and joint support while remaining lightweight and portable. Includes a free carry bag. A thoughtful, high-performance gift for yogis who value precision, sustainability, comfort, and long-term practice.",
-    "manual_price": "£129,
+    "manual_price": "£129",
     "manual_rating": "4.7",
     "manual_reviews": "3,000",
     "keywords": ["liforme original yoga mat", "alignment system yoga mat", "eco friendly yoga mat", "non slip grip mat", "biodegradable yoga mat", "hot yoga mat", "valentines wellness gift"],
