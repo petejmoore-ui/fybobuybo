@@ -183,7 +183,7 @@ BLOG_POSTS = {
 
   <h2 id="gaiam-premium" itemprop="headline" style="scroll-margin-top:100px;">4. Gaiam Premium Yoga Mat — Best Budget-Friendly Option</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Gaiam Premium Yoga Mat") }}'>
+    <a href='/product/{{ slugify("gaiam-premium-print-reversible-yoga-mat-extra-thick-6mm-non-slip-cushioned-mat-for-yoga-pilates-and-floor-workouts-68-x-24") }}'>
       <img src='https://m.media-amazon.com/images/I/81CEqdLfeSL._AC_SX679_.jpg' 
            alt='Gaiam Premium 6mm yoga mat - affordable non-slip mat for hardwood floors' 
            loading='lazy' 
@@ -210,7 +210,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Gaiam Premium Yoga Mat") }}'>
+      <a href='/product/{{ slugify("gaiam-premium-print-reversible-yoga-mat-extra-thick-6mm-non-slip-cushioned-mat-for-yoga-pilates-and-floor-workouts-68-x-24") }}'>
         <button aria-label='View Gaiam Premium Yoga Mat product details'>View Details & Buy</button>
       </a>
       <a https://amzn.to/3Osb7U9' target='_blank' rel='nofollow sponsored noopener'>
@@ -221,7 +221,7 @@ BLOG_POSTS = {
 
   <h2 id="yogi-bare" itemprop="headline" style="scroll-margin-top:100px;">5. Yogi Bare Paws Natural Rubber Mat — Best UK-Made Option</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Yogi Bare Paws Natural Rubber Yoga Mat") }}'>
+    <a href='/product/{{ slugify("yogi-bare-paws-original-sticky-grip-yoga-mat-ultra-grip-non-slip-fsc-certified-natural-rubber-4mm-thick-midnight-black") }}'>
       <img src='https://m.media-amazon.com/images/I/71De4YBV9LL._AC_SX679_.jpg' 
            alt='Yogi Bare Paws natural rubber yoga mat - UK brand, eco-friendly, non-slip hardwood' 
            loading='lazy' 
@@ -248,7 +248,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Yogi Bare Paws Natural Rubber Yoga Mat") }}'>
+      <a href='/product/{{ slugify("yogi-bare-paws-original-sticky-grip-yoga-mat-ultra-grip-non-slip-fsc-certified-natural-rubber-4mm-thick-midnight-black") }}'>
         <button aria-label='View Yogi Bare Paws Natural Rubber Mat product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4tCLccO'_blank' rel='nofollow sponsored noopener'>
