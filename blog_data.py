@@ -69,11 +69,13 @@ BLOG_POSTS = {
 
   <h2 id="liforme-original" itemprop="headline" style="scroll-margin-top:100px;">1. Liforme Original Yoga Mat — Best Overall for Hardwood Floors</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg' 
-         alt='Liforme Original Yoga Mat - Non-slip grip, alignment markers, eco-friendly for hardwood floors' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Liforme Original Yoga Mat") }}'>
+      <img src='https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg' 
+           alt='Liforme Original Yoga Mat - Non-slip grip, alignment markers, eco-friendly for hardwood floors' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">The <strong>Liforme Original Yoga Mat</strong> sets the gold standard for hardwood floor practice. Revolutionary GripForMe® rubber base stays planted on wood without adhesives or toxic materials, while the 4.2mm cushioning protects knees and wrists without sacrificing stability. Unique alignment markers guide your practice, and the mat is free from PVC, silicone and toxic phthalates. At 185cm × 68cm, it's roomier than standard mats — perfect for taller practitioners or wide-stance poses. Thousands of UK yogis rate it 4.8/5 stars for transforming slippery hardwood into a confidence-inspiring practice space.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -94,19 +96,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Liforme Original Yoga Mat") }}'>
+        <button aria-label='View Liforme Original Yoga Mat product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/LIFORME-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Liforme Original mat on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Liforme Original Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="manduka-pro" itemprop="headline" style="scroll-margin-top:100px;">2. Manduka PRO Yoga Mat — Premium Lifetime Investment</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71QpKZE6M7L._AC_SX679_.jpg' 
-         alt='Manduka PRO Yoga Mat - Ultra-dense 6mm, lifetime guarantee, non-slip for hardwood' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Manduka PRO Yoga Mat") }}'>
+      <img src='https://m.media-amazon.com/images/I/71QpKZE6M7L._AC_SX679_.jpg' 
+           alt='Manduka PRO Yoga Mat - Ultra-dense 6mm, lifetime guarantee, non-slip for hardwood' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Built to outlast your practice, the <strong>Manduka PRO</strong> is the heavyweight champion of yoga mats. At 6mm thick with ultra-dense cushioning, it offers unmatched joint protection without bottoming out on hardwood. The closed-cell surface repels moisture and bacteria, while the grippy texture improves with age and use. Backed by Manduka's lifetime guarantee, this mat is an investment piece that gets better over years of practice. Available in 180cm or 216cm lengths, it accommodates any body type. Professional yoga studios and dedicated home practitioners rate it 4.7/5 for durability and hardwood-floor stability.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -127,19 +134,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Manduka PRO Yoga Mat") }}'>
+        <button aria-label='View Manduka PRO Yoga Mat product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/MANDUKA-PRO-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Manduka PRO mat on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Manduka PRO Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="jade-harmony" itemprop="headline" style="scroll-margin-top:100px;">3. Jade Harmony Professional Yoga Mat — Best Eco-Friendly Grip</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71rM+hJKZmL._AC_SX679_.jpg' 
-         alt='Jade Harmony natural rubber yoga mat - sustainable, grippy, perfect for hardwood floors' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Jade Harmony Professional Yoga Mat") }}'>
+      <img src='https://m.media-amazon.com/images/I/71rM+hJKZmL._AC_SX679_.jpg' 
+           alt='Jade Harmony natural rubber yoga mat - sustainable, grippy, perfect for hardwood floors' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Made from sustainable natural rubber tapped from rubber trees, the <strong>Jade Harmony</strong> delivers exceptional grip without synthetic materials. The open-cell surface creates instant friction against both skin and hardwood floors — no break-in period needed. At 5mm thick, it offers substantial cushioning while maintaining ground connection. Jade plants a tree for every mat sold, making this the choice for environmentally conscious yogis. The natural rubber base grips hardwood floors tenaciously without adhesives, and the biodegradable materials won't leave permanent marks. UK practitioners rate it 4.6/5 for eco-credentials and immediate, reliable traction on wooden surfaces.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -160,19 +172,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Jade Harmony Professional Yoga Mat") }}'>
+        <button aria-label='View Jade Harmony Professional Yoga Mat product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/JADE-HARMONY-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Jade Harmony mat on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Jade Harmony Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="gaiam-premium" itemprop="headline" style="scroll-margin-top:100px;">4. Gaiam Premium Yoga Mat — Best Budget-Friendly Option</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/81F5tDZKgBL._AC_SX679_.jpg' 
-         alt='Gaiam Premium 6mm yoga mat - affordable non-slip mat for hardwood floors' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Gaiam Premium Yoga Mat") }}'>
+      <img src='https://m.media-amazon.com/images/I/81F5tDZKgBL._AC_SX679_.jpg' 
+           alt='Gaiam Premium 6mm yoga mat - affordable non-slip mat for hardwood floors' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Proving you don't need to spend £80+ for hardwood-friendly practice, the <strong>Gaiam Premium Mat</strong> delivers impressive performance at under £25. The 6mm thickness provides generous cushioning for sensitive knees and wrists, while the textured surface grips both floor and hands effectively. Made from latex-free PVC with a non-slip ridged surface, it stays put on polished wood without adhesive backing. At 173cm × 61cm, it's compact enough for smaller spaces yet accommodates most body types. Over 15,000 UK reviews average 4.5/5 stars — exceptional value for beginners or occasional practitioners working with hardwood floors on a budget.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -193,19 +210,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Gaiam Premium Yoga Mat") }}'>
+        <button aria-label='View Gaiam Premium Yoga Mat product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/GAIAM-PREMIUM-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Gaiam Premium mat on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Gaiam Premium Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="yogi-bare" itemprop="headline" style="scroll-margin-top:100px;">5. Yogi Bare Paws Natural Rubber Mat — Best UK-Made Option</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71X9hPnR7PL._AC_SX679_.jpg' 
-         alt='Yogi Bare Paws natural rubber yoga mat - UK brand, eco-friendly, non-slip hardwood' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Yogi Bare Paws Natural Rubber Yoga Mat") }}'>
+      <img src='https://m.media-amazon.com/images/I/71X9hPnR7PL._AC_SX679_.jpg' 
+           alt='Yogi Bare Paws natural rubber yoga mat - UK brand, eco-friendly, non-slip hardwood' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Designed specifically for UK yogis by a UK company, the <strong>Yogi Bare Paws</strong> combines natural rubber grip with sustainable jute fiber for a unique texture that excels on hardwood floors. The dual-layer construction — natural rubber base with jute top — creates exceptional friction against both wood flooring and sweaty palms. At 4mm thick, it offers balanced cushioning without excess bulk. Each mat plants 10 trees through Eden Reforestation Projects, and the recyclable packaging reflects Yogi Bare's environmental commitment. UK practitioners appreciate the local brand's understanding of British homes and climate conditions. Rated 4.6/5 for grippy, eco-conscious hardwood practice with a distinctly natural feel.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -226,8 +248,11 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Yogi Bare Paws Natural Rubber Yoga Mat") }}'>
+        <button aria-label='View Yogi Bare Paws Natural Rubber Mat product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/YOGI-BARE-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Yogi Bare Paws mat on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Yogi Bare Paws Yoga Mat on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
@@ -389,11 +414,13 @@ BLOG_POSTS = {
 
   <h2 id="motorola-vm85" itemprop="headline" style="scroll-margin-top:100px;">1. Motorola VM85 Connect — Best Overall for Thick Walls</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg' 
-         alt='Motorola VM85 Connect baby monitor - 1000ft range, HD video, thick wall penetration' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Motorola VM85 Connect Baby Monitor") }}'>
+      <img src='https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg' 
+           alt='Motorola VM85 Connect baby monitor - 1000ft range, HD video, thick wall penetration' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">The <strong>Motorola VM85 Connect</strong> combines 1000ft open-range capability with dual connectivity (WiFi + dedicated parent unit) to conquer thick UK walls. The 5-inch HD touchscreen parent unit uses 2.4GHz FHSS technology for interference-free signals, while the WiFi backup lets you monitor via smartphone when walls block the dedicated unit. Two-way talk, infrared night vision, room temperature display, and lullaby player complete the package. UK parents in stone cottages and Victorian terraces rate it 4.6/5 for maintaining connection through walls that defeat lesser monitors.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -414,19 +441,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Motorola VM85 Connect Baby Monitor") }}'>
+        <button aria-label='View Motorola VM85 Connect product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/MOTOROLA-VM85-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Motorola VM85 on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Motorola VM85 Connect on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="infant-optics" itemprop="headline" style="scroll-margin-top:100px;">2. Infant Optics DXR-8 PRO — Premium Long-Range Choice</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71g8xZNXQPL._AC_SX679_.jpg' 
-         alt='Infant Optics DXR-8 PRO - interchangeable lens, long range, thick wall signal' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Infant Optics DXR-8 PRO Baby Monitor") }}'>
+      <img src='https://m.media-amazon.com/images/I/71g8xZNXQPL._AC_SX679_.jpg' 
+           alt='Infant Optics DXR-8 PRO - interchangeable lens, long range, thick wall signal' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">The <strong>Infant Optics DXR-8 PRO</strong> is the first baby monitor with interchangeable optical lenses, letting you switch between normal, wide-angle, and zoom views without buying multiple cameras. The upgraded PRO model features enhanced range (up to 900ft), superior night vision, and higher video quality than the original DXR-8. The dedicated 2.4GHz FHSS connection avoids WiFi congestion, maintaining stable signals through thick walls and multiple floors. Expandable to 4 cameras, invisible IR night vision, and long battery life (10+ hours) make this a premium choice for large UK homes.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -447,19 +479,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Infant Optics DXR-8 PRO Baby Monitor") }}'>
+        <button aria-label='View Infant Optics DXR-8 PRO product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/INFANT-OPTICS-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Infant Optics DXR-8 PRO on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Infant Optics DXR-8 PRO on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="vtech-vm5254" itemprop="headline" style="scroll-margin-top:100px;">3. VTech VM5254 — Best Value Long-Range Monitor</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71xF8p9VWPL._AC_SX679_.jpg' 
-         alt='VTech VM5254 baby monitor - affordable long range, thick wall signal, 5-inch screen' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("VTech VM5254 Baby Monitor") }}'>
+      <img src='https://m.media-amazon.com/images/I/71xF8p9VWPL._AC_SX679_.jpg' 
+           alt='VTech VM5254 baby monitor - affordable long range, thick wall signal, 5-inch screen' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Proving thick-wall performance doesn't require premium prices, the <strong>VTech VM5254</strong> delivers reliable 1000ft range at nearly half the cost of competitors. The 5-inch colour screen, pan/tilt/zoom camera, and two-way audio provide all essential features, while the digital FHSS transmission maintains clear signals through Victorian plaster and stone walls. Includes temperature sensor, sound-activated LED indicators, and lullaby player. With over 8,000 UK reviews averaging 4.4/5 stars, this monitor proves that budget-friendly doesn't mean compromised performance for thick-walled homes.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -480,19 +517,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("VTech VM5254 Baby Monitor") }}'>
+        <button aria-label='View VTech VM5254 product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/VTECH-VM5254-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy VTech VM5254 on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy VTech VM5254 on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="philips-avent" itemprop="headline" style="scroll-margin-top:100px;">4. Philips Avent SCD843 — Best DECT Technology</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/61xC8hJKCLL._AC_SX679_.jpg' 
-         alt='Philips Avent SCD843 DECT baby monitor - ultra-secure signal, thick wall penetration' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Philips Avent SCD843 Baby Monitor") }}'>
+      <img src='https://m.media-amazon.com/images/I/61xC8hJKCLL._AC_SX679_.jpg' 
+           alt='Philips Avent SCD843 DECT baby monitor - ultra-secure signal, thick wall penetration' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Using DECT (Digital Enhanced Cordless Telecommunications) technology instead of standard 2.4GHz, the <strong>Philips Avent SCD843</strong> operates on a private, interference-free frequency that penetrates walls more effectively. The DECT connection is virtually unhackable and immune to WiFi interference, maintaining crystal-clear audio through the thickest UK walls. The 4.3-inch screen provides HD video, while Philips' ECO mode reduces electromagnetic emissions by up to 50%. Temperature sensor, night light, and lullabies round out features. UK parents in listed buildings and stone houses rate it 4.5/5 for unbreakable connection and security.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -513,19 +555,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Philips Avent SCD843 Baby Monitor") }}'>
+        <button aria-label='View Philips Avent SCD843 product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/PHILIPS-AVENT-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Philips Avent SCD843 on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Philips Avent SCD843 on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="nanit-pro" itemprop="headline" style="scroll-margin-top:100px;">5. Nanit Pro Smart Monitor — Best WiFi Alternative</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/61WzQp9fVgL._AC_SX679_.jpg' 
-         alt='Nanit Pro Smart baby monitor - WiFi, HD overhead view, sleep tracking, thick walls' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Nanit Pro Smart Baby Monitor") }}'>
+      <img src='https://m.media-amazon.com/images/I/61WzQp9fVgL._AC_SX679_.jpg' 
+           alt='Nanit Pro Smart baby monitor - WiFi, HD overhead view, sleep tracking, thick walls' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Taking a different approach, the <strong>Nanit Pro</strong> uses your home's WiFi network instead of fighting through thick walls with a dedicated signal. The overhead-mounted HD camera streams to your smartphone from anywhere — even when you're not home. Background audio lets you hear baby while using your phone for other tasks. Advanced features include sleep tracking, breathing motion monitoring (with optional paid subscription), and two-way audio. For homes where WiFi reaches every room but traditional monitors struggle, Nanit sidesteps thick walls entirely by leveraging existing internet infrastructure.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -546,8 +593,11 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Nanit Pro Smart Baby Monitor") }}'>
+        <button aria-label='View Nanit Pro Smart Monitor product details'>View Details & Buy</button>
+      </a>
       <a href='https://amzn.to/NANIT-PRO-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Nanit Pro on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Nanit Pro on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
@@ -657,7 +707,7 @@ BLOG_POSTS = {
 
   </div>
 </article>
-""",
+"""
         
         "internal_links": []
     },
@@ -716,7 +766,7 @@ BLOG_POSTS = {
       <li><a href="#exemplaire">Exemplaire Professional Rose Pruning Gloves (Best Overall)</a></li>
       <li><a href="#ozero-thorn">OZERO Leather Gardening Gloves (Best Value)</a></li>
       <li><a href="#west-county">West County Gardener Extra Long Gauntlet (Best Protection)</a></li>
-      <li><a href="#womens-rose">Womanswork Rose Gardening Gloves (Best for Women)</a></li>
+      <li><a href="#womens-rose">Dig It Women's Leather Rose Gardening Gloves (Best for Women)</a></li>
       <li><a href="#blackfox">Blackfox Expert Gauntlet Gloves (Premium Choice)</a></li>
       <li><a href="#buying-guide">What to Look For</a></li>
     </ol>
@@ -729,11 +779,13 @@ BLOG_POSTS = {
 
   <h2 id="exemplaire" itemprop="headline" style="scroll-margin-top:100px;">1. Exemplaire Professional Rose Pruning Gloves — Best Overall</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71zKb4QZPSL._AC_SX679_.jpg' 
-         alt='Exemplaire Professional Rose Pruning Gloves - Premium goatskin leather, thorn-proof gauntlet' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Exemplaire Professional Rose Pruning Gloves") }}'>
+      <img src='https://m.media-amazon.com/images/I/71zKb4QZPSL._AC_SX679_.jpg' 
+           alt='Exemplaire Professional Rose Pruning Gloves - Premium goatskin leather, thorn-proof gauntlet' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">The <strong>Exemplaire Professional Rose Pruning Gloves</strong> are the gold standard for serious UK gardeners. Crafted from premium goatskin leather that's both supple and puncture-resistant, these long gauntlet gloves protect your forearms up to 38cm from the wrist. The leather is treated to resist water and thorns while maintaining flexibility — you can actually feel what you're holding, unlike stiff, clunky alternatives. Reinforced fingertips and palms handle the sharpest roses, pyracantha, and brambles without a single puncture. Over 3,000 UK reviews average 4.7/5 stars, with gardeners praising the balance of protection and dexterity. At around £25-30, they're an investment that lasts seasons.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -754,19 +806,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Exemplaire Professional Rose Pruning Gloves") }}'>
+        <button aria-label='View Exemplaire Professional Rose Pruning Gloves product details'>View Details & Buy</button>
+      </a>
       <a href='https://www.amazon.co.uk/dp/B07QKRD8YG' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Exemplaire Professional gloves on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Exemplaire Professional Rose Pruning Gloves on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="ozero-thorn" itemprop="headline" style="scroll-margin-top:100px;">2. OZERO Leather Gardening Gloves — Best Value Under £15</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/81KH5nM3hYL._AC_SX679_.jpg' 
-         alt='OZERO Leather Gardening Gloves - Thorn-proof cowhide, puncture-resistant, budget-friendly' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("OZERO Leather Gardening Gloves") }}'>
+      <img src='https://m.media-amazon.com/images/I/81KH5nM3hYL._AC_SX679_.jpg' 
+           alt='OZERO Leather Gardening Gloves - Thorn-proof cowhide, puncture-resistant, budget-friendly' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Proving thorn protection doesn't require premium prices, the <strong>OZERO Leather Gardening Gloves</strong> deliver impressive puncture resistance at under £15. Made from genuine cowhide leather with reinforced palms and fingers, these gloves stop rose thorns, bramble prickles, and cactus spines effectively. The 15cm extended cuff protects wrists (though not as long as gauntlet styles), and the soft interior lining prevents chafing during extended use. With over 8,000 UK reviews averaging 4.5/5 stars, these represent exceptional value for hobby gardeners who don't need premium features but refuse to tolerate thorn punctures.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -787,19 +844,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("OZERO Leather Gardening Gloves") }}'>
+        <button aria-label='View OZERO Leather Gardening Gloves product details'>View Details & Buy</button>
+      </a>
       <a href='https://www.amazon.co.uk/dp/B01MFBAJR5' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy OZERO Leather gloves on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy OZERO Leather Gardening Gloves on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="west-county" itemprop="headline" style="scroll-margin-top:100px;">3. West County Gardener Extra Long Gauntlet Gloves — Maximum Protection</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71CqL8zYHEL._AC_SX679_.jpg' 
-         alt='West County Gardener Extra Long Gauntlet Gloves - 40cm forearm protection, thorn-proof leather' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("West County Gardener Extra Long Gauntlet Gloves") }}'>
+      <img src='https://m.media-amazon.com/images/I/71CqL8zYHEL._AC_SX679_.jpg' 
+           alt='West County Gardener Extra Long Gauntlet Gloves - 40cm forearm protection, thorn-proof leather' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">For gardeners battling overgrown brambles, wild roses, or established pyracantha hedges, the <strong>West County Gardener Extra Long Gauntlet Gloves</strong> offer unmatched forearm protection. These gloves extend an impressive 40cm from fingertip to cuff — reaching nearly to your elbow — protecting against thorns that would scratch through standard gloves when you reach deep into bushes. Made from thick, thorn-resistant leather with triple-reinforced fingertips, they're built for the toughest UK gardening challenges. The trade-off is reduced dexterity; these are for heavy-duty work, not delicate pruning. UK gardeners tackling countryside hedges rate them 4.6/5 for unbeatable protection when wrestling with seriously prickly plants.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -820,19 +882,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("West County Gardener Extra Long Gauntlet Gloves") }}'>
+        <button aria-label='View West County Gardener Extra Long Gauntlet Gloves product details'>View Details & Buy</button>
+      </a>
       <a href='https://www.amazon.co.uk/dp/B005KRKV0E' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy West County gauntlet gloves on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy West County Gardener Extra Long Gauntlet Gloves on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="womens-rose" itemprop="headline" style="scroll-margin-top:100px;">4. Dig It Women's Leather Rose Gardening Gloves — Best for Women</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/81xwM+zzKjL._AC_SX679_.jpg' 
-         alt='Dig It Women's Leather Rose Gloves - Designed for smaller hands, thorn-resistant, stylish' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Dig It Womens Leather Rose Gardening Gloves") }}'>
+      <img src='https://m.media-amazon.com/images/I/81xwM+zzKjL._AC_SX679_.jpg' 
+           alt='Dig It Women's Leather Rose Gloves - Designed for smaller hands, thorn-resistant, stylish' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">Designed specifically for women's hands rather than being shrunk men's gloves, the <strong>Dig It Women's Leather Rose Gardening Gloves</strong> combine proper thorn protection with an actual fit that works. The pigskin leather palm is naturally puncture-resistant, while the 20cm forearm cuff protects against scratches when reaching into rose bushes. Proper women's sizing means fingers aren't baggy and palms aren't oversized — you maintain control and feel. Available in attractive floral or classic tan designs, they prove protective gloves don't have to look industrial. UK women gardeners rate them 4.5/5 for finally offering thorn protection without sacrificing fit or style.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -853,19 +920,24 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Dig It Womens Leather Rose Gardening Gloves") }}'>
+        <button aria-label='View Dig It Womens Leather Rose Gardening Gloves product details'>View Details & Buy</button>
+      </a>
       <a href='https://www.amazon.co.uk/dp/B00FJ42ZLG' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Dig It women's rose gloves on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Dig It Womens Leather Rose Gardening Gloves on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
   <h2 id="blackfox" itemprop="headline" style="scroll-margin-top:100px;">5. Blackfox Expert Gauntlet Gloves — Premium Professional Choice</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <img src='https://m.media-amazon.com/images/I/71KpQ8zxVJL._AC_SX679_.jpg' 
-         alt='Blackfox Expert Gauntlet Gloves - Professional grade, European leather, ultimate thorn protection' 
-         loading='lazy' 
-         style='border-radius:16px;'
-         itemprop="image">
+    <a href='/product/{{ slugify("Blackfox Expert Gauntlet Gloves") }}'>
+      <img src='https://m.media-amazon.com/images/I/71KpQ8zxVJL._AC_SX679_.jpg' 
+           alt='Blackfox Expert Gauntlet Gloves - Professional grade, European leather, ultimate thorn protection' 
+           loading='lazy' 
+           style='border-radius:16px;'
+           itemprop="image">
+    </a>
     <p itemprop="text">At the premium end, the <strong>Blackfox Expert Gauntlet Gloves</strong> represent professional-grade thorn protection used by European rosarians and botanical gardens. Made from specially selected European leather with Kevlar® reinforcement in fingertips and palms, these gloves stop even the vicious 8cm pyracantha spines that defeat lesser gloves. The 35cm gauntlet combines thick protection with surprising suppleness — you can actually make precise pruning cuts while fully protected. They're expensive at £40-50, but professional gardeners and rose enthusiasts report 5+ years of hard use without punctures or significant wear. If roses are your passion or profession, these are the gloves that last a career.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
@@ -886,8 +958,11 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Blackfox Expert Gauntlet Gloves") }}'>
+        <button aria-label='View Blackfox Expert Gauntlet Gloves product details'>View Details & Buy</button>
+      </a>
       <a href='https://www.amazon.co.uk/dp/B07Y8LRMHQ' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;' aria-label='Buy Blackfox Expert gloves on Amazon UK'>View on Amazon UK</button>
+        <button style='background:#ff9900;' aria-label='Buy Blackfox Expert Gauntlet Gloves on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
@@ -1127,11 +1202,13 @@ BLOG_POSTS = {
   <div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:30px 0;'>
     <div style='background:var(--card);padding:20px;border-radius:12px;'>
       <h4 style='margin-top:0;color:var(--primary);'>Fitbit Charge 6</h4>
-      <img src='https://m.media-amazon.com/images/I/61hF9hZ8H5L._AC_SX679_.jpg' 
-           alt='Fitbit Charge 6 design - AMOLED screen, aluminum body' 
-           loading='lazy' 
-           style='border-radius:8px;margin:15px 0;'
-           itemprop="image">
+      <a href='/product/{{ slugify("Fitbit Charge 6") }}'>
+        <img src='https://m.media-amazon.com/images/I/61hF9hZ8H5L._AC_SX679_.jpg' 
+             alt='Fitbit Charge 6 design - AMOLED screen, aluminum body' 
+             loading='lazy' 
+             style='border-radius:8px;margin:15px 0;'
+             itemprop="image">
+      </a>
       <ul style='margin-left:20px;line-height:1.8;font-size:0.95rem;'>
         <li><strong>Display:</strong> 1.04" AMOLED colour touchscreen</li>
         <li><strong>Body:</strong> Aluminum and glass (premium feel)</li>
@@ -1143,14 +1220,26 @@ BLOG_POSTS = {
       <div style='background:#f0f9ff;padding:12px;border-radius:8px;margin-top:15px;'>
         <p style='margin:0;font-size:0.9rem;'><strong>Winner:</strong> Premium look and feel, vibrant screen, but bulkier on small wrists</p>
       </div>
+
+      <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+        <a href='/product/{{ slugify("Fitbit Charge 6") }}'>
+          <button aria-label='View Fitbit Charge 6 product details'>View Details & Buy</button>
+        </a>
+        <a href='https://www.amazon.co.uk/dp/B0CCQ5R5LD' target='_blank' rel='nofollow sponsored noopener'>
+          <button style='background:#ff9900;' aria-label='Buy Fitbit Charge 6 on Amazon UK'>View on Amazon</button>
+        </a>
+      </div>
     </div>
     
     <div style='background:var(--card);padding:20px;border-radius:12px;'>
       <h4 style='margin-top:0;color:var(--primary);'>Garmin Vivosmart 5</h4>
-      <img src='https://m.media-amazon.com/images/I/61oX6vRZFcL._AC_SX679_.jpg' 
-           alt='Garmin Vivosmart 5 design - OLED screen, slim profile' 
-           loading='lazy' 
-           style='border-radius:8px;margin:15px 0;'>
+      <a href='/product/{{ slugify("Garmin Vivosmart 5") }}'>
+        <img src='https://m.media-amazon.com/images/I/61oX6vRZFcL._AC_SX679_.jpg' 
+             alt='Garmin Vivosmart 5 design - OLED screen, slim profile' 
+             loading='lazy' 
+             style='border-radius:8px;margin:15px 0;'
+             itemprop="image">
+      </a>
       <ul style='margin-left:20px;line-height:1.8;font-size:0.95rem;'>
         <li><strong>Display:</strong> 18.5 × 10.7mm OLED (smaller but sharp)</li>
         <li><strong>Body:</strong> Polymer case (lighter, more durable)</li>
@@ -1161,6 +1250,15 @@ BLOG_POSTS = {
       </ul>
       <div style='background:#d4edda;padding:12px;border-radius:8px;margin-top:15px;'>
         <p style='margin:0;font-size:0.9rem;'><strong>Winner:</strong> Slimmer, lighter, more discreet — better for small wrists and 24/7 wear</p>
+      </div>
+
+      <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+        <a href='/product/{{ slugify("Garmin Vivosmart 5") }}'>
+          <button aria-label='View Garmin Vivosmart 5 product details'>View Details & Buy</button>
+        </a>
+        <a href='https://www.amazon.co.uk/dp/B09V1BRM72' target='_blank' rel='nofollow sponsored noopener'>
+          <button style='background:#ff9900;' aria-label='Buy Garmin Vivosmart 5 on Amazon UK'>View on Amazon</button>
+        </a>
       </div>
     </div>
   </div>
@@ -1418,9 +1516,15 @@ BLOG_POSTS = {
         <li>All core features unlocked</li>
       </ul>
       <p><strong>Ongoing Costs:</strong> Fitbit Premium £7.99/month after 6 months (optional but pushed hard)</p>
-      <a href='https://www.amazon.co.uk/dp/B0CCQ5R5LD' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='width:100%;background:#ff9900;padding:12px;border:none;border-radius:8px;font-weight:600;margin-top:10px;cursor:pointer;'>View Fitbit Charge 6 on Amazon UK</button>
-      </a>
+
+      <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+        <a href='/product/{{ slugify("Fitbit Charge 6") }}'>
+          <button aria-label='View Fitbit Charge 6 product details'>View Details & Buy</button>
+        </a>
+        <a href='https://www.amazon.co.uk/dp/B0CCQ5R5LD' target='_blank' rel='nofollow sponsored noopener'>
+          <button style='background:#ff9900;' aria-label='Buy Fitbit Charge 6 on Amazon UK'>View on Amazon</button>
+        </a>
+      </div>
     </div>
     
     <div style='background:var(--card);padding:20px;border-radius:12px;'>
@@ -1435,9 +1539,15 @@ BLOG_POSTS = {
         <li>No subscriptions required</li>
       </ul>
       <p><strong>Ongoing Costs:</strong> £0 — all features permanently free</p>
-      <a href='https://www.amazon.co.uk/dp/B09V1BRM72' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='width:100%;background:#ff9900;padding:12px;border:none;border-radius:8px;font-weight:600;margin-top:10px;cursor:pointer;'>View Garmin Vivosmart 5 on Amazon UK</button>
-      </a>
+
+      <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+        <a href='/product/{{ slugify("Garmin Vivosmart 5") }}'>
+          <button aria-label='View Garmin Vivosmart 5 product details'>View Details & Buy</button>
+        </a>
+        <a href='https://www.amazon.co.uk/dp/B09V1BRM72' target='_blank' rel='nofollow sponsored noopener'>
+          <button style='background:#ff9900;' aria-label='Buy Garmin Vivosmart 5 on Amazon UK'>View on Amazon</button>
+        </a>
+      </div>
     </div>
   </div>
   
@@ -1513,7 +1623,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">Which has better battery life in real-world use?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Garmin Vivosmart 5 consistently lasted 6-7 days with moderate use in our testing. Fitbit Charge 6 lasted 5-6 days with identical use patterns. Both easily last a working week. Garmin wins by about 1 day, but it's minimal — neither requires daily charging anxiety. GPS use drains both significantly faster.</p>
+        <p itemprop="text">Garmin Vivosmart 5 consistently lasted 6-7 days with moderate use in our testing. Fitbit Charge 6 lasted 5-6 days with identical use patterns. Both easily last a working week. Garmin wins by about 1 day, but it's minimal — neither requires daily charging anxiety.</p>
       </div>
     </div>
   </section>
