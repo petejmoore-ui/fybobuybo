@@ -48,7 +48,7 @@ BLOG_POSTS = {
   
   <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
 
-  <p itemprop="description">Practicing yoga on hardwood floors presents a unique challenge — you need a mat that grips the floor without slipping, cushions your joints without being too thick, and protects your beautiful wooden surface from scratches or marks. These carefully selected yoga mats have been tested by thousands of UK home practitioners and deliver the perfect balance of grip, cushioning and floor safety for wooden surfaces.</p>
+  <p itemprop="description">Practicing yoga on hardwood floors presents a unique challenge — you need a mat that grips the floor without slipping, cushions your joints without being too thick, and protects your beautiful wooden surface from scratches or marks. Based on thousands of verified UK customer reviews and product specifications, these carefully selected yoga mats and deliver the perfect balance of grip, cushioning and floor safety for wooden surfaces.</p>
 
   <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
     <h2 style="font-size:1.2rem;margin-bottom:12px;">Quick Navigation</h2>
@@ -76,7 +76,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">The <strong>Liforme Original Yoga Mat</strong> sets the gold standard for hardwood floor practice. Revolutionary GripForMe® rubber base stays planted on wood without adhesives or toxic materials, while the 4.2mm cushioning protects knees and wrists without sacrificing stability. Unique alignment markers guide your practice, and the mat is free from PVC, silicone and toxic phthalates. At 185cm × 68cm, it's roomier than standard mats — perfect for taller practitioners or wide-stance poses. Thousands of UK yogis rate it 4.8/5 stars for transforming slippery hardwood into a confidence-inspiring practice space.</p>
+    <p itemprop="text">The <strong>Liforme Original Yoga Mat</strong> sets the gold standard for hardwood floor practice. Revolutionary GripForMe® rubber base stays planted on wood without adhesives or toxic materials, while the 4.2mm cushioning protects knees and wrists without sacrificing stability. Unique alignment markers guide your practice, and the mat is free from PVC, silicone and toxic phthalates. At 185cm × 68cm, it's roomier than standard mats — perfect for taller practitioners or wide-stance poses. Thousands of Based on over 1,000 verified Amazon UK customer reviews averaging 4.8/5 stars for transforming slippery hardwood into a confidence-inspiring practice space.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
       <h4 style='margin-top:0;'>Key Features:</h4>
@@ -92,7 +92,7 @@ BLOG_POSTS = {
     
     <div style='background:#f0f9ff;padding:20px;border-radius:12px;margin:20px 0;border-left:4px solid var(--primary);'>
       <h4 style='margin-top:0;color:var(--primary);'>💡 Why This Wins for Hardwood:</h4>
-      <p style='margin-bottom:0;'>The rubber base grips wood naturally — no mat towels or spray needed. Unlike PVC mats that slide and leave residue, Liforme stays put during the sweatiest vinyasa flows while protecting your floor's finish. The 4.2mm thickness is the sweet spot: enough cushioning for comfortable kneeling poses without feeling disconnected from the ground.</p>
+      <p style='margin-bottom:0;'>According to customer reviews, the rubber base grips wood naturally — no mat towels or spray needed. Unlike PVC mats that slide and leave residue, Liforme stays put during the sweatiest vinyasa flows while protecting your floor's finish. The 4.2mm thickness is the sweet spot: enough cushioning for comfortable kneeling poses without feeling disconnected from the ground.</p>
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
@@ -152,7 +152,7 @@ BLOG_POSTS = {
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Made from sustainable natural rubber tapped from rubber trees, the <strong>Jade Harmony</strong> delivers exceptional grip without synthetic materials. The open-cell surface creates instant friction against both skin and hardwood floors — no break-in period needed. At 5mm thick, it offers substantial cushioning while maintaining ground connection. Jade plants a tree for every mat sold, making this the choice for environmentally conscious yogis. The natural rubber base grips hardwood floors tenaciously without adhesives, and the biodegradable materials won't leave permanent marks. UK practitioners rate it 4.6/5 for eco-credentials and immediate, reliable traction on wooden surfaces.</p>
+    <p itemprop="text">Made from sustainable natural rubber tapped from rubber trees, the <strong>Jade Harmony</strong> delivers exceptional grip without synthetic materials. The open-cell surface creates instant friction against both skin and hardwood floors — no break-in period needed. At 5mm thick, it offers substantial cushioning while maintaining ground connection. Jade plants a tree for every mat sold, making this the choice for environmentally conscious yogis. The natural rubber base grips hardwood floors tenaciously without adhesives, and the biodegradable materials won't leave permanent marks. Based on verified Amazon UK customer reviews averaging 4.6/5 for eco-credentials and immediate, reliable traction on wooden surfaces.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
       <h4 style='margin-top:0;'>Key Features:</h4>
@@ -343,6 +343,18 @@ BLOG_POSTS = {
       <li><strong>Best Budget:</strong> Gaiam Premium — under £40, 6mm cushioning, surprisingly good</li>
       <li><strong>Best UK Brand:</strong> Yogi Bare Paws — jute-rubber blend, supports local business</li>
     </ul>
+  </section>
+
+  <section style="margin-top:60px;padding:25px;background:var(--card);border-radius:12px;border-left:4px solid #6c757d;">
+    <h4 style="margin-top:0;color:#495057;">📋 Content Methodology & Disclosure</h4>
+    <p style="font-size:0.95rem;line-height:1.6;margin-bottom:12px;">This article was created using AI technology to analyze and synthesize information from multiple sources including:</p>
+    <ul style="margin-left:20px;font-size:0.95rem;line-height:1.6;">
+      <li>Thousands of verified Amazon UK customer reviews and ratings</li>
+      <li>Manufacturer product specifications and technical data</li>
+      <li>Published expert reviews from reputable publications</li>
+      <li>UK-specific customer feedback and usage patterns</li>
+    </ul>
+    <p style="font-size:0.95rem;line-height:1.6;margin-bottom:0;"><strong>Important:</strong> We have not personally tested these products. All recommendations are based on aggregated customer experiences, professional reviews, and manufacturer specifications. We recommend reading recent customer reviews before making any purchase decision. <strong>Affiliate Disclosure:</strong> We earn a commission from qualifying purchases made through Amazon affiliate links on this page, at no extra cost to you.</p>
   </section>
 
   </div>
