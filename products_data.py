@@ -3,6 +3,35 @@
 # All fields are optional - use what you need
 
 PRODUCTS = [
+
+    {
+    "name": "Superun Raceable Walking Pad with App Control - Under Desk Treadmill for Home & Office, Foldable, 2.5HP Motor",
+    "category": "Sports & Outdoors",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/6102I-BUNRL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4qnVRoL",
+    "asin": "B0FC26NDX6",
+    "info": "Compact and foldable under-desk treadmill with app connectivity for tracking steps, speed, distance, and calories — perfect for walking while working, light jogging, or building daily movement. Features a quiet 2.5HP motor (noise <55dB), speeds up to 12 km/h (depending on model variant), remote/app control, LED display, and easy storage. Ideal for home offices, apartments, or anyone wanting convenient fitness without gym trips — a thoughtful gift for health, productivity, and active lifestyles.",
+    "manual_price": "149.99)",
+    "manual_rating": "4.5",
+    "manual_reviews": "206",
+    "keywords": ["walking pad", "under desk treadmill", "foldable treadmill", "app controlled walking machine", "home cardio", "quiet treadmill", "office fitness"],
+    "pain_points": ["limited time for gym workouts", "sedentary desk job fatigue", "lack of convenient home exercise options", "noisy or bulky fitness equipment"],
+    "benefits": ["seamless walking while working or watching", "quiet operation for home/office use", "easy fold & store design", "app tracking for motivation and progress", "boosts daily steps and energy"],
+    "price_tier": "mid-range home fitness",
+    "highlights": [
+        "2.5HP quiet motor (<55dB) for smooth, peaceful use",
+        "App control + remote for easy speed/distance tracking",
+        "Foldable & compact – slides under desk or bed",
+        "Supports walking and light jogging (up to ~12 km/h)",
+        "Perfect thoughtful gift for wellness and productivity"
+    ],
+    "faqs": [
+        {"q": "Is it suitable for running?", "a": "Designed primarily for walking and light jogging; check exact speed limit (typically up to 10–12 km/h) for your needs — not for high-intensity running."},
+        {"q": "Good as a Valentine's gift?", "a": "Yes — shows care for health and active living; many use it for couple walks at home or to support better habits together."}
+    ],
+    "date_added": "2026-02-07"
+},
     
     {
     "name": "Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women",
