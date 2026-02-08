@@ -5,6 +5,35 @@
 PRODUCTS = [
 
     {
+    "name": "Revitive ProHealth Circulation Booster, Relieves Tired Aching Legs",
+    "category": "Health & Personal Care",
+    "season": "New Year Essentials, Mother's Day",
+    "image": "https://m.media-amazon.com/images/I/710hoy9qs4L._AC_SL1500_.jpg",
+    "url": "https://amzn.to/3ZWjEBn",
+    "asin": "B07SZCP4BJ",
+    "info": "The Revitive ProHealth Circulation Booster uses patented electrical muscle stimulation (EMS / NMES) technology to gently activate lower leg muscles, helping to improve blood flow and provide drug-free relief from everyday tired, aching, or heavy-feeling legs and feet. Easy to use at home — simply place your feet on the device for 20–60 minutes daily. Features adjustable intensity levels (0–50+), remote control, and clinically supported design. Ideal for those with sedentary jobs, prolonged standing, occasional swelling, or anyone wanting to support healthy circulation and leg comfort. A thoughtful wellness gift that shows care for daily ease and vitality.",
+    "manual_price": "£196.83",
+    "manual_rating": "4.4",
+    "manual_reviews": "2,352",
+    "keywords": ["revitive circulation booster", "leg circulation device", "EMS leg relief", "tired legs relief", "foot circulation booster", "drug-free pain relief", "valentines wellness gift"],
+    "pain_points": ["tired, aching or heavy legs from sitting/standing too long", "occasional swelling in feet/ankles", "poor circulation leading to discomfort", "seeking non-medication ways to feel more comfortable"],
+    "benefits": ["activates leg muscles to support better blood flow", "drug-free, non-invasive daily relief", "improves leg and foot comfort", "easy home use with adjustable intensity", "helps maintain mobility and energy"],
+    "price_tier": "premium circulation wellness device",
+    "highlights": [
+        "Patented EMS/NMES technology clinically proven to boost circulation",
+        "Adjustable intensity levels (0–50+) for personalized comfort",
+        "Simple 20–60 minute daily sessions while seated",
+        "Remote control and easy-to-use design",
+        "Thoughtful gift for loved ones seeking leg comfort and vitality"
+    ],
+    "faqs": [
+        {"q": "How often should I use the Revitive ProHealth?", "a": "For best results, use 20–60 minutes daily, ideally 7 days a week — many notice improvements in leg comfort within a few weeks."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, practical wellness device that helps with daily comfort and shows thoughtfulness for their well-being; especially appreciated by those with desk jobs or on their feet a lot."}
+    ],
+    "date_added": "2026-02-08"
+},
+
+    {
     "name": "Superun Raceable Walking Pad with App Control - Under Desk Treadmill for Home & Office, Foldable, 2.5HP Motor",
     "category": "Sports & Outdoors",
     "season": "New Year Essentials",
@@ -36,7 +65,7 @@ PRODUCTS = [
     {
     "name": "Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women",
     "category": "Home & Kitchen",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg",
     "url": "https://amzn.to/4bofGsl",
     "asin": "B0C7LGWD8C",
@@ -204,7 +233,7 @@ PRODUCTS = [
 {
     "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
     "category": "Beauty",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
     "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
     "asin": "B0B2RM68G2",
@@ -233,7 +262,7 @@ PRODUCTS = [
     {
         "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
         "category": "Beauty",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
         "url": "https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
         "asin": "B0CBLK4J2P",
@@ -319,7 +348,7 @@ PRODUCTS = [
   {
     "name": "Vive Reacher Grabber Tool 32 Inch - Lightweight Extra Long Handy Picker",
     "category": "Health & Personal Care",
-    "season":  "",
+    "season":  "Mother's Day, Father's Day",
     "image": "https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg",
     "url": "https://amzn.to/3OdoZBC",
     "asin": "B00O47NWE6",
@@ -1153,7 +1182,7 @@ PRODUCTS = [
     {
         "name": "L'Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
         "category": "Beauty",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SX679_.jpg",
         "url": "https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag=whoaccepts-21",
         "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines.",
