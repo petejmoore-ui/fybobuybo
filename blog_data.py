@@ -412,8 +412,8 @@ BLOG_POSTS = {
     <ol style="margin-left:20px;line-height:2;">
       <li><a href="#motorola-vm85">Motorola VM85 Connect (Best Overall)</a></li>
       <li><a href="#infant-optics">Infant Optics DXR-8 PRO (Premium Choice)</a></li>
-      <li><a href="#vtech-vm5254">VTech VM5254 (Best Value)</a></li>
-      <li><a href="#philips-avent">Philips Avent SCD843 (DECT Technology)</a></li>
+      <li><a href="#vtech-vm5254">VTech VM3250 (Best Value)</a></li>
+      <li><a href="#philips-avent">Philips Avent SCD503 (DECT Technology)</a></li>
       <li><a href="#nanit-pro">Nanit Pro Smart Monitor (WiFi Alternative)</a></li>
       <li><a href="#wall-guide">Why UK Walls Are Challenging</a></li>
     </ol>
@@ -427,7 +427,7 @@ BLOG_POSTS = {
   <h2 id="motorola-vm85" itemprop="headline" style="scroll-margin-top:100px;">1. Motorola VM85 Connect — Best Overall for Thick Walls</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Motorola VM85 Connect Baby Monitor") }}'>
-      <img src='https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/618YUREwDIL._AC_SX679_.jpg' 
            alt='Motorola VM85 Connect baby monitor - 1000ft range, HD video, thick wall penetration' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -456,7 +456,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Motorola VM85 Connect Baby Monitor") }}'>
         <button aria-label='View Motorola VM85 Connect product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/MOTOROLA-VM85-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4bGAmfl' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Motorola VM85 Connect on Amazon UK'>View on Amazon</button>
       </a>
     </div>
@@ -465,7 +465,7 @@ BLOG_POSTS = {
   <h2 id="infant-optics" itemprop="headline" style="scroll-margin-top:100px;">2. Infant Optics DXR-8 PRO — Premium Long-Range Choice</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Infant Optics DXR-8 PRO Baby Monitor") }}'>
-      <img src='https://m.media-amazon.com/images/I/71g8xZNXQPL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/71G9W+hypCL._AC_SL1500_.jpg' 
            alt='Infant Optics DXR-8 PRO - interchangeable lens, long range, thick wall signal' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -494,22 +494,22 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Infant Optics DXR-8 PRO Baby Monitor") }}'>
         <button aria-label='View Infant Optics DXR-8 PRO product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/INFANT-OPTICS-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/4a76jfu' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Infant Optics DXR-8 PRO on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
-  <h2 id="vtech-vm5254" itemprop="headline" style="scroll-margin-top:100px;">3. VTech VM5254 — Best Value Long-Range Monitor</h2>
+  <h2 id="vtech-vm5254" itemprop="headline" style="scroll-margin-top:100px;">3. VTech VM3250 — Best Value Long-Range Monitor</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("VTech VM5254 Baby Monitor") }}'>
-      <img src='https://m.media-amazon.com/images/I/71xF8p9VWPL._AC_SX679_.jpg' 
-           alt='VTech VM5254 baby monitor - affordable long range, thick wall signal, 5-inch screen' 
+    <a href='/product/{{ slugify("VTech VM3250 Baby Monitor") }}'>
+      <img src='https://m.media-amazon.com/images/I/71RstlSuhoL._AC_SX425_.jpg' 
+           alt='VTech VM3250 baby monitor - affordable long range, thick wall signal, 5-inch screen' 
            loading='lazy' 
            style='border-radius:16px;'
            itemprop="image">
     </a>
-    <p itemprop="text">Proving thick-wall performance doesn't require premium prices, the <strong>VTech VM5254</strong> delivers reliable 1000ft range at nearly half the cost of competitors. The 5-inch colour screen, pan/tilt/zoom camera, and two-way audio provide all essential features, while the digital FHSS transmission maintains clear signals through Victorian plaster and stone walls. Includes temperature sensor, sound-activated LED indicators, and lullaby player. With over 8,000 UK reviews averaging 4.4/5 stars, this monitor proves that budget-friendly doesn't mean compromised performance for thick-walled homes.</p>
+    <p itemprop="text">Proving thick-wall performance doesn't require premium prices, the <strong>VTech VM3250</strong> delivers reliable 1000ft range at nearly half the cost of competitors. The 5-inch colour screen, pan/tilt/zoom camera, and two-way audio provide all essential features, while the digital FHSS transmission maintains clear signals through Victorian plaster and stone walls. Includes temperature sensor, sound-activated LED indicators, and lullaby player. With over 8,000 UK reviews averaging 4.4/5 stars, this monitor proves that budget-friendly doesn't mean compromised performance for thick-walled homes.</p>
     
     <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
       <h4 style='margin-top:0;'>Key Features:</h4>
@@ -525,61 +525,61 @@ BLOG_POSTS = {
     
     <div style='background:#d4edda;padding:20px;border-radius:12px;margin:20px 0;border-left:4px solid #28a745;'>
       <h4 style='margin-top:0;color:#155724;'>💰 Best Value Choice:</h4>
-      <p style='margin-bottom:0;'>According to verified purchasers the VTech VM5254 makes zero compromises on range or signal strength despite its budget price. You sacrifice premium features like interchangeable lenses or smartphone connectivity, but for pure thick-wall performance per pound spent, nothing beats this monitor. Perfect for first-time parents or those prioritizing reliable connection over bells and whistles.</p>
+      <p style='margin-bottom:0;'>According to verified purchasers the VTech VM3250 makes zero compromises on range or signal strength despite its budget price. You sacrifice premium features like interchangeable lenses or smartphone connectivity, but for pure thick-wall performance per pound spent, nothing beats this monitor. Perfect for first-time parents or those prioritizing reliable connection over bells and whistles.</p>
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("VTech VM5254 Baby Monitor") }}'>
-        <button aria-label='View VTech VM5254 product details'>View Details & Buy</button>
+      <a href='/product/{{ slugify("VTech VM3250 Baby Monitor") }}'>
+        <button aria-label='View VTech VM3250 product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/VTECH-VM5254-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy VTech VM5254 on Amazon UK'>View on Amazon</button>
+      <a href='https://amzn.to/4chvv4l' rel='nofollow sponsored noopener'>
+        <button style='background:#ff9900;' aria-label='Buy VTech VM3250 on Amazon UK'>View on Amazon</button>
       </a>
     </div>
   </div>
 
-  <h2 id="philips-avent" itemprop="headline" style="scroll-margin-top:100px;">4. Philips Avent SCD843 — Best DECT Technology</h2>
-  <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Philips Avent SCD843 Baby Monitor") }}'>
-      <img src='https://m.media-amazon.com/images/I/61xC8hJKCLL._AC_SX679_.jpg' 
-           alt='Philips Avent SCD843 DECT baby monitor - ultra-secure signal, thick wall penetration' 
-           loading='lazy' 
-           style='border-radius:16px;'
-           itemprop="image">
-    </a>
-    <p itemprop="text">Using DECT (Digital Enhanced Cordless Telecommunications) technology instead of standard 2.4GHz, the <strong>Philips Avent SCD843</strong> operates on a private, interference-free frequency that penetrates walls more effectively. The DECT connection is virtually unhackable and immune to WiFi interference, maintaining crystal-clear audio through the thickest UK walls. The 4.3-inch screen provides HD video, while Philips' ECO mode reduces electromagnetic emissions by up to 50%. Temperature sensor, night light, and lullabies round out features. UK parents in listed buildings and stone houses rate it 4.5/5 for unbreakable connection and security.</p>
-    
-    <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
-      <h4 style='margin-top:0;'>Key Features:</h4>
-      <ul style='margin-left:20px;line-height:1.8;'>
-        <li><strong>DECT Technology:</strong> Private frequency avoids WiFi interference</li>
-        <li><strong>Ultra-Secure:</strong> Encrypted signal prevents hacking</li>
-        <li><strong>Superior Penetration:</strong> DECT signals better through thick walls</li>
-        <li><strong>ECO Mode:</strong> Reduces electromagnetic emissions by 50%</li>
-        <li><strong>HD Video:</strong> 4.3-inch screen with clear image</li>
-        <li><strong>Philips Quality:</strong> Trusted brand with reliable support</li>
-      </ul>
-    </div>
-    
-    <div style='background:#f0f9ff;padding:20px;border-radius:12px;margin:20px 0;border-left:4px solid var(--primary);'>
-      <h4 style='margin-top:0;color:var(--primary);'>🔒 Security & Privacy:</h4>
-      <p style='margin-bottom:0;'>DECT technology is the same used in high-security cordless phones. Unlike WiFi monitors that broadcast over the internet, DECT creates a private connection that can't be intercepted or hacked. Perfect for privacy-conscious parents who want impenetrable security along with thick-wall performance.</p>
-    </div>
-    
-    <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Philips Avent SCD843 Baby Monitor") }}'>
-        <button aria-label='View Philips Avent SCD843 product details'>View Details & Buy</button>
-      </a>
-      <a href='https://amzn.to/PHILIPS-AVENT-LINK' target='_blank' rel='nofollow sponsored noopener'>
-        <button style='background:#ff9900;' aria-label='Buy Philips Avent SCD843 on Amazon UK'>View on Amazon</button>
-      </a>
-    </div>
+  <h2 id="philips-avent" itemprop="headline" style="scroll-margin-top:100px;">4. Philips Avent SCD503 — Best DECT Technology</h2>
+<div class='card' style='max-width:600px;margin:40px auto;'>
+  <a href='/product/{{ slugify("Philips Avent SCD503 DECT Baby Monitor") }}'>
+    <img src='https://m.media-amazon.com/images/I/51EhWe8iMgL._AC_SL1000_.jpg' 
+         alt='Philips Avent SCD503 DECT baby monitor - 100% private secure connection, excellent wall penetration' 
+         loading='lazy' 
+         style='border-radius:16px;'
+         itemprop="image">
+  </a>
+  <p itemprop="text">Using DECT (Digital Enhanced Cordless Telecommunications) technology, the <strong>Philips Avent SCD503</strong> delivers a fully private, interference-free connection on a dedicated frequency — no WiFi needed. It offers exceptional range and wall penetration, making it ideal for thick UK walls, listed buildings, or stone houses. Crystal-clear audio, a comforting night light, lullabies, and ECO mode for reduced emissions keep parents connected securely. UK users praise its unbreakable signal and zero interference, often rating it highly for reliability in challenging homes.</p>
+  
+  <div style='background:var(--card-hover);padding:20px;border-radius:12px;margin:20px 0;'>
+    <h4 style='margin-top:0;'>Key Features:</h4>
+    <ul style='margin-left:20px;line-height:1.8;'>
+      <li><strong>DECT Technology:</strong> Private frequency — zero WiFi interference</li>
+      <li><strong>Ultra-Secure:</strong> Fully encrypted, private connection — virtually unhackable</li>
+      <li><strong>Superior Penetration:</strong> Excellent performance through thick walls</li>
+      <li><strong>ECO Mode:</strong> Reduces electromagnetic emissions</li>
+      <li><strong>Crystal-Clear Audio:</strong> Sensitive microphone and clear sound</li>
+      <li><strong>Philips Quality:</strong> Trusted brand with reliable support, night light & lullabies</li>
+    </ul>
   </div>
+  
+  <div style='background:#f0f9ff;padding:20px;border-radius:12px;margin:20px 0;border-left:4px solid var(--primary);'>
+    <h4 style='margin-top:0;color:var(--primary);'>🔒 Security & Privacy:</h4>
+    <p style='margin-bottom:0;'>DECT creates a direct, private link — the same secure tech used in premium cordless phones. No internet broadcasting means no risk of hacking or interception. Ideal for privacy-focused parents who prioritize rock-solid security and thick-wall reliability over video features.</p>
+  </div>
+  
+  <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
+    <a href='/product/{{ slugify("Philips Avent SCD503 DECT Baby Monitor") }}'>
+      <button aria-label='View Philips Avent SCD503 product details'>View Details & Buy</button>
+    </a>
+    <a href='https://amzn.to/3MiHap4' rel='nofollow sponsored noopener'>
+      <button style='background:#ff9900;' aria-label='Buy Philips Avent SCD503 on Amazon UK'>View on Amazon</button>
+    </a>
+  </div>
+</div>
 
   <h2 id="nanit-pro" itemprop="headline" style="scroll-margin-top:100px;">5. Nanit Pro Smart Monitor — Best WiFi Alternative</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Nanit Pro Smart Baby Monitor") }}'>
-      <img src='https://m.media-amazon.com/images/I/61WzQp9fVgL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/71neD7B6o2L._AC_SL1500_.jpg' 
            alt='Nanit Pro Smart baby monitor - WiFi, HD overhead view, sleep tracking, thick walls' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -608,7 +608,7 @@ BLOG_POSTS = {
       <a href='/product/{{ slugify("Nanit Pro Smart Baby Monitor") }}'>
         <button aria-label='View Nanit Pro Smart Monitor product details'>View Details & Buy</button>
       </a>
-      <a href='https://amzn.to/NANIT-PRO-LINK' target='_blank' rel='nofollow sponsored noopener'>
+      <a href='https://amzn.to/3MwjXQj' rel='nofollow sponsored noopener'>
         <button style='background:#ff9900;' aria-label='Buy Nanit Pro on Amazon UK'>View on Amazon</button>
       </a>
     </div>
@@ -694,14 +694,14 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">My Victorian house has 12-inch walls — which monitor should I buy?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Choose either the Motorola VM85 Connect (dual connectivity for backup) or Philips Avent SCD843 (DECT technology specifically designed for wall penetration). Both have proven track records in Victorian properties. If your WiFi reaches throughout the house reliably, Nanit Pro is another excellent option that sidesteps wall interference entirely.</p>
+        <p itemprop="text">Choose either the Motorola VM85 Connect (dual connectivity for backup) or Philips Avent SCD503 (DECT technology specifically designed for wall penetration). Both have proven track records in Victorian properties. If your WiFi reaches throughout the house reliably, Nanit Pro is another excellent option that sidesteps wall interference entirely.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">Can I use multiple cameras with these monitors?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Yes — Motorola VM85 supports up to 4 cameras, Infant Optics DXR-8 PRO up to 4 cameras, VTech VM5254 up to 4 cameras, and Philips Avent SCD843 up to 4 cameras. Nanit Pro requires separate monitors per room but all stream to the same app. According to verified purchasers adding cameras doesn't reduce signal strength if they're the same brand/model.</p>
+        <p itemprop="text">Yes — Motorola VM85 supports up to 4 cameras, Infant Optics DXR-8 PRO up to 4 cameras, VTech VM3250 up to 4 cameras, and Philips Avent SCD503 up to 4 cameras. Nanit Pro requires separate monitors per room but all stream to the same app. According to verified purchasers adding cameras doesn't reduce signal strength if they're the same brand/model.</p>
       </div>
     </div>
   </section>
@@ -711,8 +711,8 @@ BLOG_POSTS = {
     <ul style="margin-left:20px;line-height:1.8;margin-bottom:0;">
       <li><strong>Best Overall:</strong> Motorola VM85 Connect — dual connectivity, 1000ft range, smartphone backup</li>
       <li><strong>Premium Choice:</strong> Infant Optics DXR-8 PRO — interchangeable lenses, 900ft range, superior quality</li>
-      <li><strong>Best Value:</strong> VTech VM5254 — under £100, 1000ft range, all essential features</li>
-      <li><strong>Most Secure:</strong> Philips Avent SCD843 — DECT technology, unhackable, superior wall penetration</li>
+      <li><strong>Best Value:</strong> VTech VM3250 — under £100, 1000ft range, all essential features</li>
+      <li><strong>Most Secure:</strong> Philips Avent SCD503 — DECT technology, unhackable, superior wall penetration</li>
       <li><strong>WiFi Alternative:</strong> Nanit Pro — bypasses wall issues using home network, advanced features</li>
     </ul>
   </section>
