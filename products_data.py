@@ -5,6 +5,64 @@
 PRODUCTS = [
 
     {
+    "name": "Mighty Patch Original by Hero Cosmetics - Hydrocolloid Acne Pimple Patches, 24 Count - Nighttime Spot Treatment Stickers for Face",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/71s+FRoGveL._AC_SX425_.jpg",
+    "url": "https://amzn.to/4qAoPly",
+    "asin": "B0C81Z1SQH",
+    "info": "These award-winning, medical-grade hydrocolloid patches from Hero Cosmetics create a protective barrier to absorb pimple gunk and impurities overnight, visibly shrinking blemishes and reducing redness in 6–8 hours. Thin, translucent design with tapered edges blends seamlessly (invisible under makeup or during day use), while the no-pop approach prevents irritation from picking. Vegan, cruelty-free, dermatologist-tested, fragrance-free, and free from harsh chemicals — ideal for all skin types including sensitive. A simple, effective beauty essential and thoughtful gift for clearer, calmer skin confidence.",
+    "manual_price": "£17.99",
+    "manual_rating": "4.5",
+    "manual_reviews": "4,788 (highly praised for fast results, discreet wear, and effectiveness on whiteheads/zits)",
+    "keywords": ["mighty patch original", "hero cosmetics pimple patches", "hydrocolloid acne stickers", "overnight spot treatment", "invisible zit patches", "vegan acne patches", "valentines beauty gift"],
+    "pain_points": ["sudden or visible breakouts", "slow-healing pimples or redness", "temptation to pick at spots", "need for gentle, non-drying solutions"],
+    "benefits": ["overnight reduction in pimple size and inflammation", "absorbs impurities without irritating skin", "protective shield discourages touching", "discreet and comfortable wear", "promotes faster healing and clearer complexion"],
+    "price_tier": "affordable beauty essential",
+    "highlights": [
+        "24 medical-grade hydrocolloid patches with tapered edges for seamless, invisible fit",
+        "Absorbs gunk and creates moist healing environment in 6–8 hours",
+        "Vegan, cruelty-free, dermatologist-tested, and free from harsh additives",
+        "Turns white when saturated — easy visual cue to replace",
+        "Perfect small gift for spot care, self-confidence, and quick results"
+    ],
+    "faqs": [
+        {"q": "How long do I leave the patches on?", "a": "Apply to clean, dry skin and leave for 6+ hours or overnight; remove when white/opaque (indicating absorption)."},
+        {"q": "Are they suitable as a Valentine's gift?", "a": "Yes — an affordable, practical beauty item that helps with clearer skin and shows care for self-love and confidence; great add-on or stocking filler."}
+    ],
+    "date_added": "2026-02-13"
+},
+
+{
+    "name": "Dots for Spots Pimple Patches - Pack of 24 Translucent Hydrocolloid Spot Treatment Stickers for Face - Fast-Acting, Vegan & Cruelty Free - Korean Skin Care",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/71MP0BfMDPL._AC_SX425_.jpg",
+    "url": "https://amzn.to/3MIp9AC",
+    "asin": "B07SST3DHJ",
+    "info": "These ultra-thin, translucent hydrocolloid patches create an optimal moist healing environment for blemishes, gently absorbing excess fluid and impurities overnight while protecting spots from picking or bacteria. Tapered edges blend seamlessly with skin tones for discreet daytime or nighttime use — results visible as the patch turns white when saturated. Vegan, cruelty-free, fragrance-free, alcohol-free, paraben-free, and phthalate-free; suitable for all skin types including sensitive. A thoughtful, affordable beauty gift for clearer skin confidence and gentle spot care.",
+    "manual_price": "£6.99",
+    "manual_rating": "4.4",
+    "manual_reviews": "41,322",
+    "keywords": ["hydrocolloid pimple patches", "acne spot stickers", "dots for spots", "overnight zit patches", "vegan acne treatment", "korean skincare", "valentines beauty gift"],
+    "pain_points": ["sudden breakouts or visible spots", "temptation to pick or pop pimples", "redness and slow-healing blemishes", "need for gentle, non-irritating spot solutions"],
+    "benefits": ["fast-acting overnight reduction in size and redness", "absorbs impurities without drying skin", "protective barrier discourages touching", "discreet and invisible under makeup", "promotes clearer, calmer complexion"],
+    "price_tier": "affordable beauty essential",
+    "highlights": [
+        "24 translucent hydrocolloid patches with tapered edges for seamless blend",
+        "Creates moist healing environment to speed recovery",
+        "Vegan, cruelty-free, and free from harsh chemicals",
+        "Turns white when saturated — clear sign to replace",
+        "Perfect small gift for spot-prone skin or self-care routines"
+    ],
+    "faqs": [
+        {"q": "How long should I wear the patches?", "a": "For best results, apply to clean, dry skin and leave on for 6+ hours or overnight; remove when the patch turns opaque white."},
+        {"q": "Are they suitable as a Valentine's gift?", "a": "Yes — an affordable, practical beauty item that helps with clearer skin confidence; great stocking filler or add-on for pampering and self-love."}
+    ],
+    "date_added": "2026-02-13"
+},
+    
+    {
     "name": "Vacuum Storage Bags for Clothes with Electric Pump - 12 Pack Reusable Space Saver Bags (2 Large + 5 Medium + 5 Small) for Bedding, Duvets, Clothing, Travel",
     "category": "Travel",
     "season": "Summer Gifts, Back To School",
