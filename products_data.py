@@ -31,7 +31,7 @@ PRODUCTS = [
         {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring home upgrade that shows thoughtfulness for creating a more organized, comfortable space together."}
     ],
     "date_added": "2026-02-13"
-}
+},
 
     {
     "name": "Revitive ProHealth Circulation Booster, Relieves Tired Aching Legs",
