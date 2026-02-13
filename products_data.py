@@ -5,6 +5,35 @@
 PRODUCTS = [
 
     {
+    "name": "Vacuum Storage Bags for Clothes with Electric Pump - 12 Pack Reusable Space Saver Bags (2 Large + 5 Medium + 5 Small) for Bedding, Duvets, Clothing, Travel",
+    "category": "Travel",
+    "season": "Summer Gifts, Back To School",
+    "image": "https://m.media-amazon.com/images/I/715YLJKLN0L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4tA6xn5",
+    "asin": "B0G1YHBWNB",
+    "info": "Maximize space and keep belongings fresh with this 12-pack reusable vacuum storage bag set, complete with a built-in electric air pump for quick, effortless compression. Includes 2 large, 5 medium, and 5 small bags made from durable, airtight material with double-zip seals and one-way valves. Perfect for storing seasonal clothes, bedding, duvets, pillows, blankets, or travel packing — compresses items up to 80% to save closet/drawer space and protect against dust, moisture, and odors. Reusable design allows easy access and re-sealing. A practical, thoughtful gift for anyone wanting organized, clutter-free living and efficient storage.",
+    "manual_price": "£33.99",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["vacuum storage bags", "electric pump space saver", "reusable compression bags", "clothes bedding storage", "travel vacuum bags", "home organization gift", "valentines home gift"],
+    "pain_points": ["cluttered closets or limited storage space", "bulky bedding/clothes taking up room", "dust/moisture damaging stored items", "manual pumping being tedious"],
+    "benefits": ["compresses items up to 80% for massive space savings", "electric pump for fast, effortless vacuuming", "reusable and airtight to protect against dust/odors", "variety of sizes for versatile use", "easy re-access and reseal for convenience"],
+    "price_tier": "affordable home organization",
+    "highlights": [
+        "12-pack variety (2 large, 5 medium, 5 small) for all storage needs",
+        "Built-in electric air pump — no manual effort required",
+        "Durable double-zip seal and one-way valve for long-term airtight protection",
+        "Reusable design saves money and reduces waste",
+        "Ideal thoughtful gift for tidier homes, travel, or seasonal organization"
+    ],
+    "faqs": [
+        {"q": "How does the electric pump work?", "a": "Plug in or use batteries (if applicable), place on the valve, and it automatically extracts air — much faster and easier than hand pumps."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring home upgrade that shows thoughtfulness for creating a more organized, comfortable space together."}
+    ],
+    "date_added": "2026-02-13"
+}
+
+    {
     "name": "Revitive ProHealth Circulation Booster, Relieves Tired Aching Legs",
     "category": "Health & Personal Care",
     "season": "New Year Essentials, Mother's Day",
