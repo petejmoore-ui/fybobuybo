@@ -41,7 +41,7 @@ PRODUCTS = [
     "url": "https://amzn.to/4qnVRoL",
     "asin": "B0FC26NDX6",
     "info": "Compact and foldable under-desk treadmill with app connectivity for tracking steps, speed, distance, and calories — perfect for walking while working, light jogging, or building daily movement. Features a quiet 2.5HP motor (noise <55dB), speeds up to 12 km/h (depending on model variant), remote/app control, LED display, and easy storage. Ideal for home offices, apartments, or anyone wanting convenient fitness without gym trips — a thoughtful gift for health, productivity, and active lifestyles.",
-    "manual_price": "149.99)",
+    "manual_price": "£149.99",
     "manual_rating": "4.5",
     "manual_reviews": "206",
     "keywords": ["walking pad", "under desk treadmill", "foldable treadmill", "app controlled walking machine", "home cardio", "quiet treadmill", "office fitness"],
@@ -65,7 +65,7 @@ PRODUCTS = [
     {
     "name": "Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women",
     "category": "Home & Kitchen",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg",
     "url": "https://amzn.to/4bofGsl",
     "asin": "B0C7LGWD8C",
@@ -233,7 +233,7 @@ PRODUCTS = [
 {
     "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
     "category": "Beauty",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
     "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
     "asin": "B0B2RM68G2",
@@ -262,7 +262,7 @@ PRODUCTS = [
     {
         "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
         "category": "Beauty",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
         "url": "https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
         "asin": "B0CBLK4J2P",
@@ -348,7 +348,7 @@ PRODUCTS = [
   {
     "name": "Vive Reacher Grabber Tool 32 Inch - Lightweight Extra Long Handy Picker",
     "category": "Health & Personal Care",
-    "season":  "",
+    "season":  "Mother's Day, Father's Day",
     "image": "https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg",
     "url": "https://amzn.to/3OdoZBC",
     "asin": "B00O47NWE6",
@@ -1182,7 +1182,7 @@ PRODUCTS = [
     {
         "name": "L'Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
         "category": "Beauty",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SX679_.jpg",
         "url": "https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag=whoaccepts-21",
         "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines.",
