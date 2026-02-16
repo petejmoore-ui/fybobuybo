@@ -64,7 +64,7 @@ def save_history(data):
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def refresh_products(background=False):
+def refresh_products(products, background=False):
     today = str(datetime.date.today())
     if os.path.exists(CACHE_FILE):
         try:
@@ -80,6 +80,7 @@ def refresh_products(background=False):
         except Exception as e:
             print(f"Cache read failed: {e} — regenerating")
     
-    enriched = load_or_generate_hooks(PRODUCTS)
+    enriched = load_or_generate_hooks(products)
+
     return enriched
 
