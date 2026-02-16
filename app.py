@@ -6,11 +6,25 @@ import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
-
-from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
+from flask import Flask, render_template, render_template_string, request, url_for, abort, Response, jsonify
 from groq import Groq
 from dotenv import load_dotenv
 import requests
+
+from helpers import (
+    slugify,
+    normalize_for_match,
+    shorten_product_name,
+    paginate,
+    get_nav_items,
+    get_product_price_rating,
+    format_price_display,
+    format_rating_display,
+    get_similar_products
+)
+from hooks import generate_hook
+from schemas import generate_product_schema, generate_breadcrumb_schema
+from cache_manager import refresh_products, load_history, save_history
 
 load_dotenv()
 
@@ -18,12 +32,10 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 from flask_caching import Cache
-
 cache = Cache(app, config={
     'CACHE_TYPE': 'SimpleCache',
     'CACHE_DEFAULT_TIMEOUT': 300
 })
-
 
 # --- Staging SEO safeguard ---
 if os.environ.get("STAGING") == "true":
@@ -32,16 +44,13 @@ if os.environ.get("STAGING") == "true":
         response.headers['X-Robots-Tag'] = 'noindex, nofollow'
         return response
 
-
 CACHE_FILE = "data/cache.json"
 HISTORY_FILE = "data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
 SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
-
 CACHE_REFRESH_DAYS = 10
 PROMPT_VERSION = "v3.0-elite-2026"
-
 os.makedirs("data", exist_ok=True)
 
 
@@ -1296,24 +1305,22 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
 
 @app.route("/privacy-policy")
 def privacy_policy():
-    """Privacy policy page - required by UK GDPR"""
     return render_page(
         title="Privacy Policy – FyboBuybo",
         description="Our commitment to protecting your privacy and data in accordance with UK GDPR and Data Protection Act 2018.",
         heading="Privacy Policy",
         subtitle="How we collect, use, and protect your data",
-        content=PRIVACY_POLICY_HTML
+        content=render_template("privacy policy.html")
     )
 
 @app.route("/terms")
 def terms_of_service():
-    """Terms of Service page - legal requirements for affiliate site"""
     return render_page(
         title="Terms of Service – FyboBuybo",
         description="Terms and conditions for using FyboBuybo, including affiliate disclosures and limitation of liability.",
         heading="Terms of Service",
         subtitle="Legal terms for using our website",
-        content=TERMS_OF_SERVICE_HTML
+        content=render_template("terms.html")
     )
 # API endpoint for search
 @app.route("/api/search-products")
