@@ -1,3 +1,5 @@
+import random
+
 # ============================================================================
 # FIXED ELITE HOOK GENERATION - RELAXED QUALITY CHECKS
 # Replace your current generate_hook section with this
