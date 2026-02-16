@@ -13,7 +13,7 @@ PRODUCTS = [
     "url": "https://amzn.to/4qAoPly",
     "asin": "B0C81Z1SQH",
     "info": "These award-winning, medical-grade hydrocolloid patches from Hero Cosmetics create a protective barrier to absorb pimple gunk and impurities overnight, visibly shrinking blemishes and reducing redness in 6–8 hours. Thin, translucent design with tapered edges blends seamlessly (invisible under makeup or during day use), while the no-pop approach prevents irritation from picking. Vegan, cruelty-free, dermatologist-tested, fragrance-free, and free from harsh chemicals — ideal for all skin types including sensitive. A simple, effective beauty essential and thoughtful gift for clearer, calmer skin confidence.",
-    "manual_price": "£",
+    "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
     "keywords": ["mighty patch original", "hero cosmetics pimple patches", "hydrocolloid acne stickers", "overnight spot treatment", "invisible zit patches", "vegan acne patches", "valentines beauty gift"],
