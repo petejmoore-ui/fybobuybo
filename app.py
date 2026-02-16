@@ -1,28 +1,28 @@
 import os
-from flask import Flask
+import json
+import re
+import datetime
+import random
+from threading import Thread
+from products_data import PRODUCTS
+from blog_data import BLOG_POSTS
+
+from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
+from groq import Groq
 from dotenv import load_dotenv
+import requests
+
 load_dotenv()
 
 app = Flask(__name__)
-
-# Only create Groq client if API key exists
-GROQ_KEY = os.environ.get("GROQ_API_KEY")
-if GROQ_KEY:
-    from groq import Groq
-    client = Groq(api_key=GROQ_KEY)
-else:
-    client = None  # just skip it if key is missing
-    print("Warning: GROQ_API_KEY not set")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 from flask_caching import Cache
+
 cache = Cache(app, config={
     'CACHE_TYPE': 'SimpleCache',
     'CACHE_DEFAULT_TIMEOUT': 300
 })
-
-# Import your data normally; if these fail, fix the files separately
-from products_data import PRODUCTS
-from blog_data import BLOG_POSTS
 
 
 # --- Staging SEO safeguard ---
