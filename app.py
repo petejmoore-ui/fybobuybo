@@ -24,12 +24,6 @@ cache = Cache(app, config={
     'CACHE_DEFAULT_TIMEOUT': 300
 })
 
-# --- Staging SEO safeguard ---
-if os.environ.get("STAGING") == "true":
-    @app.after_request
-    def add_header(response):
-        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
-        return response
 
 
 CACHE_FILE = "data/cache.json"
@@ -591,12 +585,31 @@ def get_product_price_rating(product):
     }
 
 def format_price_display(price_data):
-    """Prices hidden until PA API integration - compliance requirement"""
-    return ""
+    """Format price for display - handles both manual and API prices"""
+    if isinstance(price_data, str):
+        return price_data  # Already formatted (e.g., "£16.95")
+    if isinstance(price_data, dict):
+        return f"£{price_data['amount']:.2f}"
+    return str(price_data) if price_data else ""
 
 def format_rating_display(rating, review_count=None):
-    """Ratings hidden until PA API integration - compliance requirement"""
-    return ""
+    """Format rating with stars for display"""
+    if not rating:
+        return ""
+    try:
+        rating_float = float(rating)
+        stars = "⭐" * int(rating_float)
+        half_star = "½⭐" if (rating_float % 1) >= 0.5 else ""
+        
+        if review_count:
+            if isinstance(review_count, str):
+                formatted_count = review_count
+            else:
+                formatted_count = f"{review_count:,}"
+            return f"{stars}{half_star} {rating_float}/5 ({formatted_count} reviews)"
+        return f"{stars}{half_star} {rating_float}/5"
+    except:
+        return ""
 
 def get_similar_products(product, all_products, limit=6):
     """Get similar products for SEO and user engagement"""
