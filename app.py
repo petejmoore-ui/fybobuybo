@@ -1202,157 +1202,45 @@ document.addEventListener('keydown', (e) => {
 """
 
 # ============================================================================
-# RENDER PAGE FUNCTION - UPDATED WITH SEO ENHANCEMENTS
+# ROUTES - CACHING REMOVED FROM SEO-CRITICAL PAGES
 # ============================================================================
 
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None, article_date=None, content=None):
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    
-    nav_items = get_nav_items()
-    
-    canonical = SITE_URL + request.path
-    page_num = int(request.args.get("page", 1))
-    if page_num > 1:
-        canonical += f"?page={page_num}"
-
-    paged_products = []
-    total_pages = 1
-    if products:
-        paged_products, total_items = paginate(products, page)
-        total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
-
-    next_url = page_url(page + 1) if page_url and page < total_pages else None
-    prev_url = page_url(page - 1) if page_url and page > 1 else None
-
-    themes_json = json.dumps(THEMES)
-    
-    # Add today's date if not provided
-    if not today:
-        today = datetime.date.today().isoformat()
-        today_formatted = datetime.date.today().strftime("%B %d, %Y")
-
-    # Generate structured data for product pages
-    structured_data = None
-    if paged_products and len(paged_products) == 1:
-        structured_data = generate_product_schema(paged_products[0])
-
-    # Generate breadcrumb schema
-    breadcrumb_schema = None
-    breadcrumbs = [("Home", "/")]
-
-    if '/category/' in request.path and paged_products:
-        breadcrumbs.append((paged_products[0]['category'], request.path))
-    elif '/season/' in request.path:
-        season_name = request.path.split('/')[-1].replace('-', ' ').title()
-        breadcrumbs.append((season_name, request.path))
-    elif '/product/' in request.path and paged_products:
-        if paged_products[0].get('category'):
-            breadcrumbs.append((paged_products[0]['category'], f"/category/{slugify(paged_products[0]['category'])}"))
-        breadcrumbs.append((paged_products[0]['name'], request.path))
-    elif '/blog' in request.path:
-        breadcrumbs.append(("Blog", "/blog"))
-        if request.path != '/blog' and not '/page/' in request.path:
-            breadcrumbs.append((title.split(' – ')[0], request.path))
-
-    if len(breadcrumbs) > 1:
-        breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
-
-    return render_template_string(
-        BASE_HTML,
-        title=title,
-        description=description,
-        heading=heading,
-        subtitle=subtitle,
-        products=paged_products,
-        nav_items=nav_items,
-        css=css,
-        canonical_url=canonical,
-        SITE_URL=SITE_URL,
-        slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        similar_products=similar_products or [],
-        next_page_url=next_url,
-        prev_page_url=prev_url,
-        themes_json=themes_json,
-        get_product_price_rating=get_product_price_rating,
-        format_price_display=format_price_display,
-        format_rating_display=format_rating_display,
-        today=today,
-        today_formatted=today_formatted,
-        structured_data=structured_data,
-        breadcrumb_schema=breadcrumb_schema,
-        article_date=article_date,
-        content=content or "",
-        cookie_consent=COOKIE_CONSENT_HTML
+@app.route("/api/search-products")
+def api_search_products():
+    all_products = refresh_products(
+        PRODUCTS,
+        generate_hook_func=generate_hook,
+        cache_refresh_days=CACHE_REFRESH_DAYS,
+        prompt_version=PROMPT_VERSION,
+        background=True
     )
-
-
-
-# --- RENDER PAGE FUNCTION ---
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None, article_date=None, content=None):
-    theme = get_daily_theme()
-    css = render_template_string(CSS_TEMPLATE, **theme)
-    nav_items = get_nav_items()
+    # Return minimal data needed for search
+    search_data = [{
+        'name': p['name'],
+        'category': p.get('category', ''),
+        'image': p.get('image', ''),
+        'hook': p.get('hook', ''),
+        'info': p.get('info', ''),
+        'keywords': p.get('keywords', []),
+        'season': p.get('season', ''),
+        'url': p.get('url', '')
+    } for p in all_products]
     
-    canonical = SITE_URL + request.path
-    page_num = int(request.args.get("page", 1))
-    if page_num > 1:
-        canonical += f"?page={page_num}"
+    return jsonify({'products': search_data})
 
-    paged_products = []
-    total_pages = 1
-    if products:
-        paged_products, total_items = paginate(products, page)
-        total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
-
-    next_url = page_url(page + 1) if page_url and page < total_pages else None
-    prev_url = page_url(page - 1) if page_url and page > 1 else None
-
-    themes_json = json.dumps(THEMES)
-    
-    if not today:
-        today = datetime.date.today().isoformat()
-        today_formatted = datetime.date.today().strftime("%B %d, %Y")
-
-    structured_data = generate_product_schema(paged_products[0]) if paged_products and len(paged_products) == 1 else None
-    breadcrumb_schema = generate_breadcrumb_schema([("Home", "/")])  # Simplified
-    
-    return render_template_string(
-        BASE_HTML,
-        title=title,
-        description=description,
-        heading=heading,
-        subtitle=subtitle,
-        products=paged_products,
-        nav_items=nav_items,
-        css=css,
-        canonical_url=canonical,
-        SITE_URL=SITE_URL,
-        slugify=slugify,
-        shorten_product_name=shorten_product_name,
-        similar_products=similar_products or [],
-        next_page_url=next_url,
-        prev_page_url=prev_url,
-        themes_json=themes_json,
-        get_product_price_rating=get_product_price_rating,
-        format_price_display=format_price_display,
-        format_rating_display=format_rating_display,
-        today=today,
-        today_formatted=today_formatted,
-        structured_data=structured_data,
-        breadcrumb_schema=breadcrumb_schema,
-        article_date=article_date,
-        content=content or ""
-    )
-
-# --- ROUTES ---
 @app.route("/")
 def home():
-    products = refresh_products(PRODUCTS, background=True)[:ITEMS_PER_PAGE]
+    products = refresh_products(
+        PRODUCTS,
+        generate_hook_func=generate_hook,
+        cache_refresh_days=CACHE_REFRESH_DAYS,
+        prompt_version=PROMPT_VERSION,
+        background=True
+    )[:ITEMS_PER_PAGE]
+
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents 2026",
-        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily.",
+        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily with thoughtful picks for British shoppers.",
         heading="FyboBuybo – Trending UK Gifts",
         subtitle="A curated selection of popular gifts and presents, refreshed daily.",
         products=products
@@ -1361,15 +1249,25 @@ def home():
 @app.route("/category/<slug>")
 @app.route("/category/<slug>/page/<int:page>")
 def category(slug, page=1):
-    all_products = refresh_products(PRODUCTS, background=True)
+    all_products = refresh_products(
+        PRODUCTS,
+        generate_hook_func=generate_hook,
+        cache_refresh_days=CACHE_REFRESH_DAYS,
+        prompt_version=PROMPT_VERSION,
+        background=True
+    )
     filtered = [p for p in all_products if slugify(p.get("category", "")) == slug]
     if not filtered:
         abort(404)
+    
     cat_name = filtered[0]["category"]
-    def page_url(p_num): return url_for("category", slug=slug, page=p_num)
+    
+    def page_url(p_num):
+        return url_for("category", slug=slug, page=p_num)
+    
     return render_page(
         title=f"{cat_name} Gifts – FyboBuybo",
-        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily.",
+        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily with quality picks.",
         heading=cat_name,
         subtitle=f"Hand-picked {cat_name.lower()}, refreshed daily.",
         products=filtered,
@@ -1380,21 +1278,36 @@ def category(slug, page=1):
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
-    all_products = refresh_products(PRODUCTS, background=True)
+    all_products = refresh_products(
+        PRODUCTS,
+        generate_hook_func=generate_hook,
+        cache_refresh_days=CACHE_REFRESH_DAYS,
+        prompt_version=PROMPT_VERSION,
+        background=True
+    )
     season_name = season_slug.replace('-', ' ').title()
     norm_slug = normalize_for_match(season_slug)
+
     filtered = [
         p for p in all_products
         if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))
     ]
     if not filtered:
         abort(404)
+    
     filtered.sort(key=lambda p: p.get("date_added", "2000-01-01"), reverse=True)
-    def page_url(p_num): return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
+    
+    def page_url(p_num):
+        return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
+    
+    title_season = season_name
+    if "day" in season_name.lower() or "christmas" in season_name.lower():
+        title_season += " Gifts"
+
     return render_page(
-        title=f"Best {season_name} Gifts 2026 – FyboBuybo",
+        title=f"Best {title_season} 2026 – FyboBuybo",
         description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026 – thoughtful, trending & updated daily.",
-        heading=season_name,
+        heading=title_season,
         subtitle="Perfect seasonal presents • refreshed every day",
         products=filtered,
         page=page,
@@ -1403,13 +1316,24 @@ def seasonal_collection(season_slug, page=1):
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    all_products = refresh_products(PRODUCTS, background=True)
+    all_products = refresh_products(
+        PRODUCTS,
+        generate_hook_func=generate_hook,
+        cache_refresh_days=CACHE_REFRESH_DAYS,
+        prompt_version=PROMPT_VERSION,
+        background=True
+    )
     found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
     if not found:
         abort(404)
+
+    # Get similar products for SEO
     similar = get_similar_products(found, all_products, limit=6)
+    
+    # Add today's date for footer
     today = datetime.date.today()
     today_formatted = today.strftime("%B %d, %Y")
+
     return render_page(
         title=f"{shorten_product_name(found['name'])} – FyboBuybo",
         description=found.get("info", "A thoughtful gift choice popular among UK shoppers."),
@@ -1421,81 +1345,44 @@ def product_detail(product_slug):
         today_formatted=today_formatted
     )
 
-# --- BLOG ---
-POSTS_PER_PAGE = 8
-def load_blog_posts(page=1):
-    posts = [{**v, "slug": k} for k, v in BLOG_POSTS.items()]
-    posts.sort(key=lambda x: x.get("date", "1900-01-01"), reverse=True)
-    start, end = (page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE
-    paginated = posts[start:end]
-    total_pages = (len(posts) + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
-    return paginated, total_pages, len(posts)
-
-@app.route("/blog")
-@app.route("/blog/page/<int:page>")
-def blog_list(page=1):
-    paginated, total_pages, total_posts = load_blog_posts(page)
-    if not paginated and page > 1:
+@app.route("/blog/<slug>")
+def blog_detail(slug):
+    post = BLOG_POSTS.get(slug)
+    if not post:
         abort(404)
-    def page_url(p_num): return url_for("blog_list", page=p_num) if p_num <= total_pages else None
+
+    all_products = refresh_products(
+        PRODUCTS,
+        generate_hook_func=generate_hook,
+        cache_refresh_days=CACHE_REFRESH_DAYS,
+        prompt_version=PROMPT_VERSION,
+        background=True
+    )
+    
+    # Get related products
+    related = []
+    if post.get("related_products"):
+        for product_slug in post["related_products"]:
+            product = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
+            if product:
+                related.append(product)
+    
+    if not related:
+        related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+
+    from jinja2 import Template
+    raw_content = post.get("content", "<p>Content coming soon.</p>")
+    content_html = f'<div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">{Template(raw_content).render(slugify=slugify)}</div>'
+
     rendered = render_page(
-        title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
-        description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
-        heading="FyboBuybo Blog",
-        subtitle="Gift guides, trends and inspiration for UK shoppers",
+        title=post["title"],
+        description=post.get("meta_description", post.get("description", "Gift inspiration and practical tips from FyboBuybo.")),
+        heading=post.get("heading", post["title"]),
+        subtitle=post.get("subtitle", "Gift guide & inspiration"),
         products=None,
-        page=page,
-        page_url=page_url
-    )
-    blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    for post in paginated:
-        date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-        blog_html += f'''
-        <div class="card" style="text-align:left; padding:24px;">
-            <h2 style="font-size:1.6rem; margin-bottom:8px;"><a href="/blog/{post["slug"]}">{post["title"]}</a></h2>
-            <p style="opacity:0.7; margin-bottom:12px;">{date_str}</p>
-            <p>{post.get("excerpt","")}</p>
-        </div>
-        '''
-    blog_html += '</div>'
-    return rendered.replace("{{ content|safe }}", blog_html)
-
-# --- PRIVACY / TERMS ---
-@app.route("/privacy-policy")
-def privacy_policy():
-    return render_page(
-        title="Privacy Policy – FyboBuybo",
-        description="Our commitment to protecting your privacy and data in accordance with UK GDPR and Data Protection Act 2018.",
-        heading="Privacy Policy",
-        subtitle="How we collect, use, and protect your data",
-        content=render_template("privacy policy.html")
+        similar_products=related,
+        article_date=post.get("date", datetime.date.today().isoformat()),
+        content=content_html
     )
 
-@app.route("/terms")
-def terms_of_service():
-    return render_page(
-        title="Terms of Service – FyboBuybo",
-        description="Terms and conditions for using FyboBuybo, including affiliate disclosures and limitation of liability.",
-        heading="Terms of Service",
-        subtitle="Legal terms for using our website",
-        content=render_template("terms.html")
-    )
-
-# --- SEARCH API ---
-@app.route("/api/search-products")
-def api_search_products():
-    all_products = refresh_products(PRODUCTS, background=True)
-    search_data = [{
-        'name': p['name'],
-        'category': p.get('category',''),
-        'image': p.get('image',''),
-        'hook': p.get('hook',''),
-        'info': p.get('info',''),
-        'keywords': p.get('keywords',[]),
-        'season': p.get('season',''),
-        'url': p.get('url','')
-    } for p in all_products]
-    return jsonify({'products': search_data})
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    return rendered
