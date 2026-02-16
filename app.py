@@ -1325,7 +1325,7 @@ def terms_of_service():
 # API endpoint for search
 @app.route("/api/search-products")
 def api_search_products():
-    all_products = refresh_products(background=True)
+    all_products = refresh_products(PRODUCTS, background=True)
     # Return minimal data needed for search
     search_data = [{
         'name': p['name'],
@@ -1342,7 +1342,7 @@ def api_search_products():
 
 @app.route("/")
 def home():
-    products = refresh_products(background=True)[:ITEMS_PER_PAGE]
+    products = refresh_products(PRODUCTS, background=True)[:ITEMS_PER_PAGE]
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents 2026",
         description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily with thoughtful picks for British shoppers.",
@@ -1354,7 +1354,7 @@ def home():
 @app.route("/category/<slug>")
 @app.route("/category/<slug>/page/<int:page>")
 def category(slug, page=1):
-    all_products = refresh_products(background=True)
+    all_products = refresh_products(PRODUCTS, background=True)
     filtered = [p for p in all_products if slugify(p.get("category", "")) == slug]
     if not filtered:
         abort(404)
@@ -1377,7 +1377,7 @@ def category(slug, page=1):
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
-    all_products = refresh_products(background=True)
+    all_products = refresh_products(PRODUCTS, background=True)
     season_name = season_slug.replace('-', ' ').title()
     norm_slug = normalize_for_match(season_slug)
 
@@ -1409,7 +1409,7 @@ def seasonal_collection(season_slug, page=1):
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
-    all_products = refresh_products(background=True)
+    all_products = refresh_products(PRODUCTS, background=True)
     found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
     if not found:
         abort(404)
@@ -1505,7 +1505,7 @@ def blog_detail(slug):
     if not post:
         abort(404)
 
-    all_products = refresh_products(background=True)
+    all_products = refresh_products(PRODUCTS, background=True)
     
     # Get related products based on the post's related_products field
     related = []
