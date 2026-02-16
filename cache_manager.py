@@ -1,7 +1,10 @@
-import datetime
 import os
 import json
 import datetime
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CACHE_FILE = os.path.join(BASE_DIR, "product_cache.json")
+
 
 
 
