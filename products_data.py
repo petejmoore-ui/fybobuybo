@@ -1785,7 +1785,7 @@ PRODUCTS = [
         "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design.",
         "manual_price": "",
         "manual_rating": "",
-        "manual_reviews": ""        ",
+        "manual_reviews": "",
         "keywords": ["under bed storage", "space saving", "bedroom organisation", "decluttering"],
         "pain_points": ["limited storage space", "seasonal clothes storage", "bedroom clutter"],
         "benefits": ["100L capacity", "dust protection", "breathable", "reinforced handles"],
