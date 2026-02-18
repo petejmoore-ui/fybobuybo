@@ -690,54 +690,49 @@ def generate_product_schema(product):
         valid_until = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
         
         schema["offers"] = {
-            "@type": "Offer",
-            "url": product.get("url", ""),
-            "priceCurrency": price_currency,              # ✅ Fixes currency error
-            "price": str(price_value),                    # ✅ Fixes price error
-            "priceValidUntil": valid_until,               # ✅ Fixes validity error
-            "availability": "https://schema.org/InStock",
-            "seller": {
-                "@type": "Organization",
-                "name": "FyboBuybo"
+        "@type": "Offer",
+        "url": product.get("url", ""),
+        "availability": "https://schema.org/InStock",
+        "seller": {
+            "@type": "Organization",
+            "name": "Amazon UK"
+        },
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "GB",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 30,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+        },
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "GBP"
             },
-            # ✅ FIX 4: Return Policy
-            "hasMerchantReturnPolicy": {
-                "@type": "MerchantReturnPolicy",
-                "applicableCountry": "GB",
-                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                "merchantReturnDays": 30,
-                "returnMethod": "https://schema.org/ReturnByMail",
-                "returnFees": "https://schema.org/FreeReturn"
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "GB"
             },
-            # ✅ FIX 5: Shipping Details
-            "shippingDetails": {
-                "@type": "OfferShippingDetails",
-                "shippingRate": {
-                    "@type": "MonetaryAmount",
-                    "value": "0",
-                    "currency": "GBP"
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 2,
+                    "unitCode": "DAY"
                 },
-                "shippingDestination": {
-                    "@type": "DefinedRegion",
-                    "addressCountry": "GB"
-                },
-                "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "handlingTime": {
-                        "@type": "QuantitativeValue",
-                        "minValue": 0,
-                        "maxValue": 2,
-                        "unitCode": "DAY"
-                    },
-                    "transitTime": {
-                        "@type": "QuantitativeValue",
-                        "minValue": 1,
-                        "maxValue": 3,
-                        "unitCode": "DAY"
-                    }
+                "transitTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 1,
+                    "maxValue": 3,
+                    "unitCode": "DAY"
                 }
             }
         }
+    }
     
     # ✅ FIX 6: Aggregate Rating
     if price_info.get("rating") and price_info.get("reviews"):
@@ -2182,12 +2177,6 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="product-metrics">
     {% set price_info = get_product_price_rating(p) %}
 
-    {% if price_info.price %}
-    <div class="price-display">
-      <span class="price-label">Price:</span>
-      <span class="price-value">{{ format_price_display(price_info.price) }}</span>
-    </div>
-    {% endif %}
 
     {% if price_info.rating %}
     <div class="rating-display">
@@ -2195,14 +2184,11 @@ BASE_HTML = """<!DOCTYPE html>
     </div>
     {% endif %}
 
-    {% if not price_info.price and not price_info.rating %}
     <div class="check-amazon-notice">
       <span style="font-style:italic;opacity:.75;">
-        View on Amazon for pricing
+        Check Amazon for current price
       </span>
     </div>
-    {% endif %}
-  </div>
 
   {% if p.url %}
   <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="button">
@@ -2239,10 +2225,6 @@ BASE_HTML = """<!DOCTYPE html>
         <img src="{{ similar.image }}" alt="{{ similar.name }}" loading="lazy">
         <h3>{{ shorten_product_name(similar.name, 60) }}</h3>
       </a>
-      {% set similar_price = get_product_price_rating(similar) %}
-      {% if similar_price.price %}
-      <p class="similar-price">{{ format_price_display(similar_price.price) }}</p>
-      {% endif %}
     </div>
     {% endfor %}
   </div>
