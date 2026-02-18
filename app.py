@@ -2141,7 +2141,9 @@ BASE_HTML = """<!DOCTYPE html>
     <div id="search-results-grid" class="grid"></div>
   </div>
 </div>
-
+<div style="background:var(--tag);border-left:4px solid var(--button);padding:12px 20px;border-radius:8px;margin:0 auto 40px;max-width:1600px;font-size:0.9rem;color:var(--text-muted);">
+  <strong>Affiliate Disclosure:</strong> FyboBuybo earns a commission on purchases made through our links, at no extra cost to you. <a href="/privacy-policy" style="color:var(--button);">Learn more</a>
+</div>
 <h1>{{ heading }}</h1>
 <p class="subtitle">{{ subtitle }}</p>
 <p style="text-align:center;color:var(--text-muted);margin-bottom:60px;font-weight:500;">
@@ -2191,14 +2193,14 @@ BASE_HTML = """<!DOCTYPE html>
     </div>
 </div>
   {% if p.url %}
-  <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="button">
-    Check current price
+  <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" 
+     style="display:block;background:linear-gradient(135deg,#ff9900,#ff8c00);color:white;padding:16px;border-radius:12px;font-weight:700;font-size:1.05rem;text-align:center;margin:16px 0 8px;box-shadow:0 4px 20px rgba(255,153,0,0.3);text-decoration:none;">
+    🛒 Check current price on Amazon
   </a>
-  <p style="margin-top:12px;font-size:.9rem;opacity:.75;text-align:center;">
-    <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener">
-      View on Amazon UK
-    </a>
-  </p>
+  <a href="/product/{{ slugify(p.name) }}" 
+     style="display:block;text-align:center;font-size:0.88rem;color:var(--text-muted);padding:6px;">
+    View full details →
+  </a>
   {% endif %}
 
   {% if p.category %}
@@ -2459,7 +2461,9 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     
     nav_items = get_nav_items()
     
-    canonical = SITE_URL + request.path
+    canonical = SITE_URL + request.path.rstrip('/')
+    if request.path == '/':
+        canonical = SITE_URL + '/'
     page_num = int(request.args.get("page", 1))
     if page_num > 1:
         canonical += f"?page={page_num}"
@@ -2605,10 +2609,10 @@ def category(slug, page=1):
         return url_for("category", slug=slug, page=p_num)
     
     return render_page(
-        title=f"{cat_name} Gifts – FyboBuybo",
+        title=f"Best {cat_name} Gifts UK 2026 | Trending Picks – FyboBuybo",
         description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily with quality picks.",
-        heading=cat_name,
-        subtitle=f"Hand-picked {cat_name.lower()}, refreshed daily.",
+        heading=f"Best {cat_name} Gifts UK 2026",
+        subtitle=f"Hand-picked {cat_name.lower()} loved by UK shoppers – updated daily with quality picks.",
         products=filtered,
         page=page,
         page_url=page_url
@@ -2662,8 +2666,8 @@ def product_detail(product_slug):
     today_formatted = today.strftime("%B %d, %Y")
 
     return render_page(
-        title=f"{shorten_product_name(found['name'])} – FyboBuybo",
-        description=found.get("info", "A thoughtful gift choice popular among UK shoppers."),
+        title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
+        description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
         heading=shorten_product_name(found["name"]),
         subtitle="A popular UK gift choice",
         products=[found],
