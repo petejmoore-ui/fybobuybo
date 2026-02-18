@@ -2189,7 +2189,7 @@ BASE_HTML = """<!DOCTYPE html>
         Check Amazon for current price
       </span>
     </div>
-
+</div>
   {% if p.url %}
   <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="button">
     Check current price
