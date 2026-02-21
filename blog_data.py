@@ -464,7 +464,7 @@ BLOG_POSTS = {
 
   <h2 id="infant-optics" itemprop="headline" style="scroll-margin-top:100px;">2. Infant Optics DXR-8 PRO — Premium Long-Range Choice</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Infant Optics DXR-8 PRO Baby Monitor") }}'>
+    <a href='/product/{{ slugify("infant-optics-dxr-8-pro-baby-monitor-5-screen-720p-hd-resolution-active-noise-reduction-secure-fhss-interchangeable-lenses-night-vision-pantiltzoom-temperature-sensor") }}'>
       <img src='https://m.media-amazon.com/images/I/71G9W+hypCL._AC_SL1500_.jpg' 
            alt='Infant Optics DXR-8 PRO - interchangeable lens, long range, thick wall signal' 
            loading='lazy' 
@@ -491,7 +491,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Infant Optics DXR-8 PRO Baby Monitor") }}'>
+      <a href='/product/{{ slugify("infant-optics-dxr-8-pro-baby-monitor-5-screen-720p-hd-resolution-active-noise-reduction-secure-fhss-interchangeable-lenses-night-vision-pantiltzoom-temperature-sensor") }}'>
         <button aria-label='View Infant Optics DXR-8 PRO product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4a76jfu' rel='nofollow sponsored noopener'>
@@ -502,7 +502,7 @@ BLOG_POSTS = {
 
   <h2 id="vtech-vm5254" itemprop="headline" style="scroll-margin-top:100px;">3. VTech VM3250 — Best Value Long-Range Monitor</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("VTech VM3250 Baby Monitor") }}'>
+    <a href='/product/{{ slugify("vtech-vm3250-video-baby-monitor-with-camera-28-lcd-screen-up-to-19-hr-video-streaming-night-vision-secured-transmission-temperature-sensor-soothing-sounds-2x-zoom-300m-long-range") }}'>
       <img src='https://m.media-amazon.com/images/I/71RstlSuhoL._AC_SX425_.jpg' 
            alt='VTech VM3250 baby monitor - affordable long range, thick wall signal, 5-inch screen' 
            loading='lazy' 
@@ -529,7 +529,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("VTech VM3250 Baby Monitor") }}'>
+      <a href='/product/{{ slugify("vtech-vm3250-video-baby-monitor-with-camera-28-lcd-screen-up-to-19-hr-video-streaming-night-vision-secured-transmission-temperature-sensor-soothing-sounds-2x-zoom-300m-long-range") }}'>
         <button aria-label='View VTech VM3250 product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4chvv4l' rel='nofollow sponsored noopener'>
@@ -540,7 +540,7 @@ BLOG_POSTS = {
 
   <h2 id="philips-avent" itemprop="headline" style="scroll-margin-top:100px;">4. Philips Avent SCD503 — Best DECT Technology</h2>
 <div class='card' style='max-width:600px;margin:40px auto;'>
-  <a href='/product/{{ slugify("Philips Avent SCD503 DECT Baby Monitor") }}'>
+  <a href='/product/{{ slugify("philips-avent-dect-baby-monitor-scd50326-audio-only-100-private-connection-nightlight-up-to-330m-range-24-hour-battery-life-smart-eco-mode") }}'>
     <img src='https://m.media-amazon.com/images/I/51EhWe8iMgL._AC_SL1000_.jpg' 
          alt='Philips Avent SCD503 DECT baby monitor - 100% private secure connection, excellent wall penetration' 
          loading='lazy' 
@@ -567,7 +567,7 @@ BLOG_POSTS = {
   </div>
   
   <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-    <a href='/product/{{ slugify("Philips Avent SCD503 DECT Baby Monitor") }}'>
+    <a href='/product/{{ slugify("philips-avent-dect-baby-monitor-scd50326-audio-only-100-private-connection-nightlight-up-to-330m-range-24-hour-battery-life-smart-eco-mode") }}'>
       <button aria-label='View Philips Avent SCD503 product details'>View Details & Buy</button>
     </a>
     <a href='https://amzn.to/3MiHap4' rel='nofollow sponsored noopener'>
@@ -578,7 +578,7 @@ BLOG_POSTS = {
 
   <h2 id="nanit-pro" itemprop="headline" style="scroll-margin-top:100px;">5. Nanit Pro Smart Monitor — Best WiFi Alternative</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Nanit Pro Smart Baby Monitor") }}'>
+    <a href='/product/{{ slugify("nanit-pro-smart-baby-monitor-with-2nd-gen-floor-stand-1080p-hd-wi-fi-video-camera-sleep-coach-breathing-motion-tracker-2-way-audio-night-vision-temperaturehumidity-real-time-analytics") }}'>
       <img src='https://m.media-amazon.com/images/I/71neD7B6o2L._AC_SL1500_.jpg' 
            alt='Nanit Pro Smart baby monitor - WiFi, HD overhead view, sleep tracking, thick walls' 
            loading='lazy' 
@@ -605,7 +605,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Nanit Pro Smart Baby Monitor") }}'>
+      <a href='/product/{{ slugify("nanit-pro-smart-baby-monitor-with-2nd-gen-floor-stand-1080p-hd-wi-fi-video-camera-sleep-coach-breathing-motion-tracker-2-way-audio-night-vision-temperaturehumidity-real-time-analytics") }}'>
         <button aria-label='View Nanit Pro Smart Monitor product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/3MwjXQj' rel='nofollow sponsored noopener'>
