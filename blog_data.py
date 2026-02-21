@@ -426,7 +426,7 @@ BLOG_POSTS = {
 
   <h2 id="motorola-vm85" itemprop="headline" style="scroll-margin-top:100px;">1. Motorola VM85 Connect — Best Overall for Thick Walls</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
-    <a href='/product/{{ slugify("Motorola VM85 Connect Baby Monitor") }}'>
+    <a href='/product/{{ slugify("motorola-nursery-vm85-connect-smart-baby-monitor-white-and-gold-wifi-app-5-display-1080p-hd-camera-night-vision-pantiltzoom-temperature-and-humidity-sensor-lullabies") }}'>
       <img src='https://m.media-amazon.com/images/I/618YUREwDIL._AC_SX679_.jpg' 
            alt='Motorola VM85 Connect baby monitor - 1000ft range, HD video, thick wall penetration' 
            loading='lazy' 
@@ -453,7 +453,7 @@ BLOG_POSTS = {
     </div>
     
     <div style='display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Motorola VM85 Connect Baby Monitor") }}'>
+      <a href='/product/{{ slugify("motorola-nursery-vm85-connect-smart-baby-monitor-white-and-gold-wifi-app-5-display-1080p-hd-camera-night-vision-pantiltzoom-temperature-and-humidity-sensor-lullabies") }}'>
         <button aria-label='View Motorola VM85 Connect product details'>View Details & Buy</button>
       </a>
       <a href='https://amzn.to/4bGAmfl' rel='nofollow sponsored noopener'>
