@@ -371,7 +371,7 @@ BLOG_POSTS = {
         "heading": "Best Baby Monitors for Thick Walls and Large UK Homes",
         "subtitle": "Reliable long-range baby monitors with signals strong enough to penetrate stone walls, thick plaster, and multiple floors.",
         
-        "date": "2026-02-03",
+        "date": "2026-02-21",
         "last_updated": "2026-02-03",
         "author": "FyboBuybo Editorial Team",
         
