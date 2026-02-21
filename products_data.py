@@ -206,6 +206,8 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
+
+    
 {
     "name": "Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)",
     "category": "Sports & Outdoors",
@@ -234,6 +236,155 @@ PRODUCTS = [
     ],
     "date_added": "2026-01-30"
 },
+
+    {
+    "name": "Motorola Nursery VM85 Connect Smart Baby Monitor - White & Gold, WiFi App, 5\" Display, 1080p HD Camera, Night Vision, Pan/Tilt/Zoom, Temperature & Humidity Sensor, Lullabies",
+    "category": "Baby",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/618YUREwDIL._AC_SL1500_.jpg",
+    "url": "https://amzn.to/4kKDYiC",
+    "asin": "B0DF2XBH62",
+    "info": "Stay connected to your little one with this stylish white & gold smart baby monitor featuring a 5\" color parent unit and secure WiFi app for remote viewing on your phone/tablet from anywhere. The 1080p HD camera offers crystal-clear video with infrared night vision, remote pan/tilt/zoom, two-way talk, built-in lullabies, and a soothing mood light. Monitors room temperature/humidity and alerts for changes; secure 2.4GHz FHSS local connection plus app streaming with notifications. Easy setup, expandable, and designed for peace of mind — a caring, modern gift for new parents, showing love through safety and convenience.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["motorola vm85 connect", "smart baby monitor", "wifi baby camera", "1080p nursery monitor", "pan tilt zoom baby monitor", "temperature sensor baby monitor", "valentines baby gift"],
+    "pain_points": ["worry about baby's safety when out of sight", "limited visibility in dark rooms", "need for remote monitoring on the go", "room comfort concerns like temperature changes"],
+    "benefits": ["real-time HD video and audio from anywhere via app", "crystal-clear night vision and soothing lullabies/mood light", "remote pan/tilt/zoom to view entire nursery", "temperature/humidity alerts for optimal comfort", "secure, easy-to-use system for peace of mind"],
+    "price_tier": "premium smart baby monitor",
+    "highlights": [
+        "Hybrid setup: 5\" parent unit + WiFi app for on-the-go viewing",
+        "1080p HD camera with infrared night vision and remote pan/tilt/zoom",
+        "Two-way talk, lullabies, mood light, and temperature/humidity monitoring",
+        "Secure encrypted connection with notifications and alerts",
+        "Elegant white & gold design — perfect thoughtful gift for new parents"
+    ],
+    "faqs": [
+        {"q": "Does it require WiFi for full features?", "a": "Yes for app/remote viewing and notifications; local monitoring via parent unit uses secure 2.4GHz FHSS without internet."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, practical baby essential that provides reassurance and shows thoughtfulness for family safety and comfort; great for expecting or new parents."}
+    ],
+    "date_added": "2026-02-21"
+},
+
+
+    {
+    "name": "Infant Optics DXR-8 PRO Baby Monitor - 5\" Screen, 720p HD Resolution, Active Noise Reduction, Secure FHSS, Interchangeable Lenses, Night Vision, Pan/Tilt/Zoom, Temperature Sensor",
+    "category": "Baby",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/71G9W+hypCL._AC_SL1500_.jpg",
+    "url": "https://amzn.to/4c8iSbR",
+    "asin": "B08FF4GV5C",
+    "info": "Enjoy crystal-clear, secure monitoring with the Infant Optics DXR-8 PRO — featuring a 5\" color display, 720p HD video, and patent-pending Active Noise Reduction for clear audio without interference. The non-WiFi FHSS connection keeps everything local and hack-proof, while the interchangeable lenses (zoom included, wide-angle optional) allow customizable views. Remote pan/tilt/zoom, infrared night vision, two-way talk, temperature monitoring, and expandable camera support provide complete nursery coverage. A reliable, thoughtful gift for new parents seeking simple, dependable peace of mind and baby safety.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["infant optics dxr-8 pro", "baby video monitor", "non wifi baby monitor", "720p hd baby camera", "pan tilt zoom nursery monitor", "secure fhss monitor", "valentines baby gift"],
+    "pain_points": ["concerns about WiFi hacking or interference", "blurry or low-res night vision", "limited viewing angles or range", "needing reliable audio clarity without background noise"],
+    "benefits": ["secure, local FHSS connection for privacy and reliability", "sharp 720p HD video with excellent night vision", "remote pan/tilt/zoom and interchangeable lenses for full coverage", "active noise reduction for clear baby sounds", "temperature monitoring and expandable setup for growing families"],
+    "price_tier": "premium non-WiFi baby monitor",
+    "highlights": [
+        "5\" color screen with 720p HD resolution and Active Noise Reduction",
+        "Secure FHSS connection — no WiFi needed, hack-proof and interference-free",
+        "Interchangeable lenses (zoom standard; wide-angle available) and remote pan/tilt/zoom",
+        "Infrared night vision, two-way talk, temperature sensor, and lullabies",
+        "Expandable and reliable — ideal thoughtful gift for peace of mind and baby safety"
+    ],
+    "faqs": [
+        {"q": "Does it require WiFi or internet?", "a": "No — it uses secure local FHSS frequency-hopping for private, interference-free monitoring; parent unit works independently without any internet connection."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, high-quality baby essential that provides reassurance and shows thoughtfulness for family safety and comfort; great for new or expecting parents."}
+    ],
+    "date_added": "2026-02-21"
+},
+
+
+    {
+    "name": "VTech VM3250 Video Baby Monitor with Camera - 2.8\" LCD Screen, Up to 19-hr Video Streaming, Night Vision, Secured Transmission, Temperature Sensor, Soothing Sounds, 2x Zoom, 300m Long Range",
+    "category": "Baby",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/71RstlSuhoL._AC_SL1500_.jpg",
+    "url": "https://amzn.to/3OULZWn",
+    "asin": "B0BX6GB6LL",
+    "info": "Keep a close eye on your little one with this easy-to-use VTech VM3250 video baby monitor featuring a clear 2.8\" color LCD parent unit screen and a camera with automatic infrared night vision for low-light visibility. Enjoy up to 19 hours of rechargeable video streaming on one charge, secure 300m long-range transmission (outdoors; less indoors), two-way talk-back intercom, soothing lullabies/soothing sounds, 2x digital zoom, and room temperature sensor with alerts. Non-WiFi design ensures privacy with no internet required. A simple, dependable gift for new parents, providing reassurance and comfort during nap times or nighttime.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["vtech vm3250 baby monitor", "video baby monitor 2.8 inch", "night vision baby camera", "long range baby monitor", "temperature sensor nursery monitor", "soothing sounds baby monitor", "valentines baby gift"],
+    "pain_points": ["limited visibility at night", "short battery life during monitoring", "concerns about room temperature or comfort", "need for reliable, private monitoring without WiFi"],
+    "benefits": ["clear video with automatic night vision for anytime viewing", "long 19-hour battery for uninterrupted overnight use", "temperature sensor alerts for optimal nursery environment", "secure local transmission up to 300m range", "two-way talk and soothing lullabies for calming baby from afar"],
+    "price_tier": "affordable video baby monitor",
+    "highlights": [
+        "2.8\" high-resolution color LCD screen with 2x digital zoom",
+        "Up to 19 hours of video streaming on rechargeable battery",
+        "Automatic infrared night vision for clear low-light monitoring",
+        "Secure FHSS transmission with 300m outdoor range and temperature sensor",
+        "Soothing sounds/lullabies, two-way talk, and easy setup — perfect gift for peace of mind"
+    ],
+    "faqs": [
+        {"q": "Does it require WiFi or internet?", "a": "No — it uses secure local FHSS transmission between parent unit and camera; no internet needed for full functionality."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring baby essential that provides reassurance and shows thoughtfulness for new parents' peace of mind and baby's comfort."}
+    ],
+    "date_added": "2026-02-21"
+},
+
+    {
+    "name": "Philips Avent DECT Baby Monitor SCD503/26 - Audio-Only, 100% Private Connection, Nightlight, Up to 330m Range, 24-Hour Battery Life, Smart ECO Mode",
+    "category": "Baby",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/51EhWe8iMgL._AC_SX425_.jpg",
+    "url": "https://amzn.to/4kOeIYN",
+    "asin": "B07FMM2W12",
+    "info": "Hear every sound clearly with this audio baby monitor using DECT technology for zero interference and 100% private, secure connection. Features crystal-clear sound, sound-activated LED lights (5 levels, visible even when muted), a comforting nightlight, volume control, Smart ECO mode for energy savings, out-of-range warning, and up to 24 hours of battery life on the rechargeable parent unit. Indoor range up to 50m, outdoor up to 330m — perfect for moving freely around home while staying connected. A straightforward, thoughtful gift for new parents valuing reliability, simplicity, and peace of mind without video complexity.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["philips avent scd503", "dect audio baby monitor", "philips avent baby monitor", "nightlight baby monitor", "long range audio monitor", "eco mode baby monitor", "valentines baby gift"],
+    "pain_points": ["interference or unclear sound in baby monitors", "short battery life limiting mobility", "concerns about privacy or security", "need for simple, reliable audio monitoring"],
+    "benefits": ["crystal-clear DECT sound with zero interference", "up to 24 hours battery for cordless freedom", "private, secure connection with no WiFi needed", "sound-activated lights and nightlight for gentle reassurance", "Smart ECO mode for energy efficiency and longer use"],
+    "price_tier": "affordable audio baby monitor",
+    "highlights": [
+        "DECT technology for 100% private, interference-free audio",
+        "Up to 330m outdoor range (50m indoor) and 24-hour battery life",
+        "Sound-activated 5-LED lights and comforting nightlight",
+        "Smart ECO mode minimizes power use and extends battery",
+        "Simple setup with volume control, out-of-range alert — ideal gift for peace of mind"
+    ],
+    "faqs": [
+        {"q": "Is this a video or audio-only monitor?", "a": "Audio-only — focuses on crystal-clear sound with no video/camera; great for basic, reliable monitoring without extra features."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring baby essential that provides reassurance and shows thoughtfulness for new parents' comfort and baby's safety."}
+    ],
+    "date_added": "2026-02-21"
+},
+
+    {
+    "name": "Nanit Pro Smart Baby Monitor with 2nd Gen Floor Stand - 1080p HD Wi-Fi Video Camera, Sleep Coach, Breathing Motion Tracker, 2-Way Audio, Night Vision, Temperature/Humidity, Real-Time Analytics",
+    "category": "Baby",
+    "season": "",
+    "image": "https://m.media-amazon.com/images/I/71neD7B6o2L._AC_SL1500_.jpg",
+    "url": "https://amzn.to/4tN82yj",
+    "asin": "B0BTTQ3QD2",
+    "info": "Get a complete view of your baby's sleep and well-being with the Nanit Pro camera bundled with the 2nd Gen floor stand for flexible, elevated placement. The 1080p HD Wi-Fi camera delivers crystal-clear video with night vision, two-way audio, motion/sound alerts, room temperature/humidity monitoring, and sensor-free breathing motion tracking (works with Nanit Breathing Wear, sold separately). The app provides real-time sleep analytics, personalized insights, and a sleep coach for better routines — secure 256-bit encryption. Perfect for peace of mind and data-driven parenting. A premium, thoughtful gift for new or expecting parents who value advanced monitoring, safety, and sleep support.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["nanit pro smart monitor", "floor stand baby camera", "1080p wifi baby monitor", "breathing motion tracker", "sleep analytics baby monitor", "nanit pro bundle", "valentines baby gift"],
+    "pain_points": ["worry about baby's breathing or sleep patterns", "limited insights from basic monitors", "need for remote viewing and alerts on the go", "room environment changes affecting comfort"],
+    "benefits": ["sensor-free breathing motion monitoring and alerts", "detailed sleep analytics and personalized coaching via app", "crystal-clear 1080p HD video with night vision from anywhere", "temperature/humidity tracking for optimal nursery conditions", "secure, encrypted Wi-Fi with two-way audio and motion/sound detection"],
+    "price_tier": "premium smart baby monitor bundle",
+    "highlights": [
+        "1080p HD Wi-Fi camera with night vision and 2-way audio",
+        "Sensor-free breathing motion tracking and real-time sleep analytics",
+        "2nd Gen floor stand for easy, flexible camera placement",
+        "App-based insights, alerts, and sleep coach features",
+        "Thoughtful gift for parents seeking advanced safety and sleep support"
+    ],
+    "faqs": [
+        {"q": "Does it require a subscription for full features?", "a": "Basic monitoring is free; advanced sleep insights and coaching require an optional paid subscription (intro trial often included)."},
+        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a luxurious, caring baby essential that provides reassurance, data-driven support, and shows thoughtfulness for family well-being; ideal for new or expecting parents."}
+    ],
+    "date_added": "2026-02-21"
+},
+    
+    
 {
     "name": "LEGO Speed Champions McLaren F1 Team MCL38 Race Car - Model Kit with Driver Minifigure (77251)",
     "category": "Toys & Games",
