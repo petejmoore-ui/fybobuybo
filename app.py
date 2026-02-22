@@ -2700,16 +2700,19 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') { closeSearch()
 (function() {
   const KEY = 'fybo_consent_v1';
   const bar = document.getElementById('cookie-bar');
+  if (!bar) return;
   try {
-    if(!localStorage.getItem(KEY)) bar.classList.add('visible');
-  } catch(e) { bar.classList.add('visible'); }
-  function accept(v) {
+    if (!localStorage.getItem(KEY)) bar.classList.add('visible');
+  } catch(e) {
+    bar.classList.add('visible');
+  }
+  function dismiss(v) {
     try { localStorage.setItem(KEY, v); } catch(e) {}
     bar.classList.remove('visible');
     bar.classList.add('hidden');
   }
-  document.getElementById('cookie-accept')?.addEventListener('click', () => accept('all'));
-  document.getElementById('cookie-essential')?.addEventListener('click', () => accept('essential'));
+  document.getElementById('cookie-accept')?.addEventListener('click', () => dismiss('all'));
+  document.getElementById('cookie-essential')?.addEventListener('click', () => dismiss('essential'));
 })();
 </script>
 
@@ -2998,10 +3001,9 @@ def blog_list(page=1):
         '''
     blog_html += '</div>'
 
-    insert_point = rendered.find('<p class="subtitle">') 
+    insert_point = rendered.find('<!-- PRODUCT GRID -->')
     if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
+        rendered = rendered[:insert_point] + blog_html + rendered[insert_point:]
 
     if total_pages > 1:
         pag_html = '<div class="pagination">'
