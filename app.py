@@ -2401,7 +2401,7 @@ BASE_HTML = """<!DOCTYPE html>
     <p class="hero-subtitle">{{ subtitle }}</p>
     <div class="hero-badges">
       <span class="hero-badge"><span class="icon">✔</span> UK-focused curation</span>
-      <span class="hero-badge"><span class="icon">✔</span> Free delivery available</span>
+      <span class="hero-badge"><span class="icon">✔</span> Interesting gifts Chosen</span>
       <span class="hero-badge"><span class="icon">✔</span> Refreshed every day</span>
     </div>
   </div>
