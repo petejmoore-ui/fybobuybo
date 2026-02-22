@@ -2193,13 +2193,12 @@ body {
   z-index: 1000;
   max-width: 620px;
   width: calc(100% - 48px);
-  display: flex;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
 }
+#cookie-bar.visible { display: flex; }
 #cookie-bar.hidden { display: none !important; }
-#cookie-bar.visible { display: flex; animation: slideUp 0.35s cubic-bezier(0.16,1,0.3,1); }
 @keyframes slideUp { from { opacity:0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
 .cookie-text { flex: 1; min-width: 200px; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 .cookie-text a { color: var(--highlight); }
