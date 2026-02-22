@@ -3010,7 +3010,7 @@ for post in paginated:
         </a>
     </article>
     '''
- blog_html += '</div>'
+     blog_html += '</div>'
 
     insert_point = rendered.find('<!-- PRODUCT GRID -->')
     if insert_point > -1:
