@@ -3012,20 +3012,20 @@ for post in paginated:
     '''
 blog_html += '</div>'
 
-    insert_point = rendered.find('<!-- PRODUCT GRID -->')
-    if insert_point > -1:
-        rendered = rendered[:insert_point] + blog_html + rendered[insert_point:]
+insert_point = rendered.find('<!-- PRODUCT GRID -->')
+if insert_point > -1:
+    rendered = rendered[:insert_point] + blog_html + rendered[insert_point:]
 
-    if total_pages > 1:
-        pag_html = '<div class="pagination">'
-        if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">« Previous</a>'
-        if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
-        pag_html += '</div>'
-        rendered = rendered.replace('</body>', pag_html + '</body>')
+if total_pages > 1:
+    pag_html = '<div class="pagination">'
+    if page > 1:
+        pag_html += f'<a href="{url_for("blog_list", page=page-1)}">« Previous</a>'
+    if page < total_pages:
+        pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
+    pag_html += '</div>'
+    rendered = rendered.replace('</body>', pag_html + '</body>')
 
-    return rendered
+return rendered
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
