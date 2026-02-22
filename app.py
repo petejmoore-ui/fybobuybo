@@ -2987,29 +2987,29 @@ def blog_list(page=1):
     )
 
     blog_html = '<div class="blog-grid" style="max-width:1500px;margin:40px auto 0;padding:0 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;">'
-for post in paginated:
-    date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-    blog_html += f'''
-    <article style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;text-decoration:none;" 
-              onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-md)'"
-              onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='var(--shadow-sm)'">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
-            <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
-            {date_str}
-        </div>
-        <h2 style="font-family:\'Fraunces\',serif;font-size:1.35rem;font-weight:700;line-height:1.25;letter-spacing:-0.015em;color:var(--accent);margin:0;">
-            <a href="/blog/{post['slug']}" style="color:inherit;text-decoration:none;transition:color .2s;"
-               onmouseover="this.style.color='var(--highlight)'" 
-               onmouseout="this.style.color='var(--accent)'">{post['title']}</a>
-        </h2>
-        <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin:0;flex:1;">{post.get('description', '')}</p>
-        <a href="/blog/{post['slug']}" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:var(--highlight);text-decoration:none;margin-top:4px;border-bottom:1px solid transparent;transition:border-color .2s;width:fit-content;"
-           onmouseover="this.style.borderColor='var(--highlight)'"
-           onmouseout="this.style.borderColor='transparent'">
-            Read article →
-        </a>
-    </article>
-    '''
+    for post in paginated:
+        date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
+        blog_html += f'''
+        <article style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;"
+                  onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-md)'"
+                  onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='var(--shadow-sm)'">
+            <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
+                <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
+                {date_str}
+            </div>
+            <h2 style="font-family:\'Fraunces\',serif;font-size:1.35rem;font-weight:700;line-height:1.25;letter-spacing:-0.015em;color:var(--accent);margin:0;">
+                <a href="/blog/{post['slug']}" style="color:inherit;text-decoration:none;transition:color .2s;"
+                   onmouseover="this.style.color=\'var(--highlight)\'"
+                   onmouseout="this.style.color=\'var(--accent)\'">{post['title']}</a>
+            </h2>
+            <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin:0;flex:1;">{post.get('description', '')}</p>
+            <a href="/blog/{post['slug']}" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:var(--highlight);text-decoration:none;margin-top:4px;border-bottom:1px solid transparent;transition:border-color .2s;width:fit-content;"
+               onmouseover="this.style.borderColor=\'var(--highlight)\'"
+               onmouseout="this.style.borderColor=\'transparent\'">
+                Read article →
+            </a>
+        </article>
+        '''
     blog_html += '</div>'
 
     insert_point = rendered.find('<!-- PRODUCT GRID -->')
@@ -3019,9 +3019,9 @@ for post in paginated:
     if total_pages > 1:
         pag_html = '<div class="pagination">'
         if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">« Previous</a>'
+            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>'
         if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
+            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next →</a>'
         pag_html += '</div>'
         rendered = rendered.replace('</body>', pag_html + '</body>')
 
