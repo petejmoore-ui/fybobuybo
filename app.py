@@ -2931,22 +2931,77 @@ def product_detail(product_slug):
     if not found:
         abort(404)
 
-    # Get similar products for SEO
     similar = get_similar_products(found, all_products, limit=6)
-    
-    # Add today's date for footer
     today = datetime.date.today()
     today_formatted = today.strftime("%B %d, %Y")
+    price_info = get_product_price_rating(found)
+
+    rating_html = ""
+    if price_info.get("rating"):
+        stars = "★" * int(float(price_info["rating"]))
+        reviews = f'({price_info["reviews"]} reviews)' if price_info.get("reviews") else ""
+        rating_html = f'''
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.95rem;color:var(--muted);">
+            <span style="color:#f5a623;font-size:1.1rem;letter-spacing:-0.04em;">{stars}</span>
+            <strong style="color:var(--accent);">{price_info["rating"]}/5</strong>
+            <span>{reviews}</span>
+        </div>'''
+
+    amazon_btn = ""
+    if found.get("url"):
+        amazon_btn = f'''
+        <a href="{found["url"]}" target="_blank" rel="nofollow sponsored noopener"
+           style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--cta);color:var(--cta-text);padding:18px 32px;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;transition:opacity .2s;margin-top:8px;">
+            View on <em style="font-style:italic;font-weight:800;font-size:1.1rem;">amazon</em>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>'''
+
+    info_html = f'<p style="font-size:0.95rem;line-height:1.75;color:var(--muted);">{found["info"]}</p>' if found.get("info") else ""
+    date_html = f'<p style="font-size:0.78rem;color:var(--muted);opacity:.7;">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
+
+    content_html = f'''
+    <div style="max-width:1100px;margin:48px auto 0;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+
+        <div style="background:var(--bg-2);border-radius:24px;overflow:hidden;aspect-ratio:1;border:1px solid var(--card-border);position:sticky;top:88px;">
+            <img src="{found["image"]}" alt="{found["name"]}" style="width:100%;height:100%;object-fit:contain;padding:40px;">
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px;padding-top:8px;">
+            <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
+                <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
+                {found.get("category", "")}
+            </div>
+
+            <h1 style="font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;line-height:1.15;letter-spacing:-0.025em;color:var(--accent);">{found["name"]}</h1>
+
+            {rating_html}
+
+            <div style="height:1px;background:var(--divider);"></div>
+
+            <p style="font-size:1.05rem;line-height:1.75;color:var(--muted);">{found.get("hook", "")}</p>
+
+            {info_html}
+
+            <div style="background:var(--highlight-soft);border:1px solid rgba(196,154,60,0.2);border-radius:12px;padding:14px 18px;font-size:0.88rem;color:var(--muted);font-style:italic;">
+                💡 Check Amazon for the current price — it updates in real time
+            </div>
+
+            {amazon_btn}
+            {date_html}
+        </div>
+    </div>
+    '''
 
     return render_page(
         title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
         description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
-        heading=shorten_product_name(found["name"]),
-        subtitle="A popular UK gift choice",
-        products=[found],
+        heading="",
+        subtitle="",
+        products=None,
         similar_products=similar,
         today=today.isoformat(),
-        today_formatted=today_formatted
+        today_formatted=today_formatted,
+        content=content_html
     )
 
 POSTS_PER_PAGE = 8
@@ -2964,26 +3019,53 @@ def load_blog_posts(page=1):
     
     return paginated, total_pages, len(posts)
 
-@app.route("/blog")
-@app.route("/blog/page/<int:page>")
-def blog_list(page=1):
-    paginated, total_pages, total_posts = load_blog_posts(page)
-    if not paginated and page > 1:
+@app.route("/blog/<slug>")
+def blog_detail(slug):
+    post = BLOG_POSTS.get(slug)
+    if not post:
         abort(404)
 
-    theme = get_daily_theme()
+    all_products = refresh_products(background=True)
+    
+    related = []
+    if post.get("related_products"):
+        for product_slug in post["related_products"]:
+            product = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
+            if product:
+                related.append(product)
+    
+    if not related:
+        related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
-    def page_url(p_num):
-        return url_for("blog_list", page=p_num) if p_num <= total_pages else None
+    from jinja2 import Template
+    raw_content = post.get("content", "<p>Content coming soon.</p>")
+    content_html_body = Template(raw_content).render(slugify=slugify)
+    
+    date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
-    rendered = render_page(
-        title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
-        description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
-        heading="FyboBuybo Blog",
-        subtitle="Gift guides, trends and inspiration for UK shoppers",
+    content_html = f'''
+    <div style="max-width:780px;margin:48px auto 0;padding:0 40px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);margin-bottom:24px;">
+            <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
+            {date_str} · Gift Guide
+        </div>
+        <h1 style="font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:20px;">{post.get("heading", post["title"])}</h1>
+        <p style="font-size:1.1rem;line-height:1.75;color:var(--muted);margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--divider);">{post.get("description", "")}</p>
+    </div>
+    <div style="max-width:780px;margin:0 auto;padding:0 40px 80px;font-size:1.02rem;line-height:1.85;color:var(--accent-2);">
+        {content_html_body}
+    </div>
+    '''
+
+    return render_page(
+        title=post["title"],
+        description=post.get("meta_description", post.get("description", "")),
+        heading="",
+        subtitle="",
         products=None,
-        page=page,
-        page_url=page_url
+        similar_products=related,
+        article_date=post.get("date", datetime.date.today().isoformat()),
+        content=content_html
     )
 
     blog_html = '<div class="blog-grid" style="max-width:1500px;margin:40px auto 0;padding:0 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;">'
