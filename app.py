@@ -2948,25 +2948,35 @@ def product_detail(product_slug):
     date_html = f'<p style="font-size:0.78rem;color:var(--muted);opacity:.7;">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
 
     content_html = f'''
-    <div style="max-width:1100px;margin:48px auto 0;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
-        <div style="background:var(--bg-2);border-radius:24px;overflow:hidden;aspect-ratio:1;border:1px solid var(--card-border);position:sticky;top:88px;">
-            <img src="{found["image"]}" alt="{found["name"]}" style="width:100%;height:100%;object-fit:contain;padding:40px;">
+    <div style="max-width:780px;margin:48px auto 0;padding:0 40px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);margin-bottom:24px;">
+            <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
+            {date_str} · Gift Guide
         </div>
-        <div style="display:flex;flex-direction:column;gap:20px;padding-top:8px;">
-            <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
-                <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
-                {found.get("category", "")}
-            </div>
-            <h1 style="font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;line-height:1.15;letter-spacing:-0.025em;color:var(--accent);">{found["name"]}</h1>
-            {rating_html}
-            <div style="height:1px;background:var(--divider);"></div>
-            <p style="font-size:1.05rem;line-height:1.75;color:var(--muted);">{found.get("hook", "")}</p>
-            {info_html}
-            <div style="background:var(--highlight-soft);border:1px solid rgba(196,154,60,0.2);border-radius:12px;padding:14px 18px;font-size:0.88rem;color:var(--muted);font-style:italic;">
-                💡 Check Amazon for the current price — it updates in real time
-            </div>
-            {amazon_btn}
-            {date_html}
+        <h1 style="font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:20px;">{post.get("heading", post["title"])}</h1>
+        <p style="font-size:1.1rem;line-height:1.75;color:var(--muted);margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--divider);">{post.get("description", "")}</p>
+    </div>
+    <div style="max-width:780px;margin:0 auto;padding:0 40px 80px;">
+        <style>
+            .blog-prose h2 {{ font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--accent); margin:48px 0 16px; letter-spacing:-0.02em; line-height:1.2; }}
+            .blog-prose h3 {{ font-family:'Fraunces',serif; font-size:1.25rem; font-weight:700; color:var(--accent); margin:36px 0 12px; }}
+            .blog-prose h4 {{ font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; color:var(--accent); margin:28px 0 10px; }}
+            .blog-prose p {{ font-size:1.02rem; line-height:1.85; color:var(--accent-2); margin-bottom:20px; }}
+            .blog-prose a {{ color:var(--highlight); font-weight:500; border-bottom:1px solid transparent; transition:border-color .2s; }}
+            .blog-prose a:hover {{ border-color:var(--highlight); }}
+            .blog-prose ul, .blog-prose ol {{ margin:0 0 24px 28px; }}
+            .blog-prose li {{ font-size:1rem; line-height:1.75; color:var(--accent-2); margin-bottom:8px; }}
+            .blog-prose strong {{ color:var(--accent); font-weight:600; }}
+            .blog-prose img {{ width:100%; border-radius:16px; margin:32px 0; box-shadow:var(--shadow-md); }}
+            .blog-prose blockquote {{ border-left:3px solid var(--highlight); margin:32px 0; padding:16px 24px; background:var(--highlight-soft); border-radius:0 12px 12px 0; font-style:italic; color:var(--muted); }}
+            .blog-prose table {{ width:100%; border-collapse:collapse; margin:32px 0; font-size:0.95rem; }}
+            .blog-prose th {{ background:var(--bg-2); padding:12px 16px; text-align:left; font-weight:600; color:var(--accent); border-bottom:2px solid var(--border); }}
+            .blog-prose td {{ padding:12px 16px; border-bottom:1px solid var(--divider); color:var(--accent-2); }}
+            .blog-prose tr:last-child td {{ border-bottom:none; }}
+            .blog-prose .product-card {{ background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:24px; margin:32px 0; box-shadow:var(--shadow-sm); }}
+        </style>
+        <div class="blog-prose">
+            {content_html_body}
         </div>
     </div>
     '''
