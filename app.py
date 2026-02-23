@@ -2072,10 +2072,7 @@ a { text-decoration: none; }
   .hero-badge { font-size: 0.74rem; padding: 5px 10px; }
 }
 BLOG_CTA_CSS = """
-/* ============================================================
-   BLOG CONTENT — CTA BUTTON OVERRIDES
-   Replaces old theme button colours inside blog post content
-   ============================================================ */
+
 
 /* Any <a> or <button> styled as a CTA inside blog prose/content */
 .blog-prose a[href*="amazon"],
