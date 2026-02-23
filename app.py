@@ -2071,7 +2071,9 @@ a { text-decoration: none; }
   .similar-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-badge { font-size: 0.74rem; padding: 5px 10px; }
 }
-BLOG_CTA_CSS = """
+
+
+
 
 
 /* Any <a> or <button> styled as a CTA inside blog prose/content */
@@ -2134,7 +2136,7 @@ div[style*="text-align: center"] {
   border-color: var(--border) !important;
   background: var(--card) !important;
 }
-"""
+
 
 /* ============================================================
    MISC UTILITIES
