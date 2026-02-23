@@ -758,7 +758,7 @@ BLOG_POSTS = {
         "puncture resistant gardening gloves",
         "bramble gloves thick"
     ],
-    "featured_image": "https://m.media-amazon.com/images/I/71zKb4QZPSL._AC_SX679_.jpg",  // Retained similar stock image style; actual product images below
+    "featured_image": "https://m.media-amazon.com/images/I/71zKb4QZPSL._AC_SX679_.jpg",  
     "featured_image_alt": "Thorn-proof leather gardening gloves for rose pruning",
     
     "article_type": "Article",
