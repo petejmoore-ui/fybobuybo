@@ -2071,6 +2071,73 @@ a { text-decoration: none; }
   .similar-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-badge { font-size: 0.74rem; padding: 5px 10px; }
 }
+BLOG_CTA_CSS = """
+/* ============================================================
+   BLOG CONTENT — CTA BUTTON OVERRIDES
+   Replaces old theme button colours inside blog post content
+   ============================================================ */
+
+/* Any <a> or <button> styled as a CTA inside blog prose/content */
+.blog-prose a[href*="amazon"],
+.blog-prose a[href*="amzn"],
+div[style*="View on Amazon"] a,
+a[style*="background: var(--button)"],
+a[style*="background:var(--button)"],
+button[style*="background: var(--button)"],
+button[style*="background:var(--button)"] {
+  background: var(--cta) !important;
+  color: var(--cta-text) !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  padding: 11px 20px !important;
+  font-size: 0.875rem !important;
+  border: none !important;
+  transition: opacity 0.2s !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  text-decoration: none !important;
+}
+
+/* "View Details & Buy" style secondary button */
+a[style*="border: 1px solid"],
+a[style*="border:1px solid"] {
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+  color: var(--accent) !important;
+  border-radius: 10px !important;
+  padding: 11px 20px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s !important;
+}
+
+a[style*="border: 1px solid"]:hover,
+a[style*="border:1px solid"]:hover {
+  border-color: var(--highlight) !important;
+  color: var(--highlight) !important;
+  background: var(--highlight-soft) !important;
+}
+
+/* Container holding the two CTA buttons in blog content */
+div[style*="display: flex"][style*="gap"][style*="justify-content: center"],
+div[style*="display:flex"][style*="gap"][style*="justify-content:center"],
+div[style*="text-align: center"] {
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  margin-top: 20px !important;
+}
+
+/* Product highlight boxes inside blog content */
+.blog-prose div[style*="border-left"],
+.blog-prose div[style*="border: 1px solid"] {
+  border-radius: 14px !important;
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+}
+"""
 
 /* ============================================================
    MISC UTILITIES
@@ -2500,6 +2567,7 @@ function shorten(n, l=70) {
   for (const s of [',','(']) { if (n.includes(s)) { const x = n.split(s)[0].trim(); if (x.length <= l) return x; } }
   return n.slice(0, l - 1) + '…';
 }
+SEARCH_JS = """
 function showSearch(products, q) {
   countEl.textContent = `${products.length} result${products.length !== 1 ? 's' : ''} for "${q}"`;
   resultsGrid.innerHTML = products.length ? products.map(p => `
@@ -2518,36 +2586,40 @@ function showSearch(products, q) {
       </div>
     </article>
   `).join('') : '<p style="text-align:center;padding:60px;color:var(--muted)">No results found.</p>';
+
   overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  // KEY FIX: do NOT set body overflow:hidden — it causes the input to lose focus.
+  // Instead re-focus the input so typing continues uninterrupted.
+  const activeInput = document.activeElement;
+  requestAnimationFrame(() => {
+    if (activeInput && (activeInput === searchInput || activeInput === mobileSearchInput)) {
+      activeInput.focus();
+    } else if (searchInput) {
+      searchInput.focus();
+    }
+  });
 }
-function closeSearch() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+function closeSearch() {
+  overlay.classList.remove('open');
+  // No body overflow manipulation needed since we stopped setting it
+}
+
 function doSearch(q) {
   clearTimeout(searchTimeout);
-  if (q.length < 2) { closeSearch(); return; }
+  if (q.length < 2) {
+    if (overlay.classList.contains('open')) closeSearch();
+    return;
+  }
   searchTimeout = setTimeout(() => {
     const ql = q.toLowerCase();
     const matches = allProducts.filter(p =>
       [p.name, p.category, p.hook, p.info, ...(p.keywords || []), p.season].join(' ').toLowerCase().includes(ql)
     );
     showSearch(matches, q);
-  }, 260);
+  }, 200);
 }
-searchInput?.addEventListener('input', e => doSearch(e.target.value.trim()));
-mobileSearchInput?.addEventListener('input', e => {
-  const q = e.target.value.trim();
-  doSearch(q);
-  if (q.length >= 2) {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-});
-document.getElementById('search-close')?.addEventListener('click', closeSearch);
-overlay?.addEventListener('click', e => { if (e.target === overlay) closeSearch(); });
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeSearch(); if (searchInput) searchInput.value = ''; }
-});
+"""
 
 // ── COOKIE ────────────────────────────────────────────────────
 (function() {
@@ -2937,7 +3009,6 @@ def product_detail(product_slug):
         content=content_html
     )
 
-
 POSTS_PER_PAGE = 8
 
 
@@ -2951,6 +3022,30 @@ def load_blog_posts(page=1):
     return paginated, total_pages, len(posts)
 
 
+def get_blog_post_image(post, all_products):
+    """
+    Returns an img tag string for a blog post thumbnail, or None.
+    Priority: post["image"] field → first related_product image
+    """
+    if post.get("image"):
+        return f'<img src="{post["image"]}" alt="{post["title"]}" style="width:100%;height:100%;object-fit:cover;">'
+
+    if post.get("related_products"):
+        for product_slug in post["related_products"]:
+            product = next(
+                (p for p in all_products if slugify(p["name"]) == product_slug),
+                None
+            )
+            if product and product.get("image"):
+                return f'<img src="{product["image"]}" alt="{post["title"]}" style="width:100%;height:100%;object-fit:contain;padding:20px;">'
+
+    return None
+
+
+# =============================================================================
+# SECTION B — Replace the ENTIRE blog_list function with this
+# =============================================================================
+
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
@@ -2958,8 +3053,7 @@ def blog_list(page=1):
     if not paginated and page > 1:
         abort(404)
 
-    def page_url(p_num):
-        return url_for("blog_list", page=p_num) if p_num <= total_pages else None
+    all_products = refresh_products(background=True)
 
     rendered = render_page(
         title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
@@ -2968,7 +3062,6 @@ def blog_list(page=1):
         subtitle="Gift guides, trends and inspiration for UK shoppers",
         products=None,
         page=page,
-        page_url=page_url
     )
 
     featured = paginated[0] if paginated else None
@@ -2976,12 +3069,19 @@ def blog_list(page=1):
 
     blog_content = '<div class="blog-page-wrap">'
 
-    # Featured post — large editorial card
+    # ── FEATURED POST ──────────────────────────────────────────────────────────
     if featured:
         feat_date = datetime.datetime.strptime(featured["date"], "%Y-%m-%d").strftime("%d %B %Y")
+        feat_img = get_blog_post_image(featured, all_products)
+
+        if feat_img:
+            feat_visual = f'<div class="blog-featured-visual" style="background:var(--bg-2);overflow:hidden;">{feat_img}</div>'
+        else:
+            feat_visual = '<div class="blog-featured-visual">📖</div>'
+
         blog_content += f"""
         <a href="/blog/{featured["slug"]}" class="blog-featured">
-            <div class="blog-featured-visual">📖</div>
+            {feat_visual}
             <div class="blog-featured-content">
                 <div class="blog-featured-eyebrow">{feat_date} · Featured Guide</div>
                 <div class="blog-featured-title">{featured["title"]}</div>
@@ -2991,7 +3091,7 @@ def blog_list(page=1):
         </a>
         """
 
-    # Remaining posts in card grid
+    # ── GRID POSTS ─────────────────────────────────────────────────────────────
     if grid_posts:
         blog_content += """
         <div class="section-header" style="padding:0;margin:0 0 28px;">
@@ -3004,24 +3104,25 @@ def blog_list(page=1):
         """
         for post in grid_posts:
             date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-            emoji = "📝"
-            title_lower = post["title"].lower()
-            if any(w in title_lower for w in ["gift", "present", "christmas", "birthday"]):
-                emoji = "🎁"
-            elif any(w in title_lower for w in ["home", "kitchen", "decor"]):
-                emoji = "🏠"
-            elif any(w in title_lower for w in ["beauty", "skincare", "self-care"]):
-                emoji = "✨"
-            elif any(w in title_lower for w in ["tech", "gadget", "electronic"]):
-                emoji = "⚡"
-            elif any(w in title_lower for w in ["book", "read"]):
-                emoji = "📚"
-            elif any(w in title_lower for w in ["yoga", "fitness", "health"]):
-                emoji = "🧘"
+            post_img = get_blog_post_image(post, all_products)
+
+            if post_img:
+                thumb = f'<div class="blog-card-thumb" style="background:var(--bg-2);">{post_img}</div>'
+            else:
+                emoji = "📝"
+                tl = post["title"].lower()
+                if any(w in tl for w in ["gift", "present", "christmas", "birthday"]): emoji = "🎁"
+                elif any(w in tl for w in ["home", "kitchen", "decor"]): emoji = "🏠"
+                elif any(w in tl for w in ["beauty", "skincare", "self-care"]): emoji = "✨"
+                elif any(w in tl for w in ["tech", "gadget", "electronic"]): emoji = "⚡"
+                elif any(w in tl for w in ["book", "read"]): emoji = "📚"
+                elif any(w in tl for w in ["yoga", "fitness", "health"]): emoji = "🧘"
+                elif any(w in tl for w in ["baby", "monitor", "nursery"]): emoji = "👶"
+                thumb = f'<div class="blog-card-thumb">{emoji}</div>'
 
             blog_content += f"""
             <a href="/blog/{post["slug"]}" class="blog-card">
-                <div class="blog-card-thumb">{emoji}</div>
+                {thumb}
                 <div class="blog-card-body">
                     <div class="blog-card-meta">{date_str}</div>
                     <div class="blog-card-title">{post["title"]}</div>
@@ -3030,28 +3131,26 @@ def blog_list(page=1):
                 </div>
             </a>
             """
+        blog_content += "</div>"  # .blog-grid
+
+    # ── PAGINATION — inside blog_content so it always appears before the footer ──
+    if total_pages > 1:
+        blog_content += '<div class="pagination" style="margin-top:52px;margin-bottom:0;">'
+        if page > 1:
+            blog_content += f'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>'
+        if page < total_pages:
+            blog_content += f'<a href="{url_for("blog_list", page=page+1)}">Next →</a>'
         blog_content += "</div>"
 
-    blog_content += "</div>"
+    blog_content += "</div>"  # .blog-page-wrap
 
-    # Inject before the product grid comment
     insert_point = rendered.find("<!-- PRODUCT GRID -->")
     if insert_point > -1:
         rendered = rendered[:insert_point] + blog_content + rendered[insert_point:]
     else:
         rendered = rendered.replace("</footer>", blog_content + "</footer>", 1)
 
-    if total_pages > 1:
-        pag_html = '<div class="pagination">'
-        if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>'
-        if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next →</a>'
-        pag_html += "</div>"
-        rendered = rendered.replace("</body>", pag_html + "</body>")
-
     return rendered
-
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
