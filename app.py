@@ -2137,7 +2137,6 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="marquee-inner">
     {% for i in range(2) %}
     <span>Curated UK Gifts</span><span class="dot"> · </span>
-    <span>Free Amazon Prime Delivery</span><span class="dot"> · </span>
     <span>Updated Daily</span><span class="dot"> · </span>
     <span>Thoughtfully Picked</span><span class="dot"> · </span>
     <span>UK Shoppers Love</span><span class="dot"> · </span>
