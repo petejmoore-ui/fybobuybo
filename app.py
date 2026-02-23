@@ -2760,7 +2760,22 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
-PRODUCT_DETAIL = '''
+# ============================================================================
+# ROUTES — PASTE THIS ENTIRE BLOCK INTO app.py
+#
+# INSTRUCTIONS:
+#   In your current app.py, find this line:
+#       PRODUCT_DETAIL = '''
+#   Select from that line all the way to the end of the file.
+#   Delete it all, then paste this entire file in its place.
+#
+# WHAT THIS FIXES:
+#   - product_detail, blog_list, blog_detail restored as real Python functions
+#   - Product image no longer overlaps category heading (CSS grid layout)
+#   - robots.txt and sitemap included so nothing is lost
+# ============================================================================
+
+
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     all_products = refresh_products(background=True)
@@ -2773,61 +2788,147 @@ def product_detail(product_slug):
     today_formatted = today.strftime("%B %d, %Y")
     price_info = get_product_price_rating(found)
 
+    # Rating stars
     rating_html = ""
     if price_info.get("rating"):
         stars = "★" * int(float(price_info["rating"]))
-        reviews_text = f\'({price_info["reviews"]} reviews)\' if price_info.get("reviews") else ""
-        rating_html = f\'\'\'
+        reviews_text = f'({price_info["reviews"]} reviews)' if price_info.get("reviews") else ""
+        rating_html = f"""
         <div style="display:flex;align-items:center;gap:8px;font-size:0.95rem;color:var(--muted);">
             <span style="color:#f5a623;font-size:1.1rem;letter-spacing:-0.04em;">{stars}</span>
             <strong style="color:var(--accent);">{price_info["rating"]}/5</strong>
             <span>{reviews_text}</span>
-        </div>\'\'\'
+        </div>"""
 
+    # Amazon button
     amazon_btn = ""
     if found.get("url"):
-        amazon_btn = f\'\'\'
+        amazon_btn = f"""
         <a href="{found["url"]}" target="_blank" rel="nofollow sponsored noopener"
            style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--cta);color:var(--cta-text);padding:18px 32px;border-radius:12px;font-size:1rem;font-weight:700;transition:opacity .2s;margin-top:4px;">
             View on <em style="font-style:italic;font-weight:800;font-size:1.1rem;">amazon</em>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </a>\'\'\'
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+        </a>"""
 
-    info_html = f\'<p style="font-size:0.95rem;line-height:1.75;color:var(--muted);">{found["info"]}</p>\' if found.get("info") else ""
-    date_html = f\'<p style="font-size:0.78rem;color:var(--muted);opacity:.7;margin-top:8px;">Featured {found["date_added"]}</p>\' if found.get("date_added") else ""
+    info_html = f'<p style="font-size:0.95rem;line-height:1.75;color:var(--muted);">{found["info"]}</p>' if found.get("info") else ""
+    date_html = f'<p style="font-size:0.78rem;color:var(--muted);opacity:.7;margin-top:4px;">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
 
-    content_html = f\'\'\'
-    <div style="max-width:1100px;margin:44px auto 0;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
-        <div style="background:var(--bg-2);border-radius:24px;overflow:hidden;aspect-ratio:1;border:1px solid var(--card-border);position:sticky;top:80px;">
-            <img src="{found["image"]}" alt="{found["name"]}" style="width:100%;height:100%;object-fit:contain;padding:40px;">
-        </div>
-        <div style="display:flex;flex-direction:column;gap:18px;padding-top:4px;">
-            <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
-                <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
-                {found.get("category", "")}
-            </div>
-            <h1 style="font-family:\'Fraunces\',serif;font-size:clamp(1.5rem,3vw,2.3rem);font-weight:900;line-height:1.15;letter-spacing:-0.025em;color:var(--accent);">{found["name"]}</h1>
-            {rating_html}
-            <div style="height:1px;background:var(--divider);"></div>
-            <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);">{found.get("hook", "")}</p>
-            {info_html}
-            <div style="background:var(--highlight-soft);border:1px solid rgba(196,154,60,0.2);border-radius:12px;padding:14px 18px;font-size:0.87rem;color:var(--muted);font-style:italic;">
-                💡 Check Amazon for the current price — updates in real time
-            </div>
-            {amazon_btn}
-            {date_html}
-        </div>
-    </div>
+    # ── Product layout: image left, info right ──────────────────────────────
+    # Uses a named CSS class so the mobile media query in CSS_TEMPLATE applies.
+    # The section-header z-index fix in CSS_TEMPLATE means it no longer
+    # floats over the category label — but here we avoid the hero/section-header
+    # entirely (heading="" keeps it clean).
+    content_html = f"""
     <style>
-    @media(max-width:768px) {{
-        .product-layout {{ grid-template-columns:1fr !important; padding:0 16px !important; }}
-    }}
+      .pd-layout {{
+        max-width: 1100px;
+        margin: 44px auto 0;
+        padding: 0 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }}
+      .pd-img {{
+        background: var(--bg-2);
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        border: 1px solid var(--card-border);
+        position: sticky;
+        top: 84px;
+      }}
+      .pd-img img {{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 36px;
+        display: block;
+      }}
+      .pd-info {{
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding-top: 4px;
+      }}
+      .pd-category {{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--highlight);
+      }}
+      .pd-category::before {{
+        content: '';
+        display: block;
+        width: 18px;
+        height: 1px;
+        background: var(--highlight);
+      }}
+      .pd-title {{
+        font-family: 'Fraunces', serif;
+        font-size: clamp(1.5rem, 3vw, 2.3rem);
+        font-weight: 900;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        color: var(--accent);
+      }}
+      .pd-divider {{
+        height: 1px;
+        background: var(--divider);
+      }}
+      .pd-price-note {{
+        background: var(--highlight-soft);
+        border: 1px solid rgba(196,154,60,0.2);
+        border-radius: 12px;
+        padding: 13px 18px;
+        font-size: 0.87rem;
+        color: var(--muted);
+        font-style: italic;
+      }}
+      @media (max-width: 768px) {{
+        .pd-layout {{
+          grid-template-columns: 1fr;
+          padding: 0 16px;
+          gap: 28px;
+          margin-top: 28px;
+        }}
+        .pd-img {{
+          position: static;
+          aspect-ratio: 1;
+        }}
+        .pd-img img {{
+          padding: 24px;
+        }}
+      }}
     </style>
-    \'\'\'
+    <div class="pd-layout">
+      <div class="pd-img">
+        <img src="{found["image"]}" alt="{found["name"]}">
+      </div>
+      <div class="pd-info">
+        <div class="pd-category">{found.get("category", "")}</div>
+        <h1 class="pd-title">{found["name"]}</h1>
+        {rating_html}
+        <div class="pd-divider"></div>
+        <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);">{found.get("hook", "")}</p>
+        {info_html}
+        <div class="pd-price-note">💡 Check Amazon for the current price — updates in real time</div>
+        {amazon_btn}
+        {date_html}
+      </div>
+    </div>
+    """
 
     return render_page(
-        title=f"{shorten_product_name(found[\'name\'], 50)} | UK Reviews – FyboBuybo",
-        description=f"{found.get(\'info\', \'\')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
+        title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
+        description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
         heading="",
         subtitle="",
         products=None,
@@ -2836,14 +2937,13 @@ def product_detail(product_slug):
         today_formatted=today_formatted,
         content=content_html
     )
-'''
+
 
 POSTS_PER_PAGE = 8
 
+
 def load_blog_posts(page=1):
-    posts = [
-        {**v, "slug": k} for k, v in BLOG_POSTS.items()
-    ]
+    posts = [{**v, "slug": k} for k, v in BLOG_POSTS.items()]
     posts.sort(key=lambda x: x.get("date", "1900-01-01"), reverse=True)
     start = (page - 1) * POSTS_PER_PAGE
     end = start + POSTS_PER_PAGE
@@ -2851,7 +2951,7 @@ def load_blog_posts(page=1):
     total_pages = (len(posts) + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
     return paginated, total_pages, len(posts)
 
-BLOG_LIST = '''
+
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
@@ -2872,16 +2972,15 @@ def blog_list(page=1):
         page_url=page_url
     )
 
-    # Featured post (most recent) + the rest in the grid
     featured = paginated[0] if paginated else None
     grid_posts = paginated[1:] if len(paginated) > 1 else paginated
 
-    blog_content = \'<div class="blog-page-wrap">\'
+    blog_content = '<div class="blog-page-wrap">'
 
-    # ── FEATURED POST ───────────────────────────────────────
+    # Featured post — large editorial card
     if featured:
         feat_date = datetime.datetime.strptime(featured["date"], "%Y-%m-%d").strftime("%d %B %Y")
-        blog_content += f\'\'\'
+        blog_content += f"""
         <a href="/blog/{featured["slug"]}" class="blog-featured">
             <div class="blog-featured-visual">📖</div>
             <div class="blog-featured-content">
@@ -2891,11 +2990,11 @@ def blog_list(page=1):
                 <div class="blog-featured-cta">Read the full guide →</div>
             </div>
         </a>
-        \'\'\'
+        """
 
-    # ── GRID SECTION HEADER ─────────────────────────────────
+    # Remaining posts in card grid
     if grid_posts:
-        blog_content += \'\'\'
+        blog_content += """
         <div class="section-header" style="padding:0;margin:0 0 28px;">
             <div>
                 <div class="section-eyebrow">All articles</div>
@@ -2903,20 +3002,25 @@ def blog_list(page=1):
             </div>
         </div>
         <div class="blog-grid">
-        \'\'\'
+        """
         for post in grid_posts:
             date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-            # Pick an emoji based on title keywords
             emoji = "📝"
             title_lower = post["title"].lower()
-            if any(w in title_lower for w in ["gift", "present", "christmas", "birthday"]): emoji = "🎁"
-            elif any(w in title_lower for w in ["home", "kitchen", "decor"]): emoji = "🏠"
-            elif any(w in title_lower for w in ["beauty", "skincare", "self-care"]): emoji = "✨"
-            elif any(w in title_lower for w in ["tech", "gadget", "electronic"]): emoji = "⚡"
-            elif any(w in title_lower for w in ["book", "read"]): emoji = "📚"
-            elif any(w in title_lower for w in ["yoga", "fitness", "health"]): emoji = "🧘"
+            if any(w in title_lower for w in ["gift", "present", "christmas", "birthday"]):
+                emoji = "🎁"
+            elif any(w in title_lower for w in ["home", "kitchen", "decor"]):
+                emoji = "🏠"
+            elif any(w in title_lower for w in ["beauty", "skincare", "self-care"]):
+                emoji = "✨"
+            elif any(w in title_lower for w in ["tech", "gadget", "electronic"]):
+                emoji = "⚡"
+            elif any(w in title_lower for w in ["book", "read"]):
+                emoji = "📚"
+            elif any(w in title_lower for w in ["yoga", "fitness", "health"]):
+                emoji = "🧘"
 
-            blog_content += f\'\'\'
+            blog_content += f"""
             <a href="/blog/{post["slug"]}" class="blog-card">
                 <div class="blog-card-thumb">{emoji}</div>
                 <div class="blog-card-body">
@@ -2926,30 +3030,30 @@ def blog_list(page=1):
                     <div class="blog-card-link">Read article →</div>
                 </div>
             </a>
-            \'\'\'
-        blog_content += \'</div>\'
+            """
+        blog_content += "</div>"
 
-    blog_content += \'</div>\'
+    blog_content += "</div>"
 
-    # Insert before <!-- PRODUCT GRID -->
-    insert_point = rendered.find(\'<!-- PRODUCT GRID -->\')
+    # Inject before the product grid comment
+    insert_point = rendered.find("<!-- PRODUCT GRID -->")
     if insert_point > -1:
         rendered = rendered[:insert_point] + blog_content + rendered[insert_point:]
     else:
-        rendered = rendered.replace(\'</footer>\', blog_content + \'</footer>\', 1)
+        rendered = rendered.replace("</footer>", blog_content + "</footer>", 1)
 
     if total_pages > 1:
-        pag_html = \'<div class="pagination">\'
+        pag_html = '<div class="pagination">'
         if page > 1:
-            pag_html += f\'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>\'
+            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>'
         if page < total_pages:
-            pag_html += f\'<a href="{url_for("blog_list", page=page+1)}">Next →</a>\'
-        pag_html += \'</div>\'
-        rendered = rendered.replace(\'</body>\', pag_html + \'</body>\')
+            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next →</a>'
+        pag_html += "</div>"
+        rendered = rendered.replace("</body>", pag_html + "</body>")
 
     return rendered
-'''
-BLOG_DETAIL = '''
+
+
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
@@ -2971,13 +3075,13 @@ def blog_detail(slug):
     content_html_body = Template(raw_content).render(slugify=slugify)
     date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
-    content_html = f\'\'\'
+    content_html = f"""
     <div style="max-width:760px;margin:48px auto 0;padding:0 40px;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);margin-bottom:20px;">
             <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
             {date_str} · Gift Guide
         </div>
-        <h1 style="font-family:\'Fraunces\',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:18px;">{post.get("heading", post["title"])}</h1>
+        <h1 style="font-family:'Fraunces',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:18px;">{post.get("heading", post["title"])}</h1>
         <p style="font-size:1.08rem;line-height:1.75;color:var(--muted);margin-bottom:40px;padding-bottom:36px;border-bottom:1px solid var(--divider);">{post.get("description", "")}</p>
     </div>
     <div style="max-width:760px;margin:0 auto;padding:0 40px 80px;">
@@ -2985,12 +3089,7 @@ def blog_detail(slug):
             {content_html_body}
         </div>
     </div>
-    <style>
-    @media(max-width:768px) {{
-        .blog-prose {{ padding:0 !important; }}
-    }}
-    </style>
-    \'\'\'
+    """
 
     return render_page(
         title=post["title"],
@@ -3002,7 +3101,8 @@ def blog_detail(slug):
         article_date=post.get("date", datetime.date.today().isoformat()),
         content=content_html
     )
-'''
+
+
 @app.route("/robots.txt")
 def robots():
     txt = f"""User-agent: *
@@ -3014,6 +3114,7 @@ Crawl-delay: 1
 Sitemap: {SITE_URL}/sitemap.xml
 """
     return Response(txt, mimetype="text/plain")
+
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -3053,15 +3154,16 @@ def sitemap():
     sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     for url_data in sorted(urls):
         url, lastmod, priority, changefreq = url_data
-        sitemap_xml += f'''  <url>
+        sitemap_xml += f"""  <url>
     <loc>{url}</loc>
     <lastmod>{lastmod}</lastmod>
     <changefreq>{changefreq}</changefreq>
     <priority>{priority}</priority>
   </url>
-'''
-    sitemap_xml += '</urlset>'
+"""
+    sitemap_xml += "</urlset>"
     return Response(sitemap_xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
