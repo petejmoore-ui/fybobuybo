@@ -802,7 +802,7 @@ BLOG_POSTS = {
   <h2 id="exemplary" itemprop="headline" style="scroll-margin-top:100px;">1. Exemplary Gardens Thorn Proof Goatskin Gloves — Best Overall</h2>
   <div class='card' style='max-width:600px;margin:40px auto;'>
     <a href='/product/{{ slugify("Exemplary Gardens Thorn Proof Goatskin Gloves") }}'>
-      <img src='https://m.media-amazon.com/images/I/71zKb4QZPSL._AC_SX679_.jpg' 
+      <img src='https://m.media-amazon.com/images/I/91v93eEOP6L._AC_SL1500_.jpg' 
            alt='Exemplary Gardens Thorn Proof Goatskin Gloves - Premium goatskin leather, thorn-proof gauntlet' 
            loading='lazy' 
            style='border-radius:16px;'
@@ -831,7 +831,7 @@ BLOG_POSTS = {
   <a href='/product/{{ slugify("Exemplary Gardens Thorn Proof Goatskin Gloves") }}'>
     <button aria-label='View Exemplary Gardens Thorn Proof Goatskin Gloves product details'>View Details & Buy</button>
   </a>
-  <a href='https://www.amazon.co.uk/Pruning-Goatskin-Leather-Gardening-Gauntlet/dp/B01K119UQW' target='_blank' rel='nofollow sponsored noopener'>
+  <a href='https://amzn.to/4qRJOAs' target='_blank' rel='nofollow sponsored noopener'>
     <button style='background:#ff9900;' aria-label='Buy Exemplary Gardens Thorn Proof Goatskin Gloves on Amazon UK'>View on Amazon</button>
   </a>
 </div>  </div>
