@@ -2566,7 +2566,7 @@ function shorten(n, l=70) {
   for (const s of [',','(']) { if (n.includes(s)) { const x = n.split(s)[0].trim(); if (x.length <= l) return x; } }
   return n.slice(0, l - 1) + '…';
 }
-SEARCH_JS = """
+SEARCH_JS = 
 function showSearch(products, q) {
   countEl.textContent = `${products.length} result${products.length !== 1 ? 's' : ''} for "${q}"`;
   resultsGrid.innerHTML = products.length ? products.map(p => `
@@ -2618,7 +2618,7 @@ function doSearch(q) {
     showSearch(matches, q);
   }, 200);
 }
-"""
+
 
 // ── COOKIE ────────────────────────────────────────────────────
 (function() {
