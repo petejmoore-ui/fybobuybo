@@ -1365,706 +1365,567 @@ def refresh_products(background=False):
     return enriched
 
 """
-FYBOBUYBO REDESIGN — Drop-in replacements for CSS_TEMPLATE and BASE_HTML
-AESTHETIC: "Dark Luxe Editorial" — ink-black base, warm cream accents, champagne gold highlights
-TYPOGRAPHY: Fraunces (editorial serif) + DM Sans (clean modern body)
-VIBE: Like a premium gift magazine, but interactive
+=============================================================================
+FYBOBUYBO — COMPLETE REDESIGN v3
+=============================================================================
+PASTE THIS FILE'S CONTENTS INTO app.py:
+  1. Replace CSS_TEMPLATE (the entire triple-quoted string)
+  2. Replace BASE_HTML (the entire triple-quoted string)
+  3. Replace product_detail function
+  4. Replace blog_list function
+  5. Replace blog_detail function
+
+ALL ISSUES FIXED:
+  ✅ Dark mode — sophisticated charcoal, not harsh black
+  ✅ Mobile hamburger menu with Category/Season/Blog dropdowns
+  ✅ Android viewport fix (no overflow)
+  ✅ Blog homepage — featured post + editorial card grid
+  ✅ Blog cards — mobile padding fixed (no right overflow)
+  ✅ Blog content — full .blog-prose styling applied
+  ✅ Product cards — "View full details" link restored
+  ✅ Section headers — z-index fix (no card overlap)
+  ✅ product_detail — fixed (removed stray blog variables)
+=============================================================================
 """
 
+# ============================================================
+# REPLACE CSS_TEMPLATE WITH THIS:
+# ============================================================
+
 CSS_TEMPLATE = """<style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 :root {
-  /* LIGHT THEME — Warm Cream Editorial */
-  --bg: #f5f0e8;
-  --bg-2: #ede8de;
-  --card: #ffffff;
-  --card-border: rgba(0,0,0,0.06);
-  --accent: #1a1410;
-  --accent-2: #3d3530;
-  --muted: #8a7f72;
-  --highlight: #c49a3c;
-  --highlight-soft: rgba(196,154,60,0.12);
-  --highlight-glow: rgba(196,154,60,0.25);
-  --cta: #1a1410;
-  --cta-text: #f5f0e8;
-  --tag-bg: #f0ebe0;
-  --tag-text: #8a7f72;
-  --nav-bg: rgba(245,240,232,0.95);
-  --border: rgba(0,0,0,0.08);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12), 0 24px 64px rgba(0,0,0,0.14);
-  --price-color: #1a7a40;
-  --divider: rgba(0,0,0,0.07);
-  --input-bg: rgba(255,255,255,0.7);
-  --marquee-bg: #1a1410;
-  --marquee-text: #c49a3c;
+  /* LIGHT — Warm cream editorial */
+  --bg:              #f5f0e8;
+  --bg-2:            #ede8de;
+  --card:            #ffffff;
+  --card-border:     rgba(0,0,0,0.06);
+  --accent:          #1a1410;
+  --accent-2:        #3d3530;
+  --muted:           #8a7f72;
+  --highlight:       #c49a3c;
+  --highlight-soft:  rgba(196,154,60,0.10);
+  --highlight-glow:  rgba(196,154,60,0.22);
+  --cta:             #1a1410;
+  --cta-text:        #f5f0e8;
+  --tag-bg:          #ede8de;
+  --nav-bg:          rgba(245,240,232,0.97);
+  --border:          rgba(0,0,0,0.08);
+  --divider:         rgba(0,0,0,0.07);
+  --shadow-sm:       0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-md:       0 4px 16px rgba(0,0,0,0.07), 0 12px 40px rgba(0,0,0,0.09);
+  --shadow-lg:       0 8px 32px rgba(0,0,0,0.10), 0 24px 64px rgba(0,0,0,0.12);
+  --input-bg:        rgba(255,255,255,0.80);
+  --marquee-bg:      #1a1410;
+  --marquee-text:    #c49a3c;
+  --mobile-menu-bg:  #faf7f2;
 }
 
+/* DARK — Sophisticated charcoal (NOT harsh black) */
 .dark {
-  --bg: #0e0c09;
-  --bg-2: #161310;
-  --card: #1c1915;
-  --card-border: rgba(255,255,255,0.06);
-  --accent: #f0ebe0;
-  --accent-2: #c8bfb0;
-  --muted: #6e6358;
-  --highlight: #d4aa50;
-  --highlight-soft: rgba(212,170,80,0.1);
-  --highlight-glow: rgba(212,170,80,0.2);
-  --cta: #d4aa50;
-  --cta-text: #0e0c09;
-  --tag-bg: rgba(255,255,255,0.06);
-  --tag-text: #8a7f72;
-  --nav-bg: rgba(14,12,9,0.95);
-  --border: rgba(255,255,255,0.07);
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.5), 0 12px 40px rgba(0,0,0,0.6);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6), 0 24px 64px rgba(0,0,0,0.7);
-  --price-color: #5ab87a;
-  --divider: rgba(255,255,255,0.06);
-  --input-bg: rgba(255,255,255,0.04);
-  --marquee-bg: #d4aa50;
-  --marquee-text: #0e0c09;
+  --bg:              #18150f;
+  --bg-2:            #211d16;
+  --card:            #272218;
+  --card-border:     rgba(255,255,255,0.07);
+  --accent:          #f0ebe0;
+  --accent-2:        #ccc3b2;
+  --muted:           #8a7d6e;
+  --highlight:       #d4aa50;
+  --highlight-soft:  rgba(212,170,80,0.10);
+  --highlight-glow:  rgba(212,170,80,0.20);
+  --cta:             #d4aa50;
+  --cta-text:        #18150f;
+  --tag-bg:          rgba(255,255,255,0.055);
+  --nav-bg:          rgba(24,21,15,0.97);
+  --border:          rgba(255,255,255,0.08);
+  --divider:         rgba(255,255,255,0.065);
+  --shadow-sm:       0 1px 3px rgba(0,0,0,0.50), 0 4px 12px rgba(0,0,0,0.55);
+  --shadow-md:       0 4px 16px rgba(0,0,0,0.55), 0 12px 40px rgba(0,0,0,0.65);
+  --shadow-lg:       0 8px 32px rgba(0,0,0,0.65), 0 24px 64px rgba(0,0,0,0.75);
+  --input-bg:        rgba(255,255,255,0.05);
+  --marquee-bg:      #d4aa50;
+  --marquee-text:    #18150f;
+  --mobile-menu-bg:  #211d16;
 }
 
+/* ============================================================
+   RESET + BASE
+   ============================================================ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--bg);
   color: var(--accent);
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background 0.35s ease, color 0.35s ease;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  min-height: 100vh;
 }
+a { text-decoration: none; }
 
 /* ============================================================
-   SCROLLING MARQUEE RIBBON
+   MARQUEE RIBBON
    ============================================================ */
 .marquee-ribbon {
   background: var(--marquee-bg);
   color: var(--marquee-text);
-  padding: 10px 0;
+  padding: 9px 0;
   overflow: hidden;
   white-space: nowrap;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-.marquee-inner {
-  display: inline-block;
-  animation: marquee 32s linear infinite;
-}
-.marquee-inner span { margin: 0 48px; }
-.marquee-inner .dot { color: var(--marquee-text); opacity: 0.4; }
+.marquee-inner { display: inline-block; animation: marquee 38s linear infinite; }
+.marquee-inner span { margin: 0 36px; }
+.marquee-inner .dot { opacity: 0.35; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ============================================================
-   NAVIGATION
+   NAVIGATION — DESKTOP
    ============================================================ */
 .site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky; top: 0; z-index: 200;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
   padding: 0 40px;
 }
 .nav-inner {
-  max-width: 1500px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  height: 68px;
-  gap: 32px;
+  max-width: 1500px; margin: 0 auto;
+  display: flex; align-items: center; height: 68px; gap: 20px;
 }
 .nav-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--accent);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-  flex-shrink: 0;
+  font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--accent); letter-spacing: -0.02em; flex-shrink: 0;
 }
 .nav-logo span { color: var(--highlight); }
-.nav-links {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  flex: 1;
-}
+.nav-links { display: flex; gap: 2px; align-items: center; flex: 1; }
 .nav-links a {
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 6px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
+  color: var(--muted); font-size: 0.875rem; font-weight: 500;
+  padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s;
 }
 .nav-links a:hover { color: var(--accent); background: var(--tag-bg); }
 
+/* Desktop dropdowns */
 .nav-dropdown { position: relative; }
 .nav-dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 500;
-  padding: 6px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  background: none;
-  border: none;
+  display: flex; align-items: center; gap: 5px; color: var(--muted);
+  font-size: 0.875rem; font-weight: 500; padding: 6px 12px; border-radius: 6px;
+  cursor: pointer; background: none; border: none; font-family: inherit;
   transition: color 0.2s, background 0.2s;
-  font-family: inherit;
 }
 .nav-dropdown-toggle:hover, .nav-dropdown.open .nav-dropdown-toggle {
-  color: var(--accent);
-  background: var(--tag-bg);
+  color: var(--accent); background: var(--tag-bg);
 }
-.nav-dropdown-toggle svg {
-  width: 12px; height: 12px;
-  stroke: currentColor;
-  transition: transform 0.25s;
-}
+.nav-dropdown-toggle svg { width: 11px; height: 11px; stroke: currentColor; transition: transform 0.25s; }
 .nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
 .nav-dropdown-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 8px;
-  min-width: 210px;
-  max-height: 380px;
-  overflow-y: auto;
-  box-shadow: var(--shadow-lg);
-  z-index: 200;
+  display: none; position: absolute; top: calc(100% + 8px); left: 0;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 6px; min-width: 200px; max-height: 360px; overflow-y: auto;
+  box-shadow: var(--shadow-lg); z-index: 300;
 }
-.nav-dropdown.open .nav-dropdown-menu { display: block; animation: dropIn 0.18s ease; }
-@keyframes dropIn { from { opacity:0; transform: translateY(-6px); } to { opacity:1; transform: translateY(0); } }
+.nav-dropdown.open .nav-dropdown-menu { display: block; animation: dropIn 0.16s ease; }
+@keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
 .nav-dropdown-menu a {
-  display: block;
-  padding: 9px 14px;
-  border-radius: 8px;
-  color: var(--accent-2);
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: all 0.15s;
+  display: block; padding: 8px 12px; border-radius: 7px;
+  color: var(--accent-2); font-size: 0.86rem; transition: all 0.15s;
 }
 .nav-dropdown-menu a:hover { background: var(--highlight-soft); color: var(--highlight); }
 
-.nav-search {
-  position: relative;
-  flex-shrink: 0;
-}
+/* Search */
+.nav-search { position: relative; flex-shrink: 0; }
 .nav-search input {
-  background: var(--input-bg);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 8px 18px 8px 38px;
-  font-size: 0.85rem;
-  font-family: inherit;
-  color: var(--accent);
-  width: 220px;
-  transition: all 0.25s;
-  outline: none;
+  background: var(--input-bg); border: 1px solid var(--border); border-radius: 24px;
+  padding: 8px 16px 8px 36px; font-size: 0.84rem; font-family: inherit;
+  color: var(--accent); width: 200px; transition: all 0.25s; outline: none;
 }
-.nav-search input:focus { width: 280px; border-color: var(--highlight); box-shadow: 0 0 0 3px var(--highlight-glow); }
+.nav-search input:focus { width: 260px; border-color: var(--highlight); box-shadow: 0 0 0 3px var(--highlight-glow); }
 .nav-search input::placeholder { color: var(--muted); }
 .nav-search-icon {
-  position: absolute;
-  left: 12px; top: 50%; transform: translateY(-50%);
-  width: 15px; height: 15px;
-  stroke: var(--muted);
-  pointer-events: none;
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  width: 14px; height: 14px; stroke: var(--muted); pointer-events: none;
 }
-.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 #theme-toggle {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--tag-bg);
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-  color: var(--accent);
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--tag-bg); cursor: pointer; display: flex; align-items: center;
+  justify-content: center; transition: all 0.2s;
 }
 #theme-toggle:hover { background: var(--highlight-soft); border-color: var(--highlight); }
-#theme-toggle svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+#theme-toggle svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; }
+
+/* HAMBURGER — mobile only */
+#nav-hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  padding: 8px; border: none; background: none;
+}
+#nav-hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--accent);
+  border-radius: 2px; transition: all 0.28s ease;
+}
+#nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ============================================================
-   HERO SECTION
+   MOBILE MENU DRAWER
+   ============================================================ */
+#mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--mobile-menu-bg); z-index: 190; overflow-y: auto;
+  padding: 84px 24px 40px; flex-direction: column;
+}
+#mobile-menu.open { display: flex; animation: slideMenuIn 0.28s cubic-bezier(0.16,1,0.3,1); }
+@keyframes slideMenuIn { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
+
+.mobile-nav-link {
+  font-family: 'Fraunces', serif; font-size: 1.55rem; font-weight: 700;
+  color: var(--accent); padding: 14px 0;
+  border-bottom: 1px solid var(--divider); display: block; transition: color 0.2s;
+}
+.mobile-nav-link:hover { color: var(--highlight); }
+
+.mobile-nav-section-title {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--highlight); margin: 28px 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.mobile-nav-section-title::before {
+  content: ''; display: block; width: 16px; height: 1px; background: var(--highlight);
+}
+.mobile-nav-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.mobile-nav-pill {
+  background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+  padding: 7px 16px; font-size: 0.84rem; font-weight: 500; color: var(--accent-2);
+  transition: all 0.2s;
+}
+.mobile-nav-pill:hover { background: var(--highlight-soft); border-color: var(--highlight); color: var(--highlight); }
+.mobile-search-wrap { margin-top: 32px; }
+.mobile-search-wrap input {
+  width: 100%; background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 13px 18px; font-size: 1rem; font-family: inherit;
+  color: var(--accent); outline: none; transition: border-color 0.2s;
+}
+.mobile-search-wrap input:focus { border-color: var(--highlight); }
+.mobile-search-wrap input::placeholder { color: var(--muted); }
+
+/* ============================================================
+   HERO
    ============================================================ */
 .hero {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 80px 40px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  min-height: 52vh;
+  max-width: 1500px; margin: 0 auto; padding: 72px 40px 36px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
 }
-.hero-text {}
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--highlight);
-  margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--highlight); margin-bottom: 20px;
 }
-.hero-eyebrow::before {
-  content: '';
-  display: block;
-  width: 28px; height: 1px;
-  background: var(--highlight);
-}
+.hero-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--highlight); }
 .hero h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3rem, 5vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  color: var(--accent);
-  margin-bottom: 28px;
-  animation: heroReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 900; line-height: 1.0; letter-spacing: -0.03em; color: var(--accent);
+  margin-bottom: 22px; animation: heroReveal 0.9s cubic-bezier(0.16,1,0.3,1) both;
 }
-.hero h1 em {
-  font-style: italic;
-  color: var(--highlight);
-}
-@keyframes heroReveal {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.hero h1 em { font-style: italic; color: var(--highlight); }
+@keyframes heroReveal { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 .hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.75;
-  color: var(--muted);
-  max-width: 480px;
-  margin-bottom: 40px;
-  animation: heroReveal 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  font-size: 1.05rem; line-height: 1.75; color: var(--muted);
+  max-width: 460px; margin-bottom: 28px;
+  animation: heroReveal 0.9s 0.1s cubic-bezier(0.16,1,0.3,1) both;
 }
 .hero-badges {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  animation: heroReveal 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  display: flex; gap: 8px; flex-wrap: wrap;
+  animation: heroReveal 0.9s 0.18s cubic-bezier(0.16,1,0.3,1) both;
 }
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--tag-bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 6px 16px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--muted);
+  display: inline-flex; align-items: center; gap: 5px; background: var(--tag-bg);
+  border: 1px solid var(--border); border-radius: 20px; padding: 6px 14px;
+  font-size: 0.8rem; font-weight: 500; color: var(--muted);
 }
-.hero-badge .icon { font-size: 0.9rem; }
-.hero-visual {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  animation: heroReveal 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
+.hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .hero-img-card {
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 3/4;
-  background: var(--bg-2);
-  box-shadow: var(--shadow-md);
+  border-radius: 16px; overflow: hidden; aspect-ratio: 3/4;
+  background: var(--bg-2); box-shadow: var(--shadow-md);
 }
-.hero-img-card:nth-child(2) { margin-top: 32px; }
-.hero-img-card img { width: 100%; height: 100%; object-fit: cover; }
+.hero-img-card:nth-child(2) { margin-top: 28px; }
+.hero-img-card img { width:100%; height:100%; object-fit:cover; }
 
 /* ============================================================
    AFFILIATE BANNER
    ============================================================ */
-.affiliate-banner {
-  max-width: 1500px;
-  margin: 0 auto 0;
-  padding: 0 40px;
-}
+.affiliate-banner { max-width: 1500px; margin: 0 auto; padding: 0 40px 16px; }
 .affiliate-inner {
-  background: var(--highlight-soft);
-  border: 1px solid rgba(196,154,60,0.2);
-  border-radius: 10px;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.83rem;
-  color: var(--muted);
+  background: var(--highlight-soft); border: 1px solid rgba(196,154,60,0.18);
+  border-radius: 10px; padding: 11px 18px; display: flex; align-items: center;
+  gap: 10px; font-size: 0.82rem; color: var(--muted);
 }
 .affiliate-inner strong { color: var(--accent); }
 .affiliate-inner a { color: var(--highlight); font-weight: 500; }
 
 /* ============================================================
-   SECTION HEADERS
+   SECTION HEADERS — z-index fix (cards no longer overlap)
    ============================================================ */
 .section-header {
-  max-width: 1500px;
-  margin: 72px auto 0;
-  padding: 0 40px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
+  max-width: 1500px; margin: 60px auto 0; padding: 0 40px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
+  position: relative; z-index: 2;        /* ← KEY FIX */
 }
-.section-title-group {}
 .section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--highlight);
-  margin-bottom: 8px;
+  display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--highlight); margin-bottom: 8px;
 }
-.section-eyebrow::before {
-  content: '';
-  display: block;
-  width: 20px; height: 1px;
-  background: var(--highlight);
-}
+.section-eyebrow::before { content:''; display:block; width:18px; height:1px; background:var(--highlight); }
 .section-title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  color: var(--accent);
+  font-family: 'Fraunces', serif; font-size: clamp(1.7rem, 3vw, 2.6rem);
+  font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; color: var(--accent);
 }
 .section-title em { font-style: italic; color: var(--highlight); }
-.section-see-all {
-  color: var(--highlight);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.section-see-all:hover { border-color: var(--highlight); color: var(--highlight); }
 
 /* ============================================================
-   PRODUCT GRID
-   ============================================================ */
-.grid {
-  max-width: 1500px;
-  margin: 32px auto 0;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 24px;
-}
-
-/* ============================================================
-   PRODUCT CARD — REDESIGNED
-   ============================================================ */
-.card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
-  box-shadow: var(--shadow-sm);
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-}
-
-.card-image-wrap {
-  position: relative;
-  background: var(--bg-2);
-  overflow: hidden;
-  aspect-ratio: 1 / 1;
-}
-.card-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 20px;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.card:hover .card-image-wrap img { transform: scale(1.08); }
-
-.card-category-pill {
-  position: absolute;
-  top: 14px; left: 14px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.dark .card-category-pill { background: rgba(30,25,20,0.88); }
-
-.card-body {
-  padding: 22px 22px 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 0;
-}
-.card-name {
-  font-family: 'Fraunces', serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--accent);
-  text-decoration: none;
-  display: block;
-  margin-bottom: 10px;
-  transition: color 0.2s;
-}
-.card-name:hover { color: var(--highlight); }
-
-.card-hook {
-  font-size: 0.875rem;
-  line-height: 1.65;
-  color: var(--muted);
-  margin-bottom: 16px;
-  flex: 1;
-}
-.card-hook b { color: var(--accent-2); font-weight: 600; }
-
-.card-divider {
-  height: 1px;
-  background: var(--divider);
-  margin: 0 0 16px;
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-.card-rating {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-.card-rating .stars { color: #f5a623; letter-spacing: -0.05em; margin-right: 4px; }
-.card-date {
-  font-size: 0.75rem;
-  color: var(--muted);
-  opacity: 0.7;
-}
-
-.card-cta {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.btn-amazon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--cta);
-  color: var(--cta-text);
-  padding: 13px 20px;
-  border-radius: 10px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s;
-  letter-spacing: 0.01em;
-}
-.btn-amazon:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
-.btn-amazon .amazon-logo {
-  font-size: 1rem;
-  font-weight: 800;
-  font-style: italic;
-}
-.btn-details {
-  display: block;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 4px;
-  transition: color 0.2s;
-}
-.btn-details:hover { color: var(--highlight); }
-
-/* ============================================================
-   SIMILAR PRODUCTS ROW
-   ============================================================ */
-.similar-section {
-  max-width: 1500px;
-  margin: 80px auto 0;
-  padding: 0 40px;
-}
-.similar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 32px;
-}
-.similar-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: block;
-}
-.similar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.similar-card-img {
-  aspect-ratio: 1;
-  background: var(--bg-2);
-  overflow: hidden;
-}
-.similar-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 14px; }
-.similar-card-name {
-  font-family: 'Fraunces', serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--accent);
-  line-height: 1.35;
-  padding: 14px 14px 14px;
-}
-
-/* ============================================================
-   BLOG CARDS
-   ============================================================ */
-.blog-grid {
-  max-width: 1500px;
-  margin: 32px auto 0;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;
-}
-.blog-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 32px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.blog-card-date {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--highlight);
-}
-.blog-card-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-  color: var(--accent);
-}
-.blog-card-desc { font-size: 0.9rem; line-height: 1.65; color: var(--muted); }
-.blog-card-link {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--highlight);
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: auto;
-}
-
-/* ============================================================
-   CATEGORY PILLS ROW
+   CATEGORY RAIL
    ============================================================ */
 .category-rail {
-  max-width: 1500px;
-  margin: 56px auto 0;
-  padding: 0 40px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  max-width: 1500px; margin: 44px auto 0; padding: 0 40px;
+  display: flex; gap: 8px; flex-wrap: wrap;
 }
 .category-pill {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 10px 22px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--accent-2);
-  text-decoration: none;
-  transition: all 0.2s;
-  white-space: nowrap;
+  background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+  padding: 9px 20px; font-size: 0.83rem; font-weight: 500; color: var(--accent-2);
+  transition: all 0.2s; white-space: nowrap;
 }
-.category-pill:hover {
-  background: var(--highlight-soft);
-  border-color: var(--highlight);
-  color: var(--highlight);
+.category-pill:hover { background: var(--highlight-soft); border-color: var(--highlight); color: var(--highlight); }
+
+/* ============================================================
+   PRODUCT GRID + CARD
+   ============================================================ */
+.grid {
+  max-width: 1500px; margin: 28px auto 0; padding: 0 40px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px;
+}
+.card {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 20px;
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm); position: relative;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.card-image-wrap {
+  position: relative; background: var(--bg-2); overflow: hidden; aspect-ratio: 1;
+}
+.card-image-wrap img {
+  width:100%; height:100%; object-fit:contain; padding:20px;
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.card:hover .card-image-wrap img { transform: scale(1.07); }
+.card-category-pill {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+  border-radius: 20px; padding: 4px 11px; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.dark .card-category-pill { background: rgba(32,26,18,0.88); }
+.card-body {
+  padding: 20px 20px 18px; display: flex; flex-direction: column; flex: 1;
+}
+.card-name {
+  font-family: 'Fraunces', serif; font-size: 1.02rem; font-weight: 700;
+  line-height: 1.3; letter-spacing: -0.01em; color: var(--accent);
+  display: block; margin-bottom: 9px; transition: color 0.2s;
+}
+.card-name:hover { color: var(--highlight); }
+.card-hook { font-size: 0.86rem; line-height: 1.65; color: var(--muted); margin-bottom: 14px; flex: 1; }
+.card-hook b { color: var(--accent-2); font-weight: 600; }
+.card-divider { height: 1px; background: var(--divider); margin: 0 0 14px; }
+.card-meta {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.card-rating { font-size: 0.79rem; color: var(--muted); }
+.card-rating .stars { color: #f5a623; letter-spacing: -0.04em; margin-right: 3px; }
+.card-date { font-size: 0.74rem; color: var(--muted); opacity: 0.65; }
+.card-cta { display: flex; flex-direction: column; gap: 7px; }
+.btn-amazon {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: var(--cta); color: var(--cta-text); padding: 12px 18px; border-radius: 10px;
+  font-size: 0.87rem; font-weight: 600; transition: all 0.2s;
+}
+.btn-amazon:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-amazon .amazon-logo { font-size: 0.98rem; font-weight: 800; font-style: italic; }
+/* RESTORED: View full details link */
+.btn-details {
+  display: block; text-align: center; font-size: 0.79rem; color: var(--muted);
+  padding: 8px; border: 1px solid var(--divider); border-radius: 8px;
+  transition: all 0.2s;
+}
+.btn-details:hover { color: var(--highlight); border-color: var(--highlight); background: var(--highlight-soft); }
+
+/* ============================================================
+   BLOG HOMEPAGE — EDITORIAL
+   ============================================================ */
+.blog-page-wrap { max-width: 1500px; margin: 44px auto 0; padding: 0 40px; }
+
+/* Featured post — big split card */
+.blog-featured {
+  display: grid; grid-template-columns: 1.35fr 1fr; border-radius: 24px;
+  overflow: hidden; background: var(--card); border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md); margin-bottom: 52px;
+  transition: box-shadow 0.3s;
+}
+.blog-featured:hover { box-shadow: var(--shadow-lg); }
+.blog-featured-visual {
+  background: linear-gradient(135deg, var(--bg-2) 0%, var(--highlight-soft) 100%);
+  min-height: 360px; display: flex; align-items: center; justify-content: center;
+  font-size: 5rem; overflow: hidden; position: relative;
+}
+.blog-featured-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 60%, var(--highlight-soft));
+}
+.blog-featured-content {
+  padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+}
+.blog-featured-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--highlight);
+}
+.blog-featured-eyebrow::before { content:''; display:block; width:16px; height:1px; background:var(--highlight); }
+.blog-featured-title {
+  font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-weight: 900; line-height: 1.15; letter-spacing: -0.025em; color: var(--accent);
+}
+.blog-featured-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
+.blog-featured-cta {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem;
+  font-weight: 700; color: var(--highlight); padding-bottom: 2px;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s; width: fit-content;
+}
+.blog-featured-cta:hover { border-color: var(--highlight); }
+
+/* Blog grid cards */
+.blog-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 22px;
+}
+.blog-card {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 20px;
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+  box-shadow: var(--shadow-sm);
+}
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.blog-card-thumb {
+  height: 172px; background: linear-gradient(135deg, var(--bg-2), var(--highlight-soft));
+  display: flex; align-items: center; justify-content: center; font-size: 2.8rem; overflow: hidden;
+}
+.blog-card-body { padding: 22px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+.blog-card-meta {
+  display: flex; align-items: center; gap: 7px; font-size: 0.69rem;
+  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight);
+}
+.blog-card-meta::before { content:''; display:block; width:12px; height:1px; background:var(--highlight); }
+.blog-card-title {
+  font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 700;
+  line-height: 1.3; letter-spacing: -0.012em; color: var(--accent);
+}
+.blog-card-desc { font-size: 0.86rem; line-height: 1.65; color: var(--muted); flex: 1; }
+.blog-card-link {
+  font-size: 0.79rem; font-weight: 700; color: var(--highlight);
+  display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;
+}
+
+/* ============================================================
+   BLOG CONTENT — PROSE STYLING
+   ============================================================ */
+.blog-prose { font-size: 1.02rem; line-height: 1.85; color: var(--accent-2); }
+.blog-prose h2 {
+  font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700;
+  color: var(--accent); margin: 52px 0 16px; letter-spacing: -0.02em;
+  line-height: 1.2; padding-bottom: 14px; border-bottom: 1px solid var(--divider);
+}
+.blog-prose h3 {
+  font-family: 'Fraunces', serif; font-size: 1.28rem; font-weight: 700;
+  color: var(--accent); margin: 36px 0 12px;
+}
+.blog-prose h4 {
+  font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700;
+  color: var(--accent); margin: 28px 0 10px;
+}
+.blog-prose p { margin-bottom: 22px; }
+.blog-prose a { color: var(--highlight); font-weight: 500; border-bottom: 1px solid var(--highlight-soft); transition: border-color 0.2s; }
+.blog-prose a:hover { border-color: var(--highlight); }
+.blog-prose strong { color: var(--accent); font-weight: 600; }
+.blog-prose ul, .blog-prose ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+.blog-prose li {
+  font-size: 1rem; line-height: 1.75; color: var(--accent-2); margin-bottom: 10px;
+  padding-left: 22px; position: relative;
+}
+.blog-prose ul li::before {
+  content: ''; position: absolute; left: 0; top: 11px;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--highlight);
+}
+.blog-prose ol { counter-reset: blog-list; }
+.blog-prose ol li { counter-increment: blog-list; }
+.blog-prose ol li::before {
+  content: counter(blog-list); position: absolute; left: 0; top: 3px;
+  font-size: 0.76rem; font-weight: 700; color: var(--highlight);
+}
+.blog-prose img { width:100%; border-radius:16px; margin:36px 0; box-shadow:var(--shadow-md); display:block; }
+.blog-prose blockquote {
+  border-left: 3px solid var(--highlight); margin: 36px 0; padding: 18px 24px;
+  background: var(--highlight-soft); border-radius: 0 14px 14px 0;
+  font-style: italic; color: var(--muted); font-size: 1.06rem;
+}
+.blog-prose table { width:100%; border-collapse:collapse; margin:32px 0; font-size:0.95rem; }
+.blog-prose th {
+  background: var(--bg-2); padding: 12px 16px; text-align: left;
+  font-weight: 700; color: var(--accent); border-bottom: 2px solid var(--border);
+  font-family: 'Fraunces', serif;
+}
+.blog-prose td { padding: 12px 16px; border-bottom: 1px solid var(--divider); color: var(--accent-2); }
+.blog-prose tr:last-child td { border-bottom: none; }
+
+/* ============================================================
+   SIMILAR PRODUCTS
+   ============================================================ */
+.similar-section { max-width: 1500px; margin: 68px auto 0; padding: 0 40px; }
+.similar-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; margin-top: 28px;
+}
+.similar-card {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 14px;
+  overflow: hidden; display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease; box-shadow: var(--shadow-sm);
+}
+.similar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.similar-card-img { aspect-ratio: 1; background: var(--bg-2); overflow: hidden; }
+.similar-card-img img { width:100%; height:100%; object-fit:contain; padding:12px; }
+.similar-card-name {
+  font-family: 'Fraunces', serif; font-size: 0.86rem; font-weight: 600;
+  color: var(--accent); line-height: 1.35; padding: 12px;
 }
 
 /* ============================================================
    PAGINATION
    ============================================================ */
 .pagination {
-  max-width: 1500px;
-  margin: 64px auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+  max-width: 1500px; margin: 52px auto; padding: 0 40px;
+  display: flex; justify-content: center; gap: 10px;
 }
 .pagination a {
-  background: var(--card);
-  border: 1px solid var(--border);
-  color: var(--accent);
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
+  background: var(--card); border: 1px solid var(--border); color: var(--accent);
+  padding: 11px 26px; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
   transition: all 0.2s;
 }
 .pagination a:hover { background: var(--cta); color: var(--cta-text); border-color: var(--cta); }
@@ -2072,210 +1933,164 @@ body {
 /* ============================================================
    FOOTER
    ============================================================ */
-.site-footer {
-  margin-top: 100px;
-  border-top: 1px solid var(--border);
-  background: var(--bg-2);
-}
-.footer-inner {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 60px 40px 40px;
-}
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 48px;
-}
-.footer-brand {}
+.site-footer { margin-top: 96px; border-top: 1px solid var(--border); background: var(--bg-2); }
+.footer-inner { max-width: 1500px; margin: 0 auto; padding: 52px 40px 36px; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
 .footer-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  font-family: 'Fraunces', serif; font-size: 1.65rem; font-weight: 700;
+  color: var(--accent); letter-spacing: -0.02em; margin-bottom: 12px;
 }
 .footer-logo span { color: var(--highlight); }
-.footer-desc { font-size: 0.875rem; line-height: 1.75; color: var(--muted); max-width: 320px; }
+.footer-desc { font-size: 0.875rem; line-height: 1.75; color: var(--muted); max-width: 300px; }
 .footer-col-title {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 18px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
 }
 .footer-col a {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--muted);
-  text-decoration: none;
-  margin-bottom: 10px;
-  transition: color 0.2s;
+  display: block; font-size: 0.875rem; color: var(--muted);
+  margin-bottom: 9px; transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--highlight); }
 .footer-bottom {
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+  padding-top: 24px; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
-.footer-legal { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
-.footer-amazon { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+.footer-legal, .footer-amazon { font-size: 0.76rem; color: var(--muted); line-height: 1.6; }
+.footer-amazon { font-style: italic; }
 
 /* ============================================================
    SEARCH OVERLAY
    ============================================================ */
 #search-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(6px);
-  z-index: 500;
-  padding: 80px 40px 40px;
-  overflow-y: auto;
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px); z-index: 500; padding: 80px 24px 40px; overflow-y: auto;
 }
-#search-overlay.open { display: block; animation: fadeIn 0.2s ease; }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+#search-overlay.open { display: block; animation: fadeOverlay 0.2s ease; }
+@keyframes fadeOverlay { from { opacity:0; } to { opacity:1; } }
 .search-modal-box {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--bg);
-  border-radius: 24px;
-  padding: 40px;
-  position: relative;
+  max-width: 1100px; margin: 0 auto; background: var(--bg);
+  border-radius: 24px; padding: 36px; position: relative;
 }
-.search-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-.search-modal-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent);
-}
+.search-modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.search-modal-title { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; color: var(--accent); }
 .search-close-btn {
-  background: var(--tag-bg);
-  border: 1px solid var(--border);
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.3rem;
-  color: var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
+  background: var(--tag-bg); border: 1px solid var(--border); width: 38px; height: 38px;
+  border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: var(--accent);
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
 }
 .search-close-btn:hover { background: var(--highlight-soft); }
-.search-count { font-size: 0.875rem; color: var(--muted); margin-bottom: 28px; }
-.search-results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.search-count { font-size: 0.86rem; color: var(--muted); margin-bottom: 24px; }
+.search-results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
 
 /* ============================================================
    COOKIE BANNER
    ============================================================ */
 #cookie-bar {
-  display: none;
-  position: fixed;
-  bottom: 24px; left: 50%; transform: translateX(-50%);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px 28px;
-  box-shadow: var(--shadow-lg);
-  z-index: 1000;
-  max-width: 620px;
-  width: calc(100% - 48px);
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 18px 24px; box-shadow: var(--shadow-lg); z-index: 1000;
+  max-width: 600px; width: calc(100% - 32px); align-items: center; gap: 18px; flex-wrap: wrap;
 }
-#cookie-bar.visible { display: flex; }
+#cookie-bar.visible { display: flex; animation: cookieSlide 0.35s cubic-bezier(0.16,1,0.3,1); }
 #cookie-bar.hidden { display: none !important; }
-@keyframes slideUp { from { opacity:0; transform: translateX(-50%) translateY(20px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
-.cookie-text { flex: 1; min-width: 200px; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+@keyframes cookieSlide { from { opacity:0; transform:translateX(-50%) translateY(18px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+.cookie-text { flex: 1; min-width: 180px; font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
 .cookie-text a { color: var(--highlight); }
-.cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
 .btn-cookie-accept {
-  background: var(--cta); color: var(--cta-text);
-  border: none; border-radius: 8px; padding: 9px 20px;
-  font-size: 0.84rem; font-weight: 600; cursor: pointer; font-family: inherit;
-  transition: opacity 0.2s;
+  background: var(--cta); color: var(--cta-text); border: none; border-radius: 8px;
+  padding: 9px 18px; font-size: 0.83rem; font-weight: 600; cursor: pointer; font-family: inherit;
 }
 .btn-cookie-accept:hover { opacity: 0.85; }
 .btn-cookie-essential {
-  background: none; color: var(--muted);
-  border: 1px solid var(--border); border-radius: 8px; padding: 9px 16px;
-  font-size: 0.84rem; font-weight: 500; cursor: pointer; font-family: inherit;
-  transition: all 0.2s;
+  background: none; color: var(--muted); border: 1px solid var(--border);
+  border-radius: 8px; padding: 9px 14px; font-size: 0.83rem; font-weight: 500;
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
 }
 .btn-cookie-essential:hover { border-color: var(--highlight); color: var(--highlight); }
 
 /* ============================================================
-   ARTICLE / BLOG CONTENT
-   ============================================================ */
-.prose {
-  max-width: 760px;
-  margin: 40px auto;
-  padding: 0 40px;
-  color: var(--accent-2);
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-.prose h2 { font-family: 'Fraunces', serif; font-size: 1.7rem; color: var(--accent); margin: 48px 0 16px; letter-spacing: -0.02em; }
-.prose h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--accent); margin: 32px 0 12px; }
-.prose p { margin-bottom: 20px; }
-.prose a { color: var(--highlight); }
-.prose ul { margin: 0 0 20px 24px; }
-.prose li { margin-bottom: 8px; }
-
-/* ============================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
    ============================================================ */
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; padding: 60px 32px 32px; }
+  .hero { grid-template-columns: 1fr; padding: 52px 32px 28px; }
   .hero-visual { display: none; }
   .footer-top { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 768px) {
-  .site-nav { padding: 0 20px; }
-  .nav-inner { height: 60px; gap: 16px; }
-  .nav-links { display: none; }
-  .hero { padding: 40px 20px 24px; min-height: auto; }
-  .hero h1 { font-size: 2.4rem; }
-  .grid, .blog-grid, .similar-grid, .category-rail { padding: 0 20px; }
-  .affiliate-banner, .section-header, .similar-section, .pagination { padding-left: 20px; padding-right: 20px; }
-  .footer-inner { padding: 40px 20px; }
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
-  .nav-search input { width: 160px; }
-  .nav-search input:focus { width: 200px; }
+  .blog-featured { grid-template-columns: 1fr; }
+  .blog-featured-visual { min-height: 220px; }
 }
 
 /* ============================================================
-   UTILITY
+   RESPONSIVE — MOBILE (≤768px)
+   FIX: everything fits within screen width, no horizontal scroll
    ============================================================ */
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }
-a { text-decoration: none; }
-::-webkit-scrollbar { width: 6px; }
+@media (max-width: 768px) {
+  /* Nav */
+  .site-nav { padding: 0 16px; }
+  .nav-inner { height: 58px; gap: 10px; }
+  .nav-links, .nav-search { display: none; }
+  #nav-hamburger { display: flex; }
+
+  /* Hero */
+  .hero { padding: 28px 16px 16px; }
+  .hero h1 { font-size: 2.1rem; }
+  .hero-subtitle { font-size: 0.94rem; }
+  .hero-badges { gap: 6px; }
+
+  /* All full-width containers — consistent 16px gutter */
+  .grid,
+  .blog-grid,
+  .similar-grid,
+  .category-rail,
+  .affiliate-banner,
+  .section-header,
+  .similar-section,
+  .pagination,
+  .blog-page-wrap { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Grid single column */
+  .grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+
+  /* Blog featured */
+  .blog-featured-content { padding: 24px 22px; }
+  .blog-featured-title { font-size: 1.35rem; }
+
+  /* Footer */
+  .footer-inner { padding: 36px 16px 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  /* Cookie */
+  .cookie-btns { width: 100%; }
+  .btn-cookie-accept, .btn-cookie-essential { flex: 1; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.85rem; }
+  .similar-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-badge { font-size: 0.74rem; padding: 5px 10px; }
+}
+
+/* ============================================================
+   MISC UTILITIES
+   ============================================================ */
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 </style>"""
 
 
+# ============================================================
+# REPLACE BASE_HTML WITH THIS:
+# ============================================================
+
 BASE_HTML = """<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="FyboBuybo">
 
@@ -2287,11 +2102,11 @@ BASE_HTML = """<!DOCTYPE html>
 
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
-<meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
+<meta property="og:type" content="{% if products and products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta property="og:image" content="{% if products and products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 <meta name="google-site-verification" content="googleb2fd2d2e239922f5" />
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
@@ -2310,12 +2125,8 @@ BASE_HTML = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
 
-{% if structured_data %}
-<script type="application/ld+json">{{ structured_data|safe }}</script>
-{% endif %}
-{% if breadcrumb_schema %}
-<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>
-{% endif %}
+{% if structured_data %}<script type="application/ld+json">{{ structured_data|safe }}</script>{% endif %}
+{% if breadcrumb_schema %}<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>{% endif %}
 
 {{ css|safe }}
 </head>
@@ -2325,12 +2136,12 @@ BASE_HTML = """<!DOCTYPE html>
 <div class="marquee-ribbon" aria-hidden="true">
   <div class="marquee-inner">
     {% for i in range(2) %}
-    <span>Curated UK Gifts</span><span class="dot">·</span>
-    <span>Free Amazon Prime Delivery</span><span class="dot">·</span>
-    <span>Updated Daily</span><span class="dot">·</span>
-    <span>Thoughtfully Picked</span><span class="dot">·</span>
-    <span>UK Shoppers Love</span><span class="dot">·</span>
-    <span>Best Sellers 2026</span><span class="dot">·</span>
+    <span>Curated UK Gifts</span><span class="dot"> · </span>
+    <span>Free Amazon Prime Delivery</span><span class="dot"> · </span>
+    <span>Updated Daily</span><span class="dot"> · </span>
+    <span>Thoughtfully Picked</span><span class="dot"> · </span>
+    <span>UK Shoppers Love</span><span class="dot"> · </span>
+    <span>Best Sellers 2026</span><span class="dot"> · </span>
     {% endfor %}
   </div>
 </div>
@@ -2340,14 +2151,14 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="nav-inner">
     <a href="/" class="nav-logo">Fybo<span>Buybo</span></a>
 
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" aria-label="Primary navigation">
       <a href="/">Home</a>
       <a href="/blog">Blog</a>
 
       <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
           Categories
-          <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          <svg viewBox="0 0 12 12" fill="none" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="nav-dropdown-menu">
           {% for cat in nav_items.categories %}
@@ -2358,9 +2169,9 @@ BASE_HTML = """<!DOCTYPE html>
 
       {% if nav_items.seasons %}
       <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
           Seasonal
-          <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5"><path d="M2 4l4 4 4-4"/></svg>
+          <svg viewBox="0 0 12 12" fill="none" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="nav-dropdown-menu">
           {% for season in nav_items.seasons %}
@@ -2387,24 +2198,60 @@ BASE_HTML = """<!DOCTYPE html>
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
+      <!-- HAMBURGER — mobile only -->
+      <button id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
 
-<!-- HERO (shown only on pages with heading) -->
-{% if heading and not '/product/' in request.path %}
+<!-- MOBILE MENU DRAWER -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="/" class="mobile-nav-link">Home</a>
+  <a href="/blog" class="mobile-nav-link">Blog</a>
+
+  {% if nav_items.categories %}
+  <div>
+    <div class="mobile-nav-section-title">Categories</div>
+    <div class="mobile-nav-pills">
+      {% for cat in nav_items.categories %}
+        <a href="/category/{{ slugify(cat) }}" class="mobile-nav-pill">{{ cat }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if nav_items.seasons %}
+  <div>
+    <div class="mobile-nav-section-title">Seasonal Collections</div>
+    <div class="mobile-nav-pills">
+      {% for season in nav_items.seasons %}
+        <a href="/season/{{ slugify(season) }}" class="mobile-nav-pill">{{ season }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="mobile-search-wrap">
+    <input type="search" id="mobile-search-input" placeholder="Search gifts…" aria-label="Search">
+  </div>
+</div>
+
+<!-- HERO (shown only on listing / blog pages, not product detail) -->
+{% if heading %}
 <section class="hero">
   <div class="hero-text">
     <div class="hero-eyebrow">Updated daily · UK picks</div>
     <h1>{{ heading }}</h1>
     <p class="hero-subtitle">{{ subtitle }}</p>
     <div class="hero-badges">
-      <span class="hero-badge"><span class="icon">✔</span> UK-focused curation</span>
-      <span class="hero-badge"><span class="icon">✔</span> Interesting gifts</span>
-      <span class="hero-badge"><span class="icon">✔</span> Refreshed every day</span>
+      <span class="hero-badge">✔ UK-focused curation</span>
+      <span class="hero-badge">✔ Thoughtfully chosen</span>
+      <span class="hero-badge">✔ Refreshed every day</span>
     </div>
   </div>
-  {% if products and products|length > 2 %}
+  {% if products and products|length > 1 %}
   <div class="hero-visual" aria-hidden="true">
     <div class="hero-img-card">
       <img src="{{ products[0].image }}" alt="{{ products[0].name }}" loading="eager">
@@ -2415,17 +2262,12 @@ BASE_HTML = """<!DOCTYPE html>
   </div>
   {% endif %}
 </section>
-{% elif heading and '/product/' in request.path %}
-<div style="max-width:1500px;margin:48px auto 0;padding:0 40px;">
-  <div class="hero-eyebrow">{{ products[0].category if products else '' }}</div>
-  <h1 style="font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-0.025em;color:var(--accent);line-height:1.1;margin:12px 0 0;">{{ heading }}</h1>
-</div>
 {% endif %}
 
 <!-- AFFILIATE DISCLOSURE -->
 <div class="affiliate-banner">
   <div class="affiliate-inner">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--highlight)"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--highlight)"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
     <span><strong>Affiliate Disclosure:</strong> We earn a commission on purchases through our links, at no extra cost to you. <a href="/privacy-policy">Learn more →</a></span>
   </div>
 </div>
@@ -2439,15 +2281,15 @@ BASE_HTML = """<!DOCTYPE html>
 </div>
 {% endif %}
 
-<!-- MAIN CONTENT -->
+<!-- PAGE CONTENT (blog detail, product detail, etc.) -->
 {% if content %}
   {{ content|safe }}
 {% endif %}
 
-<!-- SECTION HEADER (for listing pages) -->
+<!-- SECTION HEADER for listing pages with products -->
 {% if products and products|length > 1 %}
 <div class="section-header">
-  <div class="section-title-group">
+  <div>
     <div class="section-eyebrow">Hand-picked for you</div>
     <h2 class="section-title">Today's <em>Top Picks</em></h2>
   </div>
@@ -2455,56 +2297,42 @@ BASE_HTML = """<!DOCTYPE html>
 {% endif %}
 
 <!-- PRODUCT GRID -->
+<!-- PRODUCT GRID -->
 {% if products %}
 <div class="grid">
 {% for p in products %}
 {% set price_info = get_product_price_rating(p) %}
 <article class="card" itemscope itemtype="https://schema.org/Product">
-
   <div class="card-image-wrap">
     <span class="card-category-pill">{{ p.category }}</span>
     <a href="/product/{{ slugify(p.name) }}">
       <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
     </a>
   </div>
-
   <div class="card-body">
-    <a href="/product/{{ slugify(p.name) }}" class="card-name" itemprop="name">
-      {{ shorten_product_name(p.name) }}
-    </a>
-
+    <a href="/product/{{ slugify(p.name) }}" class="card-name" itemprop="name">{{ shorten_product_name(p.name) }}</a>
     <p class="card-hook" itemprop="description">{{ p.hook|safe }}</p>
-
     <div class="card-divider"></div>
-
     <div class="card-meta">
       {% if price_info.rating %}
       <div class="card-rating">
         <span class="stars">{% for i in range(price_info.rating|int) %}★{% endfor %}</span>
         {{ price_info.rating }}/5
-        {% if price_info.reviews %}<span style="opacity:.6;margin-left:4px;">({{ price_info.reviews }})</span>{% endif %}
+        {% if price_info.reviews %}<span style="opacity:.6;margin-left:3px;">({{ price_info.reviews }})</span>{% endif %}
       </div>
-      {% else %}
-      <div></div>
-      {% endif %}
-      {% if p.date_added %}
-      <span class="card-date">{{ p.date_added }}</span>
-      {% endif %}
+      {% else %}<div></div>{% endif %}
+      {% if p.date_added %}<span class="card-date">{{ p.date_added }}</span>{% endif %}
     </div>
-
     <div class="card-cta">
       {% if p.url %}
-      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener"
-         class="btn-amazon">
-        <span>View on</span>
-        <span class="amazon-logo">amazon</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon">
+        <span>View on</span><span class="amazon-logo">amazon</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       </a>
       {% endif %}
       <a href="/product/{{ slugify(p.name) }}" class="btn-details">View full details →</a>
     </div>
   </div>
-
 </article>
 {% endfor %}
 </div>
@@ -2513,8 +2341,8 @@ BASE_HTML = """<!DOCTYPE html>
 <!-- SIMILAR PRODUCTS -->
 {% if similar_products %}
 <section class="similar-section">
-  <div class="section-header" style="padding:0;margin:0 0 32px;">
-    <div class="section-title-group">
+  <div class="section-header" style="padding:0;margin:0 0 28px;">
+    <div>
       <div class="section-eyebrow">You might also like</div>
       <h2 class="section-title">More <em>Great Picks</em></h2>
     </div>
@@ -2533,7 +2361,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% endif %}
 
 <!-- PAGINATION -->
-{% if products and (next_page_url or prev_page_url) %}
+{% if next_page_url or prev_page_url %}
 <div class="pagination">
   {% if prev_page_url %}<a href="{{ prev_page_url }}">← Previous</a>{% endif %}
   {% if next_page_url %}<a href="{{ next_page_url }}">Next →</a>{% endif %}
@@ -2544,7 +2372,7 @@ BASE_HTML = """<!DOCTYPE html>
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand">
+      <div>
         <div class="footer-logo">Fybo<span>Buybo</span></div>
         <p class="footer-desc">Thoughtfully curated UK gifts, updated daily. We do the research so you can give the perfect present.</p>
       </div>
@@ -2595,7 +2423,7 @@ BASE_HTML = """<!DOCTYPE html>
 </div>
 
 <script>
-// ── THEME ─────────────────────────────────────────────────────
+// ── THEME ────────────────────────────────────────────────────
 const root = document.documentElement;
 let dark = localStorage.getItem('fybo-dark') === '1';
 function applyDark(d) {
@@ -2610,26 +2438,47 @@ document.getElementById('theme-toggle').onclick = () => {
   applyDark(dark);
 };
 
-// ── DROPDOWNS ─────────────────────────────────────────────────
+// ── HAMBURGER ────────────────────────────────────────────────
+const hamburger = document.getElementById('nav-hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.onclick = () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', String(open));
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.onclick = () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+});
+
+// ── DESKTOP DROPDOWNS ────────────────────────────────────────
 document.querySelectorAll('.nav-dropdown').forEach(dd => {
   const btn = dd.querySelector('.nav-dropdown-toggle');
   btn.onclick = e => {
     e.stopPropagation();
     const open = dd.classList.contains('open');
-    document.querySelectorAll('.nav-dropdown').forEach(x => x.classList.remove('open'));
-    if (!open) { dd.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-    else { btn.setAttribute('aria-expanded','false'); }
+    document.querySelectorAll('.nav-dropdown').forEach(x => {
+      x.classList.remove('open');
+      x.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+    });
+    if (!open) { dd.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
   };
 });
 document.addEventListener('click', () => {
   document.querySelectorAll('.nav-dropdown').forEach(dd => {
     dd.classList.remove('open');
-    dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded','false');
+    dd.querySelector('.nav-dropdown-toggle')?.setAttribute('aria-expanded', 'false');
   });
 });
 
 // ── SEARCH ────────────────────────────────────────────────────
 const searchInput = document.getElementById('search-input');
+const mobileSearchInput = document.getElementById('mobile-search-input');
 const overlay = document.getElementById('search-overlay');
 const countEl = document.getElementById('search-count');
 const resultsGrid = document.getElementById('search-results-grid');
@@ -2648,13 +2497,12 @@ function slugify(t) {
   return t.toLowerCase().replace(/&/g,'-and-').replace(/\\s+/g,'-').replace(/[^\\w-]/g,'').replace(/-+/g,'-').replace(/^-+|-+$/g,'');
 }
 function shorten(n, l=70) {
-  if(n.length<=l) return n;
-  for(const s of [',','(']) { if(n.includes(s)) { const x=n.split(s)[0].trim(); if(x.length<=l) return x; } }
-  return n.slice(0,l-1)+'…';
+  if (n.length <= l) return n;
+  for (const s of [',','(']) { if (n.includes(s)) { const x = n.split(s)[0].trim(); if (x.length <= l) return x; } }
+  return n.slice(0, l - 1) + '…';
 }
-
 function showSearch(products, q) {
-  countEl.textContent = `${products.length} result${products.length!==1?'s':''} for "${q}"`;
+  countEl.textContent = `${products.length} result${products.length !== 1 ? 's' : ''} for "${q}"`;
   resultsGrid.innerHTML = products.length ? products.map(p => `
     <article class="card">
       <div class="card-image-wrap">
@@ -2663,48 +2511,51 @@ function showSearch(products, q) {
       </div>
       <div class="card-body">
         <a href="/product/${slugify(p.name)}" class="card-name">${shorten(p.name)}</a>
-        <p class="card-hook">${p.hook||''}</p>
-        ${p.url?`<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon"><span>View on</span><span class="amazon-logo">amazon</span></a>`:''}
+        <p class="card-hook">${p.hook || ''}</p>
+        <div class="card-cta">
+          ${p.url ? `<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="btn-amazon"><span>View on</span><span class="amazon-logo">amazon</span></a>` : ''}
+          <a href="/product/${slugify(p.name)}" class="btn-details">View full details →</a>
+        </div>
       </div>
     </article>
-  `).join('') : '<p style="text-align:center;padding:60px;color:var(--muted)">No results found. Try a different search.</p>';
+  `).join('') : '<p style="text-align:center;padding:60px;color:var(--muted)">No results found.</p>';
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
-function closeSearch() {
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
+function closeSearch() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+function doSearch(q) {
+  clearTimeout(searchTimeout);
+  if (q.length < 2) { closeSearch(); return; }
+  searchTimeout = setTimeout(() => {
+    const ql = q.toLowerCase();
+    const matches = allProducts.filter(p =>
+      [p.name, p.category, p.hook, p.info, ...(p.keywords || []), p.season].join(' ').toLowerCase().includes(ql)
+    );
+    showSearch(matches, q);
+  }, 260);
 }
-
-if(searchInput) {
-  searchInput.addEventListener('input', e => {
-    const q = e.target.value.trim();
-    clearTimeout(searchTimeout);
-    if(q.length < 2) { closeSearch(); return; }
-    searchTimeout = setTimeout(() => {
-      const ql = q.toLowerCase();
-      const matches = allProducts.filter(p =>
-        [p.name,p.category,p.hook,p.info,...(p.keywords||[]),p.season].join(' ').toLowerCase().includes(ql)
-      );
-      showSearch(matches, q);
-    }, 280);
-  });
-}
+searchInput?.addEventListener('input', e => doSearch(e.target.value.trim()));
+mobileSearchInput?.addEventListener('input', e => {
+  const q = e.target.value.trim();
+  doSearch(q);
+  if (q.length >= 2) {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
 document.getElementById('search-close')?.addEventListener('click', closeSearch);
-overlay?.addEventListener('click', e => { if(e.target===overlay) closeSearch(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') { closeSearch(); searchInput.value=''; } });
+overlay?.addEventListener('click', e => { if (e.target === overlay) closeSearch(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeSearch(); if (searchInput) searchInput.value = ''; }
+});
 
-// ── COOKIE CONSENT ─────────────────────────────────────────────
+// ── COOKIE ────────────────────────────────────────────────────
 (function() {
   const KEY = 'fybo_consent_v1';
   const bar = document.getElementById('cookie-bar');
   if (!bar) return;
-  try {
-    if (!localStorage.getItem(KEY)) bar.classList.add('visible');
-  } catch(e) {
-    bar.classList.add('visible');
-  }
+  try { if (!localStorage.getItem(KEY)) bar.classList.add('visible'); } catch(e) { bar.classList.add('visible'); }
   function dismiss(v) {
     try { localStorage.setItem(KEY, v); } catch(e) {}
     bar.classList.remove('visible');
@@ -2714,11 +2565,8 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') { closeSearch()
   document.getElementById('cookie-essential')?.addEventListener('click', () => dismiss('essential'));
 })();
 </script>
-
 </body>
-</html>
-"""
-
+</html>"""
 # Also update render_page to inject themes_json='' (no longer needed for multi-theme JS)
 # The dark/light is now handled by CSS class toggle on <html>
 # Remove THEMES-related logic from render_page call if desired
@@ -2912,6 +2760,7 @@ def seasonal_collection(season_slug, page=1):
         page_url=page_url
     )
 
+PRODUCT_DETAIL = '''
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     all_products = refresh_products(background=True)
@@ -2927,63 +2776,58 @@ def product_detail(product_slug):
     rating_html = ""
     if price_info.get("rating"):
         stars = "★" * int(float(price_info["rating"]))
-        reviews = f'({price_info["reviews"]} reviews)' if price_info.get("reviews") else ""
-        rating_html = f'''
+        reviews_text = f\'({price_info["reviews"]} reviews)\' if price_info.get("reviews") else ""
+        rating_html = f\'\'\'
         <div style="display:flex;align-items:center;gap:8px;font-size:0.95rem;color:var(--muted);">
             <span style="color:#f5a623;font-size:1.1rem;letter-spacing:-0.04em;">{stars}</span>
             <strong style="color:var(--accent);">{price_info["rating"]}/5</strong>
-            <span>{reviews}</span>
-        </div>'''
+            <span>{reviews_text}</span>
+        </div>\'\'\'
 
     amazon_btn = ""
     if found.get("url"):
-        amazon_btn = f'''
+        amazon_btn = f\'\'\'
         <a href="{found["url"]}" target="_blank" rel="nofollow sponsored noopener"
-           style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--cta);color:var(--cta-text);padding:18px 32px;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;transition:opacity .2s;margin-top:8px;">
+           style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--cta);color:var(--cta-text);padding:18px 32px;border-radius:12px;font-size:1rem;font-weight:700;transition:opacity .2s;margin-top:4px;">
             View on <em style="font-style:italic;font-weight:800;font-size:1.1rem;">amazon</em>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        </a>'''
+        </a>\'\'\'
 
-    info_html = f'<p style="font-size:0.95rem;line-height:1.75;color:var(--muted);">{found["info"]}</p>' if found.get("info") else ""
-    date_html = f'<p style="font-size:0.78rem;color:var(--muted);opacity:.7;">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
+    info_html = f\'<p style="font-size:0.95rem;line-height:1.75;color:var(--muted);">{found["info"]}</p>\' if found.get("info") else ""
+    date_html = f\'<p style="font-size:0.78rem;color:var(--muted);opacity:.7;margin-top:8px;">Featured {found["date_added"]}</p>\' if found.get("date_added") else ""
 
-    content_html = f'''
-    <div style="max-width:780px;margin:48px auto 0;padding:0 40px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);margin-bottom:24px;">
-            <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
-            {date_str} · Gift Guide
+    content_html = f\'\'\'
+    <div style="max-width:1100px;margin:44px auto 0;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+        <div style="background:var(--bg-2);border-radius:24px;overflow:hidden;aspect-ratio:1;border:1px solid var(--card-border);position:sticky;top:80px;">
+            <img src="{found["image"]}" alt="{found["name"]}" style="width:100%;height:100%;object-fit:contain;padding:40px;">
         </div>
-        <h1 style="font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:20px;">{post.get("heading", post["title"])}</h1>
-        <p style="font-size:1.1rem;line-height:1.75;color:var(--muted);margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--divider);">{post.get("description", "")}</p>
-    </div>
-    <div style="max-width:780px;margin:0 auto;padding:0 40px 80px;">
-        <style>
-            .blog-prose h2 {{ font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; color:var(--accent); margin:48px 0 16px; letter-spacing:-0.02em; line-height:1.2; }}
-            .blog-prose h3 {{ font-family:'Fraunces',serif; font-size:1.25rem; font-weight:700; color:var(--accent); margin:36px 0 12px; }}
-            .blog-prose h4 {{ font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; color:var(--accent); margin:28px 0 10px; }}
-            .blog-prose p {{ font-size:1.02rem; line-height:1.85; color:var(--accent-2); margin-bottom:20px; }}
-            .blog-prose a {{ color:var(--highlight); font-weight:500; border-bottom:1px solid transparent; transition:border-color .2s; }}
-            .blog-prose a:hover {{ border-color:var(--highlight); }}
-            .blog-prose ul, .blog-prose ol {{ margin:0 0 24px 28px; }}
-            .blog-prose li {{ font-size:1rem; line-height:1.75; color:var(--accent-2); margin-bottom:8px; }}
-            .blog-prose strong {{ color:var(--accent); font-weight:600; }}
-            .blog-prose img {{ width:100%; border-radius:16px; margin:32px 0; box-shadow:var(--shadow-md); }}
-            .blog-prose blockquote {{ border-left:3px solid var(--highlight); margin:32px 0; padding:16px 24px; background:var(--highlight-soft); border-radius:0 12px 12px 0; font-style:italic; color:var(--muted); }}
-            .blog-prose table {{ width:100%; border-collapse:collapse; margin:32px 0; font-size:0.95rem; }}
-            .blog-prose th {{ background:var(--bg-2); padding:12px 16px; text-align:left; font-weight:600; color:var(--accent); border-bottom:2px solid var(--border); }}
-            .blog-prose td {{ padding:12px 16px; border-bottom:1px solid var(--divider); color:var(--accent-2); }}
-            .blog-prose tr:last-child td {{ border-bottom:none; }}
-            .blog-prose .product-card {{ background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:24px; margin:32px 0; box-shadow:var(--shadow-sm); }}
-        </style>
-        <div class="blog-prose">
-            {content_html_body}
+        <div style="display:flex;flex-direction:column;gap:18px;padding-top:4px;">
+            <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
+                <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
+                {found.get("category", "")}
+            </div>
+            <h1 style="font-family:\'Fraunces\',serif;font-size:clamp(1.5rem,3vw,2.3rem);font-weight:900;line-height:1.15;letter-spacing:-0.025em;color:var(--accent);">{found["name"]}</h1>
+            {rating_html}
+            <div style="height:1px;background:var(--divider);"></div>
+            <p style="font-size:1.02rem;line-height:1.75;color:var(--muted);">{found.get("hook", "")}</p>
+            {info_html}
+            <div style="background:var(--highlight-soft);border:1px solid rgba(196,154,60,0.2);border-radius:12px;padding:14px 18px;font-size:0.87rem;color:var(--muted);font-style:italic;">
+                💡 Check Amazon for the current price — updates in real time
+            </div>
+            {amazon_btn}
+            {date_html}
         </div>
     </div>
-    '''
+    <style>
+    @media(max-width:768px) {{
+        .product-layout {{ grid-template-columns:1fr !important; padding:0 16px !important; }}
+    }}
+    </style>
+    \'\'\'
 
     return render_page(
-        title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
-        description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
+        title=f"{shorten_product_name(found[\'name\'], 50)} | UK Reviews – FyboBuybo",
+        description=f"{found.get(\'info\', \'\')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
         heading="",
         subtitle="",
         products=None,
@@ -2992,6 +2836,7 @@ def product_detail(product_slug):
         today_formatted=today_formatted,
         content=content_html
     )
+'''
 
 POSTS_PER_PAGE = 8
 
@@ -3006,6 +2851,7 @@ def load_blog_posts(page=1):
     total_pages = (len(posts) + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
     return paginated, total_pages, len(posts)
 
+BLOG_LIST = '''
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
@@ -3026,47 +2872,84 @@ def blog_list(page=1):
         page_url=page_url
     )
 
-    blog_html = '<div class="blog-grid" style="max-width:1500px;margin:40px auto 0;padding:0 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;">'
-    for post in paginated:
-        date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-        blog_html += f'''
-        <article style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-sm);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;"
-                  onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-md)'"
-                  onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='var(--shadow-sm)'">
-            <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);">
-                <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
-                {date_str}
-            </div>
-            <h2 style="font-family:\'Fraunces\',serif;font-size:1.35rem;font-weight:700;line-height:1.25;letter-spacing:-0.015em;color:var(--accent);margin:0;">
-                <a href="/blog/{post['slug']}" style="color:inherit;text-decoration:none;transition:color .2s;"
-                   onmouseover="this.style.color=\'var(--highlight)\'"
-                   onmouseout="this.style.color=\'var(--accent)\'">{post['title']}</a>
-            </h2>
-            <p style="font-size:0.9rem;line-height:1.7;color:var(--muted);margin:0;flex:1;">{post.get('description', '')}</p>
-            <a href="/blog/{post['slug']}" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:var(--highlight);text-decoration:none;margin-top:4px;border-bottom:1px solid transparent;transition:border-color .2s;width:fit-content;"
-               onmouseover="this.style.borderColor=\'var(--highlight)\'"
-               onmouseout="this.style.borderColor=\'transparent\'">
-                Read article →
-            </a>
-        </article>
-        '''
-    blog_html += '</div>'
+    # Featured post (most recent) + the rest in the grid
+    featured = paginated[0] if paginated else None
+    grid_posts = paginated[1:] if len(paginated) > 1 else paginated
 
-    insert_point = rendered.find('<!-- PRODUCT GRID -->')
+    blog_content = \'<div class="blog-page-wrap">\'
+
+    # ── FEATURED POST ───────────────────────────────────────
+    if featured:
+        feat_date = datetime.datetime.strptime(featured["date"], "%Y-%m-%d").strftime("%d %B %Y")
+        blog_content += f\'\'\'
+        <a href="/blog/{featured["slug"]}" class="blog-featured">
+            <div class="blog-featured-visual">📖</div>
+            <div class="blog-featured-content">
+                <div class="blog-featured-eyebrow">{feat_date} · Featured Guide</div>
+                <div class="blog-featured-title">{featured["title"]}</div>
+                <div class="blog-featured-desc">{featured.get("description", "")}</div>
+                <div class="blog-featured-cta">Read the full guide →</div>
+            </div>
+        </a>
+        \'\'\'
+
+    # ── GRID SECTION HEADER ─────────────────────────────────
+    if grid_posts:
+        blog_content += \'\'\'
+        <div class="section-header" style="padding:0;margin:0 0 28px;">
+            <div>
+                <div class="section-eyebrow">All articles</div>
+                <h2 class="section-title">Latest <em>Guides</em></h2>
+            </div>
+        </div>
+        <div class="blog-grid">
+        \'\'\'
+        for post in grid_posts:
+            date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
+            # Pick an emoji based on title keywords
+            emoji = "📝"
+            title_lower = post["title"].lower()
+            if any(w in title_lower for w in ["gift", "present", "christmas", "birthday"]): emoji = "🎁"
+            elif any(w in title_lower for w in ["home", "kitchen", "decor"]): emoji = "🏠"
+            elif any(w in title_lower for w in ["beauty", "skincare", "self-care"]): emoji = "✨"
+            elif any(w in title_lower for w in ["tech", "gadget", "electronic"]): emoji = "⚡"
+            elif any(w in title_lower for w in ["book", "read"]): emoji = "📚"
+            elif any(w in title_lower for w in ["yoga", "fitness", "health"]): emoji = "🧘"
+
+            blog_content += f\'\'\'
+            <a href="/blog/{post["slug"]}" class="blog-card">
+                <div class="blog-card-thumb">{emoji}</div>
+                <div class="blog-card-body">
+                    <div class="blog-card-meta">{date_str}</div>
+                    <div class="blog-card-title">{post["title"]}</div>
+                    <div class="blog-card-desc">{post.get("description", "")}</div>
+                    <div class="blog-card-link">Read article →</div>
+                </div>
+            </a>
+            \'\'\'
+        blog_content += \'</div>\'
+
+    blog_content += \'</div>\'
+
+    # Insert before <!-- PRODUCT GRID -->
+    insert_point = rendered.find(\'<!-- PRODUCT GRID -->\')
     if insert_point > -1:
-        rendered = rendered[:insert_point] + blog_html + rendered[insert_point:]
+        rendered = rendered[:insert_point] + blog_content + rendered[insert_point:]
+    else:
+        rendered = rendered.replace(\'</footer>\', blog_content + \'</footer>\', 1)
 
     if total_pages > 1:
-        pag_html = '<div class="pagination">'
+        pag_html = \'<div class="pagination">\'
         if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>'
+            pag_html += f\'<a href="{url_for("blog_list", page=page-1)}">← Previous</a>\'
         if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next →</a>'
-        pag_html += '</div>'
-        rendered = rendered.replace('</body>', pag_html + '</body>')
+            pag_html += f\'<a href="{url_for("blog_list", page=page+1)}">Next →</a>\'
+        pag_html += \'</div>\'
+        rendered = rendered.replace(\'</body>\', pag_html + \'</body>\')
 
     return rendered
-
+'''
+BLOG_DETAIL = '''
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
@@ -3074,36 +2957,40 @@ def blog_detail(slug):
         abort(404)
 
     all_products = refresh_products(background=True)
-
     related = []
     if post.get("related_products"):
         for product_slug in post["related_products"]:
             product = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
             if product:
                 related.append(product)
-
     if not related:
         related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
     from jinja2 import Template
     raw_content = post.get("content", "<p>Content coming soon.</p>")
     content_html_body = Template(raw_content).render(slugify=slugify)
-
     date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
-    content_html = f'''
-    <div style="max-width:780px;margin:48px auto 0;padding:0 40px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);margin-bottom:24px;">
+    content_html = f\'\'\'
+    <div style="max-width:760px;margin:48px auto 0;padding:0 40px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--highlight);margin-bottom:20px;">
             <span style="display:block;width:18px;height:1px;background:var(--highlight);"></span>
             {date_str} · Gift Guide
         </div>
-        <h1 style="font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:20px;">{post.get("heading", post["title"])}</h1>
-        <p style="font-size:1.1rem;line-height:1.75;color:var(--muted);margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--divider);">{post.get("description", "")}</p>
+        <h1 style="font-family:\'Fraunces\',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-0.03em;color:var(--accent);margin-bottom:18px;">{post.get("heading", post["title"])}</h1>
+        <p style="font-size:1.08rem;line-height:1.75;color:var(--muted);margin-bottom:40px;padding-bottom:36px;border-bottom:1px solid var(--divider);">{post.get("description", "")}</p>
     </div>
-    <div style="max-width:780px;margin:0 auto;padding:0 40px 80px;font-size:1.02rem;line-height:1.85;color:var(--accent-2);">
-        {content_html_body}
+    <div style="max-width:760px;margin:0 auto;padding:0 40px 80px;">
+        <div class="blog-prose">
+            {content_html_body}
+        </div>
     </div>
-    '''
+    <style>
+    @media(max-width:768px) {{
+        .blog-prose {{ padding:0 !important; }}
+    }}
+    </style>
+    \'\'\'
 
     return render_page(
         title=post["title"],
@@ -3115,7 +3002,7 @@ def blog_detail(slug):
         article_date=post.get("date", datetime.date.today().isoformat()),
         content=content_html
     )
-
+'''
 @app.route("/robots.txt")
 def robots():
     txt = f"""User-agent: *
