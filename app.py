@@ -1520,18 +1520,59 @@ function closeSearch() {
 function doSearch(q) {
   clearTimeout(searchTimer);
   const trimmed = q.trim();
-  if (trimmed.length < 2) { closeSearch(); return; }
+  // Require at least 3 characters before searching
+  if (trimmed.length < 3) { closeSearch(); return; }
   searchTimer = setTimeout(() => {
     const ql = trimmed.toLowerCase();
-    const hits = allProducts.filter(p => {
-      const haystack = [
-        p.name, p.category, p.hook, p.info,
-        ...(p.keywords || []), p.season
-      ].filter(Boolean).join(' ').toLowerCase();
-      return haystack.includes(ql);
+    const words = ql.split(/\s+/).filter(w => w.length > 0);
+
+    const scored = allProducts.map(p => {
+      const name   = (p.name || '').toLowerCase();
+      const cat    = (p.category || '').toLowerCase();
+      const hook   = (p.hook || '').toLowerCase();
+      const info   = (p.info || '').toLowerCase();
+      const keys   = (p.keywords || []).join(' ').toLowerCase();
+      const season = (p.season || '').toLowerCase();
+
+      let score = 0;
+
+      for (const word of words) {
+        if (word.length < 3 && words.length > 1) continue;
+
+        // Name matches score highest
+        if (name.startsWith(word))           score += 20;
+        else if (name.includes(' ' + word))  score += 15;
+        else if (name.includes(word) && word.length >= 4) score += 8;
+
+        // Category
+        if (cat === word)                    score += 12;
+        else if (cat.includes(word) && word.length >= 4) score += 6;
+
+        // Keywords
+        if (keys.includes(word) && word.length >= 4) score += 5;
+
+        // Hook/info — only 4+ char words to avoid noise
+        if (word.length >= 4) {
+          if (hook.includes(word))   score += 3;
+          if (info.includes(word))   score += 2;
+          if (season.includes(word)) score += 4;
+        }
+      }
+
+      // Bonus: full phrase matches name directly
+      if (name.includes(ql)) score += 25;
+
+      return { p, score };
     });
+
+    const MIN_SCORE = 8;
+    const hits = scored
+      .filter(x => x.score >= MIN_SCORE)
+      .sort((a, b) => b.score - a.score)
+      .map(x => x.p);
+
     renderResults(hits, trimmed);
-  }, 180);
+  }, 220);
 }
 
 // Wire up BOTH inputs
