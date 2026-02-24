@@ -1833,20 +1833,30 @@ def get_blog_post_image(post, all_products):
     """
     Returns (img_tag_html, is_product_img) or (None, False).
     Uses fuzzy matching so related_products field doesn't need to be an exact slug.
-    Priority: post["featured_image"] -> post["image"] -> related_products fuzzy match -> category hint fallback
+    Priority: post["featured_image"] -> post["image"] -> first img in content -> related_products fuzzy match -> category hint fallback
     """
     img_url = post.get("featured_image") or post.get("image")
     img_alt = post.get("featured_image_alt") or post.get("title", "")
     if img_url:
         return (
-            f'<img src="{img_url}" alt="{img_alt}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block">',
+            f'<img src="{img_url}" alt="{img_alt}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
             False
+        )
+
+    # Extract first image URL directly from the blog post content
+    content = post.get("content", "")
+    img_match = re.search(r"src='(https://m\.media-amazon\.com/[^']+)'", content)
+    if not img_match:
+        img_match = re.search(r'src="(https://m\.media-amazon\.com/[^"]+)"', content)
+    if img_match:
+        return (
+            f'<img src="{img_match.group(1)}" alt="{post.get("title","")}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
+            True
         )
 
     def fuzz(s):
         import re as _re
         return _re.sub(r'[^a-z0-9]', '', s.lower()) if s else ''
-
     if post.get("related_products") and all_products:
         # Build lookup map from fuzzy product name -> product
         product_map = {}
@@ -1854,7 +1864,6 @@ def get_blog_post_image(post, all_products):
             if p.get("image"):
                 product_map[fuzz(p["name"])] = p
                 product_map[fuzz(slugify(p["name"]))] = p
-
         for rel in post["related_products"]:
             rel_fuzz = fuzz(rel)
             # Exact fuzzy match
