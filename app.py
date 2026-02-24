@@ -2372,7 +2372,6 @@ BASE_HTML = """<!DOCTYPE html>
     <span>Thoughtfully Picked</span><span class="sep">✦</span>
     <span>Loved by UK Shoppers</span><span class="sep">✦</span>
     <span>Best Sellers 2026</span><span class="sep">✦</span>
-    <span>Free Prime Delivery</span><span class="sep">✦</span>
     {% endfor %}
   </div>
 </div>
@@ -2519,7 +2518,7 @@ BASE_HTML = """<!DOCTYPE html>
       </div>
       <div>
         <div class="hero-stat-num"><span>UK</span></div>
-        <div class="hero-stat-label">Only the best</div>
+        <div class="hero-stat-label">Gift ideas</div>
       </div>
     </div>
   </div>
