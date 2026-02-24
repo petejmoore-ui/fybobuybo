@@ -2501,8 +2501,8 @@ BASE_HTML = """<!DOCTYPE html>
         <div class="hero-stat-label">Curated picks</div>
       </div>
       <div>
-        <div class="hero-stat-num">4.<span>8</span></div>
-        <div class="hero-stat-label">Avg. rating</div>
+        <div class="hero-stat-num"><span>✦</span></div>
+        <div class="hero-stat-label">Refreshed daily</div>
       </div>
       <div>
         <div class="hero-stat-num"><span>UK</span></div>
@@ -2582,7 +2582,7 @@ BASE_HTML = """<!DOCTYPE html>
       {% if price_info.rating %}
       <div class="card-rating">
         <span class="card-stars">{% for i in range(price_info.rating|int) %}★{% endfor %}</span>
-        <span>Highly rated on Amazon</span>
+        <span>Popular pick</span>
       </div>
       {% endif %}
 
@@ -3104,7 +3104,7 @@ def product_detail(product_slug):
         stars = "★" * int(float(price_info["rating"]))
         rating_html = f"""<div class="pd-rating-row" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
           <span style="color:#c4892a;font-size:1.2rem;letter-spacing:-.06em;line-height:1">{stars}</span>
-          <span style="font-size:.88rem;color:var(--muted);font-weight:400">Highly rated on Amazon</span>
+          <span style="font-size:.88rem;color:var(--muted);font-weight:400">Popular pick</span>
           <a href="{found.get('url','')}" target="_blank" rel="nofollow sponsored noopener"
              style="font-size:.82rem;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-line)">
             See current ratings →</a>
