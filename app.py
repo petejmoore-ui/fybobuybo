@@ -2506,7 +2506,7 @@ BASE_HTML = """<!DOCTYPE html>
       </div>
       <div>
         <div class="hero-stat-num"><span>UK</span></div>
-        <div class="hero-stat-label">Only the best</div>
+        <div class="hero-stat-label">Gift ideas</div>
       </div>
     </div>
   </div>
