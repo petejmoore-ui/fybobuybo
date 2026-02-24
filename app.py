@@ -1833,11 +1833,13 @@ def get_blog_post_image(post, all_products):
     """
     Returns (img_tag_html, is_product_img) or (None, False).
     Uses fuzzy matching so related_products field doesn't need to be an exact slug.
-    Priority: post["image"] -> related_products fuzzy match -> category hint fallback
+    Priority: post["featured_image"] -> post["image"] -> related_products fuzzy match -> category hint fallback
     """
-    if post.get("image"):
+    img_url = post.get("featured_image") or post.get("image")
+    img_alt = post.get("featured_image_alt") or post.get("title", "")
+    if img_url:
         return (
-            f'<img src="{post["image"]}" alt="{post["title"]}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block">',
+            f'<img src="{img_url}" alt="{img_alt}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block">',
             False
         )
 
