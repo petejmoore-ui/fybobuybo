@@ -25,7 +25,7 @@ BLOG_POSTS = {
             "grip yoga mat wooden floor",
             "home yoga mat hardwood"
         ],
-        "featured_image": "https://m.media-amazon.com/images/I/81hpK5qE4YL._AC_SX679_.jpg",
+        "featured_image": "https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg",
         "featured_image_alt": "Non-slip yoga mat on hardwood floor - perfect grip without damage",
         
         "article_type": "Article",
