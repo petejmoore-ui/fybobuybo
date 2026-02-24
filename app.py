@@ -1443,6 +1443,7 @@ document.querySelectorAll('.nav-drop').forEach(dd => {
   };
 });
 document.addEventListener('click', () => {
+  if (overlay.classList.contains('open')) return;
   document.querySelectorAll('.nav-drop').forEach(dd => {
     dd.classList.remove('open');
     dd.querySelector('.nav-drop-btn')?.setAttribute('aria-expanded', 'false');
@@ -1516,6 +1517,11 @@ function renderResults(products, q) {
   setTimeout(() => { if (activeInput) activeInput.focus(); }, 10);
 }
 
+// Prevent clicks inside overlay from bubbling to document (which closes dropdowns)
+document.getElementById('search-overlay').addEventListener('click', e => {
+  e.stopPropagation();
+});
+
 function closeSearch() {
   overlay.classList.remove('open');
 }
@@ -1523,8 +1529,10 @@ function closeSearch() {
 function doSearch(q) {
   clearTimeout(searchTimer);
   const trimmed = q.trim();
-  // Require at least 3 characters before searching
-  if (trimmed.length < 3) { closeSearch(); return; }
+  if (trimmed.length < 3) {
+    if (overlay.classList.contains('open')) closeSearch();
+    return;
+  }
   searchTimer = setTimeout(() => {
     const ql = trimmed.toLowerCase();
     const words = ql.split(/\s+/).filter(w => w.length > 0);
