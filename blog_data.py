@@ -2839,7 +2839,7 @@ BLOG_POSTS = {
         "romantic gifts for girlfriend",
         "meaningful valentines presents"
     ],
-    "featured_image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
+    "featured_image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg",
     "featured_image_alt": "Personalised name necklace – elegant romantic Valentine’s gift for her",
     
     "article_type": "Article",
