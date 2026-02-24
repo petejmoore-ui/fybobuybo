@@ -968,9 +968,10 @@ button{font-family:inherit}
 
 /* ─── SEARCH OVERLAY ─────────────────────────────────────── */
 #search-overlay{
-  display:none;position:fixed;inset:0;
+  display:none;position:fixed;
+  top:67px;left:0;right:0;bottom:0;
   background:rgba(0,0,0,0.72);backdrop-filter:blur(8px);
-  z-index:500;padding:72px 24px 40px;overflow-y:auto;
+  z-index:150;padding:24px 24px 40px;overflow-y:auto;
 }
 #search-overlay.open{display:block;animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -1511,6 +1512,8 @@ function renderResults(products, q) {
     : '<p style="text-align:center;padding:60px 20px;color:var(--muted)">No results found — try a different search.</p>';
 
   overlay.classList.add('open');
+  const activeInput = document.activeElement;
+  setTimeout(() => { if (activeInput) activeInput.focus(); }, 10);
 }
 
 function closeSearch() {
