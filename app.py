@@ -1,8 +1,14 @@
 # ============================================================================
-# FYBOBUYBO app.py — ELITE REDESIGN v5.1
-# COLOUR SYSTEM OVERHAUL — "Trusted Curator"
+# FYBOBUYBO app.py — ELITE REDESIGN v5.2
+# COLOUR SYSTEM — "Trusted Curator"
 # Psychology: Navy trust + Slate calm + Coral/Orange CTA urgency
 # WCAG AA compliant throughout
+# v5.2 CHANGES: Full hook & copy rewrite — "Trusted Voice"
+#   - LLM prompt completely overhauled: curation voice, no ownership language
+#   - generate_smart_fallback: 10 category buckets × 3 variants each
+#   - select_hook_type: expanded to 10 styles, bug fix, proper connection
+#   - Ticker, hero, subtitles, disclosures, trust signals all rewritten
+#   - Post-processing ownership-language guard added
 # ============================================================================
 
 import os
@@ -45,7 +51,7 @@ SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
 CACHE_REFRESH_DAYS = 10
-PROMPT_VERSION = "v5.1-trusted-curator-2026"
+PROMPT_VERSION = "v5.2-trusted-voice-2026"
 
 os.makedirs("data", exist_ok=True)
 
@@ -94,7 +100,7 @@ TERMS_OF_SERVICE_HTML = """
 """
 
 # ============================================================================
-# THEMES — updated to new palette
+# THEMES
 # ============================================================================
 THEMES = [
     {
@@ -141,7 +147,7 @@ def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
 # ============================================================================
-# HELPER FUNCTIONS (unchanged)
+# HELPER FUNCTIONS
 # ============================================================================
 
 def get_product_price_rating(product):
@@ -281,56 +287,142 @@ def shorten_product_name(name, max_length=80):
         else: break
     return out + "..."
 
+
+# ============================================================================
+# HOOK GENERATION — v5.2 "Trusted Voice"
+# ============================================================================
+
 def select_hook_type(product):
+    """
+    Selects a writing angle for the LLM hook prompt.
+    Uses product signals to pick the most effective angle while injecting
+    variety so a category page never looks monotonous.
+    Fixed: now actually called from generate_hook() to connect the two functions.
+    """
     category = product.get("category", "").lower()
     price_tier = product.get("price_tier", "").lower()
     rating = product.get("manual_rating")
     reviews = product.get("manual_reviews")
     price = product.get("manual_price", "")
+    season = product.get("season", "")
+
     price_value = 0
     if price:
         price_nums = re.findall(r'\d+\.?\d*', str(price))
-        if price_nums: price_value = float(price_nums[0])
+        if price_nums:
+            price_value = float(price_nums[0])
+
+    # Social proof: high rating + substantial reviews → lead with trust signal
     if rating:
         try:
             if float(rating) >= 4.5 and reviews:
-                if int(re.sub(r'[^\d]', '', str(reviews)) or "0") > 3000: return "social_proof"
-        except: pass
-    if price_tier in ["premium", "luxury"] or price_value > 100: return "value_proposition"
-    if any(kw in category for kw in ["beauty", "gift", "toy", "comfort", "decor", "fashion", "personal", "wellness"]): return "lifestyle"
-    if any(kw in category for kw in ["home", "kitchen", "storage", "cleaning", "appliance", "organization"]): return "problem_solution"
-    if any(kw in category for kw in ["electronic", "tech", "gadget", "device", "smart", "digital"]): return "comparison"
-    if product.get("season"): return "specific_use_case"
-    return random.choice(["problem_solution", "lifestyle", "comparison"])
+                review_num = int(re.sub(r'[^\d]', '', str(reviews)) or "0")
+                if review_num > 3000:
+                    return "social-proof"
+        except:
+            pass
+
+    # Premium / luxury → justify the spend
+    if price_tier in ["premium", "luxury"] or price_value > 100:
+        return random.choice(["quality-craft", "practical-value", "emotion-led"])
+
+    # Gift-giving occasions → gifting angle or emotion
+    if season or any(kw in category for kw in ["gift", "present"]):
+        return random.choice(["gifting-angle", "emotion-led", "lifestyle-story"])
+
+    # Beauty / wellness → lifestyle or emotion
+    if any(kw in category for kw in ["beauty", "skincare", "wellness", "spa", "self-care", "fragrance", "personal"]):
+        return random.choice(["lifestyle-story", "emotion-led", "benefit-first"])
+
+    # Toys / games → curiosity or humour
+    if any(kw in category for kw in ["toy", "game", "puzzle", "lego", "play"]):
+        return random.choice(["curiosity", "humour", "benefit-first"])
+
+    # Home / kitchen → problem-solution or UK context
+    if any(kw in category for kw in ["home", "kitchen", "storage", "cleaning", "appliance", "decor", "candle", "comfort", "organisation", "organization"]):
+        return random.choice(["problem-solution", "uk-context", "practical-value"])
+
+    # Electronics / tech → comparison or benefit-first
+    if any(kw in category for kw in ["electronic", "tech", "gadget", "device", "smart", "digital"]):
+        return random.choice(["benefit-first", "quality-craft", "social-proof"])
+
+    # Sports / outdoor → lifestyle or benefit
+    if any(kw in category for kw in ["sport", "fitness", "outdoor", "cycling", "yoga"]):
+        return random.choice(["lifestyle-story", "benefit-first", "problem-solution"])
+
+    # Baby / kids → emotion or trust
+    if any(kw in category for kw in ["baby", "infant", "child", "kid", "nursery"]):
+        return random.choice(["emotion-led", "gifting-angle", "social-proof"])
+
+    # Budget picks → practical value or social proof
+    if price_value > 0 and price_value < 20:
+        return random.choice(["practical-value", "social-proof", "gifting-angle"])
+
+    # Fashion / clothing
+    if any(kw in category for kw in ["fashion", "clothing", "apparel", "wear"]):
+        return random.choice(["lifestyle-story", "quality-craft", "gifting-angle"])
+
+    # Default: rotate through a broad variety pool
+    return random.choice([
+        "benefit-first", "lifestyle-story", "quality-craft",
+        "problem-solution", "uk-context", "practical-value",
+        "social-proof", "curiosity", "gifting-angle", "emotion-led"
+    ])
+
 
 def generate_hook(product):
     if "hook_override" in product and product["hook_override"].strip():
         return product["hook_override"].strip()
+
     name = product["name"]
     category = product.get("category", "")
     keywords = product.get("keywords", [])
     pain_points = product.get("pain_points", [])
     pain_point_text = pain_points[0] if pain_points else "everyday practicality"
     keyword_text = ', '.join(keywords[:3]) if keywords else ""
-    style = random.choice(["benefit-first", "lifestyle-story", "quality-craft", "problem-solution", "uk-context", "practical-value"])
-    prompt = f"""You are a sophisticated British copywriter creating product descriptions for UK shoppers.
 
-Write a compelling 1-2 sentence description for this product:
+    # Use select_hook_type to get the style — the two functions are now connected
+    style = select_hook_type(product)
+
+    # Map each style to a specific writing angle instruction
+    style_instructions = {
+        "benefit-first":    "Open with the single most useful thing this pick does for the recipient. Be concrete, not vague.",
+        "lifestyle-story":  "Paint a small, relatable scene — who uses this, in what moment, and why it fits their life.",
+        "quality-craft":    "Focus on what makes this a genuinely well-made or thoughtfully designed pick compared to cheaper alternatives.",
+        "problem-solution": "Identify a real, specific frustration this gift solves — then show how this pick fixes it.",
+        "uk-context":       "Anchor the copy in something distinctly British — the weather, a habit, a cultural moment — then connect to the product.",
+        "practical-value":  "Make a case for why this is a smart buy: durability, versatility, or price-to-quality ratio.",
+        "social-proof":     "Mention (honestly) that this pick is popular or well-reviewed, and briefly explain why that makes sense.",
+        "curiosity":        "Start with a question or surprising observation that makes the reader want to know more about this pick.",
+        "humour":           "Use a single light, warm observation about everyday life that connects to why this gift works — no forced jokes.",
+        "urgency":          "Highlight a genuine time-sensitive context (upcoming occasion, seasonal relevance) — no fake scarcity.",
+        "emotion-led":      "Describe the feeling of giving or receiving this — the moment it creates, not just what it is.",
+        "gifting-angle":    "Speak directly to the gift-giver: who would love this, why they'd be pleased to give it, what reaction it earns.",
+    }
+    angle = style_instructions.get(style, style_instructions["benefit-first"])
+
+    prompt = f"""You are a knowledgeable, warm British friend helping someone find the perfect gift. You curate and recommend products — you do NOT sell or own them. Think of yourself as a trusted editor at a gift discovery site.
+
+Write a 1–2 sentence hook for this product listing:
 
 PRODUCT: {name}
 CATEGORY: {category}
-STYLE: {style}
-KEY BENEFIT: {pain_point_text}
-{f"KEYWORDS TO MENTION: {keyword_text}" if keyword_text else ""}
+WRITING ANGLE: {angle}
+KEY BENEFIT TO HIGHLIGHT: {pain_point_text}
+{f"NATURALLY WEAVE IN (if it fits): {keyword_text}" if keyword_text else ""}
 
-REQUIREMENTS:
-- Write 1-2 natural, conversational sentences
-- Mention one standout feature using <b>tags</b> around it
-- Sound warm, helpful, and British
-- Focus on practical benefits
-- NO hype words like "must-have", "game-changer", "essential"
+STRICT RULES:
+- Never say "our product", "we sell", "we stock", "we make", "we offer" or imply ownership
+- Use neutral curation language: "this pick", "this gift", "a great find", "worth considering", "top-rated option"
+- Vary your sentence structure — do NOT start with "This is", "Whether", or "If you're looking for"
+- Wrap ONE specific feature or benefit in <b>bold tags</b> — only the key phrase, not the whole sentence
+- Tone: warm, honest, knowledgeable — like advice from a friend, not a sales pitch
+- No hype: avoid "game-changer", "must-have", "essential", "incredible", "amazing", "perfect"
+- Be specific — generic praise ("great for anyone") is not acceptable
+- 1–2 sentences only. No preamble, no sign-off.
 
-Write the description now (just the sentences, nothing else):"""
+Write the hook now:"""
+
     try:
         response = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
@@ -338,37 +430,146 @@ Write the description now (just the sentences, nothing else):"""
             temperature=0.7, max_tokens=100, top_p=0.9
         )
         hook = response.choices[0].message.content.strip()
+
+        # Normalise bold tags
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
         hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
+
+        # Ensure at least one bolded phrase
         if '<b>' not in hook:
             for word in name.split():
                 if len(word) > 4 and word[0].isupper():
                     hook = hook.replace(word, f'<b>{word}</b>', 1)
                     break
-        if hook and not re.search(r'[.!?]$', hook): hook += "."
-        if hook and 20 < len(hook) < 500: return hook
+
+        # Ensure sentence ends with punctuation
+        if hook and not re.search(r'[.!?]$', hook):
+            hook += "."
+
+        # Guard against ownership language slipping through from the LLM
+        ownership_phrases = [
+            "we sell", "we stock", "our product", "our range",
+            "we make", "we offer", "we provide", "our collection",
+            "in our store", "from us", "buy from us", "we carry"
+        ]
+        if any(phrase in hook.lower() for phrase in ownership_phrases):
+            print(f"⚠ Ownership language detected in hook for '{name[:40]}', using fallback")
+            return generate_smart_fallback(product)
+
+        if hook and 20 < len(hook) < 500:
+            return hook
+
     except Exception as e:
         print(f"⚠ API error for '{name[:50]}...': {e}")
+
     return generate_smart_fallback(product)
 
+
 def generate_smart_fallback(product):
-    name = product["name"]
-    category = product.get("category", "Product")
-    if "beauty" in category.lower():
-        return f"Elevates your skincare routine with <b>salon-quality formulation</b> designed for everyday British life."
-    elif "toy" in category.lower() or "game" in category.lower():
-        return f"Brings joy and entertainment to playtime with <b>durable design</b> that stands up to enthusiastic use."
-    elif "home" in category.lower() or "kitchen" in category.lower():
-        return f"Simplifies daily routines with <b>practical functionality</b> that UK households genuinely appreciate."
-    elif "electronic" in category.lower() or "tech" in category.lower():
-        return f"Combines smart functionality with <b>intuitive operation</b> for hassle-free use in modern UK homes."
-    elif "fashion" in category.lower() or "clothing" in category.lower():
-        return f"Delivers <b>quality craftsmanship</b> and versatile style that works effortlessly in any British wardrobe."
+    """
+    Static fallbacks by category — varied in angle, voice, and structure.
+    Used only when the LLM API is unavailable or returns ownership language.
+    Each bucket has 3 variants covering different hook types so the grid
+    never feels repetitive. Variant is selected by hashing the product name.
+    """
+    category = product.get("category", "").lower()
+
+    # ── BEAUTY & SKINCARE ──────────────────────────────────────────────────
+    if any(w in category for w in ["beauty", "skincare", "cosmetic", "fragrance", "perfume", "grooming"]):
+        fallbacks = [
+            "A genuinely lovely pick for anyone who enjoys a <b>proper self-care routine</b> — the kind of gift that gets used every day rather than left on a shelf.",
+            "Thoughtfully formulated and <b>well-reviewed by UK shoppers</b>, this is the sort of beauty find that quietly becomes a daily essential.",
+            "For the person who's hard to buy for: a <b>considered quality beauty pick</b> that feels indulgent without being over the top.",
+        ]
+
+    # ── TOYS & GAMES ──────────────────────────────────────────────────────
+    elif any(w in category for w in ["toy", "game", "puzzle", "play", "board game", "lego"]):
+        fallbacks = [
+            "This one earns its place in the toy box — <b>genuinely engaging</b> rather than the kind that ends up forgotten after a week.",
+            "A top-rated pick for <b>screen-free fun</b> that actually holds attention; parents tend to be just as pleased as the kids.",
+            "The sort of gift that sparks <b>hours of creative play</b> — well-made, safe, and refreshingly free of batteries.",
+        ]
+
+    # ── HOME & KITCHEN ─────────────────────────────────────────────────────
+    elif any(w in category for w in ["home", "kitchen", "cook", "bake", "storage", "organis", "clean", "appliance", "bedding", "linen", "candle", "decor", "comfort"]):
+        fallbacks = [
+            "A genuinely useful home find that solves a small but <b>surprisingly common household frustration</b> — once you have it, you wonder how you managed without.",
+            "Pitched perfectly between practical and thoughtful, this pick makes an <b>ideal housewarming or birthday gift</b> for anyone upgrading their space.",
+            "Well-reviewed by UK households and <b>built to last well beyond the warranty</b> — the sort of thing people rebuy when they move.",
+        ]
+
+    # ── ELECTRONICS & TECH ────────────────────────────────────────────────
+    elif any(w in category for w in ["electronic", "tech", "gadget", "device", "smart", "digital", "camera", "headphone", "speaker", "charger", "laptop", "tablet"]):
+        fallbacks = [
+            "A strong tech pick that hits a <b>smart balance between features and price</b> — no bloated spec sheet, just what you actually need.",
+            "This one consistently earns strong ratings from UK buyers for its <b>reliable everyday performance</b> rather than flashy gimmicks.",
+            "For the tech lover who's already got the basics covered: a <b>genuinely useful upgrade</b> that improves something they use every single day.",
+        ]
+
+    # ── FASHION & CLOTHING ────────────────────────────────────────────────
+    elif any(w in category for w in ["fashion", "clothing", "apparel", "wear", "bag", "wallet", "accessory", "jewellery", "jewelry", "watch", "shoe"]):
+        fallbacks = [
+            "A considered fashion pick that works across multiple occasions — the <b>versatility is the real selling point</b> here.",
+            "Quality craftsmanship at a fair price point makes this a <b>genuinely satisfying gift to give</b> — or to add to your own wishlist.",
+            "The kind of piece that gets complimented and then quietly worn to death: <b>understated, well-made, and endlessly wearable</b>.",
+        ]
+
+    # ── SPORTS & FITNESS ──────────────────────────────────────────────────
+    elif any(w in category for w in ["sport", "fitness", "exercise", "yoga", "gym", "outdoor", "cycling", "running", "swim"]):
+        fallbacks = [
+            "A popular pick among UK fitness fans for its <b>durability under regular use</b> — the sort of kit that actually gets used rather than gathering dust.",
+            "Ideal for anyone who's been meaning to start (or get back to) regular training: <b>genuinely encouraging to use</b>, not just to own.",
+            "Trusted by people who take their health seriously — this pick earns its place with <b>solid performance at a reasonable price</b>.",
+        ]
+
+    # ── BABY & CHILDREN ───────────────────────────────────────────────────
+    elif any(w in category for w in ["baby", "infant", "nursery", "newborn", "toddler", "child", "kid"]):
+        fallbacks = [
+            "A thoughtfully designed pick that parents genuinely rely on — <b>safety-tested, easy to use</b>, and built for the realities of early parenthood.",
+            "For the new parents who already have the basics: a <b>genuinely useful addition</b> that makes the early months noticeably easier.",
+            "Well-loved by UK families and <b>easy to clean</b> — two things that matter far more than they sound once you have a baby in the house.",
+        ]
+
+    # ── BOOKS & STATIONERY ────────────────────────────────────────────────
+    elif any(w in category for w in ["book", "stationary", "stationery", "journal", "pen", "notebook", "read", "writing"]):
+        fallbacks = [
+            "A lovely pick for anyone who still believes <b>a well-chosen book</b> is one of the best gifts you can give.",
+            "For the person who has everything: something they'll actually sit down with and enjoy — <b>no batteries, no setup, no returns</b>.",
+            "A considered gift for thinkers, readers, and the creatively inclined — <b>beautifully presented</b> and built to last.",
+        ]
+
+    # ── PETS ──────────────────────────────────────────────────────────────
+    elif any(w in category for w in ["pet", "dog", "cat", "animal"]):
+        fallbacks = [
+            "A top-rated pet pick that solves a <b>genuine day-to-day problem</b> for owners — the kind you'd happily recommend to a friend.",
+            "Well-reviewed by UK pet owners who appreciate that <b>their animals are fussy customers too</b> — this one actually passes the test.",
+            "Because pets deserve a thoughtful pick too: this find offers <b>genuine quality at a fair price</b> for the animal you're shopping for.",
+        ]
+
+    # ── FOOD & DRINK ──────────────────────────────────────────────────────
+    elif any(w in category for w in ["food", "drink", "coffee", "tea", "wine", "chocolate", "snack", "gourmet"]):
+        fallbacks = [
+            "A brilliant option for anyone who appreciates <b>the finer things in the kitchen or at the table</b> — enjoyable to give and even better to receive.",
+            "For the foodie on your list: a <b>genuinely considered pick</b> that goes well beyond the usual supermarket hamper.",
+            "The sort of edible gift that <b>signals real thought</b> — not just a last-minute grab from the confectionery aisle.",
+        ]
+
+    # ── DEFAULT / CATCH-ALL ───────────────────────────────────────────────
     else:
-        return f"Appreciated by UK shoppers for its <b>quality construction</b> and practical value in everyday British life."
+        fallbacks = [
+            "A <b>well-reviewed UK pick</b> that earns its recommendation through consistent quality and practical everyday value.",
+            "Consistently popular with UK shoppers for a reason: <b>it simply does what it promises</b>, without any fuss.",
+            "Worth considering for anyone who values quality over novelty — this find <b>holds up well over time</b> and rarely disappoints.",
+        ]
+
+    # Rotate by product name hash so the same category doesn't always
+    # show the same fallback across multiple cards on one page
+    idx = hash(product.get("name", "")) % len(fallbacks)
+    return fallbacks[idx]
+
 
 # ============================================================================
-# CACHE MANAGEMENT (unchanged)
+# CACHE MANAGEMENT
 # ============================================================================
 
 def should_refresh_cache():
@@ -423,157 +624,70 @@ def refresh_products(background=False):
 
 
 # ============================================================================
-# CSS TEMPLATE — v5.1 "Trusted Curator"
-#
-# COLOUR PSYCHOLOGY & DESIGN RATIONALE
-# ──────────────────────────────────────────────────────────────────────────
-#
-# PROBLEMS WITH THE OLD PALETTE (amber/obsidian "Dark Atelier"):
-#   1. TRUST GAP: Amber-gold + dark parchment reads as "jewellery boutique"
-#      not "reliable gift curator". Shoppers need to trust your curation
-#      before they click an affiliate link. Warm amber subconsciously
-#      signals caution/novelty rather than reliability.
-#   2. CTA CAMOUFLAGE: Using the same amber-gold for BOTH brand accents AND
-#      call-to-action buttons meant CTAs competed with decorative elements.
-#      The eye doesn't know where to land.
-#   3. CONTRAST ISSUES: var(--muted) #9e9187 on var(--bg) #f5f0e8 = 3.1:1
-#      ratio — fails WCAG AA (requires 4.5:1 for normal text).
-#   4. DARK MODE LEGIBILITY: var(--ink-3) #b0a898 on var(--card) #1e1813
-#      = 4.2:1 — barely passes but still feels muddy for long reading.
-#
-# NEW PALETTE — "Trusted Curator"
-# ──────────────────────────────────────────────────────────────────────────
-#
-# PRIMARY BRAND — Deep Navy (#0f2044 / #1e3a6e)
-#   Psychology: Navy is the single most trusted colour in consumer research
-#   (used by Amazon, PayPal, Visa, HSBC). Conveys authority, reliability,
-#   and expertise. In a gift-discovery context it signals "we've done the
-#   research — you can trust our picks". The deep tone (not baby blue) adds
-#   premium weight without feeling cold.
-#
-# SECONDARY — Slate Blue (#4a6fa5 / #6b8fc4)
-#   Psychology: Lighter blue creates visual breathing room and guides the
-#   eye through the hierarchy. Used for tags, badges, secondary labels.
-#   Keeps the palette cohesive without competing with the primary navy.
-#
-# CTA — Warm Coral-Orange (#e8541a / #f06030)
-#   Psychology: Orange-coral is the highest-performing CTA colour for
-#   e-commerce (A/B tested by Amazon, Booking.com, Shopify). It creates
-#   a sense of warmth, energy, and immediacy — triggering the "act now"
-#   impulse. The warm coral specifically (not harsh orange) avoids feeling
-#   cheap. Crucially, it creates maximum contrast against the navy brand
-#   so the user's eye goes: Brand → Content → CTA, in that order.
-#   Contrast against white: 3.5:1 (passes AA for large text/UI elements).
-#   Against var(--bg) #f8f9fc: >3.7:1 — well above AA for buttons.
-#
-# SUCCESS / RATING — Emerald (#1a8c5b / #22a86e)
-#   Psychology: Green universally signals "go", "good", "approved". Used
-#   only for star ratings and positive trust signals. Keeps the palette
-#   from feeling cold and validates purchase intent.
-#
-# NEUTRAL BG — Near-white Blue-tint (#f8f9fc → #eef1f8)
-#   Not pure white — slightly cool-tinted to harmonise with navy brand.
-#   Pure white creates harsh contrast that fatigues the eyes during
-#   browsing sessions. The 2% blue tint feels "digital clean" vs the
-#   warm parchment which felt "analogue artisan". Passes all contrast
-#   ratios comfortably.
-#
-# TEXT — Ink Navy (#1a2840) → Slate (#3d5068) → Muted (#5a6478)
-#   All three values on the white/near-white backgrounds:
-#   - #1a2840 on #f8f9fc = 12.4:1 ✓✓ (AAA)
-#   - #3d5068 on #f8f9fc = 7.1:1  ✓✓ (AAA)
-#   - #5a6478 on #f8f9fc = 4.8:1  ✓  (AA) — up from 3.1:1 in v5.0
-#
+# CSS TEMPLATE — v5.2 "Trusted Curator"
 # ============================================================================
 
 CSS_TEMPLATE = """<style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
 
-/* ─── DESIGN TOKENS — "Trusted Curator" palette ─────
-   See colour psychology notes above for full rationale.
-   ─────────────────────────────────────────────────── */
 :root {
-  /* ── Backgrounds ── */
-  --bg:           #f8f9fc;   /* Near-white, cool-tinted — easy on eyes */
-  --bg-2:         #eef1f8;   /* Slightly deeper for card wells */
-  --bg-3:         #e4e9f4;   /* Section dividers, hover states */
-  --card:         #ffffff;   /* Pure white cards — maximum product focus */
-  --card-2:       #f4f6fb;   /* Nested card backgrounds */
-
-  /* ── Text — all meet WCAG AA minimum 4.5:1 on --bg ── */
-  --ink:          #1a2840;   /* 12.4:1 contrast — primary headings */
-  --ink-2:        #2d3f5c;   /* 8.8:1  contrast — subheadings, labels */
-  --ink-3:        #3d5068;   /* 7.1:1  contrast — body text */
-  --muted:        #5a6478;   /* 4.8:1  contrast — captions, metadata ✓AA */
-  --muted-2:      #7a8599;   /* 3.7:1  contrast — placeholders, tertiary */
-
-  /* ── Primary brand — Deep Navy (TRUST) ── */
-  --navy:         #0f2044;   /* Brand identity, nav, footer */
-  --navy-2:       #1e3a6e;   /* Hover states, depth */
-  --navy-3:       #2a4f8e;   /* Lighter navy for accents */
-  --navy-dim:     rgba(15,32,68,0.07);  /* Tinted backgrounds */
-  --navy-line:    rgba(15,32,68,0.18);  /* Borders */
-
-  /* ── Secondary — Slate Blue (CALM, CLARITY) ── */
-  --slate:        #4a6fa5;   /* Tags, badges, secondary CTAs */
-  --slate-2:      #6b8fc4;   /* Hover states */
+  --bg:           #f8f9fc;
+  --bg-2:         #eef1f8;
+  --bg-3:         #e4e9f4;
+  --card:         #ffffff;
+  --card-2:       #f4f6fb;
+  --ink:          #1a2840;
+  --ink-2:        #2d3f5c;
+  --ink-3:        #3d5068;
+  --muted:        #5a6478;
+  --muted-2:      #7a8599;
+  --navy:         #0f2044;
+  --navy-2:       #1e3a6e;
+  --navy-3:       #2a4f8e;
+  --navy-dim:     rgba(15,32,68,0.07);
+  --navy-line:    rgba(15,32,68,0.18);
+  --slate:        #4a6fa5;
+  --slate-2:      #6b8fc4;
   --slate-dim:    rgba(74,111,165,0.10);
   --slate-line:   rgba(74,111,165,0.25);
-
-  /* ── CTA — Warm Coral-Orange (ACTION, URGENCY) ── */
-  --cta:          #e8541a;   /* Primary CTA — "View on Amazon" */
-  --cta-fg:       #ffffff;   /* White text on coral — 4.6:1 contrast ✓AA */
-  --cta-hover:    #c94414;   /* Darker on hover — depth signal */
+  --cta:          #e8541a;
+  --cta-fg:       #ffffff;
+  --cta-hover:    #c94414;
   --cta-dim:      rgba(232,84,26,0.09);
   --cta-line:     rgba(232,84,26,0.30);
-
-  /* ── Success/Rating — Emerald (TRUST, APPROVAL) ── */
   --green:        #1a8c5b;
   --green-dim:    rgba(26,140,91,0.10);
-
-  /* ── UI Chrome ── */
   --border:       rgba(15,32,68,0.09);
   --border-2:     rgba(15,32,68,0.15);
   --divider:      rgba(15,32,68,0.06);
   --nav-bg:       rgba(248,249,252,0.95);
   --input-bg:     rgba(255,255,255,0.90);
-
-  /* ── Shadows — cool-toned, navy-tinted ── */
   --sh-xs:  0 1px 3px rgba(15,32,68,0.05), 0 2px 6px rgba(15,32,68,0.04);
   --sh-sm:  0 2px 8px rgba(15,32,68,0.07), 0 4px 18px rgba(15,32,68,0.07);
   --sh-md:  0 4px 20px rgba(15,32,68,0.09), 0 12px 40px rgba(15,32,68,0.10);
   --sh-lg:  0 8px 36px rgba(15,32,68,0.12), 0 24px 64px rgba(15,32,68,0.12);
   --sh-xl:  0 16px 56px rgba(15,32,68,0.16), 0 40px 96px rgba(15,32,68,0.16);
   --sh-cta: 0 4px 16px rgba(232,84,26,0.35), 0 2px 6px rgba(232,84,26,0.20);
-
-  /* ── Radius ── */
   --r-sm:  8px;
   --r-md:  14px;
   --r-lg:  20px;
   --r-xl:  28px;
   --r-pill:99px;
-
-  /* ── Motion ── */
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ─── DARK MODE ──────────────────────────────────────
-   Dark navy background instead of near-black obsidian.
-   Keeps the brand character. CTA shifts to brighter
-   coral so it still pops against the dark surface.
-   ─────────────────────────────────────────────────── */
 .dark {
   --bg:           #0b1120;
   --bg-2:         #111b30;
   --bg-3:         #182440;
   --card:         #131e33;
   --card-2:       #1a2840;
-  --ink:          #e8edf7;   /* 14.2:1 on --card ✓✓ */
-  --ink-2:        #c8d4ea;   /* 10.1:1 ✓✓ */
-  --ink-3:        #a8b8d4;   /* 7.3:1  ✓✓ */
-  --muted:        #7a90b0;   /* 4.9:1  ✓AA */
-  --muted-2:      #5a7090;   /* 3.7:1  used only for placeholders */
+  --ink:          #e8edf7;
+  --ink-2:        #c8d4ea;
+  --ink-3:        #a8b8d4;
+  --muted:        #7a90b0;
+  --muted-2:      #5a7090;
   --navy:         #2a4f8e;
   --navy-2:       #3a6ab8;
   --navy-3:       #4a80d4;
@@ -583,7 +697,7 @@ CSS_TEMPLATE = """<style>
   --slate-2:      #8aaede;
   --slate-dim:    rgba(107,143,196,0.15);
   --slate-line:   rgba(107,143,196,0.30);
-  --cta:          #f06030;   /* Brighter coral — pops on dark bg */
+  --cta:          #f06030;
   --cta-fg:       #ffffff;
   --cta-hover:    #ff7744;
   --cta-dim:      rgba(240,96,48,0.12);
@@ -603,7 +717,6 @@ CSS_TEMPLATE = """<style>
   --sh-cta: 0 4px 16px rgba(240,96,48,0.40), 0 2px 6px rgba(240,96,48,0.25);
 }
 
-/* ─── RESET ──────────────────────────────────────── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
 body {
@@ -622,7 +735,6 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; }
 
-/* Subtle noise overlay — kept from v5.0, toned down */
 body::before {
   content: '';
   position: fixed;
@@ -633,12 +745,11 @@ body::before {
   opacity: .4;
 }
 
-/* ─── TICKER / RIBBON ────────────────────────────── */
 .ribbon {
   position: relative;
   z-index: 10;
-  background: var(--navy);       /* Deep navy — brand authority */
-  color: rgba(232,237,247,0.85); /* Soft white on navy ✓ */
+  background: var(--navy);
+  color: rgba(232,237,247,0.85);
   padding: 9px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -658,7 +769,7 @@ body::before {
   flex-shrink: 0;
 }
 .ribbon-track .sep {
-  color: var(--cta);   /* Coral separators — CTA colour anchoring */
+  color: var(--cta);
   opacity: .70;
   padding: 0 2px;
 }
@@ -668,7 +779,6 @@ body::before {
 }
 .ribbon:hover .ribbon-track { animation-play-state: paused; }
 
-/* ─── NAV ────────────────────────────────────────── */
 .site-nav {
   position: sticky;
   top: 0;
@@ -693,7 +803,6 @@ body::before {
   gap: 8px;
 }
 
-/* Logo — navy brand identity */
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.75rem;
@@ -709,17 +818,16 @@ body::before {
 }
 .nav-logo:hover { opacity: .80; }
 .nav-logo .logo-fybo  { color: var(--navy); }
-.nav-logo .logo-buybo { color: var(--cta); font-style: italic; } /* Coral = action brand */
+.nav-logo .logo-buybo { color: var(--cta); font-style: italic; }
 .nav-logo .logo-dot {
   display: inline-block;
   width: 5px; height: 5px;
-  background: var(--cta);  /* Coral dot — micro CTA reminder */
+  background: var(--cta);
   border-radius: 50%;
   margin: 0 1px 4px;
   flex-shrink: 0;
 }
 
-/* Nav links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -740,7 +848,6 @@ body::before {
   background: var(--navy-dim);
 }
 
-/* Dropdown */
 .nav-drop { position: relative; }
 .nav-drop-btn {
   display: flex;
@@ -809,7 +916,6 @@ body::before {
   padding-left: 18px;
 }
 
-/* Nav search */
 .nav-search { position: relative; }
 .nav-search-wrap {
   position: relative;
@@ -842,7 +948,7 @@ body::before {
 }
 .nav-search input:focus {
   width: 260px;
-  border-color: var(--slate);    /* Slate blue focus ring — calm, professional */
+  border-color: var(--slate);
   box-shadow: 0 0 0 3px var(--slate-dim);
   background: var(--card);
 }
@@ -850,7 +956,6 @@ body::before {
 .nav-search input:focus + .nav-search-icon,
 .nav-search-wrap:focus-within .nav-search-icon { stroke: var(--slate); }
 
-/* Nav right */
 .nav-right {
   display: flex;
   align-items: center;
@@ -902,7 +1007,6 @@ body::before {
 #hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 #hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* ─── MOBILE DRAWER ──────────────────────────────── */
 #mobile-menu {
   display: none;
   position: fixed;
@@ -945,7 +1049,7 @@ body::before {
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--slate);    /* Slate blue section labels */
+  color: var(--slate);
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -1005,7 +1109,6 @@ body::before {
 .mm-search-wrap input:focus { border-color: var(--slate); }
 .mm-search-wrap input::placeholder { color: var(--muted-2); }
 
-/* ─── HERO ───────────────────────────────────────── */
 .hero {
   max-width: 1600px;
   margin: 0 auto;
@@ -1017,8 +1120,6 @@ body::before {
   position: relative;
   z-index: 1;
 }
-
-/* Decorative numeral — using navy, very faint */
 .hero::before {
   content: '01';
   position: absolute;
@@ -1042,7 +1143,7 @@ body::before {
   font-weight: 600;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--slate);    /* Slate — calm, informational */
+  color: var(--slate);
   margin-bottom: 24px;
 }
 .hero-eyebrow::before {
@@ -1065,7 +1166,7 @@ body::before {
 }
 .hero-h1 em {
   font-style: italic;
-  color: var(--navy);    /* Navy emphasis — brand authority */
+  color: var(--navy);
 }
 .hero-h1 .line-2 {
   display: block;
@@ -1096,7 +1197,6 @@ body::before {
   animation: riseUp .9s .2s var(--ease-out) both;
 }
 
-/* Primary CTA — coral for maximum action signal */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -1118,7 +1218,6 @@ body::before {
   box-shadow: 0 8px 28px rgba(232,84,26,0.42), 0 4px 10px rgba(232,84,26,0.24);
 }
 
-/* Ghost — navy bordered, secondary action */
 .btn-ghost {
   display: inline-flex;
   align-items: center;
@@ -1139,7 +1238,6 @@ body::before {
   color: var(--navy-2);
 }
 
-/* Hero stats */
 .hero-stats {
   display: flex;
   gap: 32px;
@@ -1156,7 +1254,7 @@ body::before {
   line-height: 1;
   letter-spacing: -.04em;
 }
-.hero-stat-num span { color: var(--cta); }  /* Coral accent numbers */
+.hero-stat-num span { color: var(--cta); }
 .hero-stat-label {
   font-size: .74rem;
   font-weight: 500;
@@ -1166,7 +1264,6 @@ body::before {
   margin-top: 4px;
 }
 
-/* Hero visual */
 .hero-visual {
   position: relative;
   aspect-ratio: 1 / 1.05;
@@ -1205,7 +1302,6 @@ body::before {
   background: var(--card);
 }
 
-/* Ornament — navy with coral inner ring for brand combo */
 .hero-ornament {
   position: absolute;
   top: -18px;
@@ -1213,7 +1309,7 @@ body::before {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: var(--cta);     /* Coral — reinforces CTA colour */
+  background: var(--cta);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1235,7 +1331,6 @@ body::before {
   50%      { box-shadow: var(--sh-md), 0 0 0 14px var(--cta-dim); }
 }
 
-/* ─── DISCLOSURE STRIP ───────────────────────────── */
 .affil-strip {
   max-width: 1600px;
   margin: 0 auto;
@@ -1254,7 +1349,7 @@ body::before {
   line-height: 1.5;
 }
 .affil-inner strong { color: var(--ink-3); font-weight: 600; }
-.affil-inner a { color: var(--slate); font-weight: 500; }  /* Slate links — calm, not alarming */
+.affil-inner a { color: var(--slate); font-weight: 500; }
 .affil-icon {
   flex-shrink: 0;
   width: 14px; height: 14px;
@@ -1263,7 +1358,6 @@ body::before {
   stroke-width: 2;
 }
 
-/* ─── CATEGORY RAIL ──────────────────────────────── */
 .cat-rail {
   max-width: 1600px;
   margin: 36px auto 0;
@@ -1295,7 +1389,6 @@ body::before {
   box-shadow: var(--sh-xs);
 }
 
-/* ─── SECTION HEADER ─────────────────────────────── */
 .sec-hdr {
   max-width: 1600px;
   margin: 68px auto 0;
@@ -1331,7 +1424,7 @@ body::before {
   line-height: 1.05;
   color: var(--ink);
 }
-.sec-title em { font-style: italic; color: var(--navy); }  /* Navy emphasis — not CTA */
+.sec-title em { font-style: italic; color: var(--navy); }
 .sec-view-all {
   font-size: .82rem;
   font-weight: 600;
@@ -1350,7 +1443,6 @@ body::before {
   gap: 10px;
 }
 
-/* ─── PRODUCT GRID ───────────────────────────────── */
 .grid {
   max-width: 1600px;
   margin: 28px auto 0;
@@ -1360,7 +1452,6 @@ body::before {
   gap: 20px;
 }
 
-/* ─── PRODUCT CARD ───────────────────────────────── */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1379,7 +1470,6 @@ body::before {
   border-color: var(--border-2);
 }
 
-/* Card image area */
 .card-img {
   position: relative;
   background: var(--bg-2);
@@ -1404,7 +1494,6 @@ body::before {
 }
 .card:hover .card-img img { transform: scale(1.08); }
 
-/* Category badge — slate blue, calm not alarming */
 .card-badge {
   position: absolute;
   top: 12px;
@@ -1418,7 +1507,7 @@ body::before {
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: var(--slate);   /* Slate — brand-cohesive category label */
+  color: var(--slate);
   box-shadow: var(--sh-xs);
 }
 .dark .card-badge {
@@ -1426,7 +1515,6 @@ body::before {
   color: var(--slate-2);
 }
 
-/* Quick-view — coral = action */
 .card-quick {
   position: absolute;
   bottom: 12px;
@@ -1455,7 +1543,6 @@ body::before {
   stroke-width: 2;
 }
 
-/* Card body */
 .card-body {
   padding: 20px 20px 18px;
   display: flex;
@@ -1469,7 +1556,7 @@ body::before {
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--slate);    /* Slate — informational, not distracting */
+  color: var(--slate);
   margin-bottom: 7px;
 }
 
@@ -1500,7 +1587,6 @@ body::before {
   font-weight: 500;
 }
 
-/* Rating row — emerald for positive trust signal */
 .card-rating {
   display: flex;
   align-items: center;
@@ -1510,27 +1596,20 @@ body::before {
   color: var(--muted);
 }
 .card-stars {
-  color: var(--green);   /* Emerald stars — "approved by shoppers" */
+  color: var(--green);
   font-size: .85rem;
   letter-spacing: -.06em;
   line-height: 1;
 }
 
-/* Divider */
 .card-div {
   height: 1px;
   background: var(--divider);
   margin: 0 0 14px;
 }
 
-/* CTA area */
 .card-cta { display: flex; flex-direction: column; gap: 8px; }
 
-/* PRIMARY CTA BUTTON — coral orange
-   This is the most important colour decision on the card.
-   Every element above here uses navy/slate (trust-building).
-   The coral button is the ONLY warm element, so the eye
-   naturally lands here at the end of the reading path.     */
 .btn-amz {
   display: flex;
   align-items: center;
@@ -1566,7 +1645,6 @@ body::before {
   flex-shrink: 0;
 }
 
-/* Secondary detail link — muted, navy hover */
 .btn-detail {
   display: block;
   text-align: center;
@@ -1585,7 +1663,6 @@ body::before {
   background: var(--navy-dim);
 }
 
-/* ─── BLOG LISTING ───────────────────────────────── */
 .blog-wrap {
   max-width: 1600px;
   margin: 52px auto 0;
@@ -1674,7 +1751,7 @@ body::before {
   gap: 10px;
   font-size: .84rem;
   font-weight: 600;
-  color: var(--cta);         /* Coral CTA — action trigger on blog card */
+  color: var(--cta);
   margin-top: 4px;
   padding-bottom: 2px;
   border-bottom: 1px solid var(--cta-line);
@@ -1778,7 +1855,6 @@ body::before {
 }
 .blog-card:hover .blog-card-link { gap: 10px; }
 
-/* ─── BLOG PROSE ─────────────────────────────────── */
 .blog-prose {
   font-size: 1.02rem;
   line-height: 1.88;
@@ -1814,7 +1890,7 @@ body::before {
 }
 .blog-prose p { margin-bottom: 22px; }
 .blog-prose a {
-  color: var(--navy);       /* Navy links in prose — trustworthy */
+  color: var(--navy);
   font-weight: 500;
   border-bottom: 1px solid var(--navy-line);
   transition: border-color .2s, color .2s;
@@ -1829,7 +1905,7 @@ body::before {
   left: 0; top: 12px;
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--slate);   /* Slate bullets — calm, structured */
+  background: var(--slate);
 }
 .blog-prose ol { counter-reset: ol; }
 .blog-prose ol li { counter-increment: ol; }
@@ -1844,7 +1920,7 @@ body::before {
 }
 .blog-prose img { width: 100%; border-radius: var(--r-lg); margin: 40px 0; box-shadow: var(--sh-md); }
 .blog-prose blockquote {
-  border-left: 3px solid var(--navy);   /* Navy blockquote — authoritative */
+  border-left: 3px solid var(--navy);
   margin: 40px 0;
   padding: 20px 28px;
   background: var(--navy-dim);
@@ -1870,7 +1946,6 @@ body::before {
 .blog-prose td { padding: 12px 18px; border-bottom: 1px solid var(--divider); color: var(--ink-3); }
 .blog-prose tr:last-child td { border-bottom: none; }
 
-/* ─── SIMILAR PRODUCTS ───────────────────────────── */
 .similar-sec {
   max-width: 1600px;
   margin: 72px auto 0;
@@ -1920,7 +1995,6 @@ body::before {
   letter-spacing: -.015em;
 }
 
-/* ─── PRODUCT DETAIL ─────────────────────────────── */
 .pd-wrap {
   max-width: 1100px;
   margin: 52px auto 0;
@@ -2042,13 +2116,12 @@ body::before {
 }
 .pd-trust-item svg {
   width: 14px; height: 14px;
-  stroke: var(--green);    /* Emerald trust icons — "safe, verified" */
+  stroke: var(--green);
   fill: none;
   stroke-width: 2;
   flex-shrink: 0;
 }
 
-/* ─── PAGINATION ─────────────────────────────────── */
 .pager {
   max-width: 1600px;
   margin: 56px auto;
@@ -2071,14 +2144,13 @@ body::before {
   box-shadow: var(--sh-xs);
 }
 .pager a:hover {
-  background: var(--navy);   /* Navy on hover — navigation = trust */
+  background: var(--navy);
   color: #ffffff;
   border-color: var(--navy);
   box-shadow: var(--sh-sm);
   transform: translateY(-1px);
 }
 
-/* ─── LEGAL ARTICLES ─────────────────────────────── */
 .legal-article {
   max-width: 820px;
   margin: 52px auto;
@@ -2122,10 +2194,9 @@ body::before {
   margin-top: 18px;
 }
 
-/* ─── FOOTER ─────────────────────────────────────── */
 .site-footer {
   margin-top: 100px;
-  background: var(--navy);        /* Deep navy footer — brand close */
+  background: var(--navy);
   border-top: none;
   color: rgba(232,237,247,0.75);
 }
@@ -2151,7 +2222,7 @@ body::before {
   align-items: baseline;
   gap: 2px;
 }
-.footer-logo em { color: var(--cta); font-style: italic; }  /* Coral in footer — CTA reminder */
+.footer-logo em { color: var(--cta); font-style: italic; }
 .footer-desc {
   font-size: .87rem;
   line-height: 1.78;
@@ -2219,12 +2290,11 @@ body::before {
   font-style: italic;
 }
 
-/* ─── SEARCH OVERLAY ─────────────────────────────── */
 #search-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(11,17,32,0.82);   /* Navy tint — brand-coherent overlay */
+  background: rgba(11,17,32,0.82);
   backdrop-filter: blur(12px);
   z-index: 500;
   padding: 80px 24px 40px;
@@ -2294,7 +2364,6 @@ body::before {
   gap: 16px;
 }
 
-/* ─── COOKIE BAR ─────────────────────────────────── */
 #cookie-bar {
   display: none;
   position: fixed;
@@ -2356,7 +2425,6 @@ body::before {
   color: var(--navy);
 }
 
-/* ─── SCROLL ANIMATION ───────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -2364,7 +2432,6 @@ body::before {
 }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 
-/* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 1200px) {
   .hero { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
@@ -2408,21 +2475,17 @@ body::before {
   .grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
 
-/* ─── SCROLLBAR ──────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--slate); }
 
-/* ─── SELECTION ──────────────────────────────────── */
 ::selection { background: var(--navy-dim); color: var(--navy); }
 </style>"""
 
 
-
 # ============================================================================
-# BASE HTML TEMPLATE — v5.1 (unchanged structure, updated colour references
-# in inline styles now use CSS variables set above)
+# BASE HTML TEMPLATE — v5.2
 # ============================================================================
 
 BASE_HTML = """<!DOCTYPE html>
@@ -2467,11 +2530,11 @@ BASE_HTML = """<!DOCTYPE html>
 <div class="ribbon" aria-hidden="true" role="marquee">
   <div class="ribbon-track">
     {% for _ in range(2) %}
-    <span>Curated UK Gifts</span><span class="sep">✦</span>
-    <span>Updated Daily</span><span class="sep">✦</span>
-    <span>Thoughtfully Picked</span><span class="sep">✦</span>
-    <span>Loved by UK Shoppers</span><span class="sep">✦</span>
-    <span>Best Sellers 2026</span><span class="sep">✦</span>
+    <span>Hand-picked for UK Shoppers</span><span class="sep">✦</span>
+    <span>Honest Gift Curation</span><span class="sep">✦</span>
+    <span>No Ads · No Sponsored Picks</span><span class="sep">✦</span>
+    <span>Refreshed Every Day</span><span class="sep">✦</span>
+    <span>Top-Rated Finds · 2026</span><span class="sep">✦</span>
     {% endfor %}
   </div>
 </div>
@@ -2584,7 +2647,7 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="hero-content">
     <div class="hero-eyebrow">Updated daily · Handpicked for UK shoppers</div>
     <h1 class="hero-h1">{{ heading|replace("FyboBuybo – ", "")|replace(" Gifts", "")|safe }}<em> Gifts</em>
-      <span class="line-2">{{ "Loved across the UK" }}</span>
+      <span class="line-2">{{ "Honestly curated, daily" }}</span>
     </h1>
     <p class="hero-sub">{{ subtitle }}</p>
     <div class="hero-actions">
@@ -2643,7 +2706,7 @@ BASE_HTML = """<!DOCTYPE html>
 <div class="affil-strip">
   <div class="affil-inner">
     <svg class="affil-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-    <span><strong>Affiliate Disclosure:</strong> We earn a small commission on purchases through our links — at no extra cost to you. <a href="/privacy-policy">Learn more →</a></span>
+    <span><strong>Affiliate Disclosure:</strong> This site earns a small commission when you buy through our links — at no extra cost to you. It's how we keep the curation going. <a href="/privacy-policy">Learn more →</a></span>
   </div>
 </div>
 
@@ -2662,7 +2725,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% if products and products|length > 1 %}
 <div class="sec-hdr reveal" id="picks">
   <div>
-    <div class="sec-eyebrow">Hand-picked for you</div>
+    <div class="sec-eyebrow">Honestly curated · updated daily</div>
     <h2 class="sec-title">Today's <em>Top Picks</em></h2>
   </div>
   <a href="/blog" class="sec-view-all">Gift guides →</a>
@@ -2693,7 +2756,7 @@ BASE_HTML = """<!DOCTYPE html>
       {% if price_info.rating %}
       <div class="card-rating">
         <span class="card-stars">{% for i in range(price_info.rating|int) %}★{% endfor %}</span>
-        <span>Popular pick</span>
+        <span>Highly rated</span>
       </div>
       {% endif %}
 
@@ -2704,8 +2767,8 @@ BASE_HTML = """<!DOCTYPE html>
       <div class="card-cta">
         {% if p.url %}
         <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="btn-amz"
-           aria-label="View {{ p.name }} on Amazon">
-          View on <span class="amz-wordmark">amazon</span>
+           aria-label="Check price for {{ p.name }} on Amazon">
+          Check price on <span class="amz-wordmark">amazon</span>
           <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
         {% endif %}
@@ -2751,8 +2814,8 @@ BASE_HTML = """<!DOCTYPE html>
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">Fybo<em>Buybo</em></div>
-        <p class="footer-desc">Thoughtfully curated UK gifts, updated every day. We do the research so you find the perfect present — every time.</p>
-        <div class="footer-tagline">Trusted by UK shoppers</div>
+        <p class="footer-desc">An independent gift curation site for UK shoppers. Every pick is chosen for genuine quality — we earn a small commission on purchases at no extra cost to you.</p>
+        <div class="footer-tagline">Honest curation · no paid placements</div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Explore</div>
@@ -2792,7 +2855,7 @@ BASE_HTML = """<!DOCTYPE html>
 <!-- ═══ COOKIE CONSENT ════════════════════════════════════════════ -->
 <div id="cookie-bar" role="dialog" aria-label="Cookie consent" aria-live="polite">
   <div class="cookie-text">
-    We use essential cookies and affiliate tracking to personalise your experience.
+    This site uses essential cookies and affiliate tracking.
     <a href="/privacy-policy">Privacy policy</a>
   </div>
   <div class="cookie-btns">
@@ -2949,7 +3012,7 @@ function buildCard(p) {
       <p class="card-hook">${p.hook||''}</p>
       <div class="card-cta">
         ${p.url ? `<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="btn-amz">
-          View on <span class="amz-wordmark">amazon</span></a>` : ''}
+          Check price on <span class="amz-wordmark">amazon</span></a>` : ''}
         <a href="/product/${pySlug(p.name)}" class="btn-detail">Full details →</a>
       </div>
     </div>
@@ -3155,7 +3218,7 @@ def home():
         title="FyboBuybo – Trending UK Gifts & Popular Presents 2026",
         description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily.",
         heading="FyboBuybo – Trending UK Gifts",
-        subtitle="A curated selection of popular gifts and presents, refreshed daily for UK shoppers.",
+        subtitle="Every pick on this site is chosen for genuine quality. Refreshed daily for UK shoppers.",
         products=products
     )
 
@@ -3171,7 +3234,7 @@ def category(slug, page=1):
         title=f"Best {cat_name} Gifts UK 2026 | Trending Picks – FyboBuybo",
         description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily.",
         heading=f"Best {cat_name} Gifts UK 2026",
-        subtitle=f"Hand-picked {cat_name.lower()} loved by UK shoppers.",
+        subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — honestly chosen, updated regularly.",
         products=filtered, page=page, page_url=page_url
     )
 
@@ -3189,7 +3252,8 @@ def seasonal_collection(season_slug, page=1):
     return render_page(
         title=f"Best {title_season} 2026 – FyboBuybo",
         description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026.",
-        heading=title_season, subtitle="Perfect seasonal presents • refreshed every day",
+        heading=title_season,
+        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with honest recommendations.",
         products=filtered, page=page, page_url=page_url
     )
 
@@ -3209,7 +3273,7 @@ def product_detail(product_slug):
         stars = "★" * int(float(price_info["rating"]))
         rating_html = f"""<div class="pd-rating-row" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
           <span style="color:var(--green);font-size:1.2rem;letter-spacing:-.06em;line-height:1">{stars}</span>
-          <span style="font-size:.88rem;color:var(--muted);font-weight:400">Popular pick</span>
+          <span style="font-size:.88rem;color:var(--muted);font-weight:400">Highly rated by buyers</span>
           <a href="{found.get('url','')}" target="_blank" rel="nofollow sponsored noopener"
              style="font-size:.82rem;color:var(--slate);font-weight:600;border-bottom:1px solid var(--slate-line)">
             See current ratings →</a>
@@ -3218,7 +3282,7 @@ def product_detail(product_slug):
     amazon_btn = ""
     if found.get("url"):
         amazon_btn = f"""<a href="{found["url"]}" target="_blank" rel="nofollow sponsored noopener" class="btn-pd-amz">
-          View on <em>amazon</em>
+          Check price on <em>amazon</em>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
             <polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/>
@@ -3227,15 +3291,15 @@ def product_detail(product_slug):
     trust_row = """<div class="pd-trust-row">
       <div class="pd-trust-item">
         <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Sold via Amazon UK
+        Fulfilled by Amazon UK
       </div>
       <div class="pd-trust-item">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        Check Amazon for live price
+        Live price on Amazon
       </div>
       <div class="pd-trust-item">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Secure checkout on Amazon
+        Amazon's standard returns apply
       </div>
     </div>"""
 
@@ -3263,7 +3327,7 @@ def product_detail(product_slug):
         <div class="pd-divider"></div>
         <p class="pd-hook">{found.get("hook", "")}</p>
         {info_html}
-        <div class="pd-price-note">💡 Prices change frequently — always check Amazon for the current price before purchasing</div>
+        <div class="pd-price-note">💡 Prices update frequently on Amazon. The price shown when you click may differ — always check before purchasing.</div>
         {amazon_btn}
         {trust_row}
         {date_html}
@@ -3448,7 +3512,7 @@ def blog_list(page=1):
         title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
         description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations.",
         heading="FyboBuybo Blog",
-        subtitle="Gift guides, trends and inspiration for UK shoppers",
+        subtitle="Practical gift guides written to help you find something genuinely great — not just another list.",
         products=None, page=page,
         total_posts=total_posts,
     )
