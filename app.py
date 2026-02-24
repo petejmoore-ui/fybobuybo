@@ -1518,13 +1518,6 @@ function renderResults(products, q) {
 
 function closeSearch() {
   overlay.classList.remove('open');
-  // Also close mobile menu if open (so search works from within drawer)
-  if (mMenu.classList.contains('open')) {
-    mMenu.classList.remove('open');
-    burger.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
 }
 
 function doSearch(q) {
@@ -1589,17 +1582,7 @@ function doSearch(q) {
 searchInp.addEventListener('input',  e => doSearch(e.target.value));
 searchInp.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSearch(); searchInp.value = ''; } });
 if (mSearchInp) {
-  mSearchInp.addEventListener('input', e => {
-    const q = e.target.value;
-    if (q.trim().length >= 3) {
-      // Close drawer so the overlay is fully visible
-      mMenu.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-    doSearch(q);
-  });
+  mSearchInp.addEventListener('input', e => doSearch(e.target.value));
   mSearchInp.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeSearch(); mSearchInp.value = ''; }
   });
