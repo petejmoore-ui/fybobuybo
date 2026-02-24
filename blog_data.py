@@ -25,7 +25,7 @@ BLOG_POSTS = {
             "grip yoga mat wooden floor",
             "home yoga mat hardwood"
         ],
-        "featured_image": "https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg",
+        "featured_image": "https://m.media-amazon.com/images/I/81CEqdLfeSL._AC_SX679_.jpg",
         "featured_image_alt": "Non-slip yoga mat on hardwood floor - perfect grip without damage",
         
         "article_type": "Article",
@@ -382,7 +382,7 @@ BLOG_POSTS = {
             "baby monitor signal strength",
             "baby monitor Victorian house"
         ],
-        "featured_image": "https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg",
+        "featured_image": "https://m.media-amazon.com/images/I/618YUREwDIL._AC_SX679_.jpg",
         "featured_image_alt": "Long-range baby monitor with strong signal for thick walls",
         
         "article_type": "Article",
@@ -1954,7 +1954,7 @@ BLOG_POSTS = {
         "elderly daily living aids",
         "mobility products UK Amazon"
     ],
-    "featured_image": "https://m.media-amazon.com/images/I/61hEyVx8IyL._AC_SX679_.jpg",
+    "featured_image": "https://m.media-amazon.com/images/I/71ZSzOdYoSL._AC_SX679_.jpg",
     "featured_image_alt": "Elderly person using grab rail for bathroom safety and independence",
     
     "article_type": "Article",
@@ -2222,7 +2222,7 @@ BLOG_POSTS = {
         "arthritis-friendly kitchen gadgets",
         "adaptive kitchen equipment UK"
     ],
-    "featured_image": "https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg",
+    "featured_image": "https://m.media-amazon.com/images/I/618cdu3k1HL._AC_SX679_.jpg",
     "featured_image_alt": "Electric can opener for arthritic hands - easy one-touch operation",
     
     # Schema.org Article structured data
