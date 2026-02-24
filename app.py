@@ -2489,16 +2489,29 @@ BASE_HTML = """<!DOCTYPE html>
     </h1>
     <p class="hero-sub">{{ subtitle }}</p>
     <div class="hero-actions">
+      {% if request.path == '/blog' or request.path.startswith('/blog/') %}
+      <a href="/" class="btn-primary">
+        Browse gift picks
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#articles" class="btn-ghost">Read guides →</a>
+      {% else %}
       <a href="#picks" class="btn-primary">
         Browse picks
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="/blog" class="btn-ghost">Gift guides →</a>
+      {% endif %}
     </div>
     <div class="hero-stats">
       <div>
-        <div class="hero-stat-num">{{ products|length if products else 0 }}<span>+</span></div>
+        {% if request.path == '/blog' or request.path.startswith('/blog/') %}
+        <div class="hero-stat-num">{{ total_posts if total_posts else '' }}<span>+</span></div>
+        <div class="hero-stat-label">Gift guides</div>
+        {% else %}
+        <div class="hero-stat-num">{{ products|length if products else '' }}<span>+</span></div>
         <div class="hero-stat-label">Curated picks</div>
+        {% endif %}
       </div>
       <div>
         <div class="hero-stat-num"><span>✦</span></div>
@@ -2506,7 +2519,7 @@ BASE_HTML = """<!DOCTYPE html>
       </div>
       <div>
         <div class="hero-stat-num"><span>UK</span></div>
-        <div class="hero-stat-label">Gift ideas</div>
+        <div class="hero-stat-label">Only the best</div>
       </div>
     </div>
   </div>
@@ -2949,7 +2962,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 def render_page(title, description, heading, subtitle, products=None, page=1,
                 page_url=None, similar_products=None, today=None,
-                today_formatted=None, article_date=None, content=None):
+                today_formatted=None, article_date=None, content=None, total_posts=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     nav_items = get_nav_items()
@@ -3007,7 +3020,7 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
         today=today, today_formatted=today_formatted,
         structured_data=structured_data, breadcrumb_schema=breadcrumb_schema,
         article_date=article_date, content=content or "",
-        cookie_consent=""
+        cookie_consent="", total_posts=total_posts
     )
 
 
@@ -3292,7 +3305,7 @@ def blog_list(page=1):
 
     if grid_posts:
         blog_html += """
-        <div class="sec-hdr" style="padding:0;margin:0 0 28px">
+        <div class="sec-hdr" id="articles" style="padding:0;margin:0 0 28px">
           <div>
             <div class="sec-eyebrow">All articles</div>
             <h2 class="sec-title">Latest <em>Guides</em></h2>
@@ -3345,6 +3358,7 @@ def blog_list(page=1):
         heading="FyboBuybo Blog",
         subtitle="Gift guides, trends and inspiration for UK shoppers",
         products=None, page=page,
+        total_posts=total_posts,
     )
 
     insert = rendered.find("<!-- ═══ PRODUCT GRID")
