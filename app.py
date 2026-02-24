@@ -969,9 +969,9 @@ button{font-family:inherit}
 /* ─── SEARCH OVERLAY ─────────────────────────────────────── */
 #search-overlay{
   display:none;position:fixed;
-  top:67px;left:0;right:0;bottom:0;
+  top:0;left:0;right:0;bottom:0;
   background:rgba(0,0,0,0.72);backdrop-filter:blur(8px);
-  z-index:150;padding:24px 24px 40px;overflow-y:auto;
+  z-index:210;padding:80px 24px 40px;overflow-y:auto;
 }
 #search-overlay.open{display:block;animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -1518,6 +1518,13 @@ function renderResults(products, q) {
 
 function closeSearch() {
   overlay.classList.remove('open');
+  // Also close mobile menu if open (so search works from within drawer)
+  if (mMenu.classList.contains('open')) {
+    mMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 }
 
 function doSearch(q) {
@@ -1582,8 +1589,20 @@ function doSearch(q) {
 searchInp.addEventListener('input',  e => doSearch(e.target.value));
 searchInp.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSearch(); searchInp.value = ''; } });
 if (mSearchInp) {
-  mSearchInp.addEventListener('input',  e => doSearch(e.target.value));
-  mSearchInp.addEventListener('keydown', e => { if (e.key === 'Escape') { closeSearch(); mSearchInp.value = ''; } });
+  mSearchInp.addEventListener('input', e => {
+    const q = e.target.value;
+    if (q.trim().length >= 3) {
+      // Close drawer so the overlay is fully visible
+      mMenu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    doSearch(q);
+  });
+  mSearchInp.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeSearch(); mSearchInp.value = ''; }
+  });
 }
 
 document.getElementById('search-close').onclick = closeSearch;
