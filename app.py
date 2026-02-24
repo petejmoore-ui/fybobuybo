@@ -225,14 +225,9 @@ def generate_product_schema(product):
                 }
             }
         }
-    if price_info.get("rating") and price_info.get("reviews"):
-        try:
-            rating_val = float(price_info["rating"])
-            review_count = re.sub(r'[^\d]', '', str(price_info.get("reviews", "1"))) or "1"
-            if int(review_count) > 0:
-                schema["aggregateRating"] = {"@type": "AggregateRating", "ratingValue": str(rating_val), "bestRating": "5", "worstRating": "1", "reviewCount": review_count}
-                schema["review"] = {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": str(rating_val), "bestRating": "5"}, "author": {"@type": "Person", "name": "Verified Buyer"}}
-        except (ValueError, TypeError): pass
+    # NOTE: AggregateRating schema intentionally omitted - Amazon affiliate TOS
+    # prohibits displaying Amazon review data without live PA API feed.
+    # We direct users to Amazon for current ratings instead.
     return json.dumps(schema, ensure_ascii=False)
 
 def generate_breadcrumb_schema(breadcrumbs):
@@ -1289,8 +1284,7 @@ BASE_HTML = """<!DOCTYPE html>
       {% if price_info.rating %}
       <div class="card-rating">
         <span class="card-stars">{% for i in range(price_info.rating|int) %}★{% endfor %}</span>
-        {{ price_info.rating }}/5
-        {% if price_info.reviews %}<span style="opacity:.6;margin-left:3px">({{ price_info.reviews }})</span>{% endif %}
+        <span style="font-size:.77rem;color:var(--muted)">Highly rated on Amazon</span>
       </div>
       {% else %}<div></div>{% endif %}
       {% if p.date_added %}<span class="card-date">{{ p.date_added }}</span>{% endif %}
@@ -1471,8 +1465,8 @@ loadProducts();
 function pySlugify(t) {
   return t.toLowerCase()
     .replace(/&/g, '-and-')
-    .replace(/\\s+/g, '-')
-    .replace(/[^\\w-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]/g, '')
     .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
@@ -1729,11 +1723,13 @@ def product_detail(product_slug):
     rating_html = ""
     if price_info.get("rating"):
         stars = "★" * int(float(price_info["rating"]))
-        reviews_text = f'({price_info["reviews"]} reviews)' if price_info.get("reviews") else ""
-        rating_html = f"""<div style="display:flex;align-items:center;gap:8px;font-size:.94rem;color:var(--muted)">
-          <span style="color:#e6a817;font-size:1.1rem;letter-spacing:-.04em">{stars}</span>
-          <strong style="color:var(--accent)">{price_info["rating"]}/5</strong>
-          <span>{reviews_text}</span></div>"""
+        rating_html = f"""<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="color:var(--star-col);font-size:1.15rem;letter-spacing:-.04em">{stars}</span>
+          <span style="font-size:.9rem;color:var(--muted);font-weight:500">Highly rated on Amazon</span>
+          <a href="{found.get('url','')}" target="_blank" rel="nofollow sponsored noopener"
+             style="font-size:.82rem;color:var(--hl);font-weight:600;text-decoration:underline">
+            See current ratings →</a>
+        </div>"""
 
     amazon_btn = ""
     if found.get("url"):
@@ -1791,23 +1787,68 @@ def load_blog_posts(page=1):
 
 def get_blog_post_image(post, all_products):
     """
-    Returns a tuple: (img_tag_html, is_product_image)
-    Priority: post["image"] → first related_product image
-    is_product_image=True means use object-fit:contain (product on white bg)
+    Returns (img_tag_html, is_product_img) or (None, False).
+    Uses fuzzy matching so related_products field doesn't need to be an exact slug.
+    Priority: post["image"] -> related_products fuzzy match -> category hint fallback
     """
     if post.get("image"):
         return (
-            f'<img src="{post["image"]}" alt="{post["title"]}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">',
+            f'<img src="{post["image"]}" alt="{post["title"]}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block">',
             False
         )
-    if post.get("related_products"):
-        for product_slug in post["related_products"]:
-            product = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
-            if product and product.get("image"):
+
+    def fuzz(s):
+        import re as _re
+        return _re.sub(r'[^a-z0-9]', '', s.lower()) if s else ''
+
+    if post.get("related_products") and all_products:
+        # Build lookup map from fuzzy product name -> product
+        product_map = {}
+        for p in all_products:
+            if p.get("image"):
+                product_map[fuzz(p["name"])] = p
+                product_map[fuzz(slugify(p["name"]))] = p
+
+        for rel in post["related_products"]:
+            rel_fuzz = fuzz(rel)
+            # Exact fuzzy match
+            if rel_fuzz in product_map:
+                p = product_map[rel_fuzz]
                 return (
-                    f'<img src="{product["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:20px;position:absolute;inset:0">',
+                    f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
                     True
                 )
+            # Partial match — either is substring of the other
+            for pfuzz, p in product_map.items():
+                if len(rel_fuzz) > 5 and (rel_fuzz in pfuzz or pfuzz in rel_fuzz):
+                    return (
+                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                        True
+                    )
+
+    # Category-hint fallback based on title keywords
+    title_lower = post["title"].lower()
+    category_hints = {
+        "baby": ["baby", "nursery", "infant", "monitor"],
+        "yoga": ["sport", "fitness", "health", "wellness"],
+        "monitor": ["electronics", "tech", "baby"],
+        "candle": ["home", "beauty", "wellbeing"],
+        "kitchen": ["kitchen", "home", "cooking"],
+        "beauty": ["beauty", "skincare", "personal care"],
+        "fitbit": ["electronics", "tech", "fitness"],
+        "garmin": ["electronics", "tech", "fitness"],
+        "gift": ["toys", "beauty", "home"],
+        "book": ["learning", "education", "books"],
+    }
+    for kw, cats in category_hints.items():
+        if kw in title_lower:
+            for p in all_products:
+                if p.get("image") and any(c.lower() in p.get("category", "").lower() for c in cats):
+                    return (
+                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                        True
+                    )
+
     return None, False
 
 
