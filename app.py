@@ -1828,8 +1828,7 @@ def load_blog_posts(page=1):
     total_pages = (len(posts) + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
     return paginated, total_pages, len(posts)
 
-print(f"DEBUG: {post.get('slug','?')} | featured_image: {post.get('featured_image','MISSING')}")
-img_result = get_blog_post_image(post, all_products)
+
 
 def get_blog_post_image(post, all_products):
     """
