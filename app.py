@@ -2531,7 +2531,7 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="ribbon-track">
     {% for _ in range(2) %}
     <span>Hand-picked for UK Shoppers</span><span class="sep">✦</span>
-    <span>Honest Gift Curation</span><span class="sep">✦</span>
+    <span>Gift Curation</span><span class="sep">✦</span>
     <span>No Ads · No Sponsored Picks</span><span class="sep">✦</span>
     <span>Refreshed Every Day</span><span class="sep">✦</span>
     <span>Top-Rated Finds · 2026</span><span class="sep">✦</span>
@@ -2647,7 +2647,7 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="hero-content">
     <div class="hero-eyebrow">Updated daily · Handpicked for UK shoppers</div>
     <h1 class="hero-h1">{{ heading|replace("FyboBuybo – ", "")|replace(" Gifts", "")|safe }}<em> Gifts</em>
-      <span class="line-2">{{ "Honestly curated, daily" }}</span>
+      <span class="line-2">{{ "Curated, daily" }}</span>
     </h1>
     <p class="hero-sub">{{ subtitle }}</p>
     <div class="hero-actions">
@@ -2725,7 +2725,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% if products and products|length > 1 %}
 <div class="sec-hdr reveal" id="picks">
   <div>
-    <div class="sec-eyebrow">Honestly curated · updated daily</div>
+    <div class="sec-eyebrow">Carefully curated · updated daily</div>
     <h2 class="sec-title">Today's <em>Top Picks</em></h2>
   </div>
   <a href="/blog" class="sec-view-all">Gift guides →</a>
@@ -2814,8 +2814,8 @@ BASE_HTML = """<!DOCTYPE html>
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">Fybo<em>Buybo</em></div>
-        <p class="footer-desc">An independent gift curation site for UK shoppers. Every pick is chosen for genuine quality — we earn a small commission on purchases at no extra cost to you.</p>
-        <div class="footer-tagline">Honest curation · no paid placements</div>
+        <p class="footer-desc">An independent gift curation site for UK shoppers. Every pick is chosen — we earn a small commission on purchases at no extra cost to you.</p>
+        <div class="footer-tagline">No paid placements</div>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Explore</div>
@@ -3218,7 +3218,7 @@ def home():
         title="FyboBuybo – Trending UK Gifts & Popular Presents 2026",
         description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily.",
         heading="FyboBuybo – Trending UK Gifts",
-        subtitle="Every pick on this site is chosen for genuine quality. Refreshed daily for UK shoppers.",
+        subtitle="Every pick on this site is chosen to help find interesting gifts. Refreshed daily for UK shoppers.",
         products=products
     )
 
@@ -3234,7 +3234,7 @@ def category(slug, page=1):
         title=f"Best {cat_name} Gifts UK 2026 | Trending Picks – FyboBuybo",
         description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily.",
         heading=f"Best {cat_name} Gifts UK 2026",
-        subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — honestly chosen, updated regularly.",
+        subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — updated regularly.",
         products=filtered, page=page, page_url=page_url
     )
 
@@ -3253,7 +3253,7 @@ def seasonal_collection(season_slug, page=1):
         title=f"Best {title_season} 2026 – FyboBuybo",
         description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026.",
         heading=title_season,
-        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with honest recommendations.",
+        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with recommendations.",
         products=filtered, page=page, page_url=page_url
     )
 
