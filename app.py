@@ -2534,50 +2534,78 @@ body::before {
 
 ::selection { background: var(--navy-dim); color: var(--navy); }
 
-/* ===== BLOG CARD BUTTON STYLES ===== */
+/* ============================================================
+   FYBOBUYBO — Blog Card Button Styles v2 (CORRECT FIX)
+   
+   ROOT CAUSE: The first <a> in each card is the image link,
+   not the CTA button. a:first-of-type was targeting the wrong
+   element. This fix targets ALL buttons inside article cards
+   and uses the Amazon URL to differentiate the two CTAs.
+   
+   Add this block to app.py CSS_TEMPLATE just before </style>
+   ============================================================ */
+
+/* ── Base: every button inside a blog article card ── */
 article .card button {
     display: inline-block;
-    padding: 12px 26px;
+    padding: 12px 28px;
     border-radius: 50px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    border: none;
+    border: 2px solid transparent;
     transition: all 0.22s ease;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
     white-space: nowrap;
+    font-family: inherit;
+    line-height: 1;
 }
 
-/* Primary CTA — "View Details & Buy" (first link in the pair) */
-article .card a:first-of-type button {
+/* ── "View Details & Buy" — internal /product/ links ── */
+article .card a[href^='/product'] button,
+article .card a[href^='/product/'] button {
     background: var(--primary);
-    color: white;
+    color: #fff;
+    border-color: var(--primary);
 }
-article .card a:first-of-type button:hover {
-    filter: brightness(1.1);
+article .card a[href^='/product'] button:hover,
+article .card a[href^='/product/'] button:hover {
+    background: transparent;
+    color: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
-/* Amazon button — orange */
-article .card a[href*='amzn'] button,
-article .card a[href*='amazon'] button {
-    background: #ff9900;
+/* ── "View on Amazon" — external amzn.to links ── */
+article .card a[href*='amzn.to'] button,
+article .card a[href*='amazon.co.uk'] button,
+article .card a[href*='amazon.com'] button {
+    background: #ff9900 !important;
     color: #111 !important;
+    border-color: #ff9900 !important;
 }
-article .card a[href*='amzn'] button:hover,
-article .card a[href*='amazon'] button:hover {
-    background: #e68a00;
+article .card a[href*='amzn.to'] button:hover,
+article .card a[href*='amazon.co.uk'] button:hover,
+article .card a[href*='amazon.com'] button:hover {
+    background: #e68900 !important;
+    border-color: #e68900 !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(255,153,0,0.38);
+    box-shadow: 0 6px 20px rgba(255,153,0,0.4);
 }
 
-/* Button row container */
+/* ── Button row container ── */
 article .card div[style*='display:flex'][style*='justify-content:center'] {
     gap: 14px !important;
     flex-wrap: wrap;
+    padding-top: 8px;
 }
-</style>"""
+
+/* ── Remove default link underline on buttons ── */
+article .card a[href^='/product'],
+article .card a[href*='amzn.to'],
+article .card a[href*='amazon'] {
+    text-decoration: none;
+}
 
 
 # ============================================================================
