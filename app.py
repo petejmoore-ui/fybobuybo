@@ -2650,7 +2650,7 @@ BASE_HTML = """<!DOCTYPE html>
 </head>
 <body>
 
-<!-- ═══ TICKER RIBBON ═══════════════════════════════════════════ -->
+<!-- TICKER RIBBON  -->
 <div class="ribbon" aria-hidden="true" role="marquee">
   <div class="ribbon-track">
     {% for _ in range(2) %}
