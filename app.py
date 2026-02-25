@@ -2533,6 +2533,50 @@ body::before {
 ::-webkit-scrollbar-thumb:hover { background: var(--slate); }
 
 ::selection { background: var(--navy-dim); color: var(--navy); }
+
+/* ===== BLOG CARD BUTTON STYLES ===== */
+article .card button {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.22s ease;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* Primary CTA — "View Details & Buy" (first link in the pair) */
+article .card a:first-of-type button {
+    background: var(--primary);
+    color: white;
+}
+article .card a:first-of-type button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* Amazon button — orange */
+article .card a[href*='amzn'] button,
+article .card a[href*='amazon'] button {
+    background: #ff9900;
+    color: #111 !important;
+}
+article .card a[href*='amzn'] button:hover,
+article .card a[href*='amazon'] button:hover {
+    background: #e68a00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255,153,0,0.38);
+}
+
+/* Button row container */
+article .card div[style*='display:flex'][style*='justify-content:center'] {
+    gap: 14px !important;
+    flex-wrap: wrap;
+}
 </style>"""
 
 
