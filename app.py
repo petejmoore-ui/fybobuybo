@@ -2544,7 +2544,7 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="nav-inner">
 
     <a href="/" class="nav-logo" aria-label="FyboBuybo Home">
-      <span class="logo-fybo">Fybo</span><span class="logo-dot"></span><span class="logo-buybo">Buybo</span>
+      <span class="logo-fybo">Fybo</span><span class="logo-buybo">Buybo</span>
     </a>
 
     <nav class="nav-links" aria-label="Primary navigation">
