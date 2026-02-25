@@ -1496,23 +1496,26 @@ body::before {
 
 .card-badge {
   position: absolute;
-  top: 12px;
+  bottom: 12px;
   left: 12px;
-  background: rgba(255,255,255,0.94);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   border: 1px solid var(--slate-line);
   border-radius: var(--r-pill);
-  padding: 3px 11px;
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .06em;
+  padding: 4px 12px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--slate);
-  box-shadow: var(--sh-xs);
+  box-shadow: 0 2px 8px rgba(15,32,68,0.12);
+  z-index: 2;
 }
 .dark .card-badge {
-  background: rgba(19,30,51,0.90);
+  background: rgba(19,30,51,0.88);
   color: var(--slate-2);
+  border-color: rgba(107,143,196,0.30);
 }
 
 .card-quick {
@@ -1945,6 +1948,55 @@ body::before {
 }
 .blog-prose td { padding: 12px 18px; border-bottom: 1px solid var(--divider); color: var(--ink-3); }
 .blog-prose tr:last-child td { border-bottom: none; }
+
+/* ── BLOG IN-CONTENT BUTTONS ──────────────────────────────── */
+.blog-prose .blog-btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 28px 0;
+  justify-content: center;
+}
+.blog-prose .blog-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--r-pill);
+  font-size: .875rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -.01em;
+  cursor: pointer;
+  transition: all .22s var(--ease-out);
+  text-decoration: none !important;
+  border: none;
+}
+.blog-prose .blog-btn-primary {
+  background: var(--cta);
+  color: #ffffff;
+  box-shadow: var(--sh-cta);
+}
+.blog-prose .blog-btn-primary:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,84,26,0.40);
+  color: #ffffff;
+  border-bottom-color: transparent;
+}
+.blog-prose .blog-btn-secondary {
+  background: var(--card);
+  color: var(--navy);
+  border: 1.5px solid var(--navy-line) !important;
+  box-shadow: var(--sh-xs);
+}
+.blog-prose .blog-btn-secondary:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-2) !important;
+  transform: translateY(-2px);
+  color: var(--navy-2);
+  border-bottom-color: var(--navy-2) !important;
+}
 
 .similar-sec {
   max-width: 1600px;
