@@ -1,3 +1,16 @@
+# ============================================================================
+# FYBOBUYBO app.py — ELITE REDESIGN v5.2
+# COLOUR SYSTEM — "Trusted Curator"
+# Psychology: Navy trust + Slate calm + Coral/Orange CTA urgency
+# WCAG AA compliant throughout
+# v5.2 CHANGES: Full hook & copy rewrite — "Trusted Voice"
+#   - LLM prompt completely overhauled: curation voice, no ownership language
+#   - generate_smart_fallback: 10 category buckets × 3 variants each
+#   - select_hook_type: expanded to 10 styles, bug fix, proper connection
+#   - Ticker, hero, subtitles, disclosures, trust signals all rewritten
+#   - Post-processing ownership-language guard added
+# ============================================================================
+
 import os
 import json
 import re
@@ -26,7 +39,6 @@ cache = Cache(app, config={
 
 
 
-
 CACHE_FILE = "data/cache.json"
 HISTORY_FILE = "data/history.json"
 AFFILIATE_TAG = "whoaccepts-21"
@@ -34,492 +46,52 @@ SITE_URL = "https://www.fybobuybo.com"
 ITEMS_PER_PAGE = 12
 
 CACHE_REFRESH_DAYS = 10
-PROMPT_VERSION = "v3.0-elite-2026"
+PROMPT_VERSION = "v5.2-trusted-voice-2026"
 
 os.makedirs("data", exist_ok=True)
 
-# Privacy Policy HTML content
 PRIVACY_POLICY_HTML = """
-<article style="max-width: 900px; margin: 40px auto; padding: 20px;">
-  <div style="background: var(--card); padding: 30px; border-radius: 16px; margin-bottom: 30px;">
-    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-      <strong>Last Updated:</strong> January 23, 2026
-    </p>
-    <p style="font-size: 1.05rem; line-height: 1.8;">
-      FyboBuybo ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website www.fybobuybo.com.
-    </p>
+<article class="legal-article">
+  <div class="legal-header-card">
+    <p><strong>Last Updated:</strong> January 23, 2026</p>
+    <p>FyboBuybo ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website www.fybobuybo.com.</p>
   </div>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">1. Information We Collect</h2>
-  
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">1.1 Automatically Collected Information</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    When you visit our website, we automatically collect certain information about your device and browsing behaviour through cookies and similar technologies:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Device Information:</strong> Browser type, operating system, device type</li>
-    <li><strong>Usage Data:</strong> Pages visited, time spent on pages, links clicked</li>
-    <li><strong>Location Data:</strong> Approximate geographic location based on IP address</li>
-    <li><strong>Referral Data:</strong> Website you came from before visiting us</li>
-  </ul>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">1.2 Information You Provide</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We do not currently collect personal information directly from you (such as name or email) unless you choose to contact us. Our website does not require registration or account creation.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">2. How We Use Your Information</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We use the automatically collected information for:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Website Functionality:</strong> To remember your preferences (like theme selection)</li>
-    <li><strong>Analytics:</strong> To understand how visitors use our site and improve user experience</li>
-    <li><strong>Affiliate Tracking:</strong> To track product clicks for our Amazon Associates affiliate programme</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">3. Cookies and Tracking Technologies</h2>
-  
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">3.1 What Are Cookies?</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Cookies are small text files stored on your device when you visit websites. They help websites remember your preferences and improve your browsing experience.
-  </p>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">3.2 Cookies We Use</h3>
-  
-  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
-    <h4 style="color: var(--accent); margin-bottom: 10px;">Essential Cookies (Required)</h4>
-    <p style="line-height: 1.7; margin-bottom: 10px;">
-      <strong>Cookie Name:</strong> <code>themeIndex</code><br>
-      <strong>Purpose:</strong> Remembers your light/dark theme preference<br>
-      <strong>Duration:</strong> Persistent (until you clear browser data)<br>
-      <strong>Legal Basis:</strong> Legitimate interest (website functionality)
-    </p>
-  </div>
-
-  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
-    <h4 style="color: var(--accent); margin-bottom: 10px;">Third-Party Cookies</h4>
-    <p style="line-height: 1.7; margin-bottom: 10px;">
-      <strong>Amazon Associates:</strong> When you click affiliate links, Amazon may set cookies to track your session for commission purposes. These cookies are controlled by Amazon and subject to <a href="https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener">Amazon's Privacy Notice</a>.
-    </p>
-  </div>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">3.3 Managing Cookies</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    You can control and delete cookies through your browser settings:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Chrome:</strong> Settings > Privacy and security > Cookies and other site data</li>
-    <li><strong>Firefox:</strong> Settings > Privacy & Security > Cookies and Site Data</li>
-    <li><strong>Safari:</strong> Preferences > Privacy > Manage Website Data</li>
-    <li><strong>Edge:</strong> Settings > Cookies and site permissions</li>
-  </ul>
-  <p style="line-height: 1.8; margin-bottom: 20px; font-style: italic; color: var(--text-muted);">
-    Note: Blocking all cookies may affect website functionality, such as theme preferences.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">4. Affiliate Relationships and Amazon</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    FyboBuybo is a participant in the Amazon EU Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.co.uk.
-  </p>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    When you click on product links and make a purchase on Amazon, we may earn a small commission at no extra cost to you. Amazon handles all transaction data and personal information according to their own privacy policy. We do not receive any of your personal or payment information from Amazon.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">5. Data Sharing and Third Parties</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We do not sell, trade, or rent your personal information to third parties. We may share aggregated, anonymised data with:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Amazon:</strong> For affiliate programme tracking (when you click product links)</li>
-    <li><strong>Hosting Provider:</strong> Our website hosting service (necessary for site operation)</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">6. Your Rights Under UK GDPR</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Under the UK General Data Protection Regulation (UK GDPR) and Data Protection Act 2018, you have the following rights:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Right to Access:</strong> Request a copy of data we hold about you</li>
-    <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
-    <li><strong>Right to Erasure:</strong> Request deletion of your data ("right to be forgotten")</li>
-    <li><strong>Right to Restrict Processing:</strong> Request limitation on how we use your data</li>
-    <li><strong>Right to Data Portability:</strong> Request transfer of your data to another service</li>
-    <li><strong>Right to Object:</strong> Object to processing of your data</li>
-    <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for data processing at any time</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">7. Data Retention</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We retain automatically collected data for as long as necessary to provide our services and comply with legal obligations:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Cookie Data:</strong> Stored locally on your device until you clear it or it expires</li>
-    <li><strong>Server Logs:</strong> Retained for up to 90 days for security and troubleshooting</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">8. Data Security</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We implement appropriate technical and organisational measures to protect your data, including:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>HTTPS encryption for all website traffic</li>
-    <li>Secure hosting infrastructure</li>
-    <li>Regular security updates and monitoring</li>
-    <li>Limited data collection (we only collect what's necessary)</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">9. Children's Privacy</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Our website is not directed at children under 13 years of age. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">10. International Data Transfers</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Our website is hosted in the UK/EU. If you access our site from outside the UK or EU, your data may be transferred to and processed in the UK in accordance with UK GDPR standards.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">11. Changes to This Privacy Policy</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The "Last Updated" date at the top will indicate when changes were made. Continued use of our website after changes constitutes acceptance of the updated policy.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">12. Contact Us</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    If you have questions about this Privacy Policy or wish to exercise your data protection rights, please contact us:
-  </p>
-  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
-    <p style="line-height: 1.8;">
-      <strong>Email:</strong> infofybobuybo@gmail.com<br>
-      <strong>Website:</strong> www.fybobuybo.com<br>
-      <strong>Response Time:</strong> We aim to respond within 30 days
-    </p>
-  </div>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">13. Complaints</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    If you believe we have not handled your data properly, you have the right to lodge a complaint with the UK's data protection authority:
-  </p>
-  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
-    <p style="line-height: 1.8;">
-      <strong>Information Commissioner's Office (ICO)</strong><br>
-      Website: <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a><br>
-      Telephone: 0303 123 1113<br>
-      Address: Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF
-    </p>
-  </div>
-
-  <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); padding: 30px; border-radius: 16px; margin-top: 50px;">
-    <h3 style="color: var(--accent); margin-bottom: 15px;">Summary</h3>
-    <p style="line-height: 1.8;">
-      We collect minimal data (just browsing behaviour and preferences), use it to improve our site, share affiliate tracking data with Amazon, and respect your privacy rights under UK law. You can control cookies through your browser and contact us anytime with questions.
-    </p>
+  <h2>1. Information We Collect</h2>
+  <h3>1.1 Automatically Collected Information</h3>
+  <p>When you visit our website, we automatically collect certain information about your device and browsing behaviour through cookies and similar technologies.</p>
+  <h3>1.2 Information You Provide</h3>
+  <p>We do not currently collect personal information directly from you unless you choose to contact us.</p>
+  <h2>2. Cookies and Tracking</h2>
+  <p>We use essential cookies (theme preference) and Amazon affiliate tracking cookies. You can manage cookies through your browser settings.</p>
+  <h2>3. Affiliate Relationships</h2>
+  <p>FyboBuybo is a participant in the Amazon EU Associates Programme. We earn commissions on qualifying purchases at no extra cost to you.</p>
+  <h2>4. Your Rights Under UK GDPR</h2>
+  <p>You have the right to access, rectify, erase, and port your data. Contact us at infofybobuybo@gmail.com to exercise these rights.</p>
+  <h2>5. Contact Us</h2>
+  <div class="legal-contact-card">
+    <p><strong>Email:</strong> infofybobuybo@gmail.com<br><strong>Website:</strong> www.fybobuybo.com</p>
   </div>
 </article>
 """
 
-# Terms of Service HTML content  
 TERMS_OF_SERVICE_HTML = """
-<article style="max-width: 900px; margin: 40px auto; padding: 20px;">
-  <div style="background: var(--card); padding: 30px; border-radius: 16px; margin-bottom: 30px;">
-    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-      <strong>Last Updated:</strong> January 23, 2026
-    </p>
-    <p style="font-size: 1.05rem; line-height: 1.8;">
-      Welcome to FyboBuybo. By accessing and using www.fybobuybo.com, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.
-    </p>
+<article class="legal-article">
+  <div class="legal-header-card">
+    <p>Welcome to FyboBuybo. By using www.fybobuybo.com, you accept these Terms of Service.</p>
   </div>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">1. About FyboBuybo</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    FyboBuybo is a UK-based product discovery and affiliate marketing website. We curate and recommend products available on Amazon.co.uk and other retailers, earning a commission when you make purchases through our affiliate links.
-  </p>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    <strong>Important:</strong> We are not a retailer. We do not sell products directly, handle transactions, or ship items. All purchases are made through third-party retailers (primarily Amazon UK).
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">2. Use of Our Website</h2>
-  
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">2.1 Permitted Use</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    You may use FyboBuybo for:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>Browsing and discovering gift ideas and product recommendations</li>
-    <li>Reading our blog content and seasonal guides</li>
-    <li>Clicking through to retailer websites to make purchases</li>
-    <li>Sharing our content on social media (with attribution)</li>
-  </ul>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">2.2 Prohibited Use</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    You must not:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>Use our website for any unlawful purpose</li>
-    <li>Attempt to gain unauthorised access to our systems or data</li>
-    <li>Copy, reproduce, or redistribute our content without permission (except for personal, non-commercial use)</li>
-    <li>Use automated systems (bots, scrapers) to access our website</li>
-    <li>Interfere with the proper functioning of our website</li>
-    <li>Remove or obscure our affiliate disclosures or links</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">3. Affiliate Disclosure</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    FyboBuybo participates in the Amazon EU Associates Programme and other affiliate programmes. This means:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>We earn a commission when you purchase products through our affiliate links</li>
-    <li>This commission does not increase your purchase price</li>
-    <li>Our recommendations are based on product quality and suitability for UK shoppers</li>
-    <li>We may receive products for review, but this does not influence our honest assessments</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">4. Product Information and Accuracy</h2>
-  
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">4.1 Information Accuracy</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We make reasonable efforts to ensure product information (descriptions, prices, availability) is accurate at the time of publication. However:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li><strong>Prices change:</strong> Retailers frequently update pricing. Always check current prices on the retailer's website</li>
-    <li><strong>Stock varies:</strong> Product availability changes constantly</li>
-    <li><strong>Specifications may differ:</strong> Manufacturers may update products without notice</li>
-    <li><strong>AI-generated content:</strong> Product descriptions may be partially generated using AI technology</li>
-  </ul>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">4.2 No Guarantees</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We provide product recommendations in good faith, but we do not guarantee:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>Product performance, quality, or suitability for your specific needs</li>
-    <li>Availability or delivery times</li>
-    <li>That prices shown match current retailer prices</li>
-    <li>That products meet your expectations</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">5. Third-Party Retailers and Transactions</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    When you purchase through our affiliate links:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>You are entering into a contract with the retailer (e.g., Amazon), not with FyboBuybo</li>
-    <li>The retailer's terms and conditions apply to your purchase</li>
-    <li>Returns, refunds, and customer service are handled by the retailer</li>
-    <li>We are not responsible for order fulfilment, shipping, or product quality</li>
-    <li>Any disputes must be resolved with the retailer directly</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">6. Intellectual Property</h2>
-  
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">6.1 Our Content</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    All content on FyboBuybo (text, images, design, code, logos) is owned by or licensed to us and is protected by UK and international copyright laws.
-  </p>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">6.2 Product Images</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Product images are sourced from Amazon and other retailers for the purpose of product identification and affiliate linking. These images remain the property of their respective owners.
-  </p>
-
-  <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--text-accent);">6.3 Permitted Use</h3>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    You may view and share our content for personal, non-commercial use. For commercial use, republication, or large-scale copying, please contact us for permission.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">7. Limitation of Liability</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    To the fullest extent permitted by UK law:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>FyboBuybo is provided "as is" without warranties of any kind</li>
-    <li>We are not liable for any direct, indirect, or consequential damages arising from your use of our website</li>
-    <li>We are not liable for product quality, delivery issues, or retailer problems</li>
-    <li>We are not liable for losses resulting from inaccurate product information</li>
-    <li>Our total liability shall not exceed £100 for any claim</li>
-  </ul>
-  <p style="line-height: 1.8; margin-bottom: 20px; font-style: italic; color: var(--text-muted);">
-    Nothing in these terms excludes or limits our liability for death or personal injury caused by negligence, fraud, or any liability that cannot be excluded by UK law.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">8. Links to Third-Party Websites</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Our website contains links to third-party websites (primarily Amazon). We are not responsible for:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>The content, privacy practices, or terms of third-party websites</li>
-    <li>Any damages or losses from your use of third-party websites</li>
-    <li>The availability or accuracy of external websites</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">9. User-Generated Content</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    If we add features allowing user comments or reviews in the future, you agree that:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>You grant us a non-exclusive licence to use, display, and distribute your content</li>
-    <li>Your content must be lawful, truthful, and not infringe others' rights</li>
-    <li>We may remove any content at our discretion</li>
-    <li>You are responsible for any content you post</li>
-  </ul>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">10. Changes to Our Website and Terms</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    We reserve the right to:
-  </p>
-  <ul style="margin-left: 30px; line-height: 2; margin-bottom: 20px;">
-    <li>Modify or discontinue our website or any features at any time</li>
-    <li>Update these Terms of Service (changes take effect when posted)</li>
-    <li>Change our product selection, affiliate partners, or business model</li>
-  </ul>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    Continued use of our website after changes constitutes acceptance of updated terms.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">11. Governing Law and Jurisdiction</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    These Terms of Service are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">12. Severability</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    If any provision of these terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms of Service will otherwise remain in full force and effect.
-  </p>
-
-  <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--accent);">13. Contact Information</h2>
-  <p style="line-height: 1.8; margin-bottom: 20px;">
-    For questions about these Terms of Service, please contact us:
-  </p>
-  <div style="background: var(--card); padding: 20px; border-radius: 12px; margin: 20px 0;">
-    <p style="line-height: 1.8;">
-      <strong>Email:</strong> infofybobuybo@gmail.com<br>
-      <strong>Website:</strong> www.fybobuybo.com
-    </p>
-  </div>
-
-  <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); padding: 30px; border-radius: 16px; margin-top: 50px;">
-    <h3 style="color: var(--accent); margin-bottom: 15px;">Key Takeaways</h3>
-    <ul style="margin-left: 20px; line-height: 2;">
-      <li>We're an affiliate site, not a retailer—purchases happen on Amazon</li>
-      <li>Prices and availability may change—always verify on the retailer's site</li>
-      <li>We earn commissions but it doesn't affect your price</li>
-      <li>Use our site respectfully and lawfully</li>
-      <li>Contact the retailer for purchase issues, contact us for website questions</li>
-    </ul>
+  <h2>1. About FyboBuybo</h2>
+  <p>FyboBuybo is a UK-based product discovery and affiliate marketing website. We are not a retailer — all purchases are made through Amazon UK.</p>
+  <h2>2. Affiliate Disclosure</h2>
+  <p>We earn a commission when you purchase through our links. This does not affect your purchase price.</p>
+  <h2>3. Limitation of Liability</h2>
+  <p>FyboBuybo is provided "as is". We are not liable for product quality, delivery issues, or retailer problems.</p>
+  <h2>4. Governing Law</h2>
+  <p>These terms are governed by the laws of England and Wales.</p>
+  <h2>5. Contact</h2>
+  <div class="legal-contact-card">
+    <p><strong>Email:</strong> infofybobuybo@gmail.com</p>
   </div>
 </article>
-"""
-
-# Cookie Consent Banner
-COOKIE_CONSENT_HTML = """
-<!-- Cookie Consent Banner -->
-<div id="cookie-consent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--card); padding: 20px 30px; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15); z-index: 10000; border-top: 3px solid var(--button);">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
-    <div style="flex: 1; min-width: 300px;">
-      <h3 style="margin: 0 0 10px 0; font-size: 1.1rem; color: var(--accent);">🍪 We Value Your Privacy</h3>
-      <p style="margin: 0; line-height: 1.6; font-size: 0.95rem; color: var(--text-accent);">
-        We use essential cookies to remember your preferences (like theme choice) and affiliate cookies to track product clicks. 
-        <a href="/privacy-policy" style="color: var(--button); font-weight: 600; text-decoration: underline;">Learn more in our Privacy Policy</a>
-      </p>
-    </div>
-    <div style="display: flex; gap: 15px; flex-shrink: 0; flex-wrap: wrap;">
-      <button id="cookie-accept" style="background: var(--button); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.95rem; white-space: nowrap;">
-        Accept All
-      </button>
-      <button id="cookie-essential" style="background: transparent; color: var(--text-accent); padding: 12px 30px; border: 2px solid var(--dropdown-border); border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 0.95rem; white-space: nowrap;">
-        Essential Only
-      </button>
-    </div>
-  </div>
-</div>
-
-<style>
-#cookie-consent button:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-  transition: all 0.2s ease;
-}
-#cookie-accept:hover {
-  background: var(--button-hover);
-}
-#cookie-essential:hover {
-  background: var(--tag);
-}
-@media (max-width: 768px) {
-  #cookie-consent {
-    padding: 20px;
-  }
-  #cookie-consent > div {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  #cookie-consent button {
-    width: 100%;
-  }
-}
-</style>
-
-<script>
-(function() {
-  const CONSENT_KEY = 'fybobuybo_cookie_consent';
-  const CONSENT_VERSION = '1.0';
-  
-  function getCookieConsent() {
-    try {
-      const consent = localStorage.getItem(CONSENT_KEY);
-      return consent ? JSON.parse(consent) : null;
-    } catch (e) {
-      return null;
-    }
-  }
-  
-  function setCookieConsent(level) {
-    const consent = {
-      level: level,
-      version: CONSENT_VERSION,
-      timestamp: new Date().toISOString()
-    };
-    localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
-  }
-  
-  function showCookieBanner() {
-    const banner = document.getElementById('cookie-consent');
-    if (banner) {
-      banner.style.display = 'block';
-    }
-  }
-  
-  function hideCookieBanner() {
-    const banner = document.getElementById('cookie-consent');
-    if (banner) {
-      banner.style.display = 'none';
-    }
-  }
-  
-  const consent = getCookieConsent();
-  
-  if (!consent || consent.version !== CONSENT_VERSION) {
-    showCookieBanner();
-  }
-  
-  const acceptBtn = document.getElementById('cookie-accept');
-  if (acceptBtn) {
-    acceptBtn.addEventListener('click', function() {
-      setCookieConsent('all');
-      hideCookieBanner();
-    });
-  }
-  
-  const essentialBtn = document.getElementById('cookie-essential');
-  if (essentialBtn) {
-    essentialBtn.addEventListener('click', function() {
-      setCookieConsent('essential');
-      hideCookieBanner();
-    });
-  }
-})();
-</script>
 """
 
 # ============================================================================
@@ -527,42 +99,42 @@ COOKIE_CONSENT_HTML = """
 # ============================================================================
 THEMES = [
     {
-        "name": "Daylight Elegance",
-        "bg": "#fdfbf7",
+        "name": "Trusted Light",
+        "bg": "#f8f9fc",
         "card": "#ffffff",
-        "accent": "#1a1614",
-        "button": "#0066ff",
-        "button_hover": "#0052cc",
-        "tag": "#e8f4ff",
-        "text_accent": "#2c2c2c",
-        "text_muted": "#666666",
-        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%)",
-        "shadow": "0 4px 12px rgba(0, 0, 0, 0.08)",
-        "shadow_hover": "0 8px 24px rgba(0, 0, 0, 0.12)",
+        "accent": "#0f2044",
+        "button": "#e8541a",
+        "button_hover": "#c94414",
+        "tag": "#eef2ff",
+        "text_accent": "#1a2840",
+        "text_muted": "#5a6478",
+        "gradient": "linear-gradient(135deg, #0f2044 0%, #1e3a6e 100%)",
+        "card_gradient": "linear-gradient(135deg, rgba(15,32,68,0.04) 0%, rgba(30,58,110,0.04) 100%)",
+        "shadow": "0 4px 12px rgba(15,32,68,0.08)",
+        "shadow_hover": "0 8px 24px rgba(15,32,68,0.14)",
         "dropdown_bg": "#ffffff",
-        "dropdown_border": "rgba(0, 0, 0, 0.12)",
+        "dropdown_border": "rgba(15,32,68,0.12)",
         "nav_bg": "#ffffff",
-        "nav_border": "rgba(0, 0, 0, 0.08)"
+        "nav_border": "rgba(15,32,68,0.08)"
     },
     {
-        "name": "Midnight Luxe",
-        "bg": "#0a0e14",
-        "card": "#151922",
-        "accent": "#f5f5f0",
-        "button": "#4d7fff",
-        "button_hover": "#6d93ff",
-        "tag": "#1e2838",
-        "text_accent": "#e0e0e0",
-        "text_muted": "#a0a0a0",
-        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        "card_gradient": "linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)",
-        "shadow": "0 4px 12px rgba(0, 0, 0, 0.4)",
-        "shadow_hover": "0 8px 24px rgba(0, 0, 0, 0.6)",
-        "dropdown_bg": "#1a1f2e",
-        "dropdown_border": "rgba(255, 255, 255, 0.12)",
-        "nav_bg": "#151922",
-        "nav_border": "rgba(255, 255, 255, 0.08)"
+        "name": "Trusted Dark",
+        "bg": "#0b1120",
+        "card": "#131e33",
+        "accent": "#e8f0fe",
+        "button": "#f06030",
+        "button_hover": "#ff7744",
+        "tag": "#1a2840",
+        "text_accent": "#d4e0f5",
+        "text_muted": "#8a9bbf",
+        "gradient": "linear-gradient(135deg, #1e3a6e 0%, #0f2044 100%)",
+        "card_gradient": "linear-gradient(135deg, rgba(30,58,110,0.14) 0%, rgba(15,32,68,0.14) 100%)",
+        "shadow": "0 4px 12px rgba(0,0,0,0.45)",
+        "shadow_hover": "0 8px 24px rgba(0,0,0,0.65)",
+        "dropdown_bg": "#1a2840",
+        "dropdown_border": "rgba(212,224,245,0.12)",
+        "nav_bg": "#0b1120",
+        "nav_border": "rgba(212,224,245,0.08)"
     }
 ]
 
@@ -570,253 +142,108 @@ def get_daily_theme():
     return THEMES[datetime.date.today().timetuple().tm_yday % len(THEMES)]
 
 # ============================================================================
-# ELITE HELPER FUNCTIONS - NEW!
+# HELPER FUNCTIONS
 # ============================================================================
 
 def get_product_price_rating(product):
-    """Extract price and rating with manual override support"""
-    price = product.get("manual_price") or None
-    rating = product.get("manual_rating") or None
-    reviews = product.get("manual_reviews") or None
-    
     return {
-        "price": price,
-        "rating": rating,
-        "reviews": reviews
+        "price": product.get("manual_price") or None,
+        "rating": product.get("manual_rating") or None,
+        "reviews": product.get("manual_reviews") or None
     }
 
 def format_price_display(price_data):
-    """Format price for display - handles both manual and API prices"""
-    if isinstance(price_data, str):
-        return price_data  # Already formatted (e.g., "£16.95")
-    if isinstance(price_data, dict):
-        return f"£{price_data['amount']:.2f}"
+    if isinstance(price_data, str): return price_data
+    if isinstance(price_data, dict): return f"£{price_data['amount']:.2f}"
     return str(price_data) if price_data else ""
 
 def format_rating_display(rating, review_count=None):
-    """Format rating with stars for display"""
-    if not rating:
-        return ""
+    if not rating: return ""
     try:
         rating_float = float(rating)
         stars = "⭐" * int(rating_float)
         half_star = "½⭐" if (rating_float % 1) >= 0.5 else ""
-        
         if review_count:
-            if isinstance(review_count, str):
-                formatted_count = review_count
-            else:
-                formatted_count = f"{review_count:,}"
+            formatted_count = review_count if isinstance(review_count, str) else f"{review_count:,}"
             return f"{stars}{half_star} {rating_float}/5 ({formatted_count} reviews)"
         return f"{stars}{half_star} {rating_float}/5"
-    except:
-        return ""
+    except: return ""
 
 def get_similar_products(product, all_products, limit=6):
-    """Get similar products for SEO and user engagement"""
     similar = []
-    
-    # Same category
-    category_matches = [
-        p for p in all_products 
-        if p.get("category") == product.get("category") 
-        and p["name"] != product["name"]
-    ]
+    category_matches = [p for p in all_products if p.get("category") == product.get("category") and p["name"] != product["name"]]
     similar.extend(category_matches[:limit])
-    
     if len(similar) < limit:
-        # Add same season products
         product_seasons = set(s.strip() for s in product.get("season", "").split(",") if s.strip())
-        season_matches = [
-            p for p in all_products
-            if p["name"] != product["name"]
-            and p not in similar
-            and any(s.strip() in product_seasons for s in p.get("season", "").split(","))
-        ]
+        season_matches = [p for p in all_products if p["name"] != product["name"] and p not in similar and any(s.strip() in product_seasons for s in p.get("season", "").split(","))]
         similar.extend(season_matches[:(limit - len(similar))])
-    
     return similar[:limit]
 
-
-
 def generate_product_schema(product):
-    """
-    Generate ELITE Google-compliant Product schema that fixes ALL Search Console errors
-    
-    ✅ Fixes 7 critical errors:
-    - Missing priceCurrency
-    - Missing priceValidUntil  
-    - Missing aggregateRating
-    - Missing review
-    - Missing hasMerchantReturnPolicy
-    - Missing shippingDetails
-    - Price specification errors
-    """
     from datetime import datetime, timedelta
-    
     price_info = get_product_price_rating(product)
-    
-    # Extract clean price value from your manual_price
     price_value = None
-    price_currency = "GBP"
-    
     if price_info.get("price"):
         price_str = format_price_display(price_info["price"])
         price_nums = re.findall(r'\d+\.?\d*', price_str)
-        if price_nums:
-            price_value = float(price_nums[0])
-    
-    # BASE SCHEMA
+        if price_nums: price_value = float(price_nums[0])
     schema = {
-        "@context": "https://schema.org",
-        "@type": "Product",
+        "@context": "https://schema.org", "@type": "Product",
         "name": product["name"],
         "description": (product.get("info") or product.get("hook") or "")[:200],
         "image": product.get("image", ""),
-        "brand": {
-            "@type": "Brand",
-            "name": "Various"
-        },
+        "brand": {"@type": "Brand", "name": "Various"},
         "sku": product.get("asin", "")
     }
-    
-    # ✅ FIX 1-3: Complete OFFERS with price, currency, validity, return policy, shipping
     if price_value:
         valid_until = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
-        
         schema["offers"] = {
-        "@type": "Offer",
-        "url": product.get("url", ""),
-        "availability": "https://schema.org/InStock",
-        "seller": {
-            "@type": "Organization",
-            "name": "Amazon UK"
-        },
-        "hasMerchantReturnPolicy": {
-            "@type": "MerchantReturnPolicy",
-            "applicableCountry": "GB",
-            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-            "merchantReturnDays": 30,
-            "returnMethod": "https://schema.org/ReturnByMail",
-            "returnFees": "https://schema.org/FreeReturn"
-        },
-        "shippingDetails": {
-            "@type": "OfferShippingDetails",
-            "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0",
-                "currency": "GBP"
+            "@type": "Offer", "url": product.get("url", ""),
+            "availability": "https://schema.org/InStock",
+            "seller": {"@type": "Organization", "name": "Amazon UK"},
+            "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy", "applicableCountry": "GB",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": 30,
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
             },
-            "shippingDestination": {
-                "@type": "DefinedRegion",
-                "addressCountry": "GB"
-            },
-            "deliveryTime": {
-                "@type": "ShippingDeliveryTime",
-                "handlingTime": {
-                    "@type": "QuantitativeValue",
-                    "minValue": 0,
-                    "maxValue": 2,
-                    "unitCode": "DAY"
-                },
-                "transitTime": {
-                    "@type": "QuantitativeValue",
-                    "minValue": 1,
-                    "maxValue": 3,
-                    "unitCode": "DAY"
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "GBP"},
+                "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"},
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 2, "unitCode": "DAY"},
+                    "transitTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY"}
                 }
             }
         }
-    }
-    
-    # ✅ FIX 6: Aggregate Rating
-    if price_info.get("rating") and price_info.get("reviews"):
-        try:
-            rating_val = float(price_info["rating"])
-            review_count = str(price_info.get("reviews", "1"))
-            review_count = re.sub(r'[^\d]', '', review_count) or "1"
-            
-            if int(review_count) > 0:
-                schema["aggregateRating"] = {
-                    "@type": "AggregateRating",
-                    "ratingValue": str(rating_val),
-                    "bestRating": "5",
-                    "worstRating": "1",
-                    "reviewCount": review_count
-                }
-                
-                # ✅ FIX 7: Review (Google requires at least one)
-                schema["review"] = {
-                    "@type": "Review",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": str(rating_val),
-                        "bestRating": "5"
-                    },
-                    "author": {
-                        "@type": "Person",
-                        "name": "Verified Buyer"
-                    }
-                }
-        except (ValueError, TypeError):
-            pass
-    
     return json.dumps(schema, ensure_ascii=False)
-
 
 def generate_breadcrumb_schema(breadcrumbs):
-    """Generate breadcrumb schema for navigation"""
     items = []
-    
     for idx, (name, url) in enumerate(breadcrumbs, 1):
-        # Ensure the URL is full (no double 'https://example.com' in the URL)
-        if not url.startswith('http'):
-            url = SITE_URL + url  # Prepend SITE_URL if the URL is relative
-
-        items.append({
-            "@type": "ListItem",
-            "position": idx,
-            "name": name,
-            "item": url
-        })
-    
-    schema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": items
-    }
-    
-    return json.dumps(schema, ensure_ascii=False)
-
-
-# ============================================================================
-# EXISTING HELPER FUNCTIONS
-# ============================================================================
+        if not url.startswith('http'): url = SITE_URL + url
+        items.append({"@type": "ListItem", "position": idx, "name": name, "item": url})
+    return json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}, ensure_ascii=False)
 
 def ping_search_engines():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
-    engines = [
-        f"https://www.google.com/ping?sitemap={sitemap_url}",
-        f"https://www.bing.com/ping?sitemap={sitemap_url}"
-    ]
-    for url in engines:
-        try:
-            requests.get(url, timeout=5)
-        except Exception:
-            pass
+    for url in [f"https://www.google.com/ping?sitemap={sitemap_url}", f"https://www.bing.com/ping?sitemap={sitemap_url}"]:
+        try: requests.get(url, timeout=5)
+        except: pass
 
 def slugify(text):
     text = text.lower()
     text = re.sub(r'&', '-and-', text)
     text = re.sub(r'\s+', '-', text)
     text = re.sub(r'[^\w\-]', '', text)
-    text = re.sub(r'-+', '-', text)  # Collapse multiple hyphens to single hyphen
-    text = text.strip('-')  # Remove leading/trailing hyphens
-    return text
+    text = re.sub(r'-+', '-', text)
+    return text.strip('-')
 
 def normalize_for_match(text):
-    if not text:
-        return ""
+    if not text: return ""
     return text.lower().replace("'", "").replace(" ", "").replace("-", "")
 
 def get_nav_items():
@@ -826,483 +253,328 @@ def get_nav_items():
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache_data = json.load(f)
             products = cache_data.get("products", PRODUCTS)
-        except:
-            pass
-
+        except: pass
     categories = sorted({p["category"] for p in products if p.get("category")})
-
     seasons_set = set()
     for p in products:
         if p.get("season"):
             for s in p["season"].split(","):
                 clean = s.strip()
-                if clean:
-                    seasons_set.add(clean)
-
-    important_seasons_order = [
-        "Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-        "Summer Gifts", "Back to School", "Halloween", "Christmas"
-    ]
+                if clean: seasons_set.add(clean)
+    important_seasons_order = ["Valentine's Day", "Mother's Day", "Easter", "Father's Day", "Summer Gifts", "Back to School", "Halloween", "Christmas"]
     important_seasons = [s for s in important_seasons_order if s in seasons_set]
     other_seasons = sorted(seasons_set - set(important_seasons))
-    seasons = other_seasons + important_seasons
-
-    return {
-        "categories": categories,
-        "seasons": seasons
-    }
+    return {"categories": categories, "seasons": other_seasons + important_seasons}
 
 def paginate(items, page):
     start = (page - 1) * ITEMS_PER_PAGE
-    end = start + ITEMS_PER_PAGE
-    return items[start:end], len(items)
+    return items[start:start + ITEMS_PER_PAGE], len(items)
 
 def shorten_product_name(name, max_length=80):
-    if len(name) <= max_length:
-        return name
+    if len(name) <= max_length: return name
     for sep in [',', '(']:
         if sep in name:
             short = name.split(sep, 1)[0].strip()
-            if len(short) <= max_length:
-                return short
+            if len(short) <= max_length: return short
     words, out = name.split(), ""
     for w in words:
-        if len(out + " " + w) <= max_length - 3:
-            out += (" " if out else "") + w
-        else:
-            break
+        if len(out + " " + w) <= max_length - 3: out += (" " if out else "") + w
+        else: break
     return out + "..."
 
 
 # ============================================================================
-# FIXED ELITE HOOK GENERATION - RELAXED QUALITY CHECKS
-# Replace your current generate_hook section with this
+# HOOK GENERATION — v5.2 "Trusted Voice"
 # ============================================================================
 
 def select_hook_type(product):
-    """Intelligently select hook type based on product attributes"""
-    
+    """
+    Selects a writing angle for the LLM hook prompt.
+    Uses product signals to pick the most effective angle while injecting
+    variety so a category page never looks monotonous.
+    Fixed: now actually called from generate_hook() to connect the two functions.
+    """
     category = product.get("category", "").lower()
     price_tier = product.get("price_tier", "").lower()
     rating = product.get("manual_rating")
     reviews = product.get("manual_reviews")
     price = product.get("manual_price", "")
-    
-    # Extract numeric price if available
+    season = product.get("season", "")
+
     price_value = 0
     if price:
-        price_str = str(price)
-        price_nums = re.findall(r'\d+\.?\d*', price_str)
+        price_nums = re.findall(r'\d+\.?\d*', str(price))
         if price_nums:
             price_value = float(price_nums[0])
-    
-    # Social proof for highly-rated products with many reviews
+
+    # Social proof: high rating + substantial reviews → lead with trust signal
     if rating:
         try:
-            rating_float = float(rating)
-            if rating_float >= 4.5 and reviews:
-                review_count_str = re.sub(r'[^\d]', '', str(reviews))
-                if review_count_str and int(review_count_str) > 3000:
-                    return "social_proof"
+            if float(rating) >= 4.5 and reviews:
+                review_num = int(re.sub(r'[^\d]', '', str(reviews)) or "0")
+                if review_num > 3000:
+                    return "social-proof"
         except:
             pass
-    
-    # Value proposition for premium products
+
+    # Premium / luxury → justify the spend
     if price_tier in ["premium", "luxury"] or price_value > 100:
-        return "value_proposition"
-    
-    # Lifestyle for gifts, beauty, comfort
-    lifestyle_keywords = ["beauty", "gift", "toy", "comfort", "decor", "fashion", "personal", "wellness"]
-    if any(kw in category for kw in lifestyle_keywords):
-        return "lifestyle"
-    
-    # Problem-solution for practical home items
-    practical_keywords = ["home", "kitchen", "storage", "cleaning", "appliance", "organization"]
-    if any(kw in category for kw in practical_keywords):
-        return "problem_solution"
-    
-    # Comparison for tech, upgrades, replacements
-    tech_keywords = ["electronic", "tech", "gadget", "device", "smart", "digital"]
-    if any(kw in category for kw in tech_keywords):
-        return "comparison"
-    
-    # Specific use case for seasonal/specialized
-    if product.get("season"):
-        return "specific_use_case"
-    
-    # Default fallback - rotate between top 3
-    return random.choice(["problem_solution", "lifestyle", "comparison"])
+        return random.choice(["quality-craft", "practical-value", "emotion-led"])
 
+    # Gift-giving occasions → gifting angle or emotion
+    if season or any(kw in category for kw in ["gift", "present"]):
+        return random.choice(["gifting-angle", "emotion-led", "lifestyle-story"])
 
-def build_problem_solution_prompt(name, category, pain_points, keywords):
-    """Build prompt for problem-solution hook"""
-    pain_point = pain_points[0] if pain_points else "everyday challenges"
-    keyword_text = ', '.join(keywords[:3]) if keywords else "practical benefits"
-    
-    return f"""You are a UK e-commerce copywriter specializing in problem-solution messaging.
+    # Beauty / wellness → lifestyle or emotion
+    if any(kw in category for kw in ["beauty", "skincare", "wellness", "spa", "self-care", "fragrance", "personal"]):
+        return random.choice(["lifestyle-story", "emotion-led", "benefit-first"])
 
-TASK: Write a compelling 2-sentence product hook that:
-1. First sentence: Identifies a relatable UK household frustration or pain point
-2. Second sentence: Presents this product as the elegant solution
+    # Toys / games → curiosity or humour
+    if any(kw in category for kw in ["toy", "game", "puzzle", "lego", "play"]):
+        return random.choice(["curiosity", "humour", "benefit-first"])
 
-PRODUCT: {name}
-CATEGORY: {category}
-KEY PAIN POINT: {pain_point}
-TARGET PHRASES (weave naturally): {keyword_text}
+    # Home / kitchen → problem-solution or UK context
+    if any(kw in category for kw in ["home", "kitchen", "storage", "cleaning", "appliance", "decor", "candle", "comfort", "organisation", "organization"]):
+        return random.choice(["problem-solution", "uk-context", "practical-value"])
 
-RULES:
-- Start with "Tired of..." OR "Struggling with..." OR "Fed up with..." OR "Banish..." OR "Say goodbye to..."
-- Use <b></b> tags on ONE key product feature (not generic words like "quality" or "great")
-- Include specific numbers/specs when possible (e.g., "12L capacity", "75% less energy")
-- Reference UK context naturally (British weather, home types, energy costs)
-- Professional yet warm tone—like a knowledgeable friend's recommendation
-- Keep it concise but substantial
+    # Electronics / tech → comparison or benefit-first
+    if any(kw in category for kw in ["electronic", "tech", "gadget", "device", "smart", "digital"]):
+        return random.choice(["benefit-first", "quality-craft", "social-proof"])
 
-OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
+    # Sports / outdoor → lifestyle or benefit
+    if any(kw in category for kw in ["sport", "fitness", "outdoor", "cycling", "yoga"]):
+        return random.choice(["lifestyle-story", "benefit-first", "problem-solution"])
 
+    # Baby / kids → emotion or trust
+    if any(kw in category for kw in ["baby", "infant", "child", "kid", "nursery"]):
+        return random.choice(["emotion-led", "gifting-angle", "social-proof"])
 
-def build_social_proof_prompt(name, category, rating, reviews, keywords):
-    """Build prompt for social proof hook"""
-    keyword_text = ', '.join(keywords[:3]) if keywords else "key benefits"
-    review_text = f"{rating}/5 from {reviews} reviews" if rating and reviews else "thousands of 5-star reviews"
-    
-    return f"""You are a UK e-commerce copywriter specializing in social proof messaging.
+    # Budget picks → practical value or social proof
+    if price_value > 0 and price_value < 20:
+        return random.choice(["practical-value", "social-proof", "gifting-angle"])
 
-TASK: Write a compelling 2-sentence hook that leverages product popularity:
-1. First sentence: Lead with impressive rating/review statistic from UK buyers
-2. Second sentence: Explain the specific reason so many people love it
+    # Fashion / clothing
+    if any(kw in category for kw in ["fashion", "clothing", "apparel", "wear"]):
+        return random.choice(["lifestyle-story", "quality-craft", "gifting-angle"])
 
-PRODUCT: {name}
-RATING DATA: {review_text}
-CATEGORY: {category}
-MAIN BENEFITS: {keyword_text}
+    # Default: rotate through a broad variety pool
+    return random.choice([
+        "benefit-first", "lifestyle-story", "quality-craft",
+        "problem-solution", "uk-context", "practical-value",
+        "social-proof", "curiosity", "gifting-angle", "emotion-led"
+    ])
 
-RULES:
-- Start with review statistic: "Over [X] UK shoppers rate this..." OR "With [X] 5-star reviews..."
-- Use <b></b> tags on the standout benefit that drives the ratings
-- Include specific, measurable benefit (time saved, money saved, problem solved)
-- Trust-building, factual tone with warmth
-- Keep it concise
-
-OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
-
-
-def build_value_prop_prompt(name, category, price_tier, keywords):
-    """Build prompt for value proposition hook"""
-    keyword_text = ', '.join(keywords[:3]) if keywords else "premium features"
-    
-    return f"""You are a UK e-commerce copywriter specializing in premium product positioning.
-
-TASK: Frame this as a worthwhile investment with long-term value:
-1. First sentence: Position as an investment with lasting benefit
-2. Second sentence: Specific quality feature that justifies the price
-
-PRODUCT: {name}
-CATEGORY: {category}
-QUALITY MARKERS: {keyword_text}
-
-RULES:
-- Start with investment framing: "A genuine investment in..." OR "Worth every penny for..."
-- Use <b></b> tags on premium feature, material, or technology
-- Sophisticated British tone—understated luxury
-- Keep it concise
-
-OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
-
-
-def build_lifestyle_prompt(name, category, pain_points, keywords):
-    """Build prompt for lifestyle integration hook"""
-    context = pain_points[0] if pain_points else "everyday moments"
-    feeling = ', '.join(keywords[:2]) if keywords else "comfort and satisfaction"
-    
-    return f"""You are a UK e-commerce copywriter specializing in lifestyle messaging.
-
-TASK: Paint a vivid picture of life with this product:
-1. First sentence: Create an evocative scene of using the product
-2. Second sentence: Emotional benefit it brings to daily life
-
-PRODUCT: {name}
-CATEGORY: {category}
-LIFESTYLE CONTEXT: {context}
-DESIRED FEELING: {feeling}
-
-RULES:
-- Start with scene-setting: "Picture this..." OR "Imagine..." OR describe a moment
-- Use <b></b> tags on sensory detail or emotional benefit
-- Include UK lifestyle references (Sunday mornings, rainy days, cozy evenings)
-- Warm, inviting tone
-- Keep it concise
-
-OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
-
-
-def build_comparison_prompt(name, category, pain_points, keywords):
-    """Build prompt for comparison/upgrade hook"""
-    replaces = pain_points[0] if pain_points else "standard alternatives"
-    advantage = ', '.join(keywords[:2]) if keywords else "key improvements"
-    
-    return f"""You are a UK e-commerce copywriter specializing in comparison messaging.
-
-TASK: Position this as superior to common alternatives:
-1. First sentence: "Unlike [alternative]..." + key disadvantage
-2. Second sentence: How this product solves that problem better
-
-PRODUCT: {name}
-CATEGORY: {category}
-REPLACES: {replaces}
-KEY ADVANTAGE: {advantage}
-
-RULES:
-- Start with: "Unlike traditional..." OR "While most..."
-- Use <b></b> tags on the differentiating feature
-- Be specific about the improvement
-- Educational, helpful tone
-- Keep it concise
-
-OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
-
-
-def build_use_case_prompt(name, category, pain_points, keywords, season=""):
-    """Build prompt for specific use case hook"""
-    scenario = pain_points[0] if pain_points else "specific needs"
-    perfect_for = ', '.join(keywords[:2]) if keywords else "this purpose"
-    season_context = f"SEASONAL CONTEXT: {season}" if season else "TIMING: Year-round use"
-    
-    return f"""You are a UK e-commerce copywriter specializing in use-case messaging.
-
-TASK: Address a very specific scenario or need:
-1. First sentence: Describe the exact situation this is perfect for
-2. Second sentence: Why this product is ideal for that need
-
-PRODUCT: {name}
-CATEGORY: {category}
-SPECIFIC SCENARIO: {scenario}
-{season_context}
-PERFECT FOR: {perfect_for}
-
-RULES:
-- Start with: "For [specific people/situation]..." OR "Perfect when..."
-- Use <b></b> tags on the feature that makes it perfect
-- Include UK-specific details
-- Helpful, advisory tone
-- Keep it concise
-
-OUTPUT: Exactly 2 sentences. No preamble, no explanation."""
-
-
-def passes_quality_check(hook, product):
-    """Verify hook meets MINIMUM quality standards - RELAXED VERSION"""
-    
-    # Must exist and be reasonable length
-    if not hook or len(hook) < 30:
-        return False
-    
-    if len(hook) > 400:  # More lenient
-        return False
-    
-    # Check for most egregious banned words only
-    banned = ["must-have", "game-changer"]  # Reduced list
-    hook_lower = hook.lower()
-    if any(word in hook_lower for word in banned):
-        return False
-    
-    # Should have at least 1 sentence
-    if '.' not in hook and '!' not in hook and '?' not in hook:
-        return False
-    
-    # That's it! Much simpler quality check
-    return True
-
-
-def generate_fallback_hook(product):
-    """Generate a safe fallback hook if AI generation fails"""
-    name = product["name"]
-    category = product.get("category", "product")
-    
-    # Simple, safe fallback
-    return f"Appreciated by UK shoppers for its <b>quality construction</b> and thoughtful design. This {category.lower()} delivers reliable performance in everyday British life."
-
-
-# ============================================================================
-# ULTRA-RELIABLE HOOK GENERATION - WORKS FOR ALL PRODUCTS
-# Replace your generate_hook function with this version
-# ============================================================================
 
 def generate_hook(product):
-    """
-    Generate varied, conversion-focused hooks
-    GUARANTEED to work for every product
-    """
-    
-    # Check for manual override first
     if "hook_override" in product and product["hook_override"].strip():
         return product["hook_override"].strip()
-    
+
     name = product["name"]
     category = product.get("category", "")
     keywords = product.get("keywords", [])
     pain_points = product.get("pain_points", [])
-    price_tier = product.get("price_tier", "")
-    
-    # Use a simple rotation system instead of complex selection
-    # This ensures variety without complex logic
-    styles = [
-        "benefit-first", 
-        "lifestyle-story", 
-        "quality-craft", 
-        "problem-solution",
-        "uk-context",
-        "practical-value"
-    ]
-    
-    style = random.choice(styles)
-    
-    # Build context strings
     pain_point_text = pain_points[0] if pain_points else "everyday practicality"
     keyword_text = ', '.join(keywords[:3]) if keywords else ""
-    
-    # SIMPLIFIED PROMPT - No strict requirements
-    prompt = f"""You are a sophisticated British copywriter creating product descriptions for UK shoppers.
 
-Write a compelling 1-2 sentence description for this product:
+    # Use select_hook_type to get the style — the two functions are now connected
+    style = select_hook_type(product)
+
+    # Map each style to a specific writing angle instruction
+    style_instructions = {
+        "benefit-first":    "Open with the single most useful thing this pick does for the recipient. Be concrete, not vague.",
+        "lifestyle-story":  "Paint a small, relatable scene — who uses this, in what moment, and why it fits their life.",
+        "quality-craft":    "Focus on what makes this a genuinely well-made or thoughtfully designed pick compared to cheaper alternatives.",
+        "problem-solution": "Identify a real, specific frustration this gift solves — then show how this pick fixes it.",
+        "uk-context":       "Anchor the copy in something distinctly British — the weather, a habit, a cultural moment — then connect to the product.",
+        "practical-value":  "Make a case for why this is a smart buy: durability, versatility, or price-to-quality ratio.",
+        "social-proof":     "Mention (honestly) that this pick is popular or well-reviewed, and briefly explain why that makes sense.",
+        "curiosity":        "Start with a question or surprising observation that makes the reader want to know more about this pick.",
+        "humour":           "Use a single light, warm observation about everyday life that connects to why this gift works — no forced jokes.",
+        "urgency":          "Highlight a genuine time-sensitive context (upcoming occasion, seasonal relevance) — no fake scarcity.",
+        "emotion-led":      "Describe the feeling of giving or receiving this — the moment it creates, not just what it is.",
+        "gifting-angle":    "Speak directly to the gift-giver: who would love this, why they'd be pleased to give it, what reaction it earns.",
+    }
+    angle = style_instructions.get(style, style_instructions["benefit-first"])
+
+    prompt = f"""You are a knowledgeable, warm British friend helping someone find the perfect gift. You curate and recommend products — you do NOT sell or own them. Think of yourself as a trusted editor at a gift discovery site.
+
+Write a 1–2 sentence hook for this product listing:
 
 PRODUCT: {name}
 CATEGORY: {category}
-STYLE: {style}
-KEY BENEFIT: {pain_point_text}
-{f"KEYWORDS TO MENTION: {keyword_text}" if keyword_text else ""}
+WRITING ANGLE: {angle}
+KEY BENEFIT TO HIGHLIGHT: {pain_point_text}
+{f"NATURALLY WEAVE IN (if it fits): {keyword_text}" if keyword_text else ""}
 
-REQUIREMENTS:
-- Write 1-2 natural, conversational sentences
-- Mention one standout feature using <b>tags</b> around it
-- Sound warm, helpful, and British
-- Focus on practical benefits
-- NO hype words like "must-have", "game-changer", "essential"
+STRICT RULES:
+- Never say "our product", "we sell", "we stock", "we make", "we offer" or imply ownership
+- Use neutral curation language: "this pick", "this gift", "a great find", "worth considering", "top-rated option"
+- Vary your sentence structure — do NOT start with "This is", "Whether", or "If you're looking for"
+- Wrap ONE specific feature or benefit in <b>bold tags</b> — only the key phrase, not the whole sentence
+- Tone: warm, honest, knowledgeable — like advice from a friend, not a sales pitch
+- No hype: avoid "game-changer", "must-have", "essential", "incredible", "amazing", "perfect"
+- Be specific — generic praise ("great for anyone") is not acceptable
+- 1–2 sentences only. No preamble, no sign-off.
 
-Write the description now (just the sentences, nothing else):"""
+Write the hook now:"""
 
     try:
-        # Single attempt with generous parameters
         response = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.7,
-            max_tokens=100,
-            top_p=0.9
+            temperature=0.7, max_tokens=100, top_p=0.9
         )
-        
         hook = response.choices[0].message.content.strip()
-        
-        # Clean up formatting
+
+        # Normalise bold tags
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
         hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
-        
-        # Add <b> tags if none exist (pick a word from the name)
+
+        # Ensure at least one bolded phrase
         if '<b>' not in hook:
-            # Find a good word to bold from the product name
-            words = name.split()
-            for word in words:
+            for word in name.split():
                 if len(word) > 4 and word[0].isupper():
                     hook = hook.replace(word, f'<b>{word}</b>', 1)
                     break
-        
-        # Ensure ends with punctuation
+
+        # Ensure sentence ends with punctuation
         if hook and not re.search(r'[.!?]$', hook):
             hook += "."
-        
-        # Basic sanity check - if hook exists and is reasonable, use it
-        if hook and len(hook) > 20 and len(hook) < 500:
-            print(f"✓ Generated hook for: {name[:50]}...")
-            return hook
-        else:
-            # Generate smart fallback based on category
+
+        # Guard against ownership language slipping through from the LLM
+        ownership_phrases = [
+            "we sell", "we stock", "our product", "our range",
+            "we make", "we offer", "we provide", "our collection",
+            "in our store", "from us", "buy from us", "we carry"
+        ]
+        if any(phrase in hook.lower() for phrase in ownership_phrases):
+            print(f"⚠ Ownership language detected in hook for '{name[:40]}', using fallback")
             return generate_smart_fallback(product)
-            
+
+        if hook and 20 < len(hook) < 500:
+            return hook
+
     except Exception as e:
         print(f"⚠ API error for '{name[:50]}...': {e}")
-        return generate_smart_fallback(product)
+
+    return generate_smart_fallback(product)
 
 
 def generate_smart_fallback(product):
     """
-    Generate category-specific fallback hooks that are still unique
+    Static fallbacks by category — varied in angle, voice, and structure.
+    Used only when the LLM API is unavailable or returns ownership language.
+    Each bucket has 3 variants covering different hook types so the grid
+    never feels repetitive. Variant is selected by hashing the product name.
     """
-    name = product["name"]
-    category = product.get("category", "Product")
-    
-    # Extract key feature from name
-    name_lower = name.lower()
-    
-    # Category-specific templates
-    if "beauty" in category.lower():
-        if "set" in name_lower:
-            return f"A thoughtfully curated beauty set that brings <b>professional-quality skincare</b> into your daily routine. Loved by UK shoppers for reliable results."
-        else:
-            return f"Elevates your skincare routine with <b>salon-quality formulation</b> in a product designed for everyday British life."
-    
-    elif "toy" in category.lower() or "game" in category.lower():
-        if "lego" in name_lower or "building" in name_lower:
-            return f"Sparks creativity and keeps young minds engaged for hours with <b>quality construction</b> that lasts. A favourite among UK families."
-        else:
-            return f"Brings joy and entertainment to playtime with <b>durable design</b> that stands up to enthusiastic use."
-    
-    elif "home" in category.lower() or "kitchen" in category.lower():
-        if "candle" in name_lower:
-            return f"Creates instant ambiance with <b>long-lasting fragrance</b> that transforms any room. A small luxury for everyday British homes."
-        elif "storage" in name_lower or "organiz" in name_lower:
-            return f"Tackles clutter and maximizes space with <b>clever design</b> that fits seamlessly into UK homes."
-        else:
-            return f"Simplifies daily routines with <b>practical functionality</b> that UK households genuinely appreciate."
-    
-    elif "electronic" in category.lower() or "tech" in category.lower():
-        return f"Combines smart functionality with <b>intuitive operation</b> for hassle-free use in modern UK homes."
-    
-    elif "fashion" in category.lower() or "clothing" in category.lower():
-        if "pyjama" in name_lower or "sleepwear" in name_lower:
-            return f"Wraps you in <b>luxuriously soft comfort</b> perfect for cozy evenings and restful nights."
-        else:
-            return f"Delivers <b>quality craftsmanship</b> and versatile style that works effortlessly in any British wardrobe."
-    
-    elif "book" in category.lower():
-        return f"Captures precious memories in a <b>beautifully crafted format</b> that's made to last for years of enjoyment."
-    
-    # Generic but still decent fallback
+    category = product.get("category", "").lower()
+
+    # ── BEAUTY & SKINCARE ──────────────────────────────────────────────────
+    if any(w in category for w in ["beauty", "skincare", "cosmetic", "fragrance", "perfume", "grooming"]):
+        fallbacks = [
+            "A genuinely lovely pick for anyone who enjoys a <b>proper self-care routine</b> — the kind of gift that gets used every day rather than left on a shelf.",
+            "Thoughtfully formulated and <b>well-reviewed by UK shoppers</b>, this is the sort of beauty find that quietly becomes a daily essential.",
+            "For the person who's hard to buy for: a <b>considered quality beauty pick</b> that feels indulgent without being over the top.",
+        ]
+
+    # ── TOYS & GAMES ──────────────────────────────────────────────────────
+    elif any(w in category for w in ["toy", "game", "puzzle", "play", "board game", "lego"]):
+        fallbacks = [
+            "This one earns its place in the toy box — <b>genuinely engaging</b> rather than the kind that ends up forgotten after a week.",
+            "A top-rated pick for <b>screen-free fun</b> that actually holds attention; parents tend to be just as pleased as the kids.",
+            "The sort of gift that sparks <b>hours of creative play</b> — well-made, safe, and refreshingly free of batteries.",
+        ]
+
+    # ── HOME & KITCHEN ─────────────────────────────────────────────────────
+    elif any(w in category for w in ["home", "kitchen", "cook", "bake", "storage", "organis", "clean", "appliance", "bedding", "linen", "candle", "decor", "comfort"]):
+        fallbacks = [
+            "A genuinely useful home find that solves a small but <b>surprisingly common household frustration</b> — once you have it, you wonder how you managed without.",
+            "Pitched perfectly between practical and thoughtful, this pick makes an <b>ideal housewarming or birthday gift</b> for anyone upgrading their space.",
+            "Well-reviewed by UK households and <b>built to last well beyond the warranty</b> — the sort of thing people rebuy when they move.",
+        ]
+
+    # ── ELECTRONICS & TECH ────────────────────────────────────────────────
+    elif any(w in category for w in ["electronic", "tech", "gadget", "device", "smart", "digital", "camera", "headphone", "speaker", "charger", "laptop", "tablet"]):
+        fallbacks = [
+            "A strong tech pick that hits a <b>smart balance between features and price</b> — no bloated spec sheet, just what you actually need.",
+            "This one consistently earns strong ratings from UK buyers for its <b>reliable everyday performance</b> rather than flashy gimmicks.",
+            "For the tech lover who's already got the basics covered: a <b>genuinely useful upgrade</b> that improves something they use every single day.",
+        ]
+
+    # ── FASHION & CLOTHING ────────────────────────────────────────────────
+    elif any(w in category for w in ["fashion", "clothing", "apparel", "wear", "bag", "wallet", "accessory", "jewellery", "jewelry", "watch", "shoe"]):
+        fallbacks = [
+            "A considered fashion pick that works across multiple occasions — the <b>versatility is the real selling point</b> here.",
+            "Quality craftsmanship at a fair price point makes this a <b>genuinely satisfying gift to give</b> — or to add to your own wishlist.",
+            "The kind of piece that gets complimented and then quietly worn to death: <b>understated, well-made, and endlessly wearable</b>.",
+        ]
+
+    # ── SPORTS & FITNESS ──────────────────────────────────────────────────
+    elif any(w in category for w in ["sport", "fitness", "exercise", "yoga", "gym", "outdoor", "cycling", "running", "swim"]):
+        fallbacks = [
+            "A popular pick among UK fitness fans for its <b>durability under regular use</b> — the sort of kit that actually gets used rather than gathering dust.",
+            "Ideal for anyone who's been meaning to start (or get back to) regular training: <b>genuinely encouraging to use</b>, not just to own.",
+            "Trusted by people who take their health seriously — this pick earns its place with <b>solid performance at a reasonable price</b>.",
+        ]
+
+    # ── BABY & CHILDREN ───────────────────────────────────────────────────
+    elif any(w in category for w in ["baby", "infant", "nursery", "newborn", "toddler", "child", "kid"]):
+        fallbacks = [
+            "A thoughtfully designed pick that parents genuinely rely on — <b>safety-tested, easy to use</b>, and built for the realities of early parenthood.",
+            "For the new parents who already have the basics: a <b>genuinely useful addition</b> that makes the early months noticeably easier.",
+            "Well-loved by UK families and <b>easy to clean</b> — two things that matter far more than they sound once you have a baby in the house.",
+        ]
+
+    # ── BOOKS & STATIONERY ────────────────────────────────────────────────
+    elif any(w in category for w in ["book", "stationary", "stationery", "journal", "pen", "notebook", "read", "writing"]):
+        fallbacks = [
+            "A lovely pick for anyone who still believes <b>a well-chosen book</b> is one of the best gifts you can give.",
+            "For the person who has everything: something they'll actually sit down with and enjoy — <b>no batteries, no setup, no returns</b>.",
+            "A considered gift for thinkers, readers, and the creatively inclined — <b>beautifully presented</b> and built to last.",
+        ]
+
+    # ── PETS ──────────────────────────────────────────────────────────────
+    elif any(w in category for w in ["pet", "dog", "cat", "animal"]):
+        fallbacks = [
+            "A top-rated pet pick that solves a <b>genuine day-to-day problem</b> for owners — the kind you'd happily recommend to a friend.",
+            "Well-reviewed by UK pet owners who appreciate that <b>their animals are fussy customers too</b> — this one actually passes the test.",
+            "Because pets deserve a thoughtful pick too: this find offers <b>genuine quality at a fair price</b> for the animal you're shopping for.",
+        ]
+
+    # ── FOOD & DRINK ──────────────────────────────────────────────────────
+    elif any(w in category for w in ["food", "drink", "coffee", "tea", "wine", "chocolate", "snack", "gourmet"]):
+        fallbacks = [
+            "A brilliant option for anyone who appreciates <b>the finer things in the kitchen or at the table</b> — enjoyable to give and even better to receive.",
+            "For the foodie on your list: a <b>genuinely considered pick</b> that goes well beyond the usual supermarket hamper.",
+            "The sort of edible gift that <b>signals real thought</b> — not just a last-minute grab from the confectionery aisle.",
+        ]
+
+    # ── DEFAULT / CATCH-ALL ───────────────────────────────────────────────
     else:
-        features = []
-        if "quality" not in name_lower:
-            features.append("quality construction")
-        if "design" not in name_lower:
-            features.append("thoughtful design")
-        if "durable" not in name_lower:
-            features.append("lasting durability")
-        
-        feature = random.choice(features) if features else "reliable performance"
-        
-        return f"Appreciated by UK shoppers for its <b>{feature}</b> and practical value. This {category.lower()} delivers dependable results in everyday British life."
+        fallbacks = [
+            "A <b>well-reviewed UK pick</b> that earns its recommendation through consistent quality and practical everyday value.",
+            "Consistently popular with UK shoppers for a reason: <b>it simply does what it promises</b>, without any fuss.",
+            "Worth considering for anyone who values quality over novelty — this find <b>holds up well over time</b> and rarely disappoints.",
+        ]
 
-
-
+    # Rotate by product name hash so the same category doesn't always
+    # show the same fallback across multiple cards on one page
+    idx = hash(product.get("name", "")) % len(fallbacks)
+    return fallbacks[idx]
 
 
 # ============================================================================
-# CACHE AND PRODUCT MANAGEMENT
+# CACHE MANAGEMENT
 # ============================================================================
 
 def should_refresh_cache():
-    if not os.path.exists(CACHE_FILE):
-        return True
+    if not os.path.exists(CACHE_FILE): return True
     try:
         with open(CACHE_FILE, encoding="utf-8") as f:
             cache = json.load(f)
-        cache_date = datetime.datetime.fromisoformat(cache.get("date", "2000-01-01T00:00:00"))
-        days_old = (datetime.datetime.now() - cache_date).days
-        if days_old >= CACHE_REFRESH_DAYS:
-            return True
-        if cache.get("prompt_version") != PROMPT_VERSION:
-            return True
-        return False
-    except Exception:
-        return True
+        days_old = (datetime.datetime.now() - datetime.datetime.fromisoformat(cache.get("date", "2000-01-01T00:00:00"))).days
+        return days_old >= CACHE_REFRESH_DAYS or cache.get("prompt_version") != PROMPT_VERSION
+    except: return True
 
 def load_or_generate_hooks(products):
     enriched = []
@@ -1312,33 +584,23 @@ def load_or_generate_hooks(products):
         p_copy.setdefault("date_added", str(datetime.date.today()))
         p_copy["hook_version"] = PROMPT_VERSION
         enriched.append(p_copy)
-
     today_iso = datetime.datetime.now().isoformat()
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump({
-            "date": today_iso,
-            "prompt_version": PROMPT_VERSION,
-            "products": enriched
-        }, f, indent=2, ensure_ascii=False)
-
+        json.dump({"date": today_iso, "prompt_version": PROMPT_VERSION, "products": enriched}, f, indent=2, ensure_ascii=False)
     history = load_history()
-    history_key = datetime.date.today().isoformat()
-    history[history_key] = enriched
+    history[datetime.date.today().isoformat()] = enriched
     save_history(history)
-
     Thread(target=ping_search_engines, daemon=True).start()
     cache.clear()
     return enriched
 
 def load_history():
     if os.path.exists(HISTORY_FILE):
-        with open(HISTORY_FILE, encoding="utf-8") as f:
-            return json.load(f)
+        with open(HISTORY_FILE, encoding="utf-8") as f: return json.load(f)
     return {}
 
 def save_history(data):
-    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    with open(HISTORY_FILE, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
 
 def refresh_products(background=False):
     today = str(datetime.date.today())
@@ -1347,1124 +609,2634 @@ def refresh_products(background=False):
             with open(CACHE_FILE, encoding="utf-8") as f:
                 cache_data = json.load(f)
             cache_date_str = cache_data.get("date", "")
-            if cache_date_str.startswith(today):
-                return cache_data.get("products", [])
+            if cache_date_str.startswith(today): return cache_data.get("products", [])
             cache_date = datetime.datetime.fromisoformat(cache_date_str)
-            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and \
-               cache_data.get("prompt_version") == PROMPT_VERSION:
+            if (datetime.datetime.now() - cache_date).days < CACHE_REFRESH_DAYS and cache_data.get("prompt_version") == PROMPT_VERSION:
                 return cache_data.get("products", [])
         except Exception as e:
-            print(f"Cache read failed: {e} — regenerating")
-    
-    enriched = load_or_generate_hooks(PRODUCTS)
-    return enriched
+            print(f"Cache read failed: {e}")
+    return load_or_generate_hooks(PRODUCTS)
+
 
 # ============================================================================
-# ENHANCED CSS WITH ELITE STYLES
+# CSS TEMPLATE — v5.2 "Trusted Curator"
 # ============================================================================
 
 CSS_TEMPLATE = """<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
 
 :root {
-    --bg: {{bg}};
-    --card: {{card}};
-    --accent: {{accent}};
-    --button: {{button}};
-    --button-hover: {{button_hover}};
-    --tag: {{tag}};
-    --text-accent: {{text_accent}};
-    --text-muted: {{text_muted}};
-    --gradient: {{gradient}};
-    --card-gradient: {{card_gradient}};
-    --shadow: {{shadow}};
-    --shadow-hover: {{shadow_hover}};
-    --dropdown-bg: {{dropdown_bg}};
-    --dropdown-border: {{dropdown_border}};
-    --nav-bg: {{nav_bg}};
-    --nav-border: {{nav_border}};
+  --bg:           #f8f9fc;
+  --bg-2:         #eef1f8;
+  --bg-3:         #e4e9f4;
+  --card:         #ffffff;
+  --card-2:       #f4f6fb;
+  --ink:          #1a2840;
+  --ink-2:        #2d3f5c;
+  --ink-3:        #3d5068;
+  --muted:        #5a6478;
+  --muted-2:      #7a8599;
+  --navy:         #0f2044;
+  --navy-2:       #1e3a6e;
+  --navy-3:       #2a4f8e;
+  --navy-dim:     rgba(15,32,68,0.07);
+  --navy-line:    rgba(15,32,68,0.18);
+  --slate:        #4a6fa5;
+  --slate-2:      #6b8fc4;
+  --slate-dim:    rgba(74,111,165,0.10);
+  --slate-line:   rgba(74,111,165,0.25);
+  --cta:          #e8541a;
+  --cta-fg:       #ffffff;
+  --cta-hover:    #c94414;
+  --cta-dim:      rgba(232,84,26,0.09);
+  --cta-line:     rgba(232,84,26,0.30);
+  --green:        #1a8c5b;
+  --green-dim:    rgba(26,140,91,0.10);
+  --border:       rgba(15,32,68,0.09);
+  --border-2:     rgba(15,32,68,0.15);
+  --divider:      rgba(15,32,68,0.06);
+  --nav-bg:       rgba(248,249,252,0.95);
+  --input-bg:     rgba(255,255,255,0.90);
+  --sh-xs:  0 1px 3px rgba(15,32,68,0.05), 0 2px 6px rgba(15,32,68,0.04);
+  --sh-sm:  0 2px 8px rgba(15,32,68,0.07), 0 4px 18px rgba(15,32,68,0.07);
+  --sh-md:  0 4px 20px rgba(15,32,68,0.09), 0 12px 40px rgba(15,32,68,0.10);
+  --sh-lg:  0 8px 36px rgba(15,32,68,0.12), 0 24px 64px rgba(15,32,68,0.12);
+  --sh-xl:  0 16px 56px rgba(15,32,68,0.16), 0 40px 96px rgba(15,32,68,0.16);
+  --sh-cta: 0 4px 16px rgba(232,84,26,0.35), 0 2px 6px rgba(232,84,26,0.20);
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-pill:99px;
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.dark {
+  --bg:           #0b1120;
+  --bg-2:         #111b30;
+  --bg-3:         #182440;
+  --card:         #131e33;
+  --card-2:       #1a2840;
+  --ink:          #e8edf7;
+  --ink-2:        #c8d4ea;
+  --ink-3:        #a8b8d4;
+  --muted:        #7a90b0;
+  --muted-2:      #5a7090;
+  --navy:         #2a4f8e;
+  --navy-2:       #3a6ab8;
+  --navy-3:       #4a80d4;
+  --navy-dim:     rgba(42,79,142,0.18);
+  --navy-line:    rgba(42,79,142,0.35);
+  --slate:        #6b8fc4;
+  --slate-2:      #8aaede;
+  --slate-dim:    rgba(107,143,196,0.15);
+  --slate-line:   rgba(107,143,196,0.30);
+  --cta:          #f06030;
+  --cta-fg:       #ffffff;
+  --cta-hover:    #ff7744;
+  --cta-dim:      rgba(240,96,48,0.12);
+  --cta-line:     rgba(240,96,48,0.35);
+  --green:        #22a86e;
+  --green-dim:    rgba(34,168,110,0.12);
+  --border:       rgba(168,184,212,0.09);
+  --border-2:     rgba(168,184,212,0.16);
+  --divider:      rgba(168,184,212,0.07);
+  --nav-bg:       rgba(11,17,32,0.97);
+  --input-bg:     rgba(168,184,212,0.06);
+  --sh-xs:  0 1px 3px rgba(0,0,0,0.40), 0 2px 6px rgba(0,0,0,0.45);
+  --sh-sm:  0 2px 8px rgba(0,0,0,0.45), 0 4px 18px rgba(0,0,0,0.50);
+  --sh-md:  0 4px 20px rgba(0,0,0,0.52), 0 12px 40px rgba(0,0,0,0.55);
+  --sh-lg:  0 8px 36px rgba(0,0,0,0.60), 0 24px 64px rgba(0,0,0,0.65);
+  --sh-xl:  0 16px 56px rgba(0,0,0,0.70), 0 40px 96px rgba(0,0,0,0.78);
+  --sh-cta: 0 4px 16px rgba(240,96,48,0.40), 0 2px 6px rgba(240,96,48,0.25);
 }
 
-body { 
-    background: var(--bg); 
-    color: var(--accent); 
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 20px;
-    transition: background 0.3s ease, color 0.3s ease;
-    overflow-x: hidden;
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background .35s ease, color .35s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: .4;
 }
 
-h1 { 
-    text-align: center; 
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 900;
-    margin: 60px 0 20px;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    animation: fadeInUp 0.8s ease;
+.ribbon {
+  position: relative;
+  z-index: 10;
+  background: var(--navy);
+  color: rgba(232,237,247,0.85);
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ribbon-track {
+  display: inline-flex;
+  gap: 0;
+  animation: ticker 50s linear infinite;
+  will-change: transform;
+}
+.ribbon-track span {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 0 28px;
+  flex-shrink: 0;
+}
+.ribbon-track .sep {
+  color: var(--cta);
+  opacity: .70;
+  padding: 0 2px;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ribbon:hover .ribbon-track { animation-play-state: paused; }
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  transition: background .3s, box-shadow .3s;
+}
+.site-nav.scrolled {
+  box-shadow: var(--sh-sm);
+  border-bottom-color: var(--border-2);
+}
+.nav-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 52px;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  gap: 8px;
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  flex-shrink: 0;
+  margin-right: 16px;
+  transition: opacity .2s;
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
 }
-
-.subtitle { 
-    text-align: center; 
-    color: var(--text-accent); 
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    max-width: 900px; 
-    margin: 20px auto 40px;
-    line-height: 1.6;
-}
-
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 32px; 
-    max-width: 1600px; 
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-.card { 
-    background: var(--card);
-    border-radius: 20px; 
-    padding: 28px; 
-    text-align: center; 
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    position: relative; 
-    overflow: hidden;
-}
-
-.card::before { 
-    content: "";
-    position: absolute; 
-    top: 0; left: 0; right: 0; bottom: 0; 
-    background: var(--card-gradient);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    border-radius: 20px;
-}
-
-.card:hover { 
-    transform: translateY(-8px); 
-    box-shadow: var(--shadow-hover);
-}
-
-.card:hover::before { opacity: 1; }
-
-.card img { 
-    width: 100%; 
-    max-height: 380px; 
-    object-fit: contain; 
-    border-radius: 16px; 
-    margin: 20px 0; 
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-.card:hover img { transform: scale(1.05); }
-
-.card h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 16px 0;
-    color: var(--accent);
-    line-height: 1.3;
-}
-
-.card p {
-    color: var(--text-accent);
-    line-height: 1.7;
-    margin: 16px 0;
-}
-
-.tag { 
-    background: var(--tag); 
-    color: var(--button);
-    padding: 8px 18px; 
-    border-radius: 24px; 
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-block; 
-    margin-bottom: 12px;
-}
-
-/* ELITE PRODUCT METRICS - NEW! */
-.product-metrics {
-    background: linear-gradient(to bottom, transparent, var(--tag));
-    border-radius: 12px;
-    padding: 16px;
-    margin: 20px 0;
-}
-
-.price-display {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.price-label {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
-.price-value {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: #006600;
-    letter-spacing: -0.02em;
-}
-
-.rating-display {
-    text-align: center;
-    color: var(--text-accent);
-    font-size: 0.95rem;
-}
-
-.check-amazon-notice {
-    text-align: center;
-    padding: 12px;
-    font-size: 0.95rem;
-    font-style: italic;
-}
-
-/* ELITE AMAZON CTA - NEW! */
-button { 
-    background: linear-gradient(135deg, #ff9900 0%, #ff8c00 100%);
-    border: none; 
-    padding: 14px 32px; 
-    border-radius: 50px; 
-    font-size: 1rem; 
-    font-weight: 700;
-    color: white; 
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(255, 153, 0, 0.3);
-}
-
-button:hover { 
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 153, 0, 0.4);
-}
-a.button {
-    display: inline-block;
-    background: linear-gradient(135deg, #ff9900 0%, #ff8c00 100%);
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(255, 153, 0, 0.3);
-}
-
-a.button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(255, 153, 0, 0.4);
-    color: white;
-}
-
-
-nav { 
-    background: var(--nav-bg);
-    padding: 20px; 
-    margin: 20px 0 60px; 
-    border-radius: 16px; 
-    box-shadow: var(--shadow);
-    border: 1px solid var(--nav-border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+.nav-logo:hover { opacity: .80; }
+.nav-logo .logo-fybo  { color: var(--navy); }
+.nav-logo .logo-buybo { color: var(--cta); font-style: italic; }
+.nav-logo .logo-dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  background: var(--cta);
+  border-radius: 50%;
+  margin: 0 1px 4px;
+  flex-shrink: 0;
 }
 
 .nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+.nav-links > a {
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  transition: color .18s, background .18s;
+  letter-spacing: -.01em;
+}
+.nav-links > a:hover {
+  color: var(--navy);
+  background: var(--navy-dim);
 }
 
-.nav-links a {
-    color: var(--text-accent);
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+.nav-drop { position: relative; }
+.nav-drop-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  background: none;
+  border: none;
+  transition: color .18s, background .18s;
+  letter-spacing: -.01em;
+}
+.nav-drop-btn:hover,
+.nav-drop.open .nav-drop-btn {
+  color: var(--navy);
+  background: var(--navy-dim);
+}
+.drop-arrow {
+  width: 10px; height: 10px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform .22s var(--ease-out);
+}
+.nav-drop.open .drop-arrow { transform: rotate(180deg); }
+
+.nav-drop-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background: var(--card);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-lg);
+  padding: 8px;
+  min-width: 200px;
+  max-height: 380px;
+  overflow-y: auto;
+  box-shadow: var(--sh-lg);
+  z-index: 300;
+}
+.nav-drop.open .nav-drop-menu {
+  display: block;
+  animation: dropIn .18s var(--ease-out);
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.nav-drop-menu a {
+  display: block;
+  padding: 9px 14px;
+  border-radius: var(--r-sm);
+  font-size: .855rem;
+  font-weight: 400;
+  color: var(--ink-3);
+  transition: all .14s;
+  letter-spacing: -.01em;
+}
+.nav-drop-menu a:hover {
+  background: var(--navy-dim);
+  color: var(--navy);
+  padding-left: 18px;
 }
 
-.nav-links a:hover {
-    background: var(--tag);
-    color: var(--button);
+.nav-search { position: relative; }
+.nav-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav-search-icon {
+  position: absolute;
+  left: 12px;
+  width: 15px; height: 15px;
+  stroke: var(--muted);
+  fill: none;
+  stroke-width: 1.8;
+  pointer-events: none;
+  transition: stroke .2s;
+  z-index: 1;
+}
+.nav-search input {
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 8px 16px 8px 38px;
+  font-size: .84rem;
+  font-family: inherit;
+  color: var(--ink);
+  width: 200px;
+  transition: all .25s var(--ease-out);
+  outline: none;
+  letter-spacing: -.01em;
+}
+.nav-search input:focus {
+  width: 260px;
+  border-color: var(--slate);
+  box-shadow: 0 0 0 3px var(--slate-dim);
+  background: var(--card);
+}
+.nav-search input::placeholder { color: var(--muted-2); }
+.nav-search input:focus + .nav-search-icon,
+.nav-search-wrap:focus-within .nav-search-icon { stroke: var(--slate); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.nav-icon-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.nav-icon-btn:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-line);
+}
+.nav-icon-btn svg {
+  width: 15px; height: 15px;
+  stroke: var(--ink-3);
+  fill: none;
+  stroke-width: 1.8;
 }
 
-.dropdown {
-    position: relative;
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px; height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+}
+#hamburger span {
+  display: block;
+  width: 18px; height: 1.5px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all .26s var(--ease-out);
+  transform-origin: center;
+}
+#hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+#hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+#mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 190;
+  overflow-y: auto;
+  padding: 88px 28px 56px;
+  flex-direction: column;
+}
+#mobile-menu.open {
+  display: flex;
+  animation: mmIn .3s var(--ease-out);
+}
+@keyframes mmIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mm-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+}
+.mm-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--divider);
+  display: block;
+  transition: color .2s, padding-left .2s;
+  letter-spacing: -.03em;
+}
+.mm-link:hover { color: var(--navy); padding-left: 8px; }
+.mm-section { margin-bottom: 28px; }
+.mm-label {
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mm-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--slate-line);
+}
+.mm-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.mm-pill {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 8px 18px;
+  font-size: .84rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  transition: all .2s;
+  letter-spacing: -.01em;
+}
+.mm-pill:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-line);
+  color: var(--navy);
+}
+.mm-search-wrap {
+  margin-top: 28px;
+  position: relative;
+}
+.mm-search-wrap svg {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px; height: 16px;
+  stroke: var(--muted);
+  fill: none;
+  stroke-width: 1.8;
+  pointer-events: none;
+}
+.mm-search-wrap input {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 14px 18px 14px 46px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s;
+  letter-spacing: -.01em;
+}
+.mm-search-wrap input:focus { border-color: var(--slate); }
+.mm-search-wrap input::placeholder { color: var(--muted-2); }
+
+.hero {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(48px,6vw,96px) 52px clamp(36px,4vw,60px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero::before {
+  content: '01';
+  position: absolute;
+  right: 52px;
+  top: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(120px, 15vw, 200px);
+  font-weight: 700;
+  color: var(--navy);
+  opacity: .04;
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -.05em;
 }
 
-.dropdown-toggle {
-    background: var(--card);
-    color: var(--accent);
-    border: 1px solid var(--dropdown-border);
-    padding: 10px 20px;
-    border-radius: 24px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--slate);
 }
 
-.dropdown-toggle:hover {
-    background: var(--tag);
-    border-color: var(--button);
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 600;
+  line-height: .98;
+  letter-spacing: -.04em;
+  color: var(--ink);
+  margin-bottom: 26px;
+  animation: riseUp 1s var(--ease-out) both;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--navy);
+}
+.hero-h1 .line-2 {
+  display: block;
+  font-weight: 300;
+  color: var(--ink-3);
+}
+@keyframes riseUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.dropdown-toggle::after {
-    content: '▼';
-    font-size: 0.7rem;
-    transition: transform 0.2s ease;
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 460px;
+  margin-bottom: 36px;
+  animation: riseUp .9s .12s var(--ease-out) both;
+  font-weight: 300;
+  letter-spacing: -.01em;
 }
 
-.dropdown.active .dropdown-toggle::after {
-    transform: rotate(180deg);
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: riseUp .9s .2s var(--ease-out) both;
 }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    background: var(--dropdown-bg);
-    border: 1px solid var(--dropdown-border);
-    border-radius: 12px;
-    padding: 8px 0;
-    min-width: 220px;
-    max-height: 400px;
-    overflow-y: auto;
-    box-shadow: var(--shadow-hover);
-    z-index: 1000;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cta);
+  color: var(--cta-fg);
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  border: none;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: var(--sh-cta);
+}
+.btn-primary:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(232,84,26,0.42), 0 4px 10px rgba(232,84,26,0.24);
 }
 
-.dropdown.active .dropdown-menu {
-    display: block;
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--navy);
+  padding: 14px 22px;
+  border-radius: var(--r-pill);
+  font-size: .9rem;
+  font-weight: 500;
+  border: 1px solid var(--navy-line);
+  transition: all .2s;
+  letter-spacing: -.01em;
+}
+.btn-ghost:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-2);
+  color: var(--navy-2);
 }
 
-.dropdown-menu a {
-    display: block;
-    padding: 12px 20px;
-    color: var(--text-accent);
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 44px;
+  padding-top: 36px;
+  border-top: 1px solid var(--divider);
+  animation: riseUp .9s .28s var(--ease-out) both;
+}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.hero-stat-num span { color: var(--cta); }
+.hero-stat-label {
+  font-size: .74rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-top: 4px;
 }
 
-.dropdown-menu a:hover {
-    background: var(--tag);
-    color: var(--button);
-    padding-left: 24px;
+.hero-visual {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  animation: riseUp .9s .24s var(--ease-out) both;
+}
+.hero-img-main {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--bg-2);
+  box-shadow: var(--sh-lg);
+}
+.hero-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-img-float {
+  position: absolute;
+  bottom: -20px;
+  left: -24px;
+  width: 48%;
+  aspect-ratio: 1;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--bg-3);
+  box-shadow: var(--sh-xl);
+  border: 4px solid var(--bg);
+}
+.hero-img-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  background: var(--card);
 }
 
-#search-form {
-    flex: 1;
-    max-width: 400px;
+.hero-ornament {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--cta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sh-md), 0 0 0 8px var(--cta-dim);
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 2;
+}
+.hero-ornament span {
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: var(--sh-md), 0 0 0 8px var(--cta-dim); }
+  50%      { box-shadow: var(--sh-md), 0 0 0 14px var(--cta-dim); }
 }
 
-#search-input {
-    width: 100%;
-    padding: 12px 20px;
-    border-radius: 24px;
-    border: 1px solid var(--dropdown-border);
-    background: var(--card);
-    color: var(--accent);
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
+.affil-strip {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 52px 16px;
+}
+.affil-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--navy-dim);
+  border: 1px solid var(--navy-line);
+  border-radius: var(--r-md);
+  padding: 10px 18px;
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.affil-inner strong { color: var(--ink-3); font-weight: 600; }
+.affil-inner a { color: var(--slate); font-weight: 500; }
+.affil-icon {
+  flex-shrink: 0;
+  width: 14px; height: 14px;
+  stroke: var(--slate);
+  fill: none;
+  stroke-width: 2;
 }
 
-#search-input:focus {
-    outline: none;
-    border-color: var(--button);
-    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+.cat-rail {
+  max-width: 1600px;
+  margin: 36px auto 0;
+  padding: 0 52px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 8px 18px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  transition: all .2s;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+.cat-chip:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-line);
+  color: var(--navy);
+  transform: translateY(-1px);
+  box-shadow: var(--sh-xs);
 }
 
-#search-input::placeholder {
-    color: var(--text-muted);
+.sec-hdr {
+  max-width: 1600px;
+  margin: 68px auto 0;
+  padding: 0 52px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sec-eyebrow {
+  font-size: .67rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--slate);
+}
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.sec-title em { font-style: italic; color: var(--navy); }
+.sec-view-all {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, gap .2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sec-view-all:hover {
+  border-color: var(--slate);
+  gap: 10px;
 }
 
-/* SEARCH RESULTS MODAL */
-#search-results {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9999;
-    overflow-y: auto;
-    padding: 40px 20px;
+.grid {
+  max-width: 1600px;
+  margin: 28px auto 0;
+  padding: 0 52px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-#search-results.active {
-    display: block;
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform .35s var(--ease-spring), box-shadow .35s ease, border-color .3s;
+  box-shadow: var(--sh-xs);
+  will-change: transform;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--border-2);
 }
 
-.search-modal {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: var(--bg);
-    border-radius: 20px;
-    padding: 40px;
-    position: relative;
+.card-img {
+  position: relative;
+  background: var(--bg-2);
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(15,32,68,0.03) 100%);
+  pointer-events: none;
+}
+.card-img a { display: block; width: 100%; height: 100%; }
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 22px;
+  transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+  will-change: transform;
+}
+.card:hover .card-img img { transform: scale(1.08); }
+
+.card-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--slate-line);
+  border-radius: var(--r-pill);
+  padding: 4px 12px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  box-shadow: 0 2px 8px rgba(15,32,68,0.12);
+  z-index: 2;
+}
+.dark .card-badge {
+  background: rgba(19,30,51,0.88);
+  color: var(--slate-2);
+  border-color: rgba(107,143,196,0.30);
 }
 
-.search-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: var(--card);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.card-quick {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--cta);
+  color: #ffffff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(.8);
+  transition: all .25s var(--ease-out);
+  box-shadow: var(--sh-sm);
+}
+.card:hover .card-quick {
+  opacity: 1;
+  transform: scale(1);
+}
+.card-quick svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
 }
 
-.search-close:hover {
-    background: var(--tag);
+.card-body {
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
 }
 
-.search-results-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: var(--accent);
+.card-cat {
+  font-size: .67rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 7px;
 }
 
-.search-results-count {
-    color: var(--text-muted);
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 10px;
+  transition: color .18s;
+}
+.card-name:hover { color: var(--navy); }
+
+.card-hook {
+  font-size: .84rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin-bottom: 16px;
+  flex: 1;
+  font-weight: 300;
+  letter-spacing: -.005em;
+}
+.card-hook b {
+  color: var(--ink-3);
+  font-weight: 500;
 }
 
-#theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 1px solid var(--dropdown-border);
-    cursor: pointer;
-    background: var(--card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  font-size: .78rem;
+  color: var(--muted);
+}
+.card-stars {
+  color: var(--green);
+  font-size: .85rem;
+  letter-spacing: -.06em;
+  line-height: 1;
 }
 
-#theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-hover);
+.card-div {
+  height: 1px;
+  background: var(--divider);
+  margin: 0 0 14px;
 }
 
-#theme-toggle svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--accent);
+.card-cta { display: flex; flex-direction: column; gap: 8px; }
+
+.btn-amz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cta);
+  color: var(--cta-fg);
+  padding: 12px 18px;
+  border-radius: var(--r-md);
+  font-size: .875rem;
+  font-weight: 600;
+  border: none;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  letter-spacing: -.01em;
+  box-shadow: var(--sh-cta);
+}
+.btn-amz:hover {
+  background: var(--cta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(232,84,26,0.38), 0 3px 8px rgba(232,84,26,0.22);
+}
+.btn-amz .amz-wordmark {
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.btn-amz svg {
+  width: 13px; height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
 }
 
-footer {
-    text-align: center;
-    color: var(--text-muted);
-    margin: 100px 0 60px;
-    font-size: 0.95rem;
-    line-height: 1.8;
+.btn-detail {
+  display: block;
+  text-align: center;
+  font-size: .79rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: all .2s;
+  letter-spacing: -.01em;
+}
+.btn-detail:hover {
+  color: var(--navy);
+  border-color: var(--navy-line);
+  background: var(--navy-dim);
 }
 
-footer p { margin: 12px 0; }
+.blog-wrap {
+  max-width: 1600px;
+  margin: 52px auto 0;
+  padding: 0 52px;
+}
+.blog-feat {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-md);
+  margin-bottom: 64px;
+  transition: box-shadow .35s, transform .35s var(--ease-spring);
+  color: inherit;
+}
+.blog-feat:hover {
+  box-shadow: var(--sh-xl);
+  transform: translateY(-4px);
+}
+.blog-feat-visual {
+  background: var(--bg-2);
+  min-height: 360px;
+  overflow: hidden;
+  position: relative;
+}
+.blog-feat-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.blog-feat:hover .blog-feat-visual img { transform: scale(1.04); }
+.blog-feat-visual-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+}
+.blog-feat-body {
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+.blog-feat-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.blog-feat-label::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--slate);
+}
+.blog-feat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.04em;
+  color: var(--ink);
+}
+.blog-feat-desc {
+  font-size: .92rem;
+  line-height: 1.72;
+  color: var(--muted);
+  font-weight: 300;
+}
+.blog-feat-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--cta);
+  margin-top: 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--cta-line);
+  width: fit-content;
+  transition: gap .2s, border-color .2s;
+  letter-spacing: -.01em;
+}
+.blog-feat-cta:hover { gap: 16px; border-color: var(--cta); }
 
-a {
-    color: var(--text-accent);
-    text-decoration: none;
-    transition: color 0.2s ease;
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+.blog-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s var(--ease-spring), box-shadow .3s ease;
+  box-shadow: var(--sh-xs);
+  color: inherit;
+}
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-lg);
+}
+.blog-card-thumb {
+  height: 186px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+.blog-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+.blog-card-thumb img.product-img {
+  object-fit: contain;
+  padding: 20px;
+}
+.blog-card:hover .blog-card-thumb img { transform: scale(1.06); }
+.blog-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.blog-card-date {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.blog-card-date::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: var(--slate);
+}
+.blog-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  color: var(--ink);
+}
+.blog-card-desc {
+  font-size: .84rem;
+  line-height: 1.65;
+  color: var(--muted);
+  flex: 1;
+  font-weight: 300;
+}
+.blog-card-link {
+  font-size: .79rem;
+  font-weight: 600;
+  color: var(--cta);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  transition: gap .2s;
+}
+.blog-card:hover .blog-card-link { gap: 10px; }
+
+.blog-prose {
+  font-size: 1.02rem;
+  line-height: 1.88;
+  color: var(--ink-3);
+  font-weight: 300;
+  letter-spacing: -.005em;
+}
+.blog-prose h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 56px 0 18px;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--divider);
+}
+.blog-prose h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 40px 0 14px;
+  letter-spacing: -.03em;
+}
+.blog-prose h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 30px 0 10px;
+}
+.blog-prose p { margin-bottom: 22px; }
+.blog-prose a {
+  color: var(--navy);
+  font-weight: 500;
+  border-bottom: 1px solid var(--navy-line);
+  transition: border-color .2s, color .2s;
+}
+.blog-prose a:hover { color: var(--navy-2); border-color: var(--navy-2); }
+.blog-prose strong { color: var(--ink-2); font-weight: 600; }
+.blog-prose ul,.blog-prose ol { margin: 0 0 26px; padding-left: 0; list-style: none; }
+.blog-prose li { padding-left: 24px; position: relative; margin-bottom: 10px; line-height: 1.75; }
+.blog-prose ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 12px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--slate);
+}
+.blog-prose ol { counter-reset: ol; }
+.blog-prose ol li { counter-increment: ol; }
+.blog-prose ol li::before {
+  content: counter(ol);
+  position: absolute;
+  left: 0; top: 3px;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--slate);
+  font-family: 'DM Sans', sans-serif;
+}
+.blog-prose img { width: 100%; border-radius: var(--r-lg); margin: 40px 0; box-shadow: var(--sh-md); }
+.blog-prose blockquote {
+  border-left: 3px solid var(--navy);
+  margin: 40px 0;
+  padding: 20px 28px;
+  background: var(--navy-dim);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.08rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+.blog-prose table { width: 100%; border-collapse: collapse; margin: 34px 0; font-size: .92rem; }
+.blog-prose th {
+  background: var(--bg-2);
+  padding: 13px 18px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--navy-line);
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -.01em;
+  font-size: .84rem;
+}
+.blog-prose td { padding: 12px 18px; border-bottom: 1px solid var(--divider); color: var(--ink-3); }
+.blog-prose tr:last-child td { border-bottom: none; }
+
+/* ── BLOG IN-CONTENT BUTTONS ──────────────────────────────── */
+.blog-prose .blog-btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 28px 0;
+  justify-content: center;
+}
+.blog-prose .blog-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--r-pill);
+  font-size: .875rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -.01em;
+  cursor: pointer;
+  transition: all .22s var(--ease-out);
+  text-decoration: none !important;
+  border: none;
+}
+.blog-prose .blog-btn-primary {
+  background: var(--cta);
+  color: #ffffff;
+  box-shadow: var(--sh-cta);
+}
+.blog-prose .blog-btn-primary:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,84,26,0.40);
+  color: #ffffff;
+  border-bottom-color: transparent;
+}
+.blog-prose .blog-btn-secondary {
+  background: var(--card);
+  color: var(--navy);
+  border: 1.5px solid var(--navy-line) !important;
+  box-shadow: var(--sh-xs);
+}
+.blog-prose .blog-btn-secondary:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-2) !important;
+  transform: translateY(-2px);
+  color: var(--navy-2);
+  border-bottom-color: var(--navy-2) !important;
 }
 
-a:hover { color: var(--button); }
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 60px 0;
+.similar-sec {
+  max-width: 1600px;
+  margin: 72px auto 0;
+  padding: 0 52px;
+}
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.sim-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: block;
+  transition: transform .26s var(--ease-spring), box-shadow .26s ease, border-color .2s;
+  box-shadow: var(--sh-xs);
+  color: inherit;
+}
+.sim-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sh-md);
+  border-color: var(--navy-line);
+}
+.sim-img {
+  aspect-ratio: 1;
+  background: var(--bg-2);
+  overflow: hidden;
+}
+.sim-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 14px;
+  transition: transform .4s ease;
+}
+.sim-card:hover .sim-img img { transform: scale(1.07); }
+.sim-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  line-height: 1.35;
+  padding: 12px 14px;
+  letter-spacing: -.015em;
 }
 
-.pagination a {
-    background: var(--button);
-    padding: 12px 24px;
-    border-radius: 50px;
-    color: white;
-    font-weight: 700;
-    transition: all 0.3s ease;
+.pd-wrap {
+  max-width: 1100px;
+  margin: 52px auto 0;
+  padding: 0 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.pd-gallery { position: sticky; top: 84px; }
+.pd-img-main {
+  background: var(--bg-2);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-md);
+}
+.pd-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 36px;
+  display: block;
+}
+.pd-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 4px;
+}
+.pd-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .75rem;
+  font-weight: 500;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.pd-breadcrumb a { color: var(--slate); transition: opacity .2s; }
+.pd-breadcrumb a:hover { opacity: .78; }
+.pd-breadcrumb span { opacity: .4; }
+.pd-cat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.pd-cat-tag::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--slate);
+}
+.pd-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  color: var(--ink);
+}
+.pd-hook {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+}
+.pd-hook b { color: var(--ink-3); font-weight: 500; }
+.pd-divider { height: 1px; background: var(--divider); }
+.pd-price-note {
+  background: var(--slate-dim);
+  border: 1px solid var(--slate-line);
+  border-radius: var(--r-md);
+  padding: 13px 18px;
+  font-size: .84rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-style: italic;
+}
+.btn-pd-amz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--cta);
+  color: var(--cta-fg);
+  padding: 18px 32px;
+  border-radius: var(--r-pill);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: var(--sh-cta);
+  letter-spacing: -.02em;
+}
+.btn-pd-amz:hover {
+  background: var(--cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(232,84,26,0.42), 0 4px 12px rgba(232,84,26,0.24);
+}
+.btn-pd-amz em { font-style: italic; font-weight: 800; font-size: 1.1em; }
+.btn-pd-amz svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+.pd-trust-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.pd-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .76rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.pd-trust-item svg {
+  width: 14px; height: 14px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
 }
 
-.pagination a:hover {
-    transform: translateY(-2px);
-    background: var(--button-hover);
+.pager {
+  max-width: 1600px;
+  margin: 56px auto;
+  padding: 0 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.pager a {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--ink-3);
+  padding: 11px 28px;
+  border-radius: var(--r-pill);
+  font-size: .875rem;
+  font-weight: 600;
+  transition: all .2s;
+  letter-spacing: -.01em;
+  box-shadow: var(--sh-xs);
+}
+.pager a:hover {
+  background: var(--navy);
+  color: #ffffff;
+  border-color: var(--navy);
+  box-shadow: var(--sh-sm);
+  transform: translateY(-1px);
 }
 
-article {
-    color: var(--text-accent);
+.legal-article {
+  max-width: 820px;
+  margin: 52px auto;
+  padding: 0 52px 80px;
+}
+.legal-article h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 48px 0 16px;
+  letter-spacing: -.04em;
+}
+.legal-article h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin: 28px 0 10px;
+}
+.legal-article p {
+  font-size: .94rem;
+  line-height: 1.82;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+.legal-header-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  margin-bottom: 36px;
+  box-shadow: var(--sh-xs);
+}
+.legal-contact-card {
+  background: var(--slate-dim);
+  border: 1px solid var(--slate-line);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  margin-top: 18px;
 }
 
-article h2 {
-    color: var(--accent);
-    margin-top: 40px;
-    margin-bottom: 16px;
+.site-footer {
+  margin-top: 100px;
+  background: var(--navy);
+  border-top: none;
+  color: rgba(232,237,247,0.75);
+}
+.footer-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 52px 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -.03em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.footer-logo em { color: var(--cta); font-style: italic; }
+.footer-desc {
+  font-size: .87rem;
+  line-height: 1.78;
+  color: rgba(232,237,247,0.60);
+  max-width: 300px;
+  font-weight: 300;
+}
+.footer-tagline {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--cta);
+}
+.footer-tagline::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--cta);
+}
+.footer-col-title {
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(232,237,247,0.40);
+  margin-bottom: 18px;
+}
+.footer-col a {
+  display: block;
+  font-size: .875rem;
+  color: rgba(232,237,247,0.65);
+  margin-bottom: 10px;
+  transition: color .2s, padding-left .2s;
+  font-weight: 400;
+  letter-spacing: -.01em;
+}
+.footer-col a:hover { color: #ffffff; padding-left: 5px; }
+.footer-divider {
+  height: 1px;
+  background: rgba(232,237,247,0.10);
+  margin-bottom: 28px;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-legal {
+  font-size: .76rem;
+  color: rgba(232,237,247,0.45);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.footer-amz-note {
+  font-size: .73rem;
+  color: rgba(232,237,247,0.35);
+  font-style: italic;
 }
 
-article p {
-    color: var(--text-accent);
-    line-height: 1.8;
+#search-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11,17,32,0.82);
+  backdrop-filter: blur(12px);
+  z-index: 500;
+  padding: 80px 24px 40px;
+  overflow-y: auto;
+}
+#search-overlay.open {
+  display: block;
+  animation: fadeUp .22s var(--ease-out);
+}
+@keyframes fadeUp {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.search-panel {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--bg);
+  border-radius: var(--r-xl);
+  padding: 36px;
+  position: relative;
+  box-shadow: var(--sh-xl);
+  animation: panelIn .26s var(--ease-out);
+}
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(16px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.search-panel-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.search-panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.04em;
+}
+.search-close-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--ink-3);
+  transition: all .2s;
+}
+.search-close-btn:hover {
+  background: var(--navy-dim);
+  border-color: var(--navy-line);
+  color: var(--navy);
+}
+.search-count-txt {
+  font-size: .84rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.search-res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
 }
 
-article a {
-    color: var(--button);
-    font-weight: 600;
+#cookie-bar {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-xl);
+  padding: 18px 24px;
+  box-shadow: var(--sh-xl);
+  z-index: 1000;
+  max-width: 580px;
+  width: calc(100% - 32px);
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+#cookie-bar.show { display: flex; animation: cookiePop .32s var(--ease-out); }
+@keyframes cookiePop {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.cookie-text {
+  flex: 1;
+  min-width: 180px;
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.cookie-text a { color: var(--slate); font-weight: 500; }
+.cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
+.btn-cookie-ok {
+  background: var(--cta);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--r-md);
+  padding: 9px 18px;
+  font-size: .82rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: opacity .2s, background .2s;
+}
+.btn-cookie-ok:hover { background: var(--cta-hover); }
+.btn-cookie-ess {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 9px 14px;
+  font-size: .82rem;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all .2s;
+}
+.btn-cookie-ess:hover {
+  border-color: var(--navy-line);
+  color: var(--navy);
 }
 
-.grid .card.hidden {
-    display: none;
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s var(--ease-out), transform .65s var(--ease-out);
 }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
 
-/* SIMILAR PRODUCTS SECTION - NEW! */
-.similar-products-section {
-    max-width: 1400px;
-    margin: 80px auto;
-    padding: 40px 20px;
+@media (max-width: 1200px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .hero-h1 { font-size: clamp(2.6rem, 6vw, 4rem); }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .blog-feat { grid-template-columns: 1fr; }
+  .blog-feat-visual { min-height: 240px; }
+  .pd-wrap { grid-template-columns: 1fr; padding: 0 32px; }
+  .pd-gallery { position: static; }
 }
-
-.similar-products-heading {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 12px;
-    color: var(--accent);
-}
-
-.similar-products-subtitle {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 40px;
-}
-
-.similar-products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 28px;
-}
-
-.similar-product-card {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-}
-
-.similar-product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-}
-
-.similar-product-card img {
-    width: 100%;
-    max-height: 220px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-bottom: 16px;
-}
-
-.similar-product-card h3 {
-    font-size: 1.05rem;
-    line-height: 1.4;
-    margin-bottom: 12px;
-    color: var(--accent);
-    min-height: 2.8em;
-}
-
-.similar-price {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #006600;
-}
-
-/* INFO FOOTER - NEW! */
-.product-info-footer {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 24px;
-    background: var(--tag);
-    border-radius: 12px;
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-.product-info-footer p {
-    margin: 8px 0;
-    color: var(--text-muted);
-}
-
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-    }
-    
-    .nav-links a {
-        text-align: center;
-    }
-    
-    .dropdown {
-        width: 100%;
-    }
-    
-    .dropdown-toggle {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .dropdown-menu {
-        left: 0;
-        right: 0;
-        min-width: auto;
-    }
-    
-    #search-form {
-        max-width: none;
-    }
-    
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
+  .nav-inner { padding: 0 20px; height: 60px; }
+  .nav-links, .nav-search { display: none; }
+  #hamburger { display: flex; }
+  .hero { padding: 32px 20px 20px; }
+  .hero-h1 { font-size: 2.4rem; }
+  .hero-sub { font-size: .95rem; }
+  .hero-stats { gap: 20px; }
+  .grid { padding: 0 16px; grid-template-columns: 1fr; gap: 16px; }
+  .blog-grid { padding: 0 16px; grid-template-columns: 1fr; }
+  .blog-wrap { padding: 0 16px; }
+  .cat-rail { padding: 0 16px; }
+  .sec-hdr { padding: 0 16px; }
+  .affil-strip { padding: 0 16px 12px; }
+  .similar-sec { padding: 0 16px; }
+  .pager { padding: 0 16px; }
+  .footer-inner { padding: 40px 20px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .legal-article { padding: 0 20px 60px; }
+  .pd-wrap { padding: 0 16px; gap: 28px; margin-top: 28px; }
+  .cookie-btns { width: 100%; }
+  .btn-cookie-ok, .btn-cookie-ess { flex: 1; text-align: center; }
+  .blog-feat-body { padding: 28px 22px; }
+  .hero-actions { gap: 10px; }
+}
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 2rem; }
+  .similar-grid { grid-template-columns: repeat(2, 1fr); }
+  .search-panel { padding: 24px 20px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
 
-::-webkit-scrollbar {
-    width: 10px;
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--slate); }
+
+::selection { background: var(--navy-dim); color: var(--navy); }
+
+/* ── Base: every button inside a blog article card ── */
+article .card button {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.22s ease;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    font-family: inherit;
+    line-height: 1;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--bg);
+/* ── "View Details & Buy" — internal /product/ links ── */
+article .card a[href^='/product'] button,
+article .card a[href^='/product/'] button {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+article .card a[href^='/product'] button:hover,
+article .card a[href^='/product/'] button:hover {
+    background: transparent;
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--button);
-    border-radius: 5px;
+/* ── "View on Amazon" — external amzn.to links ── */
+article .card a[href*='amzn.to'] button,
+article .card a[href*='amazon.co.uk'] button,
+article .card a[href*='amazon.com'] button {
+    background: #ff9900 !important;
+    color: #111 !important;
+    border-color: #ff9900 !important;
+}
+article .card a[href*='amzn.to'] button:hover,
+article .card a[href*='amazon.co.uk'] button:hover,
+article .card a[href*='amazon.com'] button:hover {
+    background: #e68900 !important;
+    border-color: #e68900 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,153,0,0.4);
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--button-hover);
+/* ── Button row container ── */
+article .card div[style*='display:flex'][style*='justify-content:center'] {
+    gap: 14px !important;
+    flex-wrap: wrap;
+    padding-top: 8px;
+}
+
+/* ── Remove default link underline on buttons ── */
+article .card a[href^='/product'],
+article .card a[href*='amzn.to'],
+article .card a[href*='amazon'] {
+    text-decoration: none;
 }
 </style>"""
 
+
 # ============================================================================
-# BASE HTML TEMPLATE WITH ENHANCEMENTS
+# BASE HTML TEMPLATE — v5.2
 # ============================================================================
 
 BASE_HTML = """<!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" class="">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="author" content="FyboBuybo">
 
 <title>{{ title }}</title>
-<meta name="description" content="{{ description | truncate(155, true, '...') }}">
+<meta name="description" content="{{ description | truncate(155,true,'...') }}">
 <link rel="canonical" href="{{ canonical_url }}">
 {% if prev_page_url %}<link rel="prev" href="{{ prev_page_url }}">{% endif %}
 {% if next_page_url %}<link rel="next" href="{{ next_page_url }}">{% endif %}
 
 <meta property="og:title" content="{{ title }}">
-<meta property="og:description" content="{{ description | truncate(200, true, '...') }}">
-<meta property="og:type" content="{% if products|length == 1 %}product{% elif '/blog' in request.path %}article{% else %}website{% endif %}">
+<meta property="og:description" content="{{ description | truncate(200,true,'...') }}">
+<meta property="og:type" content="website">
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="google-site-verification" content="googleb2fd2d2e239922f5" />
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-C1YNKZS6PG');
-</script>
-
+<meta property="og:image" content="{% if products and products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
+<meta name="google-site-verification" content="googleb2fd2d2e239922f5">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ title }}">
-<meta name="twitter:description" content="{{ description | truncate(200, true, '...') }}">
-<meta name="twitter:image" content="{% if products|length > 0 and products[0].image %}{{ products[0].image }}{% else %}{{ SITE_URL }}/static/og-default.jpg{% endif %}">
 
-{% if '/blog' in request.path and products|length == 0 %}
-<meta property="article:published_time" content="{{ article_date }}">
-<meta property="article:author" content="FyboBuybo">
-{% endif %}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-C1YNKZS6PG');</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
 
-{% if structured_data %}
-<script type="application/ld+json">
-{{ structured_data|safe }}
-</script>
-{% endif %}
-
-{% if breadcrumb_schema %}
-<script type="application/ld+json">
-{{ breadcrumb_schema|safe }}
-</script>
-{% endif %}
+{% if structured_data %}<script type="application/ld+json">{{ structured_data|safe }}</script>{% endif %}
+{% if breadcrumb_schema %}<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>{% endif %}
 
 {{ css|safe }}
 </head>
 <body>
 
-<button id="theme-toggle" aria-label="Toggle theme">
-  <svg id="theme-icon-sun" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="5"/>
-    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-  <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display:none;">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </svg>
-</button>
+<!-- ═══ TICKER RIBBON ═══════════════════════════════════════════ -->
+<div class="ribbon" aria-hidden="true" role="marquee">
+  <div class="ribbon-track">
+    {% for _ in range(2) %}
+    <span>Hand-picked for UK Shoppers</span><span class="sep">✦</span>
+    <span>Gift Curation</span><span class="sep">✦</span>
+    <span>No Ads · No Sponsored Picks</span><span class="sep">✦</span>
+    <span>Refreshed Every Day</span><span class="sep">✦</span>
+    <span>Top-Rated Finds · 2026</span><span class="sep">✦</span>
+    {% endfor %}
+  </div>
+</div>
 
-<nav aria-label="Primary navigation">
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
+<!-- ═══ NAVIGATION ══════════════════════════════════════════════ -->
+<header class="site-nav" id="site-nav">
+  <div class="nav-inner">
+
+    <a href="/" class="nav-logo" aria-label="FyboBuybo Home">
+      <span class="logo-fybo">Fybo</span><span class="logo-buybo">Buybo</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">
+          Categories
+          <svg class="drop-arrow" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="nav-drop-menu" role="menu">
+          {% for cat in nav_items.categories %}
+          <a href="/category/{{ slugify(cat) }}" role="menuitem">{{ cat }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if nav_items.seasons %}
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">
+          Seasonal
+          <svg class="drop-arrow" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="nav-drop-menu" role="menu">
+          {% for season in nav_items.seasons %}
+          <a href="/season/{{ slugify(season) }}" role="menuitem">{{ season }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </nav>
+
+    <div class="nav-right">
+      <div class="nav-search" role="search">
+        <div class="nav-search-wrap">
+          <input type="search" id="search-input" placeholder="Search gifts…" aria-label="Search gifts" autocomplete="off" spellcheck="false">
+          <svg class="nav-search-icon" viewBox="0 0 16 16">
+            <circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l3.5 3.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <button class="nav-icon-btn" id="theme-btn" aria-label="Toggle colour theme">
+        <svg id="icon-sun" viewBox="0 0 24 24" stroke-width="1.8">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg id="icon-moon" viewBox="0 0 24 24" stroke-width="1.8" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ═══ MOBILE DRAWER ═══════════════════════════════════════════ -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mm-primary">
+    <a href="/" class="mm-link" tabindex="-1">Home</a>
+    <a href="/blog" class="mm-link" tabindex="-1">Blog</a>
   </div>
 
-  <div class="dropdown categories-dropdown">
-    <button class="dropdown-toggle" type="button">Categories</button>
-    <div class="dropdown-menu">
+  {% if nav_items.categories %}
+  <div class="mm-section">
+    <div class="mm-label">Categories</div>
+    <div class="mm-pills">
       {% for cat in nav_items.categories %}
-        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+      <a href="/category/{{ slugify(cat) }}" class="mm-pill">{{ cat }}</a>
       {% endfor %}
     </div>
   </div>
+  {% endif %}
 
   {% if nav_items.seasons %}
-  <div class="dropdown seasons-dropdown">
-    <button class="dropdown-toggle" type="button">Seasonal</button>
-    <div class="dropdown-menu">
+  <div class="mm-section">
+    <div class="mm-label">Seasonal Collections</div>
+    <div class="mm-pills">
       {% for season in nav_items.seasons %}
-        <a href="/season/{{ slugify(season) }}">{{ season }}</a>
+      <a href="/season/{{ slugify(season) }}" class="mm-pill">{{ season }}</a>
       {% endfor %}
     </div>
   </div>
   {% endif %}
 
-  <form id="search-form" role="search">
-    <input type="search" id="search-input" placeholder="Search all gifts..." aria-label="Search">
-  </form>
-</nav>
-
-<!-- Search Results Modal -->
-<div id="search-results">
-  <div class="search-modal">
-    <button class="search-close" aria-label="Close search">&times;</button>
-    <h2 class="search-results-title">Search Results</h2>
-    <p class="search-results-count"></p>
-    <div id="search-results-grid" class="grid"></div>
+  <div class="mm-search-wrap">
+    <svg viewBox="0 0 16 16"><circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l3.5 3.5"/></svg>
+    <input type="search" id="mobile-search-input" placeholder="Search gifts…" aria-label="Search" autocomplete="off">
   </div>
 </div>
-<div style="background:var(--tag);border-left:4px solid var(--button);padding:12px 20px;border-radius:8px;margin:0 auto 40px;max-width:1600px;font-size:0.9rem;color:var(--text-muted);">
-  <strong>Affiliate Disclosure:</strong> FyboBuybo earns a commission on purchases made through our links, at no extra cost to you. <a href="/privacy-policy" style="color:var(--button);">Learn more</a>
-</div>
-<h1>{{ heading }}</h1>
-<p class="subtitle">{{ subtitle }}</p>
-<p style="text-align:center;color:var(--text-muted);margin-bottom:60px;font-weight:500;">
-  ✔ UK-focused · ✔ Updated daily · ✔ Thoughtfully curated
-</p>
 
-{% if content %}
-  {{ content|safe }}
+<!-- ═══ HERO (listing pages only) ══════════════════════════════ -->
+{% if heading %}
+<section class="hero" aria-label="Page header">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Updated daily · Handpicked for UK shoppers</div>
+    <h1 class="hero-h1">{{ heading|replace("FyboBuybo – ", "")|replace(" Gifts", "")|safe }}<em> Gifts</em>
+      <span class="line-2">{{ "Curated, daily" }}</span>
+    </h1>
+    <p class="hero-sub">{{ subtitle }}</p>
+    <div class="hero-actions">
+      {% if request.path == '/blog' or request.path.startswith('/blog/') %}
+      <a href="/" class="btn-primary">
+        Browse gift picks
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#articles" class="btn-ghost">Read guides →</a>
+      {% else %}
+      <a href="#picks" class="btn-primary">
+        Browse picks
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/blog" class="btn-ghost">Gift guides →</a>
+      {% endif %}
+    </div>
+    <div class="hero-stats">
+      <div>
+        {% if request.path == '/blog' or request.path.startswith('/blog/') %}
+        <div class="hero-stat-num">{{ total_posts if total_posts else '' }}<span>+</span></div>
+        <div class="hero-stat-label">Gift guides</div>
+        {% else %}
+        <div class="hero-stat-num">{{ products|length if products else '' }}<span>+</span></div>
+        <div class="hero-stat-label">Curated picks</div>
+        {% endif %}
+      </div>
+      <div>
+        <div class="hero-stat-num"><span>✦</span></div>
+        <div class="hero-stat-label">Refreshed daily</div>
+      </div>
+      <div>
+        <div class="hero-stat-num"><span>UK</span></div>
+        <div class="hero-stat-label">Gift ideas</div>
+      </div>
+    </div>
+  </div>
+
+  {% if products and products|length > 1 %}
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-img-main">
+      <img src="{{ products[0].image }}" alt="{{ products[0].name }}" loading="eager" width="480" height="480">
+    </div>
+    <div class="hero-img-float">
+      <img src="{{ products[1].image }}" alt="{{ products[1].name }}" loading="eager" width="240" height="240">
+    </div>
+    <div class="hero-ornament">
+      <span>New<br>Daily</span>
+    </div>
+  </div>
+  {% endif %}
+</section>
 {% endif %}
 
+<!-- ═══ AFFILIATE DISCLOSURE ════════════════════════════════════ -->
+<div class="affil-strip">
+  <div class="affil-inner">
+    <svg class="affil-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Affiliate Disclosure:</strong> This site earns a small commission when you buy through our links — at no extra cost to you. It's how we keep the curation going. <a href="/privacy-policy">Learn more →</a></span>
+  </div>
+</div>
+
+<!-- ═══ CATEGORY RAIL (homepage) ════════════════════════════════ -->
+{% if request.path == '/' and nav_items.categories %}
+<nav class="cat-rail" aria-label="Browse categories">
+  {% for cat in nav_items.categories %}
+  <a href="/category/{{ slugify(cat) }}" class="cat-chip">{{ cat }}</a>
+  {% endfor %}
+</nav>
+{% endif %}
+
+{% if content %}{{ content|safe }}{% endif %}
+
+<!-- ═══ SECTION HEADER ══════════════════════════════════════════ -->
+{% if products and products|length > 1 %}
+<div class="sec-hdr reveal" id="picks">
+  <div>
+    <div class="sec-eyebrow">Carefully curated · updated daily</div>
+    <h2 class="sec-title">Today's <em>Top Picks</em></h2>
+  </div>
+  <a href="/blog" class="sec-view-all">Gift guides →</a>
+</div>
+{% endif %}
+
+<!-- ═══ PRODUCT GRID ═════════════════════════════════════════════ -->
 {% if products %}
-<div class="grid">
-{% for p in products %}
-<div class="card" itemscope itemtype="https://schema.org/Product">
-  <span class="tag">{{ p.category }}</span>
-
-  <a href="/product/{{ slugify(p.name) }}" itemprop="url">
-    <h2 itemprop="name">{{ shorten_product_name(p.name) }}</h2>
-  </a>
-
-  <a href="/product/{{ slugify(p.name) }}">
-    <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" itemprop="image">
-  </a>
-
-  <p itemprop="description">{{ p.hook|safe }}</p>
-
-  {% if p.date_added %}
-  <p style="font-size:.85rem;opacity:.65;margin:16px 0 8px;">
-    ↳ Featured {{ p.date_added }}
-  </p>
-  {% endif %}
-
-  <div class="product-metrics">
-    {% set price_info = get_product_price_rating(p) %}
-
-
-    {% if price_info.rating %}
-    <div class="rating-display">
-      {{ format_rating_display(price_info.rating, price_info.reviews) }}
+<div class="grid" role="list">
+  {% for p in products %}
+  {% set price_info = get_product_price_rating(p) %}
+  <article class="card reveal" style="animation-delay:{{ loop.index0 * 0.04 }}s" role="listitem" itemscope itemtype="https://schema.org/Product">
+    <div class="card-img">
+      <span class="card-badge">{{ p.category }}</span>
+      <a href="/product/{{ slugify(p.name) }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" width="400" height="400" itemprop="image">
+      </a>
+      <div class="card-quick" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
     </div>
-    {% endif %}
 
-    <div class="check-amazon-notice">
-      <span style="font-style:italic;opacity:.75;">
-        Check Amazon for current price
-      </span>
+    <div class="card-body">
+      <div class="card-cat">{{ p.category }}</div>
+      <a href="/product/{{ slugify(p.name) }}" class="card-name" itemprop="name">{{ shorten_product_name(p.name) }}</a>
+      <p class="card-hook" itemprop="description">{{ p.hook|safe }}</p>
+
+      {% if price_info.rating %}
+      <div class="card-rating">
+        <span class="card-stars">{% for i in range(price_info.rating|int) %}★{% endfor %}</span>
+        <span>Highly rated</span>
+      </div>
+      {% endif %}
+
+      <div class="card-div"></div>
+      {% if p.date_added %}
+      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:10px;letter-spacing:.02em" itemprop="dateModified" content="{{ p.date_added }}">Updated {{ p.date_added }}</div>
+      {% endif %}
+      <div class="card-cta">
+        {% if p.url %}
+        <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" class="btn-amz"
+           aria-label="Check price for {{ p.name }} on Amazon">
+          Check price on <span class="amz-wordmark">amazon</span>
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        {% endif %}
+        <a href="/product/{{ slugify(p.name) }}" class="btn-detail">Full details →</a>
+      </div>
     </div>
-</div>
-  {% if p.url %}
-  <a href="{{ p.url }}" target="_blank" rel="nofollow sponsored noopener" 
-     style="display:block;background:linear-gradient(135deg,#ff9900,#ff8c00);color:white;padding:16px;border-radius:12px;font-weight:700;font-size:1.05rem;text-align:center;margin:16px 0 8px;box-shadow:0 4px 20px rgba(255,153,0,0.3);text-decoration:none;">
-    🛒 Check current price on Amazon
-  </a>
-  <a href="/product/{{ slugify(p.name) }}" 
-     style="display:block;text-align:center;font-size:0.88rem;color:var(--text-muted);padding:6px;">
-    View full details →
-  </a>
-  {% endif %}
-
-  {% if p.category %}
-  <p style="font-size:.9rem;opacity:.7;margin-top:20px;text-align:center;">
-    More <a href="/category/{{ slugify(p.category) }}">{{ p.category }}</a>
-  </p>
-  {% endif %}
-</div>
-{% endfor %}
+  </article>
+  {% endfor %}
 </div>
 {% endif %}
 
 {% if similar_products %}
-<section class="similar-products-section">
-  <h2 class="similar-products-heading">Customers Also Viewed</h2>
-  <p class="similar-products-subtitle">
-    Popular alternatives in {{ products[0].category if products|length > 0 else 'this category' }}
-  </p>
-
-  <div class="similar-products-grid">
-    {% for similar in similar_products %}
-    <div class="similar-product-card">
-      <a href="/product/{{ slugify(similar.name) }}">
-        <img src="{{ similar.image }}" alt="{{ similar.name }}" loading="lazy">
-        <h3>{{ shorten_product_name(similar.name, 60) }}</h3>
-      </a>
+<section class="similar-sec reveal" aria-label="Similar products">
+  <div class="sec-hdr" style="padding:0;margin:0 0 0">
+    <div>
+      <div class="sec-eyebrow">You might also like</div>
+      <h2 class="sec-title">More <em>Great Picks</em></h2>
     </div>
+  </div>
+  <div class="similar-grid">
+    {% for s in similar_products %}
+    <a href="/product/{{ slugify(s.name) }}" class="sim-card" aria-label="{{ s.name }}">
+      <div class="sim-img">
+        <img src="{{ s.image }}" alt="{{ s.name }}" loading="lazy" width="200" height="200">
+      </div>
+      <div class="sim-name">{{ shorten_product_name(s.name, 60) }}</div>
+    </a>
     {% endfor %}
   </div>
 </section>
 {% endif %}
 
-{% if products and (next_page_url or prev_page_url) %}
-<div class="pagination">
-  {% if prev_page_url %}<a href="{{ prev_page_url }}">← Previous</a>{% endif %}
-  {% if next_page_url %}<a href="{{ next_page_url }}">Next →</a>{% endif %}
-</div>
+{% if next_page_url or prev_page_url %}
+<nav class="pager" aria-label="Pagination">
+  {% if prev_page_url %}<a href="{{ prev_page_url }}" rel="prev">← Previous</a>{% endif %}
+  {% if next_page_url %}<a href="{{ next_page_url }}" rel="next">Next →</a>{% endif %}
+</nav>
 {% endif %}
 
-<footer>
-  <p><strong>As an Amazon Associate, I earn from qualifying purchases.</strong></p>
-  <p>All product details were verified as of date featured. Prices and availability may change.</p>
-  <p>FyboBuybo is an independent UK gifts site. Amazon and the Amazon logo are trademarks of Amazon.com, Inc.</p>
-  
-  <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--dropdown-border);">
-    <p style="margin: 10px 0;">
-      <a href="/privacy-policy" style="margin: 0 15px;">Privacy Policy</a> · 
-      <a href="/terms" style="margin: 0 15px;">Terms of Service</a> · 
-      <a href="mailto:infofybobuybo@gmail.com" style="margin: 0 15px;">Contact</a>
-    </p>
-    <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 15px;">
-      © 2026 FyboBuybo. All rights reserved.
-    </p>
+<!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Fybo<em>Buybo</em></div>
+        <p class="footer-desc">An independent gift curation site for UK shoppers. Every pick is chosen — we earn a small commission on purchases at no extra cost to you.</p>
+        <div class="footer-tagline">No paid placements</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Explore</div>
+        <a href="/">Home</a>
+        <a href="/blog">Gift Guides</a>
+        {% for cat in nav_items.categories[:5] %}
+        <a href="/category/{{ slugify(cat) }}">{{ cat }}</a>
+        {% endfor %}
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:infofybobuybo@gmail.com">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 FyboBuybo. All rights reserved. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. As an Amazon Associate, we earn from qualifying purchases.</p>
+      <p class="footer-amz-note">Prices and availability subject to change. Always verify on Amazon.</p>
+    </div>
   </div>
 </footer>
 
+<!-- ═══ SEARCH OVERLAY ════════════════════════════════════════════ -->
+<div id="search-overlay" role="dialog" aria-label="Search results" aria-modal="true" aria-live="polite">
+  <div class="search-panel">
+    <div class="search-panel-hdr">
+      <h2 class="search-panel-title">Search Results</h2>
+      <button class="search-close-btn" id="search-close" aria-label="Close search">×</button>
+    </div>
+    <p class="search-count-txt" id="search-count"></p>
+    <div class="search-res-grid" id="search-res-grid"></div>
+  </div>
+</div>
+
+<!-- ═══ COOKIE CONSENT ════════════════════════════════════════════ -->
+<div id="cookie-bar" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <div class="cookie-text">
+    This site uses essential cookies and affiliate tracking.
+    <a href="/privacy-policy">Privacy policy</a>
+  </div>
+  <div class="cookie-btns">
+    <button class="btn-cookie-ok" id="cookie-accept">Accept All</button>
+    <button class="btn-cookie-ess" id="cookie-essential">Essential Only</button>
+  </div>
+</div>
+
 <script>
-const THEMES = {{ themes_json|default('[]')|safe }};
-let currentTheme = parseInt(localStorage.getItem('themeIndex')) || 0;
-
-function applyTheme(index) {
-  if (!THEMES.length) return;
-  const theme = THEMES[index % THEMES.length];
+// ── THEME ──────────────────────────────────────────────────────
+(function() {
   const root = document.documentElement;
-
-  Object.keys(theme).forEach(k => {
-    if (k !== 'name') {
-      root.style.setProperty(`--${k.replace(/_/g,'-')}`, theme[k]);
-    }
-  });
-
-  document.getElementById('theme-icon-sun').style.display = index === 0 ? 'block' : 'none';
-  document.getElementById('theme-icon-moon').style.display = index === 1 ? 'block' : 'none';
-  localStorage.setItem('themeIndex', index);
-}
-
-applyTheme(currentTheme);
-
-document.getElementById('theme-toggle')?.addEventListener('click', () => {
-  currentTheme = (currentTheme + 1) % THEMES.length;
-  applyTheme(currentTheme);
-});
-
-document.querySelectorAll('.dropdown').forEach(d => {
-  d.querySelector('.dropdown-toggle')?.addEventListener('click', e => {
-    e.stopPropagation();
-    document.querySelectorAll('.dropdown').forEach(x => x !== d && x.classList.remove('active'));
-    d.classList.toggle('active');
-  });
-});
-
-document.addEventListener('click', () => {
-  document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-});
-
-// GLOBAL SEARCH FUNCTIONALITY
-const searchInput = document.getElementById('search-input');
-const searchResults = document.getElementById('search-results');
-const searchResultsGrid = document.getElementById('search-results-grid');
-const searchResultsCount = document.querySelector('.search-results-count');
-const searchClose = document.querySelector('.search-close');
-
-let searchTimeout;
-let allProducts = [];
-
-// Fetch all products for search
-async function loadAllProducts() {
-  try {
-    const response = await fetch('/api/search-products');
-    const data = await response.json();
-    allProducts = data.products || [];
-  } catch (error) {
-    console.error('Failed to load products:', error);
+  let dark = localStorage.getItem('fybo-dark') === '1';
+  function applyTheme(d) {
+    root.classList.toggle('dark', d);
+    document.getElementById('icon-sun').style.display  = d ? 'none'  : 'block';
+    document.getElementById('icon-moon').style.display = d ? 'block' : 'none';
   }
-}
-
-// Initialize product data
-loadAllProducts();
-
-if (searchInput) {
-  searchInput.addEventListener('input', e => {
-    const query = e.target.value.trim();
-    
-    clearTimeout(searchTimeout);
-    
-    if (query.length < 2) {
-      searchResults.classList.remove('active');
-      return;
-    }
-    
-    searchTimeout = setTimeout(() => {
-      performSearch(query);
-    }, 300);
+  applyTheme(dark);
+  document.getElementById('theme-btn').addEventListener('click', function() {
+    dark = !dark;
+    localStorage.setItem('fybo-dark', dark ? '1' : '0');
+    applyTheme(dark);
   });
-}
+})();
 
-function performSearch(query) {
-  const queryLower = query.toLowerCase();
-  
-  const matches = allProducts.filter(product => {
-    const searchableText = [
-      product.name,
-      product.category,
-      product.hook,
-      product.info,
-      ...(product.keywords || []),
-      product.season
-    ].join(' ').toLowerCase();
-    
-    return searchableText.includes(queryLower);
+// ── NAV SHADOW ON SCROLL ───────────────────────────────────────
+(function() {
+  const nav = document.getElementById('site-nav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 20); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ── HAMBURGER / MOBILE MENU ────────────────────────────────────
+(function() {
+  const burger = document.getElementById('hamburger');
+  const menu   = document.getElementById('mobile-menu');
+  burger.addEventListener('click', function() {
+    const open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
   });
-  
-  displaySearchResults(matches, query);
-}
-
-function displaySearchResults(products, query) {
-  searchResultsCount.textContent = `Found ${products.length} result${products.length !== 1 ? 's' : ''} for "${query}"`;
-  
-  searchResultsGrid.innerHTML = '';
-  
-  if (products.length === 0) {
-    searchResultsGrid.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:40px;">No products found. Try a different search term.</p>';
-  } else {
-    products.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <span class="tag">${p.category}</span>
-        <a href="/product/${slugify(p.name)}">
-          <h2>${shortenProductName(p.name)}</h2>
-        </a>
-        <a href="/product/${slugify(p.name)}">
-          <img src="${p.image}" alt="${p.name}" loading="lazy">
-        </a>
-        <p>${p.hook || ''}</p>
-        ${p.url ? `<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="button">View on Amazon</a>` : ''}
-      `;
-      searchResultsGrid.appendChild(card);
+  menu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
-  }
-  
-  searchResults.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+})();
 
-function slugify(text) {
-  return text.toLowerCase()
+// ── DESKTOP DROPDOWNS ──────────────────────────────────────────
+(function() {
+  const drops = document.querySelectorAll('.nav-drop');
+  drops.forEach(function(dd) {
+    const btn = dd.querySelector('.nav-drop-btn');
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = dd.classList.contains('open');
+      drops.forEach(function(x) {
+        x.classList.remove('open');
+        x.querySelector('.nav-drop-btn').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dd.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', function() {
+    drops.forEach(function(dd) {
+      dd.classList.remove('open');
+      const btn = dd.querySelector('.nav-drop-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+// ── SCROLL REVEAL ──────────────────────────────────────────────
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('in-view'); });
+    return;
+  }
+  const io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el) { io.observe(el); });
+})();
+
+// ── SEARCH ─────────────────────────────────────────────────────
+var allProducts = [];
+var searchTimer;
+
+async function loadProducts() {
+  try {
+    const r = await fetch('/api/search-products');
+    const d = await r.json();
+    allProducts = d.products || [];
+  } catch(e) { console.warn('Search preload failed', e); }
+}
+loadProducts();
+
+function pySlug(t) {
+  return t.toLowerCase()
     .replace(/&/g, '-and-')
     .replace(/\s+/g, '-')
-    .replace(/[^\w\-]/g, '')
+    .replace(/[^\w-]/g, '')
     .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
-
-function shortenProductName(name, maxLength = 80) {
-  if (name.length <= maxLength) return name;
-  
-  const separators = [',', '('];
-  for (const sep of separators) {
-    if (name.includes(sep)) {
-      const short = name.split(sep)[0].trim();
-      if (short.length <= maxLength) return short;
-    }
+function shortName(n, l) {
+  l = l || 70;
+  if (n.length <= l) return n;
+  for (const s of [',','(']) {
+    if (n.includes(s)) { const x = n.split(s)[0].trim(); if (x.length <= l) return x; }
   }
-  
-  const words = name.split(' ');
-  let result = '';
-  for (const word of words) {
-    if ((result + ' ' + word).length <= maxLength - 3) {
-      result += (result ? ' ' : '') + word;
-    } else {
-      break;
-    }
-  }
-  return result + '...';
+  return n.slice(0, l - 1) + '…';
 }
 
-if (searchClose) {
-  searchClose.addEventListener('click', () => {
-    searchResults.classList.remove('active');
-    document.body.style.overflow = '';
-    searchInput.value = '';
+const overlay    = document.getElementById('search-overlay');
+const countEl    = document.getElementById('search-count');
+const resGrid    = document.getElementById('search-res-grid');
+const searchInp  = document.getElementById('search-input');
+const mSearchInp = document.getElementById('mobile-search-input');
+
+function buildCard(p) {
+  return `<article class="card">
+    <div class="card-img">
+      <span class="card-badge">${p.category||''}</span>
+      <a href="/product/${pySlug(p.name)}" tabindex="-1" aria-hidden="true">
+        <img src="${p.image||''}" alt="${p.name}" loading="lazy">
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="card-cat">${p.category||''}</div>
+      <a href="/product/${pySlug(p.name)}" class="card-name">${shortName(p.name)}</a>
+      <p class="card-hook">${p.hook||''}</p>
+      <div class="card-cta">
+        ${p.url ? `<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="btn-amz">
+          Check price on <span class="amz-wordmark">amazon</span></a>` : ''}
+        <a href="/product/${pySlug(p.name)}" class="btn-detail">Full details →</a>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderResults(products, q) {
+  countEl.textContent = products.length
+    ? `${products.length} result${products.length !== 1 ? 's' : ''} for "${q}"`
+    : `No results for "${q}"`;
+  resGrid.innerHTML = products.length
+    ? products.map(buildCard).join('')
+    : '<p style="text-align:center;padding:64px 24px;color:var(--muted);font-size:.95rem">No results found — try a different term.</p>';
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSearch() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function doSearch(q) {
+  clearTimeout(searchTimer);
+  const t = q.trim();
+  if (t.length < 3) { if (overlay.classList.contains('open')) closeSearch(); return; }
+  searchTimer = setTimeout(function() {
+    const ql    = t.toLowerCase();
+    const words = ql.split(/\s+/).filter(function(w) { return w.length > 0; });
+    const scored = allProducts.map(function(p) {
+      const name   = (p.name   || '').toLowerCase();
+      const cat    = (p.category || '').toLowerCase();
+      const hook   = (p.hook   || '').toLowerCase();
+      const info   = (p.info   || '').toLowerCase();
+      const keys   = (p.keywords || []).join(' ').toLowerCase();
+      const season = (p.season || '').toLowerCase();
+      let score = 0;
+      for (const w of words) {
+        if (w.length < 3 && words.length > 1) continue;
+        if (name.startsWith(w))            score += 20;
+        else if (name.includes(' ' + w))   score += 15;
+        else if (name.includes(w) && w.length >= 4) score += 8;
+        if (cat === w)                     score += 12;
+        else if (cat.includes(w) && w.length >= 4) score += 6;
+        if (keys.includes(w) && w.length >= 4)  score += 5;
+        if (w.length >= 4) {
+          if (hook.includes(w))   score += 3;
+          if (info.includes(w))   score += 2;
+          if (season.includes(w)) score += 4;
+        }
+      }
+      if (name.includes(ql)) score += 25;
+      return { p: p, score: score };
+    });
+    const hits = scored
+      .filter(function(x) { return x.score >= 8; })
+      .sort(function(a, b) { return b.score - a.score; })
+      .map(function(x) { return x.p; });
+    renderResults(hits, t);
+  }, 200);
+}
+
+searchInp.addEventListener('input', function(e) { doSearch(e.target.value); });
+searchInp.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeSearch(); searchInp.value = ''; }
+});
+if (mSearchInp) {
+  mSearchInp.addEventListener('input', function(e) { doSearch(e.target.value); });
+  mSearchInp.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeSearch(); mSearchInp.value = ''; }
   });
 }
+document.getElementById('search-close').addEventListener('click', closeSearch);
+overlay.addEventListener('click', function(e) { if (e.target === overlay) closeSearch(); });
+overlay.addEventListener('click', function(e) { e.stopPropagation(); }, false);
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSearch(); });
 
-// Close on background click
-searchResults?.addEventListener('click', (e) => {
-  if (e.target === searchResults) {
-    searchResults.classList.remove('active');
-    document.body.style.overflow = '';
-    searchInput.value = '';
+// ── COOKIE CONSENT ─────────────────────────────────────────────
+(function() {
+  const KEY = 'fybo_consent_v1';
+  const bar = document.getElementById('cookie-bar');
+  if (!bar) return;
+  try { if (!localStorage.getItem(KEY)) setTimeout(function() { bar.classList.add('show'); }, 1200); }
+  catch(e) { bar.classList.add('show'); }
+  function dismiss(v) {
+    try { localStorage.setItem(KEY, v); } catch(e) {}
+    bar.classList.remove('show');
   }
-});
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && searchResults.classList.contains('active')) {
-    searchResults.classList.remove('active');
-    document.body.style.overflow = '';
-    searchInput.value = '';
-  }
-});
+  var okBtn  = document.getElementById('cookie-accept');
+  var essBtn = document.getElementById('cookie-essential');
+  if (okBtn)  okBtn.addEventListener('click',  function() { dismiss('all'); });
+  if (essBtn) essBtn.addEventListener('click', function() { dismiss('essential'); });
+})();
 </script>
-
-{{ cookie_consent|safe }}
-
 </body>
-</html>
-"""
+</html>"""
+
 
 # ============================================================================
-# RENDER PAGE FUNCTION - UPDATED WITH SEO ENHANCEMENTS
+# RENDER PAGE
 # ============================================================================
 
-def render_page(title, description, heading, subtitle, products=None, page=1, page_url=None, similar_products=None, today=None, today_formatted=None, article_date=None, content=None):
+def render_page(title, description, heading, subtitle, products=None, page=1,
+                page_url=None, similar_products=None, today=None,
+                today_formatted=None, article_date=None, content=None, total_posts=None):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
-    
     nav_items = get_nav_items()
-    
-    canonical = SITE_URL + request.path.rstrip('/')
-    if request.path == '/':
-        canonical = SITE_URL + '/'
-    page_num = int(request.args.get("page", 1))
-    if page_num > 1:
-        canonical += f"?page={page_num}"
 
-    paged_products = []
-    total_pages = 1
+    canonical = SITE_URL + request.path.rstrip('/')
+    if request.path == '/': canonical = SITE_URL + '/'
+    page_num = int(request.args.get("page", 1))
+    if page_num > 1: canonical += f"?page={page_num}"
+
+    paged_products, total_pages = [], 1
     if products:
         paged_products, total_items = paginate(products, page)
         total_pages = (total_items + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
@@ -2472,121 +3244,90 @@ def render_page(title, description, heading, subtitle, products=None, page=1, pa
     next_url = page_url(page + 1) if page_url and page < total_pages else None
     prev_url = page_url(page - 1) if page_url and page > 1 else None
 
-    themes_json = json.dumps(THEMES)
-    
-    # Add today's date if not provided
     if not today:
         today = datetime.date.today().isoformat()
         today_formatted = datetime.date.today().strftime("%B %d, %Y")
 
-    # Generate structured data for product pages
     structured_data = None
     if paged_products and len(paged_products) == 1:
         structured_data = generate_product_schema(paged_products[0])
 
-    # Generate breadcrumb schema
     breadcrumb_schema = None
     breadcrumbs = [("Home", "/")]
-
     if '/category/' in request.path and paged_products:
         breadcrumbs.append((paged_products[0]['category'], request.path))
     elif '/season/' in request.path:
-        season_name = request.path.split('/')[-1].replace('-', ' ').title()
-        breadcrumbs.append((season_name, request.path))
+        breadcrumbs.append((request.path.split('/')[-1].replace('-', ' ').title(), request.path))
     elif '/product/' in request.path and paged_products:
         if paged_products[0].get('category'):
             breadcrumbs.append((paged_products[0]['category'], f"/category/{slugify(paged_products[0]['category'])}"))
         breadcrumbs.append((paged_products[0]['name'], request.path))
     elif '/blog' in request.path:
         breadcrumbs.append(("Blog", "/blog"))
-        if request.path != '/blog' and not '/page/' in request.path:
+        if request.path != '/blog' and '/page/' not in request.path:
             breadcrumbs.append((title.split(' – ')[0], request.path))
-
     if len(breadcrumbs) > 1:
         breadcrumb_schema = generate_breadcrumb_schema(breadcrumbs)
 
     return render_template_string(
         BASE_HTML,
-        title=title,
-        description=description,
-        heading=heading,
-        subtitle=subtitle,
-        products=paged_products,
-        nav_items=nav_items,
-        css=css,
-        canonical_url=canonical,
-        SITE_URL=SITE_URL,
-        slugify=slugify,
-        shorten_product_name=shorten_product_name,
+        title=title, description=description, heading=heading, subtitle=subtitle,
+        products=paged_products, nav_items=nav_items, css=css,
+        canonical_url=canonical, SITE_URL=SITE_URL,
+        slugify=slugify, shorten_product_name=shorten_product_name,
         similar_products=similar_products or [],
-        next_page_url=next_url,
-        prev_page_url=prev_url,
-        themes_json=themes_json,
+        next_page_url=next_url, prev_page_url=prev_url,
+        themes_json=json.dumps(THEMES),
         get_product_price_rating=get_product_price_rating,
         format_price_display=format_price_display,
         format_rating_display=format_rating_display,
-        today=today,
-        today_formatted=today_formatted,
-        structured_data=structured_data,
-        breadcrumb_schema=breadcrumb_schema,
-        article_date=article_date,
-        content=content or "",
-        cookie_consent=COOKIE_CONSENT_HTML
+        today=today, today_formatted=today_formatted,
+        structured_data=structured_data, breadcrumb_schema=breadcrumb_schema,
+        article_date=article_date, content=content or "",
+        cookie_consent="", total_posts=total_posts
     )
 
 
-
 # ============================================================================
-# ROUTES - CACHING REMOVED FROM SEO-CRITICAL PAGES
+# ROUTES
 # ============================================================================
 
 @app.route("/privacy-policy")
 def privacy_policy():
-    """Privacy policy page - required by UK GDPR"""
     return render_page(
         title="Privacy Policy – FyboBuybo",
-        description="Our commitment to protecting your privacy and data in accordance with UK GDPR and Data Protection Act 2018.",
-        heading="Privacy Policy",
-        subtitle="How we collect, use, and protect your data",
+        description="Our commitment to protecting your privacy in accordance with UK GDPR.",
+        heading="Privacy Policy", subtitle="How we collect, use, and protect your data",
         content=PRIVACY_POLICY_HTML
     )
 
 @app.route("/terms")
 def terms_of_service():
-    """Terms of Service page - legal requirements for affiliate site"""
     return render_page(
         title="Terms of Service – FyboBuybo",
-        description="Terms and conditions for using FyboBuybo, including affiliate disclosures and limitation of liability.",
-        heading="Terms of Service",
-        subtitle="Legal terms for using our website",
+        description="Terms and conditions for using FyboBuybo, including affiliate disclosures.",
+        heading="Terms of Service", subtitle="Legal terms for using our website",
         content=TERMS_OF_SERVICE_HTML
     )
-# API endpoint for search
+
 @app.route("/api/search-products")
 def api_search_products():
     all_products = refresh_products(background=True)
-    # Return minimal data needed for search
-    search_data = [{
-        'name': p['name'],
-        'category': p.get('category', ''),
-        'image': p.get('image', ''),
-        'hook': p.get('hook', ''),
-        'info': p.get('info', ''),
-        'keywords': p.get('keywords', []),
-        'season': p.get('season', ''),
-        'url': p.get('url', '')
-    } for p in all_products]
-    
-    return jsonify({'products': search_data})
+    return jsonify({'products': [{
+        'name': p['name'], 'category': p.get('category', ''),
+        'image': p.get('image', ''), 'hook': p.get('hook', ''),
+        'info': p.get('info', ''), 'keywords': p.get('keywords', []),
+        'season': p.get('season', ''), 'url': p.get('url', '')
+    } for p in all_products]})
 
 @app.route("/")
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
     return render_page(
         title="FyboBuybo – Trending UK Gifts & Popular Presents 2026",
-        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily with thoughtful picks for British shoppers.",
+        description="Discover today's trending UK gifts and popular presents across toys, beauty, electronics, home and more – refreshed daily.",
         heading="FyboBuybo – Trending UK Gifts",
-        subtitle="A curated selection of popular gifts and presents, refreshed daily.",
+        subtitle="Every pick on this site is chosen to help find interesting gifts. Refreshed daily for UK shoppers.",
         products=products
     )
 
@@ -2595,256 +3336,395 @@ def home():
 def category(slug, page=1):
     all_products = refresh_products(background=True)
     filtered = [p for p in all_products if slugify(p.get("category", "")) == slug]
-    if not filtered:
-        abort(404)
-    
+    if not filtered: abort(404)
     cat_name = filtered[0]["category"]
-    
-    def page_url(p_num):
-        return url_for("category", slug=slug, page=p_num)
-    
+    def page_url(p): return url_for("category", slug=slug, page=p)
     return render_page(
         title=f"Best {cat_name} Gifts UK 2026 | Trending Picks – FyboBuybo",
-        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily with quality picks.",
+        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily.",
         heading=f"Best {cat_name} Gifts UK 2026",
-        subtitle=f"Hand-picked {cat_name.lower()} loved by UK shoppers – updated daily with quality picks.",
-        products=filtered,
-        page=page,
-        page_url=page_url
+        subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — updated regularly.",
+        products=filtered, page=page, page_url=page_url
     )
 
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
     all_products = refresh_products(background=True)
-    season_name = season_slug.replace('-', ' ').title()
     norm_slug = normalize_for_match(season_slug)
-
-    filtered = [
-        p for p in all_products
-        if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))
-    ]
-    if not filtered:
-        abort(404)
-    
+    filtered = [p for p in all_products if p.get("season") and any(norm_slug in normalize_for_match(s.strip()) for s in p["season"].split(","))]
+    if not filtered: abort(404)
     filtered.sort(key=lambda p: p.get("date_added", "2000-01-01"), reverse=True)
-    
-    def page_url(p_num):
-        return url_for("seasonal_collection", season_slug=season_slug, page=p_num)
-    
-    title_season = season_name
-    if "day" in season_name.lower() or "christmas" in season_name.lower():
-        title_season += " Gifts"
-
+    season_name = season_slug.replace('-', ' ').title()
+    def page_url(p): return url_for("seasonal_collection", season_slug=season_slug, page=p)
+    title_season = season_name + (" Gifts" if "day" in season_name.lower() or "christmas" in season_name.lower() else "")
     return render_page(
         title=f"Best {title_season} 2026 – FyboBuybo",
-        description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026 – thoughtful, trending & updated daily.",
+        description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026.",
         heading=title_season,
-        subtitle="Perfect seasonal presents • refreshed every day",
-        products=filtered,
-        page=page,
-        page_url=page_url
+        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with recommendations.",
+        products=filtered, page=page, page_url=page_url
     )
 
 @app.route("/product/<path:product_slug>")
 def product_detail(product_slug):
     all_products = refresh_products(background=True)
     found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
-    if not found:
-        abort(404)
+    if not found: abort(404)
 
-    # Get similar products for SEO
     similar = get_similar_products(found, all_products, limit=6)
-    
-    # Add today's date for footer
     today = datetime.date.today()
     today_formatted = today.strftime("%B %d, %Y")
+    price_info = get_product_price_rating(found)
+
+    rating_html = ""
+    if price_info.get("rating"):
+        stars = "★" * int(float(price_info["rating"]))
+        rating_html = f"""<div class="pd-rating-row" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="color:var(--green);font-size:1.2rem;letter-spacing:-.06em;line-height:1">{stars}</span>
+          <span style="font-size:.88rem;color:var(--muted);font-weight:400">Highly rated by buyers</span>
+          <a href="{found.get('url','')}" target="_blank" rel="nofollow sponsored noopener"
+             style="font-size:.82rem;color:var(--slate);font-weight:600;border-bottom:1px solid var(--slate-line)">
+            See current ratings →</a>
+        </div>"""
+
+    amazon_btn = ""
+    if found.get("url"):
+        amazon_btn = f"""<a href="{found["url"]}" target="_blank" rel="nofollow sponsored noopener" class="btn-pd-amz">
+          Check price on <em>amazon</em>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg></a>"""
+
+    trust_row = """<div class="pd-trust-row">
+      <div class="pd-trust-item">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Fulfilled by Amazon UK
+      </div>
+      <div class="pd-trust-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Live price on Amazon
+      </div>
+      <div class="pd-trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Amazon's standard returns apply
+      </div>
+    </div>"""
+
+    info_html = f'<p class="pd-hook">{found["info"]}</p>' if found.get("info") else ""
+    date_html = f'<p style="font-size:.74rem;color:var(--muted-2);margin-top:2px;font-style:italic">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
+
+    content_html = f"""
+    <div class="pd-wrap">
+      <div class="pd-gallery">
+        <div class="pd-img-main">
+          <img src="{found["image"]}" alt="{found["name"]}" width="600" height="600">
+        </div>
+      </div>
+      <div class="pd-info">
+        <nav class="pd-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>›</span>
+          <a href="/category/{slugify(found.get('category',''))}">{found.get('category','')}</a>
+          <span>›</span>
+          <span style="color:var(--muted)">{shorten_product_name(found['name'], 40)}</span>
+        </nav>
+        <div class="pd-cat-tag">{found.get('category', '')}</div>
+        <h1 class="pd-title">{found["name"]}</h1>
+        {rating_html}
+        <div class="pd-divider"></div>
+        <p class="pd-hook">{found.get("hook", "")}</p>
+        {info_html}
+        <div class="pd-price-note">💡 Prices update frequently on Amazon. The price shown when you click may differ — always check before purchasing.</div>
+        {amazon_btn}
+        {trust_row}
+        {date_html}
+      </div>
+    </div>"""
 
     return render_page(
         title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
-        description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery available via Amazon Prime.",
-        heading=shorten_product_name(found["name"]),
-        subtitle="A popular UK gift choice",
-        products=[found],
-        similar_products=similar,
-        today=today.isoformat(),
-        today_formatted=today_formatted
+        description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery via Amazon Prime.",
+        heading="", subtitle="",
+        products=None, similar_products=similar,
+        today=today.isoformat(), today_formatted=today_formatted,
+        content=content_html
     )
+
+
+# ============================================================================
+# BLOG
+# ============================================================================
 
 POSTS_PER_PAGE = 8
 
 def load_blog_posts(page=1):
-    posts = [
-        {**v, "slug": k} for k, v in BLOG_POSTS.items()
-    ]
+    posts = [{**v, "slug": k} for k, v in BLOG_POSTS.items()]
     posts.sort(key=lambda x: x.get("date", "1900-01-01"), reverse=True)
-    
     start = (page - 1) * POSTS_PER_PAGE
-    end = start + POSTS_PER_PAGE
-    paginated = posts[start:end]
+    paginated = posts[start:start + POSTS_PER_PAGE]
     total_pages = (len(posts) + POSTS_PER_PAGE - 1) // POSTS_PER_PAGE
-    
     return paginated, total_pages, len(posts)
+
+
+def get_blog_post_image(post, all_products):
+    img_url = post.get("featured_image") or post.get("image")
+    img_alt = post.get("featured_image_alt") or post.get("title", "")
+    if img_url:
+        return (
+            f'<img src="{img_url}" alt="{img_alt}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
+            False
+        )
+
+    content = post.get("content", "")
+    img_match = re.search(r"src='(https://m\.media-amazon\.com/[^']+)'", content)
+    if not img_match:
+        img_match = re.search(r'src="(https://m\.media-amazon\.com/[^"]+)"', content)
+    if img_match:
+        return (
+            f'<img src="{img_match.group(1)}" alt="{post.get("title","")}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
+            True
+        )
+
+    def fuzz(s):
+        return re.sub(r'[^a-z0-9]', '', s.lower()) if s else ''
+
+    if post.get("related_products") and all_products:
+        product_map = {}
+        for p in all_products:
+            if p.get("image"):
+                product_map[fuzz(p["name"])] = p
+                product_map[fuzz(slugify(p["name"]))] = p
+        for rel in post["related_products"]:
+            rel_fuzz = fuzz(rel)
+            if rel_fuzz in product_map:
+                p = product_map[rel_fuzz]
+                return (
+                    f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                    True
+                )
+            for pfuzz, p in product_map.items():
+                if len(rel_fuzz) > 5 and (rel_fuzz in pfuzz or pfuzz in rel_fuzz):
+                    return (
+                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                        True
+                    )
+
+    title_lower = post["title"].lower()
+    category_hints = {
+        "baby": ["baby", "nursery", "infant", "monitor"],
+        "yoga": ["sport", "fitness", "health", "wellness"],
+        "monitor": ["electronics", "tech", "baby"],
+        "candle": ["home", "beauty", "wellbeing"],
+        "kitchen": ["kitchen", "home", "cooking"],
+        "beauty": ["beauty", "skincare", "personal care"],
+        "fitbit": ["electronics", "tech", "fitness"],
+        "garmin": ["electronics", "tech", "fitness"],
+        "gift": ["toys", "beauty", "home"],
+        "book": ["learning", "education", "books"],
+    }
+    for kw, cats in category_hints.items():
+        if kw in title_lower:
+            for p in all_products:
+                if p.get("image") and any(c.lower() in p.get("category", "").lower() for c in cats):
+                    return (
+                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                        True
+                    )
+
+    return None, False
+
 
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
 def blog_list(page=1):
     paginated, total_pages, total_posts = load_blog_posts(page)
-    if not paginated and page > 1:
-        abort(404)
+    if not paginated and page > 1: abort(404)
 
-    theme = get_daily_theme()
+    all_products = refresh_products(background=True)
+    featured = paginated[0] if paginated else None
+    grid_posts = paginated[1:] if len(paginated) > 1 else paginated
 
-    def page_url(p_num):
-        return url_for("blog_list", page=p_num) if p_num <= total_pages else None
+    blog_html = '<div class="blog-wrap">'
+
+    if featured:
+        feat_date = datetime.datetime.strptime(featured["date"], "%Y-%m-%d").strftime("%d %B %Y")
+        feat_img_html, _ = get_blog_post_image(featured, all_products)
+
+        if feat_img_html:
+            feat_visual = f'<div class="blog-feat-visual" style="overflow:hidden;position:relative">{feat_img_html}</div>'
+        else:
+            feat_visual = '<div class="blog-feat-visual"><div class="blog-feat-visual-placeholder">📖</div></div>'
+
+        blog_html += f"""
+        <a href="/blog/{featured["slug"]}" class="blog-feat">
+          {feat_visual}
+          <div class="blog-feat-body">
+            <div class="blog-feat-label">{feat_date} · Featured Guide</div>
+            <div class="blog-feat-title">{featured["title"]}</div>
+            <div class="blog-feat-desc">{featured.get("description", "")}</div>
+            <div class="blog-feat-cta">Read the full guide →</div>
+          </div>
+        </a>"""
+
+    if grid_posts:
+        blog_html += """
+        <div class="sec-hdr" id="articles" style="padding:0;margin:0 0 28px">
+          <div>
+            <div class="sec-eyebrow">All articles</div>
+            <h2 class="sec-title">Latest <em>Guides</em></h2>
+          </div>
+        </div>
+        <div class="blog-grid">"""
+
+        for post in grid_posts:
+            date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
+            post_img_html, is_product = get_blog_post_image(post, all_products)
+
+            if post_img_html:
+                thumb = f'<div class="blog-card-thumb" style="position:relative">{post_img_html}</div>'
+            else:
+                tl = post["title"].lower()
+                emoji = "📝"
+                if any(w in tl for w in ["gift","present","christmas","birthday"]): emoji = "🎁"
+                elif any(w in tl for w in ["home","kitchen","decor"]): emoji = "🏠"
+                elif any(w in tl for w in ["beauty","skincare","self-care"]): emoji = "✨"
+                elif any(w in tl for w in ["tech","gadget","electronic"]): emoji = "⚡"
+                elif any(w in tl for w in ["book","read"]): emoji = "📚"
+                elif any(w in tl for w in ["yoga","fitness","health"]): emoji = "🧘"
+                elif any(w in tl for w in ["baby","monitor","nursery"]): emoji = "👶"
+                thumb = f'<div class="blog-card-thumb">{emoji}</div>'
+
+            blog_html += f"""
+            <a href="/blog/{post["slug"]}" class="blog-card">
+              {thumb}
+              <div class="blog-card-body">
+                <div class="blog-card-date">{date_str}</div>
+                <div class="blog-card-title">{post["title"]}</div>
+                <div class="blog-card-desc">{post.get("description", "")}</div>
+                <div class="blog-card-link">Read article →</div>
+              </div>
+            </a>"""
+
+        blog_html += "</div>"
+
+    if total_pages > 1:
+        blog_html += '<div class="pager" style="margin-top:52px;margin-bottom:0">'
+        if page > 1: blog_html += f'<a href="{url_for("blog_list", page=page-1)}" rel="prev">← Previous</a>'
+        if page < total_pages: blog_html += f'<a href="{url_for("blog_list", page=page+1)}" rel="next">Next →</a>'
+        blog_html += "</div>"
+
+    blog_html += "</div>"
 
     rendered = render_page(
         title="FyboBuybo Blog – Gift Guides, Tips & Inspiration 2026",
-        description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations – updated regularly.",
+        description="Latest UK gift ideas, seasonal guides, home tips and thoughtful present recommendations.",
         heading="FyboBuybo Blog",
-        subtitle="Gift guides, trends and inspiration for UK shoppers",
-        products=None,
-        page=page,
-        page_url=page_url
+        subtitle="Practical gift guides written to help you find something genuinely great — not just another list.",
+        products=None, page=page,
+        total_posts=total_posts,
     )
 
-    blog_html = '<div class="grid" style="max-width:1100px; margin:40px auto;">'
-    accent_color = theme["accent"]
-    for post in paginated:
-        date_str = datetime.datetime.strptime(post["date"], "%Y-%m-%d").strftime("%d %B %Y")
-        blog_html += f'''
-        <div class="card" style="text-align:left; padding:24px;">
-            <h2 style="font-size:1.6rem; margin-bottom:8px;"><a href="/blog/{post["slug"]}">{post["title"]}</a></h2>
-            <p style="opacity:0.7; font-size:0.95rem; margin:0 0 12px;">{date_str}</p>
-            <p style="line-height:1.6;">{post.get("description", "")}</p>
-            <a href="/blog/{post["slug"]}" style="color:{accent_color}; font-weight:600;">Read more →</a>
-        </div>
-        '''
-    blog_html += '</div>'
-
-    insert_point = rendered.find('<p class="subtitle">') 
-    if insert_point > -1:
-        insert_after = rendered.find('</p>', insert_point) + 4
-        rendered = rendered[:insert_after] + blog_html + rendered[insert_after:]
-
-    if total_pages > 1:
-        pag_html = '<div class="pagination">'
-        if page > 1:
-            pag_html += f'<a href="{url_for("blog_list", page=page-1)}">« Previous</a>'
-        if page < total_pages:
-            pag_html += f'<a href="{url_for("blog_list", page=page+1)}">Next »</a>'
-        pag_html += '</div>'
-        rendered = rendered.replace('</body>', pag_html + '</body>')
+    insert = rendered.find("<!-- ═══ PRODUCT GRID")
+    if insert > -1:
+        rendered = rendered[:insert] + blog_html + rendered[insert:]
+    else:
+        rendered = rendered.replace("</footer>", blog_html + "</footer>", 1)
 
     return rendered
+
 
 @app.route("/blog/<slug>")
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
-    if not post:
-        abort(404)
+    if not post: abort(404)
 
     all_products = refresh_products(background=True)
-    
-    # Get related products based on the post's related_products field
     related = []
     if post.get("related_products"):
-        for product_slug in post["related_products"]:
-            product = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
-            if product:
-                related.append(product)
-    
-    # If no specific related products, fall back to category-based
+        for ps in post["related_products"]:
+            p = next((x for x in all_products if slugify(x["name"]) == ps), None)
+            if p: related.append(p)
     if not related:
         related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
-    # Render blog content with Jinja2 for any template variables
     from jinja2 import Template
     raw_content = post.get("content", "<p>Content coming soon.</p>")
-    content_html = f'<div style="max-width:900px; margin:40px auto; line-height:1.7; font-size:1.05rem;">{Template(raw_content).render(slugify=slugify)}</div>'
+    content_html_body = Template(raw_content).render(slugify=slugify)
+    date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
-    rendered = render_page(
+    content_html = f"""
+    <div style="max-width:720px;margin:56px auto 0;padding:0 48px">
+      <div style="display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:22px">
+        <span style="display:block;width:18px;height:1px;background:var(--slate)"></span>
+        {date_str} · Gift Guide
+      </div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.05em;color:var(--ink);margin-bottom:20px">{post.get("heading", post["title"])}</h1>
+      <p style="font-size:1.06rem;line-height:1.78;color:var(--muted);margin-bottom:44px;padding-bottom:40px;border-bottom:1px solid var(--divider);font-weight:300">{post.get("description", "")}</p>
+    </div>
+    <div style="max-width:720px;margin:0 auto;padding:0 48px 96px">
+      <div class="blog-prose">{content_html_body}</div>
+    </div>
+    """
+
+    return render_page(
         title=post["title"],
-        description=post.get("meta_description", post.get("description", "Gift inspiration and practical tips from FyboBuybo.")),
-        heading=post.get("heading", post["title"]),
-        subtitle=post.get("subtitle", "Gift guide & inspiration"),
-        products=None,
-        similar_products=related,
+        description=post.get("meta_description", post.get("description", "")),
+        heading="", subtitle="",
+        products=None, similar_products=related,
         article_date=post.get("date", datetime.date.today().isoformat()),
         content=content_html
     )
 
-    return rendered
+
+# ============================================================================
+# STATIC ROUTES
+# ============================================================================
 
 @app.route("/robots.txt")
 def robots():
-    txt = f"""User-agent: *
+    return Response(f"""User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /data/
 Crawl-delay: 1
-
 Sitemap: {SITE_URL}/sitemap.xml
-"""
-    return Response(txt, mimetype="text/plain")
+""", mimetype="text/plain")
+
 
 @app.route("/sitemap.xml")
 def sitemap():
     history = load_history()
     today = str(datetime.date.today())
     urls = set()
-    
-    # Homepage - highest priority
     urls.add((SITE_URL + "/", today, "1.0", "daily"))
-    
-    # Blog listing
     urls.add((SITE_URL + "/blog", today, "0.9", "daily"))
 
     all_products = []
-    for day_products in history.values():
-        all_products.extend(day_products)
+    for day_products in history.values(): all_products.extend(day_products)
 
-    # Categories - high priority
-    categories_seen = set()
+    categories_seen, products_seen = set(), set()
     for p in all_products:
         if p.get("category") and p["category"] not in categories_seen:
             categories_seen.add(p["category"])
-            lastmod = p.get("date_added", today)
-            urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", lastmod, "0.8", "weekly"))
-    
-    # Products - medium priority
-    products_seen = set()
-    for p in all_products:
+            urls.add((f"{SITE_URL}/category/{slugify(p['category'])}", p.get("date_added", today), "0.8", "weekly"))
         if p.get("name") and p["name"] not in products_seen:
             products_seen.add(p["name"])
-            lastmod = p.get("date_added", today)
-            urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", lastmod, "0.7", "weekly"))
+            urls.add((f"{SITE_URL}/product/{slugify(p['name'])}", p.get("date_added", today), "0.7", "weekly"))
 
-    # Seasonal collections
-    seasons = ["Valentine's Day", "Mother's Day", "Easter", "Father's Day",
-               "Summer Gifts", "Back to School", "Halloween", "Christmas"]
-    for season in seasons:
+    for season in ["Valentine's Day", "Mother's Day", "Easter", "Father's Day", "Summer Gifts", "Back to School", "Halloween", "Christmas"]:
         urls.add((f"{SITE_URL}/season/{slugify(season)}", today, "0.8", "weekly"))
 
-    # Blog posts
     for slug, post in BLOG_POSTS.items():
         urls.add((f"{SITE_URL}/blog/{slug}", post.get("date", today), "0.6", "monthly"))
 
-    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    
-    for url_data in sorted(urls):
-        url, lastmod, priority, changefreq = url_data
-        sitemap_xml += f'''  <url>
-    <loc>{url}</loc>
-    <lastmod>{lastmod}</lastmod>
-    <changefreq>{changefreq}</changefreq>
-    <priority>{priority}</priority>
-  </url>
-'''
-    
-    sitemap_xml += '</urlset>'
-    return Response(sitemap_xml, mimetype="application/xml")
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for url, lastmod, priority, changefreq in sorted(urls):
+        xml += f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{changefreq}</changefreq>\n    <priority>{priority}</priority>\n  </url>\n"
+    xml += "</urlset>"
+    return Response(xml, mimetype="application/xml")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
