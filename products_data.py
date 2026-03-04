@@ -4,6 +4,66 @@
 
 PRODUCTS = [
 
+
+    {
+    "name": "Levi's Men's 501 Original Fit Jeans – Stonewash",
+    "category": "Fashion",
+    "season": "Spring",
+    "image": "https://m.media-amazon.com/images/I/81rlu+00crL._AC_SX569_.jpg",
+    "url": "https://amzn.to/3OKOs5U",
+    "asin": "B001QOE6TA",
+    "info": "The Levi's 501 is the original blue jean — the straight-leg, button-fly icon that has defined denim since 1873. This stonewash version offers the same timeless mid-rise, regular fit through the seat and thigh, now with a soft broken-in look and feel straight out of the box. Made from 100% heavyweight cotton denim with copper rivets at stress points for exceptional durability. Finished with the iconic arcuate stitching, leather Two Horse Pull patch, and signature red Levi's tab. OEKO-TEX® STANDARD 100 certified — tested against over 1,000 substances for safety. A wardrobe staple that never goes out of style.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["levis 501 jeans", "mens straight leg jeans", "stonewash jeans men", "levis original fit", "button fly jeans UK", "classic denim jeans", "levis stonewash amazon UK"],
+    "pain_points": ["jeans that lose their shape or wear out quickly", "trendy cuts that date quickly", "stiff, uncomfortable new denim", "difficulty finding a reliable, versatile everyday jean"],
+    "benefits": ["timeless straight-leg silhouette that works dressed up or down", "stonewash finish gives a worn-in feel from day one", "heavyweight 100% cotton construction built to last for years", "iconic, recognisable style with genuine heritage credentials"],
+    "price_tier": "mid-range fashion staple",
+    "highlights": [
+        "The original straight-leg, button-fly jean — unchanged in style since 1873",
+        "Stonewash finish delivers a classic broken-in look without the wait",
+        "100% heavyweight cotton with copper rivets at stress points for long-lasting durability",
+        "Regular mid-rise fit through the seat and thigh — versatile enough for any occasion",
+        "OEKO-TEX® STANDARD 100 certified — tested for safety against 1,000+ substances"
+    ],
+    "faqs": [
+        {"q": "Do these jeans run true to size?", "a": "Yes — the 501 fits true to size for most. If you're between sizes or prefer a more relaxed fit, sizing up one is recommended."},
+        {"q": "Are these jeans pre-shrunk?", "a": "The 501 is pre-shrunk and should maintain its size through regular washing. Wash cold and tumble dry on medium to preserve the fit and stonewash finish."}
+    ],
+    "date_added": "2026-03-04"
+}
+
+
+    {
+    "name": "DAS 1kg Air Hardening Modelling Clay – White",
+    "category": "Arts & Crafts",
+    "season": "Spring",
+    "image": "https://m.media-amazon.com/images/I/61Hh2n69xrL._SL1500_.jpg",
+    "url": "https://amzn.to/3NgeNrZ",
+    "asin": "B001GAP4YA",
+    "info": "DAS is the original Italian air-hardening clay, invented in 1963 and trusted by artists, hobbyists, and educators for over 60 years. This 1kg block of smooth, mineral-based white clay dries naturally in 12–24 hours with no oven or kiln required — just open the pack and start creating. It bonds to wood, cardboard, glass, and metal, and once dry can be painted with acrylics, tempera, or multi-surface markers. Dermatologically tested, gluten-free, non-toxic, and washable from hands with water — suitable for all ages from 3 upwards.",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": ["air drying clay", "DAS modelling clay", "air hardening clay 1kg", "no bake clay UK", "sculpting clay for adults", "kids craft clay", "clay without oven"],
+    "pain_points": ["needing a kiln or oven to harden clay", "clay that cracks or crumbles when dry", "messy or staining craft materials", "finding a creative hobby for all ages"],
+    "benefits": ["air-hardens naturally in 12–24 hours — no baking needed", "smooth, fine texture that's easy to shape and blend", "bonds to a wide range of surfaces for mixed-media projects", "non-toxic, gluten-free, and washable — safe for children and adults alike"],
+    "price_tier": "affordable craft essential",
+    "highlights": [
+        "1kg of smooth, mineral-based white Italian clay — ready to use straight from the pack",
+        "Air-hardens in 12–24 hours with no oven, kiln, or specialist equipment needed",
+        "Compatible with wood, cardboard, glass, and metal surfaces",
+        "Paint when dry with acrylics, tempera, or multi-surface markers",
+        "Dermatologically tested, non-toxic, gluten-free, and water-washable — suitable for ages 3+"
+    ],
+    "faqs": [
+        {"q": "Does this clay need to be baked?", "a": "No — DAS is self air-hardening and sets naturally within 12–24 hours at room temperature. No oven or kiln required."},
+        {"q": "Can children use it safely?", "a": "Yes — it's dermatologically tested, non-toxic, gluten-free, and washes off hands with water. Suitable for ages 3 and above with supervision."}
+    ],
+    "date_added": "2026-03-04"
+}
+
     
     {
     "name": "Mighty Patch Original by Hero Cosmetics - Hydrocolloid Acne Pimple Patches, 24 Count - Nighttime Spot Treatment Stickers for Face",
