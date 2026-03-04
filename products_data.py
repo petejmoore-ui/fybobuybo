@@ -4,37 +4,6 @@
 
 PRODUCTS = [
 
-
-    {
-    "name": "Levi's Men's 501 Original Fit Jeans – Stonewash",
-    "category": "Fashion",
-    "season": "Spring",
-    "image": "https://m.media-amazon.com/images/I/81rlu+00crL._AC_SX569_.jpg",
-    "url": "https://amzn.to/3OKOs5U",
-    "asin": "B001QOE6TA",
-    "info": "The Levi's 501 is the original blue jean — the straight-leg, button-fly icon that has defined denim since 1873. This stonewash version offers the same timeless mid-rise, regular fit through the seat and thigh, now with a soft broken-in look and feel straight out of the box. Made from 100% heavyweight cotton denim with copper rivets at stress points for exceptional durability. Finished with the iconic arcuate stitching, leather Two Horse Pull patch, and signature red Levi's tab. OEKO-TEX® STANDARD 100 certified — tested against over 1,000 substances for safety. A wardrobe staple that never goes out of style.",
-    "manual_price": "",
-    "manual_rating": "",
-    "manual_reviews": "",
-    "keywords": ["levis 501 jeans", "mens straight leg jeans", "stonewash jeans men", "levis original fit", "button fly jeans UK", "classic denim jeans", "levis stonewash amazon UK"],
-    "pain_points": ["jeans that lose their shape or wear out quickly", "trendy cuts that date quickly", "stiff, uncomfortable new denim", "difficulty finding a reliable, versatile everyday jean"],
-    "benefits": ["timeless straight-leg silhouette that works dressed up or down", "stonewash finish gives a worn-in feel from day one", "heavyweight 100% cotton construction built to last for years", "iconic, recognisable style with genuine heritage credentials"],
-    "price_tier": "mid-range fashion staple",
-    "highlights": [
-        "The original straight-leg, button-fly jean — unchanged in style since 1873",
-        "Stonewash finish delivers a classic broken-in look without the wait",
-        "100% heavyweight cotton with copper rivets at stress points for long-lasting durability",
-        "Regular mid-rise fit through the seat and thigh — versatile enough for any occasion",
-        "OEKO-TEX® STANDARD 100 certified — tested for safety against 1,000+ substances"
-    ],
-    "faqs": [
-        {"q": "Do these jeans run true to size?", "a": "Yes — the 501 fits true to size for most. If you're between sizes or prefer a more relaxed fit, sizing up one is recommended."},
-        {"q": "Are these jeans pre-shrunk?", "a": "The 501 is pre-shrunk and should maintain its size through regular washing. Wash cold and tumble dry on medium to preserve the fit and stonewash finish."}
-    ],
-    "date_added": "2026-03-04"
-}
-
-
     {
     "name": "DAS 1kg Air Hardening Modelling Clay – White",
     "category": "Arts & Crafts",
@@ -42,27 +11,149 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/61Hh2n69xrL._SL1500_.jpg",
     "url": "https://amzn.to/3NgeNrZ",
     "asin": "B001GAP4YA",
-    "info": "DAS is the original Italian air-hardening clay, invented in 1963 and trusted by artists, hobbyists, and educators for over 60 years. This 1kg block of smooth, mineral-based white clay dries naturally in 12–24 hours with no oven or kiln required — just open the pack and start creating. It bonds to wood, cardboard, glass, and metal, and once dry can be painted with acrylics, tempera, or multi-surface markers. Dermatologically tested, gluten-free, non-toxic, and washable from hands with water — suitable for all ages from 3 upwards.",
+    "info": "DAS Air Hardening Clay is an Italian modelling clay that has been made since 1963. This 1kg white block sets naturally at room temperature within 24 hours — no oven, kiln, or specialist tools needed. It adheres to wood, cardboard, plastic, metal, and glass, making it suitable for sculptures, bas-reliefs, home décor crafts, and school projects. Once dry it can be sanded, carved, or painted with acrylics, tempera, or multi-surface markers. AP certified non-toxic, acid-free, gluten-free, dermatologically tested, and water-washable — suitable for all ages.",
+    "last_updated": "2026-03-04",
+    "date_added": "2026-03-04",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["air drying clay", "DAS modelling clay", "air hardening clay 1kg", "no bake clay UK", "sculpting clay for adults", "kids craft clay", "clay without oven"],
-    "pain_points": ["needing a kiln or oven to harden clay", "clay that cracks or crumbles when dry", "messy or staining craft materials", "finding a creative hobby for all ages"],
-    "benefits": ["air-hardens naturally in 12–24 hours — no baking needed", "smooth, fine texture that's easy to shape and blend", "bonds to a wide range of surfaces for mixed-media projects", "non-toxic, gluten-free, and washable — safe for children and adults alike"],
+    "keywords": [
+        "air drying clay UK", "DAS modelling clay 1kg", "self hardening clay no oven",
+        "air drying clay for beginners", "air drying clay for kids",
+        "sculpting clay adults UK", "craft clay amazon UK", "clay for home decor",
+        "what clay dries without baking", "easy modelling clay adults"
+    ],
+    "use_cases": [
+        "Beginners wanting to try clay sculpting without needing specialist equipment or a kiln",
+        "Parents and teachers looking for a non-toxic, water-washable craft activity for children",
+        "Home décor enthusiasts making handmade ornaments, bowls, or wall art",
+        "Artists creating mixed-media projects combining clay with wood, cardboard, or paint",
+        "Adults looking for a relaxing, hands-on creative hobby at home"
+    ],
+    "pain_points": [
+        "Clay that requires an expensive kiln or oven to harden",
+        "Craft materials that crack excessively or are difficult for beginners to work with",
+        "Messy or staining materials that aren't suitable for children or home use",
+        "Not knowing where to start with a sculpting or modelling hobby"
+    ],
+    "benefits": [
+        "Air-hardens within 24 hours at room temperature — no equipment needed",
+        "Smooth, fine-grained texture that's malleable with or without armature support",
+        "Adheres to wood, cardboard, plastic, metal, and glass for mixed-media projects",
+        "Paintable when dry with acrylics, tempera, or multi-surface markers",
+        "AP certified non-toxic, acid-free, gluten-free, and water-washable — safe for all ages"
+    ],
     "price_tier": "affordable craft essential",
     "highlights": [
-        "1kg of smooth, mineral-based white Italian clay — ready to use straight from the pack",
-        "Air-hardens in 12–24 hours with no oven, kiln, or specialist equipment needed",
-        "Compatible with wood, cardboard, glass, and metal surfaces",
-        "Paint when dry with acrylics, tempera, or multi-surface markers",
-        "Dermatologically tested, non-toxic, gluten-free, and water-washable — suitable for ages 3+"
+        "Made in Italy — DAS clay has been crafted since 1963",
+        "1kg of smooth white clay — air-hardens in 24 hours, no oven or kiln required",
+        "Adheres to wood, cardboard, plastic, metal, and glass surfaces",
+        "Sand, carve, or paint when dry using acrylics, tempera, or multi-surface markers",
+        "AP certified non-toxic, acid-free, gluten-free, dermatologically tested, and water-washable"
     ],
     "faqs": [
-        {"q": "Does this clay need to be baked?", "a": "No — DAS is self air-hardening and sets naturally within 12–24 hours at room temperature. No oven or kiln required."},
-        {"q": "Can children use it safely?", "a": "Yes — it's dermatologically tested, non-toxic, gluten-free, and washes off hands with water. Suitable for ages 3 and above with supervision."}
+        {
+            "q": "Does DAS clay need to be baked or fired in a kiln?",
+            "a": "No. DAS is an air-hardening clay that sets naturally at room temperature within 24 hours. No oven, kiln, or microwave is required, making it one of the most accessible clays for beginners and home use."
+        },
+        {
+            "q": "Is DAS air drying clay safe for children?",
+            "a": "Yes. DAS clay is AP certified non-toxic, acid-free, gluten-free, and dermatologically tested. Clay residue washes easily from hands and most fabrics with soap and water, making it suitable for home and classroom use."
+        },
+        {
+            "q": "Can you paint DAS clay after it dries?",
+            "a": "Yes. Once fully hardened, DAS clay can be painted with acrylic paints, tempera paint, or multi-surface markers. It can also be sanded or carved before painting to refine your finished piece."
+        },
+        {
+            "q": "How do I prevent DAS clay from cracking while drying?",
+            "a": "According to DAS, the clay shrinks minimally — around 1–2% — which helps reduce cracking risk. Drying slowly away from direct heat sources and keeping wall thickness even helps further. Any small cracks that do appear can be repaired by smoothing wet clay into the gaps before the piece fully dries."
+        },
+        {
+            "q": "What surfaces does DAS clay stick to?",
+            "a": "DAS clay adheres to wood, cardboard, plastic, metal, and glass — making it well-suited for mixed-media projects where clay is applied over an existing structure or base."
+        },
+        {
+            "q": "How should I store unused DAS clay?",
+            "a": "DAS packaging is resealable. After use, press out any air, reseal the original packaging tightly, and store in a cool, dry place. Alternatively, wrap unused clay in cling film and place in an airtight bag to keep it workable."
+        }
+    ]
+},
+
+{
+    "name": "Levi's Men's 501 Original Fit Jeans – Stonewash",
+    "category": "Fashion",
+    "season": "Spring",
+    "image": "https://m.media-amazon.com/images/I/81rlu+00crL._AC_SX569_.jpg",
+    "url": "https://amzn.to/3OKOs5U",
+    "asin": "B001QOE6TA",
+    "info": "The Levi's 501 is the original blue jean, first introduced in 1873 by Levi Strauss. It features a straight leg that is the same width at the knee and leg opening, sits at the waist, and is regular through the thigh — the blueprint silhouette for denim that followed. Made from 100% cotton with a classic button fly, five-pocket construction, and copper rivet reinforcements at stress points. The stonewash finish gives a softer, broken-in look and feel. Machine washable. A design worn by generations and available in a wide range of waist and leg sizes.",
+    "last_updated": "2026-03-04",
+    "date_added": "2026-03-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "levis 501 jeans men UK", "mens straight leg jeans amazon UK",
+        "stonewash jeans men", "levis original fit stonewash",
+        "classic denim jeans men UK", "button fly jeans UK",
+        "levis 501 review UK", "100% cotton straight jeans men",
+        "levis jeans amazon UK", "mens denim jeans straight leg"
     ],
-    "date_added": "2026-03-04"
-}
+    "use_cases": [
+        "Men looking for a versatile straight-leg jean that works for casual and smart-casual occasions",
+        "Anyone replacing worn-out jeans with a well-known, long-established option",
+        "Men who prefer a classic straight fit over slim or tapered styles",
+        "Those wanting a pre-broken-in feel without waiting months for stiff denim to soften",
+        "Gift buyers looking for a reliably well-received clothing choice in a wide size range"
+    ],
+    "pain_points": [
+        "Jeans that lose shape or wear through after heavy use",
+        "Slim or tapered cuts that don't suit all body types",
+        "Stiff, uncomfortable new denim that takes time to soften",
+        "Difficulty finding a straight-leg jean that transitions from casual to smart-casual"
+    ],
+    "benefits": [
+        "Straight-leg silhouette — the same width at the knee and leg opening — that pairs with boots, trainers, or shoes",
+        "Stonewash finish delivers a softer, broken-in feel from the first wear",
+        "100% cotton construction with copper rivets at stress points for durability",
+        "Classic button fly and five-pocket design consistent with the original 1873 design",
+        "Machine washable and available in a wide range of waist and inseam sizes"
+    ],
+    "price_tier": "mid-range fashion staple",
+    "highlights": [
+        "The original straight-leg jean — first introduced by Levi Strauss in 1873",
+        "Sits at the waist, regular through the thigh, with a straight leg from knee to hem",
+        "100% cotton with copper rivet reinforcements and classic button fly",
+        "Stonewash finish for a softer, worn-in look and feel straight from the pack",
+        "Machine washable — Levi's recommends cold water wash to preserve fit and colour"
+    ],
+    "faqs": [
+        {
+            "q": "Do Levi's 501 jeans run true to size?",
+            "a": "Levi's recommends ordering your normal size for the 501. The fit is regular through the seat and thigh — not slim or tapered — so it will feel roomier than slim-fit styles. If you are between sizes, sizing up by one is a common approach."
+        },
+        {
+            "q": "How should I wash Levi's 501 jeans?",
+            "a": "Levi's recommends machine washing in cold water with a gentle cycle and mild detergent, avoiding bleach or fabric softeners. Washing inside-out helps preserve the colour and stonewash finish."
+        },
+        {
+            "q": "What is the difference between the Levi's 501 and other 501 fits like the 502 or 511?",
+            "a": "The 501 Original is a straight leg — the same width at the knee and the hem — with a button fly that sits at the waist. The 502 is a tapered slim fit with a zip fly, and the 511 is a slim fit narrower through the thigh. The 501 is the most traditional, non-tapered option."
+        },
+        {
+            "q": "Are these jeans suitable for smart-casual occasions?",
+            "a": "The 501's clean straight leg and waist-height rise pair well with a blazer, Oxford shirt, or leather shoes for smart-casual settings. The stonewash finish keeps them relaxed enough to also wear with a plain tee or casual jacket."
+        },
+        {
+            "q": "What does the stonewash finish mean for the feel and durability?",
+            "a": "Stonewashing is a process that softens the cotton denim fabric, giving it a worn-in texture and lighter colour tone without compromising the structure of the jean. The result is a pair that feels more comfortable from day one compared to raw or rigid denim."
+        },
+        {
+            "q": "Are Levi's 501 jeans available in a wide range of sizes?",
+            "a": "Yes — the 501 is one of Levi's most size-inclusive styles, available across a wide range of waist and inseam combinations, including extended sizes. Size availability may vary by retailer."
+        }
+    ]
+},
 
     
     {
