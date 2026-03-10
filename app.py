@@ -32,7 +32,6 @@ import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
-
 from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
 from groq import Groq
 from dotenv import load_dotenv
@@ -44,11 +43,14 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 from flask_caching import Cache
-
 cache = Cache(app, config={
     'CACHE_TYPE': 'SimpleCache',
     'CACHE_DEFAULT_TIMEOUT': 300
 })
+
+# ← ADD HERE
+from gift_finder import gift_finder_bp
+app.register_blueprint(gift_finder_bp)
 
 if os.environ.get("STAGING") == "true":
     @app.after_request
@@ -2790,6 +2792,7 @@ BASE_HTML = """<!DOCTYPE html>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="/">Home</a>
       <a href="/blog">Blog</a>
+      <a href="/gift-finder">Gift Finder</a>
 
       <div class="nav-drop">
         <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">
@@ -2851,6 +2854,7 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="mm-primary">
     <a href="/" class="mm-link" tabindex="-1">Home</a>
     <a href="/blog" class="mm-link" tabindex="-1">Blog</a>
+    <a href="/gift-finder" class="mm-link" tabindex="-1">Gift Finder</a>
   </div>
 
   {% if nav_items.categories %}
