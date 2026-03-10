@@ -4289,6 +4289,25 @@ def blog_detail(slug):
             blog_faqs.extend(rp["faqs"][:2])
     blog_faq_schema_json = generate_faq_schema(blog_faqs[:10]) if blog_faqs else None
 
+    # ItemList schema for blog product picks
+    blog_itemlist_schema = None
+    if related:
+        itemlist_items = []
+        for idx, p in enumerate(related[:12], 1):
+            itemlist_items.append({
+                "@type": "ListItem",
+                "position": idx,
+                "name": p["name"],
+                "url": SITE_URL + "/product/" + slugify(p["name"])
+            })
+        blog_itemlist_schema = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": post.get("heading", post["title"]),
+            "numberOfItems": len(itemlist_items),
+            "itemListElement": itemlist_items
+        }, ensure_ascii=False)
+
     from jinja2 import Template
     raw_content = post.get("content", "<p>Content coming soon.</p>")
     content_html_body = Template(raw_content).render(slugify=slugify)
@@ -4319,6 +4338,7 @@ def blog_detail(slug):
         products=None, similar_products=related,
         article_date=post.get("date", datetime.date.today().isoformat()),
         content=content_html
+        itemlist_schema=blog_itemlist_schema
     )
 
 
