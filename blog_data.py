@@ -2,6 +2,575 @@
 # Created in exact FyboBuybo editorial style with elite quality
 
 BLOG_POSTS = {
+
+    # ============================================================================
+# GUIDE 1: GIFTS FOR HER UNDER £30 UK
+# ============================================================================
+
+"gifts-for-her-under-30-uk": {
+    "title": "Best Gifts for Her Under £30 UK 2026 — Ideas She'll Actually Love",
+    "meta_description": "Thoughtful gifts for her under £30 in 2026 — beauty, personalised keepsakes, and home treats she'll genuinely appreciate. Curated for UK shoppers.",
+
+    "heading": "Best Gifts for Her Under £30 UK 2026 — Ideas She'll Actually Love",
+    "subtitle": "Thoughtful, well-reviewed gifts that feel far more expensive than they are — from beauty to keepsakes.",
+
+    "date": "2026-03-10",
+    "last_updated": "2026-03-10",
+    "author": "FyboBuybo Editorial Team",
+
+    "keywords": [
+        "gifts for her under £30 UK",
+        "cheap gifts for women UK",
+        "affordable presents for her",
+        "budget gifts for girlfriend",
+        "under 30 pounds gift ideas women"
+    ],
+    "featured_image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+    "featured_image_alt": "Luxury scented candle gift set — thoughtful gift for her under £30",
+
+    "article_type": "Article",
+    "word_count": 1200,
+    "reading_time": "6 min read",
+
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+
+    "related_products": [
+        "idealhouse-luxury-scented-candle-gift-set-lavender-rose-vanilla-and-jasmine",
+        "sanctuary-spa-lost-in-the-moment-beauty-gift-set-signature-collection-bath-and-body-pamper-hamper",
+        "dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box",
+        "cosrx-advanced-snail-96-mucin-power-essence-100ml-snail-secretion-filtrate-96-skin-repair-serum",
+        "biodance-bio-collagen-real-deep-mask-hydrogel-face-mask-for-pore-minimizing-and-elasticity-improvement",
+        "anua-azelaic-acid-10-hyaluron-redness-soothing-serum-facial-serum-for-sensitive-skin",
+        "maybelline-lash-sensational-sky-high-mascara-volumizing-and-lengthening-black",
+        "umagicbox-personalised-name-necklace-custom-nameplate-pendant-in-goldsilverrose-gold",
+        "mighty-patch-original-by-hero-cosmetics-hydrocolloid-acne-pimple-patches-24-count-nighttime-spot-treatment-stickers-for-face",
+        "ariceleo-gold-dipped-real-24k-gold-rose-eternal-preserved-rose-in-24k-gold-plating-romantic-gift-for-women"
+    ],
+    "related_posts": [
+        "7-best-selling-valentines-gifts-for-her-2026",
+        "valentines-gifts-for-her-under-50"
+    ],
+
+    "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="Best Gifts for Her Under £30 UK 2026 — Ideas She'll Actually Love">
+  <meta itemprop="datePublished" content="2026-03-10">
+  <meta itemprop="dateModified" content="2026-03-10">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
+
+  <p style="font-size:.88rem;color:var(--muted-2);margin-bottom:6px;">Last updated: 10 March 2026 · 6 min read</p>
+
+  <p itemprop="description">Finding a gift she'll genuinely love for under £30 is easier than you'd think — if you know where to look. We've combed through thousands of Amazon UK products to find ten picks that feel thoughtful, look beautiful, and won't stretch your budget. Every item below is highly rated by UK buyers, available with fast delivery, and chosen because it's the kind of thing most women would happily pick for themselves but rarely do.</p>
+
+  <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
+    <h2 style="font-size:1.2rem;margin-bottom:12px;">What's Inside</h2>
+    <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#candle-set">Luxury Scented Candle Set</a> — Best for: Mums, friends, colleagues</li>
+      <li><a href="#spa-set">Sanctuary Spa Beauty Gift Set</a> — Best for: Pampering & self-care</li>
+      <li><a href="#memory-book">Personalised Photo Memory Book</a> — Best for: Sentimental gifts</li>
+      <li><a href="#snail-mucin">COSRX Snail Mucin Essence</a> — Best for: Skincare lovers</li>
+      <li><a href="#hydrogel-mask">BIODANCE Collagen Masks</a> — Best for: Spa nights at home</li>
+      <li><a href="#azelaic-serum">Anua Azelaic Acid Serum</a> — Best for: Sensitive or redness-prone skin</li>
+      <li><a href="#mascara">Maybelline Sky High Mascara</a> — Best for: Everyday beauty</li>
+      <li><a href="#necklace">Personalised Name Necklace</a> — Best for: Girlfriends & best friends</li>
+      <li><a href="#pimple-patches">Mighty Patch Spot Stickers</a> — Best for: Teens & young women</li>
+      <li><a href="#gold-rose">24K Gold Dipped Rose</a> — Best for: Romantic gestures</li>
+    </ol>
+  </nav>
+
+  <section style="margin:30px 0;padding:25px;background:var(--card);border-left:4px solid var(--primary);border-radius:8px;">
+    <h3 style="margin-top:0;">Things to Consider Before Buying</h3>
+    <p style="margin-bottom:12px;"><strong>Think about what she actually uses.</strong> A quality beauty product she'd reach for daily beats a novelty item that gathers dust. If in doubt, candles and skincare are almost universally appreciated.</p>
+    <p style="margin-bottom:12px;"><strong>Personalisation adds value.</strong> A £15 personalised necklace or memory book can feel more expensive than a £30 generic gift. The time you put into customising it shows.</p>
+    <p style="margin-bottom:12px;"><strong>Presentation matters.</strong> Many of these come in gift-ready packaging. For those that don't, a simple gift bag and tissue paper from the pound shop elevates any present.</p>
+    <p style="margin-bottom:0;"><strong>Check delivery times.</strong> Most items offer next-day Prime delivery, but personalised items (necklace, memory book) may need 3–7 days for customisation.</p>
+  </section>
+
+  <h2 id="candle-set" style="scroll-margin-top:100px;">1. IDEALHOUSE Luxury Scented Candle Gift Set</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Mums, friends, colleagues — a universally loved gift</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine") }}'>
+      <img src='https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg' alt='IDEALHOUSE luxury scented candle set — lavender, rose, vanilla, jasmine' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Four natural soy wax candles in romantic scents (lavender, rose, vanilla, jasmine) with 40+ hours burn time each. Beautiful glass jars and premium gift box mean zero wrapping effort. Thousands of UK reviews praise the strong scent throw and elegant look — the kind of gift that makes someone say "oh, this is lovely" the moment they open it.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/45vgasL' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="spa-set" style="scroll-margin-top:100px;">2. Sanctuary Spa Lost in the Moment Beauty Gift Set</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Anyone who deserves a pampering evening</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper") }}'>
+      <img src='https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg' alt='Sanctuary Spa beauty gift set — bath and body pamper hamper' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> A full spa routine in one box — body wash, scrub, moisturiser, hand cream, and bath salts in Sanctuary's signature calming scent. The hamper presentation looks genuinely premium. Cruelty-free and vegetarian-friendly. One of those gifts where the recipient thinks you spent considerably more than you did.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/49khgZD' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="memory-book" style="scroll-margin-top:100px;">3. DazSpirit Personalised Photo Album Scrapbook</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Sentimental gifts — birthdays, anniversaries, friendships</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box") }}'>
+      <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' alt='DazSpirit personalised photo album scrapbook with gift box' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Sixty archival-quality black pages, 12 metallic marker pens, stickers, corner mounts, and a gift box — everything needed to create a deeply personal keepsake. The personalised cover adds real emotional weight. Takes effort to fill, which is exactly what makes it meaningful. Refillable for years of memories.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4qgKrUo' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="snail-mucin" style="scroll-margin-top:100px;">4. COSRX Advanced Snail 96 Mucin Power Essence</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Skincare enthusiasts and K-beauty fans</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum") }}'>
+      <img src='https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX679_.jpg' alt='COSRX Snail Mucin Power Essence — K-beauty hydrating serum' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> The cult-favourite K-beauty essence with 96% snail secretion filtrate for intense hydration and visible glow. Lightweight, absorbs quickly, suits all skin types including sensitive. A 100ml bottle lasts 2–3 months of daily use, making it exceptional value. The kind of skincare gift that converts people into devotees.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum") }}'><button>View Details</button></a>
+      <a href='https://amzn.eu/d/aa8Br4w' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="hydrogel-mask" style="scroll-margin-top:100px;">5. BIODANCE Bio-Collagen Real Deep Mask (4 Pack)</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Spa nights at home — visible results in one use</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement") }}'>
+      <img src='https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg' alt='BIODANCE hydrogel collagen face masks — 4 pack for glowing skin' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Ultra-thin hydrogel masks packed with low-molecular collagen for deep hydration and that coveted glass-skin glow. Fragrance-free, gentle enough for sensitive skin, and the results are visible after a single use. Four masks per pack means a month of weekly pampering — a lovely add-on gift or standalone treat.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement") }}'><button>View Details</button></a>
+      <a href='https://amzn.eu/d/49cMTit' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="azelaic-serum" style="scroll-margin-top:100px;">6. Anua Azelaic Acid 10% Redness Soothing Serum</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Sensitive, redness-prone, or acne-prone skin</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin") }}'>
+      <img src='https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg' alt='Anua Azelaic Acid serum — calming for sensitive skin' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> A gentle 10% azelaic acid serum with hyaluronic acid and niacinamide that calms redness, fades blemish marks, and hydrates — all without irritation. Vegan, cruelty-free, fragrance-free. Visible improvement in redness typically within 2 weeks. A thoughtful gift for anyone who struggles with reactive skin and hasn't found a product that works.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin") }}'><button>View Details</button></a>
+      <a href='https://amzn.eu/d/0Q0E8tR' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="mascara" style="scroll-margin-top:100px;">7. Maybelline Lash Sensational Sky High Mascara</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Everyday beauty — a reliable stocking filler or add-on</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black") }}'>
+      <img src='https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg' alt='Maybelline Sky High Mascara — volumizing and lengthening' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> The UK's top-selling mascara for a reason — the flexible Flex Tower brush captures and extends every lash for dramatic volume and length without clumping. Infused with bamboo extract, flake-free, and lightweight enough for all-day wear. Under £15 and genuinely excellent. A safe bet for any woman who wears makeup.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4akAVds' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="necklace" style="scroll-margin-top:100px;">8. UMAGICBOX Personalised Name Necklace</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Girlfriends, best friends, and sisters</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold") }}'>
+      <img src='https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg' alt='Personalised name necklace — gold, silver, or rose gold' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Custom nameplate pendant in gold, silver, or rose gold on a hypoallergenic stainless steel chain. Adjustable 40–50cm length, arrives in a luxury gift box with polishing cloth. The personalisation turns affordable jewellery into something that feels genuinely special and becomes an everyday wear piece. Allow 3–7 days for customisation.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4aJ2cXO' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="pimple-patches" style="scroll-margin-top:100px;">9. Mighty Patch Original Hydrocolloid Spot Patches (24 Pack)</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Teens, students, and anyone who deals with breakouts</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Mighty Patch Original by Hero Cosmetics - Hydrocolloid Acne Pimple Patches, 24 Count - Nighttime Spot Treatment Stickers for Face") }}'>
+      <img src='https://m.media-amazon.com/images/I/71s+FRoGveL._AC_SX425_.jpg' alt='Mighty Patch hydrocolloid spot treatment stickers' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Award-winning hydrocolloid patches that absorb blemish gunk overnight, visibly shrinking spots in 6–8 hours. Translucent, invisible under makeup, and the no-pick approach means faster healing without scarring. Vegan, cruelty-free, dermatologist-tested. A practical, caring gift that says "I pay attention to what would actually help you."</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Mighty Patch Original by Hero Cosmetics - Hydrocolloid Acne Pimple Patches, 24 Count - Nighttime Spot Treatment Stickers for Face") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4qAoPly' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="gold-rose" style="scroll-margin-top:100px;">10. Ariceleo 24K Gold Dipped Eternal Rose</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Romantic gestures — Valentine's, anniversaries, "just because"</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women") }}'>
+      <img src='https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg' alt='24K gold dipped real preserved rose — eternal romantic gift' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> A real rose hand-dipped in 24K gold plating, preserved forever in an elegant gift box. Unlike fresh flowers that last a week, this sits beautifully on a shelf or dressing table indefinitely. The gold finish catches light in a way photos don't fully capture — it's genuinely striking in person. A romantic gesture that lands every time.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Ariceleo Gold Dipped Real 24K Gold Rose - Eternal Preserved Rose in 24K Gold Plating, Romantic Gift for Women") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4bofGsl' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <section style="margin-top:48px;padding:24px;background:var(--card);border-radius:12px;">
+    <h2 style="margin-top:0;">You Might Also Like</h2>
+    <p style="margin-bottom:12px;">Looking for different budgets or occasions? Try these:</p>
+    <ul style="margin-left:20px;line-height:2;">
+      <li><a href="/blog/valentines-gifts-for-her-under-50">Valentine's Gifts for Her Under £50</a></li>
+      <li><a href="/blog/7-best-selling-valentines-gifts-for-her-2026">7 Best-Selling Valentine's Gifts 2026</a></li>
+      <li><a href="/season/mothers-day">Mother's Day Gift Ideas</a></li>
+    </ul>
+    <p>Or browse our <a href="/category/beauty">beauty</a> and <a href="/category/home-and-kitchen">home &amp; kitchen</a> categories for more inspiration.</p>
+  </section>
+
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What are good gifts for women under £30?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The most appreciated gifts under £30 tend to be quality beauty products (skincare essentials, premium candles), personalised items (name necklaces, photo albums), or curated pamper sets. Products she would enjoy but rarely buy for herself consistently perform well as gifts in this price range.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What to buy a woman who has everything?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Consumable luxury items work well — scented candles, premium skincare, or spa sets get used and appreciated without adding clutter. Alternatively, personalised gifts like a custom memory book or name necklace offer something unique that can't be bought on a whim.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">Are gifts under £30 good enough for a girlfriend?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">A well-chosen £30 gift often impresses more than an expensive but impersonal one. Personalised jewellery, a curated skincare pick, or a beautifully presented candle set paired with a handwritten card shows genuine thought — which is what most people value over a price tag.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What's the best last-minute gift for her under £30?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The Sanctuary Spa gift set and IDEALHOUSE candle set both come in gift-ready packaging and are available with next-day Amazon Prime delivery. Avoid personalised items for last-minute shopping as these typically require 3–7 days for customisation.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What skincare gifts are safe to buy for someone else?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Stick to gentle, broadly compatible products. COSRX Snail Mucin suits virtually all skin types, BIODANCE masks are fragrance-free and suitable for sensitive skin, and hydrocolloid patches like Mighty Patch work for anyone who occasionally gets spots. Avoid strong actives (retinol, high-strength acids) unless you know their routine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:60px;padding:25px;background:var(--card);border-radius:12px;border-left:4px solid #6c757d;">
+    <h4 style="margin-top:0;color:#495057;">Content Methodology & Disclosure</h4>
+    <p style="font-size:0.9rem;line-height:1.6;margin-bottom:0;">Products were selected based on Amazon UK ratings, verified buyer reviews, and price verification at time of writing. Prices may vary — always check the current price on Amazon before purchasing. <strong>Affiliate Disclosure:</strong> We earn a small commission from qualifying purchases made through Amazon affiliate links on this page, at no extra cost to you.</p>
+  </section>
+
+  </div>
+</article>
+""",
+
+    "internal_links": [
+        {"text": "Valentine's Gifts Under £50", "url": "/blog/valentines-gifts-for-her-under-50"},
+        {"text": "Best-Selling Valentine's Gifts", "url": "/blog/7-best-selling-valentines-gifts-for-her-2026"},
+        {"text": "Mother's Day Gifts", "url": "/season/mothers-day"},
+        {"text": "Beauty Category", "url": "/category/beauty"}
+    ]
+},
+
+
+# ============================================================================
+# GUIDE 2: UNIQUE BIRTHDAY GIFTS UK
+# ============================================================================
+
+"unique-birthday-gifts-uk": {
+    "title": "Unique Birthday Gifts UK 2026 — Ideas They Won't See Coming",
+    "meta_description": "Unique birthday gift ideas for 2026 — unexpected, thoughtful presents across every budget. Curated for UK shoppers who want to give something genuinely different.",
+
+    "heading": "Unique Birthday Gifts UK 2026 — Ideas They Won't See Coming",
+    "subtitle": "Skip the usual suspects. Unexpected, thoughtful birthday picks they'll remember — from gadgets to games to keepsakes.",
+
+    "date": "2026-03-10",
+    "last_updated": "2026-03-10",
+    "author": "FyboBuybo Editorial Team",
+
+    "keywords": [
+        "unique birthday gifts UK",
+        "unusual birthday presents",
+        "birthday gift ideas 2026",
+        "unexpected gifts UK",
+        "unique gifts under £50 UK"
+    ],
+    "featured_image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
+    "featured_image_alt": "Kodak Mini 2 instant photo printer — unique birthday gift idea",
+
+    "article_type": "Article",
+    "word_count": 1200,
+    "reading_time": "6 min read",
+
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+
+    "related_products": [
+        "kodak-mini-2-retro-portable-instant-photo-printer-21x34-inches-sticky-back-prints",
+        "servd-couples-card-game-hilarious-real-life-date-night-challenges-for-him-and-her",
+        "salking-aromatherapy-essential-oil-diffuser-500ml-ultrasonic-cool-mist-humidifier",
+        "mia-and-coco-electric-heated-throw-blanket-120x160cm",
+        "shokz-openfit-air-open-ear-headphones-true-wireless-bluetooth-earphones-with-mic-fast-charging-28h-playtime-ip54-waterproof-for-workout-black",
+        "mission-darts-torus-120-led-dartboard-lighting-system-bright-white-portable-clip-on-light-black",
+        "dazspirit-personalised-photo-album-scrapbook-customizable-memory-book-with-60-black-pages-and-gift-box",
+        "shot-in-the-dark-the-ultimate-unorthodox-quiz-game",
+        "ocoopa-magnetic-hand-warmers-rechargeable-2-pack",
+        "liforme-original-yoga-mat-eco-friendly-biodegradable-patented-alignment-system-warrior-like-grip-non-slip-42mm-thick"
+    ],
+    "related_posts": [
+        "gifts-for-her-under-30-uk",
+        "8-essential-home-products-to-upgrade-your-space-in-2026"
+    ],
+
+    "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="Unique Birthday Gifts UK 2026 — Ideas They Won't See Coming">
+  <meta itemprop="datePublished" content="2026-03-10">
+  <meta itemprop="dateModified" content="2026-03-10">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
+
+  <p style="font-size:.88rem;color:var(--muted-2);margin-bottom:6px;">Last updated: 10 March 2026 · 6 min read</p>
+
+  <p itemprop="description">The best birthday gifts are the ones people don't expect — something they'd never think to buy themselves but immediately love. We've pulled together ten genuinely different picks from across Amazon UK, covering gadgets, games, home treats, and personal keepsakes. Each one has strong UK buyer reviews and that crucial "oh, I love this" reaction. No gift cards, no generic hampers, no socks (unless they're really good socks).</p>
+
+  <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
+    <h2 style="font-size:1.2rem;margin-bottom:12px;">What's Inside</h2>
+    <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#photo-printer">Kodak Mini 2 Instant Photo Printer</a> — Best for: Tech-curious creatives</li>
+      <li><a href="#quiz-game">Shot in the Dark Quiz Game</a> — Best for: Game night hosts</li>
+      <li><a href="#diffuser">SALKING 500ml Aromatherapy Diffuser</a> — Best for: Home-comfort lovers</li>
+      <li><a href="#heated-throw">Mia&amp;Coco Electric Heated Throw</a> — Best for: Anyone always cold</li>
+      <li><a href="#open-ear">SHOKZ OpenFit Air Headphones</a> — Best for: Active lifestyles</li>
+      <li><a href="#darts-light">Mission Torus Dartboard Light</a> — Best for: Pub-game enthusiasts</li>
+      <li><a href="#memory-book">DazSpirit Personalised Memory Book</a> — Best for: Sentimental souls</li>
+      <li><a href="#couples-game">SERVD Couples Challenge Game</a> — Best for: Partners and couples</li>
+      <li><a href="#hand-warmers">OCOOPA Magnetic Hand Warmers</a> — Best for: Outdoor lovers and commuters</li>
+      <li><a href="#yoga-mat">Liforme Yoga Mat with Alignment</a> — Best for: Dedicated yogis</li>
+    </ol>
+  </nav>
+
+  <section style="margin:30px 0;padding:25px;background:var(--card);border-left:4px solid var(--primary);border-radius:8px;">
+    <h3 style="margin-top:0;">Things to Consider Before Buying</h3>
+    <p style="margin-bottom:12px;"><strong>Think about their actual life.</strong> The best unique gifts solve a small problem or enhance something they already enjoy — not something you think they should enjoy.</p>
+    <p style="margin-bottom:12px;"><strong>Unique doesn't mean weird.</strong> The goal is "I'd never have thought of that but it's brilliant" — not "why did they buy me this?" Unexpected is good; random is not.</p>
+    <p style="margin-bottom:12px;"><strong>Read the reviews.</strong> Every pick here has strong UK buyer feedback, but scanning 2–3 recent reviews for your specific use case always helps.</p>
+    <p style="margin-bottom:0;"><strong>Budget range.</strong> These picks span roughly £10 to £100, covering everything from thoughtful add-ons to standalone birthday presents.</p>
+  </section>
+
+  <h2 id="photo-printer" style="scroll-margin-top:100px;">1. Kodak Mini 2 Retro Instant Photo Printer</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: The creative friend who loves capturing memories</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints") }}'>
+      <img src='https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg' alt='Kodak Mini 2 Retro portable instant photo printer' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Prints vibrant, water-resistant sticky-back photos directly from any smartphone via Bluetooth in under 60 seconds. The 4PASS dye-sublimation technology produces prints that genuinely look and feel like proper photos — not the washed-out thermal paper from cheaper alternatives. Perfect for scrapbooks, decorating, or handing out at parties. The free app adds filters and collages before printing.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4ppgXmf' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="quiz-game" style="scroll-margin-top:100px;">2. Shot in the Dark: The Ultimate Unorthodox Quiz Game</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: The friend who hosts game nights or dinner parties</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Shot in the Dark: The Ultimate Unorthodox Quiz Game") }}'>
+      <img src='https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg' alt='Shot in the Dark quiz card game — obscure trivia party game' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Two hundred questions so obscure that nobody — not even your most insufferable know-it-all friend — will actually know the answer. The judge picks the funniest or closest guess each round, which means creativity and humour matter more than knowledge. It's the great equaliser of party games, and it's hilarious every single time. Ages 14+, plays brilliantly with 3–8 people.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Shot in the Dark: The Ultimate Unorthodox Quiz Game") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="diffuser" style="scroll-margin-top:100px;">3. SALKING 500ml Aromatherapy Essential Oil Diffuser</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Anyone who values home atmosphere and relaxation</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier") }}'>
+      <img src='https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg' alt='SALKING aromatherapy diffuser — 500ml with LED lights and remote' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> The 500ml tank runs for up to 15 hours continuously — vastly longer than most diffusers. Seven soothing LED colours, four timer settings, and a remote control make it genuinely convenient rather than fiddly. Ultra-quiet for bedrooms. Add essential oils for aromatherapy or use it purely as a humidifier during dry winter months. The kind of birthday gift that quietly improves someone's everyday life.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/3MZhjCD' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="heated-throw" style="scroll-margin-top:100px;">4. Mia&amp;Coco Electric Heated Throw (120x160cm)</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: The person who's always cold on the sofa</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Mia and Coco Electric Heated Throw Blanket (120x160cm)") }}'>
+      <img src='https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg' alt='Mia and Coco electric heated throw blanket — flannel sherpa' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Ten heat settings, auto shut-off timer, and incredibly soft flannel-sherpa fabric — it's the kind of thing people use every single evening once they have one. Machine washable with detachable controls. Costs pennies per hour to run, making it a practical alternative to cranking up the heating. Birthday gifts that become part of someone's daily routine are the ones that truly land.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Mia and Coco Electric Heated Throw Blanket (120x160cm)") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/3L8maAQ' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="open-ear" style="scroll-margin-top:100px;">5. SHOKZ OpenFit Air Open-Ear Headphones</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Runners, cyclists, and anyone who dislikes in-ear buds</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black") }}'>
+      <img src='https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SX679_.jpg' alt='SHOKZ OpenFit Air open-ear wireless headphones' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Open-ear design means you hear music and your surroundings simultaneously — a genuine safety upgrade for outdoor exercise and a comfort improvement for anyone who finds in-ear buds uncomfortable. Twenty-eight hours total battery, IP54 sweat resistance, and 15 minutes of charging gives 4 hours of playback. This is the kind of gift people didn't know they needed until they try it — then never go back.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="darts-light" style="scroll-margin-top:100px;">6. Mission Torus 120° LED Dartboard Light</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Dads, partners, or friends with a dartboard</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg' alt='Mission Torus LED dartboard lighting system — clip-on, portable' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> A brilliantly specific gift for anyone who plays darts. Clips onto any standard bristle board, delivers shadow-free 120° illumination, folds flat for storage, and powers via USB-C. Transforms a casual home dartboard into a properly lit setup. The kind of gift that shows you thought about what they actually enjoy rather than grabbing something generic.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/3Z85IUA' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="memory-book" style="scroll-margin-top:100px;">7. DazSpirit Personalised Photo Memory Book</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Best friends, partners, or milestone birthdays</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box") }}'>
+      <img src='https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg' alt='DazSpirit personalised photo album with metallic pens and gift box' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> A personalised scrapbook filled with your shared photos and messages is a birthday gift that money can't replicate. Sixty archival-quality pages, metallic pens, stickers, and a premium gift box. The time it takes to fill it is exactly what makes it irreplaceable. Ideal for 30th, 40th, and 50th birthdays where reflection and nostalgia carry extra weight.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4qgKrUo' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="couples-game" style="scroll-margin-top:100px;">8. SERVD Couples Challenge Card Game</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Partners and couples who enjoy quality time together</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her") }}'>
+      <img src='https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg' alt='SERVD couples card game — date night challenges' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Over 100 real-life challenges from flirty to adventurous, designed to spark laughter and connection. No complicated rules — just draw a card and do the challenge. Works equally well for new relationships and long-term partners. The sort of gift that creates shared experiences rather than gathering dust, and it's compact enough to take on holiday.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4qWBiAH' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="hand-warmers" style="scroll-margin-top:100px;">9. OCOOPA Magnetic Rechargeable Hand Warmers (2 Pack)</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Dog walkers, commuters, festival-goers, and outdoor lovers</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack") }}'>
+      <img src='https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg' alt='OCOOPA magnetic rechargeable hand warmers — dual pack' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> Two units snap together magnetically for pocket storage, then separate into individual hand warmers with up to 8 hours of heat each. Three temperature settings, 10,000mAh batteries that double as phone chargers, and premium aluminium construction. Far more sustainable than disposable warmers, and the magnetic design is genuinely clever. A birthday gift that gets used from October to March.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <h2 id="yoga-mat" style="scroll-margin-top:100px;">10. Liforme Original Yoga Mat with Alignment System</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Dedicated yogis who take their practice seriously</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Liforme Original Yoga Mat - Eco-Friendly, Biodegradable, Patented Alignment System, Warrior-like Grip, Non-Slip, 4.2mm Thick") }}'>
+      <img src='https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg' alt='Liforme yoga mat with alignment markers — eco-friendly, non-slip' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why we picked it:</strong> The Liforme is the mat that serious yogis aspire to own but rarely buy for themselves. Patented alignment markers guide hand and foot placement, the GripForMe surface becomes stickier with sweat, and it's fully biodegradable. At 4.2mm thick with a carry bag included, it's a genuine upgrade that transforms daily practice. A premium birthday gift that gets used hundreds of times.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Liforme Original Yoga Mat - Eco-Friendly, Biodegradable, Patented Alignment System, Warrior-like Grip, Non-Slip, 4.2mm Thick") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4bCkwST' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
+  <section style="margin-top:48px;padding:24px;background:var(--card);border-radius:12px;">
+    <h2 style="margin-top:0;">You Might Also Like</h2>
+    <p style="margin-bottom:12px;">Looking for gifts by budget or occasion? Try these:</p>
+    <ul style="margin-left:20px;line-height:2;">
+      <li><a href="/blog/gifts-for-her-under-30-uk">Gifts for Her Under £30 UK</a></li>
+      <li><a href="/blog/8-essential-home-products-to-upgrade-your-space-in-2026">8 Essential Home Upgrades for 2026</a></li>
+      <li><a href="/category/toys-and-games">Toys &amp; Games Category</a></li>
+    </ul>
+    <p>Or browse our <a href="/category/electronics">electronics</a> and <a href="/category/home-and-kitchen">home &amp; kitchen</a> categories for more inspiration.</p>
+  </section>
+
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What is a truly unique birthday gift?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">A truly unique gift connects to the recipient's interests or habits in an unexpected way. Rather than buying from the same categories as everyone else, look for items that solve a specific problem they have, enhance a hobby they enjoy, or create an experience they wouldn't have thought of. The gifts above were chosen because they each provoke a "where did you find this?" reaction.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What are unique birthday gifts under £50 UK?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Strong options under £50 include the Kodak Mini 2 instant photo printer, OCOOPA magnetic hand warmers, SALKING aromatherapy diffuser, Shot in the Dark quiz game, and the DazSpirit personalised memory book. All are well under £50 and deliver a genuine "wow" moment when opened.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">How do I find a unique gift for someone who has everything?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Focus on experiences and clever upgrades rather than more stuff. A couples game creates shared moments. An aromatherapy diffuser transforms a room. A dartboard light upgrades an existing hobby. The key is finding something that enhances what they already enjoy rather than adding to what they already own.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What birthday gifts do men actually want?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Men tend to appreciate practical gifts that upgrade something they use regularly. The Mission Torus dartboard light, SHOKZ headphones, OCOOPA hand warmers, and heated throw all perform well because they're useful, well-made, and connected to activities men actually enjoy. Avoid anything that requires explanation — if they can see the value immediately, you've chosen well.</p>
+      </div>
+    </div>
+
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What are good birthday gifts for a 30th or 40th birthday?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Milestone birthdays deserve gifts with more thought behind them. A personalised memory book filled with shared photos is exceptional for 30th and 40th birthdays. The Liforme yoga mat works as a "treat yourself" premium gift. The Kodak Mini 2 printer lets them capture the celebration in real time. Pair any gift with a handwritten note about what they mean to you — it's the combination that makes milestone gifts memorable.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:60px;padding:25px;background:var(--card);border-radius:12px;border-left:4px solid #6c757d;">
+    <h4 style="margin-top:0;color:#495057;">Content Methodology & Disclosure</h4>
+    <p style="font-size:0.9rem;line-height:1.6;margin-bottom:0;">Products were selected based on Amazon UK ratings, verified buyer reviews, and uniqueness of gifting appeal. Prices may vary — always check the current price on Amazon before purchasing. <strong>Affiliate Disclosure:</strong> We earn a small commission from qualifying purchases made through Amazon affiliate links on this page, at no extra cost to you.</p>
+  </section>
+
+  </div>
+</article>
+""",
+
+    "internal_links": [
+        {"text": "Gifts for Her Under £30", "url": "/blog/gifts-for-her-under-30-uk"},
+        {"text": "Home Upgrades 2026", "url": "/blog/8-essential-home-products-to-upgrade-your-space-in-2026"},
+        {"text": "Electronics", "url": "/category/electronics"},
+        {"text": "Toys & Games", "url": "/category/toys-and-games"}
+    ]
+},
+
+},
     
     # ============================================================================
     # CATEGORY 1: "Best [Product] for [Specific Problem]"
