@@ -569,8 +569,6 @@ BLOG_POSTS = {
         {"text": "Toys & Games", "url": "/category/toys-and-games"}
     ]
 },
-
-},
     
     # ============================================================================
     # CATEGORY 1: "Best [Product] for [Specific Problem]"
