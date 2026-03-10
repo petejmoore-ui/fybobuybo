@@ -1,3 +1,5 @@
+print("Patch script is running...")
+
 #!/usr/bin/env python3
 """
 FyboBuybo app.py Patcher — Structured Data & Meta Tags Upgrade
