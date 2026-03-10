@@ -4337,7 +4337,7 @@ def blog_detail(slug):
         heading="", subtitle="",
         products=None, similar_products=related,
         article_date=post.get("date", datetime.date.today().isoformat()),
-        content=content_html
+        content=content_html,
         itemlist_schema=blog_itemlist_schema
     )
 
