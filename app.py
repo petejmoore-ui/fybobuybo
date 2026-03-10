@@ -3536,8 +3536,8 @@ def category(slug, page=1):
         products=filtered, page=page, page_url=page_url
     )
 
-# @app.route("/season/<season_slug>")
-# @app.route("/season/<season_slug>/page/<int:page>")
+@app.route("/season/<season_slug>")
+@app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
     all_products = refresh_products(background=True)
     norm_slug = normalize_for_match(season_slug)
