@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ============================================================================
 # FYBOBUYBO app.py — ELITE REDESIGN v5.2
 # COLOUR SYSTEM — "Trusted Curator"
@@ -9,6 +10,26 @@
 #   - select_hook_type: expanded to 10 styles, bug fix, proper connection
 #   - Ticker, hero, subtitles, disclosures, trust signals all rewritten
 #   - Post-processing ownership-language guard added
+# PATCH v5.2.1 — Structured Data & Meta Tags Upgrade
+#   - Honest Product schema (no fake offers/shipping/ratings)
+#   - FAQPage schema on product + blog pages
+#   - WebSite schema with SearchAction on all pages
+#   - Dynamic og:type (product/article/website)
+#   - Grid card microdata removed (misleading for non-shop)
+#   - Category/season/product meta titles improved
+#   - Blog FAQ schema injection from related products
+#   - New helpers: generate_faq_schema, generate_website_schema, extract_brand_name
+# PATCH v5.2.2 — Audit Fixes
+#   - Change 6: Category meta title format updated to "Handpicked for UK Shoppers"
+#   - Change 7: get_product_title_suffix() added; product page titles now contextual
+# PATCH v5.2.3 — Performance Fixes
+#   - FIX 1: Google Fonts moved from @import to <link rel="preload"> + &display=swap
+#   - FIX 2: GTM/GA4 inline scripts moved to bottom of body
+#   - FIX 3: loading="lazy/eager" + width/height on all Python-generated img tags
+#   - FIX 4: fetchpriority="high" on hero LCP image + product detail main image
+#   - FIX 5: Hero float image changed to loading="lazy"
+#   - FIX 6: @cache.cached decorators wired up on all routes
+#   - FIX 7: JS buildCard() search images now include width/height
 # ============================================================================
 
 import os
@@ -19,7 +40,6 @@ import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
-
 from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
 from groq import Groq
 from dotenv import load_dotenv
@@ -31,12 +51,19 @@ app = Flask(__name__)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 from flask_caching import Cache
-
 cache = Cache(app, config={
     'CACHE_TYPE': 'SimpleCache',
-    'CACHE_DEFAULT_TIMEOUT': 300
+    'CACHE_DEFAULT_TIMEOUT': 600  # FIX 6: raised default from 300 to 600s
 })
 
+from gift_finder import gift_finder_bp
+app.register_blueprint(gift_finder_bp)
+
+if os.environ.get("STAGING") == "true":
+    @app.after_request
+    def add_header(response):
+        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
+        return response
 
 
 CACHE_FILE = "data/cache.json"
@@ -179,46 +206,44 @@ def get_similar_products(product, all_products, limit=6):
         similar.extend(season_matches[:(limit - len(similar))])
     return similar[:limit]
 
-def generate_product_schema(product):
-    from datetime import datetime, timedelta
-    price_info = get_product_price_rating(product)
-    price_value = None
-    if price_info.get("price"):
-        price_str = format_price_display(price_info["price"])
-        price_nums = re.findall(r'\d+\.?\d*', price_str)
-        if price_nums: price_value = float(price_nums[0])
+
+# ============================================================================
+# STRUCTURED DATA HELPERS — PATCH v5.2.1
+# ============================================================================
+
+def generate_itemlist_schema(products, list_name, list_description=""):
+    if not products:
+        return None
+    items = []
+    for idx, p in enumerate(products[:20], 1):
+        items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "name": p["name"],
+            "url": SITE_URL + "/product/" + slugify(p["name"])
+        })
     schema = {
-        "@context": "https://schema.org", "@type": "Product",
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": list_name,
+        "numberOfItems": len(items),
+        "itemListElement": items
+    }
+    if list_description:
+        schema["description"] = list_description
+    return json.dumps(schema, ensure_ascii=False)
+
+def generate_product_schema(product):
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "Product",
         "name": product["name"],
         "description": (product.get("info") or product.get("hook") or "")[:200],
         "image": product.get("image", ""),
-        "brand": {"@type": "Brand", "name": "Various"},
-        "sku": product.get("asin", "")
+        "brand": {"@type": "Brand", "name": extract_brand_name(product["name"])},
+        "sku": product.get("asin", ""),
+        "url": SITE_URL + "/product/" + slugify(product["name"])
     }
-    if price_value:
-        valid_until = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
-        schema["offers"] = {
-            "@type": "Offer", "url": product.get("url", ""),
-            "availability": "https://schema.org/InStock",
-            "seller": {"@type": "Organization", "name": "Amazon UK"},
-            "hasMerchantReturnPolicy": {
-                "@type": "MerchantReturnPolicy", "applicableCountry": "GB",
-                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                "merchantReturnDays": 30,
-                "returnMethod": "https://schema.org/ReturnByMail",
-                "returnFees": "https://schema.org/FreeReturn"
-            },
-            "shippingDetails": {
-                "@type": "OfferShippingDetails",
-                "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "GBP"},
-                "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"},
-                "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 2, "unitCode": "DAY"},
-                    "transitTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY"}
-                }
-            }
-        }
     return json.dumps(schema, ensure_ascii=False)
 
 def generate_breadcrumb_schema(breadcrumbs):
@@ -227,6 +252,66 @@ def generate_breadcrumb_schema(breadcrumbs):
         if not url.startswith('http'): url = SITE_URL + url
         items.append({"@type": "ListItem", "position": idx, "name": name, "item": url})
     return json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}, ensure_ascii=False)
+
+def generate_faq_schema(faqs):
+    if not faqs:
+        return None
+    entries = []
+    for faq in faqs:
+        if faq.get("q") and faq.get("a"):
+            entries.append({
+                "@type": "Question",
+                "name": faq["q"],
+                "acceptedAnswer": {"@type": "Answer", "text": faq["a"]}
+            })
+    if not entries:
+        return None
+    return json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": entries}, ensure_ascii=False)
+
+def generate_website_schema():
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "FyboBuybo",
+        "url": SITE_URL + "/",
+        "description": "Independent gift curation for UK shoppers — every pick is hand-chosen.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {"@type": "EntryPoint", "urlTemplate": SITE_URL + "/?q={search_term_string}"},
+            "query-input": "required name=search_term_string"
+        }
+    }, ensure_ascii=False)
+
+def generate_organisation_schema():
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FyboBuybo",
+        "url": SITE_URL + "/",
+        "logo": SITE_URL + "/static/og-default.jpg",
+        "description": "Independent gift curation for UK shoppers. Every pick is hand-chosen, updated daily.",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "infofybobuybo@gmail.com",
+            "contactType": "customer service",
+            "areaServed": "GB",
+            "availableLanguage": "English"
+        },
+        "sameAs": []
+    }, ensure_ascii=False)
+
+def extract_brand_name(product_name):
+    if not product_name:
+        return "Various"
+    generic_words = {"the", "a", "an", "best", "new", "premium", "luxury",
+                     "classic", "original", "set", "pack", "pair", "box"}
+    words = product_name.split()
+    if not words:
+        return "Various"
+    first = words[0].strip("'\"")
+    if first.lower() in generic_words and len(words) > 1:
+        return words[0] + " " + words[1]
+    return first
 
 def ping_search_engines():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
@@ -284,16 +369,47 @@ def shorten_product_name(name, max_length=80):
 
 
 # ============================================================================
+# CHANGE 7 — get_product_title_suffix()
+# ============================================================================
+
+def get_product_title_suffix(product):
+    season = product.get("season", "")
+    category = product.get("category", "")
+    if "Mother's Day" in season:
+        return "Gift Idea for Mum"
+    elif "Father's Day" in season:
+        return "Gift Idea for Dad"
+    elif "Valentine's Day" in season:
+        return "Romantic Gift Idea"
+    elif "Christmas" in season:
+        return "Christmas Gift Idea"
+    elif "Easter" in season:
+        return "Easter Gift Idea"
+    elif category in ["Baby"]:
+        return "Gift for New Parents"
+    elif category in ["Beauty"]:
+        return "Beauty Gift Idea"
+    elif category in ["Toys & Games"]:
+        return "Fun Gift Idea"
+    elif category in ["Sports & Outdoors"]:
+        return "Active Gift Idea"
+    elif category in ["Home & Kitchen"]:
+        return "Home Gift Idea"
+    elif category in ["Electronics"]:
+        return "Tech Gift Idea"
+    elif category in ["Books"]:
+        return "Book Lover Gift"
+    elif category in ["Health & Personal Care"]:
+        return "Wellness Gift Idea"
+    else:
+        return "UK Gift Pick"
+
+
+# ============================================================================
 # HOOK GENERATION — v5.2 "Trusted Voice"
 # ============================================================================
 
 def select_hook_type(product):
-    """
-    Selects a writing angle for the LLM hook prompt.
-    Uses product signals to pick the most effective angle while injecting
-    variety so a category page never looks monotonous.
-    Fixed: now actually called from generate_hook() to connect the two functions.
-    """
     category = product.get("category", "").lower()
     price_tier = product.get("price_tier", "").lower()
     rating = product.get("manual_rating")
@@ -307,7 +423,6 @@ def select_hook_type(product):
         if price_nums:
             price_value = float(price_nums[0])
 
-    # Social proof: high rating + substantial reviews → lead with trust signal
     if rating:
         try:
             if float(rating) >= 4.5 and reviews:
@@ -317,47 +432,36 @@ def select_hook_type(product):
         except:
             pass
 
-    # Premium / luxury → justify the spend
     if price_tier in ["premium", "luxury"] or price_value > 100:
         return random.choice(["quality-craft", "practical-value", "emotion-led"])
 
-    # Gift-giving occasions → gifting angle or emotion
     if season or any(kw in category for kw in ["gift", "present"]):
         return random.choice(["gifting-angle", "emotion-led", "lifestyle-story"])
 
-    # Beauty / wellness → lifestyle or emotion
     if any(kw in category for kw in ["beauty", "skincare", "wellness", "spa", "self-care", "fragrance", "personal"]):
         return random.choice(["lifestyle-story", "emotion-led", "benefit-first"])
 
-    # Toys / games → curiosity or humour
     if any(kw in category for kw in ["toy", "game", "puzzle", "lego", "play"]):
         return random.choice(["curiosity", "humour", "benefit-first"])
 
-    # Home / kitchen → problem-solution or UK context
     if any(kw in category for kw in ["home", "kitchen", "storage", "cleaning", "appliance", "decor", "candle", "comfort", "organisation", "organization"]):
         return random.choice(["problem-solution", "uk-context", "practical-value"])
 
-    # Electronics / tech → comparison or benefit-first
     if any(kw in category for kw in ["electronic", "tech", "gadget", "device", "smart", "digital"]):
         return random.choice(["benefit-first", "quality-craft", "social-proof"])
 
-    # Sports / outdoor → lifestyle or benefit
     if any(kw in category for kw in ["sport", "fitness", "outdoor", "cycling", "yoga"]):
         return random.choice(["lifestyle-story", "benefit-first", "problem-solution"])
 
-    # Baby / kids → emotion or trust
     if any(kw in category for kw in ["baby", "infant", "child", "kid", "nursery"]):
         return random.choice(["emotion-led", "gifting-angle", "social-proof"])
 
-    # Budget picks → practical value or social proof
     if price_value > 0 and price_value < 20:
         return random.choice(["practical-value", "social-proof", "gifting-angle"])
 
-    # Fashion / clothing
     if any(kw in category for kw in ["fashion", "clothing", "apparel", "wear"]):
         return random.choice(["lifestyle-story", "quality-craft", "gifting-angle"])
 
-    # Default: rotate through a broad variety pool
     return random.choice([
         "benefit-first", "lifestyle-story", "quality-craft",
         "problem-solution", "uk-context", "practical-value",
@@ -376,10 +480,8 @@ def generate_hook(product):
     pain_point_text = pain_points[0] if pain_points else "everyday practicality"
     keyword_text = ', '.join(keywords[:3]) if keywords else ""
 
-    # Use select_hook_type to get the style — the two functions are now connected
     style = select_hook_type(product)
 
-    # Map each style to a specific writing angle instruction
     style_instructions = {
         "benefit-first":    "Open with the single most useful thing this pick does for the recipient. Be concrete, not vague.",
         "lifestyle-story":  "Paint a small, relatable scene — who uses this, in what moment, and why it fits their life.",
@@ -426,22 +528,18 @@ Write the hook now:"""
         )
         hook = response.choices[0].message.content.strip()
 
-        # Normalise bold tags
         hook = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', hook)
         hook = re.sub(r'<strong>(.*?)</strong>', r'<b>\1</b>', hook)
 
-        # Ensure at least one bolded phrase
         if '<b>' not in hook:
             for word in name.split():
                 if len(word) > 4 and word[0].isupper():
                     hook = hook.replace(word, f'<b>{word}</b>', 1)
                     break
 
-        # Ensure sentence ends with punctuation
         if hook and not re.search(r'[.!?]$', hook):
             hook += "."
 
-        # Guard against ownership language slipping through from the LLM
         ownership_phrases = [
             "we sell", "we stock", "our product", "our range",
             "we make", "we offer", "we provide", "our collection",
@@ -461,95 +559,68 @@ Write the hook now:"""
 
 
 def generate_smart_fallback(product):
-    """
-    Static fallbacks by category — varied in angle, voice, and structure.
-    Used only when the LLM API is unavailable or returns ownership language.
-    Each bucket has 3 variants covering different hook types so the grid
-    never feels repetitive. Variant is selected by hashing the product name.
-    """
     category = product.get("category", "").lower()
 
-    # ── BEAUTY & SKINCARE ──────────────────────────────────────────────────
     if any(w in category for w in ["beauty", "skincare", "cosmetic", "fragrance", "perfume", "grooming"]):
         fallbacks = [
             "A genuinely lovely pick for anyone who enjoys a <b>proper self-care routine</b> — the kind of gift that gets used every day rather than left on a shelf.",
             "Thoughtfully formulated and <b>well-reviewed by UK shoppers</b>, this is the sort of beauty find that quietly becomes a daily essential.",
             "For the person who's hard to buy for: a <b>considered quality beauty pick</b> that feels indulgent without being over the top.",
         ]
-
-    # ── TOYS & GAMES ──────────────────────────────────────────────────────
     elif any(w in category for w in ["toy", "game", "puzzle", "play", "board game", "lego"]):
         fallbacks = [
             "This one earns its place in the toy box — <b>genuinely engaging</b> rather than the kind that ends up forgotten after a week.",
             "A top-rated pick for <b>screen-free fun</b> that actually holds attention; parents tend to be just as pleased as the kids.",
             "The sort of gift that sparks <b>hours of creative play</b> — well-made, safe, and refreshingly free of batteries.",
         ]
-
-    # ── HOME & KITCHEN ─────────────────────────────────────────────────────
     elif any(w in category for w in ["home", "kitchen", "cook", "bake", "storage", "organis", "clean", "appliance", "bedding", "linen", "candle", "decor", "comfort"]):
         fallbacks = [
             "A genuinely useful home find that solves a small but <b>surprisingly common household frustration</b> — once you have it, you wonder how you managed without.",
             "Pitched perfectly between practical and thoughtful, this pick makes an <b>ideal housewarming or birthday gift</b> for anyone upgrading their space.",
             "Well-reviewed by UK households and <b>built to last well beyond the warranty</b> — the sort of thing people rebuy when they move.",
         ]
-
-    # ── ELECTRONICS & TECH ────────────────────────────────────────────────
     elif any(w in category for w in ["electronic", "tech", "gadget", "device", "smart", "digital", "camera", "headphone", "speaker", "charger", "laptop", "tablet"]):
         fallbacks = [
             "A strong tech pick that hits a <b>smart balance between features and price</b> — no bloated spec sheet, just what you actually need.",
             "This one consistently earns strong ratings from UK buyers for its <b>reliable everyday performance</b> rather than flashy gimmicks.",
             "For the tech lover who's already got the basics covered: a <b>genuinely useful upgrade</b> that improves something they use every single day.",
         ]
-
-    # ── FASHION & CLOTHING ────────────────────────────────────────────────
     elif any(w in category for w in ["fashion", "clothing", "apparel", "wear", "bag", "wallet", "accessory", "jewellery", "jewelry", "watch", "shoe"]):
         fallbacks = [
             "A considered fashion pick that works across multiple occasions — the <b>versatility is the real selling point</b> here.",
             "Quality craftsmanship at a fair price point makes this a <b>genuinely satisfying gift to give</b> — or to add to your own wishlist.",
             "The kind of piece that gets complimented and then quietly worn to death: <b>understated, well-made, and endlessly wearable</b>.",
         ]
-
-    # ── SPORTS & FITNESS ──────────────────────────────────────────────────
     elif any(w in category for w in ["sport", "fitness", "exercise", "yoga", "gym", "outdoor", "cycling", "running", "swim"]):
         fallbacks = [
             "A popular pick among UK fitness fans for its <b>durability under regular use</b> — the sort of kit that actually gets used rather than gathering dust.",
             "Ideal for anyone who's been meaning to start (or get back to) regular training: <b>genuinely encouraging to use</b>, not just to own.",
             "Trusted by people who take their health seriously — this pick earns its place with <b>solid performance at a reasonable price</b>.",
         ]
-
-    # ── BABY & CHILDREN ───────────────────────────────────────────────────
     elif any(w in category for w in ["baby", "infant", "nursery", "newborn", "toddler", "child", "kid"]):
         fallbacks = [
             "A thoughtfully designed pick that parents genuinely rely on — <b>safety-tested, easy to use</b>, and built for the realities of early parenthood.",
             "For the new parents who already have the basics: a <b>genuinely useful addition</b> that makes the early months noticeably easier.",
             "Well-loved by UK families and <b>easy to clean</b> — two things that matter far more than they sound once you have a baby in the house.",
         ]
-
-    # ── BOOKS & STATIONERY ────────────────────────────────────────────────
     elif any(w in category for w in ["book", "stationary", "stationery", "journal", "pen", "notebook", "read", "writing"]):
         fallbacks = [
             "A lovely pick for anyone who still believes <b>a well-chosen book</b> is one of the best gifts you can give.",
             "For the person who has everything: something they'll actually sit down with and enjoy — <b>no batteries, no setup, no returns</b>.",
             "A considered gift for thinkers, readers, and the creatively inclined — <b>beautifully presented</b> and built to last.",
         ]
-
-    # ── PETS ──────────────────────────────────────────────────────────────
     elif any(w in category for w in ["pet", "dog", "cat", "animal"]):
         fallbacks = [
             "A top-rated pet pick that solves a <b>genuine day-to-day problem</b> for owners — the kind you'd happily recommend to a friend.",
             "Well-reviewed by UK pet owners who appreciate that <b>their animals are fussy customers too</b> — this one actually passes the test.",
             "Because pets deserve a thoughtful pick too: this find offers <b>genuine quality at a fair price</b> for the animal you're shopping for.",
         ]
-
-    # ── FOOD & DRINK ──────────────────────────────────────────────────────
     elif any(w in category for w in ["food", "drink", "coffee", "tea", "wine", "chocolate", "snack", "gourmet"]):
         fallbacks = [
             "A brilliant option for anyone who appreciates <b>the finer things in the kitchen or at the table</b> — enjoyable to give and even better to receive.",
             "For the foodie on your list: a <b>genuinely considered pick</b> that goes well beyond the usual supermarket hamper.",
             "The sort of edible gift that <b>signals real thought</b> — not just a last-minute grab from the confectionery aisle.",
         ]
-
-    # ── DEFAULT / CATCH-ALL ───────────────────────────────────────────────
     else:
         fallbacks = [
             "A <b>well-reviewed UK pick</b> that earns its recommendation through consistent quality and practical everyday value.",
@@ -557,8 +628,6 @@ def generate_smart_fallback(product):
             "Worth considering for anyone who values quality over novelty — this find <b>holds up well over time</b> and rarely disappoints.",
         ]
 
-    # Rotate by product name hash so the same category doesn't always
-    # show the same fallback across multiple cards on one page
     idx = hash(product.get("name", "")) % len(fallbacks)
     return fallbacks[idx]
 
@@ -571,9 +640,9 @@ def should_refresh_cache():
     if not os.path.exists(CACHE_FILE): return True
     try:
         with open(CACHE_FILE, encoding="utf-8") as f:
-            cache = json.load(f)
-        days_old = (datetime.datetime.now() - datetime.datetime.fromisoformat(cache.get("date", "2000-01-01T00:00:00"))).days
-        return days_old >= CACHE_REFRESH_DAYS or cache.get("prompt_version") != PROMPT_VERSION
+            cache_data = json.load(f)
+        days_old = (datetime.datetime.now() - datetime.datetime.fromisoformat(cache_data.get("date", "2000-01-01T00:00:00"))).days
+        return days_old >= CACHE_REFRESH_DAYS or cache_data.get("prompt_version") != PROMPT_VERSION
     except: return True
 
 def load_or_generate_hooks(products):
@@ -591,7 +660,7 @@ def load_or_generate_hooks(products):
     history[datetime.date.today().isoformat()] = enriched
     save_history(history)
     Thread(target=ping_search_engines, daemon=True).start()
-    cache.clear()
+    cache.clear()  # FIX 6: wipes all Flask-Cache cached pages when hooks regenerate
     return enriched
 
 def load_history():
@@ -618,13 +687,13 @@ def refresh_products(background=False):
     return load_or_generate_hooks(PRODUCTS)
 
 
+
 # ============================================================================
 # CSS TEMPLATE — v5.2 "Trusted Curator"
+# FIX 1: @import removed from here — fonts now loaded via <link> in BASE_HTML
 # ============================================================================
 
 CSS_TEMPLATE = """<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
-
 :root {
   --bg:           #f8f9fc;
   --bg-2:         #eef1f8;
@@ -1944,7 +2013,6 @@ body::before {
 .blog-prose td { padding: 12px 18px; border-bottom: 1px solid var(--divider); color: var(--ink-3); }
 .blog-prose tr:last-child td { border-bottom: none; }
 
-/* ── BLOG IN-CONTENT BUTTONS ──────────────────────────────── */
 .blog-prose .blog-btn-row {
   display: flex;
   gap: 12px;
@@ -2529,7 +2597,6 @@ body::before {
 
 ::selection { background: var(--navy-dim); color: var(--navy); }
 
-/* ── Base: every button inside a blog article card ── */
 article .card button {
     display: inline-block;
     padding: 12px 28px;
@@ -2544,8 +2611,6 @@ article .card button {
     font-family: inherit;
     line-height: 1;
 }
-
-/* ── "View Details & Buy" — internal /product/ links ── */
 article .card a[href^='/product'] button,
 article .card a[href^='/product/'] button {
     background: var(--primary);
@@ -2559,8 +2624,6 @@ article .card a[href^='/product/'] button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
-
-/* ── "View on Amazon" — external amzn.to links ── */
 article .card a[href*='amzn.to'] button,
 article .card a[href*='amazon.co.uk'] button,
 article .card a[href*='amazon.com'] button {
@@ -2576,15 +2639,11 @@ article .card a[href*='amazon.com'] button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255,153,0,0.4);
 }
-
-/* ── Button row container ── */
 article .card div[style*='display:flex'][style*='justify-content:center'] {
     gap: 14px !important;
     flex-wrap: wrap;
     padding-top: 8px;
 }
-
-/* ── Remove default link underline on buttons ── */
 article .card a[href^='/product'],
 article .card a[href*='amzn.to'],
 article .card a[href*='amazon'] {
@@ -2593,8 +2652,12 @@ article .card a[href*='amazon'] {
 </style>"""
 
 
+
 # ============================================================================
-# BASE HTML TEMPLATE — v5.2
+# BASE HTML TEMPLATE — v5.2.3
+# FIX 1: Fonts loaded via <link rel="preload"> — @import removed from CSS
+# FIX 2: GTM/GA4 scripts moved to bottom of body
+# FIX 3/4/5: img loading attributes, dimensions, and fetchpriority corrected
 # ============================================================================
 
 BASE_HTML = """<!DOCTYPE html>
@@ -2613,7 +2676,7 @@ BASE_HTML = """<!DOCTYPE html>
 
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description | truncate(200,true,'...') }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ og_type }}">
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:locale" content="en_GB">
@@ -2621,15 +2684,27 @@ BASE_HTML = """<!DOCTYPE html>
 <meta name="google-site-verification" content="googleb2fd2d2e239922f5">
 <meta name="twitter:card" content="summary_large_image">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-C1YNKZS6PG');</script>
-
+<!-- FIX 1: Fonts via preload link — faster than @import inside <style>.
+     &display=swap in the URL activates font-display:swap server-side,
+     so text renders in a fallback font immediately (no FOIT). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap">
+</noscript>
+<!-- END FIX 1 -->
 
 {% if structured_data %}<script type="application/ld+json">{{ structured_data|safe }}</script>{% endif %}
 {% if breadcrumb_schema %}<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>{% endif %}
+{% if faq_schema %}<script type="application/ld+json">{{ faq_schema|safe }}</script>{% endif %}
+{% if website_schema %}<script type="application/ld+json">{{ website_schema|safe }}</script>{% endif %}
+{% if itemlist_schema %}<script type="application/ld+json">{{ itemlist_schema|safe }}</script>{% endif %}
+{% if organisation_schema %}<script type="application/ld+json">{{ organisation_schema|safe }}</script>{% endif %}
 
 {{ css|safe }}
 </head>
@@ -2659,6 +2734,7 @@ BASE_HTML = """<!DOCTYPE html>
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="/">Home</a>
       <a href="/blog">Blog</a>
+      <a href="/gift-finder">Gift Finder</a>
 
       <div class="nav-drop">
         <button class="nav-drop-btn" type="button" aria-expanded="false" aria-haspopup="true">
@@ -2720,6 +2796,7 @@ BASE_HTML = """<!DOCTYPE html>
   <div class="mm-primary">
     <a href="/" class="mm-link" tabindex="-1">Home</a>
     <a href="/blog" class="mm-link" tabindex="-1">Blog</a>
+    <a href="/gift-finder" class="mm-link" tabindex="-1">Gift Finder</a>
   </div>
 
   {% if nav_items.categories %}
@@ -2798,10 +2875,14 @@ BASE_HTML = """<!DOCTYPE html>
   {% if products and products|length > 1 %}
   <div class="hero-visual" aria-hidden="true">
     <div class="hero-img-main">
-      <img src="{{ products[0].image }}" alt="{{ products[0].name }}" loading="eager" width="480" height="480">
+      <!-- FIX 3/4: fetchpriority=high on LCP hero image -->
+      <img src="{{ products[0].image }}" alt="{{ products[0].name }}"
+           loading="eager" fetchpriority="high" width="480" height="480">
     </div>
     <div class="hero-img-float">
-      <img src="{{ products[1].image }}" alt="{{ products[1].name }}" loading="eager" width="240" height="240">
+      <!-- FIX 5: Second hero image changed to lazy — it's below the main image -->
+      <img src="{{ products[1].image }}" alt="{{ products[1].name }}"
+           loading="lazy" width="240" height="240">
     </div>
     <div class="hero-ornament">
       <span>New<br>Daily</span>
@@ -2846,11 +2927,11 @@ BASE_HTML = """<!DOCTYPE html>
 <div class="grid" role="list">
   {% for p in products %}
   {% set price_info = get_product_price_rating(p) %}
-  <article class="card reveal" style="animation-delay:{{ loop.index0 * 0.04 }}s" role="listitem" itemscope itemtype="https://schema.org/Product">
+  <article class="card reveal" style="animation-delay:{{ loop.index0 * 0.04 }}s" role="listitem">
     <div class="card-img">
       <span class="card-badge">{{ p.category }}</span>
       <a href="/product/{{ slugify(p.name) }}" tabindex="-1" aria-hidden="true">
-        <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" width="400" height="400" itemprop="image">
+        <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" width="400" height="400">
       </a>
       <div class="card-quick" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -2859,8 +2940,8 @@ BASE_HTML = """<!DOCTYPE html>
 
     <div class="card-body">
       <div class="card-cat">{{ p.category }}</div>
-      <a href="/product/{{ slugify(p.name) }}" class="card-name" itemprop="name">{{ shorten_product_name(p.name) }}</a>
-      <p class="card-hook" itemprop="description">{{ p.hook|safe }}</p>
+      <a href="/product/{{ slugify(p.name) }}" class="card-name">{{ shorten_product_name(p.name) }}</a>
+      <p class="card-hook">{{ p.hook|safe }}</p>
 
       {% if price_info.rating %}
       <div class="card-rating">
@@ -2871,7 +2952,7 @@ BASE_HTML = """<!DOCTYPE html>
 
       <div class="card-div"></div>
       {% if p.date_added %}
-      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:10px;letter-spacing:.02em" itemprop="dateModified" content="{{ p.date_added }}">Updated {{ p.date_added }}</div>
+      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:10px;letter-spacing:.02em">Updated {{ p.date_added }}</div>
       {% endif %}
       <div class="card-cta">
         {% if p.url %}
@@ -3107,12 +3188,13 @@ const resGrid    = document.getElementById('search-res-grid');
 const searchInp  = document.getElementById('search-input');
 const mSearchInp = document.getElementById('mobile-search-input');
 
+// FIX 7: Added width="400" height="400" to prevent CLS in search overlay
 function buildCard(p) {
   return `<article class="card">
     <div class="card-img">
       <span class="card-badge">${p.category||''}</span>
       <a href="/product/${pySlug(p.name)}" tabindex="-1" aria-hidden="true">
-        <img src="${p.image||''}" alt="${p.name}" loading="lazy">
+        <img src="${p.image||''}" alt="${p.name}" loading="lazy" width="400" height="400">
       </a>
     </div>
     <div class="card-body">
@@ -3216,17 +3298,26 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   if (essBtn) essBtn.addEventListener('click', function() { dismiss('essential'); });
 })();
 </script>
+
+<!-- FIX 2: GTM/GA4 moved to bottom of body — no longer render-blocking.
+     Pageview fires ~100-200ms later than before, which is an acceptable
+     trade-off for the improvement to FID/INP and parser unblocking. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-C1YNKZS6PG');</script>
+<!-- END FIX 2 -->
+
 </body>
 </html>"""
 
 
+
 # ============================================================================
-# RENDER PAGE
+# RENDER PAGE — PATCH v5.2.3
 # ============================================================================
 
 def render_page(title, description, heading, subtitle, products=None, page=1,
                 page_url=None, similar_products=None, today=None,
-                today_formatted=None, article_date=None, content=None, total_posts=None):
+                today_formatted=None, article_date=None, content=None, total_posts=None, **kwargs):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     nav_items = get_nav_items()
@@ -3251,6 +3342,33 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
     structured_data = None
     if paged_products and len(paged_products) == 1:
         structured_data = generate_product_schema(paged_products[0])
+
+    faq_schema = kwargs.get("faq_schema_override") or None
+    if not faq_schema and paged_products and len(paged_products) == 1:
+        product_faqs = paged_products[0].get("faqs", [])
+        if product_faqs:
+            faq_schema = generate_faq_schema(product_faqs)
+
+    website_schema = generate_website_schema()
+
+    organisation_schema = None
+    if request.path == '/':
+        organisation_schema = generate_organisation_schema()
+
+    og_type = "website"
+    if '/product/' in request.path:
+        og_type = "product"
+    elif '/blog/' in request.path and request.path != '/blog' and '/page/' not in request.path:
+        og_type = "article"
+
+    category_itemlist = kwargs.get("itemlist_schema") or None
+    if not category_itemlist and '/category/' in request.path and paged_products:
+        cat_name = paged_products[0].get('category', 'Gifts')
+        category_itemlist = generate_itemlist_schema(
+            paged_products,
+            f"Best {cat_name} Gifts UK 2026",
+            f"Hand-picked {cat_name.lower()} gift ideas for UK shoppers."
+        )
 
     breadcrumb_schema = None
     breadcrumbs = [("Home", "/")]
@@ -3283,16 +3401,420 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
         format_rating_display=format_rating_display,
         today=today, today_formatted=today_formatted,
         structured_data=structured_data, breadcrumb_schema=breadcrumb_schema,
+        faq_schema=faq_schema,
+        website_schema=website_schema,
+        organisation_schema=organisation_schema,
+        og_type=og_type,
         article_date=article_date, content=content or "",
+        itemlist_schema=category_itemlist,
         cookie_consent="", total_posts=total_posts
     )
 
 
+
 # ============================================================================
-# ROUTES
+# SEASONAL LANDING PAGES
+# ============================================================================
+
+SEASONAL_LANDING_PAGES = {
+
+    "valentines-day": {
+        "title": "Best Valentine's Day Gifts 2026 UK — Romantic Ideas They'll Love | FyboBuybo",
+        "description": "Handpicked Valentine's Day gift ideas for 2026, curated for UK shoppers. From romantic keepsakes to luxury treats — find something they'll treasure.",
+        "heading": "Best Valentine\u2019s Day Gifts 2026 \u2014 Romantic Ideas They\u2019ll Love",
+        "subtitle": "Hand-picked daily from top-rated Amazon UK products. Thoughtful gifts for him, her, or anyone you love.",
+        "intro": """Valentine's Day in the UK falls on <strong>Saturday 14 February 2026</strong>, giving you a full 
+            weekend to celebrate. Whether you're shopping for a partner, a new relationship, or a friend who 
+            deserves something lovely, finding a gift that feels personal rather than generic makes all the 
+            difference. We update these picks daily, choosing from thousands of highly rated products on 
+            Amazon UK. Every recommendation below has been selected for genuine quality, thoughtful gifting 
+            potential, and strong buyer reviews from UK shoppers \u2014 no filler, no sponsored placements. 
+            From luxury skincare and jewellery to personalised keepsakes and experience-style gifts, there's 
+            something here for every budget and every kind of love.""",
+        "buying_guide_title": "How to Choose the Perfect Valentine\u2019s Day Gift",
+        "buying_guide": """<strong>Think about what they actually enjoy.</strong> The most appreciated Valentine's gifts 
+            connect to something real \u2014 their favourite scent, a hobby they love, or a running joke between you. 
+            Generic gifts feel generic.
+            <strong>Experiences count.</strong> A voucher for a meal, a spa day, or even a cosy night in with 
+            a luxury hamper can mean more than something wrapped.
+            <strong>Presentation matters.</strong> Most Amazon UK items offer gift wrapping at checkout \u2014 a 
+            small touch that makes a real difference on Valentine's Day.
+            <strong>Order by 11 February</strong> for standard delivery, or use Amazon Prime for next-day options.""",
+        "faqs": [
+            {"q": "When is Valentine's Day 2026 in the UK?", "a": "Valentine's Day is always on 14 February. In 2026, that falls on a Saturday, giving couples a full weekend to celebrate."},
+            {"q": "What are the most popular Valentine's Day gifts in the UK?", "a": "According to UK retail trends, the most popular gifts include flowers, chocolates, fragrances, jewellery, and experience vouchers. Personalised gifts like engraved items and photo books have grown significantly in recent years."},
+            {"q": "What should I buy my partner if we've just started dating?", "a": "Keep it thoughtful but not over the top. A quality candle, a box of premium chocolates, or a small piece of jewellery shows effort without too much pressure. Avoid anything too personal early on."},
+            {"q": "How much should I spend on a Valentine's Day gift?", "a": "UK shoppers typically spend between \u00a320 and \u00a360 on a Valentine's gift. The thought behind it matters more than the price \u2014 a well-chosen \u00a315 present can feel more romantic than an expensive but impersonal one."},
+            {"q": "Can I get Valentine's Day gifts delivered in time?", "a": "If you order through Amazon UK by around 11 February 2026, standard delivery should arrive before the 14th. Amazon Prime members can often get next-day or same-day delivery right up to 13 February."}
+        ],
+        "internal_links": """Looking for more inspiration? Browse our 
+            <a href="/category/beauty">beauty gifts</a>, 
+            <a href="/category/fashion">fashion picks</a>, or 
+            <a href="/blog">gift guides</a>. You might also like our 
+            <a href="/season/mothers-day">Mother's Day</a> or 
+            <a href="/season/christmas">Christmas gift collections</a>.""",
+        "itemlist_name": "Best Valentine's Day Gifts 2026 UK"
+    },
+
+    "mothers-day": {
+        "title": "Best Mother's Day Gifts 2026 UK \u2014 Unique Ideas for Every Mum | FyboBuybo",
+        "description": "Discover handpicked Mother\u2019s Day gift ideas for 2026, curated for UK shoppers. From beauty to home \u2014 find something she\u2019ll actually love.",
+        "heading": "Best Mother\u2019s Day Gifts 2026 \u2014 Thoughtful Ideas for Every Mum",
+        "subtitle": "Hand-picked daily from thousands of top-rated Amazon UK products. No sponsored picks \u2014 just gifts she\u2019ll genuinely love.",
+        "intro": """Mother's Day in the UK falls on <strong>Sunday 15 March 2026</strong> this year, 
+            and finding something she'll genuinely love \u2014 not just another token gesture \u2014 takes 
+            a bit of thought. That's what this page is for. We hand-pick and update these 
+            recommendations daily, drawing from thousands of highly rated products on Amazon UK. 
+            Whether your mum is into skincare, home comforts, books, or gadgets, you'll find 
+            something here that feels personal and considered. Every pick below has been chosen 
+            for quality, thoughtful gifting potential, and strong UK buyer reviews \u2014 no filler, 
+            no sponsored placements.""",
+        "buying_guide_title": "How to Choose the Perfect Mother\u2019s Day Gift",
+        "buying_guide": """<strong>Think about her actual routine.</strong> The best gifts fit into her life \u2014 a quality 
+            skincare product she'd use every morning, a kitchen gadget she's been eyeing, or a book from 
+            an author she already loves.
+            <strong>Don't overthink the price.</strong> A thoughtful \u00a315 gift that shows you know her 
+            beats an expensive one that misses the mark. Focus on what she'd choose for herself.
+            <strong>Presentation counts.</strong> Most Amazon UK items offer gift wrapping at checkout \u2014 
+            it's a small detail that makes a real difference.
+            <strong>Order by 12 March</strong> for standard delivery, or check for next-day Prime options 
+            if you're cutting it close.""",
+        "faqs": [
+            {"q": "When is Mother's Day 2026 in the UK?", "a": "Mother's Day 2026 in the UK is Sunday 15 March. It falls on the fourth Sunday of Lent each year, so the date changes annually. In 2027 it will be 30 March."},
+            {"q": "What are the most popular Mother's Day gifts in the UK?", "a": "According to UK retail trends, the most popular categories are flowers, chocolates, fragrances, skincare sets, and personalised gifts such as photo books or engraved jewellery. Experiences like spa days and afternoon teas have also grown in popularity."},
+            {"q": "What should I buy my mum if I don't know what she likes?", "a": "A luxury hand cream or candle set from a well-known brand tends to be a safe and appreciated choice. These are items most people enjoy but rarely buy for themselves. Look for highly rated options with strong reviews from UK buyers."},
+            {"q": "How much should I spend on a Mother's Day gift?", "a": "There is no fixed rule, but UK shoppers typically spend between \u00a315 and \u00a350 on a Mother's Day gift. The thought behind the gift matters more than the price \u2014 a well-chosen \u00a320 present can feel more personal than something expensive but generic."},
+            {"q": "Can I get Mother's Day gifts delivered in time?", "a": "If you order through Amazon UK by around 12 March 2026, standard delivery should arrive before Mother's Day on 15 March. Amazon Prime members can often get next-day or same-day delivery on eligible items right up to 14 March."}
+        ],
+        "internal_links": """Looking for more inspiration? Browse our 
+            <a href="/category/beauty">beauty gifts</a>, 
+            <a href="/category/home-and-kitchen">home &amp; kitchen picks</a>, or 
+            <a href="/blog">gift guides</a>. You might also like our 
+            <a href="/season/valentines-day">Valentine's Day</a> or 
+            <a href="/season/easter">Easter gift collections</a>.""",
+        "itemlist_name": "Best Mother's Day Gifts 2026 UK"
+    },
+
+    "easter": {
+        "title": "Best Easter Gifts & Ideas 2026 UK \u2014 Fun Picks for All Ages | FyboBuybo",
+        "description": "Curated Easter gift ideas for 2026. From chocolate alternatives to kids' craft sets and spring treats \u2014 handpicked for UK shoppers.",
+        "heading": "Best Easter Gifts 2026 \u2014 Fun Ideas for All Ages",
+        "subtitle": "Beyond the chocolate egg. Thoughtful Easter picks for kids, adults, and the whole family \u2014 updated daily.",
+        "intro": """Easter 2026 falls on <strong>Sunday 5 April</strong>, with the bank holiday weekend running from 
+            Good Friday (3 April) through Easter Monday (6 April). It's a brilliant time for family gifts, 
+            spring treats, and thoughtful alternatives to the usual chocolate egg. We update these picks daily, 
+            drawing from thousands of top-rated Amazon UK products. Whether you're looking for craft kits 
+            for the kids, gourmet chocolate for grown-ups, or something to enjoy over the four-day weekend, 
+            every recommendation here is chosen for quality and strong UK buyer reviews \u2014 no filler, 
+            no sponsored placements.""",
+        "buying_guide_title": "How to Choose the Perfect Easter Gift",
+        "buying_guide": """<strong>Think beyond chocolate.</strong> While Easter eggs are traditional, gifts like craft kits, 
+            spring-themed books, garden sets, and baking supplies offer something memorable and lasting.
+            <strong>Match the age.</strong> For young children, look for interactive gifts they can enjoy over 
+            the four-day weekend. For adults, gourmet food hampers or spring homeware make excellent choices.
+            <strong>Plan for the long weekend.</strong> Easter is one of the few four-day breaks in the UK 
+            calendar \u2014 gifts that encourage family activities tend to go down well.
+            <strong>Order by 1 April</strong> for standard delivery, or use Prime for last-minute options.""",
+        "faqs": [
+            {"q": "When is Easter 2026 in the UK?", "a": "Easter Sunday 2026 is on 5 April. Good Friday is 3 April and Easter Monday is 6 April, creating a four-day bank holiday weekend across England, Wales, and Northern Ireland."},
+            {"q": "What are popular Easter gifts besides chocolate?", "a": "Popular alternatives include craft kits, spring-themed books, gardening sets, baking supplies, personalised Easter baskets, and soft toys."},
+            {"q": "What should I put in an Easter basket for kids?", "a": "A mix of small treats works well: a chocolate egg, a small toy or book, some craft supplies, and perhaps spring-themed stickers or hair accessories."},
+            {"q": "How much do people typically spend on Easter gifts in the UK?", "a": "Most UK shoppers spend between \u00a310 and \u00a330 per person on Easter gifts."},
+            {"q": "Can I get Easter gifts delivered before the bank holiday weekend?", "a": "If you order through Amazon UK by around 1 April 2026, standard delivery should arrive before Good Friday on 3 April."}
+        ],
+        "internal_links": """Looking for more inspiration? Browse our 
+            <a href="/category/toys-and-games">toys &amp; games</a>, 
+            <a href="/category/home-and-kitchen">home &amp; kitchen picks</a>, or 
+            <a href="/blog">gift guides</a>.""",
+        "itemlist_name": "Best Easter Gifts 2026 UK"
+    },
+
+    "fathers-day": {
+        "title": "Best Father's Day Gifts 2026 UK \u2014 Ideas He'll Actually Use | FyboBuybo",
+        "description": "Handpicked Father\u2019s Day gift ideas for 2026. From tech to tools, outdoor gear to grooming \u2014 curated for UK dads.",
+        "heading": "Best Father\u2019s Day Gifts 2026 \u2014 Ideas He\u2019ll Actually Use",
+        "subtitle": "Skip the novelty socks. Thoughtful Father's Day picks he'll genuinely appreciate \u2014 updated daily.",
+        "intro": """Father's Day in the UK falls on <strong>Sunday 21 June 2026</strong>. Finding something he'll 
+            actually use \u2014 rather than another novelty mug gathering dust \u2014 is the real challenge. That's 
+            what this page is for. We hand-pick and update these recommendations daily.""",
+        "buying_guide_title": "How to Choose the Perfect Father\u2019s Day Gift",
+        "buying_guide": """<strong>Think about what he actually does.</strong> The best gifts for dads fit into their 
+            real routines \u2014 a quality tool he'd use in the shed, a gadget for his kitchen, or something 
+            for a hobby he already enjoys.
+            <strong>Practical beats novelty.</strong> Dads are notoriously hard to buy for because they 
+            often won't buy nice things for themselves. Upgrade something he uses every day.
+            <strong>Order by 18 June</strong> for standard delivery, or use Prime for next-day options.""",
+        "faqs": [
+            {"q": "When is Father's Day 2026 in the UK?", "a": "Father's Day 2026 in the UK is Sunday 21 June. It falls on the third Sunday of June each year."},
+            {"q": "What are the most popular Father's Day gifts in the UK?", "a": "The most popular gifts include clothing, grooming products, tech gadgets, tools, food and drink hampers, and experience days."},
+            {"q": "What should I buy my dad if he says he doesn't want anything?", "a": "A quality consumable gift works well \u2014 premium coffee, craft beer, or a food hamper he'd never buy himself."},
+            {"q": "How much should I spend on a Father's Day gift?", "a": "UK shoppers typically spend between \u00a315 and \u00a345 on a Father's Day gift."},
+            {"q": "Can I get Father's Day gifts delivered in time?", "a": "If you order through Amazon UK by around 18 June 2026, standard delivery should arrive before Father's Day on 21 June."}
+        ],
+        "internal_links": """Looking for more inspiration? Browse our 
+            <a href="/category/electronics">electronics</a>, 
+            <a href="/category/sports-and-outdoors">sports &amp; outdoors picks</a>, or 
+            <a href="/blog">gift guides</a>.""",
+        "itemlist_name": "Best Father's Day Gifts 2026 UK"
+    },
+
+    "summer-gifts": {
+        "title": "Best Summer Gifts 2026 UK \u2014 Seasonal Picks for Warm Weather | FyboBuybo",
+        "description": "Curated summer gift ideas for UK shoppers in 2026. Outdoor living, garden finds, travel essentials, and seasonal treats.",
+        "heading": "Best Summer Gifts 2026 \u2014 Seasonal Picks for Warm Weather",
+        "subtitle": "Make the most of the British summer. Garden finds, outdoor treats, and travel picks \u2014 updated daily.",
+        "intro": "The UK summer of 2026 brings long evenings, garden gatherings, and barbecues. Whether you're shopping for a birthday or just something to enjoy the season, we've got you covered. Updated daily from top-rated Amazon UK products.",
+        "buying_guide_title": "How to Choose the Perfect Summer Gift",
+        "buying_guide": """<strong>Think outdoor and portable.</strong> The best summer gifts work in the garden, 
+            at the park, or on holiday.
+            <strong>Consider the British weather.</strong> Versatile gifts that work in both sunshine and 
+            the inevitable drizzle are always practical for UK summers.""",
+        "faqs": [
+            {"q": "What are good summer gifts for someone in the UK?", "a": "Popular UK summer gifts include garden accessories, BBQ tools, picnic sets, outdoor games, travel essentials, and cold-brew drink kits."},
+            {"q": "When is the best time to buy summer gifts?", "a": "June through August is peak summer gifting season in the UK."},
+            {"q": "What outdoor gifts work well for UK weather?", "a": "Waterproof picnic blankets, all-weather garden games, and versatile layers are practical and appreciated."},
+            {"q": "What's a good summer gift under \u00a325?", "a": "A quality insulated water bottle, a garden game set, or a portable Bluetooth speaker all make excellent summer gifts under \u00a325."},
+            {"q": "Are garden gifts popular in the UK?", "a": "Very much so. With over 80% of UK homes having a garden, garden gifts are consistently popular during summer months."}
+        ],
+        "internal_links": """Browse our <a href="/category/home-and-kitchen">home &amp; kitchen</a> or <a href="/category/sports-and-outdoors">sports &amp; outdoors</a> picks.""",
+        "itemlist_name": "Best Summer Gifts 2026 UK"
+    },
+
+    "summer-essentials": {
+        "title": "Summer Essentials 2026 UK \u2014 Must-Have Picks for the Season | FyboBuybo",
+        "description": "The summer essentials every UK household needs in 2026. Sun care, outdoor living, travel must-haves \u2014 handpicked and updated daily.",
+        "heading": "Summer Essentials 2026 \u2014 Must-Have Picks for the Season",
+        "subtitle": "Everything you need to make the most of a British summer. Practical, well-reviewed, and chosen for UK life.",
+        "intro": "British summers are short, unpredictable, and absolutely worth making the most of. This collection brings together everyday essentials from sun protection to outdoor dining supplies. Updated daily from Amazon UK products.",
+        "buying_guide_title": "How to Pick the Right Summer Essentials",
+        "buying_guide": """<strong>Start with sun protection.</strong> SPF, hats, and quality sunglasses are the non-negotiables.
+            <strong>Upgrade your outdoor setup.</strong> A decent cool bag, a waterproof blanket, and portable seating transform any park visit.""",
+        "faqs": [
+            {"q": "What are the must-have summer essentials in the UK?", "a": "Key essentials include quality SPF sunscreen, insulated water bottles, portable fans, waterproof picnic blankets, and insect repellent."},
+            {"q": "What sun cream factor should I use in the UK?", "a": "Dermatologists recommend at least SPF 30, even on cloudy days."},
+            {"q": "What's worth buying for UK camping trips?", "a": "A quality cool bag, portable power bank, insect repellent, waterproof torch, and compact camp chair."},
+            {"q": "Are insulated water bottles worth it?", "a": "Yes \u2014 a good insulated bottle keeps drinks cold for 24 hours or hot for 12."},
+            {"q": "When should I start buying summer essentials in the UK?", "a": "April and May are ideal for stocking up before popular items sell out."}
+        ],
+        "internal_links": """Browse our <a href="/category/health-and-personal-care">health &amp; personal care</a> or <a href="/category/sports-and-outdoors">sports &amp; outdoors</a> picks.""",
+        "itemlist_name": "Summer Essentials 2026 UK"
+    },
+
+    "back-to-school": {
+        "title": "Best Back to School Supplies 2026 UK \u2014 Essentials for Every Age | FyboBuybo",
+        "description": "Curated back to school essentials for UK students in 2026. Stationery, bags, tech, and organisation picks \u2014 updated daily.",
+        "heading": "Best Back to School Picks 2026 \u2014 Essentials for Every Age",
+        "subtitle": "From primary to sixth form. Quality school supplies that last \u2014 handpicked for UK students and parents.",
+        "intro": "The September school run comes around fast. We've curated these back-to-school picks from thousands of top-rated Amazon UK products, covering stationery, bags, tech, and organisation essentials.",
+        "buying_guide_title": "How to Choose the Right Back to School Supplies",
+        "buying_guide": """<strong>Buy for durability, not novelty.</strong> Plain, well-made supplies last the whole year.
+            <strong>Label everything.</strong> A label maker saves hours of lost property stress.
+            <strong>Check the school's specific requirements</strong> before buying to avoid returns.""",
+        "faqs": [
+            {"q": "When do UK schools go back in September 2026?", "a": "Most UK schools return in the first or second week of September 2026. Check your school's published term dates."},
+            {"q": "What school supplies does my child need?", "a": "Core supplies include a durable school bag, pencil case with pens and pencils, ruler, eraser, sharpener, notebooks, and a water bottle."},
+            {"q": "What's a good school bag for UK students?", "a": "Look for a bag with padded shoulder straps, water-resistant material, and enough space for A4 folders."},
+            {"q": "How much do parents spend on back to school in the UK?", "a": "UK parents spend an average of \u00a3100\u2013\u00a3250 per child on back-to-school supplies, uniform, and shoes combined."},
+            {"q": "Are refurbished laptops good for school?", "a": "Yes, from reputable sellers. Look for at least 8GB RAM, an SSD, and 6+ hour battery life."}
+        ],
+        "internal_links": """Browse our <a href="/category/books">books</a> or <a href="/category/electronics">electronics</a> picks.""",
+        "itemlist_name": "Best Back to School Supplies 2026 UK"
+    },
+
+    "halloween": {
+        "title": "Best Halloween Gifts & Ideas 2026 UK \u2014 Spooky Picks for All Ages | FyboBuybo",
+        "description": "Curated Halloween ideas for UK shoppers in 2026. Costumes, decorations, party supplies, and themed gifts \u2014 handpicked daily.",
+        "heading": "Best Halloween Picks 2026 \u2014 Spooky Ideas for All Ages",
+        "subtitle": "From costumes to decorations. Fun, well-reviewed Halloween finds for UK families \u2014 updated daily.",
+        "intro": "Halloween 2026 falls on <strong>Saturday 31 October</strong>, making it perfect for parties and trick-or-treating. Curated from thousands of top-rated Amazon UK products.",
+        "buying_guide_title": "How to Plan a Brilliant Halloween",
+        "buying_guide": """<strong>Start with the front door.</strong> LED pumpkin lights, door wreaths, and window silhouettes create atmosphere.
+            <strong>Costumes don't need to cost a fortune.</strong> A well-chosen accessory often works better than a full outfit.
+            <strong>Order by 27 October</strong> for standard delivery.""",
+        "faqs": [
+            {"q": "When is Halloween 2026?", "a": "Halloween is always on 31 October. In 2026, that falls on a Saturday."},
+            {"q": "Is Halloween widely celebrated in the UK?", "a": "Yes \u2014 Halloween has grown significantly in the UK over the past two decades."},
+            {"q": "What are the most popular Halloween costumes in the UK?", "a": "Classic choices like witches, vampires, ghosts, and skeletons remain popular."},
+            {"q": "How much do UK families spend on Halloween?", "a": "UK households typically spend between \u00a315 and \u00a350 on Halloween."},
+            {"q": "Where can I buy pumpkins for carving in the UK?", "a": "Supermarkets, farm shops, and local greengrocers all stock carving pumpkins from early October."}
+        ],
+        "internal_links": """Browse our <a href="/category/toys-and-games">toys &amp; games</a> or <a href="/season/christmas">Christmas collection</a>.""",
+        "itemlist_name": "Best Halloween Picks 2026 UK"
+    },
+
+    "christmas": {
+        "title": "Best Christmas Gifts 2026 UK \u2014 Curated Ideas for Everyone | FyboBuybo",
+        "description": "Handpicked Christmas gift ideas for 2026. Thoughtful presents for him, her, kids, and the home \u2014 curated for UK shoppers.",
+        "heading": "Best Christmas Gifts 2026 \u2014 Thoughtful Ideas for Everyone",
+        "subtitle": "Hand-picked daily from top-rated Amazon UK products. Find something they\u2019ll genuinely love this Christmas.",
+        "intro": "<strong>Christmas Day 2026 falls on Friday 25 December</strong>. Finding gifts that feel personal and considered is what this page is for. Updated daily from thousands of top-rated Amazon UK products.",
+        "buying_guide_title": "How to Choose the Perfect Christmas Gift",
+        "buying_guide": """<strong>Start early, buy thoughtfully.</strong> The best Christmas gifts come from noticing what people mention they want throughout the year.
+            <strong>Set a budget per person.</strong> A well-chosen \u00a320 gift beats a rushed \u00a350 one.
+            <strong>Order by 19 December</strong> for standard Royal Mail delivery.""",
+        "faqs": [
+            {"q": "What are the most popular Christmas gifts in the UK for 2026?", "a": "Trending categories include tech gadgets, premium beauty sets, personalised gifts, experience vouchers, and quality homeware."},
+            {"q": "When is the best time to start Christmas shopping in the UK?", "a": "October and November offer the best selection and competitive prices, especially around Black Friday (27 November 2026)."},
+            {"q": "How much do UK households spend on Christmas gifts?", "a": "UK households spend an average of \u00a3500\u2013\u00a3800 on Christmas gifts combined."},
+            {"q": "What's the last day to order for Christmas delivery on Amazon UK?", "a": "For standard delivery, aim to order by around 19 December. Amazon Prime members can typically order with next-day delivery right up to 23 December."},
+            {"q": "What are good Christmas gifts under \u00a320?", "a": "Quality candles, premium socks, books, artisan food gifts, phone accessories, and novelty board games all make excellent sub-\u00a320 gifts."}
+        ],
+        "internal_links": """Browse our <a href="/category/toys-and-games">toys &amp; games</a>, <a href="/category/electronics">electronics</a>, or <a href="/blog">gift guides</a>.""",
+        "itemlist_name": "Best Christmas Gifts 2026 UK"
+    },
+
+    "winter-essentials": {
+        "title": "Winter Essentials 2026 UK \u2014 Stay Warm & Cosy All Season | FyboBuybo",
+        "description": "Curated winter essentials for UK shoppers. Warm clothing, home comforts, and cold-weather gear \u2014 handpicked and updated daily.",
+        "heading": "Winter Essentials 2026 \u2014 Stay Warm & Cosy All Season",
+        "subtitle": "Beat the British winter. Practical warmth, home comforts, and cold-weather gear \u2014 chosen for UK conditions.",
+        "intro": "British winters are cold, damp, and long \u2014 but they don't have to be miserable. This collection brings together practical essentials from thermal layers to cosy home upgrades. Updated daily from Amazon UK products.",
+        "buying_guide_title": "How to Choose the Right Winter Essentials",
+        "buying_guide": """<strong>Layer intelligently.</strong> A good base layer, mid-layer, and waterproof outer keeps you warmer than one heavy coat.
+            <strong>Invest in extremities.</strong> Quality gloves, a warm hat, and decent socks make a bigger difference than most expect.""",
+        "faqs": [
+            {"q": "What are the must-have winter essentials in the UK?", "a": "Key items include a waterproof coat, thermal base layers, quality gloves, a warm hat, waterproof boots, a hot water bottle, and draught excluders."},
+            {"q": "What's the warmest material for winter clothing?", "a": "Merino wool offers the best warmth-to-weight ratio and regulates temperature naturally."},
+            {"q": "How can I stay warm at home without high heating bills?", "a": "Draught excluders, thermal curtains, heated throws, quality slippers, and a good hot water bottle can significantly reduce heating reliance."},
+            {"q": "What winter boots are best for UK weather?", "a": "Look for boots with waterproof membranes, good grip soles, and insulation. UK winters are more wet than freezing."},
+            {"q": "When should I start buying winter essentials in the UK?", "a": "September and October offer the best selection before popular sizes sell out."}
+        ],
+        "internal_links": """Browse our <a href="/category/home-and-kitchen">home &amp; kitchen</a> or <a href="/season/christmas">Christmas gifts</a>.""",
+        "itemlist_name": "Winter Essentials 2026 UK"
+    },
+
+    "spring": {
+        "title": "Best Spring Picks 2026 UK \u2014 Fresh Finds for the New Season | FyboBuybo",
+        "description": "Curated spring products for UK shoppers in 2026. Garden, home refresh, outdoor living, and seasonal picks \u2014 updated daily.",
+        "heading": "Best Spring Picks 2026 \u2014 Fresh Finds for the New Season",
+        "subtitle": "Refresh your home, garden, and wardrobe for spring. Thoughtful picks for the new season \u2014 updated daily.",
+        "intro": "Spring in the UK means lighter evenings, garden plans, and that satisfying urge to refresh everything. Updated daily from thousands of Amazon UK products.",
+        "buying_guide_title": "How to Make the Most of Spring",
+        "buying_guide": """<strong>Start with the garden.</strong> March and April are the best months to get the garden ready.
+            <strong>Refresh, don't replace.</strong> New cushion covers, a fresh doormat, or a deep clean can transform a room without a big spend.""",
+        "faqs": [
+            {"q": "When does spring start in the UK?", "a": "Meteorological spring runs from 1 March to 31 May. The spring equinox falls around 20 March."},
+            {"q": "What should I plant in spring in the UK?", "a": "March to May is ideal for potatoes, peas, broad beans, and salad leaves outdoors."},
+            {"q": "What are good spring cleaning essentials?", "a": "A quality microfibre cloth set, steam cleaner, all-purpose cleaner, and storage organisers cover most spring cleaning needs."},
+            {"q": "When should I start mowing the lawn in the UK?", "a": "Most UK lawns benefit from a first cut in late March or early April."},
+            {"q": "What are popular spring home refresh ideas?", "a": "Lighter cushion covers, fresh indoor plants, new doormats, spring-scented candles, and updated bathroom accessories."}
+        ],
+        "internal_links": """Browse our <a href="/category/home-and-kitchen">home &amp; kitchen</a> or <a href="/season/easter">Easter gifts</a>.""",
+        "itemlist_name": "Best Spring Picks 2026 UK"
+    },
+
+    "new-year-essentials": {
+        "title": "New Year Essentials 2026 UK \u2014 Fresh Start Picks | FyboBuybo",
+        "description": "Start 2026 right with curated new year essentials. Fitness, organisation, self-improvement, and home picks for UK shoppers.",
+        "heading": "New Year Essentials 2026 \u2014 Fresh Start Picks",
+        "subtitle": "New year, better habits. Practical picks for fitness, organisation, and self-improvement \u2014 updated daily.",
+        "intro": "January is the month of fresh starts. Whether you're getting into fitness, organising your home, or improving your diet, this collection brings together the most practical picks. Updated daily from Amazon UK products.",
+        "buying_guide_title": "How to Choose New Year Essentials That Actually Last",
+        "buying_guide": """<strong>Pick one habit and equip it properly.</strong> Buying everything at once leads to overwhelm.
+            <strong>Buy quality over quantity.</strong> A \u00a340 yoga mat that lasts years beats a \u00a310 one that peels after two months.""",
+        "faqs": [
+            {"q": "What are the best new year essentials for 2026?", "a": "Popular categories include fitness equipment, organisation tools, kitchen upgrades for healthier cooking, and self-improvement books."},
+            {"q": "How do I stick to new year resolutions?", "a": "Start with one specific, measurable goal. Having the right equipment and tracking progress increases success rates."},
+            {"q": "What fitness equipment is best for home workouts?", "a": "A yoga mat, resistance bands, and adjustable dumbbells cover most home workout needs."},
+            {"q": "What's a good planner for 2026?", "a": "Look for a planner with weekly and monthly views, goal-setting pages, and space for notes."},
+            {"q": "Is January a good time to buy fitness equipment?", "a": "January sees the widest selection but highest demand. Consider buying in late December when pre-new-year sales often start."}
+        ],
+        "internal_links": """Browse our <a href="/category/health-and-personal-care">health &amp; personal care</a> or <a href="/category/sports-and-outdoors">sports &amp; outdoors</a> picks.""",
+        "itemlist_name": "New Year Essentials 2026 UK"
+    },
+}
+
+
+# ============================================================================
+# UNIVERSAL SEASONAL CONTENT GENERATOR
+# ============================================================================
+
+def generate_seasonal_content(season_slug, products):
+    page_data = SEASONAL_LANDING_PAGES.get(season_slug)
+    if not page_data:
+        return None, None, None, None
+
+    content_before = f"""
+    <div style="max-width:780px;margin:0 auto;padding:0 52px 40px">
+      <div class="blog-prose">
+        <p style="font-size:1.08rem;line-height:1.85;color:var(--muted);font-weight:300">
+          {page_data['intro']}
+        </p>
+      </div>
+    </div>
+    """
+
+    buying_guide = f"""
+    <div style="max-width:780px;margin:48px auto 0;padding:0 52px">
+      <div class="blog-prose">
+        <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">{page_data['buying_guide_title']}</h2>
+        <p style="font-size:.98rem;line-height:1.82;color:var(--ink-3);font-weight:300">
+          {page_data['buying_guide']}
+        </p>
+      </div>
+    </div>
+    """
+
+    faq_html = """
+    <div style="max-width:780px;margin:56px auto 0;padding:0 52px">
+      <div class="blog-prose">
+        <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">Frequently Asked Questions</h2>
+    """
+    for faq in page_data['faqs']:
+        faq_html += f"""
+        <div style="margin:24px 0;padding-bottom:20px;border-bottom:1px solid var(--divider)">
+          <h3 style="font-size:1.15rem;margin:0 0 10px;font-family:'Cormorant Garamond',serif;color:var(--ink);letter-spacing:-.02em">{faq['q']}</h3>
+          <p style="font-size:.94rem;line-height:1.78;color:var(--muted);margin:0;font-weight:300">{faq['a']}</p>
+        </div>
+        """
+    faq_html += """
+      </div>
+    </div>
+    """
+
+    links_html = f"""
+    <div style="max-width:780px;margin:32px auto 48px;padding:0 52px">
+      <div class="blog-prose">
+        <p style="font-size:.92rem;line-height:1.75;color:var(--muted);font-weight:300">
+          {page_data['internal_links']}
+        </p>
+      </div>
+    </div>
+    """
+
+    content_after = buying_guide + faq_html + links_html
+
+    faq_schema = generate_faq_schema(page_data['faqs'])
+
+    itemlist_items = []
+    for idx, p in enumerate(products[:12], 1):
+        itemlist_items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "name": p["name"],
+            "url": SITE_URL + "/product/" + slugify(p["name"])
+        })
+
+    itemlist_schema = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": page_data.get("itemlist_name", f"Best {season_slug.replace('-', ' ').title()} UK"),
+        "description": f"Hand-picked {season_slug.replace('-', ' ')} picks for UK shoppers, updated daily.",
+        "numberOfItems": len(itemlist_items),
+        "itemListElement": itemlist_items
+    }, ensure_ascii=False) if itemlist_items else None
+
+    return content_before, content_after, faq_schema, itemlist_schema
+
+
+# ============================================================================
+# ROUTES — FIX 6: @cache.cached decorators added to all stable routes
+# key_prefix=lambda: request.url ensures paginated routes cache separately
+# load_or_generate_hooks() calls cache.clear() to invalidate on content update
 # ============================================================================
 
 @app.route("/privacy-policy")
+@cache.cached(timeout=86400, key_prefix='privacy-policy')  # 24h — legal pages are static
 def privacy_policy():
     return render_page(
         title="Privacy Policy – FyboBuybo",
@@ -3302,6 +3824,7 @@ def privacy_policy():
     )
 
 @app.route("/terms")
+@cache.cached(timeout=86400, key_prefix='terms')  # 24h — legal pages are static
 def terms_of_service():
     return render_page(
         title="Terms of Service – FyboBuybo",
@@ -3311,6 +3834,7 @@ def terms_of_service():
     )
 
 @app.route("/api/search-products")
+@cache.cached(timeout=600, key_prefix='api-search-products')  # 10 min — feeds JS search
 def api_search_products():
     all_products = refresh_products(background=True)
     return jsonify({'products': [{
@@ -3321,6 +3845,7 @@ def api_search_products():
     } for p in all_products]})
 
 @app.route("/")
+@cache.cached(timeout=300, key_prefix='homepage')  # 5 min only — refreshes daily, keep short
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
     return render_page(
@@ -3333,6 +3858,7 @@ def home():
 
 @app.route("/category/<slug>")
 @app.route("/category/<slug>/page/<int:page>")
+@cache.cached(timeout=1800, key_prefix=lambda: request.url)  # 30 min — stable between hook refreshes
 def category(slug, page=1):
     all_products = refresh_products(background=True)
     filtered = [p for p in all_products if slugify(p.get("category", "")) == slug]
@@ -3340,8 +3866,8 @@ def category(slug, page=1):
     cat_name = filtered[0]["category"]
     def page_url(p): return url_for("category", slug=slug, page=p)
     return render_page(
-        title=f"Best {cat_name} Gifts UK 2026 | Trending Picks – FyboBuybo",
-        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily.",
+        title=f"Best {cat_name} Gifts UK 2026 — Handpicked for UK Shoppers | FyboBuybo",
+        description=f"Hand-picked {cat_name.lower()} gift ideas for UK shoppers in 2026. Browse curated recommendations — find something they'll love.",
         heading=f"Best {cat_name} Gifts UK 2026",
         subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — updated regularly.",
         products=filtered, page=page, page_url=page_url
@@ -3349,6 +3875,7 @@ def category(slug, page=1):
 
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
+@cache.cached(timeout=1800, key_prefix=lambda: request.url)  # 30 min — seasonal content is stable
 def seasonal_collection(season_slug, page=1):
     all_products = refresh_products(background=True)
     norm_slug = normalize_for_match(season_slug)
@@ -3358,15 +3885,40 @@ def seasonal_collection(season_slug, page=1):
     season_name = season_slug.replace('-', ' ').title()
     def page_url(p): return url_for("seasonal_collection", season_slug=season_slug, page=p)
     title_season = season_name + (" Gifts" if "day" in season_name.lower() or "christmas" in season_name.lower() else "")
+
+    content_before, content_after, faq_schema_json, itemlist_schema_json = generate_seasonal_content(season_slug, filtered)
+
+    if content_before is not None:
+        page_data = SEASONAL_LANDING_PAGES[season_slug]
+
+        rendered = render_page(
+            title=page_data["title"],
+            description=page_data["description"],
+            heading=page_data["heading"],
+            subtitle=page_data["subtitle"],
+            products=filtered, page=page, page_url=page_url,
+            content=content_before,
+            faq_schema_override=faq_schema_json,
+            itemlist_schema=itemlist_schema_json
+        )
+
+        footer_marker = "<!-- \u2550\u2550\u2550 FOOTER"
+        insert_point = rendered.find(footer_marker)
+        if insert_point > -1:
+            rendered = rendered[:insert_point] + content_after + "\n" + rendered[insert_point:]
+
+        return rendered
+
     return render_page(
-        title=f"Best {title_season} 2026 – FyboBuybo",
-        description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026.",
+        title=f"Best {title_season} UK 2026 \u2013 Gift Ideas | FyboBuybo",
+        description=f"Curated {season_name.lower()} gift ideas for UK shoppers in 2026. Browse hand-picked recommendations \u2014 find the perfect gift.",
         heading=title_season,
-        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with recommendations.",
+        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers \u2014 handpicked with recommendations.",
         products=filtered, page=page, page_url=page_url
     )
 
 @app.route("/product/<path:product_slug>")
+@cache.cached(timeout=1800, key_prefix=lambda: request.url)  # 30 min — product pages are stable
 def product_detail(product_slug):
     all_products = refresh_products(background=True)
     found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
@@ -3415,11 +3967,13 @@ def product_detail(product_slug):
     info_html = f'<p class="pd-hook">{found["info"]}</p>' if found.get("info") else ""
     date_html = f'<p style="font-size:.74rem;color:var(--muted-2);margin-top:2px;font-style:italic">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
 
+    # FIX 3/4: loading="eager" + fetchpriority="high" on the main product image — it is the LCP element
     content_html = f"""
     <div class="pd-wrap">
       <div class="pd-gallery">
         <div class="pd-img-main">
-          <img src="{found["image"]}" alt="{found["name"]}" width="600" height="600">
+          <img src="{found['image']}" alt="{found['name']}"
+               loading="eager" fetchpriority="high" width="600" height="600">
         </div>
       </div>
       <div class="pd-info">
@@ -3443,8 +3997,9 @@ def product_detail(product_slug):
       </div>
     </div>"""
 
+    suffix = get_product_title_suffix(found)
     return render_page(
-        title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
+        title=f"{shorten_product_name(found['name'], 45)} — {suffix} | FyboBuybo",
         description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery via Amazon Prime.",
         heading="", subtitle="",
         products=None, similar_products=similar,
@@ -3472,8 +4027,9 @@ def get_blog_post_image(post, all_products):
     img_url = post.get("featured_image") or post.get("image")
     img_alt = post.get("featured_image_alt") or post.get("title", "")
     if img_url:
+        # FIX 3: featured blog image — eager (above fold) + dimensions for CLS prevention
         return (
-            f'<img src="{img_url}" alt="{img_alt}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
+            f'<img src="{img_url}" alt="{img_alt}" loading="eager" width="780" height="440" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
             False
         )
 
@@ -3482,8 +4038,9 @@ def get_blog_post_image(post, all_products):
     if not img_match:
         img_match = re.search(r'src="(https://m\.media-amazon\.com/[^"]+)"', content)
     if img_match:
+        # FIX 3: lazy on content-extracted images + dimensions
         return (
-            f'<img src="{img_match.group(1)}" alt="{post.get("title","")}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
+            f'<img src="{img_match.group(1)}" alt="{post.get("title","")}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
             True
         )
 
@@ -3500,14 +4057,15 @@ def get_blog_post_image(post, all_products):
             rel_fuzz = fuzz(rel)
             if rel_fuzz in product_map:
                 p = product_map[rel_fuzz]
+                # FIX 3: lazy + dimensions on product-matched images
                 return (
-                    f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                    f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
                     True
                 )
             for pfuzz, p in product_map.items():
                 if len(rel_fuzz) > 5 and (rel_fuzz in pfuzz or pfuzz in rel_fuzz):
                     return (
-                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
                         True
                     )
 
@@ -3528,8 +4086,9 @@ def get_blog_post_image(post, all_products):
         if kw in title_lower:
             for p in all_products:
                 if p.get("image") and any(c.lower() in p.get("category", "").lower() for c in cats):
+                    # FIX 3: lazy + dimensions on category-hint fallback images
                     return (
-                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
+                        f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
                         True
                     )
 
@@ -3538,6 +4097,7 @@ def get_blog_post_image(post, all_products):
 
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
+@cache.cached(timeout=900, key_prefix=lambda: request.url)  # 15 min — changes when posts published
 def blog_list(page=1):
     paginated, total_pages, total_posts = load_blog_posts(page)
     if not paginated and page > 1: abort(404)
@@ -3636,6 +4196,7 @@ def blog_list(page=1):
 
 
 @app.route("/blog/<slug>")
+@cache.cached(timeout=3600, key_prefix=lambda: request.url)  # 1 hour — blog posts rarely change
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
     if not post: abort(404)
@@ -3648,6 +4209,30 @@ def blog_detail(slug):
             if p: related.append(p)
     if not related:
         related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
+
+    blog_faqs = []
+    for rp in related:
+        if rp.get("faqs"):
+            blog_faqs.extend(rp["faqs"][:2])
+    blog_faq_schema_json = generate_faq_schema(blog_faqs[:10]) if blog_faqs else None
+
+    blog_itemlist_schema = None
+    if related:
+        itemlist_items = []
+        for idx, p in enumerate(related[:12], 1):
+            itemlist_items.append({
+                "@type": "ListItem",
+                "position": idx,
+                "name": p["name"],
+                "url": SITE_URL + "/product/" + slugify(p["name"])
+            })
+        blog_itemlist_schema = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": post.get("heading", post["title"]),
+            "numberOfItems": len(itemlist_items),
+            "itemListElement": itemlist_items
+        }, ensure_ascii=False)
 
     from jinja2 import Template
     raw_content = post.get("content", "<p>Content coming soon.</p>")
@@ -3668,13 +4253,17 @@ def blog_detail(slug):
     </div>
     """
 
+    if blog_faq_schema_json:
+        content_html = f'<script type="application/ld+json">{blog_faq_schema_json}</script>\n' + content_html
+
     return render_page(
         title=post["title"],
         description=post.get("meta_description", post.get("description", "")),
         heading="", subtitle="",
         products=None, similar_products=related,
         article_date=post.get("date", datetime.date.today().isoformat()),
-        content=content_html
+        content=content_html,
+        itemlist_schema=blog_itemlist_schema
     )
 
 
