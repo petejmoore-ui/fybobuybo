@@ -159,7 +159,7 @@ PRODUCTS = [
     {
     "name": "Mighty Patch Original by Hero Cosmetics - Hydrocolloid Acne Pimple Patches, 24 Count - Nighttime Spot Treatment Stickers for Face",
     "category": "Beauty",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/71s+FRoGveL._AC_SX425_.jpg",
     "url": "https://amzn.to/4qAoPly",
     "asin": "B0C81Z1SQH",
@@ -332,7 +332,7 @@ PRODUCTS = [
 {
     "name": "cabpay Red Light Therapy Mat - 1280 LEDs Full Body Pad for Pain Relief & Skin Health (71'' x 31'')",
     "category": "Health & Personal Care",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/81SMRg8rI8L._AC_SX679_.jpg",
     "url": "https://amzn.to/4q6dQQg",
     "asin": "B0G6TDPYYX",
@@ -567,7 +567,7 @@ PRODUCTS = [
 {
     "name": "Maybelline Lash Sensational Sky High Mascara - Volumizing & Lengthening, Black",
     "category": "Beauty",
-    "season": "Valentine's Day",
+    "season": "Valentine's Day, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
     "url": "https://amzn.to/4akAVds",
     "asin": "B08WR5CPNB",
@@ -883,7 +883,7 @@ PRODUCTS = [
     {
     "name": "Gaiam Premium Print Reversible Yoga Mat - Extra Thick 6mm Non-Slip Cushioned Mat for Yoga, Pilates & Floor Workouts (68\" x 24\")",
     "category": "Sports & Outdoors",
-    "season": "Summer Essentials",
+    "season": "Summer Essentials, Mother's Day",
     "image": "https://m.media-amazon.com/images/I/81CEqdLfeSL._AC_SL1500_.jpg",
     "url": "https://amzn.to/3Mu3igc",
     "asin": "B086BTNSM9",
@@ -1369,7 +1369,7 @@ PRODUCTS = [
     {
         "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
         "category": "Beauty",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX679_.jpg",
         "url": "https://amzn.to/49khgZD?tag=whoaccepts-21",
         "asin": "B08J5M7K9P",
@@ -1398,7 +1398,7 @@ PRODUCTS = [
     {
         "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
         "category": "Home & Kitchen",
-        "season": "Valentine's Day",
+        "season": "Valentine's Day, Mother's Day",
         "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
         "url": "https://amzn.to/45vgasL?tag=whoaccepts-21",
         "asin": "B09M7N4K2L",
