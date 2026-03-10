@@ -19,6 +19,9 @@
 #   - Category/season/product meta titles improved
 #   - Blog FAQ schema injection from related products
 #   - New helpers: generate_faq_schema, generate_website_schema, extract_brand_name
+# PATCH v5.2.2 — Audit Fixes
+#   - Change 6: Category meta title format updated to "Handpicked for UK Shoppers"
+#   - Change 7: get_product_title_suffix() added; product page titles now contextual
 # ============================================================================
 
 import os
@@ -199,18 +202,40 @@ def get_similar_products(product, all_products, limit=6):
 # STRUCTURED DATA HELPERS — PATCH v5.2.1
 # ============================================================================
 
+def generate_itemlist_schema(products, list_name, list_description=""):
+    """Generate ItemList JSON-LD from a list of products."""
+    if not products:
+        return None
+    items = []
+    for idx, p in enumerate(products[:20], 1):
+        items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "name": p["name"],
+            "url": SITE_URL + "/product/" + slugify(p["name"])
+        })
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": list_name,
+        "numberOfItems": len(items),
+        "itemListElement": items
+    }
+    if list_description:
+        schema["description"] = list_description
+    return json.dumps(schema, ensure_ascii=False)
+
 def generate_product_schema(product):
     """Generate Product JSON-LD with only factual, verifiable attributes.
     No offers (we don't sell), no ratings (not our reviews),
     no shipping (we don't ship). Just the product identity."""
-    brand_name = extract_brand_name(product["name"])
     schema = {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": product["name"],
         "description": (product.get("info") or product.get("hook") or "")[:200],
         "image": product.get("image", ""),
-        "brand": {"@type": "Brand", "name": brand_name},
+        "brand": {"@type": "Brand", "name": extract_brand_name(product["name"])},
         "sku": product.get("asin", ""),
         "url": SITE_URL + "/product/" + slugify(product["name"])
     }
@@ -252,6 +277,25 @@ def generate_website_schema():
             "target": {"@type": "EntryPoint", "urlTemplate": SITE_URL + "/?q={search_term_string}"},
             "query-input": "required name=search_term_string"
         }
+    }, ensure_ascii=False)
+
+def generate_organisation_schema():
+    """Generate Organisation JSON-LD for the homepage."""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FyboBuybo",
+        "url": SITE_URL + "/",
+        "logo": SITE_URL + "/static/og-default.jpg",
+        "description": "Independent gift curation for UK shoppers. Every pick is hand-chosen, updated daily.",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "infofybobuybo@gmail.com",
+            "contactType": "customer service",
+            "areaServed": "GB",
+            "availableLanguage": "English"
+        },
+        "sameAs": []
     }, ensure_ascii=False)
 
 def extract_brand_name(product_name):
@@ -321,6 +365,47 @@ def shorten_product_name(name, max_length=80):
         if len(out + " " + w) <= max_length - 3: out += (" " if out else "") + w
         else: break
     return out + "..."
+
+
+# ============================================================================
+# CHANGE 7 — get_product_title_suffix()
+# Generates a contextual meta title suffix from product season/category data.
+# Used in product_detail() to replace the generic "UK Gift Pick" suffix.
+# ============================================================================
+
+def get_product_title_suffix(product):
+    """Generate a contextual meta title suffix from product data."""
+    season = product.get("season", "")
+    category = product.get("category", "")
+    # Priority: specific occasion > category > generic
+    if "Mother's Day" in season:
+        return "Gift Idea for Mum"
+    elif "Father's Day" in season:
+        return "Gift Idea for Dad"
+    elif "Valentine's Day" in season:
+        return "Romantic Gift Idea"
+    elif "Christmas" in season:
+        return "Christmas Gift Idea"
+    elif "Easter" in season:
+        return "Easter Gift Idea"
+    elif category in ["Baby"]:
+        return "Gift for New Parents"
+    elif category in ["Beauty"]:
+        return "Beauty Gift Idea"
+    elif category in ["Toys & Games"]:
+        return "Fun Gift Idea"
+    elif category in ["Sports & Outdoors"]:
+        return "Active Gift Idea"
+    elif category in ["Home & Kitchen"]:
+        return "Home Gift Idea"
+    elif category in ["Electronics"]:
+        return "Tech Gift Idea"
+    elif category in ["Books"]:
+        return "Book Lover Gift"
+    elif category in ["Health & Personal Care"]:
+        return "Wellness Gift Idea"
+    else:
+        return "UK Gift Pick"
 
 
 # ============================================================================
@@ -656,6 +741,7 @@ def refresh_products(background=False):
         except Exception as e:
             print(f"Cache read failed: {e}")
     return load_or_generate_hooks(PRODUCTS)
+
 
 
 # ============================================================================
@@ -2633,6 +2719,7 @@ article .card a[href*='amazon'] {
 </style>"""
 
 
+
 # ============================================================================
 # BASE HTML TEMPLATE — v5.2 (PATCH v5.2.1: dynamic og:type, faq/website schema slots)
 # ============================================================================
@@ -2673,6 +2760,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% if faq_schema %}<script type="application/ld+json">{{ faq_schema|safe }}</script>{% endif %}
 {% if website_schema %}<script type="application/ld+json">{{ website_schema|safe }}</script>{% endif %}
 {% if itemlist_schema %}<script type="application/ld+json">{{ itemlist_schema|safe }}</script>{% endif %}
+{% if organisation_schema %}<script type="application/ld+json">{{ organisation_schema|safe }}</script>{% endif %}
 
 {{ css|safe }}
 </head>
@@ -3263,8 +3351,9 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 </html>"""
 
 
+
 # ============================================================================
-# RENDER PAGE — PATCH v5.2.1
+# RENDER PAGE — PATCH v5.2.1 + v5.2.2
 # ============================================================================
 
 def render_page(title, description, heading, subtitle, products=None, page=1,
@@ -3305,12 +3394,27 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
     # WebSite schema on every page
     website_schema = generate_website_schema()
 
+    # Organisation schema — homepage only
+    organisation_schema = None
+    if request.path == '/':
+        organisation_schema = generate_organisation_schema()
+
     # Dynamic og:type
     og_type = "website"
     if '/product/' in request.path:
         og_type = "product"
     elif '/blog/' in request.path and request.path != '/blog' and '/page/' not in request.path:
         og_type = "article"
+
+    # ItemList schema for category pages (if not already provided via kwargs)
+    category_itemlist = kwargs.get("itemlist_schema") or None
+    if not category_itemlist and '/category/' in request.path and paged_products:
+        cat_name = paged_products[0].get('category', 'Gifts')
+        category_itemlist = generate_itemlist_schema(
+            paged_products,
+            f"Best {cat_name} Gifts UK 2026",
+            f"Hand-picked {cat_name.lower()} gift ideas for UK shoppers."
+        )
 
     breadcrumb_schema = None
     breadcrumbs = [("Home", "/")]
@@ -3345,14 +3449,21 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
         structured_data=structured_data, breadcrumb_schema=breadcrumb_schema,
         faq_schema=faq_schema,
         website_schema=website_schema,
+        organisation_schema=organisation_schema,
         og_type=og_type,
         article_date=article_date, content=content or "",
-        itemlist_schema=kwargs.get("itemlist_schema"),
+        itemlist_schema=category_itemlist,
         cookie_consent="", total_posts=total_posts
     )
+
+
+
+# ============================================================================
+# SEASONAL LANDING PAGES — unchanged from v5.2.1
+# ============================================================================
+
 SEASONAL_LANDING_PAGES = {
 
-    # ── VALENTINE'S DAY ──────────────────────────────────────────────────
     "valentines-day": {
         "title": "Best Valentine's Day Gifts 2026 UK — Romantic Ideas They'll Love | FyboBuybo",
         "description": "Handpicked Valentine's Day gift ideas for 2026, curated for UK shoppers. From romantic keepsakes to luxury treats — find something they'll treasure.",
@@ -3391,7 +3502,6 @@ SEASONAL_LANDING_PAGES = {
         "itemlist_name": "Best Valentine's Day Gifts 2026 UK"
     },
 
-    # ── MOTHER'S DAY ─────────────────────────────────────────────────────
     "mothers-day": {
         "title": "Best Mother's Day Gifts 2026 UK \u2014 Unique Ideas for Every Mum | FyboBuybo",
         "description": "Discover handpicked Mother\u2019s Day gift ideas for 2026, curated for UK shoppers. From beauty to home \u2014 find something she\u2019ll actually love.",
@@ -3431,7 +3541,6 @@ SEASONAL_LANDING_PAGES = {
         "itemlist_name": "Best Mother's Day Gifts 2026 UK"
     },
 
-    # ── EASTER ───────────────────────────────────────────────────────────
     "easter": {
         "title": "Best Easter Gifts & Ideas 2026 UK \u2014 Fun Picks for All Ages | FyboBuybo",
         "description": "Curated Easter gift ideas for 2026. From chocolate alternatives to kids' craft sets and spring treats \u2014 handpicked for UK shoppers.",
@@ -3453,22 +3562,19 @@ SEASONAL_LANDING_PAGES = {
             calendar \u2014 gifts that encourage family activities tend to go down well.
             <strong>Order by 1 April</strong> for standard delivery, or use Prime for last-minute options.""",
         "faqs": [
-            {"q": "When is Easter 2026 in the UK?", "a": "Easter Sunday 2026 is on 5 April. Good Friday is 3 April and Easter Monday is 6 April, creating a four-day bank holiday weekend across England, Wales, and Northern Ireland. Scotland observes Good Friday but not Easter Monday as a statutory holiday."},
-            {"q": "What are popular Easter gifts besides chocolate?", "a": "Popular alternatives include craft kits, spring-themed books, gardening sets, baking supplies, personalised Easter baskets, and soft toys. Experience gifts and family activity sets have also grown in popularity."},
-            {"q": "What should I put in an Easter basket for kids?", "a": "A mix of small treats works well: a chocolate egg, a small toy or book, some craft supplies, and perhaps spring-themed stickers or hair accessories. Aim for variety over quantity."},
-            {"q": "How much do people typically spend on Easter gifts in the UK?", "a": "Most UK shoppers spend between \u00a310 and \u00a330 per person on Easter gifts. Children's gifts tend to be on the lower end, while premium chocolate boxes or experience gifts for adults can be higher."},
-            {"q": "Can I get Easter gifts delivered before the bank holiday weekend?", "a": "If you order through Amazon UK by around 1 April 2026, standard delivery should arrive before Good Friday on 3 April. Amazon Prime members can usually get next-day delivery right up to 2 April."}
+            {"q": "When is Easter 2026 in the UK?", "a": "Easter Sunday 2026 is on 5 April. Good Friday is 3 April and Easter Monday is 6 April, creating a four-day bank holiday weekend across England, Wales, and Northern Ireland."},
+            {"q": "What are popular Easter gifts besides chocolate?", "a": "Popular alternatives include craft kits, spring-themed books, gardening sets, baking supplies, personalised Easter baskets, and soft toys."},
+            {"q": "What should I put in an Easter basket for kids?", "a": "A mix of small treats works well: a chocolate egg, a small toy or book, some craft supplies, and perhaps spring-themed stickers or hair accessories."},
+            {"q": "How much do people typically spend on Easter gifts in the UK?", "a": "Most UK shoppers spend between \u00a310 and \u00a330 per person on Easter gifts."},
+            {"q": "Can I get Easter gifts delivered before the bank holiday weekend?", "a": "If you order through Amazon UK by around 1 April 2026, standard delivery should arrive before Good Friday on 3 April."}
         ],
         "internal_links": """Looking for more inspiration? Browse our 
             <a href="/category/toys-and-games">toys &amp; games</a>, 
             <a href="/category/home-and-kitchen">home &amp; kitchen picks</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/spring">spring collection</a> or 
-            <a href="/season/mothers-day">Mother's Day gifts</a>.""",
+            <a href="/blog">gift guides</a>.""",
         "itemlist_name": "Best Easter Gifts 2026 UK"
     },
 
-    # ── FATHER'S DAY ─────────────────────────────────────────────────────
     "fathers-day": {
         "title": "Best Father's Day Gifts 2026 UK \u2014 Ideas He'll Actually Use | FyboBuybo",
         "description": "Handpicked Father\u2019s Day gift ideas for 2026. From tech to tools, outdoor gear to grooming \u2014 curated for UK dads.",
@@ -3476,327 +3582,190 @@ SEASONAL_LANDING_PAGES = {
         "subtitle": "Skip the novelty socks. Thoughtful Father's Day picks he'll genuinely appreciate \u2014 updated daily.",
         "intro": """Father's Day in the UK falls on <strong>Sunday 21 June 2026</strong>. Finding something he'll 
             actually use \u2014 rather than another novelty mug gathering dust \u2014 is the real challenge. That's 
-            what this page is for. We hand-pick and update these recommendations daily, drawing from 
-            thousands of highly rated products on Amazon UK. Whether your dad is into tech, gardening, 
-            cooking, sports, or just appreciates something well-made, you'll find a genuine gift here. 
-            Every pick below has been chosen for quality, practical appeal, and strong UK buyer reviews \u2014 
-            no filler, no sponsored placements.""",
+            what this page is for. We hand-pick and update these recommendations daily.""",
         "buying_guide_title": "How to Choose the Perfect Father\u2019s Day Gift",
         "buying_guide": """<strong>Think about what he actually does.</strong> The best gifts for dads fit into their 
             real routines \u2014 a quality tool he'd use in the shed, a gadget for his kitchen, or something 
             for a hobby he already enjoys.
             <strong>Practical beats novelty.</strong> Dads are notoriously hard to buy for because they 
             often won't buy nice things for themselves. Upgrade something he uses every day.
-            <strong>Experiences work too.</strong> A day out, a meal, or even a quality bottle of something 
-            he wouldn't normally splash out on can mean more than a wrapped gift.
             <strong>Order by 18 June</strong> for standard delivery, or use Prime for next-day options.""",
         "faqs": [
-            {"q": "When is Father's Day 2026 in the UK?", "a": "Father's Day 2026 in the UK is Sunday 21 June. It falls on the third Sunday of June each year. Unlike Mother's Day, the date is the same as in the US."},
-            {"q": "What are the most popular Father's Day gifts in the UK?", "a": "According to UK retail data, the most popular gifts include clothing, grooming products, tech gadgets, tools, food and drink hampers, and experience days. Books, sports gear, and garden accessories are also strong choices."},
-            {"q": "What should I buy my dad if he says he doesn't want anything?", "a": "Most dads say this. A quality consumable gift works well \u2014 premium coffee, craft beer, or a food hamper he'd never buy himself. Alternatively, a practical upgrade to something he uses daily tends to be appreciated."},
-            {"q": "How much should I spend on a Father's Day gift?", "a": "UK shoppers typically spend between \u00a315 and \u00a345 on a Father's Day gift. As with all occasions, the thought behind it counts more than the price tag."},
-            {"q": "Can I get Father's Day gifts delivered in time?", "a": "If you order through Amazon UK by around 18 June 2026, standard delivery should arrive before Father's Day on 21 June. Amazon Prime members can usually get next-day delivery right up to 20 June."}
+            {"q": "When is Father's Day 2026 in the UK?", "a": "Father's Day 2026 in the UK is Sunday 21 June. It falls on the third Sunday of June each year."},
+            {"q": "What are the most popular Father's Day gifts in the UK?", "a": "The most popular gifts include clothing, grooming products, tech gadgets, tools, food and drink hampers, and experience days."},
+            {"q": "What should I buy my dad if he says he doesn't want anything?", "a": "A quality consumable gift works well \u2014 premium coffee, craft beer, or a food hamper he'd never buy himself."},
+            {"q": "How much should I spend on a Father's Day gift?", "a": "UK shoppers typically spend between \u00a315 and \u00a345 on a Father's Day gift."},
+            {"q": "Can I get Father's Day gifts delivered in time?", "a": "If you order through Amazon UK by around 18 June 2026, standard delivery should arrive before Father's Day on 21 June."}
         ],
         "internal_links": """Looking for more inspiration? Browse our 
             <a href="/category/electronics">electronics</a>, 
             <a href="/category/sports-and-outdoors">sports &amp; outdoors picks</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/summer-gifts">summer gifts</a> or 
-            <a href="/season/christmas">Christmas collections</a>.""",
+            <a href="/blog">gift guides</a>.""",
         "itemlist_name": "Best Father's Day Gifts 2026 UK"
     },
 
-    # ── SUMMER GIFTS ─────────────────────────────────────────────────────
     "summer-gifts": {
         "title": "Best Summer Gifts 2026 UK \u2014 Seasonal Picks for Warm Weather | FyboBuybo",
         "description": "Curated summer gift ideas for UK shoppers in 2026. Outdoor living, garden finds, travel essentials, and seasonal treats.",
         "heading": "Best Summer Gifts 2026 \u2014 Seasonal Picks for Warm Weather",
         "subtitle": "Make the most of the British summer. Garden finds, outdoor treats, and travel picks \u2014 updated daily.",
-        "intro": """The UK summer of 2026 brings long evenings, garden gatherings, barbecues, and that brief window 
-            where everyone in Britain suddenly becomes an outdoor person. Whether you're shopping for a birthday 
-            that falls in the warmer months, a housewarming gift, or just something to enjoy the season, 
-            we've got you covered. These picks are updated daily from thousands of top-rated Amazon UK 
-            products, chosen for quality, seasonal relevance, and strong buyer reviews \u2014 no filler, 
-            no sponsored placements.""",
+        "intro": "The UK summer of 2026 brings long evenings, garden gatherings, and barbecues. Whether you're shopping for a birthday or just something to enjoy the season, we've got you covered. Updated daily from top-rated Amazon UK products.",
         "buying_guide_title": "How to Choose the Perfect Summer Gift",
         "buying_guide": """<strong>Think outdoor and portable.</strong> The best summer gifts work in the garden, 
-            at the park, or on holiday. Anything that enhances time spent outside tends to be a winner.
+            at the park, or on holiday.
             <strong>Consider the British weather.</strong> Versatile gifts that work in both sunshine and 
-            the inevitable drizzle are always practical for UK summers.
-            <strong>Food and drink is always a hit.</strong> BBQ accessories, picnic sets, or cold brew 
-            kits tap into how most people actually spend their British summer.
-            <strong>Experiences over things.</strong> Festival supplies, camping gear, or day-trip 
-            essentials can create memories that outlast any physical gift.""",
+            the inevitable drizzle are always practical for UK summers.""",
         "faqs": [
-            {"q": "What are good summer gifts for someone in the UK?", "a": "Popular UK summer gifts include garden accessories, BBQ tools, picnic sets, outdoor games, travel essentials, and cold-brew drink kits. Portable speakers, beach towels, and quality sunscreen also go down well."},
-            {"q": "When is the best time to buy summer gifts?", "a": "June through August is peak summer gifting season in the UK, covering birthdays, garden parties, and holiday trips. Ordering early in June gives you the widest selection before popular items sell out."},
-            {"q": "What outdoor gifts work well for UK weather?", "a": "Given British weather, gifts that work in mixed conditions are smartest. Waterproof picnic blankets, all-weather garden games, and versatile layers are practical and appreciated."},
-            {"q": "What's a good summer gift under \u00a325?", "a": "A quality insulated water bottle, a garden game set, premium ice cream making supplies, or a portable Bluetooth speaker all make excellent summer gifts under \u00a325."},
-            {"q": "Are garden gifts popular in the UK?", "a": "Very much so. With over 80% of UK homes having a garden, gifts like planters, outdoor lighting, garden tools, and patio accessories are consistently popular during summer months."}
+            {"q": "What are good summer gifts for someone in the UK?", "a": "Popular UK summer gifts include garden accessories, BBQ tools, picnic sets, outdoor games, travel essentials, and cold-brew drink kits."},
+            {"q": "When is the best time to buy summer gifts?", "a": "June through August is peak summer gifting season in the UK."},
+            {"q": "What outdoor gifts work well for UK weather?", "a": "Waterproof picnic blankets, all-weather garden games, and versatile layers are practical and appreciated."},
+            {"q": "What's a good summer gift under \u00a325?", "a": "A quality insulated water bottle, a garden game set, or a portable Bluetooth speaker all make excellent summer gifts under \u00a325."},
+            {"q": "Are garden gifts popular in the UK?", "a": "Very much so. With over 80% of UK homes having a garden, garden gifts are consistently popular during summer months."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/home-and-kitchen">home &amp; kitchen</a>, 
-            <a href="/category/sports-and-outdoors">sports &amp; outdoors</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/summer-essentials">summer essentials</a> or 
-            <a href="/season/fathers-day">Father's Day gifts</a>.""",
+        "internal_links": """Browse our <a href="/category/home-and-kitchen">home &amp; kitchen</a> or <a href="/category/sports-and-outdoors">sports &amp; outdoors</a> picks.""",
         "itemlist_name": "Best Summer Gifts 2026 UK"
     },
 
-    # ── SUMMER ESSENTIALS ────────────────────────────────────────────────
     "summer-essentials": {
         "title": "Summer Essentials 2026 UK \u2014 Must-Have Picks for the Season | FyboBuybo",
         "description": "The summer essentials every UK household needs in 2026. Sun care, outdoor living, travel must-haves \u2014 handpicked and updated daily.",
         "heading": "Summer Essentials 2026 \u2014 Must-Have Picks for the Season",
         "subtitle": "Everything you need to make the most of a British summer. Practical, well-reviewed, and chosen for UK life.",
-        "intro": """British summers are short, unpredictable, and absolutely worth making the most of. This 
-            collection brings together the everyday essentials that make the season better \u2014 from sun 
-            protection and outdoor dining supplies to travel gear and garden upgrades. These aren't gifts 
-            (though they'd work as that too); they're the practical things worth having when the weather 
-            finally turns. Updated daily from thousands of Amazon UK products, every pick is chosen for 
-            quality, value, and strong UK buyer reviews.""",
+        "intro": "British summers are short, unpredictable, and absolutely worth making the most of. This collection brings together everyday essentials from sun protection to outdoor dining supplies. Updated daily from Amazon UK products.",
         "buying_guide_title": "How to Pick the Right Summer Essentials",
-        "buying_guide": """<strong>Start with sun protection.</strong> SPF, hats, and quality sunglasses are 
-            the non-negotiables for any UK summer \u2014 even on overcast days.
-            <strong>Upgrade your outdoor setup.</strong> A decent cool bag, a waterproof blanket, and 
-            portable seating can transform any park visit or beach trip.
-            <strong>Think about what you'll use repeatedly.</strong> The best summer essentials earn 
-            their keep through regular use, not just a single outing.
-            <strong>Check reviews from UK buyers.</strong> Climate-specific feedback from UK shoppers 
-            tells you more than reviews from sunnier countries.""",
+        "buying_guide": """<strong>Start with sun protection.</strong> SPF, hats, and quality sunglasses are the non-negotiables.
+            <strong>Upgrade your outdoor setup.</strong> A decent cool bag, a waterproof blanket, and portable seating transform any park visit.""",
         "faqs": [
-            {"q": "What are the must-have summer essentials in the UK?", "a": "Key essentials include quality SPF sunscreen, insulated water bottles, portable fans, waterproof picnic blankets, insect repellent, and a good pair of sunglasses. For garden lovers, add outdoor lighting and a quality cool bag."},
-            {"q": "What sun cream factor should I use in the UK?", "a": "Dermatologists recommend at least SPF 30 for the UK, even on cloudy days. For children or anyone spending extended time outdoors, SPF 50 offers better protection. Look for broad-spectrum UVA and UVB coverage."},
-            {"q": "What's worth buying for UK camping trips?", "a": "A quality cool bag, a portable power bank, insect repellent, a waterproof torch, and a compact camp chair are consistently rated as the most useful items by UK campers."},
-            {"q": "Are insulated water bottles worth it?", "a": "Yes \u2014 a good insulated bottle keeps drinks cold for 24 hours or hot for 12, making them useful year-round in the UK. They reduce single-use plastic waste and save money over buying bottled water."},
-            {"q": "When should I start buying summer essentials in the UK?", "a": "April and May are ideal for stocking up before popular items sell out. Sunscreen and outdoor gear tend to see price spikes and stock shortages once June arrives."}
+            {"q": "What are the must-have summer essentials in the UK?", "a": "Key essentials include quality SPF sunscreen, insulated water bottles, portable fans, waterproof picnic blankets, and insect repellent."},
+            {"q": "What sun cream factor should I use in the UK?", "a": "Dermatologists recommend at least SPF 30, even on cloudy days."},
+            {"q": "What's worth buying for UK camping trips?", "a": "A quality cool bag, portable power bank, insect repellent, waterproof torch, and compact camp chair."},
+            {"q": "Are insulated water bottles worth it?", "a": "Yes \u2014 a good insulated bottle keeps drinks cold for 24 hours or hot for 12."},
+            {"q": "When should I start buying summer essentials in the UK?", "a": "April and May are ideal for stocking up before popular items sell out."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/health-and-personal-care">health &amp; personal care</a>, 
-            <a href="/category/sports-and-outdoors">sports &amp; outdoors</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/summer-gifts">summer gifts</a> or 
-            <a href="/season/spring">spring picks</a>.""",
+        "internal_links": """Browse our <a href="/category/health-and-personal-care">health &amp; personal care</a> or <a href="/category/sports-and-outdoors">sports &amp; outdoors</a> picks.""",
         "itemlist_name": "Summer Essentials 2026 UK"
     },
 
-    # ── BACK TO SCHOOL ───────────────────────────────────────────────────
     "back-to-school": {
         "title": "Best Back to School Supplies 2026 UK \u2014 Essentials for Every Age | FyboBuybo",
         "description": "Curated back to school essentials for UK students in 2026. Stationery, bags, tech, and organisation picks \u2014 updated daily.",
         "heading": "Best Back to School Picks 2026 \u2014 Essentials for Every Age",
         "subtitle": "From primary to sixth form. Quality school supplies that last \u2014 handpicked for UK students and parents.",
-        "intro": """The September school run comes around fast, and having the right supplies makes the start of 
-            term smoother for everyone. We've curated these back-to-school picks from thousands of top-rated 
-            Amazon UK products, covering stationery, bags, tech, lunch supplies, and organisation essentials. 
-            Whether you're kitting out a Reception starter or a sixth-former heading into A-levels, every 
-            recommendation here is chosen for durability, practical value, and strong UK buyer reviews \u2014 
-            no filler, no sponsored placements.""",
+        "intro": "The September school run comes around fast. We've curated these back-to-school picks from thousands of top-rated Amazon UK products, covering stationery, bags, tech, and organisation essentials.",
         "buying_guide_title": "How to Choose the Right Back to School Supplies",
-        "buying_guide": """<strong>Buy for durability, not novelty.</strong> Character-branded items get 
-            abandoned quickly. Plain, well-made supplies last the whole year and beyond.
-            <strong>Label everything.</strong> A label maker or iron-on labels save hours of lost property 
-            stress. It's one of the most practical back-to-school investments.
-            <strong>Check the school's specific requirements.</strong> Many UK schools have uniform and 
-            equipment lists \u2014 check before buying to avoid returns.
-            <strong>Order by late August</strong> to avoid the September rush when popular items sell out.""",
+        "buying_guide": """<strong>Buy for durability, not novelty.</strong> Plain, well-made supplies last the whole year.
+            <strong>Label everything.</strong> A label maker saves hours of lost property stress.
+            <strong>Check the school's specific requirements</strong> before buying to avoid returns.""",
         "faqs": [
-            {"q": "When do UK schools go back in September 2026?", "a": "Most UK schools return in the first or second week of September 2026. Exact dates vary by local authority and school type. Check your school's published term dates or your council website for confirmed dates."},
-            {"q": "What school supplies does my child need?", "a": "Core supplies include a durable school bag, pencil case with pens and pencils, ruler, eraser, sharpener, notebooks, and a water bottle. Older students may need a scientific calculator, USB drive, and subject-specific stationery."},
-            {"q": "What's a good school bag for UK students?", "a": "Look for a bag with padded shoulder straps, water-resistant material, and enough space for A4 folders. Brands with strong UK reviews for durability tend to offer the best value over the school year."},
-            {"q": "How much do parents spend on back to school in the UK?", "a": "UK parents spend an average of \u00a3100\u2013\u00a3250 per child on back-to-school supplies, uniform, and shoes combined. Buying essentials in August before the rush often saves 10\u201320% compared to September prices."},
-            {"q": "Are refurbished laptops good for school?", "a": "Refurbished laptops from reputable sellers can offer excellent value for students. Look for models with at least 8GB RAM, an SSD drive, and a minimum 6-hour battery life for school use."}
+            {"q": "When do UK schools go back in September 2026?", "a": "Most UK schools return in the first or second week of September 2026. Check your school's published term dates."},
+            {"q": "What school supplies does my child need?", "a": "Core supplies include a durable school bag, pencil case with pens and pencils, ruler, eraser, sharpener, notebooks, and a water bottle."},
+            {"q": "What's a good school bag for UK students?", "a": "Look for a bag with padded shoulder straps, water-resistant material, and enough space for A4 folders."},
+            {"q": "How much do parents spend on back to school in the UK?", "a": "UK parents spend an average of \u00a3100\u2013\u00a3250 per child on back-to-school supplies, uniform, and shoes combined."},
+            {"q": "Are refurbished laptops good for school?", "a": "Yes, from reputable sellers. Look for at least 8GB RAM, an SSD, and 6+ hour battery life."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/books">books</a>, 
-            <a href="/category/electronics">electronics</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/summer-essentials">summer essentials</a> or 
-            <a href="/season/christmas">Christmas gifts</a>.""",
+        "internal_links": """Browse our <a href="/category/books">books</a> or <a href="/category/electronics">electronics</a> picks.""",
         "itemlist_name": "Best Back to School Supplies 2026 UK"
     },
 
-    # ── HALLOWEEN ────────────────────────────────────────────────────────
     "halloween": {
         "title": "Best Halloween Gifts & Ideas 2026 UK \u2014 Spooky Picks for All Ages | FyboBuybo",
         "description": "Curated Halloween ideas for UK shoppers in 2026. Costumes, decorations, party supplies, and themed gifts \u2014 handpicked daily.",
         "heading": "Best Halloween Picks 2026 \u2014 Spooky Ideas for All Ages",
         "subtitle": "From costumes to decorations. Fun, well-reviewed Halloween finds for UK families \u2014 updated daily.",
-        "intro": """Halloween 2026 falls on <strong>Saturday 31 October</strong>, making it perfect for parties, 
-            trick-or-treating, and all-out spooky celebrations. Whether you're decorating the house, 
-            putting together costumes, or looking for themed gifts and party supplies, we've curated these 
-            picks from thousands of top-rated Amazon UK products. Every recommendation is chosen for quality, 
-            fun factor, and strong UK buyer reviews \u2014 no filler, no sponsored placements.""",
+        "intro": "Halloween 2026 falls on <strong>Saturday 31 October</strong>, making it perfect for parties and trick-or-treating. Curated from thousands of top-rated Amazon UK products.",
         "buying_guide_title": "How to Plan a Brilliant Halloween",
-        "buying_guide": """<strong>Start with the front door.</strong> Outdoor decorations set the tone 
-            for trick-or-treaters. LED pumpkin lights, door wreaths, and window silhouettes create 
-            atmosphere without breaking the bank.
-            <strong>Costumes don't need to cost a fortune.</strong> A well-chosen accessory (hat, mask, 
-            cape) often works better than a full outfit. Mix shop-bought with homemade for the best results.
-            <strong>Plan treats early.</strong> Bulk bags of individually wrapped sweets sell out fast 
-            in October. Buy early and store somewhere the kids can't find them.
-            <strong>Order by 27 October</strong> for standard delivery, or use Prime for last-minute finds.""",
+        "buying_guide": """<strong>Start with the front door.</strong> LED pumpkin lights, door wreaths, and window silhouettes create atmosphere.
+            <strong>Costumes don't need to cost a fortune.</strong> A well-chosen accessory often works better than a full outfit.
+            <strong>Order by 27 October</strong> for standard delivery.""",
         "faqs": [
-            {"q": "When is Halloween 2026?", "a": "Halloween is always on 31 October. In 2026, that falls on a Saturday, which is ideal for parties and trick-or-treating."},
-            {"q": "Is Halloween widely celebrated in the UK?", "a": "Yes \u2014 Halloween has grown significantly in the UK over the past two decades. Most UK households participate in some form, whether through trick-or-treating, pumpkin carving, costumes, or themed parties. UK spending on Halloween has increased year on year."},
-            {"q": "What are the most popular Halloween costumes in the UK?", "a": "Classic choices like witches, vampires, ghosts, and skeletons remain popular. Film and TV-inspired costumes also trend each year. For children, animal costumes with a spooky twist are consistently popular."},
-            {"q": "How much do UK families spend on Halloween?", "a": "UK households typically spend between \u00a315 and \u00a350 on Halloween, covering costumes, decorations, sweets, and pumpkins. Families with young children tend to spend more on costumes and decorations."},
-            {"q": "Where can I buy pumpkins for carving in the UK?", "a": "Supermarkets, farm shops, and local greengrocers all stock carving pumpkins from early October. For the widest variety, farm shops and pick-your-own pumpkin patches tend to have the best selection."}
+            {"q": "When is Halloween 2026?", "a": "Halloween is always on 31 October. In 2026, that falls on a Saturday."},
+            {"q": "Is Halloween widely celebrated in the UK?", "a": "Yes \u2014 Halloween has grown significantly in the UK over the past two decades."},
+            {"q": "What are the most popular Halloween costumes in the UK?", "a": "Classic choices like witches, vampires, ghosts, and skeletons remain popular."},
+            {"q": "How much do UK families spend on Halloween?", "a": "UK households typically spend between \u00a315 and \u00a350 on Halloween."},
+            {"q": "Where can I buy pumpkins for carving in the UK?", "a": "Supermarkets, farm shops, and local greengrocers all stock carving pumpkins from early October."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/toys-and-games">toys &amp; games</a>, 
-            <a href="/category/home-and-kitchen">home &amp; kitchen</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/christmas">Christmas collection</a> or 
-            <a href="/season/winter-essentials">winter essentials</a>.""",
+        "internal_links": """Browse our <a href="/category/toys-and-games">toys &amp; games</a> or <a href="/season/christmas">Christmas collection</a>.""",
         "itemlist_name": "Best Halloween Picks 2026 UK"
     },
 
-    # ── CHRISTMAS ────────────────────────────────────────────────────────
     "christmas": {
         "title": "Best Christmas Gifts 2026 UK \u2014 Curated Ideas for Everyone | FyboBuybo",
         "description": "Handpicked Christmas gift ideas for 2026. Thoughtful presents for him, her, kids, and the home \u2014 curated for UK shoppers.",
         "heading": "Best Christmas Gifts 2026 \u2014 Thoughtful Ideas for Everyone",
         "subtitle": "Hand-picked daily from top-rated Amazon UK products. Find something they\u2019ll genuinely love this Christmas.",
-        "intro": """<strong>Christmas Day 2026 falls on Friday 25 December</strong>, giving everyone a long weekend 
-            to enjoy the festivities. Finding gifts that feel personal and considered \u2014 rather than 
-            last-minute panic buys \u2014 is what this page is for. We update these recommendations daily, 
-            drawing from thousands of top-rated Amazon UK products across every category and budget. 
-            Whether you're shopping for children, partners, parents, or colleagues, every pick below has 
-            been chosen for quality, genuine gifting appeal, and strong UK buyer reviews \u2014 no filler, 
-            no sponsored placements.""",
+        "intro": "<strong>Christmas Day 2026 falls on Friday 25 December</strong>. Finding gifts that feel personal and considered is what this page is for. Updated daily from thousands of top-rated Amazon UK products.",
         "buying_guide_title": "How to Choose the Perfect Christmas Gift",
-        "buying_guide": """<strong>Start early, buy thoughtfully.</strong> The best Christmas gifts come from 
-            noticing what people mention they want throughout the year. Keep a running list on your phone.
-            <strong>Set a budget per person.</strong> It reduces stress and often leads to more creative, 
-            personal choices. A well-chosen \u00a320 gift beats a rushed \u00a350 one.
-            <strong>Mix practical and indulgent.</strong> The most satisfying gifts combine something 
-            useful with something they'd never buy themselves.
-            <strong>Order by 19 December</strong> for standard Royal Mail delivery, or use Amazon Prime 
-            for next-day options right up to Christmas Eve in most areas.""",
+        "buying_guide": """<strong>Start early, buy thoughtfully.</strong> The best Christmas gifts come from noticing what people mention they want throughout the year.
+            <strong>Set a budget per person.</strong> A well-chosen \u00a320 gift beats a rushed \u00a350 one.
+            <strong>Order by 19 December</strong> for standard Royal Mail delivery.""",
         "faqs": [
-            {"q": "What are the most popular Christmas gifts in the UK for 2026?", "a": "Trending categories include tech gadgets, premium beauty sets, personalised gifts, experience vouchers, and quality homeware. For children, STEM toys, creative kits, and gaming accessories are consistently popular."},
-            {"q": "When is the best time to start Christmas shopping in the UK?", "a": "October and November offer the best selection and competitive prices, especially around Black Friday (27 November 2026). However, starting even earlier helps spread the cost and avoid the stress of December delivery deadlines."},
-            {"q": "How much do UK households spend on Christmas gifts?", "a": "UK households spend an average of \u00a3500\u2013\u00a3800 on Christmas gifts combined. Per person, most shoppers budget \u00a320\u2013\u00a350 for extended family and \u00a350\u2013\u00a3100 for partners and children."},
-            {"q": "What's the last day to order for Christmas delivery on Amazon UK?", "a": "For standard delivery, aim to order by around 19 December. Amazon Prime members can typically order with next-day delivery right up to 23 December, and same-day delivery on 24 December for eligible items in select areas."},
-            {"q": "What are good Christmas gifts under \u00a320?", "a": "Quality candles, premium socks, books, artisan food gifts, phone accessories, and novelty board games all make excellent sub-\u00a320 Christmas gifts that feel thoughtful rather than cheap."}
+            {"q": "What are the most popular Christmas gifts in the UK for 2026?", "a": "Trending categories include tech gadgets, premium beauty sets, personalised gifts, experience vouchers, and quality homeware."},
+            {"q": "When is the best time to start Christmas shopping in the UK?", "a": "October and November offer the best selection and competitive prices, especially around Black Friday (27 November 2026)."},
+            {"q": "How much do UK households spend on Christmas gifts?", "a": "UK households spend an average of \u00a3500\u2013\u00a3800 on Christmas gifts combined."},
+            {"q": "What's the last day to order for Christmas delivery on Amazon UK?", "a": "For standard delivery, aim to order by around 19 December. Amazon Prime members can typically order with next-day delivery right up to 23 December."},
+            {"q": "What are good Christmas gifts under \u00a320?", "a": "Quality candles, premium socks, books, artisan food gifts, phone accessories, and novelty board games all make excellent sub-\u00a320 gifts."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/toys-and-games">toys &amp; games</a>, 
-            <a href="/category/electronics">electronics</a>, 
-            <a href="/category/beauty">beauty gifts</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/winter-essentials">winter essentials</a>.""",
+        "internal_links": """Browse our <a href="/category/toys-and-games">toys &amp; games</a>, <a href="/category/electronics">electronics</a>, or <a href="/blog">gift guides</a>.""",
         "itemlist_name": "Best Christmas Gifts 2026 UK"
     },
 
-    # ── WINTER ESSENTIALS ────────────────────────────────────────────────
     "winter-essentials": {
         "title": "Winter Essentials 2026 UK \u2014 Stay Warm & Cosy All Season | FyboBuybo",
         "description": "Curated winter essentials for UK shoppers. Warm clothing, home comforts, and cold-weather gear \u2014 handpicked and updated daily.",
         "heading": "Winter Essentials 2026 \u2014 Stay Warm & Cosy All Season",
         "subtitle": "Beat the British winter. Practical warmth, home comforts, and cold-weather gear \u2014 chosen for UK conditions.",
-        "intro": """British winters are cold, damp, and long \u2014 but they don't have to be miserable. This 
-            collection brings together the practical essentials that make the season genuinely comfortable: 
-            from thermal layers and quality gloves to cosy home upgrades and energy-saving finds. Updated 
-            daily from thousands of Amazon UK products, every pick is chosen for warmth, durability, and 
-            strong reviews from UK buyers who know exactly how cold it gets here.""",
+        "intro": "British winters are cold, damp, and long \u2014 but they don't have to be miserable. This collection brings together practical essentials from thermal layers to cosy home upgrades. Updated daily from Amazon UK products.",
         "buying_guide_title": "How to Choose the Right Winter Essentials",
-        "buying_guide": """<strong>Layer intelligently.</strong> A good base layer, a quality mid-layer, and a 
-            waterproof outer will keep you warmer than one heavy coat. Merino wool and fleece are your friends.
-            <strong>Invest in extremities.</strong> Quality gloves, a warm hat, and decent socks make a 
-            bigger difference than most people expect. Cold hands and feet ruin any winter outing.
-            <strong>Upgrade your home comfort.</strong> Draught excluders, heated throws, and quality hot 
-            water bottles are small investments that reduce heating bills and increase comfort.
-            <strong>Check UK-specific reviews.</strong> Winter gear rated well in Mediterranean climates 
-            won't necessarily perform in a wet British winter.""",
+        "buying_guide": """<strong>Layer intelligently.</strong> A good base layer, mid-layer, and waterproof outer keeps you warmer than one heavy coat.
+            <strong>Invest in extremities.</strong> Quality gloves, a warm hat, and decent socks make a bigger difference than most expect.""",
         "faqs": [
-            {"q": "What are the must-have winter essentials in the UK?", "a": "Key items include a waterproof coat, thermal base layers, quality gloves and a warm hat, waterproof boots, a hot water bottle, and draught excluders for the home. Heated throws and insulated flasks are also popular."},
-            {"q": "What's the warmest material for winter clothing?", "a": "Merino wool offers the best warmth-to-weight ratio and regulates temperature naturally. For outerwear, look for coats with PrimaLoft or down insulation and waterproof membranes for UK conditions."},
-            {"q": "How can I stay warm at home without high heating bills?", "a": "Draught excluders, thermal curtains, heated throws (which cost pennies to run), quality slippers, and a good hot water bottle can significantly reduce how much you rely on central heating."},
-            {"q": "What winter boots are best for UK weather?", "a": "Look for boots with waterproof membranes (like Gore-Tex), good grip soles, and insulation. UK winters are more wet than freezing, so waterproofing matters more than extreme cold ratings."},
-            {"q": "When should I start buying winter essentials in the UK?", "a": "September and October offer the best selection before popular sizes and products sell out. By November, the most-reviewed items often go out of stock as demand peaks."}
+            {"q": "What are the must-have winter essentials in the UK?", "a": "Key items include a waterproof coat, thermal base layers, quality gloves, a warm hat, waterproof boots, a hot water bottle, and draught excluders."},
+            {"q": "What's the warmest material for winter clothing?", "a": "Merino wool offers the best warmth-to-weight ratio and regulates temperature naturally."},
+            {"q": "How can I stay warm at home without high heating bills?", "a": "Draught excluders, thermal curtains, heated throws, quality slippers, and a good hot water bottle can significantly reduce heating reliance."},
+            {"q": "What winter boots are best for UK weather?", "a": "Look for boots with waterproof membranes, good grip soles, and insulation. UK winters are more wet than freezing."},
+            {"q": "When should I start buying winter essentials in the UK?", "a": "September and October offer the best selection before popular sizes sell out."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/home-and-kitchen">home &amp; kitchen</a>, 
-            <a href="/category/fashion">fashion picks</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/christmas">Christmas gifts</a> or 
-            <a href="/season/new-year-essentials">new year essentials</a>.""",
+        "internal_links": """Browse our <a href="/category/home-and-kitchen">home &amp; kitchen</a> or <a href="/season/christmas">Christmas gifts</a>.""",
         "itemlist_name": "Winter Essentials 2026 UK"
     },
 
-    # ── SPRING ───────────────────────────────────────────────────────────
     "spring": {
         "title": "Best Spring Picks 2026 UK \u2014 Fresh Finds for the New Season | FyboBuybo",
         "description": "Curated spring products for UK shoppers in 2026. Garden, home refresh, outdoor living, and seasonal picks \u2014 updated daily.",
         "heading": "Best Spring Picks 2026 \u2014 Fresh Finds for the New Season",
         "subtitle": "Refresh your home, garden, and wardrobe for spring. Thoughtful picks for the new season \u2014 updated daily.",
-        "intro": """Spring in the UK means lighter evenings, garden plans, and that satisfying urge to refresh 
-            everything from the house to the wardrobe. This collection brings together the best seasonal 
-            finds \u2014 from garden tools and outdoor furniture to spring cleaning supplies and fresh homeware. 
-            Updated daily from thousands of Amazon UK products, every pick is chosen for seasonal relevance, 
-            quality, and strong UK buyer reviews.""",
+        "intro": "Spring in the UK means lighter evenings, garden plans, and that satisfying urge to refresh everything. Updated daily from thousands of Amazon UK products.",
         "buying_guide_title": "How to Make the Most of Spring",
-        "buying_guide": """<strong>Start with the garden.</strong> March and April are the best months to get 
-            the garden ready. Quality tools, seeds, and planters pay dividends all summer.
-            <strong>Refresh, don't replace.</strong> New cushion covers, a fresh doormat, lighter curtains, 
-            or a deep clean can transform a room without a big spend.
-            <strong>Get ahead on outdoor dining.</strong> Buying garden furniture and BBQ equipment in spring 
-            means better selection and lower prices than the summer rush.
-            <strong>Think about allergies.</strong> If hay fever is an issue, air purifiers and quality 
-            antihistamines are worth sorting early in the season.""",
+        "buying_guide": """<strong>Start with the garden.</strong> March and April are the best months to get the garden ready.
+            <strong>Refresh, don't replace.</strong> New cushion covers, a fresh doormat, or a deep clean can transform a room without a big spend.""",
         "faqs": [
-            {"q": "When does spring start in the UK?", "a": "Meteorological spring in the UK runs from 1 March to 31 May. The spring equinox (astronomical spring) falls around 20 March. For gardening purposes, most UK gardeners consider late March to early April the real start of the growing season."},
-            {"q": "What should I plant in spring in the UK?", "a": "March to May is ideal for planting potatoes, peas, broad beans, and salad leaves outdoors. It's also the time to sow tomatoes, peppers, and courgettes indoors for transplanting later. Bedding plants can go out after the last frost, typically late April to mid-May."},
-            {"q": "What are good spring cleaning essentials?", "a": "A quality microfibre cloth set, a steam cleaner, all-purpose cleaner, window cleaning supplies, and storage organisers cover most spring cleaning needs. Decluttering supplies like storage bags and label makers are also popular."},
-            {"q": "When should I start mowing the lawn in the UK?", "a": "Most UK lawns benefit from a first cut in late March or early April, once the grass is actively growing. Set the mower high for the first few cuts and gradually lower it through the season."},
-            {"q": "What are popular spring home refresh ideas?", "a": "Lighter cushion covers, fresh indoor plants, new doormats, spring-scented candles, and updated bathroom accessories are popular and affordable ways to refresh a home for spring."}
+            {"q": "When does spring start in the UK?", "a": "Meteorological spring runs from 1 March to 31 May. The spring equinox falls around 20 March."},
+            {"q": "What should I plant in spring in the UK?", "a": "March to May is ideal for potatoes, peas, broad beans, and salad leaves outdoors."},
+            {"q": "What are good spring cleaning essentials?", "a": "A quality microfibre cloth set, steam cleaner, all-purpose cleaner, and storage organisers cover most spring cleaning needs."},
+            {"q": "When should I start mowing the lawn in the UK?", "a": "Most UK lawns benefit from a first cut in late March or early April."},
+            {"q": "What are popular spring home refresh ideas?", "a": "Lighter cushion covers, fresh indoor plants, new doormats, spring-scented candles, and updated bathroom accessories."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/home-and-kitchen">home &amp; kitchen</a>, 
-            <a href="/category/pet-supplies">pet supplies</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/easter">Easter gifts</a> or 
-            <a href="/season/mothers-day">Mother's Day picks</a>.""",
+        "internal_links": """Browse our <a href="/category/home-and-kitchen">home &amp; kitchen</a> or <a href="/season/easter">Easter gifts</a>.""",
         "itemlist_name": "Best Spring Picks 2026 UK"
     },
 
-    # ── NEW YEAR ESSENTIALS ──────────────────────────────────────────────
     "new-year-essentials": {
         "title": "New Year Essentials 2026 UK \u2014 Fresh Start Picks | FyboBuybo",
         "description": "Start 2026 right with curated new year essentials. Fitness, organisation, self-improvement, and home picks for UK shoppers.",
         "heading": "New Year Essentials 2026 \u2014 Fresh Start Picks",
         "subtitle": "New year, better habits. Practical picks for fitness, organisation, and self-improvement \u2014 updated daily.",
-        "intro": """January is the month of fresh starts, and having the right essentials makes new habits 
-            stick. Whether you're getting into fitness, organising your home, improving your diet, or 
-            just investing in a few quality upgrades for daily life, this collection brings together 
-            the most practical picks for the new year. Updated daily from thousands of Amazon UK products, 
-            every recommendation is chosen for genuine usefulness and strong UK buyer reviews \u2014 
-            no filler, no sponsored placements.""",
+        "intro": "January is the month of fresh starts. Whether you're getting into fitness, organising your home, or improving your diet, this collection brings together the most practical picks. Updated daily from Amazon UK products.",
         "buying_guide_title": "How to Choose New Year Essentials That Actually Last",
-        "buying_guide": """<strong>Pick one habit and equip it properly.</strong> Buying everything at once 
-            leads to overwhelm. Choose your main focus \u2014 fitness, cooking, reading, organising \u2014 
-            and invest in quality gear for that one thing.
-            <strong>Buy quality over quantity.</strong> A \u00a340 yoga mat that lasts years beats a \u00a310 one 
-            that peels after two months. January purchases should still be working in December.
-            <strong>Don't rely on motivation alone.</strong> Tools that make habits easier \u2014 a meal 
-            prep container set, a running watch, a planner \u2014 help when motivation dips.
-            <strong>Avoid the January rush.</strong> Popular fitness and organisation products sell fast 
-            in early January. Order in late December or early January for the best selection.""",
+        "buying_guide": """<strong>Pick one habit and equip it properly.</strong> Buying everything at once leads to overwhelm.
+            <strong>Buy quality over quantity.</strong> A \u00a340 yoga mat that lasts years beats a \u00a310 one that peels after two months.""",
         "faqs": [
-            {"q": "What are the best new year essentials for 2026?", "a": "Popular categories include fitness equipment (resistance bands, yoga mats, running gear), organisation tools (planners, storage solutions, label makers), kitchen upgrades for healthier cooking, and self-improvement books."},
-            {"q": "How do I stick to new year resolutions?", "a": "Research suggests starting with one specific, measurable goal rather than several vague ones. Having the right equipment, tracking progress, and building the habit into your existing routine all increase success rates significantly."},
-            {"q": "What fitness equipment is best for home workouts?", "a": "A yoga mat, a set of resistance bands, and a pair of adjustable dumbbells cover most home workout needs. These three items offer versatility for strength, flexibility, and cardio training without taking up much space."},
-            {"q": "What's a good planner for 2026?", "a": "Look for a planner with weekly and monthly views, goal-setting pages, and space for notes. UK-specific planners that include bank holidays and school term dates are particularly useful for families."},
-            {"q": "Is January a good time to buy fitness equipment?", "a": "January sees the widest selection but also the highest demand. Many items sell out quickly in the first two weeks. For the best prices, consider buying in late December when pre-new-year sales often start."}
+            {"q": "What are the best new year essentials for 2026?", "a": "Popular categories include fitness equipment, organisation tools, kitchen upgrades for healthier cooking, and self-improvement books."},
+            {"q": "How do I stick to new year resolutions?", "a": "Start with one specific, measurable goal. Having the right equipment and tracking progress increases success rates."},
+            {"q": "What fitness equipment is best for home workouts?", "a": "A yoga mat, resistance bands, and adjustable dumbbells cover most home workout needs."},
+            {"q": "What's a good planner for 2026?", "a": "Look for a planner with weekly and monthly views, goal-setting pages, and space for notes."},
+            {"q": "Is January a good time to buy fitness equipment?", "a": "January sees the widest selection but highest demand. Consider buying in late December when pre-new-year sales often start."}
         ],
-        "internal_links": """Looking for more inspiration? Browse our 
-            <a href="/category/health-and-personal-care">health &amp; personal care</a>, 
-            <a href="/category/sports-and-outdoors">sports &amp; outdoors</a>, or 
-            <a href="/blog">gift guides</a>. You might also like our 
-            <a href="/season/winter-essentials">winter essentials</a> or 
-            <a href="/season/spring">spring picks</a>.""",
+        "internal_links": """Browse our <a href="/category/health-and-personal-care">health &amp; personal care</a> or <a href="/category/sports-and-outdoors">sports &amp; outdoors</a> picks.""",
         "itemlist_name": "New Year Essentials 2026 UK"
     },
 }
@@ -3807,15 +3776,11 @@ SEASONAL_LANDING_PAGES = {
 # ============================================================================
 
 def generate_seasonal_content(season_slug, products):
-    """Generate editorial HTML + structured data for any seasonal landing page.
-    Returns: (content_before_grid, content_after_grid, faq_schema_json, itemlist_schema_json)
-    or (None, None, None, None) if no landing page data exists for this slug.
-    """
+    """Generate editorial HTML + structured data for any seasonal landing page."""
     page_data = SEASONAL_LANDING_PAGES.get(season_slug)
     if not page_data:
         return None, None, None, None
 
-    # ── Content before the product grid ──
     content_before = f"""
     <div style="max-width:780px;margin:0 auto;padding:0 52px 40px">
       <div class="blog-prose">
@@ -3826,7 +3791,6 @@ def generate_seasonal_content(season_slug, products):
     </div>
     """
 
-    # ── Buying guide ──
     buying_guide = f"""
     <div style="max-width:780px;margin:48px auto 0;padding:0 52px">
       <div class="blog-prose">
@@ -3838,7 +3802,6 @@ def generate_seasonal_content(season_slug, products):
     </div>
     """
 
-    # ── FAQ HTML ──
     faq_html = """
     <div style="max-width:780px;margin:56px auto 0;padding:0 52px">
       <div class="blog-prose">
@@ -3856,7 +3819,6 @@ def generate_seasonal_content(season_slug, products):
     </div>
     """
 
-    # ── Internal links ──
     links_html = f"""
     <div style="max-width:780px;margin:32px auto 48px;padding:0 52px">
       <div class="blog-prose">
@@ -3869,10 +3831,8 @@ def generate_seasonal_content(season_slug, products):
 
     content_after = buying_guide + faq_html + links_html
 
-    # ── FAQPage JSON-LD ──
     faq_schema = generate_faq_schema(page_data['faqs'])
 
-    # ── ItemList JSON-LD ──
     itemlist_items = []
     for idx, p in enumerate(products[:12], 1):
         itemlist_items.append({
@@ -3892,6 +3852,7 @@ def generate_seasonal_content(season_slug, products):
     }, ensure_ascii=False) if itemlist_items else None
 
     return content_before, content_after, faq_schema, itemlist_schema
+
 
 # ============================================================================
 # ROUTES
@@ -3944,8 +3905,9 @@ def category(slug, page=1):
     if not filtered: abort(404)
     cat_name = filtered[0]["category"]
     def page_url(p): return url_for("category", slug=slug, page=p)
+    # CHANGE 6: Updated meta title format — "Handpicked for UK Shoppers"
     return render_page(
-        title=f"Best {cat_name} Gifts UK 2026 – Curated Picks | FyboBuybo",
+        title=f"Best {cat_name} Gifts UK 2026 — Handpicked for UK Shoppers | FyboBuybo",
         description=f"Hand-picked {cat_name.lower()} gift ideas for UK shoppers in 2026. Browse curated recommendations — find something they'll love.",
         heading=f"Best {cat_name} Gifts UK 2026",
         subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — updated regularly.",
@@ -3964,11 +3926,9 @@ def seasonal_collection(season_slug, page=1):
     def page_url(p): return url_for("seasonal_collection", season_slug=season_slug, page=p)
     title_season = season_name + (" Gifts" if "day" in season_name.lower() or "christmas" in season_name.lower() else "")
 
-    # ── Check for a custom landing page ──
     content_before, content_after, faq_schema_json, itemlist_schema_json = generate_seasonal_content(season_slug, filtered)
 
     if content_before is not None:
-        # This season has a full landing page
         page_data = SEASONAL_LANDING_PAGES[season_slug]
 
         rendered = render_page(
@@ -3982,7 +3942,6 @@ def seasonal_collection(season_slug, page=1):
             itemlist_schema=itemlist_schema_json
         )
 
-        # Inject the after-grid content (buying guide + FAQ + links) before the footer
         footer_marker = "<!-- \u2550\u2550\u2550 FOOTER"
         insert_point = rendered.find(footer_marker)
         if insert_point > -1:
@@ -3990,7 +3949,6 @@ def seasonal_collection(season_slug, page=1):
 
         return rendered
 
-    # ── Fallback: default behaviour for any season without a landing page ──
     return render_page(
         title=f"Best {title_season} UK 2026 \u2013 Gift Ideas | FyboBuybo",
         description=f"Curated {season_name.lower()} gift ideas for UK shoppers in 2026. Browse hand-picked recommendations \u2014 find the perfect gift.",
@@ -4076,8 +4034,10 @@ def product_detail(product_slug):
       </div>
     </div>"""
 
+    # CHANGE 7: Contextual meta title using get_product_title_suffix()
+    suffix = get_product_title_suffix(found)
     return render_page(
-        title=f"{shorten_product_name(found['name'], 45)} – UK Gift Pick | FyboBuybo",
+        title=f"{shorten_product_name(found['name'], 45)} — {suffix} | FyboBuybo",
         description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery via Amazon Prime.",
         heading="", subtitle="",
         products=None, similar_products=similar,
@@ -4282,14 +4242,12 @@ def blog_detail(slug):
     if not related:
         related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
-    # Collect FAQs from related products for structured data
     blog_faqs = []
     for rp in related:
         if rp.get("faqs"):
             blog_faqs.extend(rp["faqs"][:2])
     blog_faq_schema_json = generate_faq_schema(blog_faqs[:10]) if blog_faqs else None
 
-    # ItemList schema for blog product picks
     blog_itemlist_schema = None
     if related:
         itemlist_items = []
@@ -4327,7 +4285,6 @@ def blog_detail(slug):
     </div>
     """
 
-    # Inject FAQ schema into blog content if available
     if blog_faq_schema_json:
         content_html = f'<script type="application/ld+json">{blog_faq_schema_json}</script>\n' + content_html
 
