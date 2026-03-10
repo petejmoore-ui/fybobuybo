@@ -25,7 +25,7 @@ BLOG_POSTS = {
         "budget gifts for girlfriend",
         "under 30 pounds gift ideas women"
     ],
-    "featured_image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+    "featured_image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
     "featured_image_alt": "Luxury scented candle gift set — thoughtful gift for her under £30",
 
     "article_type": "Article",
