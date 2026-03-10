@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ============================================================================
 # FYBOBUYBO app.py — ELITE REDESIGN v5.2
 # COLOUR SYSTEM — "Trusted Curator"
@@ -9,6 +10,15 @@
 #   - select_hook_type: expanded to 10 styles, bug fix, proper connection
 #   - Ticker, hero, subtitles, disclosures, trust signals all rewritten
 #   - Post-processing ownership-language guard added
+# PATCH v5.2.1 — Structured Data & Meta Tags Upgrade
+#   - Honest Product schema (no fake offers/shipping/ratings)
+#   - FAQPage schema on product + blog pages
+#   - WebSite schema with SearchAction on all pages
+#   - Dynamic og:type (product/article/website)
+#   - Grid card microdata removed (misleading for non-shop)
+#   - Category/season/product meta titles improved
+#   - Blog FAQ schema injection from related products
+#   - New helpers: generate_faq_schema, generate_website_schema, extract_brand_name
 # ============================================================================
 
 import os
@@ -184,46 +194,26 @@ def get_similar_products(product, all_products, limit=6):
         similar.extend(season_matches[:(limit - len(similar))])
     return similar[:limit]
 
+
+# ============================================================================
+# STRUCTURED DATA HELPERS — PATCH v5.2.1
+# ============================================================================
+
 def generate_product_schema(product):
-    from datetime import datetime, timedelta
-    price_info = get_product_price_rating(product)
-    price_value = None
-    if price_info.get("price"):
-        price_str = format_price_display(price_info["price"])
-        price_nums = re.findall(r'\d+\.?\d*', price_str)
-        if price_nums: price_value = float(price_nums[0])
+    """Generate Product JSON-LD with only factual, verifiable attributes.
+    No offers (we don't sell), no ratings (not our reviews),
+    no shipping (we don't ship). Just the product identity."""
+    brand_name = extract_brand_name(product["name"])
     schema = {
-        "@context": "https://schema.org", "@type": "Product",
+        "@context": "https://schema.org",
+        "@type": "Product",
         "name": product["name"],
         "description": (product.get("info") or product.get("hook") or "")[:200],
         "image": product.get("image", ""),
-        "brand": {"@type": "Brand", "name": "Various"},
-        "sku": product.get("asin", "")
+        "brand": {"@type": "Brand", "name": brand_name},
+        "sku": product.get("asin", ""),
+        "url": SITE_URL + "/product/" + slugify(product["name"])
     }
-    if price_value:
-        valid_until = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
-        schema["offers"] = {
-            "@type": "Offer", "url": product.get("url", ""),
-            "availability": "https://schema.org/InStock",
-            "seller": {"@type": "Organization", "name": "Amazon UK"},
-            "hasMerchantReturnPolicy": {
-                "@type": "MerchantReturnPolicy", "applicableCountry": "GB",
-                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                "merchantReturnDays": 30,
-                "returnMethod": "https://schema.org/ReturnByMail",
-                "returnFees": "https://schema.org/FreeReturn"
-            },
-            "shippingDetails": {
-                "@type": "OfferShippingDetails",
-                "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "GBP"},
-                "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "GB"},
-                "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 2, "unitCode": "DAY"},
-                    "transitTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY"}
-                }
-            }
-        }
     return json.dumps(schema, ensure_ascii=False)
 
 def generate_breadcrumb_schema(breadcrumbs):
@@ -232,6 +222,51 @@ def generate_breadcrumb_schema(breadcrumbs):
         if not url.startswith('http'): url = SITE_URL + url
         items.append({"@type": "ListItem", "position": idx, "name": name, "item": url})
     return json.dumps({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}, ensure_ascii=False)
+
+def generate_faq_schema(faqs):
+    """Generate FAQPage JSON-LD from a list of Q&A dicts."""
+    if not faqs:
+        return None
+    entries = []
+    for faq in faqs:
+        if faq.get("q") and faq.get("a"):
+            entries.append({
+                "@type": "Question",
+                "name": faq["q"],
+                "acceptedAnswer": {"@type": "Answer", "text": faq["a"]}
+            })
+    if not entries:
+        return None
+    return json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": entries}, ensure_ascii=False)
+
+def generate_website_schema():
+    """Generate WebSite JSON-LD with SearchAction for sitelinks searchbox."""
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "FyboBuybo",
+        "url": SITE_URL + "/",
+        "description": "Independent gift curation for UK shoppers — every pick is hand-chosen.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {"@type": "EntryPoint", "urlTemplate": SITE_URL + "/?q={search_term_string}"},
+            "query-input": "required name=search_term_string"
+        }
+    }, ensure_ascii=False)
+
+def extract_brand_name(product_name):
+    """Extract brand name from the first word(s) of a product name."""
+    if not product_name:
+        return "Various"
+    generic_words = {"the", "a", "an", "best", "new", "premium", "luxury",
+                     "classic", "original", "set", "pack", "pair", "box"}
+    words = product_name.split()
+    if not words:
+        return "Various"
+    first = words[0].strip("'\"")
+    if first.lower() in generic_words and len(words) > 1:
+        return words[0] + " " + words[1]
+    return first
 
 def ping_search_engines():
     sitemap_url = f"{SITE_URL}/sitemap.xml"
@@ -2599,7 +2634,7 @@ article .card a[href*='amazon'] {
 
 
 # ============================================================================
-# BASE HTML TEMPLATE — v5.2
+# BASE HTML TEMPLATE — v5.2 (PATCH v5.2.1: dynamic og:type, faq/website schema slots)
 # ============================================================================
 
 BASE_HTML = """<!DOCTYPE html>
@@ -2618,7 +2653,7 @@ BASE_HTML = """<!DOCTYPE html>
 
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description | truncate(200,true,'...') }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ og_type }}">
 <meta property="og:url" content="{{ canonical_url }}">
 <meta property="og:site_name" content="FyboBuybo">
 <meta property="og:locale" content="en_GB">
@@ -2635,6 +2670,8 @@ BASE_HTML = """<!DOCTYPE html>
 
 {% if structured_data %}<script type="application/ld+json">{{ structured_data|safe }}</script>{% endif %}
 {% if breadcrumb_schema %}<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>{% endif %}
+{% if faq_schema %}<script type="application/ld+json">{{ faq_schema|safe }}</script>{% endif %}
+{% if website_schema %}<script type="application/ld+json">{{ website_schema|safe }}</script>{% endif %}
 
 {{ css|safe }}
 </head>
@@ -2851,11 +2888,11 @@ BASE_HTML = """<!DOCTYPE html>
 <div class="grid" role="list">
   {% for p in products %}
   {% set price_info = get_product_price_rating(p) %}
-  <article class="card reveal" style="animation-delay:{{ loop.index0 * 0.04 }}s" role="listitem" itemscope itemtype="https://schema.org/Product">
+  <article class="card reveal" style="animation-delay:{{ loop.index0 * 0.04 }}s" role="listitem">
     <div class="card-img">
       <span class="card-badge">{{ p.category }}</span>
       <a href="/product/{{ slugify(p.name) }}" tabindex="-1" aria-hidden="true">
-        <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" width="400" height="400" itemprop="image">
+        <img src="{{ p.image }}" alt="{{ p.name }}" loading="lazy" width="400" height="400">
       </a>
       <div class="card-quick" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -2864,8 +2901,8 @@ BASE_HTML = """<!DOCTYPE html>
 
     <div class="card-body">
       <div class="card-cat">{{ p.category }}</div>
-      <a href="/product/{{ slugify(p.name) }}" class="card-name" itemprop="name">{{ shorten_product_name(p.name) }}</a>
-      <p class="card-hook" itemprop="description">{{ p.hook|safe }}</p>
+      <a href="/product/{{ slugify(p.name) }}" class="card-name">{{ shorten_product_name(p.name) }}</a>
+      <p class="card-hook">{{ p.hook|safe }}</p>
 
       {% if price_info.rating %}
       <div class="card-rating">
@@ -2876,7 +2913,7 @@ BASE_HTML = """<!DOCTYPE html>
 
       <div class="card-div"></div>
       {% if p.date_added %}
-      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:10px;letter-spacing:.02em" itemprop="dateModified" content="{{ p.date_added }}">Updated {{ p.date_added }}</div>
+      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:10px;letter-spacing:.02em">Updated {{ p.date_added }}</div>
       {% endif %}
       <div class="card-cta">
         {% if p.url %}
@@ -3226,7 +3263,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 
 # ============================================================================
-# RENDER PAGE
+# RENDER PAGE — PATCH v5.2.1
 # ============================================================================
 
 def render_page(title, description, heading, subtitle, products=None, page=1,
@@ -3256,6 +3293,23 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
     structured_data = None
     if paged_products and len(paged_products) == 1:
         structured_data = generate_product_schema(paged_products[0])
+
+    # FAQ schema for product pages
+    faq_schema = None
+    if paged_products and len(paged_products) == 1:
+        product_faqs = paged_products[0].get("faqs", [])
+        if product_faqs:
+            faq_schema = generate_faq_schema(product_faqs)
+
+    # WebSite schema on every page
+    website_schema = generate_website_schema()
+
+    # Dynamic og:type
+    og_type = "website"
+    if '/product/' in request.path:
+        og_type = "product"
+    elif '/blog/' in request.path and request.path != '/blog' and '/page/' not in request.path:
+        og_type = "article"
 
     breadcrumb_schema = None
     breadcrumbs = [("Home", "/")]
@@ -3288,6 +3342,9 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
         format_rating_display=format_rating_display,
         today=today, today_formatted=today_formatted,
         structured_data=structured_data, breadcrumb_schema=breadcrumb_schema,
+        faq_schema=faq_schema,
+        website_schema=website_schema,
+        og_type=og_type,
         article_date=article_date, content=content or "",
         cookie_consent="", total_posts=total_posts
     )
@@ -3345,8 +3402,8 @@ def category(slug, page=1):
     cat_name = filtered[0]["category"]
     def page_url(p): return url_for("category", slug=slug, page=p)
     return render_page(
-        title=f"Best {cat_name} Gifts UK 2026 | Trending Picks – FyboBuybo",
-        description=f"Explore popular {cat_name.lower()} gifts loved by UK shoppers – updated daily.",
+        title=f"Best {cat_name} Gifts UK 2026 – Curated Picks | FyboBuybo",
+        description=f"Hand-picked {cat_name.lower()} gift ideas for UK shoppers in 2026. Browse curated recommendations — find something they'll love.",
         heading=f"Best {cat_name} Gifts UK 2026",
         subtitle=f"The best {cat_name.lower()} gift ideas for UK shoppers in 2026 — updated regularly.",
         products=filtered, page=page, page_url=page_url
@@ -3364,8 +3421,8 @@ def seasonal_collection(season_slug, page=1):
     def page_url(p): return url_for("seasonal_collection", season_slug=season_slug, page=p)
     title_season = season_name + (" Gifts" if "day" in season_name.lower() or "christmas" in season_name.lower() else "")
     return render_page(
-        title=f"Best {title_season} 2026 – FyboBuybo",
-        description=f"Discover the most popular {season_name.lower()} gifts for UK shoppers in 2026.",
+        title=f"Best {title_season} UK 2026 – Gift Ideas | FyboBuybo",
+        description=f"Curated {season_name.lower()} gift ideas for UK shoppers in 2026. Browse hand-picked recommendations — find the perfect gift.",
         heading=title_season,
         subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with recommendations.",
         products=filtered, page=page, page_url=page_url
@@ -3449,7 +3506,7 @@ def product_detail(product_slug):
     </div>"""
 
     return render_page(
-        title=f"{shorten_product_name(found['name'], 50)} | UK Reviews – FyboBuybo",
+        title=f"{shorten_product_name(found['name'], 45)} – UK Gift Pick | FyboBuybo",
         description=f"{found.get('info', '')[:120].rstrip()} – Loved by UK shoppers. Free delivery via Amazon Prime.",
         heading="", subtitle="",
         products=None, similar_products=similar,
@@ -3654,6 +3711,13 @@ def blog_detail(slug):
     if not related:
         related = [p for p in all_products if p["category"] in ["Home & Kitchen", "Electronics"]][:6]
 
+    # Collect FAQs from related products for structured data
+    blog_faqs = []
+    for rp in related:
+        if rp.get("faqs"):
+            blog_faqs.extend(rp["faqs"][:2])
+    blog_faq_schema_json = generate_faq_schema(blog_faqs[:10]) if blog_faqs else None
+
     from jinja2 import Template
     raw_content = post.get("content", "<p>Content coming soon.</p>")
     content_html_body = Template(raw_content).render(slugify=slugify)
@@ -3672,6 +3736,10 @@ def blog_detail(slug):
       <div class="blog-prose">{content_html_body}</div>
     </div>
     """
+
+    # Inject FAQ schema into blog content if available
+    if blog_faq_schema_json:
+        content_html = f'<script type="application/ld+json">{blog_faq_schema_json}</script>\n' + content_html
 
     return render_page(
         title=post["title"],
