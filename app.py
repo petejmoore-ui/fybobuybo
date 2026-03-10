@@ -2672,6 +2672,7 @@ BASE_HTML = """<!DOCTYPE html>
 {% if breadcrumb_schema %}<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>{% endif %}
 {% if faq_schema %}<script type="application/ld+json">{{ faq_schema|safe }}</script>{% endif %}
 {% if website_schema %}<script type="application/ld+json">{{ website_schema|safe }}</script>{% endif %}
+{% if itemlist_schema %}<script type="application/ld+json">{{ itemlist_schema|safe }}</script>{% endif %}
 
 {{ css|safe }}
 </head>
@@ -3268,7 +3269,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 def render_page(title, description, heading, subtitle, products=None, page=1,
                 page_url=None, similar_products=None, today=None,
-                today_formatted=None, article_date=None, content=None, total_posts=None):
+                today_formatted=None, article_date=None, content=None, total_posts=None, **kwargs):
     theme = get_daily_theme()
     css = render_template_string(CSS_TEMPLATE, **theme)
     nav_items = get_nav_items()
@@ -3294,9 +3295,9 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
     if paged_products and len(paged_products) == 1:
         structured_data = generate_product_schema(paged_products[0])
 
-    # FAQ schema for product pages
-    faq_schema = None
-    if paged_products and len(paged_products) == 1:
+    # FAQ schema — allow override from seasonal/special pages, fallback to product FAQ
+    faq_schema = kwargs.get("faq_schema_override") or None
+    if not faq_schema and paged_products and len(paged_products) == 1:
         product_faqs = paged_products[0].get("faqs", [])
         if product_faqs:
             faq_schema = generate_faq_schema(product_faqs)
@@ -3346,9 +3347,135 @@ def render_page(title, description, heading, subtitle, products=None, page=1,
         website_schema=website_schema,
         og_type=og_type,
         article_date=article_date, content=content or "",
+        itemlist_schema=kwargs.get("itemlist_schema"),
         cookie_consent="", total_posts=total_posts
     )
+def generate_mothers_day_content(products):
+    """Generate editorial HTML + structured data for the Mother's Day landing page.
+    Returns: (content_before_grid, content_after_grid, faq_schema_json, itemlist_schema_json)
+    """
 
+    # ── Editorial intro targeting "best Mother's Day gifts 2026 UK" ──
+    content_before = """
+    <div style="max-width:780px;margin:0 auto;padding:0 52px 40px">
+      <div class="blog-prose">
+        <p style="font-size:1.08rem;line-height:1.85;color:var(--muted);font-weight:300">
+          Mother's Day in the UK falls on <strong>Sunday 15 March 2026</strong> this year,
+          and finding something she'll genuinely love — not just another token gesture — takes
+          a bit of thought. That's what this page is for. We hand-pick and update these
+          recommendations daily, drawing from thousands of highly rated products on Amazon UK.
+          Whether your mum is into skincare, home comforts, books, or gadgets, you'll find
+          something here that feels personal and considered. Every pick below has been chosen
+          for quality, thoughtful gifting potential, and strong UK buyer reviews — no filler,
+          no sponsored placements.
+        </p>
+      </div>
+    </div>
+    """
+
+    # ── Buying guide ──
+    buying_guide = """
+    <div style="max-width:780px;margin:48px auto 0;padding:0 52px">
+      <div class="blog-prose">
+        <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">How to Choose the Perfect Mother's Day Gift</h2>
+        <p style="font-size:.98rem;line-height:1.82;color:var(--ink-3);font-weight:300">
+          <strong>Think about her actual routine.</strong> The best gifts fit into her life — a quality
+          skincare product she'd use every morning, a kitchen gadget she's been eyeing, or a book from
+          an author she already loves.
+          <strong>Don't overthink the price.</strong> A thoughtful £15 gift that shows you know her
+          beats an expensive one that misses the mark. Focus on what she'd choose for herself.
+          <strong>Presentation counts.</strong> Most Amazon UK items offer gift wrapping at checkout —
+          it's a small detail that makes a real difference.
+          <strong>Order by 12 March</strong> for standard delivery, or check for next-day Prime options
+          if you're cutting it close.
+        </p>
+      </div>
+    </div>
+    """
+
+    # ── FAQ data ──
+    faqs = [
+        {
+            "q": "When is Mother's Day 2026 in the UK?",
+            "a": "Mother's Day 2026 in the UK is Sunday 15 March. It falls on the fourth Sunday of Lent each year, so the date changes annually. In 2027 it will be 30 March."
+        },
+        {
+            "q": "What are the most popular Mother's Day gifts in the UK?",
+            "a": "According to UK retail trends, the most popular categories are flowers, chocolates, fragrances, skincare sets, and personalised gifts such as photo books or engraved jewellery. Experiences like spa days and afternoon teas have also grown in popularity."
+        },
+        {
+            "q": "What should I buy my mum if I don't know what she likes?",
+            "a": "A luxury hand cream or candle set from a well-known brand tends to be a safe and appreciated choice. These are items most people enjoy but rarely buy for themselves. Look for highly rated options with strong reviews from UK buyers."
+        },
+        {
+            "q": "How much should I spend on a Mother's Day gift?",
+            "a": "There is no fixed rule, but UK shoppers typically spend between £15 and £50 on a Mother's Day gift. The thought behind the gift matters more than the price — a well-chosen £20 present can feel more personal than something expensive but generic."
+        },
+        {
+            "q": "Can I get Mother's Day gifts delivered in time?",
+            "a": "If you order through Amazon UK by around 12 March 2026, standard delivery should arrive before Mother's Day on 15 March. Amazon Prime members can often get next-day or same-day delivery on eligible items right up to 14 March."
+        }
+    ]
+
+    # ── FAQ HTML ──
+    faq_html = """
+    <div style="max-width:780px;margin:56px auto 0;padding:0 52px">
+      <div class="blog-prose">
+        <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">Frequently Asked Questions</h2>
+    """
+    for faq in faqs:
+        faq_html += f"""
+        <div style="margin:24px 0;padding-bottom:20px;border-bottom:1px solid var(--divider)">
+          <h3 style="font-size:1.15rem;margin:0 0 10px;font-family:'Cormorant Garamond',serif;color:var(--ink);letter-spacing:-.02em">{faq['q']}</h3>
+          <p style="font-size:.94rem;line-height:1.78;color:var(--muted);margin:0;font-weight:300">{faq['a']}</p>
+        </div>
+        """
+    faq_html += """
+      </div>
+    </div>
+    """
+
+    # ── Internal links ──
+    links_html = """
+    <div style="max-width:780px;margin:32px auto 48px;padding:0 52px">
+      <div class="blog-prose">
+        <p style="font-size:.92rem;line-height:1.75;color:var(--muted);font-weight:300">
+          Looking for more inspiration? Browse our
+          <a href="/category/beauty">beauty gifts</a>,
+          <a href="/category/home-and-kitchen">home &amp; kitchen picks</a>, or
+          <a href="/blog">gift guides</a> for more ideas.
+          You might also like our <a href="/season/valentines-day">Valentine's Day</a> or
+          <a href="/season/easter">Easter gift collections</a>.
+        </p>
+      </div>
+    </div>
+    """
+
+    content_after = buying_guide + faq_html + links_html
+
+    # ── FAQPage JSON-LD ──
+    faq_schema = generate_faq_schema(faqs)
+
+    # ── ItemList JSON-LD ──
+    itemlist_items = []
+    for idx, p in enumerate(products[:12], 1):
+        itemlist_items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "name": p["name"],
+            "url": SITE_URL + "/product/" + slugify(p["name"])
+        })
+
+    itemlist_schema = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Best Mother's Day Gifts 2026 UK",
+        "description": "Hand-picked Mother's Day gift ideas for UK shoppers, updated daily.",
+        "numberOfItems": len(itemlist_items),
+        "itemListElement": itemlist_items
+    }, ensure_ascii=False) if itemlist_items else None
+
+    return content_before, content_after, faq_schema, itemlist_schema
 
 # ============================================================================
 # ROUTES
@@ -3409,8 +3536,8 @@ def category(slug, page=1):
         products=filtered, page=page, page_url=page_url
     )
 
-@app.route("/season/<season_slug>")
-@app.route("/season/<season_slug>/page/<int:page>")
+# @app.route("/season/<season_slug>")
+# @app.route("/season/<season_slug>/page/<int:page>")
 def seasonal_collection(season_slug, page=1):
     all_products = refresh_products(background=True)
     norm_slug = normalize_for_match(season_slug)
@@ -3420,11 +3547,36 @@ def seasonal_collection(season_slug, page=1):
     season_name = season_slug.replace('-', ' ').title()
     def page_url(p): return url_for("seasonal_collection", season_slug=season_slug, page=p)
     title_season = season_name + (" Gifts" if "day" in season_name.lower() or "christmas" in season_name.lower() else "")
+
+    # ── Mother's Day: full SEO landing page ──────────────────────────────
+    if season_slug == "mothers-day":
+        content_before, content_after, faq_schema_json, itemlist_schema_json = generate_mothers_day_content(filtered)
+
+        rendered = render_page(
+            title="Best Mother's Day Gifts 2026 UK \u2014 Unique Ideas for Every Mum | FyboBuybo",
+            description="Discover handpicked Mother\u2019s Day gift ideas for 2026, curated for UK shoppers. From beauty to home \u2014 find something she\u2019ll actually love.",
+            heading="Best Mother\u2019s Day Gifts 2026 \u2014 Thoughtful Ideas for Every Mum",
+            subtitle="Hand-picked daily from thousands of top-rated Amazon UK products. No sponsored picks \u2014 just gifts she\u2019ll genuinely love.",
+            products=filtered, page=page, page_url=page_url,
+            content=content_before,
+            faq_schema_override=faq_schema_json,
+            itemlist_schema=itemlist_schema_json
+        )
+
+        # Inject the after-grid content (buying guide + FAQ + links) before the footer
+        footer_marker = "<!-- \u2550\u2550\u2550 FOOTER"
+        insert_point = rendered.find(footer_marker)
+        if insert_point > -1:
+            rendered = rendered[:insert_point] + content_after + "\n" + rendered[insert_point:]
+
+        return rendered
+
+    # ── All other seasonal pages: unchanged default behaviour ────────────
     return render_page(
-        title=f"Best {title_season} UK 2026 – Gift Ideas | FyboBuybo",
-        description=f"Curated {season_name.lower()} gift ideas for UK shoppers in 2026. Browse hand-picked recommendations — find the perfect gift.",
+        title=f"Best {title_season} UK 2026 \u2013 Gift Ideas | FyboBuybo",
+        description=f"Curated {season_name.lower()} gift ideas for UK shoppers in 2026. Browse hand-picked recommendations \u2014 find the perfect gift.",
         heading=title_season,
-        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers — handpicked with recommendations.",
+        subtitle=f"Top-rated {season_name.lower()} gift ideas for UK shoppers \u2014 handpicked with recommendations.",
         products=filtered, page=page, page_url=page_url
     )
 
