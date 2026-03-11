@@ -59,11 +59,6 @@ cache = Cache(app, config={
 from gift_finder import gift_finder_bp
 app.register_blueprint(gift_finder_bp)
 
-if os.environ.get("STAGING") == "true":
-    @app.after_request
-    def add_header(response):
-        response.headers['X-Robots-Tag'] = 'noindex, nofollow'
-        return response
 
 
 CACHE_FILE = "data/cache.json"
