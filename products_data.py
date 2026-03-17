@@ -12,6 +12,7 @@ PRODUCTS = [
     "url": "https://amzn.to/3NgeNrZ",
     "asin": "B001GAP4YA",
     "info": "DAS Air Hardening Clay is an Italian modelling clay produced since 1963. This 1kg white block sets naturally at room temperature within 24 hours with no oven, kiln, or specialist tools required. AP certified non-toxic, acid-free, gluten-free, and dermatologically tested — it adheres to wood, cardboard, plastic, metal, and glass, and can be sanded, carved, or painted once dry.",
+    "hook_override": "Italian-made since 1963, this 1kg block air-hardens at room temperature in 24 hours — <b>no oven, kiln, or specialist tools needed</b>. AP certified non-toxic and water-washable, making it genuinely suitable for kids and adults alike.",
     "last_updated": "2026-03-04",
     "date_added": "2026-03-04",
     "manual_price": "",
