@@ -2594,284 +2594,580 @@ PRODUCTS = [
 
 
     {
-        "name": "SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her",
-        "category": "Toys & Games",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4qWBiAH?tag=whoaccepts-21",
-        "asin": "B0B8T5N7K2",
-        "info": "Fun and cheeky couples card game with real-life challenges designed to spark laughter, connection, and memorable date nights – includes flirty, silly, and adventurous prompts. Easy to play, no complicated rules – bestselling gift for anniversaries, Valentine's, or keeping the spark alive.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["couples game", "date night", "relationship game", "adult card game", "Valentine's gift"],
-        "pain_points": ["boring date nights", "lack of excitement", "routine in relationship"],
-        "benefits": ["sparks laughter", "deepens connection", "easy to play", "flirty & fun", "repeatable"],
-        "price_tier": "romantic essential",
-        "highlights": [
-            "100+ real-life challenges from flirty to adventurous",
-            "Perfect icebreaker for new couples or long-term spice",
-            "No setup required – just draw and do",
-            "Compact box for travel or spontaneous nights",
-            "Great for anniversaries, Valentine's, or weekly date nights"
-        ],
-        "faqs": [
-            {"q": "Is it suitable for all relationship stages?", "a": "Yes – includes gentle, fun, and spicier challenges so couples can pick what suits their comfort level."},
-            {"q": "How long does a game last?", "a": "20–60 minutes depending on how many challenges you complete – perfect for one evening or multiple sessions."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "SERVD Couples Card Game - Hilarious Real-Life Date Night Challenges for Him & Her",
+    "category": "Toys & Games",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/61Z6jkLMbGL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4qWBiAH?tag=whoaccepts-21",
+    "asin": "B0B8T5N7K2",
+    "info": "SERVD is a couples card game containing 100+ real-life challenge cards ranging from light and playful to flirty and adventurous. No setup or complicated rules — draw a card and complete the challenge. The compact box fits in a bag for travel or spontaneous use. Suitable for new couples and long-term relationships.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "SERVD couples card game UK",
+        "date night card game couples",
+        "couples challenge game Valentine's UK",
+        "relationship card game adults",
+        "fun couples game anniversary gift UK"
+    ],
+    "pain_points": [
+        "Date nights that default to the same restaurant or film every time",
+        "Couples card games with overcomplicated rules that kill the mood",
+        "Gifts for couples that feel generic or impersonal",
+        "Wanting something interactive rather than another consumable gift"
+    ],
+    "benefits": [
+        "100+ real-life challenge cards from playful to adventurous",
+        "No setup or rules — draw a card and complete the challenge",
+        "Suitable for new couples and long-term relationships",
+        "Compact box fits in a bag for travel or spontaneous use",
+        "Replayable across multiple sessions"
+    ],
+    "price_tier": "romantic essential",
+    "highlights": [
+        "100+ real-life challenge cards ranging from light and playful to flirty and adventurous",
+        "No setup required — draw a card and complete the challenge, no rulebook needed",
+        "Suitable for new couples and long-term relationships at varying comfort levels",
+        "Compact box designed to fit in a bag for travel or spontaneous date nights",
+        "Replayable across multiple evenings — not a single-use experience"
+    ],
+    "faqs": [
+        {
+            "q": "Is SERVD suitable for couples at different relationship stages?",
+            "a": "SERVD states the game includes challenges at varying levels from gentle and fun through to flirty and adventurous, allowing couples to pick challenges that suit their comfort level regardless of how long they have been together."
+        },
+        {
+            "q": "How long does a typical game session last?",
+            "a": "SERVD states a session typically lasts 20–60 minutes depending on how many challenges the couple completes. The format means it can be played in a single evening or picked up across multiple occasions without losing momentum."
+        },
+        {
+            "q": "Is this suitable as a Valentine's Day gift?",
+            "a": "Yes — the game is designed around date night scenarios and includes challenges that encourage connection and laughter, making it a practical Valentine's gift for couples who want an activity rather than another object to put on a shelf."
+        }
+    ],
+    "hook_override": "A couples card game with <b>100+ real-life challenges from playful to adventurous</b> — no setup, no rulebook, just draw a card and do it. Compact enough to pack in a bag for a weekend away and replayable across multiple evenings rather than a one-night experience.",
+    "gift_finder_tags": {
+        "recipient": ["partner", "her", "him"],
+        "interests": ["home", "arts"],
+        "occasion": ["valentines", "birthday", "anniversary", "justbecause"],
+        "why": "For couples who want something to actually do together rather than another gift to unwrap and put away — the no-setup format means it gets used the same evening it's given."
+    }
+},
 
     {
-        "name": "SWOMOG Women's Satin Pyjama Set - Long Sleeve Button-Down Silk Loungewear Two-Piece Sleepwear",
-        "category": "Fashion",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4qgKEqE?tag=whoaccepts-21",
-        "asin": "B08L5N7K2P",
-        "info": "Luxurious satin pyjama set with long-sleeve button-down shirt and elastic-waist trousers – silky smooth, lightweight and breathable for ultimate comfort. Classic piping detail and multiple colours – bestselling loungewear gift for cosy nights in, self-care routines, or romantic occasions.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["satin pyjamas", "silk loungewear", "women's pyjamas", "Valentine's gift", "luxury sleepwear"],
-        "pain_points": ["uncomfortable nightwear", "boring loungewear", "gift for her"],
-        "benefits": ["buttery soft satin", "breathable comfort", "elegant look", "perfect fit", "romantic vibe"],
-        "price_tier": "romantic luxury",
-        "highlights": [
-            "Premium satin fabric – feels like real silk but machine washable",
-            "Classic button-down shirt + elastic-waist trousers",
-            "Available in multiple elegant colours",
-            "Lightweight and temperature-regulating for year-round wear",
-            "Perfect gift packaging ready for Valentine's or birthdays"
-        ],
-        "faqs": [
-            {"q": "Is the fabric real silk?", "a": "High-quality satin (polyester-based) – looks and feels like silk but more affordable and easier to care for."},
-            {"q": "What sizes are available?", "a": "XS–XXL – true to size, slightly relaxed fit for comfort."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "SWOMOG Women's Satin Pyjama Set - Long Sleeve Button-Down Silk Loungewear Two-Piece Sleepwear",
+    "category": "Fashion",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/51PY8sVHlWL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4qgKEqE?tag=whoaccepts-21",
+    "asin": "B08L5N7K2P",
+    "info": "A two-piece satin pyjama set comprising a long-sleeve button-down shirt and elasticated-waist trousers. The fabric is polyester satin — smooth and lightweight with a silk-like finish, but machine washable. Available in multiple colours with classic piping detail. SWOMOG states the fit is slightly relaxed across sizes XS to XXL.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "SWOMOG satin pyjama set women UK",
+        "satin loungewear gift for her UK",
+        "silk look pyjamas machine washable",
+        "button down satin sleepwear women",
+        "Valentine's pyjama gift women UK"
+    ],
+    "pain_points": [
+        "Pyjamas that feel rough, heavy, or uncomfortable against skin overnight",
+        "Loungewear that looks presentable but isn't practical for sleeping in",
+        "Silk pyjamas that require dry cleaning or delicate hand washing",
+        "Finding a gift for her that feels indulgent without a luxury price tag"
+    ],
+    "benefits": [
+        "Polyester satin with silk-like finish — smooth and lightweight against skin",
+        "Machine washable despite the silk-like appearance",
+        "Long-sleeve button-down shirt with elasticated-waist trousers",
+        "Classic piping detail for a polished loungewear look",
+        "Available in multiple colours across sizes XS to XXL"
+    ],
+    "price_tier": "romantic luxury",
+    "highlights": [
+        "Polyester satin construction — smooth silk-like finish that is machine washable",
+        "Two-piece set: long-sleeve button-down shirt and elasticated-waist trousers",
+        "Classic piping detail gives a polished finish compared to standard jersey pyjamas",
+        "Available in multiple colours — SWOMOG states sizes run XS to XXL with a slightly relaxed fit",
+        "Lightweight and temperature-regulating for comfortable year-round wear"
+    ],
+    "faqs": [
+        {
+            "q": "Is the fabric real silk?",
+            "a": "No — SWOMOG states the fabric is polyester satin, which has a smooth silk-like finish and drape but is more affordable and machine washable. It is not made from natural silk fibres."
+        },
+        {
+            "q": "How does the sizing run?",
+            "a": "SWOMOG states the set is available in sizes XS to XXL with a slightly relaxed fit designed for comfort. Check the current Amazon UK listing for the size guide with specific measurements before ordering."
+        },
+        {
+            "q": "How should the satin pyjamas be washed?",
+            "a": "SWOMOG states the set is machine washable. To preserve the satin finish, washing inside-out on a gentle cycle with a mild detergent and avoiding tumble drying at high heat is generally recommended for polyester satin fabrics."
+        }
+    ],
+    "hook_override": "A two-piece satin pyjama set with a <b>silk-like polyester finish that is machine washable</b> — long-sleeve button-down shirt and elasticated-waist trousers with classic piping detail. Lightweight enough for year-round wear and available across sizes XS to XXL in multiple colours.",
+    "gift_finder_tags": {
+        "recipient": ["her", "partner"],
+        "interests": ["fashion", "beauty"],
+        "occasion": ["valentines", "birthday", "mothersday", "justbecause"],
+        "why": "For someone who deserves better than standard jersey pyjamas — the satin finish feels indulgent without the dry-clean-only maintenance of real silk, making it a practical luxury gift."
+    }
+},
 
     {
-        "name": "DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box",
-        "category": "Home & Kitchen",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4qgKrUo?tag=whoaccepts-21",
-        "asin": "B0C9K7L3M4",
-        "info": "Beautiful personalised photo album scrapbook with 60 black pages for photos, messages, and memories – includes 12 metallic marker pens, stickers, corner stickers, and gift box. Customizable cover and high-capacity refillable design – heartfelt sentimental gift for birthdays, anniversaries, weddings, or family keepsakes.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["personalised photo album", "scrapbook", "memory book", "custom gift", "Valentine's present"],
-        "pain_points": ["losing memories", "generic gifts", "organising photos"],
-        "benefits": ["fully customisable", "60 premium black pages", "creative supplies included", "gift-ready box", "refillable"],
-        "price_tier": "sentimental keepsake",
-        "highlights": [
-            "Personalised cover with any name or photo",
-            "60 thick black pages protect prints from fading",
-            "Comes with metallic pens, stickers & corner mounts",
-            "Refillable design for years of memories",
-            "Premium gift box – ready to present"
-        ],
-        "faqs": [
-            {"q": "How do I personalise the cover?", "a": "Add your text/photo during checkout – most sellers offer a preview before production."},
-            {"q": "Are the pages acid-free?", "a": "Yes – archival-quality black pages to prevent photo yellowing over time."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "DazSpirit Personalised Photo Album Scrapbook - Customizable Memory Book with 60 Black Pages & Gift Box",
+    "category": "Home & Kitchen",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/91hafwVhvqL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4qgKrUo?tag=whoaccepts-21",
+    "asin": "B0C9K7L3M4",
+    "info": "A personalised scrapbook photo album with 60 acid-free black pages and a customisable cover — name or photo personalisation is added at the point of order. Supplied with 12 metallic marker pens, adhesive stickers, and corner mounts for immediate use. The refillable binding allows additional pages to be added over time. Arrives in a gift box ready to present.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "personalised photo album scrapbook UK",
+        "custom memory book gift UK",
+        "scrapbook with black pages gift box",
+        "personalised album Valentine's gift UK",
+        "refillable photo scrapbook metallic pens"
+    ],
+    "pain_points": [
+        "Phone photos that never get printed or preserved in a physical format",
+        "Generic gifts that don't reflect a personal connection or shared history",
+        "Scrapbooks that don't include the supplies needed to get started immediately",
+        "Photo albums that can't be added to once the pages run out"
+    ],
+    "benefits": [
+        "Personalised cover with name or photo added at point of order",
+        "60 acid-free black pages protect photos from yellowing over time",
+        "Supplied with 12 metallic marker pens, stickers, and corner mounts",
+        "Refillable binding allows additional pages to be added over time",
+        "Arrives in a gift box ready to present without additional wrapping"
+    ],
+    "price_tier": "sentimental keepsake",
+    "highlights": [
+        "Personalised cover — name or photo customisation added at point of order",
+        "60 acid-free black pages designed to protect printed photos from fading and yellowing",
+        "Supplied with 12 metallic marker pens, adhesive stickers, and corner mounts for immediate use",
+        "Refillable binding design allows additional pages to be inserted as the album fills",
+        "Arrives in a gift box — no additional wrapping required before presenting"
+    ],
+    "faqs": [
+        {
+            "q": "How do I personalise the cover of the DazSpirit album?",
+            "a": "Personalisation details — such as a name, date, or photo — are entered during the Amazon checkout process. Check the current Amazon UK listing for the specific personalisation options available and whether a preview is provided before production begins."
+        },
+        {
+            "q": "Are the pages acid-free?",
+            "a": "DazSpirit states the black pages are acid-free and archival quality, designed to prevent photos from yellowing or deteriorating over time when mounted in the album."
+        },
+        {
+            "q": "Can more pages be added when the album is full?",
+            "a": "DazSpirit states the album has a refillable binding, allowing additional pages to be inserted as the album fills. Check the current Amazon UK listing for compatible refill page packs for this specific album."
+        }
+    ],
+    "hook_override": "A personalised scrapbook with <b>60 acid-free black pages and a customisable cover</b> — name or photo personalisation is added at checkout. Supplied with 12 metallic marker pens, stickers, and corner mounts so it can be used immediately, and the refillable binding means it can grow with years of memories.",
+    "gift_finder_tags": {
+        "recipient": ["her", "partner", "friend", "parent"],
+        "interests": ["arts", "home"],
+        "occasion": ["valentines", "birthday", "mothersday", "justbecause"],
+        "why": "For someone who values memories over things — the personalised cover and included supplies mean it's ready to use the day it's received, not left as an empty book on a shelf."
+    }
+},
 
     {
-        "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
-        "category": "Beauty",
-        "season": "Valentine's Day, Mother's Day",
-        "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49khgZD?tag=whoaccepts-21",
-        "asin": "B08J5M7K9P",
-        "info": "Luxurious Sanctuary Spa gift set featuring body wash, scrub, moisturiser, hand cream, bath salts and more in the iconic signature scent – beautifully presented in a premium hamper box. Ultimate pamper treat for self-care, birthdays, Christmas or just because – bestselling beauty indulgence for ultimate relaxation.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Sanctuary Spa", "bath gift set", "pamper hamper", "self-care gift", "Valentine's pamper"],
-        "pain_points": ["stress", "dry skin", "lack of relaxation", "gift ideas for her"],
-        "benefits": ["full pamper routine", "signature relaxing scent", "luxury presentation", "multi-product set", "cruelty-free"],
-        "price_tier": "premium pamper",
-        "highlights": [
-            "Complete bath & body ritual in one box",
-            "Signature Sanctuary scent – uplifting and calming",
-            "Includes body wash, scrub, lotion, salts & more",
-            "Presented in elegant reusable hamper",
-            "Perfect for self-gifting or thoughtful presents"
-        ],
-        "faqs": [
-            {"q": "Is everything cruelty-free?", "a": "Yes – Sanctuary Spa is 100% cruelty-free and vegetarian-friendly."},
-            {"q": "How many products are included?", "a": "Typically 5–7 full-size/mini items depending on current set – always check listing for exact contents."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "Sanctuary Spa Lost in the Moment Beauty Gift Set - Signature Collection Bath & Body Pamper Hamper",
+    "category": "Beauty",
+    "season": "Valentine's Day, Mother's Day",
+    "image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49khgZD?tag=whoaccepts-21",
+    "asin": "B08J5M7K9P",
+    "info": "The Sanctuary Spa Lost in the Moment gift set is a bath and body collection presented in a hamper box, featuring products in Sanctuary's signature scent across a complete wash, scrub, and moisturise routine. Sanctuary Spa states all products are 100% cruelty-free and vegetarian-friendly. The exact number and size of products included varies — check the current Amazon UK listing for the specific contents of this set before purchasing.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Sanctuary Spa gift set UK",
+        "bath and body pamper hamper UK",
+        "Sanctuary Spa Lost in the Moment",
+        "cruelty free beauty gift set women UK",
+        "spa gift set Valentine's Mother's Day UK"
+    ],
+    "pain_points": [
+        "Wanting a beauty gift that covers a complete routine rather than a single product",
+        "Generic bath gift sets that use unfamiliar or low-quality brands",
+        "Finding a cruelty-free pamper gift from a well-known UK brand",
+        "Gift sets that look impressive but contain mostly travel or sample sizes"
+    ],
+    "benefits": [
+        "Complete bath and body routine in one set — wash, scrub, and moisturise",
+        "Sanctuary's signature scent across all products for a consistent experience",
+        "100% cruelty-free and vegetarian-friendly — Sanctuary Spa stated",
+        "Presented in a hamper box suitable for gifting without additional wrapping",
+        "Sanctuary Spa is a well-known UK brand with strong recognition as a gift"
+    ],
+    "price_tier": "premium pamper",
+    "highlights": [
+        "Complete bath and body routine — body wash, scrub, moisturiser, and additional products in one set",
+        "All products use Sanctuary Spa's signature scent for a consistent bath ritual experience",
+        "Sanctuary Spa states all products are 100% cruelty-free and vegetarian-friendly",
+        "Presented in a hamper box ready to gift without additional wrapping",
+        "Check the current Amazon UK listing for the exact products and sizes included in this specific set"
+    ],
+    "faqs": [
+        {
+            "q": "How many products are included in the Sanctuary Spa Lost in the Moment set?",
+            "a": "The exact number and size of products varies by set variant and availability. Sanctuary Spa gift sets typically include 5–7 items across body wash, scrub, moisturiser, hand cream, and bath salts. Check the current Amazon UK listing for the confirmed contents of this specific set before purchasing."
+        },
+        {
+            "q": "Is Sanctuary Spa cruelty-free?",
+            "a": "Sanctuary Spa states that all products are 100% cruelty-free and vegetarian-friendly. Check Sanctuary Spa's website for their current cruelty-free certification status and any updates to their formulations."
+        },
+        {
+            "q": "Is this set suitable for sensitive skin?",
+            "a": "Sanctuary Spa products are formulated for general use but are not specifically certified for sensitive skin. Check the individual product ingredient lists on the current Amazon UK listing or Sanctuary Spa's website if skin sensitivity is a concern before purchasing."
+        }
+    ],
+    "hook_override": "A complete Sanctuary Spa bath and body set — <b>body wash, scrub, moisturiser, and more across a single signature scent</b> — presented in a hamper box ready to gift. Sanctuary Spa states all products are 100% cruelty-free and vegetarian-friendly, making it a well-recognised UK brand choice for a pamper gift.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend", "parent"],
+        "interests": ["beauty", "health"],
+        "occasion": ["valentines", "birthday", "mothersday", "justbecause"],
+        "why": "For someone who deserves a proper pamper routine rather than a single product — Sanctuary Spa is a well-known UK brand that feels like a considered choice rather than a last-minute supermarket grab."
+    }
+},
 
     {
-        "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
-        "category": "Home & Kitchen",
-        "season": "Valentine's Day, Mother's Day",
-        "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
-        "url": "https://amzn.to/45vgasL?tag=whoaccepts-21",
-        "asin": "B09M7N4K2L",
-        "info": "Elegant set of 4 luxury scented candles in lavender, rose, vanilla and jasmine – made with natural soy wax and essential oils for long-lasting fragrance and clean burn. Beautifully packaged in premium gift box – perfect thoughtful present for birthdays, weddings, Christmas, Mother's Day or self-care relaxation.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["scented candles", "soy wax gift set", "luxury candles", "aromatherapy gift", "Valentine's home"],
-        "pain_points": ["unpleasant room smells", "short-burning candles", "chemical fragrances"],
-        "benefits": ["clean burn", "long-lasting scent", "natural soy wax", "romantic aromas", "gift-boxed"],
-        "price_tier": "aromatherapy luxury",
-        "highlights": [
-            "4 classic romantic scents: lavender, rose, vanilla, jasmine",
-            "Natural soy wax with cotton wicks – soot-free & eco-friendly",
-            "40+ hours burn time per candle",
-            "Premium glass jars with lids",
-            "Elegant gift box ready for presentation"
-        ],
-        "faqs": [
-            {"q": "Are these candles safe for pets?", "a": "Soy wax is generally safer than paraffin, but keep out of reach of pets and never leave burning unattended."},
-            {"q": "Do they have strong throw?", "a": "Excellent hot and cold throw – fragrance fills medium rooms quickly."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "IDEALHOUSE Luxury Scented Candle Gift Set - Lavender, Rose, Vanilla & Jasmine",
+    "category": "Home & Kitchen",
+    "season": "Valentine's Day, Mother's Day",
+    "image": "https://m.media-amazon.com/images/I/71dd6Y+jqvL._AC_SX679_.jpg",
+    "url": "https://amzn.to/45vgasL?tag=whoaccepts-21",
+    "asin": "B09M7N4K2L",
+    "info": "A set of four scented candles in lavender, rose, vanilla, and jasmine, made with natural soy wax and cotton wicks. IDEALHOUSE states each candle provides over 40 hours of burn time and is housed in a glass jar with lid. The soy wax and cotton wick construction produces a cleaner burn with less soot than paraffin candles. Supplied in a gift box ready to present.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "IDEALHOUSE scented candle gift set UK",
+        "soy wax candle set lavender rose vanilla jasmine",
+        "luxury candle gift set women UK",
+        "4 candle gift box Valentine's Mother's Day",
+        "natural soy wax cotton wick candles UK"
+    ],
+    "pain_points": [
+        "Candles that burn through quickly and don't justify the price",
+        "Paraffin candles that produce soot and chemical-smelling smoke",
+        "Single candles that feel like an underwhelming gift on their own",
+        "Candle sets where all scents smell similar or overpowering"
+    ],
+    "benefits": [
+        "Four distinct scents — lavender, rose, vanilla, and jasmine",
+        "Natural soy wax with cotton wicks for a cleaner, soot-free burn",
+        "Over 40 hours burn time per candle — IDEALHOUSE stated",
+        "Glass jars with lids for storage between uses",
+        "Supplied in a gift box ready to present without additional wrapping"
+    ],
+    "price_tier": "aromatherapy luxury",
+    "highlights": [
+        "Set of four candles in lavender, rose, vanilla, and jasmine — four distinct fragrance profiles",
+        "Natural soy wax with cotton wicks — IDEALHOUSE states cleaner burn with less soot than paraffin",
+        "IDEALHOUSE states over 40 hours burn time per candle",
+        "Glass jars with lids allow candles to be stored between uses without collecting dust",
+        "Supplied in a gift box — no additional wrapping required before presenting"
+    ],
+    "faqs": [
+        {
+            "q": "Are soy wax candles safer than paraffin candles?",
+            "a": "Soy wax candles with cotton wicks produce less soot and fewer airborne pollutants than paraffin candles during burning. However, all candles should be burned in a well-ventilated room, kept away from pets and children, and never left unattended."
+        },
+        {
+            "q": "How strong is the fragrance throw on these candles?",
+            "a": "IDEALHOUSE states the candles provide both cold and hot fragrance throw — meaning they are scented both unlit and when burning. Individual scent strength perception varies, and throw performance depends on room size and ventilation. Check current Amazon UK reviews for buyer feedback on fragrance strength."
+        },
+        {
+            "q": "Can the glass jars be reused after the candle is finished?",
+            "a": "The glass jars with lids are suitable for reuse once the candle has burned down. Remove any remaining wax by placing the jar in warm water to loosen it, then clean with washing-up liquid before repurposing."
+        }
+    ],
+    "hook_override": "A set of four soy wax candles in lavender, rose, vanilla, and jasmine — <b>IDEALHOUSE states over 40 hours burn time per candle</b> with cotton wicks for a cleaner, soot-free burn. Glass jars with lids keep unused candles fresh between sessions, and the set arrives gift-boxed without needing additional wrapping.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend", "parent"],
+        "interests": ["home", "beauty"],
+        "occasion": ["valentines", "birthday", "mothersday", "justbecause"],
+        "why": "Four distinct scents in one gift box means the recipient gets variety rather than committing to a single fragrance — practical for anyone building a home candle collection or wanting different moods for different rooms."
+    }
+},
 
     {
-        "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
-        "category": "Fashion",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4aJ2cXO?tag=whoaccepts-21",
-        "asin": "B07N8K4M2P",
-        "info": "Elegant custom name necklace with personalised nameplate in your choice of gold, silver or rose gold plating – stylish, meaningful jewellery that's fully customizable with any name or word. Hypoallergenic stainless steel, adjustable chain, and gift-ready packaging – trending sentimental gift for birthdays, anniversaries, or special occasions.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["personalised necklace", "nameplate jewellery", "custom name pendant", "Valentine's gift", "anniversary present"],
-        "pain_points": ["generic jewellery", "meaningless gifts", "allergic reactions"],
-        "benefits": ["fully custom", "hypoallergenic", "adjustable chain", "gift packaging", "timeless style"],
-        "price_tier": "personalised jewellery",
-        "highlights": [
-            "Custom any name/word up to 10 characters",
-            "Gold, silver or rose gold plating options",
-            "Hypoallergenic 316L stainless steel base",
-            "Adjustable 40–50cm chain for perfect fit",
-            "Comes in luxury gift box with polishing cloth"
-        ],
-        "faqs": [
-            {"q": "How long does customisation take?", "a": "Usually 3–7 days production + shipping – most sellers offer express options."},
-            {"q": "Will the plating last?", "a": "High-quality plating lasts 1–2 years with normal wear; avoid water/chemicals to extend life."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "UMAGICBOX Personalised Name Necklace - Custom Nameplate Pendant in Gold/Silver/Rose Gold",
+    "category": "Fashion",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/71V6aQjw7tL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4aJ2cXO?tag=whoaccepts-21",
+    "asin": "B07N8K4M2P",
+    "info": "A personalised nameplate necklace with a 316L hypoallergenic stainless steel base, available in gold, silver, or rose gold plating. The name or word — up to 10 characters — is specified at the point of order. The adjustable chain runs from 40 to 50cm and the necklace arrives in a gift box with a polishing cloth. UMAGICBOX states plating typically lasts 1–2 years with normal wear — avoiding water and chemicals extends the finish.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "personalised name necklace UK",
+        "UMAGICBOX nameplate pendant",
+        "custom name necklace gold silver rose gold UK",
+        "hypoallergenic personalised jewellery UK",
+        "Valentine's name necklace gift UK"
+    ],
+    "pain_points": [
+        "Generic jewellery that doesn't reflect a personal connection",
+        "Jewellery that causes skin reactions in people with metal sensitivities",
+        "Personalised gifts with long lead times that miss the occasion",
+        "Necklaces with fixed chain lengths that don't suit different necklines"
+    ],
+    "benefits": [
+        "Any name or word up to 10 characters personalised at point of order",
+        "Choice of gold, silver, or rose gold plating on hypoallergenic 316L stainless steel",
+        "Adjustable chain from 40 to 50cm for different neckline preferences",
+        "Arrives in a gift box with polishing cloth — no additional wrapping needed",
+        "UMAGICBOX states production typically takes 3–7 days before dispatch"
+    ],
+    "price_tier": "personalised jewellery",
+    "highlights": [
+        "Personalised nameplate with any name or word up to 10 characters — specified at checkout",
+        "Available in gold, silver, or rose gold plating on a 316L hypoallergenic stainless steel base",
+        "Adjustable chain length from 40 to 50cm for different neckline preferences",
+        "UMAGICBOX states plating lasts approximately 1–2 years with normal wear",
+        "Arrives in a gift box with polishing cloth — ready to present without additional wrapping"
+    ],
+    "faqs": [
+        {
+            "q": "How long does personalisation and delivery take?",
+            "a": "UMAGICBOX states production typically takes 3–7 days before dispatch. Check the current Amazon UK listing for the estimated delivery timeframe and whether express production options are available, particularly if ordering close to Valentine's Day or a birthday."
+        },
+        {
+            "q": "Is this necklace suitable for people with metal allergies?",
+            "a": "The base metal is 316L stainless steel, which UMAGICBOX states is hypoallergenic and suitable for sensitive skin. Those with known allergies to specific metals should check the full material specification on the current Amazon UK listing before ordering."
+        },
+        {
+            "q": "How long will the plating last?",
+            "a": "UMAGICBOX states the plating typically lasts 1–2 years with normal wear. To extend the finish, the brand recommends removing the necklace before contact with water, perfume, lotions, and cleaning chemicals."
+        }
+    ],
+    "hook_override": "A personalised nameplate necklace on a <b>hypoallergenic 316L stainless steel base with gold, silver, or rose gold plating</b> — any name or word up to 10 characters is engraved at the point of order. The adjustable 40–50cm chain suits different necklines and it arrives gift-boxed with a polishing cloth.",
+    "gift_finder_tags": {
+        "recipient": ["her", "partner", "friend"],
+        "interests": ["fashion"],
+        "occasion": ["valentines", "birthday", "mothersday", "justbecause"],
+        "why": "A personalised gift that feels considered without requiring insider knowledge — the recipient's name makes it specific to them, and the choice of three plating finishes means it can be matched to their existing jewellery preferences."
+    }
+},
+    
+    {
+    "name": "Ring Battery Video Doorbell - Wireless DIY Video Doorbell Camera with Head-to-Toe View, HD Video, Easy 5-Min Install, 30-Day Free Trial of Ring Protect",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/61EZr2ozjwL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49aUanW?tag=whoaccepts-21",
+    "asin": "B08N5WRWNW",
+    "info": "The Ring Battery Video Doorbell is a wireless doorbell camera with an expanded head-to-toe HD field of view, colour night vision, two-way audio, and motion detection. Battery-powered with no wiring required — Ring states installation takes approximately 5 minutes. A 30-day free Ring Protect trial is included for video recording and sharing. Ring states the rechargeable battery lasts 6–12 months depending on usage, and that video history and clip sharing require a Ring Protect subscription after the trial period.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-03",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Ring Battery Video Doorbell UK",
+        "wireless video doorbell no wiring",
+        "smart doorbell camera head to toe view",
+        "battery doorbell colour night vision UK",
+        "Ring doorbell subscription free trial UK"
+    ],
+    "pain_points": [
+        "Parcel theft from doorsteps without any camera coverage",
+        "Not knowing who is at the door when away from home",
+        "Wired doorbell installations requiring an electrician",
+        "Doorbell cameras with a narrow view that misses packages left on the step"
+    ],
+    "benefits": [
+        "Head-to-toe HD view captures visitors and packages left on the doorstep",
+        "Battery-powered — no wiring or electrician required for installation",
+        "Colour night vision for clear low-light footage",
+        "Real-time motion alerts and two-way audio via the Ring app",
+        "30-day free Ring Protect trial for video recording and sharing included"
+    ],
+    "price_tier": "smart home essential",
+    "highlights": [
+        "Expanded head-to-toe HD field of view captures full visitor height and packages on the step",
+        "Battery-powered with no wiring required — Ring states approximately 5-minute DIY installation",
+        "Colour night vision and infrared for clear footage in low-light and dark conditions",
+        "Real-time motion alerts and two-way audio via the Ring app on iOS and Android",
+        "Ring states the rechargeable battery lasts 6–12 months depending on activity levels"
+    ],
+    "faqs": [
+        {
+            "q": "Does the Ring Battery Doorbell require a subscription?",
+            "a": "Ring states that live view, real-time alerts, and two-way talk are available without a subscription. Video recording, clip history, and sharing require a Ring Protect plan — currently from £3 per month for a single device. A 30-day free trial is included with this doorbell."
+        },
+        {
+            "q": "How long does the battery last between charges?",
+            "a": "Ring states the rechargeable battery lasts approximately 6–12 months depending on the number of motion events and live views. High-traffic areas with frequent activations will drain the battery faster. The battery charges via USB."
+        },
+        {
+            "q": "Does the Ring doorbell work without a Ring Protect subscription?",
+            "a": "Yes — live view, motion alerts, and two-way audio work without a subscription. However, without Ring Protect, video is not recorded or saved, meaning missed alerts cannot be reviewed after the fact. Check Ring's website for current subscription pricing and features."
+        }
+    ],
+    "hook_override": "A battery-powered video doorbell with an <b>expanded head-to-toe HD view that captures visitors and parcels left on the doorstep</b> — no wiring or electrician required, Ring states installation takes around 5 minutes. Colour night vision, two-way audio, and a 30-day Ring Protect trial included.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical home security upgrade that solves a specific problem — parcel theft and unknown visitors — without requiring any installation expertise or permanent wiring changes."
+    }
+},
 
     {
-        "name": "Ring Battery Video Doorbell - Wireless DIY Video Doorbell Camera with Head-to-Toe View, HD Video, Easy 5-Min Install, 30-Day Free Trial of Ring Protect",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/61EZr2ozjwL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49aUanW?tag=whoaccepts-21",
-        "asin": "B08N5WRWNW",
-        "info": "Battery-powered wireless video doorbell with expanded head-to-toe HD view, colour night vision, two-way talk, and motion detection – quick 5-minute DIY install with no wiring needed. Includes 30-day free Ring Protect trial for video recording and sharing – bestselling smart home security upgrade for UK properties.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Ring doorbell", "video doorbell", "smart security", "wireless camera", "home protection"],
-        "pain_points": ["package theft", "unknown visitors", "complicated installation"],
-        "benefits": ["head-to-toe view", "easy DIY setup", "colour night vision", "two-way talk", "motion alerts"],
-        "price_tier": "smart home essential",
-        "highlights": [
-            "Head-to-toe HD view sees packages and visitors fully",
-            "Battery-powered – no wiring or electrician needed",
-            "Colour night vision + infrared for clear low-light viewing",
-            "Real-time alerts and two-way audio via app",
-            "30-day free Ring Protect trial included"
-        ],
-        "faqs": [
-            {"q": "Do I need a subscription?", "a": "Basic live view and alerts are free; recording, sharing, and history require Ring Protect (£3–10/month)."},
-            {"q": "How long does the battery last?", "a": "6–12 months depending on usage – rechargeable via USB."}
-        ],
-        "date_added": "2026-01-03"
-    },
-
+    "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
+    "category": "Beauty",
+    "season": "Valentine's Day, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag=whoaccepts-21",
+    "asin": "B0B18V92KS",
+    "info": "The Oral-B Vitality Pro is an entry-level electric toothbrush with three brushing modes — Daily Clean, Sensitive Plus, and Whitening. Oral-B states it removes up to 100% more plaque than a manual toothbrush. The built-in 2-minute timer includes 30-second quadrant intervals, and the battery lasts up to 7 days per charge. Compatible with all Oral-B replacement brush heads. Supplied with a charging stand and UK plug.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Oral-B Vitality Pro electric toothbrush UK",
+        "electric toothbrush sensitive mode UK",
+        "Oral-B entry level toothbrush",
+        "electric toothbrush 2 minute timer UK",
+        "electric toothbrush gift him her UK"
+    ],
+    "pain_points": [
+        "Manual toothbrush not removing plaque effectively along the gum line",
+        "Sensitive teeth or gums that react to standard brushing modes",
+        "Brushing for less than the dentist-recommended 2 minutes without a timer",
+        "Premium electric toothbrushes with features that aren't needed at the price"
+    ],
+    "benefits": [
+        "Three brushing modes — Daily Clean, Sensitive Plus, and Whitening",
+        "Oral-B states removes up to 100% more plaque than a manual toothbrush",
+        "2-minute timer with 30-second quadrant pacing guides brushing routine",
+        "Up to 7 days battery life per charge",
+        "Compatible with all Oral-B replacement brush heads"
+    ],
+    "price_tier": "essential oral care",
+    "highlights": [
+        "Three modes — Daily Clean, Sensitive Plus, and Whitening — for different brushing needs",
+        "Oral-B states removes up to 100% more plaque than a manual toothbrush",
+        "Built-in 2-minute timer with 30-second quadrant intervals for consistent brushing coverage",
+        "Battery lasts up to 7 days per charge — supplied with charging stand and UK plug",
+        "Compatible with all Oral-B replacement brush heads for long-term use"
+    ],
+    "faqs": [
+        {
+            "q": "Is the Oral-B Vitality Pro suitable for sensitive teeth?",
+            "a": "Yes — Oral-B states the Sensitive Plus mode is specifically designed for gentle cleaning on sensitive teeth and gums, using a lower intensity brushing action than the Daily Clean mode."
+        },
+        {
+            "q": "How does the 2-minute timer work?",
+            "a": "The built-in timer runs for 2 minutes — the dentist-recommended brushing duration — and pulses every 30 seconds to indicate when to move to the next quadrant of the mouth. The brush does not automatically stop at 2 minutes but the pulse provides the timing cue."
+        },
+        {
+            "q": "Does the Oral-B Vitality Pro come with a charger?",
+            "a": "Yes — Oral-B states the Vitality Pro is supplied with a charging stand and UK plug. One brush head is included. Replacement brush heads compatible with all Oral-B models are widely available on Amazon UK."
+        }
+    ],
+    "hook_override": "Oral-B states the Vitality Pro removes <b>up to 100% more plaque than a manual toothbrush</b> — with three modes including Sensitive Plus for gentler cleaning. The 2-minute timer pulses every 30 seconds to pace each quadrant, and the battery lasts up to 7 days per charge.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend", "parent"],
+        "interests": ["health", "beauty"],
+        "occasion": ["birthday", "christmas", "valentines", "justbecause"],
+        "why": "A practical upgrade that most people benefit from but rarely buy for themselves — the Vitality Pro is Oral-B's entry-level model, which means it does the important things well without paying for features most people don't use."
+    }
+},
+    
     {
-        "name": "Oral-B Vitality Pro Electric Toothbrush For Adults, Christmas Gifts For Him/Her, 3 Brushing Modes Including Sensitive Plus, Gentle Cleaning, 2 Min Timer, 1 Toothbrush Head, Black",
-        "category": "Beauty",
-        "season": "Valentine's Day, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51LbAMaBpnL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Oral-B-Vitality-Toothbrush-Including-Sensitive/dp/B0B18V92KS?tag=whoaccepts-21",
-        "asin": "B0B18V92KS",
-        "info": "Affordable electric toothbrush with 3 brushing modes including Sensitive Plus for gentle cleaning, 2-minute timer, and superior plaque removal vs manual brushing. Bestselling entry-level Oral-B model for everyday oral care and healthier gums.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["electric toothbrush", "Oral-B Vitality", "sensitive mode", "dental care", "gift for him/her"],
-        "pain_points": ["manual brushing", "sensitive teeth", "plaque buildup", "gum health"],
-        "benefits": ["3 modes", "2-min timer", "better plaque removal", "gentle on gums", "affordable upgrade"],
-        "price_tier": "essential oral care",
-        "highlights": [
-            "3 modes: Daily Clean, Sensitive Plus, Whitening",
-            "Built-in 2-minute timer with 30-second quadrant pacing",
-            "Removes up to 100% more plaque than manual brushing",
-            "Compatible with all Oral-B replacement heads",
-            "Long battery life – up to 7 days per charge"
-        ],
-        "faqs": [
-            {"q": "Is it suitable for sensitive teeth?", "a": "Yes – Sensitive Plus mode is specifically designed for gentle cleaning on sensitive teeth and gums."},
-            {"q": "Does it come with a charger?", "a": "Yes – includes charging stand and UK plug."}
-        ],
-        "date_added": "2025-12-28"
-    },
-    {
-        "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
-        "category": "Beauty",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX679_.jpg",
-        "url": "https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
-        "asin": "B00PBX3L7K",
-        
-        # Manual product information
-        "info": "Iconic Korean skincare essence with 96% snail secretion filtrate for intense hydration, skin repair, and visible glow. Lightweight texture absorbs quickly, reducing fine lines and improving skin texture.",
-        
-        # Manual pricing & ratings (overrides API)
-        "manual_price": "",  # Use UK format: £XX.XX
-        "manual_rating": "",     # Out of 5
-        "manual_reviews": "", # Total review count
-        
-        # SEO & Marketing
-        "keywords": ["Korean skincare", "snail mucin", "hydration", "anti-aging", "K-beauty"],
-        "pain_points": ["dry skin", "fine lines", "dull complexion"],
-        "benefits": ["intense hydration", "skin repair", "radiant glow", "lightweight"],
-        "price_tier": "affordable luxury",
-        
-        # Optional: Manual hook (if you want to override AI generation)
-        "hook_override": "",
-        
-        # Product highlights for detail page
-        "highlights": [
-            "96% snail secretion filtrate for deep skin repair",
-            "Suitable for all skin types including sensitive",
-            "Lightweight, fast-absorbing texture",
-            "Clinically proven to improve skin elasticity",
-            "Cruelty-free and dermatologist-tested"
-        ],
-        
-        # FAQ section (great for SEO)
-        "faqs": [
-            {
-                "q": "Is snail mucin suitable for sensitive skin?",
-                "a": "Yes, COSRX Snail Mucin is gentle enough for sensitive skin and has been dermatologist-tested."
-            },
-            {
-                "q": "How long does one bottle last?",
-                "a": "With daily use (morning and evening), one 100ml bottle typically lasts 2-3 months."
-            }
-        ],
-        
-        "date_added": "2026-01-08"
-    },
+    "name": "COSRX Advanced Snail 96 Mucin Power Essence 100ml - Snail Secretion Filtrate 96% Skin Repair Serum",
+    "category": "Beauty",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SX679_.jpg",
+    "url": "https://amzn.eu/d/aa8Br4w?tag=whoaccepts-21",
+    "asin": "B00PBX3L7K",
+    "info": "COSRX Advanced Snail 96 Mucin Power Essence contains 96% snail secretion filtrate in a 100ml bottle. COSRX states the lightweight, fast-absorbing formula is dermatologist-tested and suitable for all skin types including sensitive. The essence is designed for use morning and evening as part of a layered skincare routine. COSRX states the product is cruelty-free.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-08",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "COSRX snail mucin essence UK",
+        "snail secretion filtrate 96 serum",
+        "Korean skincare essence hydration UK",
+        "COSRX Advanced Snail 96 100ml",
+        "K-beauty essence sensitive skin UK"
+    ],
+    "pain_points": [
+        "Dry or dehydrated skin that feels tight after cleansing",
+        "Dull complexion lacking radiance with regular moisturiser alone",
+        "Fine lines and uneven skin texture not improving with standard hydration",
+        "Wanting a Korean skincare staple that suits sensitive skin"
+    ],
+    "benefits": [
+        "96% snail secretion filtrate concentration in a 100ml bottle",
+        "Lightweight, fast-absorbing texture suitable for layering in a routine",
+        "Dermatologist-tested and suitable for all skin types including sensitive",
+        "Designed for morning and evening use",
+        "COSRX states the product is cruelty-free"
+    ],
+    "price_tier": "affordable luxury",
+    "highlights": [
+        "96% snail secretion filtrate — one of the highest concentrations available in a mainstream K-beauty essence",
+        "Lightweight, fast-absorbing formula designed to sit comfortably under moisturiser or SPF",
+        "COSRX states the essence is dermatologist-tested and suitable for all skin types including sensitive",
+        "100ml bottle — COSRX states one bottle lasts approximately 2–3 months with twice-daily use",
+        "COSRX states the product is cruelty-free"
+    ],
+    "faqs": [
+        {
+            "q": "What does snail secretion filtrate do for skin?",
+            "a": "Snail secretion filtrate is used in Korean skincare for its hydrating and skin-conditioning properties. COSRX states the 96% concentration in this essence supports skin repair, hydration, and texture improvement with regular use. It is not a prescription treatment and results vary by individual."
+        },
+        {
+            "q": "Is the COSRX Snail 96 Essence suitable for sensitive skin?",
+            "a": "COSRX states the essence is dermatologist-tested and formulated for all skin types including sensitive. As with any new skincare product, a patch test on the inner arm before full facial application is advisable for those with reactive or allergy-prone skin."
+        },
+        {
+            "q": "How long does a 100ml bottle last?",
+            "a": "COSRX states that with daily use morning and evening, one 100ml bottle typically lasts approximately 2–3 months. Usage will vary depending on how much product is applied per session."
+        }
+    ],
+    "hook_override": "COSRX's cult Korean skincare essence with <b>96% snail secretion filtrate — one of the highest concentrations available</b> in a mainstream K-beauty product. Lightweight enough to layer under moisturiser, dermatologist-tested for sensitive skin, and a 100ml bottle lasts approximately 2–3 months with twice-daily use.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["beauty"],
+        "occasion": ["birthday", "valentines", "mothersday", "justbecause"],
+        "why": "A well-regarded K-beauty staple that most skincare enthusiasts have heard of but not yet tried — affordable enough to feel like a considered gift rather than a splurge, and genuinely effective for everyday hydration."
+    }
+},
     
     # Enhanced Products Data - Elite Format 2026
 # Part 1 of 3
@@ -2883,203 +3179,454 @@ PRODUCTS = [
     # ============================================================================
 
     {
-        "name": "L'Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
-        "category": "Beauty",
-        "season": "Valentine's Day, Mother's Day",
-        "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag=whoaccepts-21",
-        "info": "Triple-action cream reduces wrinkles and firms skin — huge mover in beauty for gifting season and self-care routines.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["anti-aging cream", "L'Oréal", "wrinkle reduction", "skincare"],
-        "pain_points": ["wrinkles", "loss of firmness", "aging skin"],
-        "benefits": ["visible results", "firmer skin", "reduced wrinkles", "affordable luxury"],
-        "price_tier": "drugstore premium",
-        "highlights": [
-            "Pro-Xylane technology targets wrinkles at the source",
-            "Triple-action formula: resurfaces, re-plumps, retexturizes",
-            "Visible wrinkle reduction in 4 weeks",
-            "SPF 20 protection against UV aging",
-            "Dermatologist-tested and suitable for sensitive skin"
-        ],
-        "faqs": [
-            {"q": "Can I use this on sensitive skin?", "a": "Yes - dermatologist-tested and formulated to be gentle enough for sensitive skin."},
-            {"q": "When will I see results?", "a": "Many users notice smoother, firmer skin within 2 weeks, with significant improvement by 4 weeks."}
-        ],
-        "date_added": "2025-12-26"
-    },
-
+    "name": "L'Oréal Paris Revitalift Laser Anti-Ageing Day Cream",
+    "category": "Beauty",
+    "season": "Valentine's Day, Mother's Day",
+    "image": "https://m.media-amazon.com/images/I/41uhhU1DU7L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/LOreal-Paris-Revitalift-Pro-Xylane-Anti-Ageing/dp/B00SNOAZM8?tag=whoaccepts-21",
+    "asin": "B00SNOAZM8",
+    "info": "L'Oréal Paris Revitalift Laser is a triple-action anti-ageing day cream containing Pro-Xylane, L'Oréal's patented active ingredient derived from beechwood. L'Oréal states the formula resurfaces, re-plumps, and retexturises skin with daily use, and that visible wrinkle reduction is noticeable within 4 weeks. The cream contains SPF 20 and is dermatologist-tested. L'Oréal states it is suitable for sensitive skin.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "L'Oréal Revitalift Laser day cream UK",
+        "Pro-Xylane anti-ageing cream UK",
+        "triple action anti-wrinkle day cream",
+        "SPF 20 anti-ageing moisturiser UK",
+        "L'Oréal skincare gift women UK"
+    ],
+    "pain_points": [
+        "Visible wrinkles and fine lines that deepen with age",
+        "Loss of skin firmness and elasticity over time",
+        "Wanting an effective anti-ageing cream without a luxury price tag",
+        "Day creams that offer no UV protection alongside their active ingredients"
+    ],
+    "benefits": [
+        "Pro-Xylane patented active ingredient from L'Oréal targets wrinkle depth",
+        "Triple-action formula resurfaces, re-plumps, and retexturises with daily use",
+        "SPF 20 provides UV protection against photoageing",
+        "L'Oréal states visible wrinkle reduction within 4 weeks of daily use",
+        "Dermatologist-tested and suitable for sensitive skin"
+    ],
+    "price_tier": "drugstore premium",
+    "highlights": [
+        "Contains Pro-Xylane — L'Oréal's patented active ingredient derived from beechwood",
+        "Triple-action formula targets skin resurfacing, re-plumping, and retexturising",
+        "L'Oréal states visible wrinkle reduction is noticeable within 4 weeks of daily use",
+        "SPF 20 included for UV protection against daily photoageing",
+        "Dermatologist-tested — L'Oréal states suitable for sensitive skin"
+    ],
+    "faqs": [
+        {
+            "q": "What is Pro-Xylane and how does it work?",
+            "a": "Pro-Xylane is a patented active ingredient developed by L'Oréal, derived from beechwood xylose. L'Oréal states it works by stimulating the synthesis of structural components in the skin that diminish with age, targeting wrinkle depth and loss of firmness with regular use."
+        },
+        {
+            "q": "How long before results are visible?",
+            "a": "L'Oréal states that visible wrinkle reduction is noticeable within 4 weeks of daily use, with continued improvement over time. Individual results will vary depending on skin type, age, and consistency of application."
+        },
+        {
+            "q": "Is the Revitalift Laser cream suitable for sensitive skin?",
+            "a": "L'Oréal states the cream is dermatologist-tested and formulated to be suitable for sensitive skin. As with any new skincare product, a patch test before full facial use is advisable for those with particularly reactive skin."
+        }
+    ],
+    "hook_override": "L'Oréal's Revitalift Laser uses <b>Pro-Xylane — a patented active ingredient derived from beechwood</b> — in a triple-action formula that resurfaces, re-plumps, and retexturises skin. SPF 20 is included for daily UV protection, and L'Oréal states visible wrinkle reduction within 4 weeks of daily use.",
+    "gift_finder_tags": {
+        "recipient": ["her", "parent", "friend"],
+        "interests": ["beauty"],
+        "occasion": ["birthday", "valentines", "mothersday", "justbecause"],
+        "why": "A well-established anti-ageing day cream from a trusted brand — accessible enough to buy as a gift without overstepping, and effective enough that most people who try it continue using it."
+    }
+},
     # ============================================================================
     # SPORTS & FITNESS
     # ============================================================================
     {
-        "name": "Optimum Nutrition Gold Standard 100% Whey Protein Powder with Glutamine & Amino Acids",
-        "category": "Sports & Outdoors",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/71Fgn+H4lHL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3Yq324j?tag=whoaccepts-21",
-        "info": "World's bestselling whey protein powder with 24g premium protein per serving, naturally occurring glutamine and BCAAs for muscle support and recovery — ultra-filtered for exceptional purity, mixes easily, and available in delicious flavours. Trusted choice for gym-goers building strength and lean muscle in 2026.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["whey protein", "muscle building", "post-workout", "gym nutrition", "fitness supplement"],
-        "pain_points": ["muscle recovery", "protein intake", "workout gains", "lean muscle"],
-        "benefits": ["24g protein per serving", "fast absorption", "muscle recovery", "great taste"],
-        "price_tier": "premium value",
-        "highlights": [
-            "24g of premium whey protein isolate per serving",
-            "Naturally occurring BCAAs and glutamine for recovery",
-            "Ultra-filtered for exceptional purity and mixability",
-            "Available in 20+ delicious flavours",
-            "World's #1 selling whey protein brand"
-        ],
-        "faqs": [
-            {"q": "When should I take whey protein?", "a": "Best taken within 30 minutes post-workout for optimal muscle recovery, or anytime to boost daily protein intake."},
-            {"q": "Is this suitable for beginners?", "a": "Absolutely - Gold Standard is perfect for anyone looking to increase protein intake, from beginners to advanced athletes."}
-        ],
-        "date_added": "2026-01-03"
-    },
+    "name": "Optimum Nutrition Gold Standard 100% Whey Protein Powder with Glutamine & Amino Acids",
+    "category": "Sports & Outdoors",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71Fgn+H4lHL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3Yq324j?tag=whoaccepts-21",
+    "asin": "B002DYIZH6",
+    "info": "Optimum Nutrition Gold Standard 100% Whey delivers 24g of whey protein per serving, sourced primarily from whey protein isolate as the first ingredient. Each serving contains naturally occurring BCAAs and glutamine to support muscle recovery. Optimum Nutrition states the powder is ultra-filtered for purity and mixes easily with water or milk. Available in over 20 flavours in multiple bag sizes.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-03",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Optimum Nutrition Gold Standard Whey UK",
+        "whey protein isolate powder UK",
+        "24g protein per serving supplement",
+        "post workout protein powder UK",
+        "muscle recovery whey protein UK"
+    ],
+    "pain_points": [
+        "Not hitting daily protein targets through food alone",
+        "Slow muscle recovery between training sessions",
+        "Protein powders that clump, taste chalky, or mix poorly",
+        "Wanting a well-established brand with a proven track record rather than an unknown supplement"
+    ],
+    "benefits": [
+        "24g whey protein per serving with whey isolate as the primary source",
+        "Naturally occurring BCAAs and glutamine in every serving",
+        "Ultra-filtered for purity — mixes easily with water or milk",
+        "Available in over 20 flavours across multiple bag sizes",
+        "One of the most widely used and reviewed whey proteins globally"
+    ],
+    "price_tier": "premium value",
+    "highlights": [
+        "24g whey protein per serving — whey protein isolate listed as the primary ingredient",
+        "Naturally occurring BCAAs and glutamine to support muscle recovery between sessions",
+        "Optimum Nutrition states the powder is ultra-filtered for exceptional purity and easy mixability",
+        "Available in over 20 flavours — check the current Amazon UK listing for available options and bag sizes",
+        "Optimum Nutrition is an Informed Sport certified brand — check current certification status on their website"
+    ],
+    "faqs": [
+        {
+            "q": "When is the best time to take Gold Standard Whey?",
+            "a": "Optimum Nutrition recommends consuming whey protein within 30 minutes of completing a workout to support muscle recovery. It can also be used at any point during the day to supplement daily protein intake, not solely post-workout."
+        },
+        {
+            "q": "What is the difference between whey protein concentrate and whey protein isolate?",
+            "a": "Whey protein isolate undergoes additional filtering to remove more fat and lactose than concentrate, resulting in a higher protein percentage per gram of powder. Optimum Nutrition states Gold Standard uses whey isolate as the primary source, with concentrate and peptides also included in the blend."
+        },
+        {
+            "q": "Is Gold Standard Whey suitable for beginners?",
+            "a": "Yes — Gold Standard Whey is suitable for anyone looking to increase daily protein intake, from those new to training through to experienced athletes. The recommended serving size and usage instructions are printed on the packaging. Consult a GP before starting any new supplement if you have an existing health condition."
+        }
+    ],
+    "hook_override": "Optimum Nutrition Gold Standard uses <b>whey protein isolate as the primary ingredient — 24g of protein per serving</b> with naturally occurring BCAAs and glutamine. Ultra-filtered for clean mixability with water or milk, and available in over 20 flavours across multiple bag sizes.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "For someone who trains regularly and already knows what whey protein is — Gold Standard is the benchmark most gym-goers compare others against, making it a safe and well-received choice."
+    }
+},
 
     {
-        "name": "HAISSKY Lightweight Running Belt Waist Pack",
-        "category": "Sports & Outdoors",
-        "season": "New Year Essentials, Summer Gifts",
-        "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3LpASn2?tag=whoaccepts-21",
-        "info": "Slim, bounce-free running belt designed to carry phones, keys, and energy gels securely. Adjustable fit makes it ideal for everyday training and long runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["running belt", "phone holder", "fitness accessories", "marathon training"],
-        "pain_points": ["carrying phone while running", "bounce-free storage", "hands-free running"],
-        "benefits": ["secure fit", "sweat-resistant", "lightweight", "adjustable"],
-        "price_tier": "budget-friendly",
-        "highlights": [
-            "Bounce-free design keeps phone secure during runs",
-            "Water-resistant material protects valuables",
-            "Adjustable waistband fits all sizes comfortably",
-            "Large capacity for phone, keys, cards, and gels",
-            "Reflective strips for low-light visibility"
-        ],
-        "faqs": [
-            {"q": "Will it fit my larger smartphone?", "a": "Yes, the belt accommodates phones up to 6.5 inches including iPhone Pro Max and Samsung Galaxy models."},
-            {"q": "Does it bounce while running?", "a": "No - the secure elastic design and adjustable fit prevent bouncing even during fast runs."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "HAISSKY Lightweight Running Belt Waist Pack",
+    "category": "Sports & Outdoors",
+    "season": "New Year Essentials, Summer Gifts",
+    "image": "https://m.media-amazon.com/images/I/51XulFnEUWL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3LpASn2?tag=whoaccepts-21",
+    "asin": "B08HYWNG9H",
+    "info": "The HAISSKY Running Belt is a slim, lightweight waist pack designed to carry a smartphone, keys, cards, and energy gels during running and training. The adjustable elastic waistband is designed to sit snugly without bouncing, and HAISSKY states the main pocket accommodates phones up to 6.5 inches including iPhone Pro Max and Samsung Galaxy models. The water-resistant material and reflective strips make it suitable for outdoor running in varying conditions.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "HAISSKY running belt waist pack UK",
+        "bounce free running belt phone holder",
+        "lightweight running waist pack UK",
+        "water resistant running belt 6.5 inch phone",
+        "adjustable running belt reflective UK"
+    ],
+    "pain_points": [
+        "Phone bouncing in a pocket or armband during runs",
+        "Carrying keys and cards without a secure, hands-free option",
+        "Running belts that are too bulky and shift position during longer runs",
+        "Poor visibility during early morning or evening outdoor runs"
+    ],
+    "benefits": [
+        "Slim, bounce-free design sits snugly against the body during running",
+        "Accommodates phones up to 6.5 inches including iPhone Pro Max and Samsung Galaxy",
+        "Water-resistant material protects contents in wet conditions",
+        "Reflective strips improve visibility during low-light outdoor running",
+        "Adjustable waistband fits a range of waist sizes"
+    ],
+    "price_tier": "budget-friendly",
+    "highlights": [
+        "Slim bounce-free design — adjustable elastic waistband holds position during running",
+        "HAISSKY states the main pocket fits phones up to 6.5 inches including iPhone Pro Max",
+        "Water-resistant material protects phone, cards, and keys in wet conditions",
+        "Reflective strips on the belt improve visibility during low-light outdoor runs",
+        "Lightweight construction — check the current Amazon UK listing for the specific weight"
+    ],
+    "faqs": [
+        {
+            "q": "Will the HAISSKY belt fit larger smartphones?",
+            "a": "HAISSKY states the main pocket accommodates phones up to 6.5 inches, including iPhone Pro Max and Samsung Galaxy models. Check the current Amazon UK listing for the exact pocket dimensions if you have a particularly large phone case."
+        },
+        {
+            "q": "Does the belt bounce during running?",
+            "a": "The adjustable elastic waistband is designed to sit snugly against the body to minimise movement during running. Individual experience will vary depending on waist size and how firmly the belt is adjusted — a snugger fit generally reduces bounce more effectively."
+        },
+        {
+            "q": "Is the HAISSKY running belt waterproof or water-resistant?",
+            "a": "HAISSKY states the material is water-resistant, meaning it provides protection against light rain and sweat. It is not rated as fully waterproof and should not be submerged in water."
+        }
+    ],
+    "hook_override": "A slim running belt with an adjustable elastic waistband designed to <b>carry a phone up to 6.5 inches without bouncing</b> — fits iPhone Pro Max and Samsung Galaxy models. Water-resistant material and reflective strips make it suitable for outdoor runs in wet conditions or low light.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical gift for a regular runner who still hasn't solved the phone-carrying problem — lightweight enough to forget it's there on longer runs and specific enough to feel like a considered choice."
+    }
+},
 
     {
-        "name": "Reflective Running Armbands (Set of 4)",
-        "category": "Sports & Outdoors",
-        "season": "Winter Essentials, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3L9rfZK?tag=whoaccepts-21",
-        "info": "High-visibility reflective armbands to improve safety during early morning and evening runs. Lightweight, adjustable, and suitable for all runners.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["running safety", "reflective gear", "visibility", "night running"],
-        "pain_points": ["dark morning runs", "road safety", "low visibility"],
-        "benefits": ["360° visibility", "lightweight", "adjustable fit", "weather-resistant"],
-        "price_tier": "budget essential",
-        "highlights": [
-            "360-degree reflective strips for maximum visibility",
-            "Lightweight and comfortable for long runs",
-            "Adjustable elastic fits arms and ankles",
-            "Set of 4 for complete visibility coverage",
-            "Essential safety gear for winter training"
-        ],
-        "faqs": [
-            {"q": "Can I wear these on my ankles too?", "a": "Yes - the adjustable elastic design works perfectly on both arms and ankles for full visibility."},
-            {"q": "Are they visible in bad weather?", "a": "Absolutely - the high-grade reflective material works in rain, fog, and low light conditions."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "Reflective Running Armbands (Set of 4)",
+    "category": "Sports & Outdoors",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51IeDoQq7rL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3L9rfZK?tag=whoaccepts-21",
+    "asin": "B0DCFZPBPZ",
+    "info": "A set of 4 reflective running armbands with 360-degree reflective strips designed to improve visibility during low-light outdoor running. The adjustable elastic construction fits both arms and ankles, and the lightweight design is suitable for wearing throughout a run without discomfort. Suitable for early morning, evening, and winter training in UK conditions.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "reflective running armbands set UK",
+        "high visibility running bands night",
+        "reflective armbands ankles arms running UK",
+        "low light running safety gear UK",
+        "winter running visibility armbands UK"
+    ],
+    "pain_points": [
+        "Low visibility during early morning or evening runs on UK roads",
+        "Single armband sets that only cover one limb",
+        "Reflective gear that is too bulky or uncomfortable to wear for an entire run",
+        "Visibility aids that don't work effectively in rain or fog"
+    ],
+    "benefits": [
+        "360-degree reflective strips visible from all angles in low light",
+        "Set of 4 provides coverage for both arms and both ankles simultaneously",
+        "Adjustable elastic fits a range of arm and ankle circumferences",
+        "Lightweight construction suitable for wearing throughout a full run",
+        "Suitable for rain, fog, and low-light conditions"
+    ],
+    "price_tier": "budget essential",
+    "highlights": [
+        "Set of 4 reflective armbands — enough to cover both arms and both ankles simultaneously",
+        "360-degree reflective strips designed to be visible from all angles in low light",
+        "Adjustable elastic construction fits both arms and ankles across a range of sizes",
+        "Lightweight design suitable for wearing throughout a full run without discomfort",
+        "Suitable for early morning, evening, and winter running on UK roads and paths"
+    ],
+    "faqs": [
+        {
+            "q": "Can these armbands be worn on ankles as well as arms?",
+            "a": "Yes — the adjustable elastic construction is designed to fit both arms and ankles. Wearing all four simultaneously — one on each arm and one on each ankle — provides the most comprehensive 360-degree visibility coverage."
+        },
+        {
+            "q": "Do the reflective strips work effectively in rain and fog?",
+            "a": "Reflective strips work by bouncing light back towards its source — such as car headlights — rather than emitting their own light. They are effective in rain and low-light conditions as long as a direct light source is present. They are not self-illuminating and will not be visible in complete darkness without a light source."
+        },
+        {
+            "q": "Are these suitable for cycling or walking as well as running?",
+            "a": "Yes — the adjustable elastic armbands are suitable for any outdoor activity where low-light visibility is a concern, including cycling, walking, and dog walking. Check the current Amazon UK listing for any specific use recommendations from the manufacturer."
+        }
+    ],
+    "hook_override": "A set of 4 reflective armbands with <b>360-degree reflective strips — enough to cover both arms and both ankles simultaneously</b>. The adjustable elastic fits arms and ankles across a range of sizes, and the lightweight construction means they can be worn throughout a full run without noticing them.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A low-cost but genuinely useful safety gift for any runner who trains in the dark — practical enough to use immediately and specific enough to show the giver has thought about what the recipient actually does."
+    }
+},
+
+   {
+    "name": "LUMEFIT Running Vest Phone Holder - Hydration Vest with Water Bottle- Reflective Vest for Men and Women",
+    "category": "Sports & Outdoors",
+    "season": "Summer Gifts, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
+    "url": "https://amzn.to/4sAitou?tag=whoaccepts-21",
+    "asin": "B0DFQLV66L",
+    "info": "The LUMEFIT Running Vest is a hydration vest with front-mounted soft flask pockets and adjustable straps for a bounce-free fit during long runs and trail training. Two 250ml soft flasks are included, with additional capacity for a hydration bladder up to 1.5 litres sold separately. The breathable mesh back panel and multiple storage pockets accommodate a phone, energy gels, and essentials. Reflective elements improve visibility in low-light conditions.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "LUMEFIT hydration running vest UK",
+        "running vest with water bottles UK",
+        "trail running hydration vest men women",
+        "marathon training vest phone holder UK",
+        "reflective hydration vest long distance running"
+    ],
+    "pain_points": [
+        "Carrying water on runs longer than an hour without a vest or pack",
+        "Hydration packs that bounce or shift position during faster running",
+        "Running vests that overheat the back during warm weather or intense effort",
+        "No secure storage for a phone, gels, and keys during long training runs"
+    ],
+    "benefits": [
+        "Two 250ml soft flasks included — front-mounted for easy access without stopping",
+        "Compatible with hydration bladders up to 1.5 litres — sold separately",
+        "Breathable mesh back panel reduces heat buildup during longer efforts",
+        "Multiple pockets for phone, energy gels, keys, and small essentials",
+        "Reflective elements for visibility during low-light training"
+    ],
+    "price_tier": "mid-range value",
+    "highlights": [
+        "Front-mounted soft flask pockets — two 250ml flasks included for hands-free hydration",
+        "Compatible with hydration bladders up to 1.5 litres for longer distances — bladder sold separately",
+        "Breathable mesh back panel designed to reduce heat buildup during sustained effort",
+        "Adjustable straps designed for a bounce-free fit across a range of body sizes",
+        "Reflective elements included for visibility during early morning and evening runs"
+    ],
+    "faqs": [
+        {
+            "q": "How much water does the LUMEFIT vest hold?",
+            "a": "Two 250ml soft flasks are included and sit in the front pockets for a total of 500ml readily accessible. The vest also has a compartment compatible with a hydration bladder up to 1.5 litres — the bladder is not included and must be purchased separately."
+        },
+        {
+            "q": "Is the vest suitable for both men and women?",
+            "a": "LUMEFIT states the vest is designed to fit both men and women, with adjustable straps to accommodate different torso lengths and chest sizes. Check the current Amazon UK listing for the size guide and available sizes before purchasing."
+        },
+        {
+            "q": "Will the vest cause chafing on longer runs?",
+            "a": "The vest uses soft, breathable materials and adjustable straps designed to reduce chafing during extended wear. Individual experience varies depending on body shape, clothing worn underneath, and how the vest is adjusted — a snug but not tight fit generally reduces movement and chafing on longer efforts."
+        }
+    ],
+    "hook_override": "A hydration running vest with <b>two 250ml front-mounted soft flasks included</b> and compatibility with a 1.5 litre bladder for longer distances. The breathable mesh back panel reduces heat buildup, adjustable straps prevent bounce, and reflective elements cover early morning and evening training.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "For a runner who is increasing their mileage and needs to carry water — a hydration vest is the natural next step beyond a running belt, and this one includes the flasks so it's ready to use immediately."
+    }
+},
 
     {
-        "name": "LUMEFIT Running Vest Phone Holder - Hydration Vest with Water Bottle- Reflective Vest for Men and Women",
-        "category": "Sports & Outdoors",
-        "season": "Summer Gifts, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",
-        "url": "https://amzn.to/4sAitou?tag=whoaccepts-21",
-        "info": "Breathable hydration vest with adjustable straps and front water bottles. Ideal for long runs, trail training, and increasing mileage.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["hydration vest", "running vest", "trail running", "marathon training"],
-        "pain_points": ["staying hydrated on runs", "carrying water", "long distance training"],
-        "benefits": ["hands-free hydration", "multiple pockets", "breathable", "adjustable fit"],
-        "price_tier": "mid-range value",
-        "highlights": [
-            "Front-mounted water bottles for easy access",
-            "Breathable mesh back panel prevents overheating",
-            "Multiple pockets for phone, gels, and essentials",
-            "Adjustable straps for bounce-free comfort",
-            "Reflective elements for safety in low light"
-        ],
-        "faqs": [
-            {"q": "How much water does it hold?", "a": "Includes two 250ml soft flasks, with additional capacity for a 1.5L bladder (sold separately)."},
-            {"q": "Will it chafe during long runs?", "a": "No - the soft, breathable materials and adjustable fit prevent chafing even on marathon-distance runs."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "Touchscreen-Compatible Running Gloves",
+    "category": "Sports & Outdoors",
+    "season": "Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49iIrnF?tag=whoaccepts-21",
+    "asin": "B07XRKGLT5",
+    "info": "Lightweight thermal running gloves with touchscreen-compatible fingertips and anti-slip silicone palm grip. Designed for cold weather outdoor running, the thermal lining provides warmth while the breathable construction prevents overheating during sustained effort. Reflective details improve visibility during low-light training. Check the current Amazon UK listing for the specific temperature rating and size range available.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "touchscreen running gloves UK",
+        "thermal running gloves winter UK",
+        "lightweight running gloves cold weather",
+        "anti slip running gloves touchscreen compatible",
+        "reflective winter running gloves UK"
+    ],
+    "pain_points": [
+        "Cold hands during winter runs forcing removal of gloves to use a phone",
+        "Thick gloves that are too warm and cause overheating during running",
+        "Gloves that slip when gripping a phone or water bottle mid-run",
+        "Low visibility during early morning or evening winter training"
+    ],
+    "benefits": [
+        "Touchscreen-compatible fingertips work with smartphones and GPS watches",
+        "Thermal lining provides warmth during cold weather running",
+        "Breathable construction prevents overheating during sustained effort",
+        "Anti-slip silicone palm grip for secure hold on phones and bottles",
+        "Reflective details improve visibility in low-light conditions"
+    ],
+    "price_tier": "budget-friendly",
+    "highlights": [
+        "Touchscreen-compatible fingertips — operate smartphones and GPS watches without removing gloves",
+        "Thermal lining designed for cold weather running — check current Amazon UK listing for temperature rating",
+        "Breathable construction prevents heat buildup during sustained running effort",
+        "Anti-slip silicone palm provides grip on phones, bottles, and handrails",
+        "Reflective details on the gloves improve visibility during low-light outdoor training"
+    ],
+    "faqs": [
+        {
+            "q": "Do the touchscreen fingertips work with all smartphones?",
+            "a": "The conductive fingertip material is designed to work with capacitive touchscreens found on most modern smartphones and GPS fitness watches. Performance may vary with screen protectors or in very cold conditions where the conductive material can be less responsive."
+        },
+        {
+            "q": "How warm are these gloves for winter running?",
+            "a": "The gloves feature a thermal lining designed for cold weather running. Check the current Amazon UK listing for the specific temperature range stated by the manufacturer, as thermal ratings vary between variants of this product."
+        },
+        {
+            "q": "Are these gloves machine washable?",
+            "a": "Check the current Amazon UK listing for the specific care instructions for this model. Most lightweight running gloves with thermal linings are machine washable on a gentle cycle, though high heat drying can affect the conductive fingertip material over time."
+        }
+    ],
+    "hook_override": "Thermal running gloves with <b>touchscreen-compatible fingertips that work with smartphones and GPS watches</b> — no removing gloves mid-run to check pace or answer a message. Anti-slip silicone palm grip and reflective details cover both phone handling and low-light visibility during winter training.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A small but genuinely useful upgrade for any runner who trains through winter — the touchscreen fingertips solve the specific frustration of stopping to use a phone with bare hands in the cold."
+    }
+},
 
     {
-        "name": "Touchscreen-Compatible Running Gloves",
-        "category": "Sports & Outdoors",
-        "season": "Winter Essentials",
-        "image": "https://m.media-amazon.com/images/I/71DXUZ1PXuL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49iIrnF?tag=whoaccepts-21",
-        "info": "Lightweight thermal running gloves with touchscreen fingertips. Keeps hands warm while allowing phone use during cold runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["running gloves", "touchscreen gloves", "winter running", "cold weather gear"],
-        "pain_points": ["cold hands", "using phone in gloves", "winter running discomfort"],
-        "benefits": ["touchscreen compatible", "thermal warmth", "lightweight", "grippy palms"],
-        "price_tier": "budget-friendly",
-        "highlights": [
-            "Touchscreen-compatible fingertips for phone use",
-            "Thermal lining keeps hands warm in freezing conditions",
-            "Lightweight and breathable to prevent overheating",
-            "Anti-slip silicone palm for secure grip",
-            "Reflective details for visibility"
-        ],
-        "faqs": [
-            {"q": "Do they work with all touchscreens?", "a": "Yes - the conductive fingertips work with all smartphones and fitness watches."},
-            {"q": "Are they warm enough for freezing weather?", "a": "Absolutely - the thermal lining provides warmth down to -5°C while remaining breathable."}
-        ],
-        "date_added": "2025-12-31"
-    },
-
-    {
-        "name": "Compression Running Tights for Training",
-        "category": "Sports & Outdoors",
-        "season": "Winter Essentials, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
-        "url": "https://amzn.to/4aFtmia?tag=whoaccepts-21",
-        "info": "Supportive compression tights designed to reduce muscle fatigue and improve comfort during long or recovery runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["compression tights", "running leggings", "muscle support", "winter running"],
-        "pain_points": ["muscle fatigue", "cold legs", "recovery support"],
-        "benefits": ["muscle compression", "moisture-wicking", "thermal comfort", "reduced fatigue"],
-        "price_tier": "affordable quality",
-        "highlights": [
-            "Graduated compression reduces muscle fatigue",
-            "Moisture-wicking fabric keeps you dry",
-            "Thermal fabric for cold-weather training",
-            "Flatlock seams prevent chafing",
-            "Secure zip pocket for essentials"
-        ],
-        "faqs": [
-            {"q": "Do compression tights really help performance?", "a": "Yes - compression improves blood flow, reduces muscle vibration, and can speed recovery after intense training."},
-            {"q": "What temperature range are these suitable for?", "a": "Perfect for 0-15°C weather, providing warmth without overheating during runs."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "Compression Running Tights for Training",
+    "category": "Sports & Outdoors",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51EJj5Gm67L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4aFtmia?tag=whoaccepts-21",
+    "asin": "B0874WHB28",
+    "info": "Compression running tights with graduated compression, moisture-wicking fabric, and flatlock seams to reduce chafing during long runs and training sessions. The thermal fabric is designed for cold weather running in the 0–15°C range, and a secure zip pocket stores small essentials. Check the current Amazon UK listing for the specific compression rating, size guide, and available colours.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "compression running tights UK",
+        "thermal running leggings winter UK",
+        "graduated compression training tights",
+        "moisture wicking running tights men women",
+        "compression tights muscle support UK"
+    ],
+    "pain_points": [
+        "Muscle fatigue and soreness during and after longer training runs",
+        "Cold legs during winter outdoor running sessions",
+        "Chafing from poorly constructed seams on longer efforts",
+        "No secure storage for a key or card during a run"
+    ],
+    "benefits": [
+        "Graduated compression designed to reduce muscle vibration and fatigue",
+        "Moisture-wicking fabric draws sweat away from skin during effort",
+        "Thermal fabric designed for cold weather running in the 0–15°C range",
+        "Flatlock seams reduce friction and chafing on longer runs",
+        "Secure zip pocket for a key, card, or small essentials"
+    ],
+    "price_tier": "affordable quality",
+    "highlights": [
+        "Graduated compression construction designed to reduce muscle vibration and fatigue during running",
+        "Moisture-wicking fabric draws sweat away from skin to maintain comfort during effort",
+        "Thermal fabric rated for cold weather running — suitable for approximately 0–15°C conditions",
+        "Flatlock seams throughout reduce friction and chafing on longer training runs",
+        "Secure zip pocket provides storage for a key, card, or small essential during a run"
+    ],
+    "faqs": [
+        {
+            "q": "Do compression tights genuinely help with running performance and recovery?",
+            "a": "Compression garments are designed to apply graduated pressure to the muscles, which research suggests can reduce muscle vibration during activity and support circulation during recovery. Individual benefit varies — compression tights are widely used by recreational and competitive runners as a training and recovery aid, though they are not a substitute for proper training and rest."
+        },
+        {
+            "q": "What temperature range are these tights designed for?",
+            "a": "The thermal fabric is designed for cold weather running in approximately the 0–15°C range — suitable for UK autumn and winter training conditions. They may feel too warm for runs in temperatures above 15°C. Check the current Amazon UK listing for the manufacturer's specific temperature guidance."
+        },
+        {
+            "q": "Are these tights suitable for both men and women?",
+            "a": "Check the current Amazon UK listing for ASIN B0874WHB28 to confirm whether this specific variant is unisex or gender-specific, and for the full size guide before ordering."
+        }
+    ],
+    "hook_override": "Compression running tights with <b>graduated compression, flatlock seams, and a thermal fabric rated for 0–15°C</b> — the compression reduces muscle vibration during longer efforts while the moisture-wicking construction keeps sweat from sitting against the skin. A secure zip pocket handles a key or card without needing a belt.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical training gift for a regular runner who hasn't invested in proper compression kit yet — the combination of thermal fabric and compression makes them useful for both the run itself and recovery afterwards."
+    }
+},
 
     {
         "name": "Gritin Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels - Carrying Case Included",
