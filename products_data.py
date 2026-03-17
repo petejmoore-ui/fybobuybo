@@ -75,73 +75,60 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/81rlu+00crL._AC_SX569_.jpg",
     "url": "https://amzn.to/3OKOs5U",
     "asin": "B001QOE6TA",
-    "info": "The Levi's 501 is the original blue jean, first introduced in 1873 by Levi Strauss. It features a straight leg that is the same width at the knee and leg opening, sits at the waist, and is regular through the thigh — the blueprint silhouette for denim that followed. Made from 100% cotton with a classic button fly, five-pocket construction, and copper rivet reinforcements at stress points. The stonewash finish gives a softer, broken-in look and feel. Machine washable. A design worn by generations and available in a wide range of waist and leg sizes.",
+    "info": "The Levi's 501 is the original straight-leg jean, first introduced in 1873. Made from 100% cotton with a classic button fly, copper rivet reinforcements at stress points, and a straight leg that sits at the waist and runs the same width from knee to hem. The stonewash finish softens the cotton from the first wear — Levi's recommends cold water machine wash to preserve the colour and fit.",
     "last_updated": "2026-03-04",
     "date_added": "2026-03-04",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
     "keywords": [
-        "levis 501 jeans men UK", "mens straight leg jeans amazon UK",
-        "stonewash jeans men", "levis original fit stonewash",
-        "classic denim jeans men UK", "button fly jeans UK",
-        "levis 501 review UK", "100% cotton straight jeans men",
-        "levis jeans amazon UK", "mens denim jeans straight leg"
-    ],
-    "use_cases": [
-        "Men looking for a versatile straight-leg jean that works for casual and smart-casual occasions",
-        "Anyone replacing worn-out jeans with a well-known, long-established option",
-        "Men who prefer a classic straight fit over slim or tapered styles",
-        "Those wanting a pre-broken-in feel without waiting months for stiff denim to soften",
-        "Gift buyers looking for a reliably well-received clothing choice in a wide size range"
+        "Levi's 501 jeans men UK",
+        "mens straight leg jeans UK",
+        "stonewash jeans men",
+        "100% cotton button fly jeans UK",
+        "classic denim jeans gift men"
     ],
     "pain_points": [
-        "Jeans that lose shape or wear through after heavy use",
+        "Jeans that lose shape or wear through quickly with regular use",
         "Slim or tapered cuts that don't suit all body types",
-        "Stiff, uncomfortable new denim that takes time to soften",
-        "Difficulty finding a straight-leg jean that transitions from casual to smart-casual"
+        "Stiff new denim that takes weeks to soften",
+        "Finding a straight-leg jean that works for both casual and smart-casual occasions"
     ],
     "benefits": [
-        "Straight-leg silhouette — the same width at the knee and leg opening — that pairs with boots, trainers, or shoes",
-        "Stonewash finish delivers a softer, broken-in feel from the first wear",
-        "100% cotton construction with copper rivets at stress points for durability",
-        "Classic button fly and five-pocket design consistent with the original 1873 design",
-        "Machine washable and available in a wide range of waist and inseam sizes"
+        "Straight leg — same width from knee to hem — works with boots, trainers, or shoes",
+        "Stonewash finish for a softer, broken-in feel from first wear",
+        "100% cotton with copper rivet reinforcements at stress points",
+        "Classic button fly and five-pocket construction",
+        "Machine washable — wide range of waist and inseam sizes"
     ],
     "price_tier": "mid-range fashion staple",
     "highlights": [
-        "The original straight-leg jean — first introduced by Levi Strauss in 1873",
-        "Sits at the waist, regular through the thigh, with a straight leg from knee to hem",
+        "The original straight-leg jean — design unchanged since Levi Strauss introduced it in 1873",
         "100% cotton with copper rivet reinforcements and classic button fly",
-        "Stonewash finish for a softer, worn-in look and feel straight from the pack",
-        "Machine washable — Levi's recommends cold water wash to preserve fit and colour"
+        "Straight leg sits at the waist, regular through the thigh, same width from knee to hem",
+        "Stonewash finish delivers a softer, worn-in feel and lighter colour tone from day one",
+        "Levi's recommends cold water machine wash inside-out to preserve fit and colour"
     ],
     "faqs": [
         {
             "q": "Do Levi's 501 jeans run true to size?",
-            "a": "Levi's recommends ordering your normal size for the 501. The fit is regular through the seat and thigh — not slim or tapered — so it will feel roomier than slim-fit styles. If you are between sizes, sizing up by one is a common approach."
+            "a": "Levi's recommends ordering your normal size. The 501 is regular through the seat and thigh — not slim or tapered — so it will feel roomier than slim-fit styles. If you are between sizes, Levi's suggests sizing up by one."
         },
         {
             "q": "How should I wash Levi's 501 jeans?",
-            "a": "Levi's recommends machine washing in cold water with a gentle cycle and mild detergent, avoiding bleach or fabric softeners. Washing inside-out helps preserve the colour and stonewash finish."
+            "a": "Levi's recommends machine washing in cold water on a gentle cycle with mild detergent, avoiding bleach or fabric softeners. Washing inside-out helps preserve the colour and stonewash finish."
         },
         {
-            "q": "What is the difference between the Levi's 501 and other 501 fits like the 502 or 511?",
-            "a": "The 501 Original is a straight leg — the same width at the knee and the hem — with a button fly that sits at the waist. The 502 is a tapered slim fit with a zip fly, and the 511 is a slim fit narrower through the thigh. The 501 is the most traditional, non-tapered option."
-        },
-        {
-            "q": "Are these jeans suitable for smart-casual occasions?",
-            "a": "The 501's clean straight leg and waist-height rise pair well with a blazer, Oxford shirt, or leather shoes for smart-casual settings. The stonewash finish keeps them relaxed enough to also wear with a plain tee or casual jacket."
-        },
-        {
-            "q": "What does the stonewash finish mean for the feel and durability?",
-            "a": "Stonewashing is a process that softens the cotton denim fabric, giving it a worn-in texture and lighter colour tone without compromising the structure of the jean. The result is a pair that feels more comfortable from day one compared to raw or rigid denim."
-        },
-        {
-            "q": "Are Levi's 501 jeans available in a wide range of sizes?",
-            "a": "Yes — the 501 is one of Levi's most size-inclusive styles, available across a wide range of waist and inseam combinations, including extended sizes. Size availability may vary by retailer."
+            "q": "What is the difference between the 501, 502, and 511?",
+            "a": "The 501 Original is a straight leg with a button fly that sits at the waist — the same width from knee to hem. The 502 is tapered with a zip fly, and the 511 is a slim fit narrower through the thigh. The 501 is the most traditional, non-tapered option."
         }
-    ]
+    ],
+    "gift_finder_tags": {
+        "recipient": ["him"],
+        "interests": ["fashion"],
+        "occasion": ["birthday", "christmas", "justbecause", "fathersday"],
+        "why": "For a man who lives in jeans — the 501's straight leg and stonewash finish work for everything from the pub to a smart-casual dinner, and the wide size range makes them a reliable gift choice."
+    }
 },
 
     
@@ -152,28 +139,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71s+FRoGveL._AC_SX425_.jpg",
     "url": "https://amzn.to/4qAoPly",
     "asin": "B0C81Z1SQH",
-    "info": "These award-winning, medical-grade hydrocolloid patches from Hero Cosmetics create a protective barrier to absorb pimple gunk and impurities overnight, visibly shrinking blemishes and reducing redness in 6–8 hours. Thin, translucent design with tapered edges blends seamlessly (invisible under makeup or during day use), while the no-pop approach prevents irritation from picking. Vegan, cruelty-free, dermatologist-tested, fragrance-free, and free from harsh chemicals — ideal for all skin types including sensitive. A simple, effective beauty essential and thoughtful gift for clearer, calmer skin confidence.",
+    "info": "Mighty Patch Original are medical-grade hydrocolloid patches from Hero Cosmetics, sold in a pack of 24. Each patch creates a moist healing environment that absorbs blemish fluid overnight, with Hero Cosmetics stating visible reduction in pimple size within 6–8 hours. Dermatologist-tested, vegan, cruelty-free, fragrance-free, and suitable for all skin types including sensitive.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-13",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["mighty patch original", "hero cosmetics pimple patches", "hydrocolloid acne stickers", "overnight spot treatment", "invisible zit patches", "vegan acne patches", "valentines beauty gift"],
-    "pain_points": ["sudden or visible breakouts", "slow-healing pimples or redness", "temptation to pick at spots", "need for gentle, non-drying solutions"],
-    "benefits": ["overnight reduction in pimple size and inflammation", "absorbs impurities without irritating skin", "protective shield discourages touching", "discreet and comfortable wear", "promotes faster healing and clearer complexion"],
+    "keywords": [
+        "Mighty Patch Original UK",
+        "hydrocolloid pimple patches",
+        "overnight spot treatment patches",
+        "acne patches dermatologist tested",
+        "vegan spot treatment UK"
+    ],
+    "pain_points": [
+        "Slow-healing blemishes that linger for days",
+        "Redness and inflammation from picking or squeezing spots",
+        "Harsh spot treatments that dry out surrounding skin",
+        "Needing a discreet solution that works overnight"
+    ],
+    "benefits": [
+        "Medical-grade hydrocolloid absorbs blemish fluid overnight",
+        "Tapered edges sit flush with skin — discreet under makeup",
+        "Dermatologist-tested, vegan, cruelty-free, fragrance-free",
+        "Turns white when saturated — clear visual cue to replace",
+        "Suitable for all skin types including sensitive"
+    ],
     "price_tier": "affordable beauty essential",
     "highlights": [
-        "24 medical-grade hydrocolloid patches with tapered edges for seamless, invisible fit",
-        "Absorbs gunk and creates moist healing environment in 6–8 hours",
-        "Vegan, cruelty-free, dermatologist-tested, and free from harsh additives",
-        "Turns white when saturated — easy visual cue to replace",
-        "Perfect small gift for spot care, self-confidence, and quick results"
+        "Pack of 24 medical-grade hydrocolloid patches with tapered edges for a seamless fit",
+        "Hero Cosmetics states visible blemish reduction within 6–8 hours of overnight wear",
+        "Creates a moist healing environment that absorbs fluid without drying surrounding skin",
+        "Dermatologist-tested, vegan, cruelty-free, and free from fragrance and harsh additives",
+        "Turns white when saturated — easy indicator of when to replace the patch"
     ],
     "faqs": [
-        {"q": "How long do I leave the patches on?", "a": "Apply to clean, dry skin and leave for 6+ hours or overnight; remove when white/opaque (indicating absorption)."},
-        {"q": "Are they suitable as a Valentine's gift?", "a": "Yes — an affordable, practical beauty item that helps with clearer skin and shows care for self-love and confidence; great add-on or stocking filler."}
+        {
+            "q": "How long should I leave the patches on?",
+            "a": "Hero Cosmetics recommends applying to clean, dry skin and leaving for at least 6 hours or overnight. The patch turns white or opaque when it has absorbed as much as it can — that is the cue to remove and replace if needed."
+        },
+        {
+            "q": "Are Mighty Patches suitable for sensitive skin?",
+            "a": "Yes. The patches are dermatologist-tested, fragrance-free, and free from harsh additives. Hero Cosmetics states they are suitable for all skin types including sensitive skin."
+        },
+        {
+            "q": "Can these be worn during the day under makeup?",
+            "a": "Yes — the thin, translucent design with tapered edges is intended to blend with skin. They are less visible under makeup than thicker patches, though they are primarily designed for overnight use."
+        }
     ],
-    "date_added": "2026-02-13"
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["beauty"],
+        "occasion": ["birthday", "valentines", "mothersday", "justbecause"],
+        "why": "A genuinely useful beauty gift for anyone prone to breakouts — small enough to feel like a treat, practical enough to actually get used rather than left on a shelf."
+    }
 },
-
 {
     "name": "Dots for Spots Pimple Patches - Pack of 24 Translucent Hydrocolloid Spot Treatment Stickers for Face - Fast-Acting, Vegan & Cruelty Free - Korean Skin Care",
     "category": "Beauty",
@@ -181,26 +201,60 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71MP0BfMDPL._AC_SX425_.jpg",
     "url": "https://amzn.to/3MIp9AC",
     "asin": "B07SST3DHJ",
-    "info": "These ultra-thin, translucent hydrocolloid patches create an optimal moist healing environment for blemishes, gently absorbing excess fluid and impurities overnight while protecting spots from picking or bacteria. Tapered edges blend seamlessly with skin tones for discreet daytime or nighttime use — results visible as the patch turns white when saturated. Vegan, cruelty-free, fragrance-free, alcohol-free, paraben-free, and phthalate-free; suitable for all skin types including sensitive. A thoughtful, affordable beauty gift for clearer skin confidence and gentle spot care.",
+    "info": "Dots for Spots are translucent hydrocolloid patches inspired by Korean skincare, sold in a pack of 24. Each patch absorbs excess fluid from blemishes overnight, with tapered edges designed to sit flush with skin for discreet daytime or nighttime wear. Vegan, cruelty-free, fragrance-free, alcohol-free, paraben-free, and phthalate-free — suitable for all skin types including sensitive.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-13",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["hydrocolloid pimple patches", "acne spot stickers", "dots for spots", "overnight zit patches", "vegan acne treatment", "korean skincare", "valentines beauty gift"],
-    "pain_points": ["sudden breakouts or visible spots", "temptation to pick or pop pimples", "redness and slow-healing blemishes", "need for gentle, non-irritating spot solutions"],
-    "benefits": ["fast-acting overnight reduction in size and redness", "absorbs impurities without drying skin", "protective barrier discourages touching", "discreet and invisible under makeup", "promotes clearer, calmer complexion"],
+    "keywords": [
+        "Dots for Spots pimple patches UK",
+        "hydrocolloid spot patches",
+        "Korean skincare spot treatment UK",
+        "overnight acne patches vegan",
+        "translucent spot stickers sensitive skin"
+    ],
+    "pain_points": [
+        "Visible blemishes that are slow to heal",
+        "Picking or touching spots which worsens inflammation",
+        "Spot treatments that dry out or irritate surrounding skin",
+        "Needing something discreet enough to wear during the day"
+    ],
+    "benefits": [
+        "Hydrocolloid material absorbs blemish fluid overnight",
+        "Tapered edges blend with skin for discreet wear",
+        "Free from fragrance, alcohol, parabens, and phthalates",
+        "Turns white when saturated — clear replacement indicator",
+        "Suitable for all skin types including sensitive"
+    ],
     "price_tier": "affordable beauty essential",
     "highlights": [
-        "24 translucent hydrocolloid patches with tapered edges for seamless blend",
-        "Creates moist healing environment to speed recovery",
-        "Vegan, cruelty-free, and free from harsh chemicals",
-        "Turns white when saturated — clear sign to replace",
-        "Perfect small gift for spot-prone skin or self-care routines"
+        "Pack of 24 translucent hydrocolloid patches with tapered edges for a seamless, skin-flush fit",
+        "Absorbs excess fluid and impurities from blemishes while protecting from bacteria and touching",
+        "Korean skincare-inspired formulation — vegan, cruelty-free, and fragrance-free",
+        "Free from alcohol, parabens, and phthalates — suitable for sensitive skin",
+        "Turns white when saturated, providing a clear visual cue to replace the patch"
     ],
     "faqs": [
-        {"q": "How long should I wear the patches?", "a": "For best results, apply to clean, dry skin and leave on for 6+ hours or overnight; remove when the patch turns opaque white."},
-        {"q": "Are they suitable as a Valentine's gift?", "a": "Yes — an affordable, practical beauty item that helps with clearer skin confidence; great stocking filler or add-on for pampering and self-love."}
+        {
+            "q": "How long should I leave Dots for Spots patches on?",
+            "a": "The brand recommends applying to clean, dry skin and leaving for at least 6 hours or overnight. The patch turns opaque white when it has absorbed as much as it can — that is the indicator to remove it."
+        },
+        {
+            "q": "Can these be worn under makeup during the day?",
+            "a": "Yes — the translucent, thin design with tapered edges is intended to blend with skin tones for discreet wear. They work during the day, though overnight use typically gives the most visible results."
+        },
+        {
+            "q": "How do Dots for Spots differ from other pimple patches?",
+            "a": "Dots for Spots uses a Korean skincare-inspired hydrocolloid formulation and is free from a wider range of additives including alcohol, parabens, and phthalates — making it a good option for those with sensitive or reactive skin."
+        }
     ],
-    "date_added": "2026-02-13"
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["beauty"],
+        "occasion": ["birthday", "valentines", "justbecause"],
+        "why": "A practical, affordable skincare gift for anyone prone to breakouts — small enough to feel like a thoughtful extra rather than a main present, and genuinely useful enough to get used."
+    }
 },
     
     {
@@ -210,28 +264,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/715YLJKLN0L._AC_SX679_.jpg",
     "url": "https://amzn.to/4tA6xn5",
     "asin": "B0G1YHBWNB",
-    "info": "Maximize space and keep belongings fresh with this 12-pack reusable vacuum storage bag set, complete with a built-in electric air pump for quick, effortless compression. Includes 2 large, 5 medium, and 5 small bags made from durable, airtight material with double-zip seals and one-way valves. Perfect for storing seasonal clothes, bedding, duvets, pillows, blankets, or travel packing — compresses items up to 80% to save closet/drawer space and protect against dust, moisture, and odors. Reusable design allows easy access and re-sealing. A practical, thoughtful gift for anyone wanting organized, clutter-free living and efficient storage.",
+    "info": "A 12-pack set of reusable vacuum storage bags supplied with a built-in electric pump, comprising 2 large, 5 medium, and 5 small bags. Each bag uses a double-zip seal and one-way valve to compress contents by up to 80%, protecting stored items from dust, moisture, and odours. Suitable for seasonal clothing, duvets, pillows, blankets, and travel packing.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-13",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["vacuum storage bags", "electric pump space saver", "reusable compression bags", "clothes bedding storage", "travel vacuum bags", "home organization gift", "valentines home gift"],
-    "pain_points": ["cluttered closets or limited storage space", "bulky bedding/clothes taking up room", "dust/moisture damaging stored items", "manual pumping being tedious"],
-    "benefits": ["compresses items up to 80% for massive space savings", "electric pump for fast, effortless vacuuming", "reusable and airtight to protect against dust/odors", "variety of sizes for versatile use", "easy re-access and reseal for convenience"],
-    "price_tier": "affordable home organization",
+    "keywords": [
+        "vacuum storage bags with electric pump UK",
+        "space saver bags for bedding UK",
+        "reusable compression bags clothes",
+        "vacuum bags for duvets and pillows",
+        "home organisation storage bags UK"
+    ],
+    "pain_points": [
+        "Bulky bedding and seasonal clothing taking up wardrobe or drawer space",
+        "Dust and moisture damaging items stored long-term",
+        "Manual vacuum pumps that are slow and tiring to use",
+        "Running out of storage space when packing for travel or moving"
+    ],
+    "benefits": [
+        "Compresses contents by up to 80% to save storage space",
+        "Electric pump removes air quickly without manual effort",
+        "Double-zip seal and one-way valve for airtight, long-term protection",
+        "Reusable — reseal and re-access as needed",
+        "12-piece variety set covers small, medium, and large storage needs"
+    ],
+    "price_tier": "affordable home organisation",
     "highlights": [
-        "12-pack variety (2 large, 5 medium, 5 small) for all storage needs",
-        "Built-in electric air pump — no manual effort required",
-        "Durable double-zip seal and one-way valve for long-term airtight protection",
-        "Reusable design saves money and reduces waste",
-        "Ideal thoughtful gift for tidier homes, travel, or seasonal organization"
+        "12-pack set: 2 large, 5 medium, and 5 small reusable vacuum storage bags",
+        "Supplied electric pump compresses bags quickly without manual effort",
+        "Double-zip seal and one-way valve compress contents by up to 80%",
+        "Airtight construction protects stored items from dust, moisture, and odours",
+        "Reusable design — reseal and re-access without needing a new bag"
     ],
     "faqs": [
-        {"q": "How does the electric pump work?", "a": "Plug in or use batteries (if applicable), place on the valve, and it automatically extracts air — much faster and easier than hand pumps."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring home upgrade that shows thoughtfulness for creating a more organized, comfortable space together."}
+        {
+            "q": "How does the electric pump work with these bags?",
+            "a": "Place the pump nozzle over the one-way valve on the bag and switch on — the pump extracts air automatically until the bag is compressed. Check the current Amazon UK listing for specific power requirements as these vary by model."
+        },
+        {
+            "q": "Can the bags be reused after opening?",
+            "a": "Yes — the double-zip seal allows the bags to be reopened and resealed multiple times. Simply use the electric pump again to re-compress after accessing your stored items."
+        },
+        {
+            "q": "Are these suitable for travel as well as home storage?",
+            "a": "The small and medium bags are suitable for travel packing to compress clothing. Note that airline cabin pressure changes will cause vacuum bags to expand during flight — they are best used in hold luggage or for ground travel."
+        }
     ],
-    "date_added": "2026-02-13"
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause", "newbaby"],
+        "why": "For anyone who never has enough wardrobe or storage space — the electric pump makes it genuinely quick to use, and the variety of bag sizes covers everything from duvets to travel packing."
+    }
 },
-
     {
     "name": "Revitive ProHealth Circulation Booster, Relieves Tired Aching Legs",
     "category": "Health & Personal Care",
