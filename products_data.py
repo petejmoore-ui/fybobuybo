@@ -1313,58 +1313,128 @@ PRODUCTS = [
     "name": "Newthinking Suction Bathroom Grab Rails, Hand Rail for Disabled, Portable Mobility Aids Safety Handle with Suction Cup Fitting, No Fixings Needed for Bathroom, Children and Disability Aids (1 Pack)",
     "category": "Health & Personal Care",
     "season": "",
-    "image": "https://m.media-amazon.com/images/I/51c4IdXAWYL._AC_SX679_.jpg",  
+    "image": "https://m.media-amazon.com/images/I/51c4IdXAWYL._AC_SX679_.jpg",
     "url": "https://amzn.to/4t7CRNJ",
     "asin": "B07G2WCNVB",
-    "info": "Portable suction cup grab rail for bathroom safety, providing extra support and balance in slippery areas like showers, baths, or near toilets. No drilling or permanent fixings required — strong suction on non-porous flat surfaces (tiles, glass, porcelain). Textured non-slip grip for secure hold, even when wet; ideal for elderly, disabled, injured, or those with weak grip/arthritis needing temporary mobility aid.",
-    "manual_price": "", 
+    "info": "A portable suction cup grab rail for bathroom use, designed to attach to smooth, flat, non-porous surfaces such as tiles, glass, and porcelain without drilling or permanent fixings. The textured non-slip grip remains secure when wet. The manufacturer states this rail is intended to assist with balance and stability — it is not rated for full body weight bearing. Suitable for bathrooms, showers, and baths in rented properties or for temporary use.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
+    "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["suction grab bar", "bathroom safety rail elderly", "portable grab handle disabled", "suction cup shower handle UK", "mobility aid no drill"],
-    "pain_points": ["fear of slipping in wet bathroom areas", "need for extra support without permanent installation", "limited mobility or weak grip causing instability", "high fall risk for elderly/disabled in shower/bath"],
-    "benefits": ["instant tool-free installation and removal", "strong suction for reliable balance assistance", "non-slip textured grip for wet conditions", "portable for travel or temporary use", "promotes independence and safety for seniors/arthritis users"],
+    "keywords": [
+        "suction grab rail bathroom UK",
+        "no drill bathroom grab bar",
+        "portable suction shower handle elderly",
+        "mobility aid bathroom handle no fixings",
+        "suction cup grab rail disabled UK"
+    ],
+    "pain_points": [
+        "Risk of slipping in wet shower or bath areas",
+        "Inability to install permanent grab rails in rented properties",
+        "Limited mobility, weak grip, or arthritis making bathroom use unsafe",
+        "Needing a temporary mobility aid after surgery or injury"
+    ],
+    "benefits": [
+        "Attaches to smooth non-porous surfaces without drilling or fixings",
+        "Textured non-slip grip remains secure when wet",
+        "Portable — repositions easily and suitable for travel",
+        "No tools required for installation or removal",
+        "Renter-friendly — leaves no marks or damage on tiles"
+    ],
     "price_tier": "affordable portable safety aid",
     "highlights": [
-        "Strong suction on smooth non-porous surfaces",
-        "No drilling or fixings needed — renter-friendly",
-        "Textured rubber grip for secure hold when wet",
-        "Portable and easy to reposition",
-        "Supports balance (not full body weight) for elderly/disabled"
+        "Suction cup fitting attaches to smooth, flat, non-porous surfaces — tiles, glass, and porcelain",
+        "No drilling or permanent fixings required — suitable for rented properties",
+        "Textured non-slip rubber grip maintains hold in wet shower and bath conditions",
+        "Portable design repositions easily and packs flat for travel use",
+        "Manufacturer states the rail is designed for balance assistance — not rated for full body weight bearing"
     ],
     "faqs": [
-        {"q": "How much weight can it hold?", "a": "Provides balance assistance; not for full body leverage — test suction before use and reattach as needed."},
-        {"q": "Suitable for textured surfaces?", "a": "Best on smooth, flat non-porous surfaces like tiles/glass; may not adhere well to textured or porous materials."}
+        {
+            "q": "How much weight can the suction grab rail support?",
+            "a": "The manufacturer states this rail is designed to assist with balance and stability rather than bear full body weight. It should be used as a steadying aid rather than relied upon for full load-bearing support. Always test the suction seal firmly before use and check it regularly."
+        },
+        {
+            "q": "Will this attach to textured bathroom tiles?",
+            "a": "The suction cup requires a smooth, flat, non-porous surface to form a reliable seal. Textured, grouted, or porous surfaces will significantly reduce suction strength. Check the surface is completely smooth and dry before attaching."
+        },
+        {
+            "q": "Is this suitable for use in a rented property?",
+            "a": "Yes — the suction cup fitting requires no drilling, screws, or adhesives, making it suitable for rented properties where permanent installation is not permitted. It can be removed and reattached without leaving marks or damage."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "A suction cup grab rail that attaches to bathroom tiles, glass, and porcelain <b>without drilling or permanent fixings</b> — suitable for rented properties and removable without leaving marks. The textured grip stays secure when wet, and the manufacturer recommends it as a balance aid rather than a full weight-bearing support.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her"],
+        "interests": ["health", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, considered gift for an elderly parent or anyone with limited mobility — the no-drill suction fitting means it can be installed immediately in any bathroom without a tradesperson or landlord permission."
+    }
 },
   {
     "name": "Vive Reacher Grabber Tool 32 Inch - Lightweight Extra Long Handy Picker",
     "category": "Health & Personal Care",
-    "season":  "Mother's Day, Father's Day",
+    "season": "Mother's Day, Father's Day",
     "image": "https://m.media-amazon.com/images/I/51mkiPQlhXL._AC_SX679_.jpg",
     "url": "https://amzn.to/3OdoZBC",
     "asin": "B00O47NWE6",
-    "info": "32-inch lightweight reacher with rotating jaw, magnetic tip, and rubber grip for picking up items without bending or stretching. Essential for limited mobility or arthritis, helping maintain home independence effortlessly.",
+    "info": "The Vive Reacher Grabber is a 32-inch lightweight reaching tool with a rotating jaw head, rubber-coated gripping pads, and a magnetic tip for retrieving small metal objects. Vive states the tool is designed for everyday home use by people with limited mobility, arthritis, or those recovering from surgery. The foldable design allows compact storage when not in use.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["reacher grabber tool", "long reach picker elderly", "mobility aid grabber", "32 inch reacher", "arthritis reach tool UK"],
-    "pain_points": ["difficulty bending to pick up dropped items", "straining to reach high shelves", "limited mobility reducing daily independence"],
-    "benefits": ["extends reach by 32 inches to avoid bending", "rotating head for awkward angles", "magnetic tip for small metal objects", "lightweight and easy to handle", "supports confident, independent living"],
+    "keywords": [
+        "Vive reacher grabber tool UK",
+        "32 inch reacher for elderly",
+        "mobility aid grabber tool UK",
+        "long reach picker arthritis",
+        "foldable reacher grabber UK"
+    ],
+    "pain_points": [
+        "Difficulty bending to pick up dropped items from the floor",
+        "Struggling to reach items on high shelves without overbalancing",
+        "Arthritis or limited grip strength making picking up objects difficult",
+        "Needing to maintain home independence without relying on others for everyday tasks"
+    ],
+    "benefits": [
+        "32-inch reach extends range without bending or stretching",
+        "Rotating jaw head grabs items at awkward angles",
+        "Magnetic tip retrieves small metal objects like coins and keys",
+        "Rubber-coated gripping pads prevent items slipping",
+        "Foldable for compact storage in a drawer or bag"
+    ],
     "price_tier": "practical everyday aid",
     "highlights": [
-      "Extra-long 32-inch reach for floors and shelves",
-      "Rotating jaw grabs from any angle",
-      "Strong rubber grip prevents slips",
-      "Foldable for easy storage",
-      "Durable build trusted by thousands"
+        "32-inch length extends reach to floor level and high shelves without bending",
+        "Rotating jaw head adjusts angle for awkward or confined spaces",
+        "Magnetic tip at the jaw retrieves small metal objects such as coins and keys",
+        "Rubber-coated gripping pads hold items securely without crushing",
+        "Foldable design stores compactly in a drawer or bag when not in use"
     ],
     "faqs": [
-      {"q": "Is it foldable?", "a": "Yes, many Vive models fold for compact storage."},
-      {"q": "Weight capacity?", "a": "Holds typical household items up to ~2kg."}
+        {
+            "q": "Does the Vive Reacher Grabber fold for storage?",
+            "a": "Vive states the reacher features a foldable design for compact storage. Check the current Amazon UK listing to confirm the exact folded dimensions for the specific model variant."
+        },
+        {
+            "q": "What weight can the grabber tool hold?",
+            "a": "The tool is designed for typical lightweight household items. Vive states it handles everyday objects comfortably — check the current Amazon UK listing for the specific weight capacity stated for this model before using it to retrieve heavier items."
+        },
+        {
+            "q": "Is this suitable for someone with arthritis?",
+            "a": "The Vive Reacher is designed with a lightweight construction and ergonomic handle to reduce strain on hands and wrists during use. It is a commonly recommended tool for people with arthritis or reduced grip strength, though individual comfort will vary."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A 32-inch reacher with a <b>rotating jaw head and magnetic tip</b> — reaches the floor, high shelves, and awkward angles without bending or stretching. Lightweight enough for daily use with arthritis or limited grip, and folds flat for drawer storage when not needed.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her"],
+        "interests": ["health", "home"],
+        "occasion": ["birthday", "mothersday", "fathersday", "christmas", "justbecause"],
+        "why": "A genuinely useful gift for an elderly parent or anyone with limited mobility — practical enough to use every day and thoughtful enough to show you've considered their actual daily challenges."
+    }
+},
 
     {
     "name": "Liforme Original Yoga Mat - Eco-Friendly, Biodegradable, Patented Alignment System, Warrior-like Grip, Non-Slip, 4.2mm Thick",
@@ -1373,26 +1443,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/41bi96KLRpL._AC_SL1000_.jpg",
     "url": "https://amzn.to/4bCkwST",
     "asin": "B01CGLCG8O",
-    "info": "Elevate your yoga practice with the Liforme Original mat — crafted from eco-friendly, biodegradable materials with a patented AlignForMe® system that subtly guides perfect posture and alignment in every pose. The open-cell surface delivers warrior-like grip that improves with sweat, providing exceptional stability for vinyasa, hot yoga, and dynamic flows. At 4.2mm thick, it offers balanced cushioning and joint support while remaining lightweight and portable. Includes a free carry bag. A thoughtful, high-performance gift for yogis who value precision, sustainability, comfort, and long-term practice.",
+    "info": "The Liforme Original is a 4.2mm thick yoga mat made from eco-friendly, biodegradable natural rubber with an open-cell polyurethane surface. Liforme states the patented AlignForMe® marker system is printed onto the mat to guide hand, foot, and body positioning across common yoga poses. The open-cell surface is designed to increase grip as it becomes damp with sweat. A free carry bag is included.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-07",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["liforme original yoga mat", "alignment system yoga mat", "eco friendly yoga mat", "non slip grip mat", "biodegradable yoga mat", "hot yoga mat", "valentines wellness gift"],
-    "pain_points": ["inconsistent alignment in poses", "slipping during sweaty sessions", "eco concerns with traditional mats", "need for reliable grip and cushion balance"],
-    "benefits": ["patented alignment guides for perfect form and confidence", "sweat-activated grip for unshakable stability", "eco-friendly biodegradable construction", "balanced 4.2mm cushion for joint protection", "durable, lightweight design with free carry bag"],
+    "keywords": [
+        "Liforme Original yoga mat UK",
+        "alignment system yoga mat",
+        "eco friendly biodegradable yoga mat UK",
+        "non slip grip yoga mat hot yoga",
+        "premium yoga mat gift UK"
+    ],
+    "pain_points": [
+        "Slipping on a yoga mat during sweaty or dynamic sessions",
+        "Inconsistent alignment in poses without visual reference points",
+        "Standard yoga mats made from PVC or non-biodegradable materials",
+        "Mats that are either too thin for joint comfort or too thick for balance"
+    ],
+    "benefits": [
+        "Patented AlignForMe® markers guide hand, foot, and body positioning",
+        "Open-cell surface increases grip as it dampens with sweat",
+        "Made from biodegradable natural rubber — no PVC or harmful chemicals",
+        "4.2mm thickness balances joint cushioning with ground feel",
+        "Free carry bag included for transport and storage"
+    ],
     "price_tier": "premium eco yoga mat",
     "highlights": [
-        "Patented AlignForMe® system for intuitive posture guidance",
-        "Open-cell surface becomes grippier with moisture and sweat",
-        "Eco-friendly, biodegradable materials with no harmful chemicals",
-        "4.2mm thickness for comfort and support without bulk",
-        "Includes free carry bag — ideal thoughtful gift for dedicated yogis"
+        "Patented AlignForMe® system prints alignment markers for hands, feet, and body positioning",
+        "Open-cell polyurethane surface — Liforme states grip improves as the mat becomes damp",
+        "4.2mm thickness provides joint cushioning while maintaining stability for balancing poses",
+        "Made from biodegradable natural rubber — free from PVC and harmful chemicals",
+        "Free carry bag included — Liforme states the mat measures 185cm x 68cm"
     ],
     "faqs": [
-        {"q": "How does the alignment system work?", "a": "The subtle, printed markers help you position hands, feet, and body correctly in poses, improving form, balance, and progress over time."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a luxurious, meaningful wellness item that supports their practice, shows care for their comfort and the planet, and is considered a 'forever' mat by many."}
+        {
+            "q": "How does the AlignForMe® alignment system work?",
+            "a": "Liforme states the AlignForMe® system uses printed markers on the mat surface to indicate correct hand, foot, and body positioning for common yoga poses. The markers are designed to be subtle enough not to distract during practice while providing a visual reference for improving form and consistency."
+        },
+        {
+            "q": "Is the Liforme mat suitable for hot yoga?",
+            "a": "Liforme states the open-cell surface is designed to increase grip as it becomes damp with sweat, making it suitable for hot yoga and dynamic flows where standard mats tend to become slippery. No towel overlay should be required in most cases."
+        },
+        {
+            "q": "Is the Liforme Original mat genuinely biodegradable?",
+            "a": "Liforme states the mat is made from natural rubber and biodegradable materials, free from PVC and toxic chemicals. As with most natural rubber products, biodegradation occurs under the right composting conditions rather than in standard landfill — check Liforme's website for their specific end-of-life guidance."
+        }
     ],
-    "date_added": "2026-02-07"
+    "hook_override": "The Liforme Original has a <b>patented AlignForMe® marker system</b> printed onto the mat surface to guide hand, foot, and body positioning in poses — useful for beginners building consistency and experienced practitioners refining form. The open-cell surface grips harder as it gets wetter, making it one of the few mats that actually improves during a sweaty session.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause", "mothersday"],
+        "why": "For a regular yoga practitioner who's still using a basic mat — the alignment markers and sweat-activated grip make a tangible difference to practice quality, and the biodegradable construction means it's a considered purchase rather than another piece of plastic kit."
+    }
 },
 
     {
@@ -1402,26 +1507,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/61PUCJpCA+L._AC_SL1500_.jpg",
     "url": "https://amzn.to/4qjeFpj",
     "asin": "B000EC9LMM",
-    "info": "Discover superior grip and sustainability with the Jade Harmony yoga mat — crafted from open-cell natural rubber tapped from rubber trees, this mat becomes even grippier as you sweat, providing rock-solid stability for hot yoga, vinyasa, flow sequences, and sweaty sessions. At 5mm (3/16'') thick, it offers a balanced cushion with joint support while staying lightweight and responsive. Eco-friendly, biodegradable, non-toxic (no PVC or harmful chemicals), and designed to last. The elegant Midnight Blue color adds style to your practice. A thoughtful, high-quality gift for yoga enthusiasts who value performance, planet-friendly materials, and confident movement.",
+    "info": "The Jade Harmony Professional is a 5mm thick yoga mat made from open-cell natural rubber tapped from rubber trees. Jade states the open-cell construction is designed to increase grip as the surface becomes damp with sweat, making it suitable for hot yoga and dynamic flows. The mat is free from PVC and synthetic materials — Jade states it is biodegradable and non-toxic. Available in Midnight Blue.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-07",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["jade harmony yoga mat", "natural rubber yoga mat", "hot yoga mat", "non slip grip mat", "eco friendly yoga mat", "professional yoga mat", "valentines wellness gift"],
-    "pain_points": ["slipping in sweaty or hot classes", "eco concerns with synthetic mats", "need for durable grip without constant readjustment", "wanting cushion without bulk"],
-    "benefits": ["sweat-activated grip for unshakable stability", "eco-conscious natural rubber that's biodegradable", "perfect balance of cushioning and grounded feel", "long-lasting durability for frequent practice", "stylish Midnight Blue design that inspires daily use"],
+    "keywords": [
+        "Jade Harmony yoga mat UK",
+        "natural rubber yoga mat non slip",
+        "hot yoga mat sweat grip UK",
+        "eco friendly yoga mat biodegradable",
+        "professional yoga mat 5mm UK"
+    ],
+    "pain_points": [
+        "Slipping on a synthetic mat during hot yoga or sweaty sessions",
+        "PVC yoga mats that are non-biodegradable and contain harmful chemicals",
+        "Mats that lose grip over time with regular use",
+        "Needing a mat thick enough for joint comfort without losing ground connection"
+    ],
+    "benefits": [
+        "Open-cell natural rubber increases grip as it dampens with sweat",
+        "Made from rubber tapped from rubber trees — biodegradable and PVC-free",
+        "5mm thickness cushions joints while maintaining stability for balancing poses",
+        "Designed for long-term durability with frequent practice",
+        "Non-toxic construction — free from PVC and harmful chemicals"
+    ],
     "price_tier": "premium eco yoga mat",
     "highlights": [
-        "Natural open-cell rubber surface gets grippier with sweat and heat",
-        "Eco-friendly, biodegradable, and free from PVC/toxic chemicals",
-        "5mm thickness for balanced cushion and joint protection",
-        "Lightweight yet tough construction built for years of practice",
-        "Ideal thoughtful gift for yogis seeking performance and sustainability"
+        "Made from open-cell natural rubber tapped from rubber trees — biodegradable and PVC-free",
+        "Jade states grip increases as the surface becomes damp during hot yoga or sweaty sessions",
+        "5mm thickness provides joint cushioning while maintaining ground connection for balance",
+        "Non-toxic construction — Jade states the mat is free from PVC and harmful chemicals",
+        "Jade plants one tree for every mat sold through their Trees for the Future programme"
     ],
     "faqs": [
-        {"q": "Does the grip improve when wet?", "a": "Yes — the natural rubber is engineered to become stickier with moisture and sweat, making it one of the best options for hot yoga and dynamic flows."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a premium, meaningful wellness item that supports their practice, shows care for their comfort, and aligns with eco values."}
+        {
+            "q": "Does the Jade Harmony mat genuinely get grippier when wet?",
+            "a": "Jade states the open-cell natural rubber construction is specifically designed to increase grip as the surface becomes damp with sweat or moisture — the opposite of most synthetic mats, which become slippery when wet. This makes it a commonly recommended choice for hot yoga practitioners."
+        },
+        {
+            "q": "Is the Jade Harmony mat suitable for beginners as well as experienced practitioners?",
+            "a": "Yes — the 5mm thickness and reliable grip make it suitable for all levels. Beginners benefit from the cushioning and stability, while experienced practitioners appreciate the ground connection and sweat-activated grip during more demanding sessions."
+        },
+        {
+            "q": "How should the Jade Harmony mat be cleaned?",
+            "a": "Jade recommends wiping the mat with a damp cloth after each session and allowing it to air dry away from direct sunlight. Avoid submerging the mat in water or using harsh chemical cleaners, which can break down the natural rubber over time."
+        }
     ],
-    "date_added": "2026-02-07"
+    "hook_override": "Made from <b>open-cell natural rubber tapped from rubber trees</b> — Jade states the surface gets grippier as it dampens with sweat, making it one of the few mats that actively improves during a hot or dynamic session. PVC-free, biodegradable, and 5mm thick for joint cushioning without losing ground feel.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause", "mothersday"],
+        "why": "For a regular yoga practitioner who wants a mat that performs in sweaty sessions without relying on a towel overlay — the natural rubber construction makes a noticeable difference to grip quality compared to standard PVC mats."
+    }
 },
 
 
@@ -1432,26 +1572,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/81UL7GyeitL._AC_SL1500_.jpg",
     "url": "https://amzn.to/3Os1Lb2",
     "asin": "B00DJQFAV6",
-    "info": "Experience unmatched comfort and durability with the Manduka Verve mat — a 6mm thick closed-cell PVC design that delivers excellent cushioning for joints during yoga, Pilates, stretching, and floor exercises. The textured surface provides dependable non-slip grip (even during moderate sweat), while the dense foam construction offers support without bottoming out. Lightweight for easy transport, odor-resistant, and backed by Manduka's lifetime guarantee against defects. The sophisticated Black Verve color adds elegance to any practice space. A thoughtful, long-lasting gift for anyone serious about their wellness routine, comfort, and reliable equipment.",
+    "info": "The Manduka Verve is a 6mm thick closed-cell PVC yoga and Pilates mat with a textured non-slip surface. Manduka states the closed-cell construction is odour-resistant and prevents sweat and moisture from being absorbed into the mat. The Verve is backed by Manduka's lifetime guarantee against manufacturing defects. Available in Black Verve.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-07",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["manduka verve mat", "6mm yoga mat", "non slip pilates mat", "durable yoga mat", "manduka verve black", "premium exercise mat", "valentines wellness gift"],
-    "pain_points": ["thin mats lacking joint protection", "inconsistent grip during practice", "mats that wear out quickly", "need for reliable, long-term equipment"],
-    "benefits": ["superior 6mm cushioning for joint comfort", "consistent non-slip surface for secure poses", "dense, resilient build that lasts years", "lightweight and easy to roll/carry", "elegant black design with lifetime durability"],
+    "keywords": [
+        "Manduka Verve yoga mat UK",
+        "6mm thick yoga pilates mat",
+        "non slip durable yoga mat UK",
+        "lifetime guarantee yoga mat",
+        "closed cell PVC yoga mat odour resistant"
+    ],
+    "pain_points": [
+        "Thin mats that bottom out on hard floors during kneeling or prone poses",
+        "Mats that absorb sweat and develop odour with regular use",
+        "Yoga mats that deteriorate within a year of regular practice",
+        "Needing a mat that works equally well for yoga and Pilates floor work"
+    ],
+    "benefits": [
+        "6mm closed-cell PVC provides joint cushioning without bottoming out",
+        "Closed-cell surface resists sweat and moisture absorption",
+        "Textured non-slip surface for consistent grip during practice",
+        "Backed by Manduka's lifetime guarantee against manufacturing defects",
+        "Odour-resistant construction suitable for daily use"
+    ],
     "price_tier": "premium performance yoga mat",
     "highlights": [
-        "6mm thick closed-cell PVC for excellent cushion and support",
-        "Textured surface ensures reliable grip in most conditions",
-        "Odor-resistant and easy to clean for daily use",
-        "Backed by Manduka's lifetime guarantee",
-        "Perfect thoughtful gift for yogis and fitness lovers seeking quality"
+        "6mm thick closed-cell PVC — denser than standard foam mats for cushioning without compression",
+        "Closed-cell surface prevents sweat and moisture absorbing into the mat — Manduka states this makes it odour-resistant",
+        "Textured non-slip surface provides consistent grip for yoga and Pilates",
+        "Backed by Manduka's lifetime guarantee against manufacturing defects",
+        "Lightweight enough to roll and carry — suitable for studio and home use"
     ],
     "faqs": [
-        {"q": "How does it compare to the Manduka PRO?", "a": "The Verve is slightly lighter and more affordable while still offering strong cushioning and grip — great for home use, though the PRO is denser for studio professionals."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a premium, caring wellness item that supports their practice and shows investment in their comfort and long-term enjoyment."}
+        {
+            "q": "How does the Manduka Verve differ from the Manduka PRO?",
+            "a": "Manduka states the PRO is their densest, heaviest mat at 6mm with a longer break-in period for maximum grip over time — designed for daily studio use. The Verve is lighter and ready to use immediately, making it better suited to home practice or those who prefer a less heavy mat to carry."
+        },
+        {
+            "q": "What does Manduka's lifetime guarantee cover?",
+            "a": "Manduka states the lifetime guarantee covers manufacturing defects in materials and workmanship. It does not cover normal wear from regular use. Check Manduka's website or the current Amazon UK listing for the full terms of the guarantee and how to make a claim."
+        },
+        {
+            "q": "Is the Manduka Verve suitable for Pilates as well as yoga?",
+            "a": "Yes — the 6mm thickness and firm cushioning make it suitable for Pilates mat work, stretching, and floor exercises as well as yoga. The closed-cell surface wipes clean easily, which is practical for mat-based Pilates movements."
+        }
     ],
-    "date_added": "2026-02-07"
+    "hook_override": "A 6mm closed-cell PVC mat backed by <b>Manduka's lifetime guarantee against manufacturing defects</b> — the closed-cell construction prevents sweat absorbing into the mat, keeping it odour-free with regular use. Denser than standard foam mats, it cushions joints without compressing flat under body weight.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause", "mothersday"],
+        "why": "For someone who practises yoga or Pilates regularly and has outgrown a basic mat — the lifetime guarantee and closed-cell construction make it a genuinely long-term purchase rather than something that needs replacing in a year."
+    }
 },
 
 {
@@ -1461,26 +1636,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71De4YBV9LL._AC_SX679_.jpg",
     "url": "https://amzn.to/3LZUH4R",
     "asin": "B0FY2WMVKY",
-    "info": "Experience unbeatable grip with this FSC-certified natural rubber yoga mat from Yogi Bare — designed to get grippier as you sweat, offering rock-solid stability for hot yoga, vinyasa, Pilates, and dynamic flows. 4mm thickness provides balanced cushioning and joint support while remaining lightweight and durable. Tear-resistant, biodegradable, non-toxic construction (no PVC or harmful glues) with subtle alignment guides for perfect posture. A thoughtful, eco-conscious gift for anyone passionate about mindful movement, wellness, and sustainable practice.",
+    "info": "The Yogi Bare PAWS is a 4mm thick yoga mat made from FSC certified natural rubber with a tear-resistant, open-cell surface designed to increase grip as it becomes damp with sweat. Yogi Bare states the mat is free from PVC, toxic glues, and harmful chemicals, and is biodegradable. Subtle alignment guides are printed on the surface to assist with positioning. Available in Midnight Black.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-07",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["yogi bare paws mat", "natural rubber yoga mat", "ultra grip yoga mat", "hot yoga mat", "eco friendly yoga mat", "non slip yoga mat", "valentines wellness gift"],
-    "pain_points": ["slipping during sweaty sessions", "lack of reliable grip in hot yoga or dynamic practice", "eco concerns with synthetic mats", "need for durable yet comfortable cushioning"],
-    "benefits": ["sweat-activated ultra-sticky grip for confidence in any pose", "eco-friendly natural rubber that's biodegradable and sustainable", "perfect balance of cushion and stability", "tear-resistant longevity for daily use", "mindful alignment aids for better form"],
+    "keywords": [
+        "Yogi Bare PAWS yoga mat UK",
+        "FSC certified natural rubber yoga mat",
+        "ultra grip hot yoga mat UK",
+        "biodegradable non slip yoga mat",
+        "eco yoga mat sweat grip UK"
+    ],
+    "pain_points": [
+        "Slipping on a synthetic mat during hot yoga or sweaty vinyasa sessions",
+        "Yoga mats made from PVC or containing toxic adhesives",
+        "Mats that lose grip or deteriorate with frequent washing",
+        "Needing a mat thin enough for ground connection but cushioned enough for joints"
+    ],
+    "benefits": [
+        "FSC certified natural rubber — biodegradable and free from PVC and toxic glues",
+        "Open-cell surface increases grip as it dampens with sweat",
+        "Tear-resistant high-tensile construction for long-term durability",
+        "4mm thickness balances joint cushioning with ground connection",
+        "Subtle alignment guides assist hand, foot, and body positioning"
+    ],
     "price_tier": "premium eco yoga mat",
     "highlights": [
-        "Ultra-grip natural rubber surface that improves with moisture and heat",
-        "FSC certified, biodegradable, and free from PVC/toxic glues",
-        "4mm thickness for joint support without sacrificing grounded feel",
-        "Tear-resistant high-tensile construction built to last",
-        "Subtle alignment guides and generous size for precise, spacious practice"
+        "FSC certified natural rubber construction — biodegradable and free from PVC and toxic glues",
+        "Yogi Bare states the open-cell surface increases grip as it becomes damp during practice",
+        "Tear-resistant high-tensile rubber designed for long-term durability with daily use",
+        "4mm thickness provides joint cushioning while maintaining ground feel for balancing poses",
+        "Subtle alignment guides printed on the surface for hand, foot, and body positioning"
     ],
     "faqs": [
-        {"q": "Does the grip really get better when you sweat?", "a": "Yes — the natural rubber is designed to become even stickier with heat and moisture, making it ideal for hot yoga and sweaty flows."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Absolutely — it's a thoughtful, high-quality wellness item that shows care for their practice, health, and the planet; many yogis consider it a lifetime mat."}
+        {
+            "q": "Does the Yogi Bare PAWS mat genuinely get grippier when wet?",
+            "a": "Yogi Bare states the open-cell natural rubber surface is designed to increase grip as it becomes damp with sweat or moisture during practice. This makes it suitable for hot yoga and dynamic sessions where synthetic mats typically become slippery."
+        },
+        {
+            "q": "What does FSC certified mean for this yoga mat?",
+            "a": "FSC certification means the natural rubber used in the mat is sourced from forests managed according to the Forest Stewardship Council's environmental and social standards. Yogi Bare states the mat is also biodegradable and free from PVC and toxic glues."
+        },
+        {
+            "q": "How does the Yogi Bare PAWS compare to the Liforme or Jade Harmony mats?",
+            "a": "All three use natural rubber with sweat-activated grip. The Yogi Bare PAWS is 4mm thick — the same as the Liforme Original — while the Jade Harmony is 5mm. The Yogi Bare includes alignment guides like the Liforme, but at a typically lower price point. The Jade Harmony has no alignment system but is widely regarded for grip quality in hot yoga specifically."
+        }
     ],
-    "date_added": "2026-02-07"
+    "hook_override": "FSC certified natural rubber with an <b>open-cell surface that grips harder as it gets wetter</b> — Yogi Bare states grip increases with sweat, making it reliable for hot yoga and dynamic flows where synthetic mats fail. Free from PVC and toxic glues, biodegradable, and 4mm thick for joint cushioning without losing ground connection.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause", "mothersday"],
+        "why": "For a yoga practitioner who cares about both performance and sustainability — the FSC certification and PVC-free construction make it a more considered choice than most mats at this price point, without compromising on grip quality."
+    }
 },
 
     {
@@ -1490,26 +1700,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/81CEqdLfeSL._AC_SL1500_.jpg",
     "url": "https://amzn.to/3Mu3igc",
     "asin": "B086BTNSM9",
-    "info": "Elevate your practice with this premium reversible yoga mat from Gaiam — featuring 6mm extra-thick cushioning for superior joint support during yoga, Pilates, stretching, or floor exercises. The non-slip textured surface provides reliable grip (even in sweaty sessions), while the reversible design offers two beautiful patterns for variety and style. Lightweight yet durable, latex-free PVC construction, generous size (68\" x 24\"), and easy to roll up for home or studio use. A thoughtful wellness gift that encourages mindful movement, comfort, and daily self-care.",
+    "info": "The Gaiam Premium Print Reversible is a 6mm thick yoga mat measuring 68 x 24 inches, made from latex-free PVC with a textured non-slip surface on both sides. The reversible design features two different printed patterns. Gaiam states the mat is suitable for yoga, Pilates, stretching, and general floor workouts. Latex-free construction makes it suitable for those with latex sensitivities.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-07",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["gaiam yoga mat", "reversible yoga mat", "6mm thick yoga mat", "non slip exercise mat", "premium yoga mat", "pilates mat", "valentines wellness gift"],
-    "pain_points": ["uncomfortable thin mats causing joint strain", "slipping during dynamic or sweaty poses", "wanting a stylish, versatile mat for different sessions"],
-    "benefits": ["extra cushioning protects knees, hips, and wrists", "secure non-slip grip for confident flow", "reversible patterns keep practice fresh and motivating", "lightweight and easy to carry/roll", "durable for regular home or studio use"],
+    "keywords": [
+        "Gaiam reversible yoga mat UK",
+        "6mm thick yoga mat non slip",
+        "reversible print yoga mat UK",
+        "latex free yoga mat pilates",
+        "thick cushioned yoga mat gift UK"
+    ],
+    "pain_points": [
+        "Thin mats that cause knee and wrist discomfort during floor poses",
+        "Single-sided mats that show wear patterns on one side over time",
+        "Latex allergies making standard rubber yoga mats unsuitable",
+        "Standard mat sizes that feel cramped during wide-stance poses"
+    ],
+    "benefits": [
+        "6mm thickness provides extra joint cushioning for knees, hips, and wrists",
+        "Reversible design — two printed patterns, double the usable surface life",
+        "Latex-free PVC construction suitable for those with latex sensitivities",
+        "Textured non-slip surface on both sides for consistent grip",
+        "Generous 68 x 24 inch dimensions for full-body movement"
+    ],
     "price_tier": "mid-range premium yoga mat",
-    "highlights": [    
-        "6mm extra-thick cushioning for joint protection and comfort",
-        "Reversible design with two unique, eye-catching patterns",
-        "Textured non-slip surface for stability in any workout",
-        "Generous 68\" x 24\" size for full-body poses and movement",
-        "Latex-free, durable construction — ideal thoughtful gift for yoga lovers"
+    "highlights": [
+        "6mm thick latex-free PVC — thicker than standard 4mm mats for additional joint cushioning",
+        "Reversible design with two different printed patterns — extends usable surface life",
+        "Measures 68 x 24 inches — larger than many standard mats for wide-stance poses",
+        "Textured non-slip surface on both sides for consistent grip during yoga and Pilates",
+        "Latex-free construction — suitable for practitioners with latex sensitivities"
     ],
     "faqs": [
-        {"q": "How thick is this mat compared to standard ones?", "a": "At 6mm, it's thicker than most standard 4–5mm mats, offering more padding for joints while still feeling stable and grounded."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, high-quality wellness item that supports their practice and shows thoughtfulness for comfort and self-care."}
+        {
+            "q": "How does 6mm thickness compare to standard yoga mats?",
+            "a": "Most standard yoga mats are 4–5mm thick. At 6mm, the Gaiam Reversible offers more cushioning underfoot, which is particularly beneficial for kneeling poses, prone exercises, and Pilates mat work on hard floors. The additional thickness may slightly reduce ground feel for balancing poses compared to thinner mats."
+        },
+        {
+            "q": "Is the Gaiam mat suitable for people with latex allergies?",
+            "a": "Yes — Gaiam states this mat is made from latex-free PVC, making it a suitable option for practitioners who cannot use natural rubber mats due to latex sensitivities."
+        },
+        {
+            "q": "Does the reversible design affect grip or durability?",
+            "a": "Both sides feature the same textured non-slip surface, so grip is consistent whichever side is used. Rotating between sides with regular use can also help extend the overall lifespan of the mat by distributing wear more evenly."
+        }
     ],
-    "date_added": "2026-02-07"
+    "hook_override": "A reversible 6mm yoga mat with <b>two printed patterns and a non-slip textured surface on both sides</b> — 6mm is thicker than most standard mats, adding cushioning for knees and wrists during floor work. Latex-free PVC construction makes it suitable for anyone who can't use natural rubber mats.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause", "mothersday"],
+        "why": "A practical entry point into quality yoga mats — the reversible design and 6mm cushioning offer genuine value for someone upgrading from a basic mat, without the premium price of natural rubber options."
+    }
 },
 
     
@@ -1517,369 +1762,835 @@ PRODUCTS = [
   {
     "name": "AUVON Weekly Pill Organizer 4 Times a Day - Extra Large Compartments",
     "category": "Health & Personal Care",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/61TT1bAUYgL._AC_SX679_.jpg",
     "url": "https://amzn.to/49PLdCj",
     "asin": "B0DMVZZ32L",
-    "info": "Weekly pill box with 4 large daily compartments per day (28 total), moisture-proof, easy-open lids, and clear AM/PM labels. Perfect for seniors managing multiple medications or supplements to avoid missed doses and stay organized independently.",
+    "info": "The AUVON Weekly Pill Organizer has 28 compartments across 7 days — four large compartments per day labelled for morning, noon, evening, and bedtime doses. AUVON states the lids are designed for easy one-handed opening, making them suitable for people with limited dexterity or arthritis. The compartments are moisture-proof and BPA-free, and the organiser is compact enough for travel use.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["weekly pill organizer 4 times", "large pill box elderly", "medication planner UK", "arthritis pill organizer", "daily pill case"],
-    "pain_points": ["forgetting or mixing up daily medications", "small compartments not fitting larger pills", "confusion leading to health risks"],
-    "benefits": ["spacious compartments for big pills/vitamins", "weekly view reduces errors", "easy one-hand open for limited dexterity", "portable and travel-friendly", "promotes safe, independent medication management"],
-    "price_tier": "essential health organizer",
+    "keywords": [
+        "weekly pill organiser 4 times a day UK",
+        "large compartment pill box elderly",
+        "medication organiser arthritis easy open",
+        "7 day pill planner morning evening UK",
+        "BPA free pill organiser travel"
+    ],
+    "pain_points": [
+        "Forgetting whether a dose has been taken when managing multiple daily medications",
+        "Small pill box compartments that don't fit larger supplements or capsules",
+        "Stiff lids that are difficult to open with arthritis or weak grip",
+        "Moisture getting into pill compartments and degrading tablets"
+    ],
+    "benefits": [
+        "28 compartments — 4 labelled doses per day across 7 days",
+        "Extra large compartments fit bigger supplements and capsules",
+        "AUVON states lids are designed for easy one-handed opening",
+        "Moisture-proof compartments protect tablets from humidity",
+        "BPA-free construction — compact enough for travel use"
+    ],
+    "price_tier": "essential health organiser",
     "highlights": [
-      "4 compartments per day for multiple doses",
-      "Large size fits supplements easily",
-      "Moisture-proof to protect pills",
-      "Clear labeling for each day/time",
-      "BPA-free and durable"
+        "28 compartments total — 4 per day labelled morning, noon, evening, and bedtime across 7 days",
+        "Extra large compartment size accommodates bigger supplements, capsules, and tablets",
+        "AUVON states lids are designed for easy one-handed opening — suitable for limited dexterity",
+        "Moisture-proof compartments protect tablets and capsules from humidity",
+        "BPA-free construction — compact enough to pack in a bag for travel use"
     ],
     "faqs": [
-      {"q": "How many compartments?", "a": "28 total (7 days x 4 times a day)."},
-      {"q": "Suitable for arthritis?", "a": "Yes, easy-push lids designed for weak hands."}
+        {
+            "q": "How many compartments does the AUVON weekly organiser have?",
+            "a": "The organiser has 28 compartments in total — four per day across seven days, labelled for morning, noon, evening, and bedtime doses. This makes it suitable for managing up to four separate medications or supplements per day."
+        },
+        {
+            "q": "Is this pill organiser suitable for someone with arthritis?",
+            "a": "AUVON states the lids are designed for easy one-handed opening to accommodate people with limited dexterity or weak grip. Individual ease of use will vary depending on the severity of the condition."
+        },
+        {
+            "q": "Will large supplements and capsules fit in the compartments?",
+            "a": "AUVON states the compartments are extra large in size compared to standard pill organisers, designed to accommodate larger tablets, capsules, and supplements. Check the current Amazon UK listing for the exact compartment dimensions if you need to fit particularly large tablets."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A 7-day pill organiser with <b>four labelled compartments per day — 28 in total</b> — sized to fit larger supplements and capsules that standard pill boxes can't accommodate. AUVON states the lids are designed for easy one-handed opening, making it suitable for people with arthritis or limited dexterity.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her"],
+        "interests": ["health", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, considerate gift for an elderly parent or anyone managing multiple daily medications — the four-compartment-per-day layout removes the guesswork from complex routines."
+    }
+},
+    
   {
     "name": "ComfiLife Anti-Fatigue Floor Mat - Ergonomic Thick Standing Mat",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/7168kjOtn3L._AC_SX679_.jpg",
     "url": "https://amzn.to/3ZHhrtq",
     "asin": "B07SCV87VT",
-    "info": "Thick 3/4-inch ergonomic cushion mat with non-slip base reduces joint pressure during prolonged standing in kitchen or bathroom. Great for elderly with arthritis, improving comfort and circulation for safer daily tasks.",
+    "info": "The ComfiLife Anti-Fatigue Mat is a 3/4-inch (19mm) thick ergonomic standing mat with a non-slip base and stain-resistant, waterproof surface. Designed for use on hard floors in kitchens, bathrooms, and workspaces where prolonged standing causes foot, knee, or lower back fatigue. Available in multiple sizes to fit standard kitchen and bathroom layouts.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["anti fatigue mat", "standing mat kitchen elderly", "comfort mat arthritis", "floor cushion mat UK", "joint relief mat"],
-    "pain_points": ["foot/knee/hip pain from standing too long", "hard floors causing fatigue", "circulation issues in elderly"],
-    "benefits": ["cushions and supports joints for hours", "non-slip for safety on wet floors", "durable and easy to clean", "enhances comfort in daily chores", "supports prolonged independence at home"],
+    "keywords": [
+        "anti fatigue standing mat kitchen UK",
+        "ComfiLife floor mat ergonomic",
+        "thick cushioned mat hard floors UK",
+        "non slip kitchen mat joint relief",
+        "standing desk mat home office UK"
+    ],
+    "pain_points": [
+        "Foot, knee, and lower back pain from standing on hard kitchen or bathroom floors",
+        "Standing mats that slide on smooth or wet floor surfaces",
+        "Mats that absorb spills and are difficult to clean in a kitchen environment",
+        "Thin mats that compress quickly and lose cushioning within weeks"
+    ],
+    "benefits": [
+        "3/4-inch thick foam cushions joints during prolonged standing",
+        "Non-slip base stays in place on hard and smooth floor surfaces",
+        "Waterproof and stain-resistant surface wipes clean easily",
+        "Available in multiple sizes for different kitchen and bathroom layouts",
+        "Suitable for kitchen, bathroom, standing desk, and workspace use"
+    ],
     "price_tier": "mid-range comfort upgrade",
     "highlights": [
-      "3/4-inch thick foam for superior cushioning",
-      "Non-slip backing stays in place",
-      "Stain-resistant and waterproof",
-      "Ideal for kitchen sinks or bathroom vanities",
-      "Highly rated for pain relief"
+        "3/4-inch (19mm) thick ergonomic foam — designed to reduce joint pressure during prolonged standing",
+        "Non-slip base keeps the mat stable on hard, smooth, and tiled floor surfaces",
+        "Waterproof and stain-resistant surface wipes clean with a damp cloth",
+        "Available in multiple sizes to fit standard kitchen sink and bathroom vanity areas",
+        "Suitable for kitchen, bathroom, home office standing desk, and workshop use"
     ],
     "faqs": [
-      {"q": "Thickness?", "a": "3/4 inch (19mm) for optimal comfort."},
-      {"q": "Sizes available?", "a": "Various, including standard kitchen sizes."}
+        {
+            "q": "How thick is the ComfiLife anti-fatigue mat?",
+            "a": "The mat is 3/4 inch (approximately 19mm) thick. ComfiLife states this thickness is designed to provide sufficient cushioning to reduce pressure on feet, knees, and lower back during extended periods of standing on hard floors."
+        },
+        {
+            "q": "Will the mat stay in place on smooth or tiled floors?",
+            "a": "ComfiLife states the mat features a non-slip base designed to grip smooth and hard floor surfaces. As with all non-slip mats, performance may vary on heavily polished or wet floors — ensure the floor surface is dry before placing the mat."
+        },
+        {
+            "q": "What sizes are available?",
+            "a": "The ComfiLife Anti-Fatigue Mat is available in multiple sizes. Check the current Amazon UK listing for the full range of dimensions to find the best fit for your kitchen, bathroom, or workspace area."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
-  {
+    "hook_override": "A 3/4-inch (19mm) thick ergonomic standing mat with a <b>non-slip base and waterproof wipe-clean surface</b> — designed to reduce foot, knee, and lower back pressure during prolonged standing on hard kitchen or bathroom floors. Available in multiple sizes for standard sink and vanity layouts.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A practical gift for anyone who spends long periods standing in the kitchen — the kind of thing people notice immediately but rarely buy for themselves."
+    }
+},
+    
+ {
     "name": "Yornoli Bed Rail for Elderly Adults with Motion-Sensing Light, Adjustable Non-Slip Grip Handle, Sturdy Steel Frame, Easy Installation, Storage Pocket – Safety & Support for Seniors (104CM)",
     "category": "Health & Personal Care",
     "season": "",
-    "image": "https://m.media-amazon.com/images/I/61vvBKqWKzL._AC_SX679_.jpg",  
+    "image": "https://m.media-amazon.com/images/I/61vvBKqWKzL._AC_SX679_.jpg",
     "url": "https://amzn.to/4alfHMy",
     "asin": "B0DJ564N28",
-    "info": "Adjustable bed support rail with built-in motion-sensing LED light for nighttime visibility, sturdy steel frame for safe bed transfers, non-slip ergonomic grip handle, tool-free easy installation, and convenient side storage pocket. Designed for elderly/seniors to prevent falls, provide stability getting in/out of bed, and support independence — ideal for limited mobility, arthritis, or weak grip.",
-    "manual_price": "",  
+    "info": "The Yornoli Bed Rail is a 104cm adjustable steel bed support rail with a built-in motion-sensing LED light that activates automatically in the dark. The non-slip ergonomic foam handle provides grip support during bed transfers, and the rail installs without tools by sliding under the mattress and securing with adjustable straps. A side storage pocket holds a phone, glasses, or medication within easy reach. Designed for elderly adults and those with limited mobility or weak grip.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
+    "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["bed rail elderly", "motion sensing bed support rail", "adjustable bed assist handle UK", "non-slip grip bed rail seniors", "easy install bed safety rail"],
-    "pain_points": ["nighttime falls when getting out of bed in the dark", "instability or fear during bed transfers with weak grip", "lack of support for elderly/arthritis users", "complicated installation on beds"],
-    "benefits": ["automatic motion-sensing light for safe nighttime use", "adjustable fit for single/double/king beds", "sturdy steel with non-slip handle for secure grip", "tool-free quick setup", "storage pocket keeps essentials close, promotes dignified independence"],
+    "keywords": [
+        "bed rail for elderly UK",
+        "motion sensing bed support rail",
+        "adjustable bed assist handle seniors UK",
+        "tool free bed safety rail elderly",
+        "non slip bed rail arthritis UK"
+    ],
+    "pain_points": [
+        "Risk of falls when getting out of bed in the dark during the night",
+        "Instability and lack of grip support during bed transfers",
+        "Complicated bed rail installations requiring tools or professional fitting",
+        "No nearby storage for glasses, phone, or medication during the night"
+    ],
+    "benefits": [
+        "Motion-sensing LED light activates automatically for nighttime visibility",
+        "Sturdy steel frame provides reliable support during bed transfers",
+        "Non-slip ergonomic foam handle reduces grip strain",
+        "Tool-free installation — slides under mattress and secures with adjustable straps",
+        "Side storage pocket keeps phone, glasses, and medication within reach"
+    ],
     "price_tier": "mid-range bedtime safety aid",
     "highlights": [
-        "Built-in motion-activated LED light prevents dark accidents",
-        "Durable steel frame for reliable support during transfers",
-        "Adjustable height/length fits most bed types",
-        "Non-slip ergonomic foam handle for comfortable, secure grip",
-        "Tool-free installation and handy side pocket for phone/glasses/meds"
+        "Built-in motion-sensing LED light activates automatically in low light for safe nighttime navigation",
+        "104cm adjustable steel frame — Yornoli states it fits most single, double, and king bed sizes",
+        "Non-slip ergonomic foam handle designed to reduce grip strain for arthritis and weak hands",
+        "Tool-free installation — slides under the mattress and secures with adjustable straps, no fixings needed",
+        "Side storage pocket holds phone, glasses, or medication within arm's reach during the night"
     ],
     "faqs": [
-        {"q": "How is it installed?", "a": "Quick tool-free setup — slides under mattress and secures with adjustable straps/clamps."},
-        {"q": "Suitable for arthritis or weak hands?", "a": "Yes, non-slip handle and sturdy frame reduce grip strain while providing balance support."}
+        {
+            "q": "How is the Yornoli bed rail installed?",
+            "a": "Yornoli states the rail installs without tools — the base plate slides under the mattress and secures with adjustable straps. No drilling, screwing, or professional fitting is required, making it suitable for rented properties."
+        },
+        {
+            "q": "Is this rail suitable for someone with arthritis or weak grip?",
+            "a": "The rail features a non-slip ergonomic foam handle designed to provide a secure grip with minimal hand pressure. Yornoli states it is suitable for elderly adults and those with limited mobility, arthritis, or reduced grip strength."
+        },
+        {
+            "q": "Does the motion-sensing light require batteries or mains power?",
+            "a": "Check the current Amazon UK listing for the specific power source required for the motion-sensing LED on this model — power requirements are not always stated in the product title and may vary between variants."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "A 104cm adjustable bed rail with a <b>motion-sensing LED light that activates automatically in the dark</b> — no fumbling for a switch during nighttime trips. The steel frame installs without tools by sliding under the mattress, and a side pocket keeps phone, glasses, and medication within arm's reach.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her"],
+        "interests": ["health", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A genuinely useful safety gift for an elderly parent living alone — the motion-sensing light addresses the highest-risk moment of the night without requiring them to remember to switch anything on."
+    }
 },
+    
   {
     "name": "Non-Slip Grip Socks Multi-Pack - Hospital-Grade for Elderly Fall Prevention",
     "category": "Health & Personal Care",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/71BpU0vjrgL._AC_SX679_.jpg",
     "url": "https://amzn.to/4rlakCC",
-    "asin": "B0C... (varies by pack)",
-    "info": "Soft, comfortable grip socks with hospital-grade non-slip dots on soles to prevent slips on hard floors. Multi-pack for everyday use, gentle elastic-free fit ideal for elderly circulation issues or indoor mobility.",
+    "asin": "B09GFXMKXB",
+    "info": "A multi-pack of non-slip grip socks with rubber traction dots on the sole, designed for safe indoor use on hard, tiled, and laminate floors. The elastic-free cuff design avoids constriction around the ankle, making them suitable for elderly wearers or those with circulation issues or swollen feet. Machine washable and suitable for everyday rotation.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["non slip socks elderly", "grip socks fall prevention", "hospital socks UK", "anti slip slippers socks", "elderly non slip footwear"],
-    "pain_points": ["slipping on tiles or wood floors indoors", "cold feet without safe traction", "tight socks restricting circulation"],
-    "benefits": ["strong grip dots for secure steps", "soft fabric for all-day comfort", "no tight bands for swollen feet", "washable and durable multi-pack", "boosts confidence moving around home"],
+    "keywords": [
+        "non slip grip socks elderly UK",
+        "hospital grade grip socks fall prevention",
+        "elastic free socks swollen feet UK",
+        "anti slip indoor socks hard floors",
+        "non slip socks circulation elderly UK"
+    ],
+    "pain_points": [
+        "Slipping on tiled, wooden, or laminate floors in socks or bare feet",
+        "Tight sock elastic restricting circulation in swollen ankles or feet",
+        "Cold feet indoors without safe grip underfoot",
+        "Running out of clean grip socks without a multi-pack for rotation"
+    ],
+    "benefits": [
+        "Rubber traction dots on sole provide grip on hard indoor floor surfaces",
+        "Elastic-free cuff avoids constriction for circulation or swollen feet",
+        "Multi-pack format allows daily rotation and washing",
+        "Soft breathable fabric for all-day indoor wear",
+        "Machine washable and durable for regular use"
+    ],
     "price_tier": "budget safety basic",
     "highlights": [
-      "Hospital-style grip for reliable traction",
-      "Multi-pack for rotation and spares",
-      "Breathable and comfortable material",
-      "Suitable for indoor hard floors",
-      "Helps reduce fall risks daily"
+        "Rubber traction dots on the sole designed for grip on hard, tiled, and laminate floors",
+        "Elastic-free cuff construction avoids ankle constriction for circulation issues or swollen feet",
+        "Multi-pack format provides enough pairs for daily rotation and regular washing",
+        "Soft breathable fabric suitable for all-day indoor wear",
+        "Machine washable — check the current Amazon UK listing for exact pack size and size range"
     ],
     "faqs": [
-      {"q": "Pack size?", "a": "Typically 3-6 pairs depending on brand."},
-      {"q": "Sizes?", "a": "Wide range, including for swollen feet."}
+        {
+            "q": "Are these socks suitable for people with swollen feet or circulation problems?",
+            "a": "The elastic-free cuff design is intended to avoid constriction around the ankle, making these socks suitable for people with swollen feet, circulation issues, or diabetes-related foot sensitivity. Check the current Amazon UK listing for the specific size range available."
+        },
+        {
+            "q": "How many pairs are included in the pack?",
+            "a": "Check the current Amazon UK listing for the exact pack size, as this can vary by variant. The listing for ASIN B09GFXMKXB will show the current pack contents and available size options."
+        },
+        {
+            "q": "Do the grip dots remain effective after washing?",
+            "a": "Rubber traction dots on grip socks are generally durable through repeated machine washing when washed inside-out on a gentle cycle. Avoid tumble drying at high heat as this can degrade the rubber dots over time."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "Non-slip grip socks with <b>rubber traction dots and an elastic-free cuff</b> — the traction reduces slip risk on tiled and laminate floors, while the cuff avoids the ankle constriction that standard socks cause for swollen feet or poor circulation. Multi-pack format covers daily rotation without running short.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her"],
+        "interests": ["health", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, low-cost gift for an elderly parent that directly addresses fall risk at home — small enough to feel like a thoughtful extra but genuinely useful every single day."
+    }
+},
+    
   {
     "name": "6-in-1 Jar & Bottle Opener for Seniors with Arthritis",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/71ZSzOdYoSL._AC_SX679_.jpg",
     "url": "https://amzn.to/4keYeJi",
-    "asin": "B071V3G23Y (or similar)",
-    "info": "Adjustable multi-grip opener handles jars, bottles, caps of various sizes with minimal effort. Ideal for arthritic or weak hands, enabling independent kitchen tasks without strain.",
+    "asin": "B08MBRW73N",
+    "info": "A 6-in-1 jar and bottle opener designed for people with arthritis, weak grip, or reduced hand strength. The tool covers six common container types including jar lids, bottle caps, ring pulls, and sealed packaging, using a leverage-based mechanism that requires minimal hand force. Made from stainless steel with non-slip rubber grips. Compact enough to store in a kitchen drawer.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["jar opener arthritis", "multi function bottle opener", "senior jar opener UK", "easy grip jar lid opener", "kitchen aid elderly"],
-    "pain_points": ["struggling to open tight jars or bottles", "reduced hand strength from arthritis", "frustration leading to dependence on others"],
-    "benefits": ["6 grip sizes for any container", "leverage design requires little force", "non-slip handles for secure use", "compact and drawer-friendly", "restores kitchen independence easily"],
+    "keywords": [
+        "jar opener arthritis UK",
+        "6 in 1 bottle opener elderly",
+        "easy open jar lid tool UK",
+        "multi function opener weak hands",
+        "kitchen aid opener seniors UK"
+    ],
+    "pain_points": [
+        "Inability to open tight jar lids or bottle caps with arthritic or weak hands",
+        "Relying on others for basic kitchen tasks due to reduced grip strength",
+        "Single-purpose openers that don't cover different container sizes and types",
+        "Bulky kitchen gadgets that take up drawer space"
+    ],
+    "benefits": [
+        "Six grip configurations cover jars, bottles, caps, ring pulls, and sealed packaging",
+        "Leverage-based mechanism reduces the hand force required to open containers",
+        "Non-slip rubber grips provide secure hold during use",
+        "Stainless steel construction for durability",
+        "Compact enough to store flat in a kitchen drawer"
+    ],
     "price_tier": "inexpensive kitchen helper",
     "highlights": [
-      "Handles small to large jars/bottles",
-      "Minimal hand strength needed",
-      "Durable stainless steel/rubber build",
-      "Multi-use for caps, lids, bottles",
-      "Popular choice for seniors"
+        "6-in-1 design covers jar lids, bottle caps, ring pulls, and sealed packaging in one tool",
+        "Leverage-based mechanism minimises the hand force required — designed for arthritis and weak grip",
+        "Stainless steel body with non-slip rubber grips for secure, comfortable handling",
+        "Compact flat design stores easily in a standard kitchen drawer",
+        "Check the current Amazon UK listing for the full list of container types covered"
     ],
     "faqs": [
-      {"q": "How many functions?", "a": "6-in-1 for different sizes/types."},
-      {"q": "Easy for weak hands?", "a": "Yes, designed specifically for arthritis."}
+        {
+            "q": "What types of containers does this opener work with?",
+            "a": "The tool is designed as a 6-in-1 opener covering common kitchen container types including jar lids of various sizes, bottle caps, ring pulls, and sealed packaging. Check the current Amazon UK listing for the full breakdown of the six functions included."
+        },
+        {
+            "q": "Is this suitable for someone with severe arthritis?",
+            "a": "The opener uses a leverage mechanism designed to reduce the hand force required compared to opening by hand. Individual ease of use will depend on the severity of the condition — it is designed to assist with grip and torque rather than eliminate all hand effort entirely."
+        },
+        {
+            "q": "Is the opener dishwasher safe?",
+            "a": "Check the current Amazon UK listing for cleaning and care instructions specific to this model. Stainless steel components are generally dishwasher safe, though rubber grip elements may last longer if hand washed."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A 6-in-1 opener with a <b>leverage mechanism that reduces the hand force needed to open jars, bottles, and sealed packaging</b> — designed specifically for arthritis and weak grip. Stainless steel with non-slip rubber grips, compact enough to keep in a kitchen drawer rather than cluttering the worktop.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A small but genuinely thoughtful gift for an elderly parent or anyone with arthritis — removes a daily frustration that most people quietly put up with rather than ask for help with."
+    }
+},
 
 
   {
     "name": "Hamilton Beach OpenStation Electric Automatic Can Opener",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/61D4SGO41jL._AC_SX679_.jpg",
     "url": "https://amzn.to/3NXyRiO",
     "asin": "B0B1356B1J",
-    "info": "One-touch automatic electric can opener with Sure-Cut technology for reliable opening without twisting or gripping. Leaves smooth edges, ideal for arthritic hands, weak grip, or anyone avoiding hand strain in the kitchen.",
+    "info": "The Hamilton Beach OpenStation is an electric automatic can opener with one-touch operation — place the can, press the lever, and the opener does the rest without any gripping or twisting. Hamilton Beach states the Sure-Cut technology aligns the blade automatically for reliable first-time opening, and the cutting mechanism leaves smooth edges with no sharp rim. Features auto shut-off and integrated cord storage for counter tidiness.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["electric can opener arthritis", "automatic can opener UK", "easy open tins weak hands", "hamilton beach can opener", "no grip can opener"],
-    "pain_points": ["painful twisting of can lids", "weak grip causing slips or drops", "struggling with sharp edges after opening"],
-    "benefits": ["fully automatic one-touch operation", "smooth safe edges no sharp rims", "frees hands for other tasks", "reduces joint strain significantly", "highly rated for elderly and arthritis users"],
+    "keywords": [
+        "Hamilton Beach electric can opener UK",
+        "automatic can opener arthritis UK",
+        "one touch electric tin opener",
+        "smooth edge can opener no grip",
+        "electric can opener elderly weak hands UK"
+    ],
+    "pain_points": [
+        "Painful wrist twisting required by manual can openers for arthritis sufferers",
+        "Manual openers that slip and leave sharp jagged edges on cans",
+        "Needing to grip and stabilise the can while operating the opener",
+        "Countertop appliances with trailing cords that create kitchen clutter"
+    ],
+    "benefits": [
+        "One-touch operation — no gripping, twisting, or hand strength required",
+        "Sure-Cut technology aligns blade automatically for first-time opening",
+        "Smooth edges with no sharp rim after opening",
+        "Auto shut-off stops the opener when the cut is complete",
+        "Integrated cord storage keeps the counter tidy between uses"
+    ],
     "price_tier": "mid-range kitchen essential",
     "highlights": [
-      "Sure-Cut alignment for first-time opens",
-      "Auto shutoff and cord storage",
-      "Works on standard cans effortlessly",
-      "Durable stainless steel build",
-      "Great for arthritis pain relief"
+        "One-touch electric operation — place the can, press the lever, no gripping or twisting needed",
+        "Hamilton Beach Sure-Cut technology aligns the blade for reliable first-time opening",
+        "Cutting mechanism leaves smooth edges with no sharp rim on the lid or can",
+        "Auto shut-off activates when the can is fully opened",
+        "Integrated cord storage keeps the worktop tidy between uses"
     ],
     "faqs": [
-      {"q": "Does it require gripping?", "a": "No, just place the can and press the lever — no twisting needed."},
-      {"q": "Suitable for small cans?", "a": "Yes, handles most standard sizes reliably."}
+        {
+            "q": "Does the Hamilton Beach opener require any gripping or twisting to operate?",
+            "a": "No — Hamilton Beach states the OpenStation requires only a single press of the lever to begin. The opener aligns, cuts, and stops automatically without any gripping, twisting, or hand strength needed during the process."
+        },
+        {
+            "q": "Does it leave sharp edges on the can after opening?",
+            "a": "Hamilton Beach states the Sure-Cut mechanism is designed to leave smooth edges on both the can and the lid after opening, reducing the risk of cuts compared to manual openers that can leave jagged rims."
+        },
+        {
+            "q": "What size cans does the Hamilton Beach OpenStation work with?",
+            "a": "The opener is designed for standard sized cans. Check the current Amazon UK listing for the specific size range and any can types — such as pull-tab or dented cans — that may not be compatible."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A one-touch electric can opener with <b>Hamilton Beach's Sure-Cut technology that aligns the blade automatically</b> — place the can, press the lever, and it opens without any gripping or twisting. Auto shut-off and integrated cord storage keep it practical on a kitchen counter.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A genuinely useful kitchen upgrade for anyone with arthritis or weak grip — removes one of the most frustrating daily kitchen tasks without requiring any hand strength at all."
+    }
+},
+    
   {
     "name": "OXO Good Grips Jar Opener with Base Pad",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/71HJ2tTRY2L._AC_SX679_.jpg",
     "url": "https://amzn.to/3NLT2jO",
     "asin": "B002DWA6KM",
-    "info": "Leverage-based jar opener with non-slip base pad and sharp stainless steel teeth to grip lids firmly. Adjusts to various sizes, uses handle twist instead of lid grip — perfect for reducing arthritis hand pain during meal prep.",
+    "info": "The OXO Good Grips Jar Opener uses stainless steel teeth and a lever handle to grip and turn jar lids without requiring direct hand pressure on the lid itself. A non-slip base pad stabilises the jar on the work surface during opening. OXO states the adjustable head fits a wide range of lid sizes from small bottle caps to large jar lids. The soft non-slip handle is part of OXO's Good Grips range, designed for comfortable use with limited dexterity.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["oxo jar opener", "good grips jar opener arthritis", "easy lid remover weak hands", "non slip jar opener UK", "base pad jar opener"],
-    "pain_points": ["struggling with tight jar lids", "hand pain from twisting", "jars slipping during opening"],
-    "benefits": ["leverage design minimises effort", "non-slip base for stability", "fits multiple lid sizes", "soft handle for comfortable grip", "trusted by arthritis sufferers"],
+    "keywords": [
+        "OXO Good Grips jar opener UK",
+        "lever jar opener arthritis UK",
+        "non slip base jar opener",
+        "adjustable jar lid opener weak hands",
+        "stainless steel jar opener elderly UK"
+    ],
+    "pain_points": [
+        "Hand and wrist pain from twisting tight jar lids with arthritis",
+        "Jars sliding on the worktop surface during opening attempts",
+        "Jar openers that only fit one lid size",
+        "Hard plastic handles that dig into palms with weak or sensitive hands"
+    ],
+    "benefits": [
+        "Lever mechanism transfers force to the lid without hand pressure on the jar top",
+        "Stainless steel teeth grip lid edges firmly for reliable purchase",
+        "Non-slip base pad stabilises the jar on the worktop during opening",
+        "Adjustable head fits a wide range of lid sizes",
+        "Soft non-slip OXO Good Grips handle for comfortable use with limited dexterity"
+    ],
     "price_tier": "affordable daily aid",
     "highlights": [
-      "Sharp teeth for secure lid grip",
-      "Non-slip base pad prevents movement",
-      "Reduces strain on wrists and fingers",
-      "Durable stainless steel construction",
-      "Compact and easy to store"
+        "Stainless steel teeth grip lid edges firmly — lever handle transfers torque without hand pressure on the lid",
+        "Non-slip base pad keeps the jar stable on the worktop during opening",
+        "Adjustable head fits lid sizes from small bottle caps to large jar lids",
+        "Soft non-slip handle — part of OXO's Good Grips range designed for limited dexterity",
+        "Compact enough to store in a kitchen drawer alongside standard utensils"
     ],
     "faqs": [
-      {"q": "What sizes does it fit?", "a": "Most jar lids from small bottles to large pickle jars."},
-      {"q": "Easy for limited dexterity?", "a": "Yes, designed specifically for weak or arthritic hands."}
+        {
+            "q": "What range of lid sizes does the OXO jar opener fit?",
+            "a": "OXO states the adjustable head fits a wide range of lid sizes from small bottle caps to large jar lids. Check the current Amazon UK listing for the specific minimum and maximum diameter the opener accommodates."
+        },
+        {
+            "q": "How does the lever mechanism reduce strain compared to opening by hand?",
+            "a": "The stainless steel teeth grip the lid edge and the lever handle applies rotational force directly to the lid rather than relying on hand-to-lid friction. This transfers the effort to the wrist and forearm rather than the fingers and palm, reducing strain for people with arthritis or weak grip."
+        },
+        {
+            "q": "Is the OXO jar opener dishwasher safe?",
+            "a": "Check the current Amazon UK listing for OXO's specific care instructions for this model. OXO states many Good Grips products are top-rack dishwasher safe, though this should be confirmed for this specific opener before washing."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "The OXO Good Grips lever mechanism <b>grips the lid with stainless steel teeth and transfers torque through the handle</b> — no direct hand pressure on the lid required. A non-slip base pad stabilises the jar on the worktop, and the adjustable head fits everything from small bottle caps to large pickle jar lids.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A well-designed, trusted kitchen tool for anyone with arthritis or weak grip — OXO's Good Grips range has a strong reputation for making everyday tasks genuinely easier without looking like a medical aid."
+    }
+},
+    
   {
     "name": "OXO Good Grips Y-Peeler",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/91tIpGES+KL._AC_SX679_.jpg",
     "url": "https://amzn.to/45GTR3z",
-    "asin": "B00004OCIU (similar model)",
-    "info": "Ergonomic Y-shaped vegetable peeler with oversized soft non-slip handle and sharp swivel blade. Reduces wrist rotation and finger pressure, making peeling effortless for arthritic hands or reduced grip strength.",
+    "asin": "B00004OCIU",
+    "info": "The OXO Good Grips Y-Peeler has a Y-shaped blade orientation that allows peeling with a pulling motion rather than the rotational wrist movement required by straight peelers. The stainless steel swivel blade adjusts to follow the contours of vegetables and fruit. OXO states the oversized soft non-slip handle is designed to reduce hand fatigue and is suitable for people with arthritis or limited grip strength.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["oxo y peeler", "ergonomic vegetable peeler arthritis", "good grips peeler UK", "easy peel swivel blade", "soft handle peeler"],
-    "pain_points": ["wrist strain from peeling", "slippery handles causing drops", "repetitive motion aggravating joints"],
-    "benefits": ["Y-design uses arm motion over fingers", "Comfortable soft grip for long sessions", "Sharp blade glides easily", "Reduces fatigue dramatically", "Popular for arthritis relief"],
+    "keywords": [
+        "OXO Good Grips Y peeler UK",
+        "ergonomic vegetable peeler arthritis",
+        "Y shaped peeler soft handle UK",
+        "swivel blade vegetable peeler elderly",
+        "easy grip peeler weak hands UK"
+    ],
+    "pain_points": [
+        "Wrist strain and joint pain from rotational peeling motion with straight peelers",
+        "Slippery handles causing the peeler to drop during use",
+        "Repetitive hand movements aggravating arthritis during meal preparation",
+        "Standard peeler handles that dig into palms with prolonged use"
+    ],
+    "benefits": [
+        "Y-shaped blade orientation allows a pulling motion rather than wrist rotation",
+        "Swivel blade adjusts to follow the contours of vegetables and fruit",
+        "Oversized soft non-slip handle reduces hand fatigue during prolonged use",
+        "Stainless steel blade suitable for potatoes, carrots, and firm-skinned vegetables",
+        "Part of OXO's Good Grips range designed for limited dexterity"
+    ],
     "price_tier": "budget-friendly prep tool",
     "highlights": [
-      "Oversized non-slip handle",
-      "Swivel blade follows contours",
-      "Cushioned grip reduces pressure",
-      "Durable stainless steel blade",
-      "Ideal for daily vegetable prep"
+        "Y-shaped blade orientation enables a straight pulling motion — reduces wrist rotation compared to straight peelers",
+        "Stainless steel swivel blade adjusts to follow vegetable contours for consistent peeling",
+        "Oversized soft non-slip handle — OXO states the Good Grips design reduces hand fatigue",
+        "Suitable for potatoes, carrots, courgettes, and other firm-skinned vegetables and fruit",
+        "Compact and lightweight — stores easily in a kitchen drawer alongside standard utensils"
     ],
     "faqs": [
-      {"q": "Better than straight peelers?", "a": "Yes, less wrist twisting for arthritis users."},
-      {"q": "Sharp enough for tough skins?", "a": "Hardened steel blade handles potatoes, carrots, etc."}
+        {
+            "q": "Why is a Y-peeler easier to use than a straight peeler for arthritis?",
+            "a": "A straight peeler requires a rotational wrist motion to peel along the length of a vegetable. A Y-peeler orients the blade perpendicular to the handle, allowing a straight pulling motion that uses arm movement rather than wrist rotation — reducing joint strain for people with arthritis or limited wrist mobility."
+        },
+        {
+            "q": "Is the OXO Y-Peeler blade replaceable?",
+            "a": "Check the current Amazon UK listing for OXO's replacement blade policy for this model. OXO produces replacement blades for some Good Grips peelers, though availability varies by model."
+        },
+        {
+            "q": "Is the OXO Good Grips Y-Peeler dishwasher safe?",
+            "a": "OXO states many Good Grips kitchen tools are top-rack dishwasher safe. Check the current Amazon UK listing or OXO's product page for the specific care instructions for this peeler before machine washing."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "The Y-shaped blade orientation means peeling uses a <b>straight pulling motion rather than wrist rotation</b> — significantly less strain for arthritis or limited wrist mobility compared to a standard straight peeler. OXO's oversized soft non-slip handle reduces hand fatigue during longer prep sessions.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A small but genuinely considered gift for anyone with arthritis who cooks regularly — the Y-peeler design makes a real practical difference to one of the most repetitive kitchen prep tasks."
+    }
+},
+    
   {
     "name": "Victorinox Swiss Classic Serrated Paring Knife",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/315S-MIODQL._AC_.jpg",
     "url": "https://amzn.to/4kbW4tK",
     "asin": "B005LRYEJU",
-    "info": "Ultra-lightweight serrated paring knife with wavy edge for effortless slicing of tomatoes, bread, and soft fruits. Ergonomic handle provides secure grip with minimal pressure — excellent for weak hands or arthritis.",
+    "info": "The Victorinox Swiss Classic Serrated Paring Knife has an 8cm high-carbon stainless steel serrated blade weighing approximately 25g in total. The wavy serrated edge cuts through soft-skinned produce such as tomatoes, soft fruits, and bread without requiring downward pressure. Victorinox states the ergonomic handle is designed for a secure grip with minimal hand force, making it suitable for people with arthritis or reduced grip strength. Hand washing is recommended to preserve the blade edge.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["victorinox serrated paring knife", "lightweight knife arthritis", "serrated paring knife UK", "swiss classic knife", "easy cut weak grip"],
-    "pain_points": ["pressure needed for straight blades", "wrist fatigue from cutting", "slipping on soft produce"],
-    "benefits": ["Serrated edge slices without force", "Lightweight reduces strain", "Contoured handle for secure hold", "Swiss precision sharpness", "Affordable and durable"],
+    "keywords": [
+        "Victorinox Swiss Classic serrated paring knife UK",
+        "lightweight serrated knife arthritis",
+        "serrated paring knife soft produce UK",
+        "easy grip kitchen knife weak hands",
+        "Victorinox paring knife UK"
+    ],
+    "pain_points": [
+        "Needing to apply heavy downward pressure with straight-edged knives on soft produce",
+        "Wrist and hand fatigue from repetitive cutting during meal preparation",
+        "Soft-skinned vegetables and fruit slipping under a straight blade",
+        "Heavy knives that cause strain with prolonged use for arthritis sufferers"
+    ],
+    "benefits": [
+        "Serrated edge cuts soft produce without requiring downward pressure",
+        "Approximately 25g total weight reduces hand and wrist fatigue",
+        "Ergonomic handle designed for secure grip with minimal hand force",
+        "High-carbon stainless steel blade retains sharpness with regular use",
+        "8cm blade length suited to paring, peeling, and detail cutting tasks"
+    ],
     "price_tier": "essential cutting aid",
     "highlights": [
-      "Wavy serrated edge does the work",
-      "Ultra-light at ~25g",
-      "Ergonomic Fibrox-style handle",
-      "High-carbon stainless steel",
-      "Trusted for effortless slicing"
+        "8cm high-carbon stainless steel serrated blade — wavy edge cuts soft produce without downward pressure",
+        "Approximately 25g total weight — significantly lighter than standard kitchen knives",
+        "Victorinox states the ergonomic handle provides secure grip with minimal hand force",
+        "Serrated edge is particularly effective on tomatoes, soft fruits, bread, and similar produce",
+        "Victorinox recommends hand washing to preserve the blade edge and handle condition"
     ],
     "faqs": [
-      {"q": "Blade length?", "a": "Typically 8-10cm, perfect for paring tasks."},
-      {"q": "Dishwasher safe?", "a": "Hand wash recommended for longevity."}
+        {
+            "q": "Why is a serrated blade easier to use for arthritis than a straight-edged knife?",
+            "a": "A serrated edge uses a sawing motion that grips the surface of soft produce as it cuts, requiring less downward pressure than a straight blade. This reduces the hand and wrist force needed during cutting, which is particularly beneficial for people with arthritis or reduced grip strength."
+        },
+        {
+            "q": "Is the Victorinox Swiss Classic paring knife dishwasher safe?",
+            "a": "Victorinox recommends hand washing this knife to preserve the blade edge and handle condition. Repeated dishwasher cycles can dull the serrated edge and degrade the handle material over time."
+        },
+        {
+            "q": "What is the blade length of this paring knife?",
+            "a": "The Victorinox Swiss Classic Serrated Paring Knife has an 8cm blade, making it suitable for paring, peeling, and detail cutting tasks. Check the current Amazon UK listing to confirm the specific variant you are purchasing as Victorinox produces this knife in multiple sizes."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A serrated paring knife weighing approximately <b>25g with an 8cm wavy edge that cuts soft produce without downward pressure</b> — the serration grips the surface of tomatoes and soft fruit as it cuts, requiring far less hand force than a straight blade. Victorinox's ergonomic handle provides a secure grip even with limited hand strength.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A practical, affordable gift for anyone with arthritis who cooks regularly — the serrated edge and lightweight construction make everyday cutting tasks noticeably less painful without needing an expensive specialist knife."
+    }
+},
+    
   {
     "name": "Otstar Jar Opener Bottle Opener and Ring Pull Can Opener for Weak Hands Arthritis Hands, Elderly",
     "category": "Home & Kitchen",
     "season": "",
-    "image": "https://m.media-amazon.com/images/I/618cdu3k1HL._AC_SX679_.jpg",  
+    "image": "https://m.media-amazon.com/images/I/618cdu3k1HL._AC_SX679_.jpg",
     "url": "https://amzn.to/49RVVYU",
     "asin": "B07QVWJ6VN",
-    "info": "Multi-function 6-in-1 jar, bottle, and can opener with non-slip grip for easy opening of lids, caps, ring pulls, and more. Designed specifically for seniors, arthritis sufferers, or anyone with weak/low strength hands — no twisting or strong grip required, just leverage and simple operation.",
+    "info": "The Otstar is a 6-in-1 manual opener covering jar lids, bottle caps, ring pull cans, and sealed packaging using a leverage-based mechanism that requires no gripping strength or twisting. Multiple circular openings accommodate lid sizes from approximately 1 to 3 inches, with additional cutouts for bottle caps and ring pull tabs. No batteries or electricity required — compact enough to store in a kitchen drawer.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["jar opener arthritis", "bottle opener weak hands", "ring pull can opener elderly", "multi function opener UK", "easy grip jar opener seniors"],
-    "pain_points": ["struggling to open tight jars or bottles", "pain from twisting lids with arthritis", "difficulty with ring pull cans or small caps", "low hand strength leading to frustration or dependence"],
-    "benefits": ["6-in-1 versatility for jars, bottles, cans, ring pulls", "non-slip design multiplies hand power with minimal effort", "ergonomic for reduced joint strain", "ideal gift for elderly or arthritis sufferers", "durable and compact for everyday kitchen use"],
+    "keywords": [
+        "Otstar jar opener arthritis UK",
+        "6 in 1 opener weak hands elderly",
+        "ring pull can opener arthritis UK",
+        "multi function jar bottle opener seniors",
+        "leverage jar opener no grip required UK"
+    ],
+    "pain_points": [
+        "Pain from twisting jar lids or bottle caps with arthritic hands",
+        "Difficulty operating ring pull cans without sufficient finger strength",
+        "Single-purpose openers that don't cover different container types",
+        "Openers that require batteries or electricity for basic kitchen tasks"
+    ],
+    "benefits": [
+        "6-in-1 coverage — jar lids, bottle caps, ring pulls, and sealed packaging",
+        "Leverage mechanism requires no gripping strength or twisting",
+        "Multiple circular openings fit lid sizes from approximately 1 to 3 inches",
+        "No batteries or electricity needed — manual leverage only",
+        "Non-slip grip surface for secure handling with weak or painful hands"
+    ],
     "price_tier": "inexpensive accessibility aid",
     "highlights": [
-        "Handles small to medium lids (1-3 inches) and larger jars",
-        "Built-in bottle opener and ring pull tab helper",
-        "Non-slip grip for secure hold even with weak hands",
-        "No batteries or electricity needed — manual leverage only",
-        "Perfect for seniors, arthritis, children, or anyone needing easy-open tools"
+        "6-in-1 manual opener covers jar lids, bottle caps, ring pull cans, and sealed packaging",
+        "Leverage-based mechanism requires no direct gripping strength or wrist twisting",
+        "Multiple circular openings accommodate lid sizes from approximately 1 to 3 inches",
+        "Built-in bottle opener and ring pull tab slot for additional container types",
+        "No batteries or electricity required — compact enough for kitchen drawer storage"
     ],
     "faqs": [
-        {"q": "How many functions does it have?", "a": "6-in-1: multiple circular openings for jars/bottles, bottle opener, ring pull/can tab opener, and more for various container types."},
-        {"q": "Is it suitable for severe arthritis?", "a": "Yes, it uses leverage instead of direct hand strength, making it easier for weak or painful hands."}
+        {
+            "q": "What container types does the Otstar opener handle?",
+            "a": "The Otstar is designed as a 6-in-1 tool covering jar lids across multiple sizes, bottle caps, ring pull can tabs, and sealed packaging. Check the current Amazon UK listing for the full breakdown of the six functions and the specific lid size range accommodated."
+        },
+        {
+            "q": "Does it work without any gripping or twisting?",
+            "a": "The Otstar uses a leverage mechanism designed to open containers without requiring direct grip strength or wrist rotation. The user positions the tool over the lid and applies downward or lateral pressure through the handle rather than gripping and twisting the lid directly."
+        },
+        {
+            "q": "How does this differ from the OXO Good Grips jar opener?",
+            "a": "The Otstar is a multi-function tool covering six container types in one compact piece, including ring pull cans and bottle caps as well as jar lids. The OXO Good Grips jar opener is a dedicated jar opener with an adjustable head and non-slip base pad, designed specifically for jar lids of varying sizes with a more focused lever mechanism."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A 6-in-1 manual opener that uses <b>leverage rather than grip strength to open jar lids, bottle caps, and ring pull cans</b> — no twisting, no batteries, and no electricity required. Multiple circular openings cover lid sizes from approximately 1 to 3 inches, with dedicated slots for bottle caps and ring pull tabs.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "An inexpensive but genuinely thoughtful gift for anyone with arthritis or weak hands — covers more container types than most openers and costs very little, making it an easy addition to a gift alongside something else."
+    }
+},
+    
   {
     "name": "Zyliss Easy Pull Food Chopper",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/81sMo53VO1L._AC_SX679_.jpg",
     "url": "https://amzn.to/4k954Q9",
     "asin": "B00XYRVZHI",
-    "info": "Manual pull-cord food chopper for onions, herbs, and vegetables. Uses arm pulls instead of knife grip/twist — no repetitive chopping motion, perfect for arthritis sufferers avoiding hand strain.",
+    "info": "The Zyliss Easy Pull Food Chopper uses a pull-cord mechanism to chop onions, herbs, garlic, and soft vegetables without knife work or repetitive wrist motion. A 750ml bowl with a non-slip base holds ingredients during chopping, and Zyliss states 3–5 pulls produces a coarse chop while 8–10 pulls produces a finer result. The chopping blade and bowl are dishwasher safe.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["zyliss easy pull chopper", "pull cord food chopper arthritis", "manual processor weak hands", "easy chop no knife UK", "vegetable chopper pull"],
-    "pain_points": ["knife gripping and chopping pain", "repetitive wrist motion", "onion/herb prep frustration"],
-    "benefits": ["Arm-pull mechanism only", "Coarse/fine chop control", "Dishwasher-safe parts", "Reduces joint inflammation", "Quick and effective"],
+    "keywords": [
+        "Zyliss Easy Pull food chopper UK",
+        "pull cord food chopper arthritis",
+        "manual vegetable chopper no knife UK",
+        "onion herb chopper weak hands",
+        "easy pull chopper dishwasher safe UK"
+    ],
+    "pain_points": [
+        "Hand and wrist pain from gripping a knife and repetitive chopping motion",
+        "Difficulty chopping onions and herbs finely without strong hand control",
+        "Electric food processors that are bulky and difficult to clean",
+        "Repetitive cutting movements aggravating arthritis during meal preparation"
+    ],
+    "benefits": [
+        "Pull-cord mechanism uses arm motion rather than hand grip or wrist rotation",
+        "3–5 pulls for coarse chop, 8–10 pulls for finer result",
+        "750ml bowl with non-slip base holds ingredients securely during use",
+        "Blade and bowl are dishwasher safe for easy cleaning",
+        "Compact size suitable for kitchen drawer or worktop storage"
+    ],
     "price_tier": "versatile prep gadget",
     "highlights": [
-      "Simple pull-cord operation",
-      "750ml capacity bowl",
-      "Non-slip base",
-      "Blade options included",
-      "Great arthritis alternative to knives"
+        "Pull-cord mechanism chops onions, herbs, garlic, and soft vegetables without knife work",
+        "Zyliss states 3–5 pulls produces a coarse chop and 8–10 pulls a finer result",
+        "750ml capacity bowl with non-slip base keeps the chopper stable during use",
+        "Chopping blade and bowl are dishwasher safe for straightforward cleaning",
+        "Compact manual design — no electricity or batteries required"
     ],
     "faqs": [
-      {"q": "How many pulls needed?", "a": "3-5 for coarse, 8-10 for fine."},
-      {"q": "Safe for limited strength?", "a": "Yes, arm motion over hand grip."}
+        {
+            "q": "How does the pull-cord mechanism work?",
+            "a": "Food is placed in the bowl and the lid is pressed down to engage the blade. Pulling the cord rotates the blade to chop the contents — each pull drives a chopping cycle. Zyliss states 3–5 pulls produces a coarse chop and 8–10 pulls a finer consistency, depending on the ingredient."
+        },
+        {
+            "q": "Is the Zyliss Easy Pull suitable for someone with arthritis?",
+            "a": "The pull-cord operation uses an arm pulling motion rather than hand gripping or wrist rotation, which reduces the joint strain associated with knife chopping. Individual ease of use will depend on the severity of the condition and the user's arm strength."
+        },
+        {
+            "q": "Are all parts of the Zyliss Easy Pull dishwasher safe?",
+            "a": "Zyliss states the blade and bowl are dishwasher safe. The cord mechanism housing should be checked against the current Amazon UK listing or Zyliss product instructions before placing in a dishwasher, as cord components may not be suitable for machine washing."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A pull-cord food chopper that chops onions, herbs, and garlic <b>using arm pulls rather than knife grip or wrist rotation</b> — Zyliss states 3–5 pulls for a coarse chop and 8–10 for finer results. The 750ml bowl is dishwasher safe and the non-slip base keeps it stable on the worktop.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "A practical kitchen gift for anyone with arthritis who still cooks regularly — removes the most painful prep task without needing an expensive electric processor or complicated setup."
+    }
+},
+    
   {
     "name": "Weighted Easy Grip Cutlery Set for Arthritis",
     "category": "Health & Personal Care",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/713Uo25zIJL._AC_SX679_.jpg",
     "url": "https://amzn.to/4rHWivp",
     "asin": "B09YN9K7DB",
-    "info": "Weighted cutlery set with thick, soft-grip handles for stability and reduced tremor. Includes knife, fork, spoon — ideal for arthritis, Parkinson's, or weak grip to make eating comfortable and independent.",
+    "info": "A 3-piece weighted cutlery set — knife, fork, and spoon — with thick soft-grip handles designed to improve stability and control during meals for people with arthritis, hand tremors, or weak grip. The added weight in the handles is intended to counteract involuntary hand movement, and the oversized grip reduces the hand pressure needed to hold each utensil. Check the current Amazon UK listing for the specific handle weight and material details for this set.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["weighted cutlery arthritis", "easy grip utensils UK", "adaptive cutlery elderly", "thick handle cutlery", "tremor stabilising utensils"],
-    "pain_points": ["tremors causing spills", "thin handles hard to hold", "hand fatigue during meals"],
-    "benefits": ["Weighted for steadier control", "Extra-wide soft grips", "Dishwasher-safe", "Supports independent eating", "Comfort for swollen joints"],
+    "keywords": [
+        "weighted cutlery set arthritis UK",
+        "easy grip cutlery elderly UK",
+        "adaptive cutlery tremor Parkinson's",
+        "thick handle cutlery weak grip",
+        "weighted utensils independent eating UK"
+    ],
+    "pain_points": [
+        "Hand tremors causing spills and difficulty controlling standard cutlery",
+        "Thin standard cutlery handles that are difficult to grip with arthritis",
+        "Hand and finger fatigue during meals from maintaining grip on light utensils",
+        "Loss of mealtime independence due to reduced hand control"
+    ],
+    "benefits": [
+        "Weighted handles designed to counteract involuntary hand movement and tremors",
+        "Oversized soft-grip handles reduce hand pressure needed to hold utensils",
+        "3-piece set covers knife, fork, and spoon for complete mealtime use",
+        "Designed for arthritis, hand tremors, Parkinson's, and reduced grip strength",
+        "Supports independent eating without requiring assistance"
+    ],
     "price_tier": "essential dining aid",
     "highlights": [
-      "Thick foam/rubber handles",
-      "Weighted design reduces shakes",
-      "Full set: knife, fork, spoon",
-      "Durable and easy to clean",
-      "Helps with daily independence"
+        "Weighted handles designed to improve stability and counteract hand tremors during meals",
+        "Oversized soft-grip construction reduces the hand pressure needed to hold each utensil",
+        "3-piece set includes knife, fork, and spoon for complete daily mealtime use",
+        "Designed for arthritis, Parkinson's, and reduced grip strength or hand control",
+        "Check the current Amazon UK listing for specific handle weight, material, and dishwasher compatibility"
     ],
     "faqs": [
-      {"q": "How many pieces?", "a": "Typically 3-4 piece set."},
-      {"q": "Weighted how much?", "a": "Moderate weight for stability without heaviness."}
+        {
+            "q": "How does weighting the handles help with tremors?",
+            "a": "Added weight in a utensil handle increases proprioceptive feedback — the sense of where the hand is in space — which can help reduce the amplitude of involuntary tremor movements during use. The effect varies by individual and tremor severity, and weighted cutlery is typically recommended alongside occupational therapy advice rather than as a standalone solution."
+        },
+        {
+            "q": "Is this cutlery suitable for Parkinson's disease?",
+            "a": "Weighted cutlery is commonly recommended for people with Parkinson's to help manage hand tremors during meals. Individual benefit varies depending on the stage and type of tremor. An occupational therapist can advise on whether weighted cutlery is appropriate for a specific individual's needs."
+        },
+        {
+            "q": "Are the handles dishwasher safe?",
+            "a": "Check the current Amazon UK listing for the specific care instructions for this set. Soft-grip handle materials vary — some are dishwasher safe on the top rack while others require hand washing to preserve the grip coating over time."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "A 3-piece weighted cutlery set with <b>oversized soft-grip handles designed to counteract hand tremors and reduce grip pressure during meals</b> — the added handle weight provides proprioceptive feedback that helps stabilise involuntary movement. Suitable for arthritis, Parkinson's, and reduced hand control.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her"],
+        "interests": ["health", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A considerate, practical gift for an elderly parent or anyone with Parkinson's or arthritis — addresses mealtime independence directly and is the kind of thing that makes a genuine daily difference but rarely gets bought without prompting."
+    }
+},
+    
   {
     "name": "Silicone Jar Opener Grips Set (Multi-Pack)",
     "category": "Home & Kitchen",
-    "season":  "",
+    "season": "",
     "image": "https://m.media-amazon.com/images/I/71zKaYCuD3L._AC_SX679_.jpg",
     "url": "https://amzn.to/4qjAEMU",
-    "asin": "B0CXCS3327 (example pack)",
-    "info": "Multi-size silicone grip pads for jars, bottles, and lids. Non-slip texture multiplies hand strength, heat-resistant — easy to use for arthritic or weak hands to open stubborn containers without pain.",
+    "asin": "B09WYHYD6D",
+    "info": "A multi-pack of food-grade silicone grip pads in assorted sizes for opening jars, bottles, and lids. The textured silicone surface increases friction between the hand and the lid, reducing the grip strength needed to turn stubborn containers. Heat-resistant up to approximately 230°C, reusable, and washable. Check the current Amazon UK listing for the exact number of pads and size range included in this pack.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["silicone jar grips", "jar opener pad arthritis", "non slip bottle opener UK", "rubber grip set", "multi function lid opener"],
-    "pain_points": ["slipping when opening jars", "pain from tight grips", "need for extra leverage"],
-    "benefits": ["Grippy silicone for instant traction", "Multiple sizes included", "Heat-resistant for hot jars", "Inexpensive multi-use pack", "Boosts hand power easily"],
+    "keywords": [
+        "silicone jar opener grips UK",
+        "non slip jar lid opener pads",
+        "silicone grip pads arthritis UK",
+        "reusable jar opener set weak hands",
+        "food grade silicone lid grips UK"
+    ],
+    "pain_points": [
+        "Hands slipping on smooth jar lids and bottle caps during opening",
+        "Insufficient grip strength to turn tight lids with arthritis or weak hands",
+        "Single-size grip pads that don't fit both small and large containers",
+        "Grip aids that are difficult to clean or store after use"
+    ],
+    "benefits": [
+        "Textured silicone increases friction between hand and lid surface",
+        "Assorted sizes cover small bottle caps to large jar lids",
+        "Heat-resistant up to approximately 230°C for hot jars and containers",
+        "Food-grade silicone — reusable and washable after each use",
+        "Flat profile stores easily in a kitchen drawer"
+    ],
     "price_tier": "budget grip booster",
     "highlights": [
-      "4+ pads in various sizes",
-      "Food-grade silicone",
-      "Reusable and washable",
-      "Works on bottles too",
-      "Simple arthritis helper"
+        "Food-grade silicone grip pads — textured surface increases hand-to-lid friction for easier opening",
+        "Assorted sizes in the multi-pack cover small bottle caps through to large jar lids",
+        "Heat-resistant to approximately 230°C — suitable for hot jars and containers",
+        "Reusable and washable — rinse or machine wash after use",
+        "Flat profile stores easily in a kitchen drawer without taking up worktop space"
     ],
     "faqs": [
-      {"q": "How many in set?", "a": "Usually 4-5 pieces for versatility."},
-      {"q": "Heat safe?", "a": "Yes, up to 230°C for hot lids."}
+        {
+            "q": "How do silicone grip pads help with arthritis?",
+            "a": "The textured silicone surface significantly increases friction between the hand and the lid, meaning less hand grip force is needed to generate enough torque to open the container. This reduces the strain on finger joints and wrist during the opening motion compared to gripping a smooth lid directly."
+        },
+        {
+            "q": "How many pads are included and what sizes?",
+            "a": "Check the current Amazon UK listing for ASIN B09WYHYD6D for the exact number of pads and size range included in this specific pack, as multi-packs vary between variants."
+        },
+        {
+            "q": "Are the silicone pads dishwasher safe?",
+            "a": "Food-grade silicone is generally dishwasher safe. Check the current Amazon UK listing for the manufacturer's specific care instructions for this pack before machine washing."
+        }
     ],
-    "date_added": "2026-01-30"
-  },
+    "hook_override": "Food-grade silicone grip pads that <b>increase friction between hand and lid to reduce the grip strength needed to open jars and bottles</b> — no mechanism, no tools, just place the pad over the lid and turn. Assorted sizes cover small bottle caps to large jar lids, heat-resistant to approximately 230°C, and washable for reuse.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["home", "health"],
+        "occasion": ["birthday", "christmas", "mothersday", "fathersday", "justbecause"],
+        "why": "The most low-cost, low-effort gift for anyone who struggles with jars — no batteries, no mechanism, just silicone that works immediately and stores flat in a drawer."
+    }
+},
 
 
     {
