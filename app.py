@@ -2945,8 +2945,8 @@ BASE_HTML = """<!DOCTYPE html>
       {% endif %}
 
       <div class="card-div"></div>
-      {% if p.date_added %}
-      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:10px;letter-spacing:.02em">Updated {{ p.date_added }}</div>
+      {% if p.get('last_updated') or p.date_added %}
+      <div style="font-size:.7rem;...">Updated {{ p.get('last_updated') or p.date_added }}</div>
       {% endif %}
       <div class="card-cta">
         {% if p.url %}
