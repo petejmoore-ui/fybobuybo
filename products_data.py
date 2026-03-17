@@ -65,7 +65,7 @@ PRODUCTS = [
         "occasion": ["birthday", "christmas", "justbecause", "easter"],
         "why": "For someone who wants to try clay sculpting at home without any specialist kit — no kiln, no oven, just open the packet and start."
         }
-    }
+    
 },
 
 {
