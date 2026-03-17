@@ -77,6 +77,7 @@ INTEREST_TAGS = {
     "fashion":  ["fashion"],
     "pets":     ["pets"],
     "outdoors": ["outdoors"],
+    "health":   ["health"],
 }
 
 OCCASION_TAGS = {
@@ -952,6 +953,11 @@ body{
         <button class="opt-btn" data-value="outdoors" data-step="2" data-multi="true" aria-pressed="false">
           <span class="opt-icon">🌿</span>
           <span class="opt-label">Outdoors & Travel</span>
+          <span class="opt-check" aria-hidden="true">✓</span>
+        </button>
+        <button class="opt-btn" data-value="health" data-step="2" data-multi="true" aria-pressed="false">
+          <span class="opt-icon">🌿</span>
+          <span class="opt-label">Health & Wellness</span>
           <span class="opt-check" aria-hidden="true">✓</span>
         </button>
       </div>
