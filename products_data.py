@@ -3629,1654 +3629,3741 @@ PRODUCTS = [
 },
 
     {
-        "name": "Gritin Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels - Carrying Case Included",
-        "category": "Sports & Outdoors",
-        "season": "New Year Essentials, Summer Essentials",
-        "image": "https://m.media-amazon.com/images/I/617NmwvU4tL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4pjWiQy?tag=whoaccepts-21",
-        "info": "Set of 5 latex-free loop resistance bands in progressive strengths (extra light to extra heavy) with carry bag — skin-friendly, durable, and portable for full-body workouts. Bestselling choice for home fitness, yoga, Pilates, physio, and strength training on the go.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["resistance bands", "home workout", "strength training", "fitness equipment"],
-        "pain_points": ["limited gym access", "expensive equipment", "travel workouts"],
-        "benefits": ["5 resistance levels", "portable", "full-body workout", "latex-free"],
-        "price_tier": "budget champion",
-        "highlights": [
-            "5 progressive resistance levels for all fitness stages",
-            "100% natural latex-free and skin-friendly",
-            "Portable carry bag for workouts anywhere",
-            "Suitable for strength training, yoga, Pilates, and physio",
-            "Durable premium materials with anti-snap design"
-        ],
-        "faqs": [
-            {"q": "What exercises can I do with these bands?", "a": "Hundreds - from squats and lunges to chest presses, rows, and full-body circuits. Includes exercise guide."},
-            {"q": "Will they snap or roll up during use?", "a": "No - the premium fabric construction prevents rolling and snapping, unlike cheap rubber bands."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Gritin Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels - Carrying Case Included",
+    "category": "Sports & Outdoors",
+    "season": "New Year Essentials, Summer Essentials",
+    "image": "https://m.media-amazon.com/images/I/617NmwvU4tL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4pjWiQy?tag=whoaccepts-21",
+    "asin": "B076FYDW9P",
+    "info": "A set of 5 latex-free loop resistance bands in progressive resistance levels from extra light to extra heavy, supplied with a carry case. Gritin states the bands are made from skin-friendly materials designed to resist rolling and snapping during use. Suitable for strength training, yoga, Pilates, physiotherapy exercises, and general home fitness. An exercise guide is included.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Gritin resistance bands set UK",
+        "latex free loop resistance bands 5 levels",
+        "home workout resistance bands UK",
+        "portable resistance bands carry case",
+        "resistance bands yoga pilates physio UK"
+    ],
+    "pain_points": [
+        "Limited home workout equipment without spending on machines or weights",
+        "Resistance bands that roll up the leg or snap during exercises",
+        "Latex allergies making standard rubber resistance bands unsuitable",
+        "Needing portable fitness equipment for travel or small living spaces"
+    ],
+    "benefits": [
+        "5 progressive resistance levels from extra light to extra heavy in one set",
+        "Latex-free construction suitable for those with latex sensitivities",
+        "Skin-friendly material designed to resist rolling and snapping during use",
+        "Compact carry case for storage at home or in a gym bag",
+        "Suitable for strength training, yoga, Pilates, and physiotherapy exercises"
+    ],
+    "price_tier": "budget champion",
+    "highlights": [
+        "Set of 5 loop bands in progressive resistance levels from extra light to extra heavy",
+        "Latex-free and skin-friendly construction — Gritin states designed to resist rolling and snapping",
+        "Suitable for strength training, yoga, Pilates, physiotherapy, and general home fitness",
+        "Compact carry case included for storage and transport",
+        "Exercise guide included — suitable for beginners through to more experienced users"
+    ],
+    "faqs": [
+        {
+            "q": "What exercises can resistance bands be used for?",
+            "a": "Resistance bands can be used for a wide range of exercises including squats, glute bridges, lateral walks, chest presses, rows, shoulder work, and full-body circuits. The set includes an exercise guide with suggested movements for each resistance level."
+        },
+        {
+            "q": "Are these bands suitable for physiotherapy or rehabilitation exercises?",
+            "a": "Yes — the progressive resistance levels from extra light upwards make them suitable for rehabilitation and physiotherapy exercises where controlled, low-resistance movement is required. If you are recovering from an injury, consult a physiotherapist for guidance on appropriate exercises and resistance levels."
+        },
+        {
+            "q": "Are the Gritin bands latex-free?",
+            "a": "Gritin states the bands are made from latex-free, skin-friendly materials, making them suitable for people with latex sensitivities or allergies. Check the current Amazon UK listing for the full material specification if you have a known latex allergy."
+        }
+    ],
+    "hook_override": "A set of 5 latex-free resistance bands in progressive levels from extra light to extra heavy — <b>Gritin states the skin-friendly material resists rolling and snapping</b>, which is the main failure point of cheaper rubber bands. Compact carry case included, suitable for strength training, Pilates, yoga, and physiotherapy exercises.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A versatile, affordable fitness gift that covers everything from warm-up exercises to full-body strength work — the five resistance levels mean it stays useful as fitness improves, unlike a single band that gets outgrown quickly."
+    }
+},
+    
+    {
+    "name": "Ear Warmers Headband with Ponytail Hole",
+    "category": "Sports & Outdoors",
+    "season": "Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49aRqZj?tag=whoaccepts-21",
+    "asin": "B0822GP6VW",
+    "info": "A fleece-lined ear warmer headband with a ponytail hole designed for runners and cyclists with longer hair. The moisture-wicking outer fabric manages sweat during exercise while the fleece lining provides warmth without the bulk of a full winter hat. The slim profile fits under cycling and skiing helmets, and the non-slip design stays in place during movement. Check the current Amazon UK listing for available colours and sizing.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "ear warmer headband ponytail hole UK",
+        "fleece running headband winter UK",
+        "ponytail ear warmers runners women",
+        "non slip ear warmer headband cycling",
+        "winter running headband moisture wicking UK"
+    ],
+    "pain_points": [
+        "Cold ears during winter runs without wanting to wear a full hat",
+        "Standard ear warmers that don't accommodate a ponytail or bun",
+        "Headbands that slip down during running or cycling",
+        "Full winter hats that cause overheating during sustained exercise effort"
+    ],
+    "benefits": [
+        "Ponytail hole accommodates longer hair without removing the headband",
+        "Fleece lining provides ear warmth without the bulk of a winter hat",
+        "Moisture-wicking outer fabric manages sweat during exercise",
+        "Non-slip design stays in position during running and cycling",
+        "Slim profile fits under cycling and skiing helmets"
+    ],
+    "price_tier": "budget accessory",
+    "highlights": [
+        "Ponytail hole design allows longer hair to be worn up without removing the headband",
+        "Fleece-lined interior provides ear warmth without the bulk of a full winter hat",
+        "Moisture-wicking outer fabric draws sweat away during running and cycling",
+        "Non-slip construction designed to stay in position during sustained movement",
+        "Slim profile fits comfortably under cycling and skiing helmets"
+    ],
+    "faqs": [
+        {
+            "q": "Does the ponytail hole work with a bun as well as a ponytail?",
+            "a": "The opening is designed primarily for a ponytail but can accommodate a low bun depending on its size. A higher or larger bun may not fit through the opening comfortably — check the current Amazon UK listing for the specific hole dimensions if this is a concern."
+        },
+        {
+            "q": "Will this headband fit under a cycling or skiing helmet?",
+            "a": "The slim fleece-lined profile is designed to sit flat enough to wear under a helmet without creating pressure points. Individual fit will depend on the helmet size and how it is adjusted — most users with a correctly fitted helmet find ear warmer headbands compatible."
+        },
+        {
+            "q": "Does it cover the ears completely?",
+            "a": "The headband is designed to cover the ears fully while leaving the top of the head open — providing targeted warmth for the ears without causing the overheating associated with a full winter hat during exercise."
+        }
+    ],
+    "hook_override": "A fleece-lined ear warmer with a <b>ponytail hole — keeps ears warm during winter runs without needing a full hat</b> or removing a hair tie. The moisture-wicking outer layer manages sweat during effort, the non-slip construction stays in place, and the slim profile fits under a cycling or skiing helmet.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A small but well-considered gift for a female runner or cyclist with longer hair — the ponytail hole is the specific detail that makes it more useful than a standard ear warmer headband."
+    }
+},
 
     {
-        "name": "Ear Warmers Headband with Ponytail Hole",
-        "category": "Sports & Outdoors",
-        "season": "Winter Essentials",
-        "image": "https://m.media-amazon.com/images/I/713-9cSHBJL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49aRqZj?tag=whoaccepts-21",
-        "info": "Moisture-wicking headband that keeps sweat out of your eyes. Lightweight and comfortable for everyday training.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["ear warmers", "running headband", "winter headband", "ponytail headband"],
-        "pain_points": ["cold ears", "hair management", "sweat control"],
-        "benefits": ["keeps ears warm", "ponytail-friendly", "moisture-wicking", "non-slip"],
-        "price_tier": "budget accessory",
-        "highlights": [
-            "Ponytail hole design - perfect for runners with long hair",
-            "Fleece-lined for warmth without bulk",
-            "Moisture-wicking fabric keeps sweat away",
-            "Non-slip design stays in place during runs",
-            "Lightweight alternative to winter hats"
-        ],
-        "faqs": [
-            {"q": "Will this fit under a helmet?", "a": "Yes - the slim profile fits comfortably under cycling and skiing helmets."},
-            {"q": "Does it cover the ears completely?", "a": "Yes - provides full ear coverage while leaving top of head free to prevent overheating."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "Lightweight Breathable Running Cap",
+    "category": "Sports & Outdoors",
+    "season": "Summer Gifts, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3YmhASv?tag=whoaccepts-21",
+    "asin": "B096WDHTT8",
+    "info": "A lightweight quick-dry running cap with breathable mesh panels, a curved brim for sun and rain protection, and an adjustable rear strap. The quick-dry fabric wicks moisture away during warm-weather running, and reflective details improve visibility during low-light training. Check the current Amazon UK listing for available colours, sizing, and specific material composition.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "lightweight running cap UK",
+        "breathable mesh running cap",
+        "quick dry sports cap sun protection UK",
+        "adjustable running cap reflective",
+        "summer running cap men women UK"
+    ],
+    "pain_points": [
+        "Sun glare affecting visibility and comfort during warm-weather runs",
+        "Sweat dripping into eyes without a cap brim during summer training",
+        "Caps that trap heat and cause overheating during sustained running effort",
+        "Caps that don't stay in position during faster running or in wind"
+    ],
+    "benefits": [
+        "Quick-dry fabric wicks moisture away during warm-weather running",
+        "Breathable mesh panels reduce heat buildup during sustained effort",
+        "Curved brim shields eyes from sun glare and light rain",
+        "Adjustable rear strap for a secure fit across different head sizes",
+        "Reflective details for visibility during low-light training sessions"
+    ],
+    "price_tier": "essential accessory",
+    "highlights": [
+        "Quick-dry fabric designed to wick moisture away rapidly during warm-weather running",
+        "Breathable mesh panel construction reduces heat buildup during sustained effort",
+        "Curved brim provides shade from sun glare and protection from light rain",
+        "Adjustable rear strap accommodates different head sizes for a secure fit",
+        "Reflective details included for visibility during early morning and evening training"
+    ],
+    "faqs": [
+        {
+            "q": "Will this cap keep me cool during summer running?",
+            "a": "The breathable mesh panels and quick-dry fabric are designed to allow airflow and manage sweat during warm-weather running. No cap will make running in heat comfortable, but the mesh construction reduces heat retention compared to solid-panel caps."
+        },
+        {
+            "q": "Is the running cap machine washable?",
+            "a": "Check the current Amazon UK listing for the specific care instructions for this model. Most quick-dry running caps are machine washable on a gentle cycle, though hand washing and air drying helps maintain the shape of the brim over time."
+        },
+        {
+            "q": "Does the adjustable strap fit larger or smaller head sizes?",
+            "a": "The adjustable rear strap is designed to accommodate a range of head circumferences. Check the current Amazon UK listing for the specific size range stated by the manufacturer before purchasing."
+        }
+    ],
+    "hook_override": "A lightweight running cap with <b>breathable mesh panels and a quick-dry fabric that wicks sweat away during warm-weather training</b>. The curved brim keeps sun and light rain out of eyes, reflective details cover low-light sessions, and the adjustable rear strap fits a range of head sizes.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, low-cost gift for a runner who trains through summer — the mesh construction and quick-dry fabric make a noticeable difference to comfort during warm-weather runs compared to a standard cotton cap."
+    }
+},
 
     {
-        "name": "Lightweight Breathable Running Cap",
-        "category": "Sports & Outdoors",
-        "season": "Summer Gifts, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/71JWyjz2zGL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3YmhASv?tag=whoaccepts-21",
-        "info": "Quick-dry running cap that reduces sun glare and improves comfort during warm-weather runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["running cap", "sports cap", "sun protection", "breathable cap"],
-        "pain_points": ["sun in eyes", "sweat dripping", "overheating"],
-        "benefits": ["quick-dry", "sun protection", "breathable mesh", "adjustable"],
-        "price_tier": "essential accessory",
-        "highlights": [
-            "Quick-dry fabric wicks moisture away instantly",
-            "Breathable mesh panels prevent overheating",
-            "Curved brim shields eyes from sun and rain",
-            "Reflective details for low-light visibility",
-            "Adjustable strap for secure, comfortable fit"
-        ],
-        "faqs": [
-            {"q": "Will this keep me cool in summer?", "a": "Yes - the mesh panels and quick-dry fabric help regulate temperature even in heat."},
-            {"q": "Can I wash this in the machine?", "a": "Yes - machine washable on gentle cycle, though hand washing extends life."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "Anti-Blister Cushioned Running Socks",
+    "category": "Sports & Outdoors",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3KY1nzY?tag=whoaccepts-21",
+    "asin": "B08C4VDX3G",
+    "info": "Cushioned running socks with strategic padding in high-impact zones, seamless toe construction, and moisture-wicking fabric designed to reduce friction and blister risk during longer runs. Arch compression helps maintain sock position during movement, and breathable mesh zones regulate temperature. Check the current Amazon UK listing for available sizes, pack quantities, and specific material composition.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "anti blister cushioned running socks UK",
+        "seamless toe running socks",
+        "moisture wicking running socks UK",
+        "arch support running socks long distance",
+        "cushioned sports socks marathon training UK"
+    ],
+    "pain_points": [
+        "Blisters forming on the toes and heels during longer runs",
+        "Moisture buildup inside shoes causing discomfort and skin breakdown",
+        "Socks that slip down or bunch inside shoes during running",
+        "Standard cotton socks that hold moisture and increase friction during exercise"
+    ],
+    "benefits": [
+        "Strategic cushioning in heel and toe high-impact zones",
+        "Seamless toe construction eliminates friction at the most common blister site",
+        "Moisture-wicking fabric draws sweat away from skin during sustained effort",
+        "Arch compression helps maintain sock position and prevents bunching",
+        "Breathable mesh zones regulate foot temperature during running"
+    ],
+    "price_tier": "performance socks",
+    "highlights": [
+        "Strategic cushioning in heel and forefoot high-impact zones for long-distance comfort",
+        "Seamless toe construction removes the friction seam responsible for most running blisters",
+        "Moisture-wicking fabric designed to draw sweat away from skin during sustained effort",
+        "Arch compression band helps maintain sock position and prevents slipping inside the shoe",
+        "Breathable mesh zones on the upper foot regulate temperature during running"
+    ],
+    "faqs": [
+        {
+            "q": "Will these socks prevent blisters completely?",
+            "a": "The seamless toe construction and moisture-wicking fabric significantly reduce the two main causes of running blisters — friction and moisture. However, blister prevention also depends on correct shoe fit and lacing. Socks alone cannot guarantee blister-free running if shoes are the wrong size or fit."
+        },
+        {
+            "q": "Are these suitable for marathon training and long-distance running?",
+            "a": "The strategic cushioning zones, seamless toe, and moisture management are specifically designed for the demands of longer runs where standard socks tend to fail. Check the current Amazon UK listing for any maximum distance claims made by the manufacturer."
+        },
+        {
+            "q": "How should running socks be washed to maintain performance?",
+            "a": "Most technical running socks are machine washable. Washing inside-out on a gentle cycle and air drying rather than tumble drying helps preserve the moisture-wicking properties and cushioning structure over time. Check the care label for specific instructions."
+        }
+    ],
+    "hook_override": "Running socks with <b>seamless toe construction and strategic cushioning in the heel and forefoot</b> — the seamless toe removes the friction seam responsible for most running blisters. Moisture-wicking fabric and arch compression keep the sock in position and feet dry throughout longer training runs.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, well-received gift for any regular runner — most people underestimate how much difference a proper running sock makes compared to standard cotton socks, and this is an affordable way to find out."
+    }
+},
 
     {
-        "name": "Anti-Blister Cushioned Running Socks",
-        "category": "Sports & Outdoors",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/8139KpUGwoL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3KY1nzY?tag=whoaccepts-21",
-        "info": "Moisture-wicking running socks designed to reduce friction and prevent blisters on longer or frequent runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["running socks", "anti-blister", "cushioned socks", "sports socks"],
-        "pain_points": ["blisters", "foot pain", "moisture", "sock slippage"],
-        "benefits": ["blister prevention", "cushioned support", "moisture-wicking", "arch support"],
-        "price_tier": "performance socks",
-        "highlights": [
-            "Strategic cushioning in high-impact zones",
-            "Seamless toe design prevents friction and blisters",
-            "Moisture-wicking fabric keeps feet dry mile after mile",
-            "Arch compression provides support and prevents slipping",
-            "Breathable mesh zones for temperature regulation"
-        ],
-        "faqs": [
-            {"q": "Will these prevent blisters completely?", "a": "They significantly reduce blister risk through seamless design and moisture management, though fit and shoes also matter."},
-            {"q": "Do they work for long-distance running?", "a": "Yes - specifically designed for marathon training and long runs with targeted cushioning."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "LED Clip-On Running Safety Light",
+    "category": "Sports & Outdoors",
+    "season": "Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49fdWif?tag=whoaccepts-21",
+    "asin": "B0F7XPDVK6",
+    "info": "A compact clip-on LED safety light with three modes — steady, slow flash, and rapid flash — designed to improve visibility during low-light outdoor running. The clip attaches to clothing, bags, or shoes, and the light is water-resistant for all-weather use. A CR2032 battery is included, with an estimated battery life of approximately 80–100 hours depending on the mode used.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "clip on LED running safety light UK",
+        "running visibility light winter UK",
+        "flashing LED clip light outdoor running",
+        "water resistant running safety light",
+        "compact clip on light cycling walking UK"
+    ],
+    "pain_points": [
+        "Low visibility to drivers and cyclists during early morning and evening runs",
+        "Reflective gear that only works when a light source is already present",
+        "Safety lights that are too bulky or heavy to wear comfortably during running",
+        "Lights with short battery lives that need frequent recharging or replacing"
+    ],
+    "benefits": [
+        "Three modes — steady, slow flash, and rapid flash — for different visibility needs",
+        "Clip attaches to clothing, bags, or shoes for flexible positioning",
+        "Water-resistant construction for use in rain and wet conditions",
+        "CR2032 battery included with approximately 80–100 hours estimated life",
+        "Compact and lightweight — minimal impact on running comfort"
+    ],
+    "price_tier": "safety essential",
+    "highlights": [
+        "Three LED modes — steady, slow flash, and rapid flash — for different low-light conditions",
+        "Clip-on design attaches to clothing, running belt, bag straps, or shoes",
+        "Water-resistant construction suitable for use in rain and wet weather",
+        "CR2032 battery included — estimated 80–100 hours battery life depending on mode",
+        "Compact and lightweight — check the current Amazon UK listing for specific weight and dimensions"
+    ],
+    "faqs": [
+        {
+            "q": "How long does the battery last on the LED running light?",
+            "a": "The included CR2032 battery provides an estimated 80–100 hours of use depending on which mode is selected — steady mode uses more power than flash modes. CR2032 batteries are widely available and inexpensive to replace."
+        },
+        {
+            "q": "Will the clip stay attached during running?",
+            "a": "The clip is designed to grip firmly to clothing, bag straps, and shoe laces during movement. For the most secure attachment during faster running, clip to a thicker material such as a jacket zip pull or waistband rather than thin fabric."
+        },
+        {
+            "q": "Is this light suitable for cycling as well as running?",
+            "a": "The clip-on design and water-resistant construction make it suitable for attaching to a cycling bag, jacket, or helmet strap as a rear visibility light. It is not designed as a dedicated cycling light and should be used as a supplementary visibility aid rather than a primary bike light."
+        }
+    ],
+    "hook_override": "A compact clip-on LED light with <b>three modes — steady, slow flash, and rapid flash</b> — that clips to clothing, a running belt, or shoes for flexible positioning. Water-resistant for all-weather use, with a CR2032 battery included rated for approximately 80–100 hours depending on the mode.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "An inexpensive but genuinely useful safety gift for any runner who trains in the dark — works as a standalone visibility aid or as a complement to reflective armbands for maximum coverage."
+    }
+},
+    
+    {
+    "name": "Reusable Soft Running Water Bottle",
+    "category": "Sports & Outdoors",
+    "season": "Summer Gifts, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49fUmCp?tag=whoaccepts-21",
+    "asin": "B0D63MZQ97",
+    "info": "A 500ml collapsible soft flask made from BPA-free food-grade silicone, designed to compress as the contents are consumed to eliminate sloshing during running. The ergonomic shape fits comfortably in the hand, and the wide opening allows easy filling and cleaning. Compatible with most running belt pockets and hydration vest flask holders. Hand washing is recommended to maintain the silicone material.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-31",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "soft flask running water bottle UK",
+        "collapsible running flask 500ml",
+        "BPA free soft flask hydration UK",
+        "handheld running water bottle soft",
+        "running belt compatible soft flask UK"
+    ],
+    "pain_points": [
+        "Rigid water bottles sloshing and creating noise during running",
+        "Bulky bottles that are uncomfortable to carry by hand on longer runs",
+        "Hard bottles that don't compress to fit running belt or vest pockets as they empty",
+        "Wide-mouth bottles that are difficult to drink from without slowing pace"
+    ],
+    "benefits": [
+        "Collapses as contents are consumed — eliminates sloshing and reduces bulk",
+        "500ml capacity suitable for runs up to approximately 90 minutes",
+        "BPA-free food-grade silicone construction",
+        "Wide opening for easy filling and cleaning",
+        "Compatible with most running belt pockets and hydration vest flask holders"
+    ],
+    "price_tier": "hydration essential",
+    "highlights": [
+        "500ml collapsible soft flask — compresses as contents are consumed to eliminate sloshing",
+        "BPA-free food-grade silicone construction — safe for repeated daily use",
+        "Ergonomic shape designed to sit comfortably in the hand during running",
+        "Wide opening allows easy filling from a tap or water station and straightforward cleaning",
+        "Compatible with most running belt pockets and hydration vest flask holders"
+    ],
+    "faqs": [
+        {
+            "q": "Does the soft flask fit in a running belt or hydration vest?",
+            "a": "The collapsible design is intended to fit most standard running belt flask pockets and hydration vest front pockets. As the flask empties and compresses, it takes up progressively less space. Check the current Amazon UK listing for the specific dimensions to confirm compatibility with your belt or vest."
+        },
+        {
+            "q": "How should the soft flask be cleaned?",
+            "a": "Hand washing with warm water and mild washing-up liquid is recommended to maintain the silicone material quality. The wide opening allows a bottle brush to reach the interior for thorough cleaning. Dishwasher use is not recommended as high heat can degrade the silicone over time."
+        },
+        {
+            "q": "Is 500ml enough for longer training runs?",
+            "a": "500ml is generally sufficient for runs up to approximately 60–90 minutes in moderate temperatures. For longer distances or hot weather running, a hydration vest with larger capacity flasks or a bladder would be more appropriate. This flask is well-suited as a handheld option for shorter to medium efforts."
+        }
+    ],
+    "hook_override": "A 500ml soft flask made from <b>BPA-free food-grade silicone that collapses as you drink</b> — eliminating the sloshing of a rigid bottle and reducing bulk as it empties. The ergonomic shape sits comfortably in the hand and the wide opening makes filling from a tap or water station straightforward.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical hydration gift for a runner who's outgrown carrying a rigid bottle — the collapsible design solves the specific annoyance of sloshing and bulk that puts most runners off handheld bottles."
+    }
+},
+    
+    {
+    "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
+    "category": "Electronics",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag=whoaccepts-21",
+    "asin": "B0B6WRFY5S",
+    "info": "The Fitbit Charge 6 is a fitness tracker with built-in GPS, 24/7 heart rate monitoring, sleep tracking, stress management tools, and a daily Readiness Score. Fitbit states the battery lasts up to 7 days per charge. Six months of Fitbit Premium membership is included — Fitbit states this has a retail value of £79.94 and provides access to advanced sleep analysis, guided programmes, and deeper health insights.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Fitbit Charge 6 UK",
+        "fitness tracker built in GPS",
+        "activity tracker sleep tracking UK",
+        "Fitbit Premium included readiness score",
+        "heart rate fitness tracker 7 day battery"
+    ],
+    "pain_points": [
+        "No way to track outdoor runs accurately without carrying a phone",
+        "Waking up tired without understanding why sleep quality is poor",
+        "Training hard without knowing whether the body is recovered enough",
+        "Wanting a single device that covers fitness, sleep, and stress monitoring"
+    ],
+    "benefits": [
+        "Built-in GPS tracks outdoor runs, walks, and cycles without a phone",
+        "Daily Readiness Score combines sleep, activity, and heart rate variability data",
+        "Advanced sleep tracking with Sleep Profile insights over time",
+        "24/7 heart rate and stress monitoring throughout the day",
+        "Six months Fitbit Premium included — retail value stated at £79.94"
+    ],
+    "price_tier": "premium fitness",
+    "highlights": [
+        "Built-in GPS tracks outdoor workouts independently — no phone required",
+        "Daily Readiness Score combines sleep quality, activity load, and heart rate variability data",
+        "Advanced sleep tracking with Sleep Profile builds personalised insights over time",
+        "Fitbit states battery life of up to 7 days per charge",
+        "Six months Fitbit Premium membership included — Fitbit states retail value of £79.94"
+    ],
+    "faqs": [
+        {
+            "q": "Does the Fitbit Charge 6 require a phone nearby during outdoor runs?",
+            "a": "No — Fitbit states the Charge 6 has built-in GPS, allowing it to track distance, pace, and route for outdoor runs, walks, and cycles independently without a phone present."
+        },
+        {
+            "q": "What is the Readiness Score and how is it calculated?",
+            "a": "Fitbit states the daily Readiness Score combines data from the previous night's sleep quality, recent activity levels, and heart rate variability to produce a score indicating how prepared the body is for exercise or exertion that day. A lower score suggests prioritising rest or lighter activity."
+        },
+        {
+            "q": "What does the included Fitbit Premium membership provide?",
+            "a": "Fitbit states Premium provides access to advanced sleep analysis including Sleep Profile, guided health and fitness programmes, stress management tools, and deeper data insights beyond the standard free app. After the included six months, Premium continues as a paid subscription — check Fitbit's website for current pricing."
+        }
+    ],
+    "hook_override": "The Fitbit Charge 6 has <b>built-in GPS and a daily Readiness Score</b> that combines sleep quality, activity load, and heart rate variability to tell you whether to train hard or recover. Six months of Fitbit Premium is included — Fitbit states a retail value of £79.94 — with up to 7 days battery life per charge.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "health", "tech"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "For someone who wants more than a step counter — the Readiness Score and built-in GPS make it genuinely useful for anyone training regularly, not just tracking daily movement."
+    }
+},
+    
+    {
+    "name": "Callaway Warbird Golf Balls - 12 Pack (White)",
+    "category": "Sports & Outdoors",
+    "season": "Christmas, Father's Day",
+    "image": "https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg",
+    "url": "https://amzn.to/493JB64?tag=whoaccepts-21",
+    "asin": "B0BMGYWVSH",
+    "info": "The Callaway Warbird is a 2-piece golf ball with a high-energy core designed for maximum distance off the tee, paired with a thin ionomer cover for responsive feel around the greens. Sold in a pack of 12. Callaway states the aerodynamic dimple pattern is optimised for a straight, penetrating ball flight. Suited to mid-to-high handicap golfers prioritising distance and value over tour-level spin control.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Callaway Warbird golf balls UK",
+        "12 pack golf balls distance",
+        "Callaway golf balls mid handicap UK",
+        "2 piece golf balls ionomer cover",
+        "golf ball gift pack Father's Day UK"
+    ],
+    "pain_points": [
+        "Losing expensive tour balls regularly and making the round unnecessarily costly",
+        "Inconsistent distance off the tee with lower compression balls",
+        "Golf balls with too much spin that exaggerates off-centre shots",
+        "Needing a reliable gift for a golfer that won't miss the mark"
+    ],
+    "benefits": [
+        "High-energy core maximises ball speed and distance off the tee",
+        "Thin ionomer cover provides responsive feel on chip and pitch shots",
+        "Aerodynamic dimple pattern optimised for straight, penetrating flight",
+        "2-piece construction offers durability at an accessible price point",
+        "Pack of 12 provides a full season's worth for most recreational golfers"
+    ],
+    "price_tier": "value performance",
+    "highlights": [
+        "High-energy core designed for maximum ball speed and distance off the tee",
+        "Thin high-sensory ionomer cover for responsive feel around the greens",
+        "Callaway states the dimple pattern is optimised for straight, penetrating ball flight",
+        "2-piece construction — durable and consistent at a lower price point than tour balls",
+        "Pack of 12 white balls — suited to mid-to-high handicap golfers prioritising distance"
+    ],
+    "faqs": [
+        {
+            "q": "How do Callaway Warbirds compare to tour balls like the Pro V1?",
+            "a": "The Warbird is engineered primarily for distance rather than the high spin rates and multi-layer construction of tour balls like the Pro V1. For mid-to-high handicap golfers, the distance advantage and lower cost per ball typically outweigh the reduced greenside spin control that tour balls offer."
+        },
+        {
+            "q": "Are Callaway Warbirds suitable for beginners?",
+            "a": "Yes — the high-energy core and straight flight optimisation make them forgiving and distance-friendly for players who don't yet generate tour-level swing speeds. The 12-pack format also makes losing the occasional ball less costly during a round."
+        },
+        {
+            "q": "What compression rating do Callaway Warbirds have?",
+            "a": "Check the current Amazon UK listing or Callaway's website for the specific compression rating of the Warbird. Generally, Callaway designs the Warbird as a higher compression ball aimed at golfers with moderate to fast swing speeds seeking maximum distance."
+        }
+    ],
+    "hook_override": "A 12-pack of Callaway Warbirds — a <b>2-piece distance ball with a high-energy core and thin ionomer cover</b> designed for maximum length off the tee with responsive feel around the greens. Callaway optimises the dimple pattern for straight, penetrating flight, making them well-suited to mid-to-high handicap golfers who prioritise distance over tour-level spin.",
+    "gift_finder_tags": {
+        "recipient": ["him", "parent", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "fathersday", "justbecause"],
+        "why": "A reliable, well-received gift for any recreational golfer — a dozen Callaway balls covers most of a season's play, and the Warbird is a well-known name that signals genuine thought rather than a generic supermarket pack."
+    }
+},
+    {
+    "name": "SPURK GOLF Winter Strike Mat - Fairway Protection and Practice Mat",
+    "category": "Sports & Outdoors",
+    "season": "Christmas, Father's Day, Summer Gifts",
+    "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4jBhqAF?tag=whoaccepts-21",
+    "asin": "B07WNXPJLS",
+    "info": "The SPURK GOLF Winter Strike Mat is a portable practice mat with a fairway-like turf surface designed to protect grass at driving ranges and in gardens during winter practice sessions. The mat allows realistic iron and hybrid shots with genuine divot-taking without damaging the turf underneath. Compact enough to fit in a golf bag for range use. SPURK states the mat is suitable for irons and hybrids — use with caution when hitting fairway woods and drivers.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "SPURK Golf winter strike mat UK",
+        "portable golf practice mat UK",
+        "golf strike mat driving range",
+        "winter golf training mat garden",
+        "fairway practice mat irons UK"
+    ],
+    "pain_points": [
+        "Driving ranges refusing mat use or restricting winter sessions to protect turf",
+        "Garden lawn being damaged by divots during home practice sessions",
+        "Swing consistency dropping during winter months without regular ball striking",
+        "Bulky practice mats that don't fit in a golf bag for range sessions"
+    ],
+    "benefits": [
+        "Fairway-like turf surface allows realistic iron and hybrid shots",
+        "Protects grass at driving ranges and in gardens from divot damage",
+        "Compact enough to fit in a golf bag for range sessions",
+        "Suitable for year-round practice including winter off-season",
+        "Allows genuine divot-taking without damaging the turf underneath"
+    ],
+    "price_tier": "training essential",
+    "highlights": [
+        "Fairway-like turf surface designed for realistic iron and hybrid ball striking",
+        "Protects grass at driving ranges and garden lawns from divot damage during practice",
+        "Compact portable design fits in a standard golf bag for range sessions",
+        "Allows genuine divot-taking without damaging the surface underneath the mat",
+        "SPURK states suitable for irons and hybrids — use with caution for fairway woods and drivers"
+    ],
+    "faqs": [
+        {
+            "q": "Can the SPURK strike mat be used in a garden?",
+            "a": "Yes — the mat is designed to protect grass from divot damage during home practice sessions. Place it on a flat area of lawn and it absorbs the impact of iron shots without tearing up the turf underneath."
+        },
+        {
+            "q": "Is this mat suitable for all clubs?",
+            "a": "SPURK states the mat is suitable for irons and hybrids, which are the clubs most commonly used for divot-taking practice. It can be used with fairway woods and drivers, though SPURK recommends caution as the striking angle and sole width of longer clubs interact differently with the mat surface."
+        },
+        {
+            "q": "How does the mat fit in a golf bag?",
+            "a": "The compact design is intended to roll or fold to fit within a standard golf bag alongside clubs. Check the current Amazon UK listing for the specific dimensions to confirm it fits your bag before purchasing."
+        }
+    ],
+    "hook_override": "A portable golf strike mat with a <b>fairway-like turf surface that allows genuine divot-taking without damaging grass</b> underneath — suitable for driving range use in winter when ranges restrict natural turf, or for home garden practice without destroying a lawn. Compact enough to fit in a golf bag.",
+    "gift_finder_tags": {
+        "recipient": ["him", "parent", "friend"],
+        "interests": ["sports", "outdoors"],
+        "occasion": ["birthday", "christmas", "fathersday", "justbecause"],
+        "why": "A considered gift for a golfer who practises regularly — solves the specific winter problem of maintaining ball striking when ranges restrict turf use, without needing a dedicated practice net or indoor setup."
+    }
+},
 
     {
-        "name": "LED Clip-On Running Safety Light",
-        "category": "Sports & Outdoors",
-        "season": "Winter Essentials",
-        "image": "https://m.media-amazon.com/images/I/81W4PWCupEL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49fdWif?tag=whoaccepts-21",
-        "info": "Compact clip-on LED light that improves visibility during early morning, evening, and winter runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["running light", "safety light", "LED clip", "visibility"],
-        "pain_points": ["dark running", "road safety", "visibility to drivers"],
-        "benefits": ["bright LED", "multiple modes", "lightweight", "weather-resistant"],
-        "price_tier": "safety essential",
-        "highlights": [
-            "Bright LED visible up to 500m away",
-            "3 modes: steady, slow flash, rapid flash",
-            "Lightweight clip attaches to clothing, bags, or shoes",
-            "Water-resistant for all-weather use",
-            "Long-lasting CR2032 battery included"
-        ],
-        "faqs": [
-            {"q": "How long does the battery last?", "a": "Approximately 80-100 hours depending on mode - replaceable CR2032 battery."},
-            {"q": "Will it stay attached while running?", "a": "Yes - the secure clip design stays firmly attached even during intense runs."}
-        ],
-        "date_added": "2025-12-31"
-    },
+    "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
+    "category": "Sports & Outdoors",
+    "season": "Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag=whoaccepts-21",
+    "asin": "B08GCT8SXZ",
+    "info": "HotHands Hand Warmers are single-use air-activated heat packs, sold in a pack of 40 pairs. Each warmer activates on contact with air when the outer packaging is opened, with HotHands stating up to 10 hours of heat per pair. The warmers contain natural ingredients and are odourless. They fit inside pockets, gloves, or shoes and require no batteries, charging, or preparation.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "HotHands hand warmers 40 pairs UK",
+        "air activated hand warmers UK",
+        "single use hand warmers 10 hours",
+        "pocket hand warmers winter UK",
+        "odourless hand warmers outdoor events UK"
+    ],
+    "pain_points": [
+        "Cold hands during winter walks, commutes, or outdoor sporting events",
+        "Rechargeable hand warmers running out of charge mid-activity",
+        "Hand warmers that produce unpleasant chemical smells during use",
+        "Buying single packs that run out quickly during a cold winter"
+    ],
+    "benefits": [
+        "40 pairs per pack — enough for a full winter season of regular use",
+        "Air-activated — no batteries, charging, or preparation required",
+        "HotHands states up to 10 hours of heat per pair",
+        "Odourless natural ingredients — safe for use in gloves and pockets",
+        "Slim profile fits inside pockets, gloves, mittens, or shoes"
+    ],
+    "price_tier": "winter essential",
+    "highlights": [
+        "Pack of 40 pairs — HotHands states up to 10 hours of heat per pair",
+        "Air-activated on opening — no batteries, charging, or preparation needed",
+        "Natural ingredients — HotHands states odourless and safe for everyday use",
+        "Slim profile fits inside pockets, gloves, mittens, or shoes",
+        "Single-use disposable format — suitable for skiing, football, commuting, and festivals"
+    ],
+    "faqs": [
+        {
+            "q": "How do HotHands warmers activate?",
+            "a": "HotHands states the warmers activate automatically on exposure to air when the outer sealed packaging is opened. No shaking, squeezing, or preparation is required — they begin warming within a few minutes of being opened and reach full temperature shortly after."
+        },
+        {
+            "q": "Can HotHands warmers be reused or paused?",
+            "a": "No — HotHands states the warmers are single-use disposable products. Once activated by air exposure, the heat reaction continues until the ingredients are exhausted. They cannot be deactivated or reused after opening."
+        },
+        {
+            "q": "Are HotHands warmers safe to use inside gloves against the skin?",
+            "a": "HotHands states the warmers are safe for use inside gloves and pockets. They should not be placed directly against bare skin for extended periods as this can cause discomfort. Always keep a layer of fabric between the warmer and skin during prolonged use."
+        }
+    ],
+    "hook_override": "A pack of 40 pairs of air-activated hand warmers — <b>HotHands states up to 10 hours of heat per pair</b>, activating automatically when the sealed packet is opened. No batteries, no charging, no preparation — slim enough to fit inside gloves, pockets, or shoes for skiing, football matches, commuting, or festivals.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["outdoors", "sports"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A practical bulk gift for anyone who spends time outdoors in winter — 40 pairs covers an entire season and the air-activated format means there's nothing to charge or prepare before heading out in the cold."
+    }
+},
 
     {
-        "name": "Reusable Soft Running Water Bottle",
-        "category": "Sports & Outdoors",
-        "season": "Summer Gifts, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51ABfHBqJKL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49fUmCp?tag=whoaccepts-21",
-        "info": "Lightweight collapsible soft flask that shrinks as you drink, making it ideal for short and medium training runs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["soft flask", "running bottle", "hydration", "collapsible bottle"],
-        "pain_points": ["bulky bottles", "sloshing water", "hand-held hydration"],
-        "benefits": ["collapsible design", "ergonomic grip", "no sloshing", "BPA-free"],
-        "price_tier": "hydration essential",
-        "highlights": [
-            "Soft flask collapses as you drink - no sloshing",
-            "Ergonomic shape fits comfortably in hand",
-            "500ml capacity for runs up to 90 minutes",
-            "Wide opening for easy filling and cleaning",
-            "BPA-free food-grade silicone"
-        ],
-        "faqs": [
-            {"q": "Does it fit in running belts?", "a": "Yes - the collapsible design fits most running belts and vest pockets."},
-            {"q": "Is it dishwasher safe?", "a": "Hand washing recommended to maintain the soft flask material quality."}
-        ],
-        "date_added": "2025-12-31"
-    },
-
-    {
-        "name": "Fitbit Charge 6 Activity Tracker with 6 months of Fitbit Premium Included, Heart Rate, GPS, Health Tools, Sleep Tracking, Readiness Score and More - Obsidian/Black",
-        "category": "Electronics",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/61AeGQhwjxL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Fitbit-Activity-6-months-Membership-Readiness/dp/B0B6WRFY5S?tag=whoaccepts-21",
-        "info": "Advanced fitness tracker with built-in GPS, heart rate monitoring, sleep tracking, stress management, and a daily Readiness Score — includes 6 months Premium membership. Popular choice for active lifestyles, workout motivation, and overall health insights in everyday routines.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Fitbit", "fitness tracker", "activity tracker", "health monitoring"],
-        "pain_points": ["fitness motivation", "sleep quality", "workout tracking", "heart health"],
-        "benefits": ["built-in GPS", "7-day battery", "readiness score", "comprehensive tracking"],
-        "price_tier": "premium fitness",
-        "highlights": [
-            "Built-in GPS tracks outdoor workouts without phone",
-            "Daily Readiness Score tells you if you're ready to train",
-            "Advanced sleep tracking with Sleep Profile insights",
-            "24/7 heart rate and stress monitoring",
-            "Includes 6 months Fitbit Premium (£79.94 value)"
-        ],
-        "faqs": [
-            {"q": "Do I need my phone nearby during runs?", "a": "No - built-in GPS means you can track runs, walks, and cycles without your phone."},
-            {"q": "What is the Readiness Score?", "a": "Daily metric combining sleep, activity, and heart rate variability to show if your body is ready for exertion."}
-        ],
-        "date_added": "2025-12-28"
-    },
-
-    {
-        "name": "Callaway Warbird Golf Balls - 12 Pack (White)",
-        "category": "Sports & Outdoors",
-        "season": "Christmas, Father's Day",
-        "image": "https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg",
-        "url": "https://amzn.to/493JB64?tag=whoaccepts-21",
-        "info": "High-energy core golf balls designed for maximum distance off the tee with a thin, high-sensory ionomer cover for responsive feel around the greens. Popular choice for mid-handicap golfers seeking long, straight drives and value in a durable 2-piece ball.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["golf balls", "Callaway", "distance balls", "golf gifts"],
-        "pain_points": ["inconsistent distance", "lost balls", "expensive golf balls"],
-        "benefits": ["maximum distance", "straight flight", "durable", "affordable"],
-        "price_tier": "value performance",
-        "highlights": [
-            "High-energy core maximizes ball speed and distance",
-            "Thin ionomer cover provides soft feel around greens",
-            "Optimized for straight, penetrating ball flight",
-            "Durable 2-piece construction reduces lost ball costs",
-            "Ideal for mid to high handicap golfers"
-        ],
-        "faqs": [
-            {"q": "How do these compare to Pro V1s?", "a": "More distance-focused with less spin - perfect for golfers prioritizing length over tour-level control."},
-            {"q": "Are these good for beginners?", "a": "Excellent - forgiving, affordable, and deliver great distance without requiring perfect technique."}
-        ],
-        "date_added": "2025-12-29"
-    },
-
-    {
-        "name": "SPURK GOLF Winter Strike Mat - Fairway Protection and Practice Mat",
-        "category": "Sports & Outdoors",
-        "season": "Christmas, Father's Day, Summer Gifts",
-        "image": "https://m.media-amazon.com/images/I/61Cbx23upIL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4jBhqAF?tag=whoaccepts-21",
-        "info": "Durable winter golf strike mat with fairway-like turf for year-round practice — protects grass on driving ranges and allows realistic iron shots without divots. Bestselling accessory for golfers maintaining swing tempo during cold months and off-season training.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["golf practice mat", "winter golf", "strike mat", "golf training"],
-        "pain_points": ["winter practice", "range damage", "swing maintenance"],
-        "benefits": ["realistic turf", "portable", "protects ranges", "year-round practice"],
-        "price_tier": "training essential",
-        "highlights": [
-            "Realistic fairway-like surface for authentic practice",
-            "Portable design fits in golf bag for range sessions",
-            "Protects grass at driving ranges during winter",
-            "Takes real divots without damaging grass underneath",
-            "Helps maintain swing tempo in off-season"
-        ],
-        "faqs": [
-            {"q": "Can I use this in my garden?", "a": "Yes - perfect for backyard practice without destroying your lawn."},
-            {"q": "Will it work with all clubs?", "a": "Yes - suitable for all irons and hybrids; use with caution on driver/fairway woods."}
-        ],
-        "date_added": "2025-12-29"
-    },
-
-    {
-        "name": "HotHands Hand Warmers - Up to 10 Hours of Heat - 40 Pairs - Air Activated, Odourless, Natural & Safe",
-        "category": "Sports & Outdoors",
-        "season": "Winter Essentials",
-        "image": "https://m.media-amazon.com/images/I/71SBcNUrFCL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/HOTHANDS-Hand-Warmers-Pairs-activated/dp/B08GCT8SXZ?tag=whoaccepts-21",
-        "info": "Air-activated hand warmers providing up to 10 hours of natural, odourless heat — safe, easy to use, and perfect for cold weather activities, commuting, or outdoor events. Bestselling essential for staying warm during winter walks, sports, or festivals.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["hand warmers", "winter essentials", "cold weather", "outdoor warmth"],
-        "pain_points": ["cold hands", "winter commute", "outdoor events", "poor circulation"],
-        "benefits": ["10 hour heat", "odourless", "portable", "40 pairs value"],
-        "price_tier": "winter essential",
-        "highlights": [
-            "40 pairs providing up to 10 hours of warmth each",
-            "Air-activated technology - no batteries or charging needed",
-            "Odourless and completely safe natural ingredients",
-            "Fits easily in pockets, gloves, or shoes",
-            "Perfect for skiing, football matches, commuting, festivals"
-        ],
-        "faqs": [
-            {"q": "How do they activate?", "a": "Simply open the packet and expose to air - they warm up within minutes and last up to 10 hours."},
-            {"q": "Can I reuse them?", "a": "No - they're single-use disposable warmers, but 40 pairs provides excellent value for the season."}
-        ],
-        "date_added": "2025-12-28"
-    },
-
-    {
-        "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
-        "category": "Sports & Outdoors",
-        "season": "Christmas, Winter Essentials, Back to School",
-        "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag=whoaccepts-21",
-        "info": "Portable, double-sided heat with magnetic design — essential for cold UK winter walks, commuters, and outdoor events.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["rechargeable hand warmers", "magnetic warmers", "winter gear", "portable heating"],
-        "pain_points": ["cold hands", "disposable waste", "winter commuting"],
-        "benefits": ["rechargeable", "magnetic attachment", "10000mAh", "dual heating"],
-        "price_tier": "premium reusable",
-        "highlights": [
-            "10000mAh rechargeable for up to 8 hours of warmth",
-            "Magnetic design splits into 2 separate hand warmers",
-            "3 heat settings from gentle to toasty (up to 55°C)",
-            "Doubles as power bank to charge phones",
-            "Premium aluminium build for durability"
-        ],
-        "faqs": [
-            {"q": "How do the magnets work?", "a": "The two units snap together magnetically for pocket storage, or separate for one in each hand."},
-            {"q": "Can I really charge my phone with these?", "a": "Yes - the 10000mAh battery can fully charge most smartphones while providing warmth."}
-        ],
-        "date_added": "2025-12-26"
-    },
+    "name": "OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack",
+    "category": "Sports & Outdoors",
+    "season": "Christmas, Winter Essentials, Back to School",
+    "image": "https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/OCOOPA-Magnetic-Rechargeable-Handwarmers-Certified/dp/B0CH34CB3P?tag=whoaccepts-21",
+    "asin": "B0CKNKRQ1Y",
+    "info": "The OCOOPA Magnetic Hand Warmers are a rechargeable 2-pack with a 10,000mAh battery, providing up to 8 hours of warmth across three heat settings. The two units connect magnetically for pocket storage and separate for one in each hand. OCOOPA states the device also functions as a power bank capable of charging a smartphone. The aluminium construction is designed for durability with regular outdoor use.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "OCOOPA magnetic rechargeable hand warmers UK",
+        "rechargeable hand warmers 2 pack UK",
+        "hand warmer power bank 10000mAh",
+        "magnetic hand warmers winter commuting",
+        "reusable hand warmers 3 heat settings UK"
+    ],
+    "pain_points": [
+        "Single-use disposable hand warmers creating ongoing waste and cost",
+        "Rechargeable hand warmers that only heat one side of the hand",
+        "Cold hands during winter commutes, dog walks, or outdoor sporting events",
+        "Carrying a separate power bank and hand warmers when one device could cover both"
+    ],
+    "benefits": [
+        "10,000mAh rechargeable battery — OCOOPA states up to 8 hours of warmth",
+        "Magnetic design connects the two units for pocket storage or separates for one per hand",
+        "Three heat settings for adjustable warmth up to 55°C",
+        "Functions as a power bank to charge smartphones",
+        "Aluminium construction designed for durability with regular outdoor use"
+    ],
+    "price_tier": "premium reusable",
+    "highlights": [
+        "10,000mAh rechargeable battery — OCOOPA states up to 8 hours warmth per charge",
+        "Magnetic design — two units connect for storage or separate for one in each hand",
+        "Three heat settings with OCOOPA stating a maximum surface temperature of up to 55°C",
+        "Doubles as a power bank — 10,000mAh capacity can charge most smartphones",
+        "Premium aluminium construction designed for durability with regular outdoor use"
+    ],
+    "faqs": [
+        {
+            "q": "How does the magnetic design work?",
+            "a": "OCOOPA states the two hand warmer units connect magnetically when stored together in a pocket, making them easy to carry as a single unit. They separate when needed to provide one warmer per hand during use."
+        },
+        {
+            "q": "Can these genuinely charge a smartphone?",
+            "a": "OCOOPA states the 10,000mAh battery can charge most smartphones — a typical modern smartphone has a battery of 3,000–5,000mAh, meaning the warmers carry enough capacity for approximately one to two full phone charges alongside providing warmth. Charging speed will depend on the output port and cable used."
+        },
+        {
+            "q": "How long does it take to recharge the OCOOPA hand warmers?",
+            "a": "Check the current Amazon UK listing for the specific recharge time for this model. With a 10,000mAh battery, recharge time via standard USB will typically be several hours — using a faster charger where compatible will reduce this."
+        }
+    ],
+    "hook_override": "A rechargeable 2-pack with a <b>10,000mAh battery providing up to 8 hours of warmth across three heat settings</b> — the two units connect magnetically for pocket storage and separate for one per hand. Doubles as a power bank with enough capacity to charge most smartphones, in a durable aluminium build.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["outdoors", "tech"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-considered winter gift that replaces both disposable hand warmers and a separate power bank — the magnetic 2-pack design and phone charging capability make it more useful than a standard rechargeable warmer."
+    }
+},
 
     # ============================================================================
     # HOME & KITCHEN - STORAGE & COMFORT
     # ============================================================================
-    {
-        "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3YilDiF?tag=whoaccepts-21",
-        "info": "Pack of 2 large 100L under-bed storage bags with reinforced handles, clear window, and sturdy zippers – breathable fabric keeps clothes, bedding, and comforters fresh and dust-free. Maximise space in smaller UK homes with easy slide-under design.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["under bed storage", "space saving", "bedroom organisation", "decluttering"],
-        "pain_points": ["limited storage space", "seasonal clothes storage", "bedroom clutter"],
-        "benefits": ["100L capacity", "dust protection", "breathable", "reinforced handles"],
-        "price_tier": "affordable essential",
-        "highlights": [
-            "100L capacity each - stores duvets, blankets, or seasonal clothing",
-            "Clear window panel to see contents at a glance",
-            "Breathable fabric prevents musty smells and mildew",
-            "Reinforced handles for easy sliding in and out",
-            "Fits under most standard UK bed frames"
-        ],
-        "faqs": [
-            {"q": "Will these fit under a divan bed?", "a": "Yes - at just 15cm high, they slide perfectly under most divan and standard bed frames."},
-            {"q": "Do they protect against dust and moisture?", "a": "The breathable fabric keeps items fresh while the sturdy zipper seals out dust - not fully waterproof but moisture-resistant."}
-        ],
-        "date_added": "2025-12-30"
-    },
+   {
+    "name": "Lifewit Large Capacity Under Bed Storage Organiser Bags (Pack of 2)",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71d8uUbZSLL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3YilDiF?tag=whoaccepts-21",
+    "asin": "B07PCMSLLF",
+    "info": "A pack of 2 under-bed storage bags with 100 litres capacity each, made from breathable fabric with a sturdy zip closure, reinforced handles, and a clear window panel for identifying contents without opening. Lifewit states the bags measure approximately 15cm in height, making them suitable for most standard and divan UK bed frames. The breathable construction allows air circulation to keep stored items fresh and prevent musty odours.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Lifewit under bed storage bags UK",
+        "100L under bed organiser bags pack of 2",
+        "under bed storage divan bed UK",
+        "breathable storage bags seasonal clothes",
+        "bedroom organisation storage bags UK"
+    ],
+    "pain_points": [
+        "Seasonal clothing, duvets, and bedding taking up wardrobe or drawer space",
+        "Under-bed space going unused in smaller UK homes and flats",
+        "Storage bags that trap moisture and cause stored items to smell musty",
+        "Not being able to identify bag contents without unpacking everything"
+    ],
+    "benefits": [
+        "100 litres capacity per bag — stores duvets, blankets, or a full season of clothing",
+        "Clear window panel identifies contents without opening the bag",
+        "Breathable fabric construction allows air circulation to prevent musty odours",
+        "Reinforced handles for easy sliding under and pulling out from the bed",
+        "Lifewit states approximately 15cm height — fits most standard and divan bed frames"
+    ],
+    "price_tier": "affordable essential",
+    "highlights": [
+        "Pack of 2 bags at 100 litres capacity each — suitable for duvets, blankets, and seasonal clothing",
+        "Lifewit states approximately 15cm height — designed to fit under most standard and divan UK bed frames",
+        "Clear window panel identifies bag contents without needing to open or unpack",
+        "Breathable fabric allows air circulation to keep stored items fresh and odour-free",
+        "Reinforced handles and sturdy zip closure for repeated use and easy retrieval"
+    ],
+    "faqs": [
+        {
+            "q": "Will these bags fit under a divan bed?",
+            "a": "Lifewit states the bags are approximately 15cm in height, which fits under most standard divan and slatted bed frames. Check the clearance height under your specific bed before purchasing — divan bases with drawers or very low frames may not have sufficient clearance."
+        },
+        {
+            "q": "Do the bags protect against dust and moisture?",
+            "a": "The sturdy zip closure seals out dust effectively. The breathable fabric is not fully waterproof but allows air circulation to prevent moisture buildup and musty smells during long-term storage. For damp environments, additional moisture absorber sachets are advisable."
+        },
+        {
+            "q": "How much can each bag hold?",
+            "a": "Each bag has a 100-litre capacity, which Lifewit states is sufficient for a king-size duvet, several blankets, or a full season's worth of folded clothing. Check the current Amazon UK listing for the specific dimensions to plan what you intend to store."
+        }
+    ],
+    "hook_override": "A pack of 2 under-bed storage bags at <b>100 litres each with a clear window panel and breathable fabric</b> — Lifewit states the 15cm height fits most standard and divan UK bed frames. The breathable construction keeps stored duvets and seasonal clothing fresh without trapping moisture.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home"],
+        "occasion": ["birthday", "christmas", "justbecause", "housewarming"],
+        "why": "A practical home organisation gift for anyone in a smaller UK home or flat — converts unused under-bed space into proper storage without needing furniture or a bigger wardrobe."
+    }
+},
 
     {
-        "name": "Mia&Coco Electric Heated Throw Blanket 120x160cm",
-        "category": "Home & Kitchen",
-        "season": "Winter Essentials, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3L8maAQ?tag=whoaccepts-21",
-        "info": "Extra-large 120x160cm electric heated throw with 10 heat settings, 9 timer options, and machine-washable flannel fleece – ultra-soft, energy-efficient overblanket with overheat protection for cosy winter evenings on the sofa.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["electric blanket", "heated throw", "winter warmth", "energy saving"],
-        "pain_points": ["cold evenings", "high heating bills", "staying warm"],
-        "benefits": ["10 heat settings", "machine washable", "overheat protection", "energy efficient"],
-        "price_tier": "mid-range quality",
-        "highlights": [
-            "Extra-large 120x160cm size for full coverage",
-            "10 precise heat settings from gentle warmth to toasty",
-            "9 timer options including auto shut-off for safety",
-            "Machine-washable for easy care (detachable controller)",
-            "Energy-efficient alternative to central heating"
-        ],
-        "faqs": [
-            {"q": "How much does it cost to run?", "a": "Very economical - costs just pennies per hour compared to heating an entire room."},
-            {"q": "Is it safe to leave on while sleeping?", "a": "Yes, with built-in overheat protection and auto shut-off timer, though it's designed as an overblanket rather than underblanket."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "Mia&Coco Electric Heated Throw Blanket 120x160cm",
+    "category": "Home & Kitchen",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/81AJ5sfPWfL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3L8maAQ?tag=whoaccepts-21",
+    "asin": "B08FXLSSTP",
+    "info": "The Mia&Coco Electric Heated Throw is a 120 x 160cm flannel fleece overblanket with 10 heat settings and 9 timer options including auto shut-off. The controller is detachable for machine washing. Mia&Coco states the blanket has built-in overheat protection and is designed for use as an overblanket on sofas and chairs rather than as an underblanket during sleep.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Mia Coco electric heated throw UK",
+        "120x160cm heated blanket fleece",
+        "electric overblanket 10 heat settings UK",
+        "machine washable heated throw blanket",
+        "energy efficient heated throw winter UK"
+    ],
+    "pain_points": [
+        "High central heating costs during cold UK winter evenings",
+        "Standard blankets that don't provide enough warmth on the sofa",
+        "Electric blankets that can't be machine washed easily",
+        "Safety concerns about heated blankets without auto shut-off"
+    ],
+    "benefits": [
+        "120 x 160cm flannel fleece — large enough for full body coverage on a sofa",
+        "10 heat settings for adjustable warmth from gentle to high",
+        "9 timer options with auto shut-off for energy saving and safety",
+        "Detachable controller allows machine washing of the blanket",
+        "Built-in overheat protection — Mia&Coco stated"
+    ],
+    "price_tier": "mid-range quality",
+    "highlights": [
+        "120 x 160cm flannel fleece construction — large enough for full coverage when seated on a sofa",
+        "10 heat settings provide adjustable warmth from gentle to high output",
+        "9 timer options with auto shut-off for energy efficiency and safety",
+        "Detachable controller makes the blanket machine washable",
+        "Mia&Coco states built-in overheat protection — designed as an overblanket rather than underblanket"
+    ],
+    "faqs": [
+        {
+            "q": "How much does the Mia&Coco heated throw cost to run?",
+            "a": "Electric heated throws typically use between 60–100 watts depending on the heat setting — significantly less than a central heating system. At average UK electricity rates, running costs are typically a few pence per hour. Check the current Amazon UK listing for the specific wattage of this model to calculate precise running costs."
+        },
+        {
+            "q": "Is it safe to fall asleep with the heated throw on?",
+            "a": "Mia&Coco states the throw has built-in overheat protection and auto shut-off timer options. However, Mia&Coco designates it as an overblanket for sofa use rather than an underblanket for sleeping. Using the auto shut-off timer when dozing on the sofa is advisable."
+        },
+        {
+            "q": "How do you wash the heated throw?",
+            "a": "The controller is detachable, allowing the blanket itself to be machine washed. Mia&Coco recommends washing on a gentle cycle. Check the care label and current Amazon UK listing for specific washing temperature and drying instructions before washing."
+        }
+    ],
+    "hook_override": "A 120 x 160cm flannel fleece heated throw with <b>10 heat settings, 9 timer options, and auto shut-off</b> — large enough for full sofa coverage and machine washable once the controller is detached. Mia&Coco states built-in overheat protection, making it a practical energy-efficient alternative to heating an entire room.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home", "health"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A genuinely appreciated winter gift for anyone trying to reduce heating bills — the auto shut-off and overheat protection address the main safety concerns, and the 10 heat settings make it practical for different comfort levels."
+    }
+},
 
     {
-        "name": "SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier",
-        "category": "Home & Kitchen",
-        "season": "Winter Essentials, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3MZhjCD?tag=whoaccepts-21",
-        "info": "Large 500ml ultrasonic diffuser with 7-colour LED lights, 4 timer settings, and auto shut-off – creates relaxing aromatherapy mist for up to 15 hours. Quiet operation and remote control make it perfect for bedrooms, living rooms, or wellness spaces.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["essential oil diffuser", "aromatherapy", "humidifier", "relaxation"],
-        "pain_points": ["dry air", "stress relief", "sleep quality", "ambiance"],
-        "benefits": ["15 hour runtime", "remote control", "LED lights", "ultra-quiet"],
-        "price_tier": "affordable luxury",
-        "highlights": [
-            "Large 500ml tank runs up to 15 hours continuously",
-            "7 soothing LED colour options create perfect ambiance",
-            "Ultra-quiet ultrasonic technology won't disturb sleep",
-            "4 timer settings plus continuous mode",
-            "Remote control for convenient adjustment"
-        ],
-        "faqs": [
-            {"q": "Do I need to use essential oils?", "a": "No - it works as a humidifier alone, but essential oils enhance the aromatherapy benefits."},
-            {"q": "Is it loud?", "a": "Virtually silent - the ultrasonic technology produces just a gentle whisper, perfect for bedrooms."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "SALKING Aromatherapy Essential Oil Diffuser 500ml Ultrasonic Cool Mist Humidifier",
+    "category": "Home & Kitchen",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71BdaIxNUaL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3MZhjCD?tag=whoaccepts-21",
+    "asin": "B0CFV8BMJ2",
+    "info": "The SALKING Essential Oil Diffuser is a 500ml ultrasonic cool mist diffuser with 7-colour LED lighting, 4 timer settings, remote control, and auto shut-off. SALKING states the 500ml tank provides up to 15 hours of continuous mist output. The ultrasonic technology operates without heat, making it suitable for use with essential oils. Can also be used as a plain humidifier without oils.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "SALKING essential oil diffuser 500ml UK",
+        "ultrasonic aromatherapy diffuser remote control",
+        "500ml cool mist diffuser 15 hours UK",
+        "LED aromatherapy diffuser bedroom UK",
+        "ultrasonic humidifier diffuser timer UK"
+    ],
+    "pain_points": [
+        "Dry indoor air during winter causing skin and respiratory discomfort",
+        "Diffusers with small tanks that need frequent refilling during the day",
+        "Noisy humidifiers or diffusers that disturb sleep in bedrooms",
+        "Diffusers without remote control requiring getting up to adjust settings"
+    ],
+    "benefits": [
+        "500ml tank provides up to 15 hours continuous mist — SALKING stated",
+        "Ultrasonic technology operates without heat — safe for use with essential oils",
+        "7 LED colour options for adjustable ambient lighting",
+        "Remote control for adjusting settings without leaving a seat",
+        "Auto shut-off when water level runs low"
+    ],
+    "price_tier": "affordable luxury",
+    "highlights": [
+        "500ml tank — SALKING states up to 15 hours of continuous cool mist output",
+        "Ultrasonic technology produces mist without heat — suitable for essential oil use",
+        "7-colour LED lighting with brightness adjustment for ambient use",
+        "Remote control included for adjusting mist, timer, and lighting without getting up",
+        "Auto shut-off activates when the water level runs low for safe unattended use"
+    ],
+    "faqs": [
+        {
+            "q": "Does the SALKING diffuser need essential oils to work?",
+            "a": "No — the diffuser works as a plain cool mist humidifier with water only. Essential oils can be added to enhance the aromatherapy benefit, but they are not required for the device to function."
+        },
+        {
+            "q": "How quiet is the diffuser during operation?",
+            "a": "SALKING states the ultrasonic technology operates at a very low noise level, making it suitable for bedroom use during sleep. Ultrasonic diffusers generate mist using high-frequency vibration rather than a fan or heating element, which significantly reduces operational noise."
+        },
+        {
+            "q": "What essential oils are compatible with the SALKING diffuser?",
+            "a": "Most standard water-soluble essential oils are compatible with ultrasonic diffusers. SALKING recommends using a few drops per tank — typically 3–10 drops depending on the oil and preferred intensity. Avoid using thick or resinous oils that may clog the ultrasonic plate. Check the current Amazon UK listing for any specific oil recommendations or restrictions."
+        }
+    ],
+    "hook_override": "A 500ml ultrasonic cool mist diffuser with a <b>remote control, 7-colour LED lighting, and SALKING stating up to 15 hours of continuous output</b> per tank. Ultrasonic technology operates without heat — safe for essential oils and quiet enough for bedroom use during sleep, with auto shut-off when the water runs low.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "friend", "parent"],
+        "interests": ["home", "health"],
+        "occasion": ["christmas", "birthday", "mothersday", "justbecause"],
+        "why": "A well-rounded home wellness gift — the remote control and 15-hour runtime make it genuinely practical for daily use rather than a novelty that gets used twice and shelved."
+    }
+},
 
     {
-        "name": "Utopia Towels Luxury Fluffy Bath Mat Rug 50x80cm - Grey",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials, Winter Essentials",
-        "image": "https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg",
-        "url": "https://amzn.to/3KTbvKj?tag=whoaccepts-21",
-        "info": "Super soft, ultra-absorbent microfibre bath mat with non-slip rubber backing – quick-drying, machine washable, and luxuriously fluffy for instant warmth and comfort underfoot in bathrooms or bedrooms.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["bath mat", "bathroom rug", "non-slip mat", "absorbent mat"],
-        "pain_points": ["wet bathroom floors", "cold feet", "slipping hazard"],
-        "benefits": ["ultra absorbent", "non-slip backing", "quick-dry", "machine washable"],
-        "price_tier": "bathroom essential",
-        "highlights": [
-            "Luxuriously soft microfibre pile - 1000gsm density",
-            "Ultra-absorbent - soaks up water instantly",
-            "Non-slip rubber backing prevents sliding",
-            "Quick-drying to prevent mildew",
-            "Machine washable for easy care"
-        ],
-        "faqs": [
-            {"q": "Will the rubber backing damage underfloor heating?", "a": "No - the rubber backing is heat-safe and won't damage heated floors."},
-            {"q": "Does it shed fibers?", "a": "Minimal initial shedding that stops after first wash - high-quality construction."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "Utopia Towels Luxury Fluffy Bath Mat Rug 50x80cm - Grey",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials, Winter Essentials",
+    "image": "https://m.media-amazon.com/images/I/81WVs6hbW1L._AC_SX679_.jpg",
+    "url": "https://amzn.to/3KTbvKj?tag=whoaccepts-21",
+    "asin": "B09XTB4CH4",
+    "info": "The Utopia Towels Bath Mat is a 50 x 80cm microfibre bath mat with a 1,000gsm pile density, non-slip rubber backing, and machine-washable construction. The microfibre pile absorbs water quickly and dries faster than cotton mats, reducing the risk of mildew during regular bathroom use. Utopia states the rubber backing is heat-safe and compatible with underfloor heating. Available in grey.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Utopia Towels bath mat 50x80cm grey UK",
+        "luxury microfibre bath mat non slip UK",
+        "1000gsm bath mat machine washable",
+        "quick dry bath mat underfloor heating safe",
+        "fluffy absorbent bathroom mat UK"
+    ],
+    "pain_points": [
+        "Wet bathroom floors creating a slip hazard after showering or bathing",
+        "Cold feet stepping out of the bath or shower onto a hard floor",
+        "Bath mats that stay damp for hours and develop mildew odours",
+        "Mats that slide on tiled or smooth bathroom floors"
+    ],
+    "benefits": [
+        "1,000gsm microfibre pile provides a soft, luxurious feel underfoot",
+        "Ultra-absorbent construction soaks up water quickly after bathing",
+        "Quick-drying microfibre reduces damp time and mildew risk",
+        "Non-slip rubber backing prevents movement on tiled floors",
+        "Machine washable and compatible with underfloor heating"
+    ],
+    "price_tier": "bathroom essential",
+    "highlights": [
+        "1,000gsm microfibre pile density — soft and absorbent underfoot",
+        "Quick-drying construction reduces damp time compared to standard cotton mats",
+        "Non-slip rubber backing prevents movement on tiled and smooth bathroom floors",
+        "Utopia states the rubber backing is heat-safe and compatible with underfloor heating",
+        "Machine washable — 50 x 80cm size suits standard UK bath and shower positions"
+    ],
+    "faqs": [
+        {
+            "q": "Is the rubber backing safe to use on underfloor heating?",
+            "a": "Utopia states the rubber backing is heat-safe and compatible with underfloor heating systems. As a general precaution, avoid placing any bath mat directly over underfloor heating sensors or thermostats."
+        },
+        {
+            "q": "Does the microfibre pile shed after washing?",
+            "a": "Some initial shedding is normal with high-pile microfibre mats and typically reduces significantly after the first wash or two. Washing inside a mesh laundry bag for the first few washes helps manage loose fibres."
+        },
+        {
+            "q": "How should the Utopia bath mat be washed?",
+            "a": "The mat is machine washable. Washing on a gentle cycle at 40°C or below is generally recommended for microfibre materials. Avoid fabric softener as it can reduce the absorbency of microfibre over time. Air drying or low heat tumble drying preserves the rubber backing."
+        }
+    ],
+    "hook_override": "A 50 x 80cm microfibre bath mat with a <b>1,000gsm pile density and non-slip rubber backing</b> — the microfibre construction absorbs water quickly and dries faster than cotton, reducing the damp time that causes mildew in UK bathrooms. Machine washable and Utopia states the backing is compatible with underfloor heating.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A simple but genuinely appreciated home upgrade — most people use a worn-out bath mat for far longer than they should, making a quality replacement a practical gift that gets used every single day."
+    }
+},
 
     {
-        "name": "MeacoDry Arete Two 12L Dehumidifier and Air Purifier",
-        "category": "Home & Kitchen",
-        "season": "Winter Essentials, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51MY3VTr3pL._AC_SX679_.jpg",
-        "url": "https://amzn.to/48Ylszg?tag=whoaccepts-21",
-        "info": "Quiet 12L dehumidifier with HEPA air purifier – removes damp, mould, and allergens while drying laundry faster. Energy-efficient, ultra-quiet night mode – bestselling UK choice for healthier homes.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["dehumidifier", "air purifier", "mould prevention", "damp control"],
-        "pain_points": ["damp", "mould", "condensation", "drying laundry indoors"],
-        "benefits": ["12L capacity", "HEPA filter", "laundry mode", "quiet operation"],
-        "price_tier": "home health investment",
-        "highlights": [
-            "12L daily extraction removes serious damp and condensation",
-            "HEPA filter purifies air removing allergens and particles",
-            "Laundry mode dries clothes faster and prevents musty smells",
-            "Ultra-quiet 39dB night mode won't disturb sleep",
-            "Energy-efficient compressor saves on running costs"
-        ],
-        "faqs": [
-            {"q": "What size room will this cover?", "a": "Effective in rooms up to 5-bed houses - 12L capacity suits most UK homes."},
-            {"q": "Do I need to empty it daily?", "a": "Depends on humidity - includes continuous drainage option for constant use."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "MeacoDry Arete Two 12L Dehumidifier and Air Purifier",
+    "category": "Home & Kitchen",
+    "season": "Winter Essentials, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51MY3VTr3pL._AC_SX679_.jpg",
+    "url": "https://amzn.to/48Ylszg?tag=whoaccepts-21",
+    "asin": "B0CTKPZ5FJ",
+    "info": "The MeacoDry Arete Two is a 12-litre per day dehumidifier with an integrated HEPA air purifier. Meaco states the unit extracts up to 12 litres of moisture per day and operates as quietly as 39dB in night mode. A dedicated laundry mode increases airflow to dry clothes faster indoors. The continuous drainage option allows permanent connection to a drain for unattended long-term use. Suitable for homes up to five bedrooms.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "MeacoDry Arete Two 12L dehumidifier UK",
+        "dehumidifier air purifier HEPA UK",
+        "12 litre dehumidifier quiet UK home",
+        "laundry mode dehumidifier mould UK",
+        "continuous drainage dehumidifier UK"
+    ],
+    "pain_points": [
+        "Damp, condensation, and mould growth in UK homes during winter",
+        "Laundry drying slowly indoors and developing musty smells",
+        "Dehumidifiers that are too noisy for bedroom or living room use overnight",
+        "Emptying a water tank daily when dealing with persistent damp"
+    ],
+    "benefits": [
+        "Extracts up to 12 litres of moisture per day — Meaco stated",
+        "Integrated HEPA filter removes airborne allergens and particles",
+        "Laundry mode increases airflow to speed up indoor drying",
+        "39dB night mode — quiet enough for bedroom use during sleep",
+        "Continuous drainage option for unattended long-term operation"
+    ],
+    "price_tier": "home health investment",
+    "highlights": [
+        "Extracts up to 12 litres of moisture per day — Meaco states suitable for homes up to 5 bedrooms",
+        "Integrated HEPA filter purifies air by removing allergens, dust, and airborne particles",
+        "Dedicated laundry mode increases airflow to speed up indoor clothes drying",
+        "Meaco states night mode operates at 39dB — suitable for bedroom use during sleep",
+        "Continuous drainage connection option allows permanent unattended operation"
+    ],
+    "faqs": [
+        {
+            "q": "What size home will the MeacoDry Arete Two 12L cover?",
+            "a": "Meaco states the 12-litre model is suitable for homes up to five bedrooms. For smaller flats or single rooms with significant damp, a lower capacity model may be sufficient — check Meaco's website for their room size guidance tool."
+        },
+        {
+            "q": "Do I need to empty the water tank every day?",
+            "a": "How frequently the tank needs emptying depends on the humidity level of your home and the settings used. The continuous drainage option allows a hose to be connected directly to a drain, removing the need to empty the tank manually during long-term or unattended operation."
+        },
+        {
+            "q": "Does the HEPA filter need replacing?",
+            "a": "HEPA filters require periodic replacement to maintain air purification performance. Check the current Amazon UK listing and Meaco's website for the recommended replacement interval and the cost of replacement filters for this model."
+        }
+    ],
+    "hook_override": "A 12-litre dehumidifier with an integrated HEPA air purifier — <b>Meaco states night mode operates at just 39dB</b>, quiet enough for bedroom use during sleep. Dedicated laundry mode speeds up indoor drying, and the continuous drainage option removes the need to empty the tank during long-term use.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["home", "health"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A practical home health investment for anyone dealing with damp, condensation, or mould — particularly relevant for UK homes during winter, where indoor drying and poor ventilation make these problems worse."
+    }
+},
     # ============================================================================
     # PART 2 OF 3 - CONTINUE FROM PART 1
     # HOME & KITCHEN - APPLIANCES & COOKWARE
     # ============================================================================
     {
-        "name": "Ninja Foodi Max Dual Zone Air Fryer AF400UK - 9.5L",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials, Christmas",
-        "image": "https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg",
-        "url": "https://amzn.to/45kdy0K?tag=whoaccepts-21",
-        "info": "Large 9.5L dual zone air fryer with two independent cooking baskets — cook two foods two ways simultaneously, with sync and match functions for perfect timing. Up to 75% less fat than deep frying, 6 functions including max crisp — bestselling kitchen essential for healthier family meals and quick cooking.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["air fryer", "dual zone", "healthy cooking", "kitchen appliance"],
-        "pain_points": ["unhealthy fried food", "limited oven space", "different cooking times"],
-        "benefits": ["75% less fat", "dual cooking zones", "6 cooking functions", "family-sized"],
-        "price_tier": "premium investment",
-        "highlights": [
-            "9.5L capacity across two independent 4.75L baskets",
-            "Dual Zone technology cooks two foods, two ways, finishing together",
-            "6 cooking functions: Max Crisp, Air Fry, Roast, Bake, Reheat, Dehydrate",
-            "Up to 75% less fat than traditional deep frying",
-            "Dishwasher-safe non-stick baskets for easy cleanup"
-        ],
-        "faqs": [
-            {"q": "Can I cook a whole meal at once?", "a": "Yes - the Sync function lets you cook mains and sides at different temperatures, finishing simultaneously."},
-            {"q": "How does it compare to a regular oven?", "a": "Cooks up to 75% faster with superior crisping, while using less energy than heating a full oven."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "Ninja Foodi Max Dual Zone Air Fryer AF400UK - 9.5L",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials, Christmas",
+    "image": "https://m.media-amazon.com/images/I/519tKaMrTZL._AC_SX679_.jpg",
+    "url": "https://amzn.to/45kdy0K?tag=whoaccepts-21",
+    "asin": "B08CN3G4N9",
+    "info": "The Ninja Foodi Max Dual Zone AF400UK is a 9.5-litre air fryer with two independent 4.75-litre cooking baskets. Ninja states the Sync function coordinates different cooking times so both zones finish simultaneously, and the Match function replicates the same settings across both baskets for larger quantities. Six cooking functions are included: Max Crisp, Air Fry, Roast, Bake, Reheat, and Dehydrate. Ninja states the air frying method uses up to 75% less fat than traditional deep frying. The non-stick baskets are dishwasher safe.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Ninja Foodi Max Dual Zone air fryer UK",
+        "AF400UK 9.5L dual basket air fryer",
+        "dual zone air fryer sync function UK",
+        "large family air fryer 9.5 litre UK",
+        "Ninja air fryer 6 functions dishwasher safe"
+    ],
+    "pain_points": [
+        "Cooking two dishes with different temperatures or times simultaneously",
+        "Standard air fryers too small for family-sized portions",
+        "Deep-fried food using excessive oil for everyday cooking",
+        "Heating a full oven for smaller meals during the week"
+    ],
+    "benefits": [
+        "Two independent 4.75-litre baskets — 9.5 litres total capacity",
+        "Sync function coordinates different cooking times to finish simultaneously",
+        "Match function replicates settings across both baskets for larger quantities",
+        "Ninja states up to 75% less fat than traditional deep frying",
+        "Dishwasher-safe non-stick baskets for straightforward cleaning"
+    ],
+    "price_tier": "premium investment",
+    "highlights": [
+        "Two independent 4.75-litre baskets — 9.5 litres total capacity for family-sized cooking",
+        "Sync function coordinates different cooking times across both zones to finish simultaneously",
+        "Six cooking functions: Max Crisp, Air Fry, Roast, Bake, Reheat, and Dehydrate",
+        "Ninja states up to 75% less fat than traditional deep frying",
+        "Dishwasher-safe non-stick baskets for straightforward post-cooking cleanup"
+    ],
+    "faqs": [
+        {
+            "q": "Can I cook a full meal in both zones at the same time?",
+            "a": "Yes — Ninja's Sync function is designed specifically for this. Set different temperatures and cooking times for each basket and the Sync function coordinates them to finish at the same time, so mains and sides are ready together."
+        },
+        {
+            "q": "What is the difference between the Sync and Match functions?",
+            "a": "Ninja states the Sync function allows each basket to be set to a different temperature, cooking mode, and time — coordinating them to finish simultaneously. The Match function copies the same settings from one basket to the other, which is useful when cooking a larger quantity of the same food across both baskets."
+        },
+        {
+            "q": "How does the Ninja Dual Zone compare to using a conventional oven?",
+            "a": "Air fryers circulate hot air at high speed around food, which Ninja states produces crispier results and cooks faster than a conventional oven for many foods. The 9.5-litre capacity is suitable for family meals without the energy cost of heating a full oven. For baking and larger roasts, a conventional oven remains more practical."
+        }
+    ],
+    "hook_override": "The Ninja AF400UK has two independent 4.75-litre baskets — <b>the Sync function coordinates different cooking times so both zones finish simultaneously</b>. Six cooking functions including Max Crisp, and Ninja states up to 75% less fat than deep frying. Dishwasher-safe non-stick baskets throughout.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["home", "food"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A genuinely transformative kitchen upgrade for anyone who cooks regularly — the dual zone Sync function solves the specific problem of coordinating two dishes with different cooking times, which is the main limitation of single-basket air fryers."
+    }
+},
 
     {
-        "name": "Overmont Enamelled Cast Iron Dutch Oven Casserole Dish - 5.5L Round Non-Stick Pot with Lid - Oven Safe up to 260°C - Red",
-        "category": "Home & Kitchen",
-        "season": "Christmas, New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/71fYHkEDgML._AC_SX679_.jpg",
-        "url": "https://amzn.to/4jeOuOo?tag=whoaccepts-21",
-        "info": "Heavy-duty enamelled cast iron Dutch oven with excellent heat retention and distribution — ideal for slow cooking, braising, baking bread, and one-pot meals. Oven safe to 260°C, easy-clean non-stick interior, and stylish design — bestselling affordable alternative to premium brands for home cooks.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Dutch oven", "cast iron", "slow cooking", "bread baking"],
-        "pain_points": ["expensive cookware", "uneven cooking", "difficult cleanup"],
-        "benefits": ["superior heat retention", "versatile cooking", "oven to table", "affordable quality"],
-        "price_tier": "premium alternative",
-        "highlights": [
-            "5.5L capacity perfect for family meals and batch cooking",
-            "Enamelled cast iron for superior heat retention and distribution",
-            "Oven safe up to 260°C - stovetop to oven to table",
-            "Non-stick interior makes cleanup effortless",
-            "Affordable quality alternative to £200+ premium brands"
-        ],
-        "faqs": [
-            {"q": "Can I use this for bread baking?", "a": "Absolutely - the heavy lid traps steam for perfect artisan loaves with crispy crusts."},
-            {"q": "Does it work on induction hobs?", "a": "Yes - compatible with all hob types including induction, gas, electric, and ceramic."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "Overmont Enamelled Cast Iron Dutch Oven Casserole Dish - 5.5L Round Non-Stick Pot with Lid - Oven Safe up to 260°C - Red",
+    "category": "Home & Kitchen",
+    "season": "Christmas, New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71fYHkEDgML._AC_SX679_.jpg",
+    "url": "https://amzn.to/4jeOuOo?tag=whoaccepts-21",
+    "asin": "B0F2MM4255",
+    "info": "The Overmont Dutch Oven is a 5.5-litre enamelled cast iron casserole dish with a fitted lid, oven safe to 260°C. The cast iron construction provides even heat distribution and excellent heat retention for slow cooking, braising, and bread baking. Overmont states the enamelled interior is non-stick and easy to clean. Compatible with all hob types including induction, gas, electric, and ceramic.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Overmont cast iron Dutch oven UK",
+        "enamelled cast iron casserole dish 5.5L",
+        "Dutch oven bread baking induction UK",
+        "cast iron pot oven safe 260°C UK",
+        "affordable Dutch oven alternative UK"
+    ],
+    "pain_points": [
+        "Premium cast iron Dutch ovens from brands like Le Creuset costing £200 or more",
+        "Thin-based pans that distribute heat unevenly during slow cooking and braising",
+        "Cookware that cannot go from hob to oven to table in the same pot",
+        "Bread baking without a lidded pot to trap steam for a proper crust"
+    ],
+    "benefits": [
+        "5.5-litre capacity suitable for family meals, stews, and batch cooking",
+        "Cast iron construction provides even heat distribution and superior retention",
+        "Oven safe to 260°C — suitable for stovetop, oven, and serving at the table",
+        "Enamelled non-stick interior — Overmont states easy to clean",
+        "Compatible with all hob types including induction"
+    ],
+    "price_tier": "premium alternative",
+    "highlights": [
+        "5.5-litre enamelled cast iron construction — even heat distribution and superior heat retention",
+        "Oven safe to 260°C — moves from hob to oven to table in the same pot",
+        "Heavy fitted lid traps steam during cooking — suitable for artisan bread baking",
+        "Compatible with all hob types including induction, gas, electric, and ceramic",
+        "Overmont states the enamelled interior is non-stick and straightforward to clean"
+    ],
+    "faqs": [
+        {
+            "q": "Can the Overmont Dutch oven be used for baking bread?",
+            "a": "Yes — the heavy cast iron lid traps steam during the initial baking phase, which is the technique used to develop a crispy crust on artisan sourdough and no-knead bread loaves. Preheat the Dutch oven in the oven before adding the dough for best results."
+        },
+        {
+            "q": "Is the Overmont Dutch oven compatible with induction hobs?",
+            "a": "Yes — Overmont states the cast iron construction is compatible with all hob types including induction, gas, electric, and ceramic."
+        },
+        {
+            "q": "How should the enamelled cast iron be cleaned and maintained?",
+            "a": "Overmont states the enamelled interior is non-stick and easy to clean with warm soapy water. Avoid metal utensils and abrasive cleaning pads that can scratch the enamel surface. Allow the pot to cool before washing to prevent thermal shock to the enamel."
+        }
+    ],
+    "hook_override": "A 5.5-litre enamelled cast iron Dutch oven safe to 260°C — <b>the heavy fitted lid traps steam for bread baking and the cast iron base distributes heat evenly for slow cooking and braising</b>. Compatible with all hob types including induction, and Overmont states the enamelled interior is non-stick throughout.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home", "food"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A genuinely useful kitchen investment for anyone who cooks regularly — delivers the performance of premium cast iron brands at a fraction of the price, and the 5.5-litre capacity covers everything from weeknight stews to weekend bread baking."
+    }
+},
 
     {
-        "name": "VonShef 3 Tray Buffet Server & Hot Plate Food Warmer",
-        "category": "Home & Kitchen",
-        "season": "Christmas, Easter",
-        "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3L8maAQ?tag=whoaccepts-21",
-        "info": "3-tray electric buffet server with adjustable temperature — keeps food warm for parties, hosting, or family meals. Top trending choice for holiday entertaining with easy clean trays.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["buffet warmer", "party hosting", "food server", "entertaining"],
-        "pain_points": ["keeping food hot", "party hosting", "serving multiple dishes"],
-        "benefits": ["3 separate trays", "adjustable temperature", "easy cleanup", "elegant serving"],
-        "price_tier": "affordable entertaining",
-        "highlights": [
-            "3 separate 2.5L trays with glass lids for variety",
-            "Adjustable temperature control keeps food perfectly warm",
-            "Stainless steel construction looks elegant on tables",
-            "Removable trays for easy serving and cleanup",
-            "Perfect for Christmas dinner, parties, and buffets"
-        ],
-        "faqs": [
-            {"q": "Can each tray be set to different temperatures?", "a": "No - all three trays share one temperature control, but the adjustable thermostat suits most dishes."},
-            {"q": "Are the trays dishwasher safe?", "a": "Yes - the removable trays and lids are dishwasher safe for easy cleanup after entertaining."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "VonShef 4 Tray Buffet Server & Hot Plate Food Warmer",
+    "category": "Home & Kitchen",
+    "season": "Christmas, Easter",
+    "image": "https://m.media-amazon.com/images/I/71kTQECp3FL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4sfckNE",
+    "asin": "B073Q5G9VX",
+    "info": "The VonShef Buffet Server is a 4-tray electric food warmer with adjustable temperature control, designed for keeping multiple dishes warm during parties, family gatherings, and holiday entertaining. VonShef states the removable trays and glass lids are dishwasher safe for straightforward cleanup after use. The stainless steel construction is suitable for table serving.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "VonShef buffet server 4 tray UK",
+        "electric food warmer party hosting UK",
+        "buffet server adjustable temperature UK",
+        "4 tray food warmer Christmas entertaining",
+        "stainless steel buffet warmer dishwasher safe"
+    ],
+    "pain_points": [
+        "Food going cold while waiting to be served at parties and gatherings",
+        "Juggling multiple dishes in the oven to keep everything warm simultaneously",
+        "Serving equipment that looks out of place on a dining table",
+        "Food warmers with trays that are difficult to clean after use"
+    ],
+    "benefits": [
+        "4 separate trays keep multiple dishes warm simultaneously",
+        "Adjustable temperature control suits different food types",
+        "Stainless steel construction suitable for table serving",
+        "Removable trays and glass lids are dishwasher safe",
+        "Reduces oven juggling during large family meals and parties"
+    ],
+    "price_tier": "affordable entertaining",
+    "highlights": [
+        "4 separate trays allow multiple dishes to be kept warm simultaneously",
+        "Adjustable temperature control — one thermostat covers all four trays",
+        "Stainless steel construction with glass lids for presentable table serving",
+        "VonShef states removable trays and lids are dishwasher safe",
+        "Suitable for Christmas dinner, Easter, buffets, and family gatherings"
+    ],
+    "faqs": [
+        {
+            "q": "Can each tray be set to a different temperature?",
+            "a": "No — VonShef states all four trays share a single adjustable temperature control. The thermostat provides a range suitable for keeping most dishes warm, though individual temperature control per tray is not available on this model."
+        },
+        {
+            "q": "Are the trays and lids dishwasher safe?",
+            "a": "VonShef states the removable trays and glass lids are dishwasher safe, making cleanup straightforward after entertaining. The main heating unit should be wiped clean with a damp cloth rather than submerged in water."
+        },
+        {
+            "q": "How many people will this serve?",
+            "a": "The 4-tray format is suited to buffet-style serving for gatherings of 6–12 people, depending on portion sizes and the number of dishes being served. Check the current Amazon UK listing for the specific tray capacity dimensions."
+        }
+    ],
+    "hook_override": "A 4-tray electric buffet server with <b>adjustable temperature control and dishwasher-safe removable trays</b> — keeps multiple dishes warm simultaneously during parties and family gatherings without the oven juggling. Stainless steel construction with glass lids is presentable enough to serve directly from at the table.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home", "food"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A practical entertaining gift for anyone who hosts regularly — solves the specific problem of keeping multiple dishes warm simultaneously without monopolising the oven during a gathering."
+    }
+},
 
     {
-        "name": "Dyson V8 Advanced Cordless Vacuum Cleaner",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg",
-        "url": "https://amzn.to/3MZbchx?tag=whoaccepts-21",
-        "info": "Flagship Dyson V15 Detect with laser dust detection, auto-adjusting suction, LCD screen showing real-time particle count, piezo sensor, and whole-machine HEPA filtration — up to 60 minutes runtime. Premium cordless vacuum that's a top-trending gift for spotless homes and effortless cleaning.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Dyson vacuum", "cordless vacuum", "HEPA filter", "pet hair"],
-        "pain_points": ["pet hair removal", "allergens", "heavy vacuums", "cord management"],
-        "benefits": ["40 min runtime", "powerful suction", "lightweight", "whole-home cleaning"],
-        "price_tier": "premium quality",
-        "highlights": [
-            "Powerful Dyson digital motor V8 with fade-free suction",
-            "Up to 40 minutes of runtime for whole-home cleaning",
-            "Advanced whole-machine filtration captures 99.97% of particles",
-            "Converts to handheld for cars, stairs, and upholstery",
-            "Complete tool set for all cleaning tasks included"
-        ],
-        "faqs": [
-            {"q": "How does the V8 compare to newer models?", "a": "The V8 offers exceptional value - 90% of the power of newer models at a fraction of the cost."},
-            {"q": "Is it good for pet hair?", "a": "Excellent - the motorised brush bar and strong suction remove embedded pet hair from carpets and upholstery."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "Dyson V8 Advanced Cordless Vacuum Cleaner",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/51u1PrfKc2L._AC_SX679_.jpg",
+    "url": "https://amzn.to/3MZbchx?tag=whoaccepts-21",
+    "asin": "B0DCGLPW84",
+    "info": "The Dyson V8 Advanced is a cordless vacuum with Dyson's digital V8 motor, delivering fade-free suction across the full battery charge. Dyson states the V8 provides up to 40 minutes of runtime on a single charge and captures 99.97% of particles as small as 0.3 microns through whole-machine HEPA filtration. The unit converts from a full-size floor vacuum to a handheld for stairs, cars, and upholstery. A motorised cleaner head and accessory set are included.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Dyson V8 Advanced cordless vacuum UK",
+        "Dyson V8 HEPA cordless hoover UK",
+        "40 minute cordless vacuum cleaner UK",
+        "Dyson V8 pet hair cordless",
+        "lightweight cordless vacuum whole home UK"
+    ],
+    "pain_points": [
+        "Corded vacuums restricted by cable length and plug socket locations",
+        "Heavy upright vacuums that are difficult to carry up stairs",
+        "Vacuums that lose suction power as the battery drains",
+        "Allergens and fine particles not captured by standard vacuum filtration"
+    ],
+    "benefits": [
+        "Dyson V8 digital motor delivers fade-free suction across the full charge",
+        "Up to 40 minutes runtime — Dyson stated",
+        "Whole-machine HEPA filtration captures 99.97% of particles to 0.3 microns",
+        "Converts from floor vacuum to handheld for stairs, cars, and upholstery",
+        "Motorised cleaner head and accessory set included"
+    ],
+    "price_tier": "premium quality",
+    "highlights": [
+        "Dyson V8 digital motor delivers fade-free suction throughout the battery charge",
+        "Dyson states up to 40 minutes of runtime on a single charge",
+        "Whole-machine HEPA filtration captures 99.97% of particles as small as 0.3 microns",
+        "Converts from full-size floor vacuum to handheld for stairs, upholstery, and cars",
+        "Motorised cleaner head included for carpet and hard floor use"
+    ],
+    "faqs": [
+        {
+            "q": "What is fade-free suction and how does it work?",
+            "a": "Dyson states the V8 digital motor maintains consistent suction power throughout the battery charge, rather than gradually losing power as the battery depletes. This means cleaning performance at the end of a session should be comparable to the beginning."
+        },
+        {
+            "q": "Is the Dyson V8 suitable for pet hair?",
+            "a": "The motorised cleaner head is designed to pick up pet hair from carpets and upholstery. The whole-machine HEPA filtration captures fine allergen particles that can accompany pet hair. For homes with heavy pet hair, Dyson's dedicated pet tool attachments are also compatible with the V8."
+        },
+        {
+            "q": "How does the Dyson V8 compare to the newer V11 or V15 models?",
+            "a": "The V8 offers Dyson's core cordless vacuum technology — digital motor, HEPA filtration, and fade-free suction — at a lower price point than the V11 and V15. The newer models add features such as LCD displays, auto-adjusting suction modes, and longer runtimes. The V8 remains a strong choice for those who want genuine Dyson performance without the premium price of the latest range."
+        }
+    ],
+    "hook_override": "The Dyson V8 Advanced uses <b>Dyson's digital motor with fade-free suction — meaning no power drop as the battery depletes</b>. Dyson states up to 40 minutes runtime with whole-machine HEPA filtration capturing 99.97% of particles to 0.3 microns. Converts from full-size floor vacuum to handheld for stairs, cars, and upholstery.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A premium but considered home gift for someone who still uses a corded vacuum or a basic cordless — the Dyson V8 delivers the core Dyson experience at a more accessible price than the V11 or V15, and the HEPA filtration makes it particularly useful for allergy sufferers."
+    }
+},
 
     {
-        "name": "Shark Stratos Cordless Pet Pro Stick Vacuum Cleaner IZ402UKTSB - Anti Hair Wrap Plus, Clean Sense IQ, DuoClean, 60min Run-Time, Removable Battery, Anti-Allergen, White/Navy",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/615kcyMiPJL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4jguATc?tag=whoaccepts-21",
-        "info": "Powerful cordless stick vacuum with Clean Sense IQ (auto-adjusts suction for hidden dirt), Anti Hair Wrap Plus (removes pet/long hair from brush-roll), DuoClean floors, odour neutraliser, and anti-allergen seal — up to 60min runtime with removable battery. Bestselling upgrade for pet owners and busy homes seeking effortless, deep cleaning.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Shark vacuum", "pet hair", "cordless vacuum", "anti-allergen"],
-        "pain_points": ["pet hair tangles", "hidden dirt", "allergies", "battery life"],
-        "benefits": ["60 min runtime", "auto-adjusting suction", "anti hair wrap", "odour neutraliser"],
-        "price_tier": "premium innovation",
-        "highlights": [
-            "Clean Sense IQ auto-detects and adjusts for hidden dirt",
-            "Anti Hair Wrap Plus removes pet hair from brush automatically",
-            "DuoClean dual-brush system for carpets and hard floors",
-            "60 minutes runtime with removable battery",
-            "Odour neutraliser technology eliminates pet smells"
-        ],
-        "faqs": [
-            {"q": "Does the hair really not wrap around the brush?", "a": "Yes - the Anti Hair Wrap Plus actively removes hair from the brush roll so you never have to cut it free."},
-            {"q": "How does Clean Sense IQ work?", "a": "Infrared sensors detect hidden dirt and automatically boost suction until floors are truly clean."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Shark Stratos Cordless Pet Pro Stick Vacuum Cleaner IZ402UKTSB - Anti Hair Wrap Plus, Clean Sense IQ, DuoClean, 60min Run-Time, Removable Battery, Anti-Allergen, White/Navy",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/615kcyMiPJL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4jguATc?tag=whoaccepts-21",
+    "asin": "B0F5X43L2H",
+    "info": "The Shark Stratos IZ402UKTSB is a cordless stick vacuum with Clean Sense IQ technology — Shark states infrared sensors detect hidden dirt and automatically adjust suction power in response. Anti Hair Wrap Plus actively removes pet and long hair from the brush roll during use, eliminating manual cutting. DuoClean dual-brush technology handles both carpets and hard floors. Shark states the removable battery provides up to 60 minutes of runtime, and the anti-allergen seal retains dust and allergens within the vacuum.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Shark Stratos IZ402 cordless vacuum UK",
+        "anti hair wrap cordless vacuum pet UK",
+        "Clean Sense IQ vacuum cleaner UK",
+        "60 minute cordless vacuum removable battery",
+        "DuoClean cordless pet vacuum UK"
+    ],
+    "pain_points": [
+        "Pet hair and long hair wrapping around the brush roll requiring manual cutting",
+        "Vacuuming over areas repeatedly without knowing if hidden dirt is being removed",
+        "Cordless vacuums with insufficient battery life for whole-home cleaning",
+        "Allergens and fine particles escaping back into the air during vacuuming"
+    ],
+    "benefits": [
+        "Anti Hair Wrap Plus actively removes pet and long hair from the brush roll during use",
+        "Clean Sense IQ detects hidden dirt and auto-adjusts suction — Shark stated",
+        "DuoClean dual-brush system cleans both carpets and hard floors",
+        "Shark states up to 60 minutes runtime with removable battery",
+        "Anti-allergen seal retains dust and allergens within the vacuum"
+    ],
+    "price_tier": "premium innovation",
+    "highlights": [
+        "Anti Hair Wrap Plus actively removes pet and long hair from the brush roll during operation",
+        "Clean Sense IQ — Shark states infrared sensors detect hidden dirt and automatically boost suction",
+        "DuoClean dual-brush technology for effective cleaning on both carpets and hard floors",
+        "Shark states up to 60 minutes runtime with a removable, rechargeable battery",
+        "Anti-allergen seal retains 99.9% of dust and allergens within the vacuum — Shark stated"
+    ],
+    "faqs": [
+        {
+            "q": "Does the Anti Hair Wrap Plus genuinely prevent hair tangling on the brush?",
+            "a": "Shark states the Anti Hair Wrap Plus technology actively removes pet hair and long hair from the brush roll during use, meaning hair does not accumulate and require manual cutting free. Individual performance will vary with very heavy shedding."
+        },
+        {
+            "q": "How does Clean Sense IQ work?",
+            "a": "Shark states Clean Sense IQ uses infrared sensors in the cleaner head to detect the presence of hidden dirt and automatically increases suction power in response. When the area is clean, suction returns to the standard level. This is designed to ensure thorough cleaning without requiring the user to manually adjust settings."
+        },
+        {
+            "q": "Is the battery removable and can a spare be purchased?",
+            "a": "Shark states the battery is removable, allowing it to be swapped for a charged spare to extend cleaning time beyond the single-charge runtime. Check the current Amazon UK listing for compatible spare battery availability and pricing for this model."
+        }
+    ],
+    "hook_override": "The Shark Stratos has <b>Anti Hair Wrap Plus that actively removes pet and long hair from the brush roll during use</b> — no stopping to cut hair free. Clean Sense IQ uses infrared sensors to detect hidden dirt and auto-boost suction, and Shark states the removable battery delivers up to 60 minutes of runtime.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home", "pets"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A standout choice for pet owners — the Anti Hair Wrap Plus solves the single most frustrating maintenance task of any vacuum used in a home with dogs or cats, and the 60-minute battery covers a full house without recharging."
+    }
+},
 
     {
-        "name": "eufy X10 Pro Omni Robot Vacuum Cleaner With Mop, AI Obstacle Avoidance",
-        "category": "Home & Kitchen",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/612vDNxMmtL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3LoiHhx?tag=whoaccepts-21",
-        "info": "Advanced robot vacuum and mop with 5500Pa suction, 3D obstacle avoidance, auto-empty station, self-washing/hot air drying mop pads, and auto-refill — keeps floors clean with minimal effort. Bestselling smart home upgrade for busy households seeking effortless cleaning and a fresh start in the new year.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["robot vacuum", "mop", "smart home", "auto-empty", "AI cleaning"],
-        "pain_points": ["daily cleaning chores", "mopping effort", "pet hair maintenance"],
-        "benefits": ["fully automated", "self-washing mop", "AI navigation", "8 weeks hands-free"],
-        "price_tier": "premium automation",
-        "highlights": [
-            "5500Pa suction removes embedded dirt and pet hair",
-            "Auto-empty station holds 8 weeks of debris",
-            "Self-washing mop with hot air drying prevents odours",
-            "AI 3D obstacle avoidance navigates complex homes",
-            "Auto water refill and detergent dispensing"
-        ],
-        "faqs": [
-            {"q": "Do I still need to vacuum myself?", "a": "Rarely - the X10 Pro handles daily cleaning autonomously, emptying itself and washing its own mop pads."},
-            {"q": "Will it avoid pet toys and cables?", "a": "Yes - AI 3D cameras recognise and avoid over 100 types of obstacles including small items."}
-        ],
-        "date_added": "2025-12-29"
-    },
-
+    "name": "eufy X10 Pro Omni Robot Vacuum Cleaner With Mop, AI Obstacle Avoidance",
+    "category": "Home & Kitchen",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/612vDNxMmtL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3LoiHhx?tag=whoaccepts-21",
+    "asin": "B0CPDVV72T",
+    "info": "The eufy X10 Pro Omni is a robot vacuum and mop combination with 5,500Pa suction, AI 3D obstacle avoidance, and an all-in-one auto-empty station. eufy states the station automatically empties the dustbin, washes the mop pads, dries them with hot air, and refills the water tank — reducing manual intervention to approximately once every 8 weeks. The AI 3D camera system recognises and avoids over 100 obstacle types including cables and small objects.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "eufy X10 Pro Omni robot vacuum mop UK",
+        "self emptying robot vacuum mop UK",
+        "AI obstacle avoidance robot vacuum",
+        "5500Pa robot vacuum auto empty UK",
+        "robot vacuum self washing mop UK"
+    ],
+    "pain_points": [
+        "Daily vacuuming and mopping taking significant time in busy households",
+        "Robot vacuums with small dustbins that need emptying every few days",
+        "Mop pads developing odours when not dried properly after use",
+        "Robot vacuums that get stuck on cables, socks, and small obstacles"
+    ],
+    "benefits": [
+        "5,500Pa suction for embedded dirt and pet hair removal",
+        "Auto-empty station holds approximately 8 weeks of debris",
+        "Self-washing mop pads with hot air drying prevents odour buildup",
+        "AI 3D obstacle avoidance recognises over 100 obstacle types",
+        "Auto water refill and detergent dispensing from the station"
+    ],
+    "price_tier": "premium automation",
+    "highlights": [
+        "5,500Pa suction designed for embedded dirt and pet hair on carpets and hard floors",
+        "Auto-empty station — eufy states holds up to 8 weeks of debris before manual emptying",
+        "Self-washing mop pads with hot air drying built into the station to prevent odours",
+        "AI 3D camera system recognises and avoids over 100 obstacle types including cables",
+        "Auto water refill and detergent dispensing — station manages mop pad maintenance automatically"
+    ],
+    "faqs": [
+        {
+            "q": "How hands-free is the eufy X10 Pro Omni in practice?",
+            "a": "eufy states the all-in-one station handles dustbin emptying, mop pad washing, hot air drying, and water refilling automatically — reducing manual intervention to approximately once every 8 weeks for emptying the station's collection bag. Periodic cleaning of the station itself and checking for blockages is still required."
+        },
+        {
+            "q": "Will the X10 Pro avoid pet toys, cables, and small obstacles?",
+            "a": "eufy states the AI 3D obstacle avoidance system recognises and navigates around over 100 obstacle types including cables, socks, and small objects. Performance may vary with very small or unusually shaped objects — a clear floor will always produce better results."
+        },
+        {
+            "q": "Does the X10 Pro Omni vacuum and mop at the same time?",
+            "a": "Yes — the X10 Pro Omni is designed to vacuum and mop simultaneously in a single pass. eufy states the robot automatically lifts the mop pad when transitioning onto carpeted areas to prevent wetting the carpet during combined cleaning sessions."
+        }
+    ],
+    "hook_override": "The eufy X10 Pro Omni vacuums and mops simultaneously — <b>the all-in-one station empties the dustbin, washes the mop pads, dries them with hot air, and refills the water tank automatically</b>. eufy states manual intervention is needed approximately once every 8 weeks, and the AI 3D system avoids over 100 obstacle types including cables and small objects.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["home", "tech"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A genuinely transformative home gift for busy households — the self-washing mop and 8-week auto-empty station make it meaningfully more hands-free than standard robot vacuums, addressing the two main reasons people stop using them."
+    }
+},
+    
     {
-        "name": "Ooni Karu 16 Multi-Fuel Outdoor Pizza Oven - Wood, Charcoal or Gas Fired",
-        "category": "Home & Kitchen",
-        "season": "Summer Essentials, Christmas",
-        "image": "https://m.media-amazon.com/images/I/61gq41WEf3L._AC_SX679_.jpg",
-        "url": "https://amzn.to/4sAOw7R?tag=whoaccepts-21",
-        "info": "Versatile multi-fuel pizza oven reaching 950°F for authentic 60-second Neapolitan pizzas — burns wood, charcoal or gas (with optional burner). Large 16-inch cooking area, hinged door with thermometer, and premium build — bestselling choice for garden entertaining and outdoor cooking enthusiasts.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["pizza oven", "Ooni", "outdoor cooking", "garden entertaining"],
-        "pain_points": ["garden entertainment", "wood-fired taste", "expensive restaurant pizzas"],
-        "benefits": ["restaurant quality", "multi-fuel", "60-second cooking", "16-inch pizzas"],
-        "price_tier": "premium outdoor cooking",
-        "highlights": [
-            "Reaches 950°F (500°C) for authentic Neapolitan pizzas in 60 seconds",
-            "Multi-fuel versatility: wood, charcoal, or gas (burner sold separately)",
-            "16-inch cooking area fits large pizzas and other dishes",
-            "Built-in thermometer and hinged door for easy monitoring",
-            "Premium stainless steel and ceramic fiber insulation"
-        ],
-        "faqs": [
-            {"q": "Do I need to buy the gas burner separately?", "a": "Yes - the gas burner is optional. The oven comes ready for wood and charcoal."},
-            {"q": "How long does it take to heat up?", "a": "Ready to cook in 15-20 minutes with wood/charcoal, even faster with gas burner."}
-        ],
-        "date_added": "2025-12-30"
-    },
-
+    "name": "Ooni Karu 16 Multi-Fuel Outdoor Pizza Oven - Wood, Charcoal or Gas Fired",
+    "category": "Home & Kitchen",
+    "season": "Summer Essentials, Christmas",
+    "image": "https://m.media-amazon.com/images/I/61gq41WEf3L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4sAOw7R?tag=whoaccepts-21",
+    "asin": "B0CHS69P48",
+    "info": "The Ooni Karu 16 is a multi-fuel outdoor pizza oven with a 16-inch cooking area, reaching up to 500°C (950°F) for Neapolitan-style pizzas in approximately 60 seconds. Ooni states the oven runs on wood or charcoal as standard, with an optional gas burner attachment available separately. The stainless steel and ceramic fibre insulated construction includes a hinged door with built-in thermometer for temperature monitoring.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Ooni Karu 16 pizza oven UK",
+        "multi fuel outdoor pizza oven wood charcoal gas",
+        "16 inch garden pizza oven UK",
+        "Ooni pizza oven 500°C UK",
+        "outdoor pizza oven summer entertaining UK"
+    ],
+    "pain_points": [
+        "Home ovens that can't reach the temperatures needed for authentic Neapolitan pizza",
+        "Outdoor pizza ovens limited to a single fuel type",
+        "Small cooking areas that only fit basic-sized pizzas",
+        "Pizza ovens without a door that lose heat quickly between cooks"
+    ],
+    "benefits": [
+        "Reaches up to 500°C — Ooni states authentic Neapolitan pizza in approximately 60 seconds",
+        "Multi-fuel — runs on wood or charcoal as standard, gas attachment available separately",
+        "16-inch cooking area accommodates large pizzas and other dishes",
+        "Hinged door with built-in thermometer for temperature monitoring",
+        "Stainless steel with ceramic fibre insulation for heat retention"
+    ],
+    "price_tier": "premium outdoor cooking",
+    "highlights": [
+        "Reaches up to 500°C (950°F) — Ooni states Neapolitan-style pizza cooks in approximately 60 seconds",
+        "Multi-fuel capable — wood and charcoal as standard, optional gas burner attachment sold separately",
+        "16-inch cooking area — accommodates large pizzas and other dishes such as flatbreads and vegetables",
+        "Hinged door with built-in thermometer allows temperature monitoring without fully opening the oven",
+        "Stainless steel construction with ceramic fibre insulation for efficient heat retention"
+    ],
+    "faqs": [
+        {
+            "q": "Does the Ooni Karu 16 come with a gas burner?",
+            "a": "No — the Karu 16 comes ready to use with wood and charcoal as standard. The gas burner attachment is an optional accessory sold separately by Ooni. Check the current Amazon UK listing or Ooni's website for the compatible gas burner model and current pricing."
+        },
+        {
+            "q": "How long does the Karu 16 take to reach cooking temperature?",
+            "a": "Ooni states the Karu 16 reaches cooking temperature in approximately 15–20 minutes when using wood or charcoal. The optional gas burner attachment typically reaches temperature faster. Exact heat-up time will vary depending on ambient temperature and fuel quality."
+        },
+        {
+            "q": "What else can the Ooni Karu 16 cook besides pizza?",
+            "a": "The 16-inch cooking surface and high temperature capability make it suitable for flatbreads, calzones, focaccia, roasted vegetables, fish, and steaks. Ooni produces a range of accessories including a cast iron skillet and griddle specifically designed for use in the Karu 16."
+        }
+    ],
+    "hook_override": "The Ooni Karu 16 reaches <b>500°C — Ooni states Neapolitan-style pizza cooks in approximately 60 seconds</b>. The 16-inch cooking area runs on wood or charcoal as standard, with an optional gas burner available separately, and the hinged door with built-in thermometer lets you monitor temperature without losing heat.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend", "parent"],
+        "interests": ["food", "outdoors"],
+        "occasion": ["christmas", "birthday", "fathersday", "justbecause"],
+        "why": "A genuinely transformative outdoor cooking gift for anyone who takes food seriously — the multi-fuel flexibility and 16-inch cooking area make it the most versatile Ooni model, and the 60-second pizza result is something a standard home oven simply cannot replicate."
+    }
+},
     # ============================================================================
     # ELECTRONICS & SMART HOME
     # ============================================================================
-    {
-        "name": "TCL 32SF560 32 Inch Full HD Fire TV with Freeview Play, Dolby Audio, Voice Remote, Enhanced Brightness - Black",
-        "category": "Electronics",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61BYxuQ0KHL._AC_SX679_.jpg",
-        "url": "https://amzn.to/45xwjOi?tag=whoaccepts-21",
-        "info": "Compact 32-inch Full HD Fire TV with built-in Alexa voice remote, Freeview Play, Dolby Audio, HDR10 support, and enhanced brightness for vivid viewing — seamless access to streaming apps like Netflix, Prime Video, and Disney+. Affordable smart TV upgrade perfect for bedrooms, kitchens, or secondary rooms.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["smart TV", "Fire TV", "streaming", "bedroom TV", "compact TV"],
-        "pain_points": ["old TV", "limited streaming", "small room TV", "budget upgrade"],
-        "benefits": ["built-in Fire TV", "voice control", "Full HD", "compact size"],
-        "price_tier": "budget smart TV",
-        "highlights": [
-            "32-inch Full HD display with enhanced brightness",
-            "Built-in Fire TV with Alexa voice remote",
-            "Access Netflix, Prime Video, Disney+, and 300+ apps",
-            "Freeview Play for catch-up TV without subscription",
-            "Dolby Audio for immersive sound quality"
-        ],
-        "faqs": [
-            {"q": "Does it need a separate streaming stick?", "a": "No - Fire TV is built-in, so all streaming apps work straight out of the box."},
-            {"q": "Can I use voice commands?", "a": "Yes - the included Alexa voice remote lets you search, control playback, and smart home devices."}
-        ],
-        "date_added": "2025-12-30"
-    },
+   {
+    "name": "TCL 32SF560 32 Inch Full HD Fire TV with Freeview Play, Dolby Audio, Voice Remote, Enhanced Brightness - Black",
+    "category": "Electronics",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61BYxuQ0KHL._AC_SX679_.jpg",
+    "url": "https://amzn.to/45xwjOi?tag=whoaccepts-21",
+    "asin": "B0D81MXY4N",
+    "info": "The TCL 32SF560 is a 32-inch Full HD smart TV with Fire TV built in, Freeview Play, Dolby Audio, and HDR10 support. The included Alexa voice remote provides hands-free control of streaming, playback, and compatible smart home devices. TCL states the enhanced brightness panel improves visibility in well-lit rooms. No separate streaming device is required — Netflix, Prime Video, Disney+, and over 300 apps are accessible directly from the TV.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "TCL 32SF560 Fire TV UK",
+        "32 inch smart TV Fire TV built in UK",
+        "Full HD Freeview Play smart TV bedroom",
+        "compact smart TV Alexa voice remote UK",
+        "budget smart TV 32 inch Dolby Audio UK"
+    ],
+    "pain_points": [
+        "Older TVs with no smart functionality requiring a separate streaming stick",
+        "Limited screen size options for bedrooms, kitchens, or secondary rooms",
+        "Smart TVs with complicated interfaces that are difficult to navigate",
+        "Budget TVs that sacrifice picture or sound quality for price"
+    ],
+    "benefits": [
+        "Fire TV built in — no separate streaming device required",
+        "Alexa voice remote for hands-free search and playback control",
+        "Full HD resolution with HDR10 and Dolby Audio",
+        "Freeview Play for free catch-up TV without a subscription",
+        "32-inch compact size suited to bedrooms, kitchens, and secondary rooms"
+    ],
+    "price_tier": "budget smart TV",
+    "highlights": [
+        "32-inch Full HD panel with HDR10 support and TCL-stated enhanced brightness",
+        "Fire TV built in — Netflix, Prime Video, Disney+, and 300+ apps accessible without a streaming stick",
+        "Freeview Play provides free catch-up TV from BBC iPlayer, ITVX, Channel 4, and more",
+        "Included Alexa voice remote for hands-free search, playback, and smart home control",
+        "Dolby Audio for improved sound quality compared to standard TV speakers"
+    ],
+    "faqs": [
+        {
+            "q": "Does the TCL 32SF560 need a separate streaming device?",
+            "a": "No — Fire TV is built directly into the TV, providing access to Netflix, Prime Video, Disney+, and over 300 apps without requiring a separate streaming stick or box. An internet connection via WiFi or ethernet is required."
+        },
+        {
+            "q": "What is Freeview Play and what channels does it include?",
+            "a": "Freeview Play provides access to live and catch-up TV from UK free-to-air broadcasters including BBC iPlayer, ITVX, Channel 4, and My5, without a subscription. It also includes a 7-day TV guide with backward scrolling to access recently aired programmes."
+        },
+        {
+            "q": "Is the TCL 32SF560 suitable for a bedroom or kitchen?",
+            "a": "The 32-inch screen size is well-suited to bedrooms, kitchens, and smaller secondary rooms where a larger screen would be impractical. TCL states the enhanced brightness panel is designed for improved viewing in well-lit environments, which is particularly useful in kitchens."
+        }
+    ],
+    "hook_override": "A 32-inch Full HD smart TV with <b>Fire TV built in — no streaming stick required</b>, Freeview Play for free catch-up TV, and an Alexa voice remote for hands-free control. TCL states the enhanced brightness panel suits well-lit rooms, and Dolby Audio improves on standard TV speaker quality.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A practical bedroom or kitchen TV upgrade for anyone still using an older non-smart set — Fire TV built in means it's ready to stream immediately without needing a separate device or any additional setup."
+    }
+},
 
     {
-        "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
-        "category": "Electronics",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4sg8fZZ?tag=whoaccepts-21",
-        "info": "The fastest Kindle Paperwhite ever with a 7-inch glare-free display, higher contrast, 25% faster page turns, adjustable warm light, and up to 12 weeks of battery life — waterproof and perfect for distraction-free reading. Bestselling e-reader upgrade and ideal thoughtful gift for book lovers this Christmas.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Kindle", "e-reader", "reading", "book lover", "Christmas gift"],
-        "pain_points": ["heavy books", "reading in sunlight", "eye strain", "storage space"],
-        "benefits": ["glare-free reading", "12 week battery", "thousands of books", "waterproof"],
-        "price_tier": "premium e-reader",
-        "highlights": [
-            "7-inch glare-free display with higher contrast and sharpness",
-            "25% faster page turns than previous generation",
-            "Adjustable warm light reduces eye strain in evening",
-            "Up to 12 weeks of battery life on a single charge",
-            "Waterproof (IPX8) for bath and poolside reading"
-        ],
-        "faqs": [
-            {"q": "Can I read library books on this?", "a": "Yes - supports OverDrive for borrowing from libraries, plus Kindle Unlimited subscription service."},
-            {"q": "How many books does 16GB hold?", "a": "Approximately 6,000 books - essentially a lifetime library in your pocket."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Amazon Kindle Paperwhite (2024) - 16GB, Without Ads - Black",
+    "category": "Electronics",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61lwtlaSiNL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4sg8fZZ?tag=whoaccepts-21",
+    "asin": "B0CFPWLGF2",
+    "info": "The 2024 Kindle Paperwhite has a 7-inch glare-free display with higher contrast and 25% faster page turns than the previous generation. Amazon states the battery lasts up to 12 weeks on a single charge and the device is waterproof to IPX8 — suitable for bath and poolside reading. The adjustable warm light reduces blue light exposure for evening reading. 16GB storage holds approximately 6,000 books. This version is supplied without lock screen adverts.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Kindle Paperwhite 2024 UK",
+        "7 inch e-reader glare free UK",
+        "Kindle Paperwhite 16GB no ads UK",
+        "waterproof e-reader 12 week battery",
+        "best e-reader gift book lover UK"
+    ],
+    "pain_points": [
+        "Heavy physical books difficult to carry during commuting or travel",
+        "Tablet and phone screens causing eye strain during extended reading",
+        "Reading in direct sunlight with a reflective screen",
+        "Running out of storage or needing to carry multiple books"
+    ],
+    "benefits": [
+        "7-inch glare-free display with higher contrast for comfortable reading",
+        "Amazon states up to 12 weeks battery life on a single charge",
+        "IPX8 waterproof — suitable for bath, pool, and beach reading",
+        "Adjustable warm light for reduced eye strain during evening reading",
+        "16GB storage — Amazon states approximately 6,000 books"
+    ],
+    "price_tier": "premium e-reader",
+    "highlights": [
+        "7-inch glare-free display with higher contrast and 25% faster page turns than the previous generation",
+        "Amazon states up to 12 weeks of battery life on a single charge",
+        "IPX8 waterproof rating — suitable for reading in the bath, by the pool, or at the beach",
+        "Adjustable warm light reduces blue light exposure for comfortable evening reading",
+        "16GB storage — Amazon states capacity for approximately 6,000 books"
+    ],
+    "faqs": [
+        {
+            "q": "Can I borrow library books on the Kindle Paperwhite?",
+            "a": "Yes — the Kindle Paperwhite supports OverDrive and Libby, which allow borrowing e-books from UK public libraries at no cost. Kindle Unlimited is also available as a separate paid subscription providing access to over a million titles."
+        },
+        {
+            "q": "What is the difference between the ad-supported and no-ads versions?",
+            "a": "The without-ads version does not display promotional content on the lock screen. The ad-supported version is typically cheaper but shows Amazon offers and book recommendations when the device is locked. Both versions have identical hardware and reading performance."
+        },
+        {
+            "q": "Is the 2024 Paperwhite noticeably different from the previous generation?",
+            "a": "Amazon states the 2024 model delivers 25% faster page turns, higher contrast display, and an updated design compared to the previous Paperwhite generation. The 7-inch screen size is larger than older Paperwhite models, which had a 6.8-inch display."
+        }
+    ],
+    "hook_override": "The 2024 Kindle Paperwhite has a <b>7-inch glare-free display with 25% faster page turns and up to 12 weeks of battery life</b> — Amazon states the IPX8 waterproof rating covers bath, pool, and beach use. Adjustable warm light reduces eye strain for evening reading, and 16GB holds approximately 6,000 books.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "The definitive gift for a regular reader — the glare-free display, 12-week battery, and waterproof rating address the three main limitations of reading on a phone or tablet, and the no-ads version means no promotional interruptions on the lock screen."
+    }
+},
 
     {
-        "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
-        "category": "Electronics",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/710gjg-lYyL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4b7825h?tag=whoaccepts-21",
-        "info": "Latest generation Echo Dot with improved audio for richer, louder sound, built-in temperature sensor, tap gestures, and Alexa voice control — perfect for music, smart home control, and daily assistance. Bestselling smart speaker that's a popular Christmas gift for all ages.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Echo Dot", "Alexa", "smart speaker", "voice control", "smart home"],
-        "pain_points": ["music quality", "smart home setup", "hands-free help"],
-        "benefits": ["improved sound", "voice control", "smart home hub", "compact design"],
-        "price_tier": "affordable smart home",
-        "highlights": [
-            "Improved audio with clearer vocals and deeper bass",
-            "Built-in temperature sensor for smart home routines",
-            "Tap gestures to pause music, snooze alarms, and end calls",
-            "Voice control for music, news, weather, and smart home",
-            "Works seamlessly with Ring, Hue, and 100,000+ devices"
-        ],
-        "faqs": [
-            {"q": "How does the sound compare to previous generations?", "a": "Significantly better - up to 2x the bass and clearer vocals for music and podcasts."},
-            {"q": "Can it control my smart home devices?", "a": "Yes - compatible with most smart plugs, lights, thermostats, and security cameras via voice."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Echo Dot (5th generation) Smart Speaker with Alexa - Deep Sea Blue",
+    "category": "Electronics",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/710gjg-lYyL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4b7825h?tag=whoaccepts-21",
+    "asin": "B09B8YWXDF",
+    "info": "The Echo Dot 5th generation is a compact smart speaker with improved audio delivering clearer vocals and deeper bass than the previous generation. Amazon states the built-in temperature sensor enables smart home automations based on room conditions, and tap gestures allow physical control for pausing music, snoozing alarms, and ending calls without voice commands. Compatible with over 100,000 smart home devices including Ring, Philips Hue, and most smart plugs and thermostats.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Echo Dot 5th generation UK",
+        "Alexa smart speaker compact UK",
+        "Echo Dot temperature sensor smart home",
+        "Amazon Echo Dot 5 Deep Sea Blue",
+        "affordable smart speaker Christmas gift UK"
+    ],
+    "pain_points": [
+        "Previous Echo Dot generations with thin, tinny audio output",
+        "Smart home devices that require a separate hub to connect",
+        "Wanting voice control and smart home functionality at an accessible price",
+        "Needing hands-free help with music, timers, and daily information"
+    ],
+    "benefits": [
+        "Improved audio with clearer vocals and deeper bass than previous generation",
+        "Built-in temperature sensor enables room-based smart home automations",
+        "Tap gestures for physical control without voice commands",
+        "Compatible with over 100,000 smart home devices",
+        "Compact size suitable for bedrooms, kitchens, and offices"
+    ],
+    "price_tier": "affordable smart home",
+    "highlights": [
+        "Improved audio — Amazon states clearer vocals and deeper bass than the 4th generation Echo Dot",
+        "Built-in temperature sensor enables smart home routines triggered by room conditions",
+        "Tap gestures allow physical control for pausing music, snoozing alarms, and ending calls",
+        "Compatible with over 100,000 smart home devices including Ring, Philips Hue, and smart plugs",
+        "Compact spherical design suitable for shelves, bedside tables, and kitchen worktops"
+    ],
+    "faqs": [
+        {
+            "q": "How does the 5th generation Echo Dot sound compared to previous versions?",
+            "a": "Amazon states the 5th generation delivers up to twice the bass and clearer vocal reproduction compared to the 4th generation Echo Dot. It is not a full-range speaker and won't replace a dedicated audio system, but represents a meaningful improvement for casual music listening and podcast playback."
+        },
+        {
+            "q": "What can the built-in temperature sensor do?",
+            "a": "The temperature sensor detects the ambient room temperature and can trigger Alexa smart home routines based on those readings — for example, automatically adjusting a smart thermostat or turning on a fan when the room reaches a set temperature. It displays the current room temperature on request via voice."
+        },
+        {
+            "q": "Does the Echo Dot work as a smart home hub?",
+            "a": "The Echo Dot acts as a controller for compatible smart home devices via WiFi and Bluetooth, working with over 100,000 devices. It does not include a built-in Zigbee hub — for Zigbee-based devices such as some Philips Hue bulbs, an Echo device with a built-in hub or a separate bridge may be required."
+        }
+    ],
+    "hook_override": "The Echo Dot 5th generation has a <b>built-in temperature sensor and improved audio with deeper bass and clearer vocals</b> than the previous generation. Tap gestures provide physical control without voice commands, and it connects to over 100,000 smart home devices including Ring, Philips Hue, and most smart plugs.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-rounded entry point into smart home and voice control — affordable enough to give as a standalone gift, and genuinely useful from day one for music, timers, alarms, and hands-free help around the home."
+    }
+},
+    
+    {
+    "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
+    "category": "Electronics",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
+    "url": "https://amzn.to/4pZnuoJ?tag=whoaccepts-21",
+    "asin": "B0DGHWD7CT",
+    "info": "The Apple AirPods Pro 2nd generation features Active Noise Cancellation, Adaptive Audio, and Personalised Spatial Audio with dynamic head tracking. Apple states the earbuds deliver up to 6 hours of listening time with ANC enabled, and up to 30 hours total with the USB-C charging case. The USB-C case includes a built-in speaker for Find My alerts. New hearing health features include a clinically validated Hearing Aid mode and Conversation Boost for amplifying nearby speech.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Apple AirPods Pro 2nd generation USB-C UK",
+        "AirPods Pro noise cancellation spatial audio",
+        "wireless earbuds hearing aid feature UK",
+        "AirPods Pro 30 hour battery USB-C",
+        "premium wireless earbuds iPhone gift UK"
+    ],
+    "pain_points": [
+        "Background noise during commuting, working, or travelling",
+        "Wireless earbuds with poor fit that fall out during activity",
+        "Earbuds that require manual switching when moving between devices",
+        "Wanting hearing health features without a dedicated hearing aid"
+    ],
+    "benefits": [
+        "Active Noise Cancellation — Apple states 2x more effective than 1st generation",
+        "Adaptive Audio intelligently adjusts between ANC and Transparency modes",
+        "Personalised Spatial Audio with dynamic head tracking for immersive sound",
+        "USB-C charging case with built-in speaker for Find My alerts",
+        "Apple states up to 6 hours per charge with ANC, 30 hours total with case"
+    ],
+    "price_tier": "premium audio",
+    "highlights": [
+        "Active Noise Cancellation — Apple states 2x more effective than 1st generation AirPods Pro",
+        "Adaptive Audio automatically adjusts between ANC and Transparency based on environment",
+        "Personalised Spatial Audio with dynamic head tracking for immersive, directional sound",
+        "Apple states up to 6 hours listening with ANC on and 30 hours total with USB-C charging case",
+        "Clinically validated Hearing Aid mode and Conversation Boost for hearing health support"
+    ],
+    "faqs": [
+        {
+            "q": "Do AirPods Pro 2nd generation work with Android phones?",
+            "a": "Yes — AirPods Pro connect via Bluetooth to any device. However, Apple states features including seamless one-tap pairing, battery percentage widget, Personalised Spatial Audio, and Adaptive Audio work exclusively with Apple devices running compatible iOS, iPadOS, or macOS versions."
+        },
+        {
+            "q": "What is the Hearing Aid feature and how does it work?",
+            "a": "Apple states the AirPods Pro 2nd generation include a clinically validated Hearing Aid mode, available through a hearing assessment in the Health app on iPhone. The feature amplifies specific frequencies based on the user's hearing profile. It is intended as a hearing assistance feature rather than a medical hearing aid replacement."
+        },
+        {
+            "q": "How does Adaptive Audio differ from standard Active Noise Cancellation?",
+            "a": "Apple states Adaptive Audio automatically blends ANC and Transparency mode in real time based on the surrounding environment — for example, reducing noise cancellation when someone speaks to you directly, then restoring it when background noise returns. Standard ANC requires manual switching between modes."
+        }
+    ],
+    "hook_override": "AirPods Pro 2nd generation with <b>Active Noise Cancellation Apple states is 2x more effective than the 1st generation</b>, plus Adaptive Audio that automatically adjusts between ANC and Transparency mode based on your surroundings. USB-C charging case delivers 30 hours total, and the clinically validated Hearing Aid mode adds genuine hearing health functionality.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend", "partner"],
+        "interests": ["tech", "sports"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "The definitive premium earbud gift for iPhone users — the Adaptive Audio and Hearing Aid features make the 2nd generation meaningfully more capable than the 1st, and seamless Apple ecosystem integration is something no Android earbud can replicate."
+    }
+},
+    
+    {
+    "name": "Amazon Fire TV Stick 4K",
+    "category": "Electronics",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag=whoaccepts-21",
+    "asin": "B08XVYZ1Y5",
+    "info": "The Amazon Fire TV Stick 4K streams 4K Ultra HD content with Dolby Vision, HDR10+, and Dolby Atmos audio support. The included Alexa Voice Remote provides hands-free search and playback control across streaming services. Amazon states the stick is compatible with any TV with an HDMI port — a 4K TV is required to output 4K resolution content. Netflix, Prime Video, Disney+, BBC iPlayer, and over 300,000 films and TV episodes are accessible.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Amazon Fire TV Stick 4K UK",
+        "4K streaming stick Dolby Vision UK",
+        "Fire TV Stick Alexa voice remote",
+        "HDMI streaming device Netflix Disney UK",
+        "affordable smart TV upgrade stick UK"
+    ],
+    "pain_points": [
+        "Older TVs with no smart functionality requiring a separate streaming device",
+        "Smart TVs with slow, outdated built-in software",
+        "Switching between multiple remotes for different streaming services",
+        "Limited streaming quality on older or budget TV software"
+    ],
+    "benefits": [
+        "4K Ultra HD streaming with Dolby Vision and HDR10+ support",
+        "Dolby Atmos audio for cinematic sound on compatible systems",
+        "Alexa Voice Remote for hands-free search and playback control",
+        "Works with any HDMI-equipped TV — turns non-smart TVs into streaming devices",
+        "Access to Netflix, Prime Video, Disney+, BBC iPlayer, and 300,000+ titles"
+    ],
+    "price_tier": "budget streamer",
+    "highlights": [
+        "Streams 4K Ultra HD with Dolby Vision and HDR10+ on compatible 4K TVs",
+        "Dolby Atmos audio support for cinematic sound on compatible soundbars and TVs",
+        "Included Alexa Voice Remote for hands-free search, playback, and smart home control",
+        "Compatible with any TV with an HDMI port — 4K TV required for 4K output",
+        "Box includes Fire TV Stick 4K, Alexa Voice Remote, power adapter, and HDMI extender"
+    ],
+    "faqs": [
+        {
+            "q": "Does my TV need to be 4K to use the Fire TV Stick 4K?",
+            "a": "No — the Fire TV Stick 4K works with any TV that has an HDMI port. However, 4K resolution content will only display in 4K on a compatible 4K TV. On a Full HD TV, content will stream at 1080p resolution."
+        },
+        {
+            "q": "What streaming services are available on the Fire TV Stick 4K?",
+            "a": "The Fire TV platform provides access to Netflix, Amazon Prime Video, Disney+, Apple TV+, BBC iPlayer, ITVX, Channel 4, and hundreds of additional apps. Most services require their own active subscription — Prime Video is included with an Amazon Prime membership."
+        },
+        {
+            "q": "What is included in the box?",
+            "a": "Amazon states the box includes the Fire TV Stick 4K, Alexa Voice Remote with batteries, a USB power adapter, a USB cable, and an HDMI extender cable for TVs where direct plug-in access is restricted."
+        }
+    ],
+    "hook_override": "The Fire TV Stick 4K streams <b>4K Ultra HD with Dolby Vision, HDR10+, and Dolby Atmos audio</b> — plugs into any HDMI TV and turns it into a full streaming device. The Alexa Voice Remote handles search across all services hands-free, and the box includes an HDMI extender for TVs with restricted port access.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A practical gift for anyone with an older TV or a smart TV with slow, outdated software — instant access to every major streaming service at a fraction of the cost of a new TV, with Dolby Vision quality on a compatible screen."
+    }
+},
 
     {
-        "name": "Apple AirPods Pro 2nd Generation - Wireless Earbuds with USB-C Charging, Active Noise Cancellation, Hearing Aid Feature, Personalised Spatial Audio",
-        "category": "Electronics",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61DvMw16ITL._AC_SX522_.jpg",
-        "url": "https://amzn.to/4pZnuoJ?tag=whoaccepts-21",
-        "info": "Latest AirPods Pro 2 with USB-C charging, advanced active noise cancellation, adaptive audio, personalised spatial audio with head tracking, and new hearing health features — up to 6 hours listening time per charge. Premium wireless earbuds that remain the top choice for seamless iPhone integration and immersive sound.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["AirPods Pro", "wireless earbuds", "noise cancellation", "Apple", "spatial audio"],
-        "pain_points": ["background noise", "poor fit", "cable tangles", "audio quality"],
-        "benefits": ["active noise cancellation", "adaptive audio", "seamless pairing", "spatial audio"],
-        "price_tier": "premium audio",
-        "highlights": [
-            "2x more effective active noise cancellation than generation 1",
-            "Adaptive Audio intelligently adjusts to your environment",
-            "Personalised spatial audio with dynamic head tracking",
-            "USB-C charging case with speaker for Find My alerts",
-            "New hearing health features including conversation boost"
-        ],
-        "faqs": [
-            {"q": "Do they work with Android phones?", "a": "Yes, but best experience is with iPhone - seamless pairing, battery widget, and spatial audio require iOS."},
-            {"q": "How long does the battery last?", "a": "Up to 6 hours per charge with ANC on, 30 hours total with charging case."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black",
+    "category": "Electronics",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55?tag=whoaccepts-21",
+    "asin": "B0CRTM6B55",
+    "info": "The SHOKZ OpenFit Air are open-ear true wireless earphones that sit outside the ear canal, allowing ambient sound to pass through unobstructed for situational awareness during outdoor activity. SHOKZ states the DirectPitch audio technology delivers directional sound into the ear canal while minimising audio leakage to bystanders. Total playtime is 28 hours — 6 hours per charge from the earbuds plus 22 hours from the charging case. IP54 rated for sweat and water resistance. Fast charging provides 4 hours of playtime from a 15-minute charge.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "SHOKZ OpenFit Air open ear headphones UK",
+        "open ear wireless earphones running UK",
+        "situational awareness earphones workout",
+        "28 hour battery open ear bluetooth UK",
+        "IP54 waterproof earphones fast charging UK"
+    ],
+    "pain_points": [
+        "In-ear earphones causing discomfort or pain during extended wear",
+        "Earphones that block ambient sound creating safety risks during outdoor running",
+        "Earbuds that fall out during workouts or running",
+        "Short battery life requiring frequent recharging during training weeks"
+    ],
+    "benefits": [
+        "Open-ear design allows ambient sound through for outdoor safety awareness",
+        "SHOKZ DirectPitch technology directs sound into the ear canal with minimal leakage",
+        "28 hours total playtime — 6 hours earbuds plus 22 hours from case",
+        "IP54 rated for sweat and water resistance during workouts",
+        "Fast charging — SHOKZ states 15 minutes provides 4 hours of playtime"
+    ],
+    "price_tier": "premium sports audio",
+    "highlights": [
+        "Open-ear design sits outside the ear canal — ambient sound passes through unobstructed",
+        "SHOKZ DirectPitch technology delivers directional audio with minimal leakage to bystanders",
+        "28 hours total playtime — 6 hours per earbud charge plus 22 hours from the charging case",
+        "IP54 water and sweat resistance rated for workout and outdoor use",
+        "Fast charging — SHOKZ states 15 minutes of charging provides 4 hours of playtime"
+    ],
+    "faqs": [
+        {
+            "q": "Can people nearby hear the audio from SHOKZ OpenFit Air earphones?",
+            "a": "SHOKZ states the DirectPitch technology focuses audio directionally into the ear canal, minimising sound leakage to people nearby. At normal listening volumes, audio should not be audible to bystanders, though very high volumes may produce some leakage as with any open-ear design."
+        },
+        {
+            "q": "Are open-ear headphones genuinely safer for outdoor running?",
+            "a": "Open-ear designs allow the wearer to hear ambient sounds including traffic, cyclists, and other pedestrians without removing the earphones. This is a genuine safety advantage over in-ear earphones that block or reduce ambient sound during outdoor activity."
+        },
+        {
+            "q": "How does the IP54 rating affect use in rain or during sweaty workouts?",
+            "a": "IP54 provides protection against sweat and light splashing from any direction, making the OpenFit Air suitable for workouts and running in light rain. IP54 does not provide protection against submersion or heavy water exposure — they should not be worn swimming."
+        }
+    ],
+    "hook_override": "Open-ear earphones that sit outside the ear canal — <b>ambient sound passes through unobstructed so you can hear traffic and cyclists during outdoor runs</b>. SHOKZ states DirectPitch technology focuses audio directionally to minimise leakage, 28 hours total playtime with fast charging providing 4 hours from 15 minutes.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "tech"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A considered gift for a regular runner or cyclist who prioritises safety — the open-ear design solves the specific problem of needing music and ambient awareness simultaneously, without the compromise of bone conduction audio quality."
+    }
+},
 
     {
-        "name": "Amazon Fire TV Stick 4K",
-        "category": "Electronics",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61TzK204IjL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Amazon-Fire-TV-Stick-4K/dp/B08XVYZ1Y5?tag=whoaccepts-21",
-        "info": "Stream 4K content with Dolby Vision and Alexa voice control — top gift for movie lovers and home entertainment upgrades.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Fire TV Stick", "4K streaming", "Alexa", "streaming device"],
-        "pain_points": ["smart TV cost", "poor streaming quality", "multiple remotes"],
-        "benefits": ["4K HDR", "voice control", "all streaming apps", "affordable upgrade"],
-        "price_tier": "budget streamer",
-        "highlights": [
-            "Stream in stunning 4K Ultra HD with Dolby Vision and HDR10+",
-            "Access Netflix, Prime Video, Disney+, BBC iPlayer, and more",
-            "Alexa voice remote for hands-free control and search",
-            "Dolby Atmos audio support for cinematic sound",
-            "Turns any TV into a smart TV for under £50"
-        ],
-        "faqs": [
-            {"q": "Does my TV need to be 4K to use this?", "a": "No - it works on any TV with HDMI, but you'll need a 4K TV to enjoy 4K content."},
-            {"q": "What's included in the box?", "a": "Fire TV Stick 4K, Alexa Voice Remote, power adapter, and HDMI extender cable."}
-        ],
-        "date_added": "2025-12-26"
-    },
+    "name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
+    "category": "Electronics",
+    "season": "Christmas, Summer Gifts",
+    "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag=whoaccepts-21",
+    "asin": "B0FMR73KL2",
+    "info": "A portable mini projector running Android 11 with built-in streaming apps, 20,000 lux stated brightness, native 1080p Full HD resolution with 4K input support, 180-degree rotation, and auto keystone correction. Dual built-in speakers are included with Bluetooth connectivity for external audio. Designed for home cinema, outdoor movie nights, and gaming use. Best performance after sunset — direct sunlight will reduce image visibility significantly.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "portable mini projector Android 11 UK",
+        "4K supported portable projector UK",
+        "home cinema projector built in apps",
+        "outdoor movie projector auto keystone UK",
+        "1080p portable projector Bluetooth UK"
+    ],
+    "pain_points": [
+        "Large, expensive projectors that are impractical for casual or outdoor use",
+        "Streaming sticks and TV boxes that need a separate display to work",
+        "Projectors requiring manual keystone adjustment every time they are set up",
+        "Wanting outdoor movie nights without carrying heavy equipment"
+    ],
+    "benefits": [
+        "Android 11 built in — streaming apps accessible without a separate device",
+        "20,000 lux stated brightness for improved visibility in darker conditions",
+        "Native 1080p Full HD with 4K input support",
+        "180-degree rotation and auto keystone for flexible positioning",
+        "Bluetooth connectivity for external speakers alongside built-in dual speakers"
+    ],
+    "price_tier": "affordable cinema",
+    "highlights": [
+        "Android 11 built in — access streaming apps directly without a separate streaming device",
+        "20,000 lux stated brightness — best performance in darkened rooms or after sunset outdoors",
+        "Native 1080p Full HD resolution with 4K input support",
+        "180-degree rotation and auto keystone correction for flexible, quick setup",
+        "Dual built-in speakers with Bluetooth connectivity for external audio output"
+    ],
+    "faqs": [
+        {
+            "q": "Can this projector be used outdoors during daylight?",
+            "a": "The projector performs best in darkened conditions — after sunset for outdoor use or in a blacked-out room indoors. At 20,000 lux stated brightness it is bright for a portable projector, but direct sunlight will wash out the image significantly. Shaded outdoor use in lower ambient light will produce better results."
+        },
+        {
+            "q": "Does the projector have built-in speakers?",
+            "a": "Yes — dual speakers are built into the unit. Bluetooth connectivity allows pairing with an external speaker or soundbar for improved audio quality, which is recommended for larger outdoor or room setups where the built-in speakers may not provide sufficient volume."
+        },
+        {
+            "q": "What streaming apps are available on the built-in Android 11?",
+            "a": "Android 11 provides access to the Google Play Store for downloading streaming apps. Check the current Amazon UK listing for confirmation of which apps come pre-installed on this specific model, as app availability can vary between Android projector variants."
+        }
+    ],
+    "hook_override": "A portable projector running <b>Android 11 with built-in streaming apps — no separate streaming stick required</b>. Stated at 20,000 lux brightness with native 1080p Full HD, 180-degree rotation, and auto keystone correction for quick setup anywhere. Best performance after sunset or in a darkened room.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A fun, practical gift for anyone who wants a big-screen experience without a wall-mounted TV — the built-in Android means it works straight out of the box, and the portable design makes outdoor movie nights in summer genuinely achievable."
+    }
+},
 
     {
-        "name": "SHOKZ OpenFit Air Open-Ear Headphones, True Wireless Bluetooth Earphones with Mic, Fast Charging, 28h Playtime, IP54 Waterproof for Workout - Black",
-        "category": "Electronics",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/61eNpp4eTlL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/SHOKZ-Headphones-Bluetooth-Earphones-Waterproof-Black/dp/B0CRTM6B55?tag=whoaccepts-21",
-        "info": "Open-ear true wireless headphones with secure fit, situational awareness, powerful bass, and long battery life — ideal for workouts, running, or daily use without blocking ambient sound. Trending choice for active lifestyles and safer outdoor listening.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["open-ear headphones", "workout headphones", "bone conduction", "safe running"],
-        "pain_points": ["ear discomfort", "unaware of surroundings", "workout sweat", "battery life"],
-        "benefits": ["situational awareness", "comfortable fit", "28h battery", "sweatproof"],
-        "price_tier": "premium sports audio",
-        "highlights": [
-            "Open-ear design keeps you aware of surroundings for safety",
-            "28 hours total playtime (6h earbuds + 22h case)",
-            "DirectPitch audio technology delivers powerful bass",
-            "IP54 water and sweat resistant for intense workouts",
-            "Fast charging: 15 min charge = 4 hours playtime"
-        ],
-        "faqs": [
-            {"q": "Can other people hear my music?", "a": "At normal volumes, no - the directional audio focuses sound into your ear canals."},
-            {"q": "Are these safer for running outdoors?", "a": "Yes - the open-ear design lets you hear traffic, cyclists, and your surroundings while enjoying music."}
-        ],
-        "date_added": "2025-12-28"
-    },
-
-    {
-        "name": "[Built-in Apps & Android 11.0] Mini Projector Portable 20000 Lux 4K Supported",
-        "category": "Electronics",
-        "season": "Christmas, Summer Gifts",
-        "image": "https://m.media-amazon.com/images/I/61FJ2edQURL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Projector-Portable-Supported-Rotation-Compatible/dp/B0FMR73KL2?tag=whoaccepts-21",
-        "info": "Compact portable projector with Android 11, built-in apps, 180° rotation, auto keystone — perfect for home cinema, outdoor movies, or gaming. High brightness and compatibility make it a top trending choice.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["portable projector", "home cinema", "outdoor movies", "gaming projector"],
-        "pain_points": ["expensive projectors", "setup complexity", "outdoor entertainment"],
-        "benefits": ["built-in Android", "portable", "4K support", "auto keystone"],
-        "price_tier": "affordable cinema",
-        "highlights": [
-            "20,000 lux brightness for clear daylight viewing",
-            "Built-in Android 11 with Netflix, YouTube, Prime preinstalled",
-            "4K support with native 1080P Full HD resolution",
-            "180° rotation and auto keystone for easy setup",
-            "Portable design perfect for garden movies and camping"
-        ],
-        "faqs": [
-            {"q": "Can I use this outdoors during the day?", "a": "Best used after sunset - while bright for a portable projector, direct sunlight will wash out the image."},
-            {"q": "Does it have built-in speakers?", "a": "Yes - dual speakers included, plus Bluetooth connectivity for external speakers."}
-        ],
-        "date_added": "2025-12-26"
-    },
-
-    {
-        "name": "Philips Hue White Smart Bulb Twin Pack LED [B22 Bayonet Cap] – Dimmable, Bluetooth & Zigbee Compatible, Works with Alexa, Google Assistant and Apple HomeKit",
-        "category": "Lighting",
-        "season": "New Year Essentials, Christmas",
-        "image": "https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4pWqfaj?tag=whoaccepts-21",
-        "info": "Twin pack of dimmable smart LED bulbs with soft white light, instant Bluetooth control for single-room use, or add a Hue Bridge for full features like away-from-home control and voice integration with Alexa, Google Assistant, and Apple HomeKit. Energy-efficient upgrade for mood lighting and everyday convenience in UK homes.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Philips Hue", "smart bulbs", "dimmable lights", "voice control"],
-        "pain_points": ["mood lighting", "energy efficiency", "smart home setup"],
-        "benefits": ["voice control", "energy saving", "wireless dimming", "easy setup"],
-        "price_tier": "smart home starter",
-        "highlights": [
-            "Instant Bluetooth control - no bridge needed to start",
-            "Works with Alexa, Google Assistant, and Apple HomeKit",
-            "Wireless dimming from bright to subtle mood lighting",
-            "B22 bayonet fitting - standard UK bulb type",
-            "Energy-efficient LED lasts up to 25,000 hours"
-        ],
-        "faqs": [
-            {"q": "Do I need the Hue Bridge?", "a": "Not for basic control - Bluetooth works great for one room. Bridge unlocks advanced features and whole-home control."},
-            {"q": "Can I use these with existing dimmer switches?", "a": "Not recommended - smart dimming works best via app/voice without physical dimmer switches."}
-        ],
-        "date_added": "2025-12-30"
-    },
+    "name": "Philips Hue White Smart Bulb Twin Pack LED [B22 Bayonet Cap] – Dimmable, Bluetooth & Zigbee Compatible, Works with Alexa, Google Assistant and Apple HomeKit",
+    "category": "Lighting",
+    "season": "New Year Essentials, Christmas",
+    "image": "https://m.media-amazon.com/images/I/71T9DZUoqhL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4pWqfaj?tag=whoaccepts-21",
+    "asin": "B0DN6364XG",
+    "info": "A twin pack of Philips Hue White smart LED bulbs with B22 bayonet fitting — the standard cap type for most UK ceiling lights and lamps. The bulbs connect via Bluetooth for immediate single-room control without a hub, or via a Philips Hue Bridge for whole-home control, away-from-home access, and full integration with Alexa, Google Assistant, and Apple HomeKit. Philips states each bulb lasts up to 25,000 hours and is dimmable via the Hue app.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-30",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Philips Hue White smart bulb B22 UK",
+        "smart LED bulb twin pack Bluetooth UK",
+        "dimmable smart bulb Alexa Google HomeKit",
+        "Philips Hue B22 bayonet no bridge needed",
+        "smart home bulb energy efficient UK"
+    ],
+    "pain_points": [
+        "Standard bulbs with no dimming or smart control options",
+        "Smart bulbs that require an expensive hub to function at all",
+        "Wanting voice control over lighting without rewiring or new switches",
+        "Bulbs that need frequent replacing due to short lifespan"
+    ],
+    "benefits": [
+        "Bluetooth control works immediately without a Hue Bridge",
+        "Hue Bridge unlocks whole-home control and away-from-home access",
+        "Compatible with Alexa, Google Assistant, and Apple HomeKit",
+        "B22 bayonet fitting — standard UK cap type for most ceiling lights and lamps",
+        "Philips states up to 25,000 hours lifespan per bulb"
+    ],
+    "price_tier": "smart home starter",
+    "highlights": [
+        "B22 bayonet fitting — standard UK cap type compatible with most ceiling lights and lamps",
+        "Bluetooth control works immediately out of the box — no Hue Bridge required for basic use",
+        "Hue Bridge required for whole-home control, routines, and away-from-home access",
+        "Compatible with Alexa, Google Assistant, and Apple HomeKit for voice control",
+        "Philips states each bulb lasts up to 25,000 hours — energy-efficient LED construction"
+    ],
+    "faqs": [
+        {
+            "q": "Do I need to buy a Philips Hue Bridge to use these bulbs?",
+            "a": "No — the bulbs connect via Bluetooth and can be controlled through the Hue app immediately without a Bridge. Philips states a Bridge is required for whole-home control across multiple rooms, away-from-home access, Zigbee integration, and advanced automation routines."
+        },
+        {
+            "q": "Are these compatible with existing dimmer switches?",
+            "a": "Philips does not recommend using Hue smart bulbs with traditional dimmer switches, as this can cause flickering or reduce the bulb's lifespan. Smart dimming is controlled through the Hue app or voice assistant rather than a physical dimmer switch. Standard on/off switches work normally."
+        },
+        {
+            "q": "What is the difference between the B22 and E27 versions of Philips Hue bulbs?",
+            "a": "B22 is a bayonet cap fitting — the push-and-twist type common in most UK ceiling light fittings and standard floor and table lamps. E27 is a screw cap fitting used in some lamps and pendant lights. Check the existing bulb in your fitting before purchasing to confirm which cap type is required."
+        }
+    ],
+    "hook_override": "A twin pack of Philips Hue White smart bulbs with <b>B22 bayonet fitting — the standard UK cap type — that works via Bluetooth immediately without a hub</b>. Dimmable via the Hue app, compatible with Alexa, Google Assistant, and Apple HomeKit, with Philips stating up to 25,000 hours lifespan per bulb.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["home", "tech"],
+        "occasion": ["christmas", "birthday", "justbecause", "housewarming"],
+        "why": "A practical smart home starter gift that works immediately out of the box without buying a hub — the B22 bayonet fitting covers most UK ceiling lights, and the Bluetooth setup means it's usable within minutes of being gifted."
+    }
+},
 
     # ============================================================================
     # TOYS & GAMES
     # ============================================================================
-    {
-        "name": "USAopoly Flip 7 Party Card Game - Ages 8+, 3+ Players, 20 Minutes Playing Time",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81m3yB192RL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49xuFyE?tag=whoaccepts-21",
-        "info": "Fast-paced press-your-luck card game where players flip cards without duplicates, using action cards for twists — risk it for bonus points or play safe. Addictive party fun for families and groups, quick to learn and endlessly replayable.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["party game", "card game", "family game", "quick game"],
-        "pain_points": ["boring game nights", "complex rules", "long setup"],
-        "benefits": ["20 min games", "easy to learn", "addictive gameplay", "portable"],
-        "price_tier": "budget party fun",
-        "highlights": [
-            "Fast 20-minute games perfect for multiple rounds",
-            "Simple press-your-luck mechanic anyone can learn instantly",
-            "Action cards add strategic twists and excitement",
-            "Compact size makes it ideal for travel and parties",
-            "Ages 8+ with gameplay that engages all ages"
-        ],
-        "faqs": [
-            {"q": "How many players can play?", "a": "3-7 players, with best experience at 4-5 for optimal pacing and competition."},
-            {"q": "Is it suitable for kids?", "a": "Perfect for ages 8+ - simple enough for children but strategic enough for adults to enjoy."}
-        ],
-        "date_added": "2025-12-29"
-    },
+   {
+    "name": "USAopoly Flip 7 Party Card Game - Ages 8+, 3+ Players, 20 Minutes Playing Time",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81m3yB192RL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49xuFyE?tag=whoaccepts-21",
+    "asin": "B0DWGVM7RY",
+    "info": "Flip 7 is a press-your-luck card game for 3 or more players in which players flip cards aiming to collect numbers without duplicates — duplicates end the turn and forfeit points. Action cards introduce strategic twists including stealing cards and forcing other players to flip. USAopoly states games take approximately 20 minutes and the game is suitable for ages 8 and above.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Flip 7 card game UK",
+        "USAopoly party card game",
+        "press your luck card game family UK",
+        "quick party card game 20 minutes",
+        "family card game ages 8 plus UK"
+    ],
+    "pain_points": [
+        "Party games with complicated rules that take longer to explain than to play",
+        "Games that only work well with specific group sizes",
+        "Long setup times that kill the momentum of a game night",
+        "Games that feel repetitive after a few plays"
+    ],
+    "benefits": [
+        "Press-your-luck mechanic is immediately intuitive — no lengthy rules explanation",
+        "20-minute game time allows multiple rounds in a single session",
+        "Action cards add strategic variety and player interaction",
+        "Compact card game — no board, no setup, portable for travel",
+        "Suitable for ages 8 and above — works across mixed age groups"
+    ],
+    "price_tier": "budget party fun",
+    "highlights": [
+        "Press-your-luck mechanic — flip cards without duplicates or lose your turn and points",
+        "Action cards allow stealing, forcing flips, and other strategic interventions",
+        "USAopoly states games take approximately 20 minutes — suitable for multiple rounds",
+        "3 or more players — USAopoly states best experience with 4–5 for optimal pacing",
+        "Suitable for ages 8 and above — compact card format with no board or setup required"
+    ],
+    "faqs": [
+        {
+            "q": "How many players can play Flip 7?",
+            "a": "USAopoly states the game is designed for 3 or more players, with the best experience at 4–5 players for optimal pacing and competition. Larger groups can play but turns may feel less frequent at higher player counts."
+        },
+        {
+            "q": "Is Flip 7 suitable for children?",
+            "a": "USAopoly states the game is suitable for ages 8 and above. The press-your-luck mechanic is simple enough for children to grasp immediately, while the action cards and risk-reward decisions keep adult players engaged."
+        },
+        {
+            "q": "How long does a typical game of Flip 7 take?",
+            "a": "USAopoly states games take approximately 20 minutes, making it well-suited to multiple rounds in a single sitting or as a warm-up alongside other games during a game night."
+        }
+    ],
+    "hook_override": "A press-your-luck card game where players flip cards aiming to collect numbers <b>without duplicates — a duplicate ends your turn and costs your points</b>. Action cards let you steal from other players or force them to flip. USAopoly states games take approximately 20 minutes, making multiple rounds in one sitting straightforward.",
+    "gift_finder_tags": {
+        "recipient": ["friend", "him", "her", "child", "parent"],
+        "interests": ["arts", "home"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-pitched party game for mixed groups — the press-your-luck mechanic needs no explanation, games finish in 20 minutes so no one gets bored, and the action cards mean it plays differently each time."
+    }
+},
 
     {
-        "name": "Herd Mentality Board Game",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag=whoaccepts-21",
-        "info": "Hilarious party game where you try to think like the herd — perfect family/party entertainment, flying off shelves for Christmas.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["party game", "family game", "Christmas game", "quiz game"],
-        "pain_points": ["boring parties", "predictable games", "excluding players"],
-        "benefits": ["hilarious answers", "simple rules", "everyone plays", "no teams needed"],
-        "price_tier": "bestselling party",
-        "highlights": [
-            "Think like the majority to score points - be unique and get the pink cow",
-            "No right or wrong answers, just match the herd",
-            "Perfect for families, parties, and gatherings of 4-20 players",
-            "Games last 20-30 minutes with endless replayability",
-            "Created by Big Potato Games - masters of party entertainment"
-        ],
-        "faqs": [
-            {"q": "What happens if I get the pink cow?", "a": "You can't win until someone else gets it - it adds hilarious pressure and unpredictability!"},
-            {"q": "Is it suitable for mixed age groups?", "a": "Absolutely - ages 10+ but fun for all ages as questions are accessible to everyone."}
-        ],
-        "date_added": "2025-12-26"
-    },
+    "name": "Herd Mentality Board Game",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag=whoaccepts-21",
+    "asin": "B09S3YBBRR",
+    "info": "Herd Mentality is a party game from Big Potato Games in which players write answers to questions aiming to match the majority — not to be unique or clever. The player whose answer matches the most other players scores points. The player who writes a unique answer receives the pink cow token and cannot win until someone else takes it. Big Potato states the game suits 4–20 players aged 10 and above, with games lasting approximately 20–30 minutes.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Herd Mentality board game UK",
+        "Big Potato party game",
+        "family party game 4 to 20 players UK",
+        "Christmas party game adults families",
+        "majority answer party game UK"
+    ],
+    "pain_points": [
+        "Party games where knowledge or quick thinking gives certain players a permanent advantage",
+        "Games that only work well with specific player counts",
+        "Long setup times that interrupt the flow of a gathering",
+        "Quiz games that exclude less knowledgeable players from competing"
+    ],
+    "benefits": [
+        "No right or wrong answers — players aim to match the majority not demonstrate knowledge",
+        "Levels the playing field — being unique is a disadvantage, not an advantage",
+        "Pink cow mechanic adds unpredictable pressure and laughter",
+        "Suits 4–20 players — scales across small and large gatherings",
+        "Big Potato states games last approximately 20–30 minutes"
+    ],
+    "price_tier": "bestselling party",
+    "highlights": [
+        "Players write answers aiming to match the majority — unique answers earn the pink cow token",
+        "The pink cow holder cannot win until another player takes it — adds unpredictable pressure",
+        "No prior knowledge required — the goal is thinking like the group, not being clever",
+        "Big Potato states the game suits 4–20 players aged 10 and above",
+        "Games last approximately 20–30 minutes with high replayability across different groups"
+    ],
+    "faqs": [
+        {
+            "q": "What happens when you get the pink cow?",
+            "a": "The player holding the pink cow token cannot win the game until another player writes a unique answer and takes the token from them. Big Potato states this mechanic creates an ongoing tension throughout the game as pink cow holders try to blend back into the herd."
+        },
+        {
+            "q": "Is Herd Mentality suitable for mixed age groups?",
+            "a": "Big Potato states the game is suitable for ages 10 and above. Because questions require no specific knowledge — only predicting what the group will say — it works well across mixed ages where knowledge-based games would leave younger players at a disadvantage."
+        },
+        {
+            "q": "How many players does Herd Mentality work best with?",
+            "a": "Big Potato states the game suits 4–20 players. The mechanic works particularly well with larger groups of 6–10 where predicting the majority becomes more interesting and the pink cow creates more dramatic moments."
+        }
+    ],
+    "hook_override": "A party game where the goal is to think like the majority — <b>unique answers earn the pink cow token, and the pink cow holder can't win until someone else takes it</b>. No knowledge required, no teams needed, and Big Potato states it works for 4–20 players aged 10 and above in approximately 20–30 minutes.",
+    "gift_finder_tags": {
+        "recipient": ["friend", "him", "her", "parent", "partner"],
+        "interests": ["home", "arts"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "One of the best large-group party games available — the majority-matching mechanic levels the playing field completely, so it works equally well whether you're playing with competitive adults or a mixed family group."
+    }
+},
 
     {
-        "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag=whoaccepts-21",
-        "info": "Hilarious party game where players guess whether random facts are 'more' or 'less' than a given number — perfect for family gatherings, parties, and game nights. Trending for its mix of ridiculous questions, laughs, and surprising knowledge.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["quiz game", "party game", "trivia", "family fun"],
-        "pain_points": ["serious trivia", "complicated rules", "limited replayability"],
-        "benefits": ["hilarious questions", "simple gameplay", "surprising facts", "all ages"],
-        "price_tier": "premium party",
-        "highlights": [
-            "400 bizarre questions with outlandish answers",
-            "Simple more/less mechanic anyone can play",
-            "Learn surprising facts while laughing",
-            "Perfect icebreaker for mixed groups",
-            "Compact box for easy storage and portability"
-        ],
-        "faqs": [
-            {"q": "Do you need general knowledge to play?", "a": "No - questions are so outlandish that wild guessing is part of the fun and strategy."},
-            {"q": "How long does a typical game last?", "a": "About 20-30 minutes, perfect for multiple rounds or combining with other party games."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "More or Less: The Game of Judgement & Outlandish Guesstimation",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/71i5j54tKVL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/More-Less-Judgement-Outlandish-Guesstimation/dp/B087KLKN7T?tag=whoaccepts-21",
+    "asin": "B087KLKN7T",
+    "info": "More or Less is a party game containing 400 question cards where players guess whether a given fact is more or less than a stated number — no prior knowledge required, as the questions are deliberately outlandish. Players score points for correct guesses and can wager on confidence. Games last approximately 20–30 minutes and are suitable for mixed age groups.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "More or Less party game UK",
+        "outlandish guesstimation card game",
+        "family party game no knowledge needed UK",
+        "funny trivia game Christmas UK",
+        "quick party card game mixed ages UK"
+    ],
+    "pain_points": [
+        "Trivia games where general knowledge gives certain players an unfair advantage",
+        "Party games that take too long to explain before the first round",
+        "Question games that feel repetitive after a few plays",
+        "Games that only appeal to one age group within a mixed gathering"
+    ],
+    "benefits": [
+        "400 question cards with deliberately outlandish facts — no prior knowledge needed",
+        "Simple more or less mechanic is immediately intuitive for all ages",
+        "Wagering element rewards confident guessing rather than just luck",
+        "Games last approximately 20–30 minutes — suitable for multiple rounds",
+        "Compact box suits travel, parties, and limited storage space"
+    ],
+    "price_tier": "premium party",
+    "highlights": [
+        "400 question cards featuring deliberately outlandish facts — no general knowledge required",
+        "Simple more or less mechanic — guess whether the answer is higher or lower than a given number",
+        "Wagering system rewards confident guessing and adds strategic depth",
+        "Games last approximately 20–30 minutes — suitable for multiple rounds in one session",
+        "Compact box format — no board, easy to store and transport"
+    ],
+    "faqs": [
+        {
+            "q": "Do you need general knowledge to play More or Less?",
+            "a": "No — the questions are deliberately chosen for their outlandish and unpredictable nature, meaning informed guessing and confidence matter more than prior knowledge. Players with no interest in trivia typically enjoy it as much as those who do."
+        },
+        {
+            "q": "How many players can play More or Less?",
+            "a": "Check the current Amazon UK listing for the specific player count range stated by the publisher. The more or less mechanic and wagering system work well across a range of group sizes from small gatherings to larger parties."
+        },
+        {
+            "q": "How long does a typical game last?",
+            "a": "Games last approximately 20–30 minutes, making More or Less well-suited to multiple rounds in a single session or as part of a rotation alongside other party games during a longer evening."
+        }
+    ],
+    "hook_override": "A party game with 400 outlandish question cards where players guess whether a fact is <b>more or less than a given number — no general knowledge required</b>. The wagering mechanic rewards confident guessing rather than just luck, and games last approximately 20–30 minutes for easy multiple rounds.",
+    "gift_finder_tags": {
+        "recipient": ["friend", "him", "her", "parent", "partner"],
+        "interests": ["home", "arts"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-pitched party game that levels the playing field completely — the outlandish questions mean confident guessing matters more than knowledge, which makes it genuinely fun for mixed groups where trivia games typically create a skills imbalance."
+    }
+},
+    
+    {
+    "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag=whoaccepts-21",
+    "asin": "B08LFY1F42",
+    "info": "Shot in the Dark is a card-based quiz game containing 200 questions specifically chosen because nobody knows the real answer. Players write their best guess and a designated judge picks the most creative, convincing, or funniest response each round — knowledge is irrelevant. The publisher states the game suits 3–8 players aged 14 and above, though it works well with larger groups at parties.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Shot in the Dark quiz game UK",
+        "unorthodox quiz game no right answers",
+        "creative party game Christmas UK",
+        "quiz game adults no knowledge needed",
+        "funny party game 3 to 8 players UK"
+    ],
+    "pain_points": [
+        "Quiz games dominated by one knowledgeable player who wins every round",
+        "Party games where less confident players disengage because they can't compete",
+        "Trivia games that feel repetitive once the question set is familiar",
+        "Wanting a game where creativity and humour matter more than memory"
+    ],
+    "benefits": [
+        "200 questions specifically chosen because nobody knows the real answer",
+        "Judge picks the best, most convincing, or funniest guess each round",
+        "Knowledge provides no advantage — creativity and confidence matter more",
+        "Completely levels the playing field across different ages and backgrounds",
+        "Suitable for 3–8 players aged 14 and above"
+    ],
+    "price_tier": "premium entertainment",
+    "highlights": [
+        "200 questions chosen specifically because no player is likely to know the real answer",
+        "Judge-based scoring — the best, most convincing, or funniest answer wins each round",
+        "Knowledge provides no competitive advantage — creativity and lateral thinking score",
+        "Publisher states suitable for 3–8 players aged 14 and above",
+        "Card-only format — no board, quick setup, compact for travel and parties"
+    ],
+    "faqs": [
+        {
+            "q": "What happens if someone actually knows the answer?",
+            "a": "The questions are specifically chosen for their obscurity to make genuine knowledge extremely unlikely. Even if a player believes they know the answer, the judge-based scoring means a more creative or convincing response can still win the round regardless."
+        },
+        {
+            "q": "How many players can play Shot in the Dark?",
+            "a": "The publisher states the game works best with 3–8 players for optimal pacing. Larger groups can join for party settings, though with more players the judging rounds take longer and individual turns come around less frequently."
+        },
+        {
+            "q": "Is Shot in the Dark suitable for teenagers as well as adults?",
+            "a": "The publisher states the game is suitable for ages 14 and above. The judge-based creative scoring means it works well across mixed adult and older teenage groups where trivia games might create an age-based knowledge gap."
+        }
+    ],
+    "hook_override": "A quiz game with 200 questions <b>specifically chosen because nobody knows the real answer</b> — a judge picks the most creative, convincing, or funniest guess each round. Knowledge provides no advantage, which completely levels the playing field across different ages and backgrounds.",
+    "gift_finder_tags": {
+        "recipient": ["friend", "him", "her", "parent", "partner"],
+        "interests": ["home", "arts"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "The ideal party game for groups where one person usually dominates trivia — the judge-based creative scoring means the funniest or most inventive answer wins, not the most knowledgeable player."
+    }
+},
 
     {
-        "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag=whoaccepts-21",
-        "info": "Hilarious card-based quiz game with bizarre, obscure questions where nobody knows the answer — players guess, and the best (or funniest) guess wins points. Perfect screen-free entertainment for Christmas parties, family gatherings, and game nights with all ages.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["quiz game", "party game", "Christmas game", "adult game"],
-        "pain_points": ["know-it-all players", "serious trivia", "boring questions"],
-        "benefits": ["no right answers", "creative guessing", "laugh-out-loud", "level playing field"],
-        "price_tier": "premium entertainment",
-        "highlights": [
-            "200 questions so obscure nobody knows the real answer",
-            "Creativity and humour score more than knowledge",
-            "Judge picks the best/funniest answer each round",
-            "Perfect equaliser - experts have no advantage",
-            "Ages 14+ but hilarious for all adult groups"
-        ],
-        "faqs": [
-            {"q": "What if someone actually knows an answer?", "a": "Incredibly rare - questions are specifically chosen to stump even the most knowledgeable players."},
-            {"q": "How many players can play?", "a": "Best with 3-8 players, though more can join for larger party settings."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "Mattel Games UNO Classic Card Game for Kids and Adults, Family Game Night, Travel Game or Gift for Kids, 2 to 10 Players, Ages 7 and Up, W2087",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/71MrrNB7jCL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4pUlSfT?tag=whoaccepts-21",
+    "asin": "B005I5M2F8",
+    "info": "UNO Classic is a matching card game for 2–10 players in which players race to discard all their cards by matching colour or number to the top card of the discard pile. Action cards — Skip, Reverse, Draw Two, Wild, and Wild Draw Four — disrupt play and add strategic depth. Mattel states the game is suitable for ages 7 and above, with games typically lasting 15–30 minutes.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "UNO Classic card game UK",
+        "Mattel UNO family card game",
+        "UNO 2 to 10 players ages 7 plus",
+        "travel card game portable family UK",
+        "classic card game gift children adults UK"
+    ],
+    "pain_points": [
+        "Games with complicated rules that take longer to explain than to play",
+        "Games that only work for specific group sizes",
+        "Card games that lose appeal after a few sessions",
+        "Needing a compact travel game that works for all ages"
+    ],
+    "benefits": [
+        "Simple colour and number matching mechanic — rules explained in under 2 minutes",
+        "Action cards add strategic disruption and unpredictability to each game",
+        "2–10 players — scales from pairs to larger family groups",
+        "Compact card format — no board, easy to pack for travel",
+        "Mattel states suitable for ages 7 and above"
+    ],
+    "price_tier": "classic value",
+    "highlights": [
+        "Simple colour and number matching mechanic — Mattel states rules can be learned in minutes",
+        "Action cards — Skip, Reverse, Draw Two, Wild, and Wild Draw Four — add strategic disruption",
+        "2–10 players — works for pairs, families, and larger groups",
+        "Compact card-only format — no board or pieces, suitable for travel",
+        "Mattel states suitable for ages 7 and above — games last approximately 15–30 minutes"
+    ],
+    "faqs": [
+        {
+            "q": "What age is UNO suitable for?",
+            "a": "Mattel states UNO Classic is suitable for ages 7 and above. The colour and number matching mechanic is accessible for younger children, though action cards and strategic play become more relevant as players get older."
+        },
+        {
+            "q": "How long does a typical game of UNO last?",
+            "a": "Mattel states games typically last 15–30 minutes depending on group size and how frequently action cards disrupt play. The compact format makes it easy to play multiple rounds in a single session."
+        },
+        {
+            "q": "Are there variations of UNO rules that experienced players use?",
+            "a": "Yes — UNO has a wide range of house rules used by different households, such as stacking Draw Two and Draw Four cards. Mattel publishes the official rules on their website, though house rule variations are widely used and add replayability for experienced groups."
+        }
+    ],
+    "hook_override": "The classic matching card game for 2–10 players — <b>race to discard all your cards by matching colour or number, with action cards disrupting play</b> throughout. Mattel states rules take minutes to learn, games last 15–30 minutes, and the compact format needs no board or setup.",
+    "gift_finder_tags": {
+        "recipient": ["child", "friend", "him", "her", "parent"],
+        "interests": ["arts", "home"],
+        "occasion": ["christmas", "birthday", "easter", "justbecause"],
+        "why": "A universally recognised gift that works for virtually any age group — UNO is one of those games that genuinely gets played rather than left on a shelf, and the compact format makes it practical for travel, holidays, and family visits."
+    }
+},
 
     {
-        "name": "Mattel Games UNO Classic Card Game for Kids and Adults, Family Game Night, Travel Game or Gift for Kids, 2 to 10 Players, Ages 7 and Up, W2087",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/71MrrNB7jCL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4pUlSfT?tag=whoaccepts-21",
-        "info": "The timeless matching card game where players race to discard cards by colour or number, with action cards adding twists and excitement. A family favourite for game nights, travel, or as an engaging gift — easy to learn, endlessly replayable fun for all ages.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["UNO", "card game", "family game", "classic game", "travel game"],
-        "pain_points": ["boring long flights", "screen time", "limited family activities"],
-        "benefits": ["instant fun", "portable", "timeless gameplay", "all ages"],
-        "price_tier": "classic value",
-        "highlights": [
-            "The world's #1 card game played by millions globally",
-            "Simple rules anyone can learn in 2 minutes",
-            "2-10 players for flexible group sizes",
-            "Compact and portable for travel and holidays",
-            "Endlessly replayable with strategic depth"
-        ],
-        "faqs": [
-            {"q": "What age is UNO suitable for?", "a": "Ages 7+ officially, but younger children can enjoy it with help - simple colour/number matching."},
-            {"q": "How long does a typical game last?", "a": "15-30 minutes per game, perfect for quick fun or tournament-style multiple rounds."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "LEGO Speed Champions Ferrari SF-24 F1 Race Car Toy - Model Kit with Formula 1 Driver Minifigure - Gift for 10+ Year Old Boys, Girls & Adult Motorsport Fans - 77242",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/8169xVSJScL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3LbsyXS?tag=whoaccepts-21",
+    "asin": "B0DHSBBV6R",
+    "info": "A LEGO Speed Champions set replicating the 2024 Ferrari SF-24 Formula 1 car, including a driver minifigure, halo cockpit, rear wing, Pirelli tyre details, and official sponsor sticker sheet. LEGO states the set is suitable for ages 10 and above. The completed model is designed for both display and play, and is compatible with other LEGO Speed Champions sets.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "LEGO Ferrari SF-24 F1 set UK",
+        "LEGO Speed Champions Ferrari 2024",
+        "Formula 1 LEGO gift adults teens UK",
+        "LEGO F1 car model kit collectible",
+        "Ferrari LEGO set Speed Champions 77242"
+    ],
+    "pain_points": [
+        "F1 merchandise that looks generic rather than accurately detailed",
+        "LEGO sets too simple for older children or adult collectors",
+        "Collectible F1 models that are fragile or impractical to display",
+        "Gifts for motorsport fans that feel impersonal or disposable"
+    ],
+    "benefits": [
+        "Authentic 2024 Ferrari SF-24 livery with halo cockpit and Pirelli tyre details",
+        "Official sponsor sticker sheet included for accurate finish",
+        "Driver minifigure in racing suit for cockpit placement",
+        "Compatible with other LEGO Speed Champions sets",
+        "LEGO states suitable for ages 10 and above"
+    ],
+    "price_tier": "collectible value",
+    "highlights": [
+        "Replicates the 2024 Ferrari SF-24 F1 car with halo cockpit, rear wing, and Pirelli tyre details",
+        "Official sponsor sticker sheet for accurate livery finishing",
+        "Includes a driver minifigure in racing suit for cockpit placement",
+        "LEGO states suitable for ages 10 and above — approximately 1–2 hours to build",
+        "Compatible with other LEGO Speed Champions sets for combined display or racing play"
+    ],
+    "faqs": [
+        {
+            "q": "What age is the LEGO Ferrari SF-24 set suitable for?",
+            "a": "LEGO states the set is suitable for ages 10 and above. The piece count and step-by-step instructions make it manageable for older children while providing a satisfying build for adult collectors."
+        },
+        {
+            "q": "How long does the build take?",
+            "a": "The build typically takes approximately 1–2 hours depending on experience level — satisfying enough for an afternoon project without being overwhelming for a first-time builder."
+        },
+        {
+            "q": "Is this set compatible with other LEGO Speed Champions sets?",
+            "a": "Yes — LEGO Speed Champions sets are built to a consistent scale, making the Ferrari SF-24 compatible with other sets in the Speed Champions range for combined display or racing play scenarios."
+        }
+    ],
+    "hook_override": "A LEGO replica of the <b>2024 Ferrari SF-24 Formula 1 car with halo cockpit, Pirelli tyre details, and an official sponsor sticker sheet</b> for accurate livery finishing. Driver minifigure included, compatible with other Speed Champions sets, and LEGO states approximately 1–2 hours to build.",
+    "gift_finder_tags": {
+        "recipient": ["him", "child", "friend"],
+        "interests": ["arts", "tech"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-detailed F1 collectible for Ferrari fans who'd rather build and display an accurate replica than own another piece of generic branded merchandise — the 2024 livery makes it immediately recognisable to anyone who follows the sport."
+    }
+},
 
     {
-        "name": "LEGO Speed Champions Ferrari SF-24 F1 Race Car Toy - Model Kit with Formula 1 Driver Minifigure - Gift for 10+ Year Old Boys, Girls & Adult Motorsport Fans - 77242",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/8169xVSJScL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3LbsyXS?tag=whoaccepts-21",
-        "info": "Authentic LEGO buildable Ferrari SF-24 F1 car from the 2024 season, complete with driver minifigure, halo cockpit, rear wing, sponsor stickers, and Pirelli tyres — perfect for recreating races or display. Trending gift for young builders and adult F1 fans alike.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["LEGO F1", "Ferrari", "Speed Champions", "F1 gift", "collectible"],
-        "pain_points": ["generic toys", "screen time", "display collectibles"],
-        "benefits": ["authentic detail", "satisfying build", "display quality", "F1 connection"],
-        "price_tier": "collectible value",
-        "highlights": [
-            "Authentic 2024 Ferrari SF-24 F1 car design",
-            "Detailed features including halo, rear wing, and Pirelli tyres",
-            "Includes driver minifigure in racing suit",
-            "Premium sticker sheet with official sponsor logos",
-            "Perfect display piece for desks and shelves"
-        ],
-        "faqs": [
-            {"q": "Is this suitable for younger children?", "a": "Recommended for ages 10+ due to smaller pieces, but capable 8-9 year olds can build with supervision."},
-            {"q": "How long does the build take?", "a": "Approximately 1-2 hours - satisfying build experience without being overwhelming."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "LEGO Speed Champions Lightning McQueen Race Car Toy - Collectible Model Kit with Detailed Undercarriage - Disney Gift for 9+ Year Old Boys, Girls & Pixar Cars Movie Fans - 77255",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81f5c9hpLXL._AC_SX679_.jpg",
+    "url": "https://amzn.to/49wGjtx?tag=whoaccepts-21",
+    "asin": "B0FPXCYXHM",
+    "info": "A LEGO Speed Champions set replicating Lightning McQueen from Disney Pixar's Cars, featuring movie-accurate Rust-eze branding, sponsor stickers, and a detailed undercarriage view showing race car mechanics. LEGO states the set is suitable for ages 9 and above. The set celebrates the 20th anniversary of the Pixar Cars film. No driver minifigure is included — the build focuses entirely on the car itself.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "LEGO Lightning McQueen Speed Champions UK",
+        "LEGO Pixar Cars gift UK",
+        "Disney LEGO set 20th anniversary Cars",
+        "LEGO collectible race car model kit UK",
+        "Lightning McQueen LEGO 77255"
+    ],
+    "pain_points": [
+        "Generic Cars merchandise that doesn't appeal to older fans of the franchise",
+        "LEGO sets without the detail level to satisfy adult collectors",
+        "Nostalgia gifts that feel cheap or throwaway rather than collectible",
+        "Finding a gift for a Pixar Cars fan beyond standard plush toys and clothing"
+    ],
+    "benefits": [
+        "Movie-accurate Lightning McQueen with Rust-eze branding and sponsor stickers",
+        "Unique undercarriage view reveals race car mechanics beneath the body",
+        "Celebrates the 20th anniversary of Disney Pixar's Cars",
+        "Compatible with other LEGO Speed Champions sets for combined display",
+        "LEGO states suitable for ages 9 and above"
+    ],
+    "price_tier": "premium nostalgia",
+    "highlights": [
+        "Movie-accurate Lightning McQueen replica with Rust-eze branding and sponsor sticker sheet",
+        "Unique undercarriage detail reveals race car mechanics — not shown in the film",
+        "Celebrates the 20th anniversary of Disney Pixar's Cars",
+        "LEGO states suitable for ages 9 and above — no driver minifigure included",
+        "Compatible with other LEGO Speed Champions sets for display alongside F1 and GT cars"
+    ],
+    "faqs": [
+        {
+            "q": "Does the LEGO Lightning McQueen set come with a minifigure?",
+            "a": "No — LEGO states this set does not include a driver minifigure. The build focuses entirely on the detailed car model itself, including the movie-accurate exterior and the undercarriage detail view."
+        },
+        {
+            "q": "What age is this LEGO set suitable for?",
+            "a": "LEGO states the set is suitable for ages 9 and above. The step-by-step instructions make it accessible for younger builders while the movie-accurate detail and undercarriage feature give it appeal for adult collectors and nostalgia-driven fans."
+        },
+        {
+            "q": "Is the LEGO Lightning McQueen compatible with other Speed Champions sets?",
+            "a": "Yes — LEGO Speed Champions sets are built to a consistent scale, making Lightning McQueen compatible with other sets in the range including F1 cars, GT cars, and other branded vehicles for combined display or play."
+        }
+    ],
+    "hook_override": "A LEGO replica of Lightning McQueen with <b>movie-accurate Rust-eze branding and a unique undercarriage detail revealing race car mechanics</b> — a feature not shown in the film. Celebrates the 20th anniversary of Disney Pixar's Cars, compatible with other Speed Champions sets, suitable for ages 9 and above.",
+    "gift_finder_tags": {
+        "recipient": ["child", "him", "her", "friend"],
+        "interests": ["arts"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-considered gift for a Pixar Cars fan of any age — the undercarriage detail and 20th anniversary context make it more than a standard branded toy, and the Speed Champions compatibility means it sits naturally alongside other LEGO car collections."
+    }
+},
+
+   {
+    "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Catching-Reaction-Reactions-Coordination-Christmas/dp/B0FMD3DXPC?tag=whoaccepts-21",
+    "asin": "B0FMD3DXPC",
+    "info": "A battery-operated reaction game in which coloured sticks drop from a central base at adjustable speeds — players race to catch as many sticks as possible before they hit the floor. The adjustable speed settings range from beginner to expert, making it suitable for children and adults. Up to 4 players can compete in timed rounds. Check the current Amazon UK listing for the specific battery requirement and included stick count.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "catching sticks reaction game UK",
+        "falling sticks catching game kids",
+        "reaction speed game family Christmas UK",
+        "hand eye coordination game ages 6 plus",
+        "competitive catching game 1 to 4 players UK"
+    ],
+    "pain_points": [
+        "Screen-based games that don't encourage physical movement or interaction",
+        "Party games where younger children can't compete fairly against older players",
+        "Toys that lose appeal after a few uses",
+        "Rainy day activities that genuinely hold attention for longer sessions"
+    ],
+    "benefits": [
+        "Adjustable drop speed from beginner to expert — suitable for ages 6 to adult",
+        "Develops hand-eye coordination and reaction speed with repeated play",
+        "1–4 players can compete in timed catching rounds",
+        "Battery-operated with no complicated setup required",
+        "Screen-free physical activity suitable for family gatherings and parties"
+    ],
+    "price_tier": "viral gift",
+    "highlights": [
+        "Adjustable drop speed settings from beginner to expert difficulty",
+        "Coloured sticks drop from a central base — players race to catch as many as possible",
+        "1–4 players can compete in timed rounds for family tournament play",
+        "Develops hand-eye coordination and reaction speed with regular play",
+        "Battery-operated — check current Amazon UK listing for battery type and stick count included"
+    ],
+    "faqs": [
+        {
+            "q": "What age is the catching sticks game suitable for?",
+            "a": "The manufacturer states the game is suitable for ages 6 and above. The adjustable speed settings allow younger children to play on beginner mode while older children and adults compete on faster settings, making it genuinely playable across mixed age groups."
+        },
+        {
+            "q": "How many players can compete at once?",
+            "a": "Up to 4 players can compete simultaneously in timed catching rounds, racing to catch the most sticks before they hit the floor. The competitive format makes it well-suited to family gatherings and party settings."
+        },
+        {
+            "q": "Does it require batteries and are they included?",
+            "a": "The game is battery-operated. Check the current Amazon UK listing for the specific battery type required and whether batteries are included with this version of the product."
+        }
+    ],
+    "hook_override": "A battery-operated reaction game where <b>coloured sticks drop at adjustable speeds — from beginner to expert — and players race to catch as many as possible</b> before they hit the floor. Up to 4 players compete in timed rounds, and the adjustable difficulty makes it genuinely playable across children and adults in the same session.",
+    "gift_finder_tags": {
+        "recipient": ["child", "friend", "him", "her"],
+        "interests": ["arts", "sports"],
+        "occasion": ["christmas", "birthday", "easter", "justbecause"],
+        "why": "A physical, screen-free reaction game that actually holds attention — the adjustable speed means adults and children can compete on a level playing field, which is the key ingredient for a game that gets played repeatedly at family gatherings."
+    }
+},
 
     {
-        "name": "LEGO Speed Champions Lightning McQueen Race Car Toy - Collectible Model Kit with Detailed Undercarriage - Disney Gift for 9+ Year Old Boys, Girls & Pixar Cars Movie Fans - 77255",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81f5c9hpLXL._AC_SX679_.jpg",
-        "url": "https://amzn.to/49wGjtx?tag=whoaccepts-21",
-        "info": "Detailed LEGO Speed Champions build of Lightning McQueen from Disney Pixar's Cars, featuring authentic stickers, Rust-eze branding, and a unique undercarriage view — perfect for recreating movie scenes or display. Trending gift for young builders and fans celebrating the film's 20th anniversary.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["LEGO Cars", "Lightning McQueen", "Disney LEGO", "Pixar gift"],
-        "pain_points": ["character toys", "collectible gifts", "nostalgia gifts"],
-        "benefits": ["movie-accurate", "display piece", "satisfying build", "nostalgia appeal"],
-        "price_tier": "premium nostalgia",
-        "highlights": [
-            "Authentic Lightning McQueen with movie-accurate details",
-            "Unique undercarriage view shows race car mechanics",
-            "Rust-eze branding and sponsor stickers included",
-            "Celebrates 20 years of Disney Pixar's Cars",
-            "Perfect size for display alongside other Speed Champions"
-        ],
-        "faqs": [
-            {"q": "Does it come with a minifigure?", "a": "No driver minifigure - the focus is on the detailed car build itself."},
-            {"q": "Is it compatible with other LEGO sets?", "a": "Yes - fully compatible with all LEGO and Speed Champions sets for expanded play."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Karaoke Machine for Kids with Microphone",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag=whoaccepts-21",
+    "asin": "B0DK4NL37F",
+    "info": "A portable kids karaoke machine with Bluetooth connectivity, colour-changing LED lights, a wireless microphone with echo effects, and a rechargeable battery. Connects to any phone or tablet via Bluetooth to play songs from YouTube, Spotify, or any music source — no pre-loaded songs are included. AUX input and USB or SD card slots provide additional playback options. Check the current Amazon UK listing for the specific age recommendation and battery charging details.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "kids karaoke machine microphone UK",
+        "Bluetooth karaoke machine children UK",
+        "portable karaoke set LED lights rechargeable",
+        "karaoke machine Christmas gift girls boys UK",
+        "wireless microphone karaoke kids party UK"
+    ],
+    "pain_points": [
+        "Indoor entertainment that holds children's attention for more than a few minutes",
+        "Karaoke machines that require specific discs or pre-loaded content",
+        "Party toys that only work for one child at a time",
+        "Toys that need constant battery replacement rather than recharging"
+    ],
+    "benefits": [
+        "Bluetooth connectivity plays songs from any phone or tablet",
+        "Colour-changing LED lights create a party atmosphere during use",
+        "Wireless microphone with echo effects for performance feel",
+        "Rechargeable battery — no disposable batteries required",
+        "AUX, USB, and SD card inputs for additional playback options"
+    ],
+    "price_tier": "entertainment value",
+    "highlights": [
+        "Bluetooth connectivity plays songs from any phone or tablet via YouTube, Spotify, or any music app",
+        "Colour-changing LED lights create a party atmosphere during performances",
+        "Wireless microphone with echo effect for an authentic karaoke experience",
+        "Rechargeable battery provides portable use without disposable batteries",
+        "AUX input plus USB and SD card slots for additional playback flexibility"
+    ],
+    "faqs": [
+        {
+            "q": "Does the karaoke machine come with songs pre-loaded?",
+            "a": "No — the machine connects via Bluetooth to a phone or tablet, allowing access to any music source including YouTube, Spotify, or downloaded songs. This means the song library is unlimited but requires a connected device with internet access for streaming services."
+        },
+        {
+            "q": "How loud does the karaoke machine get?",
+            "a": "The machine includes adjustable volume control. It is designed for home use and produces sufficient volume for indoor performances and small gatherings without being overwhelming in a domestic setting. Check the current Amazon UK listing for the stated wattage output."
+        },
+        {
+            "q": "Is the battery rechargeable and how long does it last per charge?",
+            "a": "The machine has a built-in rechargeable battery. Check the current Amazon UK listing for the specific charging method and estimated battery life per charge for this model."
+        }
+    ],
+    "hook_override": "A portable kids karaoke machine with <b>Bluetooth connectivity, colour-changing LED lights, and a wireless microphone with echo effects</b> — connects to any phone or tablet to play songs from Spotify, YouTube, or any music app. Rechargeable battery means no disposable batteries, and AUX plus USB inputs add further playback flexibility.",
+    "gift_finder_tags": {
+        "recipient": ["child"],
+        "interests": ["arts"],
+        "occasion": ["christmas", "birthday", "easter", "justbecause"],
+        "why": "A well-rounded entertainment gift for a child who loves performing — the Bluetooth connection means unlimited songs from any streaming service, and the LED lights and echo microphone give it enough production value to feel genuinely exciting rather than a basic toy."
+    }
+},
 
-    {
-        "name": "Catching Sticks Games, Falling Sticks Catching Game, Drop It Catch It Win It Reaction Game",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/71dAXELqizL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Catching-Reaction-Reactions-Coordination-Christmas/dp/B0FMD3DXPC?tag=whoaccepts-21",
-        "info": "Fast-paced reaction game where colorful sticks drop randomly at adjustable speeds — players race to catch them, building hand-eye coordination and quick reflexes. Viral trending Christmas gift for kids and families, perfect for parties and screen-free fun.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["reaction game", "kids game", "party game", "coordination"],
-        "pain_points": ["screen addiction", "boredom", "rainy day activities"],
-        "benefits": ["screen-free fun", "improves reflexes", "competitive play", "adjustable difficulty"],
-        "price_tier": "viral gift",
-        "highlights": [
-            "Adjustable drop speed from beginner to expert levels",
-            "Develops hand-eye coordination and reaction time",
-            "Multiplayer competitive mode for family tournaments",
-            "Addictive gameplay that keeps kids engaged for hours",
-            "Battery-operated with included sticks and base"
-        ],
-        "faqs": [
-            {"q": "What age is this suitable for?", "a": "Ages 6+ though the adjustable speed makes it fun for all ages including adults."},
-            {"q": "How many players can compete?", "a": "1-4 players can compete to catch the most sticks in timed rounds."}
-        ],
-        "date_added": "2025-12-28"
-    },
-
-    {
-        "name": "Karaoke Machine for Kids with Microphone",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81QJgWZmfyL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Kids-Karaoke-Machine-Birthday-Girls-Pink/dp/B0DK4NL37F?tag=whoaccepts-21",
-        "info": "Mini karaoke set with lights, Bluetooth, and mic — top Christmas gift for kids, massive sales spike for family sing-alongs.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["karaoke machine", "kids toy", "Christmas gift", "music toy"],
-        "pain_points": ["boring indoor days", "entertainment for parties", "confidence building"],
-        "benefits": ["Bluetooth connectivity", "LED lights", "portable", "confidence boost"],
-        "price_tier": "entertainment value",
-        "highlights": [
-            "Bluetooth connectivity to play any song from phone/tablet",
-            "Colour-changing LED lights create party atmosphere",
-            "Includes wireless microphone with echo effects",
-            "Rechargeable battery for portable performances",
-            "AUX input and USB/SD card slots for versatile playback"
-        ],
-        "faqs": [
-            {"q": "Does it come with songs pre-loaded?", "a": "No - connects via Bluetooth to YouTube, Spotify, or any music source on your device."},
-            {"q": "How loud does it get?", "a": "Plenty loud for home parties but not overwhelming - adjustable volume control included."}
-        ],
-        "date_added": "2025-12-26"
-    },
-
-    {
-        "name": "Magnetic Chess Game with Stones Portable Family Board",
-        "category": "Toys & Games",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61mcbNi2MGL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag=whoaccepts-21",
-        "info": "Portable magnetic chess set with stones and ropes — fun family game for parties, travel, or gatherings. Addictive strategy challenge that's trending for all ages.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["chess set", "magnetic chess", "travel chess", "strategy game"],
-        "pain_points": ["lost pieces", "travel entertainment", "screen alternatives"],
-        "benefits": ["magnetic pieces", "portable", "strategic thinking", "timeless game"],
-        "price_tier": "budget strategy",
-        "highlights": [
-            "Magnetic pieces stay secure during travel and play",
-            "Folding board doubles as storage case",
-            "Perfect size for planes, trains, and car journeys",
-            "Develops strategic thinking and patience",
-            "Suitable for beginners and experienced players"
-        ],
-        "faqs": [
-            {"q": "Are the pieces easy to move?", "a": "Yes - strong enough to stay in place but easy to slide for smooth gameplay."},
-            {"q": "What's included?", "a": "Complete 32-piece magnetic chess set with folding board and storage compartment."}
-        ],
-        "date_added": "2025-12-26"
-    },# ============================================================================
+   {
+    "name": "Magnetic Chess Game with Stones Portable Family Board",
+    "category": "Toys & Games",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61mcbNi2MGL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Magnetic-Training-Chesss-Birthdays-Gatherings/dp/B0FMXLG87Y?tag=whoaccepts-21",
+    "asin": "B0FMXLG87Y",
+    "info": "A portable magnetic chess set with a folding board that doubles as a storage case for the 32 pieces. The magnetic pieces stay in position during travel and movement, making it suitable for use on planes, trains, and in cars. Suitable for beginners and experienced players. Check the current Amazon UK listing for the specific board dimensions and piece material details.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "magnetic chess set portable UK",
+        "travel chess set folding board UK",
+        "magnetic chess pieces 32 piece set",
+        "chess set family gift UK",
+        "portable strategy game chess travel"
+    ],
+    "pain_points": [
+        "Standard chess sets with loose pieces that scatter during travel",
+        "No compact storage solution for chess pieces between games",
+        "Screen-based entertainment dominating travel time",
+        "Strategy games that are impractical to play on the move"
+    ],
+    "benefits": [
+        "Magnetic pieces stay in position during travel and movement",
+        "Folding board doubles as a storage case for all 32 pieces",
+        "Compact size suitable for planes, trains, and car journeys",
+        "Suitable for beginners through to experienced players",
+        "No battery or charging required"
+    ],
+    "price_tier": "budget strategy",
+    "highlights": [
+        "Magnetic pieces designed to stay in position during movement and travel",
+        "Folding board doubles as a storage case — all 32 pieces store inside when folded",
+        "Compact size suitable for use on planes, trains, and during car journeys",
+        "Complete 32-piece standard chess set suitable for beginners and experienced players",
+        "Check current Amazon UK listing for specific board dimensions and piece material"
+    ],
+    "faqs": [
+        {
+            "q": "Are the magnetic pieces strong enough to stay in place during play?",
+            "a": "The pieces are designed with sufficient magnetic strength to stay in position during normal play and light movement. On very turbulent journeys or with significant vibration, pieces may shift — the magnetic hold is a stability aid rather than a permanent lock."
+        },
+        {
+            "q": "What is included in the set?",
+            "a": "The set includes a complete 32-piece magnetic chess set and a folding board that doubles as a storage case. Check the current Amazon UK listing for confirmation of any additional accessories included with this specific variant."
+        },
+        {
+            "q": "Is this suitable for teaching children to play chess?",
+            "a": "Yes — the standard 32-piece set and clear board layout make it suitable for learning and practising chess. The compact portable format means it can be used on journeys where there is otherwise little to do, which helps with regular practice."
+        }
+    ],
+    "hook_override": "A portable magnetic chess set where <b>the folding board doubles as a storage case for all 32 pieces</b> — magnetic pieces stay in position during travel on planes, trains, and in cars. Complete standard chess setup suitable for beginners through to experienced players, with no batteries or charging required.",
+    "gift_finder_tags": {
+        "recipient": ["child", "him", "her", "parent", "friend"],
+        "interests": ["arts", "outdoors"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A practical travel gift for anyone who plays chess or wants to learn — the magnetic pieces and folding storage board solve the two main problems with standard sets, and it works equally well as a family game at home or on a long journey."
+    }
+},
+    # ============================================================================
     # PART 3 OF 3 - FINAL SECTION
     # BOOKS
     # ============================================================================
     {
-        "name": "From Ibiza to the Norfolk Broads: A Bowie Odyssey by James Briggs",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61Kdkp7DPuL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Ibiza-Norfolk-Broads-Bowie-Odyssey/dp/1837733112?tag=whoaccepts-21",
-        "info": "Hilarious and heartfelt memoir of a lifelong Bowie fan cycling the iconic Life on Mars? lyric from Ibiza to the Norfolk Broads — blending travel adventure, music history, and mid-life reflection. Trending for its witty take on embracing the strange and living fearlessly like the Starman.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["David Bowie", "memoir", "cycling adventure", "music book"],
-        "pain_points": ["mid-life crisis", "adventure inspiration", "music nostalgia"],
-        "benefits": ["inspiring journey", "humorous writing", "Bowie tribute", "travel adventure"],
-        "price_tier": "paperback value",
-        "highlights": [
-            "Unique cycling journey inspired by David Bowie's lyrics",
-            "Blends music history with personal adventure memoir",
-            "Witty, heartfelt writing about embracing life's absurdity",
-            "Perfect gift for Bowie fans and armchair adventurers",
-            "Celebrates the courage to live unconventionally"
-        ],
-        "faqs": [
-            {"q": "Do I need to be a Bowie fan to enjoy this?", "a": "No - while Bowie fans will love the references, it's primarily a hilarious travel memoir anyone can enjoy."},
-            {"q": "Is this a serious cycling guide?", "a": "No - it's a humorous, reflective memoir that happens to involve cycling, not a technical guide."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "From Ibiza to the Norfolk Broads: A Bowie Odyssey by James Briggs",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61Kdkp7DPuL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Ibiza-Norfolk-Broads-Bowie-Odyssey/dp/1837733112?tag=whoaccepts-21",
+    "asin": "1837733112",
+    "info": "From Ibiza to the Norfolk Broads is a travel memoir by James Briggs in which the author cycles the route referenced in David Bowie's Life on Mars? lyric — from Ibiza to the Norfolk Broads. The book blends personal adventure with Bowie tributes and mid-life reflection, written with humour throughout. It is primarily a travel and music memoir rather than a cycling guide or Bowie biography.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "From Ibiza to the Norfolk Broads book UK",
+        "David Bowie memoir cycling adventure",
+        "James Briggs Bowie Odyssey book",
+        "music travel memoir David Bowie gift",
+        "Life on Mars cycling memoir UK"
+    ],
+    "pain_points": [
+        "Bowie merchandise that doesn't go beyond standard albums and posters",
+        "Travel memoirs without a genuinely original premise",
+        "Looking for a book gift for someone who loves music and adventure equally",
+        "Wanting something specific and considered rather than a generic music biography"
+    ],
+    "benefits": [
+        "Original premise — cycling the route referenced in Bowie's Life on Mars? lyric",
+        "Blends travel memoir, music history, and personal reflection with humour throughout",
+        "Accessible to readers without deep Bowie knowledge — primarily a travel adventure",
+        "Paperback format — practical and affordable as a standalone gift or stocking filler",
+        "Written with wit — not a technical cycling guide or conventional biography"
+    ],
+    "price_tier": "paperback value",
+    "highlights": [
+        "Author cycles the route referenced in David Bowie's Life on Mars? lyric — Ibiza to the Norfolk Broads",
+        "Blends travel adventure with Bowie tributes, music history, and mid-life reflection",
+        "Written with humour throughout — primarily a memoir rather than a Bowie biography",
+        "Accessible to readers without deep Bowie knowledge as well as dedicated fans",
+        "Paperback format — well-suited as a stocking filler or standalone book gift"
+    ],
+    "faqs": [
+        {
+            "q": "Do you need to be a David Bowie fan to enjoy this book?",
+            "a": "No — while Bowie fans will appreciate the music references and tributes woven throughout, the book is primarily a humorous travel memoir about cycling an unusual route. Readers who enjoy adventure memoirs and witty travel writing will find it equally accessible without prior Bowie knowledge."
+        },
+        {
+            "q": "Is this a cycling guide or training resource?",
+            "a": "No — the book is a humorous personal memoir that happens to involve cycling. It does not provide route maps, technical cycling advice, or training guidance. The cycling is the vehicle for the adventure and reflection rather than the subject of the book."
+        },
+        {
+            "q": "What is the Life on Mars? lyric connection?",
+            "a": "David Bowie's 1971 song Life on Mars? contains the lyric referencing Ibiza and the Norfolk Broads. James Briggs uses this as the premise for the journey — cycling between the two locations as a tribute to Bowie and an exploration of what it means to live unconventionally."
+        }
+    ],
+    "hook_override": "A travel memoir in which the author <b>cycles the route referenced in David Bowie's Life on Mars? lyric — from Ibiza to the Norfolk Broads</b>. Written with humour throughout, it blends adventure, mid-life reflection, and Bowie tributes without being a conventional biography or cycling guide.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend", "parent"],
+        "interests": ["books", "outdoors"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A specific, original book gift for a Bowie fan or anyone who enjoys witty travel memoirs — the premise alone makes it a more considered choice than a standard music biography, and the humorous tone makes it accessible to readers who aren't deeply familiar with Bowie's catalogue."
+    }
+},
+    
+    {
+    "name": "Always Remember by Charlie Mackesy",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/818fhGP49iL._AC_SX679_.jpg",
+    "url": "https://amzn.to/3YOsC30?tag=whoaccepts-21",
+    "asin": "1529108446",
+    "info": "Always Remember is a hardback illustrated book by Charlie Mackesy, creator of The Boy, the Mole, the Fox and the Horse — which has sold over 10 million copies worldwide. The book contains hand-drawn illustrations accompanied by short, reflective messages on themes of kindness, courage, and resilience. Suitable for all ages and presented in hardback format as a lasting keepsake gift.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Always Remember Charlie Mackesy book UK",
+        "Charlie Mackesy illustrated gift book",
+        "Boy Mole Fox Horse follow up book",
+        "hardback illustrated wisdom book gift UK",
+        "thoughtful gift book Christmas UK"
+    ],
+    "pain_points": [
+        "Wanting a gift that feels genuinely thoughtful rather than a generic bestseller",
+        "Finding a book suitable for someone going through a difficult time",
+        "Books that work as gifts for both adults and older children equally",
+        "Illustrated gift books that are beautiful enough to keep rather than pass on"
+    ],
+    "benefits": [
+        "Hand-drawn illustrations on every page by the creator of The Boy, the Mole, the Fox and the Horse",
+        "Short reflective messages on kindness, courage, and resilience",
+        "Hardback format suitable as a lasting keepsake",
+        "Suitable for all ages from older children through to adults",
+        "From an author whose previous book sold over 10 million copies worldwide"
+    ],
+    "price_tier": "gift essential",
+    "highlights": [
+        "By Charlie Mackesy — creator of The Boy, the Mole, the Fox and the Horse, which sold over 10 million copies",
+        "Hand-drawn illustrations throughout with short reflective messages on each page",
+        "Themes of kindness, courage, and resilience — written for difficult times and everyday life equally",
+        "Hardback presentation format — suitable as a lasting keepsake rather than a disposable read",
+        "Suitable for all ages from older children through to adults"
+    ],
+    "faqs": [
+        {
+            "q": "Is Always Remember suitable for children?",
+            "a": "Yes — the simple, illustrated format and accessible messages make it suitable for older children as well as adults. The themes of kindness and courage resonate across age groups, making it a practical gift when you need something that works for a wide range of recipients."
+        },
+        {
+            "q": "How does Always Remember compare to The Boy, the Mole, the Fox and the Horse?",
+            "a": "Always Remember follows the same hand-drawn illustration style and short reflective format as The Boy, the Mole, the Fox and the Horse. It contains new illustrations and messages rather than a continuation of the same characters, making it a companion book for existing fans or a standalone introduction for new readers."
+        },
+        {
+            "q": "Is the book hardback or paperback?",
+            "a": "Always Remember is published in hardback format, which makes it suitable as a gift and keepsake. Check the current Amazon UK listing for the specific dimensions and any paperback edition availability."
+        }
+    ],
+    "hook_override": "A hardback illustrated book by Charlie Mackesy — <b>creator of The Boy, the Mole, the Fox and the Horse, which sold over 10 million copies worldwide</b>. Hand-drawn illustrations throughout with short reflective messages on kindness, courage, and resilience, suitable for all ages from older children to adults.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend", "partner"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "mothersday", "justbecause"],
+        "why": "One of the most reliably well-received gift books available — the hardback presentation, hand-drawn illustrations, and Mackesy's established reputation make it a considered choice that suits almost any adult recipient regardless of reading habits."
+    }
+},
 
     {
-        "name": "Always Remember by Charlie Mackesy",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/818fhGP49iL._AC_SX679_.jpg",
-        "url": "https://amzn.to/3YOsC30?tag=whoaccepts-21",
-        "info": "Heartwarming illustrated book of wisdom and comfort from the creator of The Boy, the Mole, the Fox and the Horse — a Christmas No.1 bestseller perfect for thoughtful gifting and quiet reflection.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Charlie Mackesy", "illustrated book", "gift book", "inspiration"],
-        "pain_points": ["meaningful gifts", "comfort reading", "difficult times"],
-        "benefits": ["beautiful illustrations", "uplifting wisdom", "perfect gift", "emotional comfort"],
-        "price_tier": "gift essential",
-        "highlights": [
-            "From the creator of 10 million-selling The Boy, the Mole...",
-            "Beautiful hand-drawn illustrations on every page",
-            "Gentle wisdom for difficult times and everyday life",
-            "Christmas No.1 bestseller and perfect gift for anyone",
-            "Hardback presentation quality for lasting keepsake"
-        ],
-        "faqs": [
-            {"q": "Is this suitable for children?", "a": "Yes - the simple, profound messages resonate with all ages from children to adults."},
-            {"q": "How does it compare to The Boy, the Mole...?", "a": "Similar heartwarming style with new illustrations and wisdom - perfect companion book."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Guinness World Records 2026",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/8186fr4T+gL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4jheRDi?tag=whoaccepts-21",
+    "asin": "1913484815",
+    "info": "Guinness World Records 2026 is the latest annual edition containing newly verified records across science, nature, sports, gaming, and human achievement. Guinness states all records are officially verified by their adjudicators. The book spans 256 full-colour pages with photography throughout. Guinness World Records is the world's best-selling annual book and has been published every year since 1955.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Guinness World Records 2026 book UK",
+        "Guinness World Records annual gift UK",
+        "world records book children adults 2026",
+        "Christmas gift book facts ages 8 plus",
+        "Guinness Records 2026 hardback UK"
+    ],
+    "pain_points": [
+        "Finding a book gift that appeals to children and adults in the same household",
+        "Educational gifts that don't feel like schoolwork",
+        "Books that hold attention beyond the first sitting",
+        "Annual gift traditions that feel fresh each year with new content"
+    ],
+    "benefits": [
+        "New records and content in every annual edition",
+        "Guinness states all records are officially verified by adjudicators",
+        "256 full-colour pages with photography throughout",
+        "Covers science, nature, sports, gaming, and human achievement",
+        "Suitable for ages 8 and above — engaging for adults as well as children"
+    ],
+    "price_tier": "classic gift",
+    "highlights": [
+        "2026 edition with newly verified records across science, nature, sports, gaming, and human achievement",
+        "Guinness states all records are officially verified by Guinness World Records adjudicators",
+        "256 full-colour pages with photography throughout",
+        "Published annually since 1955 — the world's best-selling annual book",
+        "Suitable for ages 8 and above — consistently engaging for adults as well as children"
+    ],
+    "faqs": [
+        {
+            "q": "What age range is Guinness World Records 2026 suitable for?",
+            "a": "Guinness World Records states the book is suitable for ages 8 and above. The mix of photography, statistics, and short record descriptions makes it accessible and engaging for children while remaining genuinely interesting for adults — it is commonly bought as a family gift rather than purely a children's book."
+        },
+        {
+            "q": "Are the records in the book officially verified?",
+            "a": "Yes — Guinness World Records states all records featured in the book are officially verified by their team of adjudicators before publication. Records submitted by the public go through a formal verification process before being included."
+        },
+        {
+            "q": "Is there new content in the 2026 edition compared to previous years?",
+            "a": "Yes — each annual edition contains newly set and verified records not included in previous years, alongside updated statistics and new photography. Guinness World Records publishes a new edition every year specifically to capture the latest achievements."
+        }
+    ],
+    "hook_override": "The 2026 edition of the world's best-selling annual book — <b>Guinness states all records are officially verified by their adjudicators</b> before publication. 256 full-colour pages covering science, nature, sports, gaming, and human achievement, suitable for ages 8 and above and genuinely engaging for adults too.",
+    "gift_finder_tags": {
+        "recipient": ["child", "him", "her", "parent", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "easter", "justbecause"],
+        "why": "One of the most reliably received gift books for children and curious adults — new content every year means it never feels like a repeat gift, and the photography and record format hold attention in a way that standard non-fiction rarely does."
+    }
+},
+    
+   {
+    "name": "The 1% Club Official Quiz Book",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81I3J2AZbRL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4jlfWu3?tag=whoaccepts-21",
+    "asin": "0857506412",
+    "info": "The official quiz book companion to the hit ITV quiz show The 1% Club, hosted by Lee Mack. The book contains 100 logic-based questions organised in the same progressive difficulty structure as the show — from questions 90% of people can answer down to the elite 1% level. No general knowledge is required — all questions use lateral thinking and logic rather than memorised facts. Answers with explanations are included at the back.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "1% Club official quiz book UK",
+        "ITV 1% Club book Lee Mack",
+        "logic puzzle quiz book UK",
+        "lateral thinking quiz book gift",
+        "1% Club questions progressive difficulty"
+    ],
+    "pain_points": [
+        "Quiz books that favour players with strong general knowledge over logical thinkers",
+        "Puzzle books without a clear difficulty progression to challenge improving solvers",
+        "Looking for a gift for someone who watches The 1% Club and enjoys the format",
+        "Brain training books that feel like work rather than entertainment"
+    ],
+    "benefits": [
+        "100 logic-based questions — no general knowledge or memorisation required",
+        "Progressive difficulty from 90% accessibility down to the elite 1% level",
+        "Based on the official ITV show format hosted by Lee Mack",
+        "Suitable for solo solving or competitive group play",
+        "Answers with explanations included for learning from wrong answers"
+    ],
+    "price_tier": "bestseller value",
+    "highlights": [
+        "Official companion to the ITV quiz show The 1% Club hosted by Lee Mack",
+        "100 logic and lateral thinking questions — no general knowledge or memorisation required",
+        "Progressive difficulty from 90% level accessibility to the elite 1% challenge",
+        "Suitable for solo brain training or competitive group play",
+        "Full answers with explanations at the back of the book"
+    ],
+    "faqs": [
+        {
+            "q": "Do you need general knowledge to answer The 1% Club questions?",
+            "a": "No — the book follows the same format as the ITV show, where all questions are based on logic and lateral thinking rather than memorised facts. This means anyone can attempt them regardless of educational background or specialist knowledge."
+        },
+        {
+            "q": "How does the difficulty progression work?",
+            "a": "Questions are structured from most accessible — the type 90% of people would answer correctly — through to the hardest 1% questions that very few people get right. This mirrors the format of the ITV show and allows solvers to benchmark themselves against the national average."
+        },
+        {
+            "q": "Is this book suitable for use as a party or group quiz?",
+            "a": "Yes — the questions work well for group play where participants write answers simultaneously and compare results, recreating the competitive format of the TV show. The progressive difficulty structure also makes it suitable for building up to harder questions across multiple rounds."
+        }
+    ],
+    "hook_override": "The official companion to ITV's The 1% Club — <b>100 logic and lateral thinking questions organised from 90% accessibility down to the elite 1% level</b>. No general knowledge required throughout — all questions use reasoning rather than memorised facts, with full answers and explanations at the back.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A well-pitched gift for anyone who watches The 1% Club or enjoys logic puzzles — the progressive difficulty structure means it stays challenging regardless of how good the solver is, and the no-knowledge-required format makes it genuinely accessible to everyone."
+    }
+},
 
     {
-        "name": "Guinness World Records 2026",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/8186fr4T+gL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4jheRDi?tag=whoaccepts-21",
-        "info": "The iconic annual edition packed with thousands of amazing new records, facts, and photos — a perennial favourite gift for curious minds of all ages.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Guinness World Records", "kids book", "facts", "Christmas gift"],
-        "pain_points": ["educational gifts", "screen-free entertainment", "curious kids"],
-        "benefits": ["fascinating facts", "stunning photos", "all ages", "annual tradition"],
-        "price_tier": "classic gift",
-        "highlights": [
-            "Latest 2026 edition with brand new world records",
-            "Thousands of updated facts, stats, and achievements",
-            "Spectacular photography throughout 256 full-colour pages",
-            "Covers space, nature, sports, gaming, and human feats",
-            "The world's best-selling annual book"
-        ],
-        "faqs": [
-            {"q": "What age range is this suitable for?", "a": "Perfect for ages 8+ but fascinating for all ages - adults love it too!"},
-            {"q": "Are the records verified?", "a": "Yes - all records are officially verified by Guinness World Records adjudicators."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Diary of a Wimpy Kid: Partypooper by Jeff Kinney",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/91NDZEkcE7L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4pgyoVU?tag=whoaccepts-21",
+    "asin": "0241745160",
+    "info": "Diary of a Wimpy Kid: Partypooper is the latest instalment in Jeff Kinney's Diary of a Wimpy Kid series, which has sold over 250 million copies worldwide. The book follows Greg Heffley in a new standalone story and uses the same illustrated diary format as the rest of the series. Suitable for ages 8–12 though the series is widely read by younger and older readers. Each book works as a standalone story without requiring prior reading of the series.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Diary of a Wimpy Kid Partypooper UK",
+        "Jeff Kinney new book 2024 UK",
+        "Wimpy Kid latest book children gift",
+        "illustrated children's book ages 8 to 12 UK",
+        "reluctant readers book gift Christmas UK"
+    ],
+    "pain_points": [
+        "Children who resist reading books that don't have illustrations",
+        "Finding a new book in a series a child already loves",
+        "Gifts for children who prefer screens over reading",
+        "Books that feel too long or intimidating for reluctant readers"
+    ],
+    "benefits": [
+        "Part of the 250-million-selling Diary of a Wimpy Kid series",
+        "Illustrated diary format keeps reluctant readers engaged",
+        "Standalone story — no prior reading of the series required",
+        "Suitable for ages 8–12 with humour that crosses age groups",
+        "Hardback format suitable for a lasting collection"
+    ],
+    "price_tier": "kids bestseller",
+    "highlights": [
+        "The latest instalment in the Diary of a Wimpy Kid series — over 250 million copies sold worldwide",
+        "Illustrated diary format with Greg Heffley's handwritten style throughout",
+        "Standalone story — works independently without reading previous books in the series",
+        "Suitable for ages 8–12 — widely enjoyed by reluctant readers due to the illustrated format",
+        "Hardback format suitable for adding to an existing Wimpy Kid collection"
+    ],
+    "faqs": [
+        {
+            "q": "Does Partypooper need to be read after the previous Wimpy Kid books?",
+            "a": "No — Jeff Kinney designs each Diary of a Wimpy Kid book to work as a standalone story. Partypooper can be read without any prior knowledge of the series, though existing fans will be familiar with the characters and setting."
+        },
+        {
+            "q": "What age range is Diary of a Wimpy Kid: Partypooper suitable for?",
+            "a": "The series is officially aimed at ages 8–12, though the illustrated diary format and accessible humour mean it is widely enjoyed by younger children reading with a parent and older readers who grew up with the series. The content is age-appropriate throughout."
+        },
+        {
+            "q": "Is this a good book for a child who doesn't like reading?",
+            "a": "Diary of a Wimpy Kid is one of the most consistently recommended series for reluctant readers. The illustrated diary format, short paragraphs, and humorous tone reduce the visual density that puts many children off longer prose books, making it significantly more approachable than standard chapter books."
+        }
+    ],
+    "hook_override": "The latest Diary of a Wimpy Kid book from Jeff Kinney — <b>part of a series that has sold over 250 million copies worldwide</b>. The illustrated diary format makes it one of the most reliably recommended reads for reluctant readers aged 8–12, and each book works as a standalone story without needing to read the rest of the series first.",
+    "gift_finder_tags": {
+        "recipient": ["child"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "easter", "justbecause"],
+        "why": "The most reliably well-received book gift for a child aged 8–12 who is reluctant to read — the illustrated format, short paragraphs, and Greg Heffley's humour convert more non-readers than almost any other children's series currently in print."
+    }
+},
 
     {
-        "name": "The 1% Club Official Quiz Book",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81I3J2AZbRL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4jlfWu3?tag=whoaccepts-21",
-        "info": "Official companion to the hit ITV quiz show hosted by Lee Mack — packed with challenging logic puzzles and questions to test the sharpest minds at home.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["quiz book", "1% Club", "Lee Mack", "puzzle book"],
-        "pain_points": ["boredom", "brain training", "party entertainment"],
-        "benefits": ["logic puzzles", "no prior knowledge needed", "progressive difficulty", "TV show tie-in"],
-        "price_tier": "bestseller value",
-        "highlights": [
-            "Official questions from the hit ITV show",
-            "100 logic-based questions requiring no prior knowledge",
-            "Progressive difficulty from 90% to the elite 1%",
-            "Perfect for solo solving or competitive groups",
-            "Answers with explanations at the back"
-        ],
-        "faqs": [
-            {"q": "Do I need general knowledge to answer the questions?", "a": "No - all questions use logic and lateral thinking, not memorised facts."},
-            {"q": "How difficult are the questions?", "a": "They start accessible (90% level) and get progressively harder towards the infamous 1% questions."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Exit Strategy by Lee Child & Andrew Child (Jack Reacher)",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81BL0gt7LcL._AC_SX679_.jpg",
+    "url": "https://amzn.to/4si7U9k?tag=whoaccepts-21",
+    "asin": "0857505610",
+    "info": "Exit Strategy is a Jack Reacher thriller co-written by Lee Child and Andrew Child, continuing the series that has sold over 100 million copies worldwide. The book follows Reacher in a standalone high-stakes adventure with the fast-paced action and sharp dialogue the series is known for. Each Reacher book is designed to work independently — no prior reading of the series is required.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-29",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Jack Reacher Exit Strategy book UK",
+        "Lee Child Andrew Child Reacher thriller",
+        "Jack Reacher paperback gift UK",
+        "fast paced thriller crime fiction UK",
+        "Jack Reacher series standalone book UK"
+    ],
+    "pain_points": [
+        "Finding a thriller that holds attention from the first chapter without a slow build",
+        "Series books that require reading previous instalments to follow the plot",
+        "Gifts for crime and thriller readers who have already read the obvious titles",
+        "Long commutes or holidays without a compelling page-turner to hand"
+    ],
+    "benefits": [
+        "Part of the Jack Reacher series with over 100 million copies sold worldwide",
+        "Co-written by Lee Child and Andrew Child for series continuity",
+        "Fast-paced action and sharp dialogue from the first chapter",
+        "Standalone story — no prior Reacher reading required",
+        "Paperback format — practical for commuting, travel, and holidays"
+    ],
+    "price_tier": "paperback thriller",
+    "highlights": [
+        "Part of the Jack Reacher series — over 100 million copies sold worldwide",
+        "Co-written by Lee Child and Andrew Child maintaining the series' established voice",
+        "Standalone story — works independently without reading previous Reacher books",
+        "Fast-paced action thriller with sharp dialogue throughout",
+        "Paperback format — well-suited for commuting, travel, and holiday reading"
+    ],
+    "faqs": [
+        {
+            "q": "Do I need to read previous Jack Reacher books before Exit Strategy?",
+            "a": "No — Lee and Andrew Child design each Reacher book to work as a standalone story. Exit Strategy introduces the necessary context within the narrative, making it accessible to first-time Reacher readers as well as long-time fans of the series."
+        },
+        {
+            "q": "How does Andrew Child's co-writing affect the style of the book?",
+            "a": "Andrew Child has co-written several Reacher titles with Lee Child and has continued the series independently. The voice and structure remain consistent with the established series — fast-paced action, minimal description, and sharp dialogue. Existing fans of the series generally find the transition seamless."
+        },
+        {
+            "q": "Is Exit Strategy suitable as a gift for someone new to Jack Reacher?",
+            "a": "Yes — the standalone format and fast-paced opening make it a practical entry point into the series for new readers. If they enjoy it, the back catalogue of over 25 Reacher novels provides years of further reading."
+        }
+    ],
+    "hook_override": "A Jack Reacher thriller co-written by Lee Child and Andrew Child — <b>part of a series that has sold over 100 million copies worldwide</b>. Fast-paced action and sharp dialogue from the first chapter, with a standalone story that requires no prior reading of the series.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A reliable gift for any thriller reader — the Reacher series is one of the most consistently enjoyable crime fiction franchises in print, the standalone format means no homework required, and the paperback is practical for travel and commuting."
+    }
+},
 
     {
-        "name": "Diary of a Wimpy Kid: Partypooper by Jeff Kinney",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/91NDZEkcE7L._AC_SX679_.jpg",
-        "url": "https://amzn.to/4pgyoVU?tag=whoaccepts-21",
-        "info": "The latest hilarious instalment in the bestselling Diary of a Wimpy Kid series — perfect laugh-out-loud reading for kids and reluctant readers.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Wimpy Kid", "kids book", "reluctant readers", "funny book"],
-        "pain_points": ["kids won't read", "screen time", "age-appropriate humour"],
-        "benefits": ["laugh-out-loud funny", "illustrated", "quick reading", "series continuity"],
-        "price_tier": "kids bestseller",
-        "highlights": [
-            "Latest book in the 250-million-selling series",
-            "Greg Heffley's hilarious party disaster adventure",
-            "Illustrated format perfect for reluctant readers",
-            "Laugh-out-loud humour for ages 8-12",
-            "Hardback format for lasting collection"
-        ],
-        "faqs": [
-            {"q": "Do I need to read previous books first?", "a": "No - each Wimpy Kid book works as a standalone story while following Greg's ongoing life."},
-            {"q": "What reading age is this suitable for?", "a": "Perfect for ages 8-12, though many younger and older readers enjoy the series too."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "The Secret of Secrets by Dan Brown",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81dHhoARp9L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4aBYsaq?tag=whoaccepts-21",
+    "asin": "1787634558",
+    "info": "The Secret of Secrets is a new mystery thriller by Dan Brown, author of The Da Vinci Code which has sold over 80 million copies worldwide. The book follows Dan Brown's signature approach of blending historical codes, symbols, and conspiracy across multiple international settings at a fast pace. Check the current Amazon UK listing for confirmed series details and chapter count.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "The Secret of Secrets Dan Brown UK",
+        "Dan Brown new book 2024 thriller",
+        "Dan Brown mystery conspiracy hardback UK",
+        "Da Vinci Code author new novel UK",
+        "hardback thriller gift Christmas UK"
+    ],
+    "pain_points": [
+        "Wanting a genuinely page-turning thriller from a proven author",
+        "Holiday or airport reading that holds attention across long journeys",
+        "Gifts for Dan Brown fans waiting for a new release",
+        "Hardback thrillers that work equally well as a gift or personal read"
+    ],
+    "benefits": [
+        "New thriller from Dan Brown — author of The Da Vinci Code",
+        "Signature blend of historical codes, symbols, and conspiracy",
+        "Fast-paced globe-trotting narrative across multiple settings",
+        "Hardback first edition format suitable as a gift",
+        "Accessible to new readers and existing Dan Brown fans alike"
+    ],
+    "price_tier": "hardback bestseller",
+    "highlights": [
+        "New thriller from Dan Brown — author of The Da Vinci Code, which has sold over 80 million copies",
+        "Signature blend of historical codes, symbols, conspiracy, and international settings",
+        "Fast-paced narrative structure consistent with Brown's established thrillers",
+        "Hardback format — suitable as a first edition gift for Dan Brown fans",
+        "Check the current Amazon UK listing for confirmed series and plot details"
+    ],
+    "faqs": [
+        {
+            "q": "Is The Secret of Secrets part of the Robert Langdon series?",
+            "a": "Check the current Amazon UK listing for confirmed series details for this title. Dan Brown has written both Robert Langdon series books and standalone thrillers — the listing will confirm whether this is a continuation of the Langdon series or a new standalone narrative."
+        },
+        {
+            "q": "How does The Secret of Secrets compare to The Da Vinci Code?",
+            "a": "Dan Brown's books consistently follow a similar structure — a fast-paced race against time, historical codes and symbols, international settings, and twist-driven plotting. Readers who enjoyed The Da Vinci Code, Angels & Demons, or Inferno will find the same approach in his newer work."
+        },
+        {
+            "q": "Is this a good gift for someone who hasn't read Dan Brown before?",
+            "a": "Yes — Dan Brown's thrillers are designed to be accessible to new readers without requiring familiarity with previous books. The fast pacing and code-based mysteries make them a reliable gateway into thriller fiction for readers who don't normally gravitate towards the genre."
+        }
+    ],
+    "hook_override": "A new thriller from Dan Brown — <b>author of The Da Vinci Code, which has sold over 80 million copies worldwide</b>. His signature blend of historical codes, symbols, conspiracy, and fast-paced international settings returns in hardback first edition format.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "parent", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "A safe and genuinely appreciated gift for any thriller reader — Dan Brown's reputation for page-turning plotting means even non-regular readers tend to finish his books, and the hardback format makes it presentable as a standalone Christmas gift."
+    }
+},
 
     {
-        "name": "Exit Strategy by Lee Child & Andrew Child (Jack Reacher)",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81BL0gt7LcL._AC_SX679_.jpg",
-        "url": "https://amzn.to/4si7U9k?tag=whoaccepts-21",
-        "info": "Another gripping thriller in the iconic Jack Reacher series — high-stakes action and sharp plotting for fans of fast-paced crime fiction.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Jack Reacher", "thriller", "Lee Child", "crime fiction"],
-        "pain_points": ["boring commutes", "holiday reading", "series completion"],
-        "benefits": ["page-turning", "familiar character", "fast-paced", "standalone story"],
-        "price_tier": "paperback thriller",
-        "highlights": [
-            "Latest instalment in the 100-million-selling series",
-            "Jack Reacher faces his most personal case yet",
-            "Co-written by Lee and Andrew Child for fresh energy",
-            "Fast-paced action with trademark sharp dialogue",
-            "Works as standalone or series continuation"
-        ],
-        "faqs": [
-            {"q": "Do I need to read previous Reacher books first?", "a": "No - each book works independently though long-time fans will appreciate character continuity."},
-            {"q": "How does Andrew Child's co-writing affect the style?", "a": "Seamless continuation of Lee Child's voice with added contemporary edge."}
-        ],
-        "date_added": "2025-12-29"
-    },
+    "name": "Sunrise on the Reaping by Suzanne Collins (Hunger Games)",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/71mC7kMhg6L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4avIgaJ?tag=whoaccepts-21",
+    "asin": "070234057X",
+    "info": "Sunrise on the Reaping is a prequel novel in Suzanne Collins' Hunger Games series, set during the 50th Hunger Games — the Second Quarter Quell — and following a young Haymitch Abernathy. The Hunger Games trilogy has sold over 100 million copies worldwide. Collins states the book explores the seeds of rebellion and the political forces shaping Panem decades before the events of the original trilogy. Recommended for ages 12 and above due to violence and mature themes.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Sunrise on the Reaping Suzanne Collins UK",
+        "Hunger Games prequel book UK",
+        "Haymitch Abernathy Hunger Games novel",
+        "Suzanne Collins new Hunger Games book 2025",
+        "YA dystopian fiction gift UK"
+    ],
+    "pain_points": [
+        "Hunger Games fans who have finished the original trilogy and want more",
+        "YA readers looking for a new entry point into the Hunger Games universe",
+        "Gifts for dystopian fiction readers who already own the main series",
+        "Finding a substantial hardback gift for a teenage or young adult reader"
+    ],
+    "benefits": [
+        "Expands the Hunger Games universe with the backstory of the Second Quarter Quell",
+        "Follows young Haymitch Abernathy — a character central to the original trilogy",
+        "Written by Suzanne Collins — author of the 100-million-selling original trilogy",
+        "Works as a standalone story with prior knowledge of Panem enriching the experience",
+        "Hardback first edition format suitable as a gift for dedicated fans"
+    ],
+    "price_tier": "YA bestseller",
+    "highlights": [
+        "Prequel set during the 50th Hunger Games — the Second Quarter Quell — following young Haymitch Abernathy",
+        "Written by Suzanne Collins — author of the Hunger Games trilogy which has sold over 100 million copies",
+        "Explores the political forces and seeds of rebellion in Panem decades before the original trilogy",
+        "Recommended for ages 12 and above — contains violence and mature themes consistent with the series",
+        "Hardback first edition — suitable as a gift for dedicated Hunger Games fans"
+    ],
+    "faqs": [
+        {
+            "q": "Do I need to read the original Hunger Games trilogy before Sunrise on the Reaping?",
+            "a": "Prior reading of the original trilogy is recommended for the fullest experience — knowledge of Haymitch Abernathy's role in the main series significantly enriches the prequel's impact. The book can be read as a standalone dystopian story, but readers unfamiliar with Panem will miss substantial context."
+        },
+        {
+            "q": "Is Sunrise on the Reaping suitable for younger readers?",
+            "a": "Suzanne Collins rates the book for ages 12 and above, consistent with the original trilogy. The book contains violence and mature political themes in keeping with the established tone of the Hunger Games series."
+        },
+        {
+            "q": "How does Sunrise on the Reaping connect to The Ballad of Songbirds and Snakes?",
+            "a": "Both are Hunger Games prequels set before the events of the original trilogy — The Ballad of Songbirds and Snakes follows a young President Snow, while Sunrise on the Reaping focuses on Haymitch Abernathy during the 50th Games. They are set in different eras and can be read independently of each other."
+        }
+    ],
+    "hook_override": "A Hunger Games prequel by Suzanne Collins — <b>set during the 50th Hunger Games and following a young Haymitch Abernathy</b>, the mentor central to the original trilogy. From the author of the 100-million-selling series, in hardback first edition format.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "child", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "The obvious gift for any Hunger Games fan who has finished the original trilogy — the focus on young Haymitch makes it compelling for readers already invested in the character, and the hardback format makes it feel like a proper addition to a collection."
+    }
+},
 
     {
-        "name": "The Secret of Secrets by Dan Brown",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81dHhoARp9L._AC_SX679_.jpg",
-        "url": "https://amzn.to/4aBYsaq?tag=whoaccepts-21",
-        "info": "The highly anticipated new mystery thriller from the master of conspiracies — packed with codes, symbols, and globe-trotting intrigue.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Dan Brown", "thriller", "mystery", "conspiracy"],
-        "pain_points": ["holiday reading", "airport books", "page-turner needed"],
-        "benefits": ["fast-paced", "codes and puzzles", "global settings", "twist ending"],
-        "price_tier": "hardback bestseller",
-        "highlights": [
-            "First new Dan Brown thriller in years",
-            "Signature blend of history, art, and conspiracy",
-            "Racing against time across multiple countries",
-            "Complex codes and symbols to unravel",
-            "Hardback first edition for collectors"
-        ],
-        "faqs": [
-            {"q": "Is this part of the Robert Langdon series?", "a": "Information not confirmed - check the book description for series details."},
-            {"q": "How does it compare to The Da Vinci Code?", "a": "Classic Dan Brown style with modern twists - fans of his previous work will love it."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "Onyx Storm by Rebecca Yarros (Empyrean Series)",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/81dY-4XtCXL._AC_SX679_.jpg",
+    "url": "https://amzn.to/48Ysbt5?tag=whoaccepts-21",
+    "asin": "0349437068",
+    "info": "Onyx Storm is the third book in Rebecca Yarros' Empyrean series, continuing directly from the cliffhanger ending of Iron Flame. The series began with Fourth Wing, which became one of the fastest-selling adult fantasy novels in publishing history. The book contains adult romantic content consistent with the previous two instalments. Reading Fourth Wing and Iron Flame first is required — Onyx Storm does not work as a standalone entry.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Onyx Storm Rebecca Yarros UK",
+        "Empyrean series book 3 UK",
+        "Fourth Wing sequel Onyx Storm",
+        "romantasy dragon series hardback UK",
+        "Rebecca Yarros new book 2025 UK"
+    ],
+    "pain_points": [
+        "Empyrean series fans waiting for the continuation after Iron Flame's cliffhanger",
+        "Romantasy readers who have finished Fourth Wing and Iron Flame and need the next instalment",
+        "Finding a genuinely anticipated gift for an adult fantasy reader",
+        "Gifts for someone mid-series who needs the next book to continue"
+    ],
+    "benefits": [
+        "Third instalment in the Empyrean series following directly from Iron Flame",
+        "Continues Violet and Xaden's story with higher political and personal stakes",
+        "From the author whose debut series became one of the fastest-selling in adult fantasy history",
+        "Hardback format suitable as a gift for dedicated series fans",
+        "Adult romantic content consistent with the established tone of the series"
+    ],
+    "price_tier": "romantasy phenomenon",
+    "highlights": [
+        "Third book in Rebecca Yarros' Empyrean series — continues directly from Iron Flame's cliffhanger",
+        "Fourth Wing became one of the fastest-selling adult fantasy novels in publishing history",
+        "Higher stakes for Violet and Xaden with expanded dragon lore and political conflict",
+        "Adult romantic content consistent with Fourth Wing and Iron Flame",
+        "Must read Fourth Wing and Iron Flame first — does not work as a standalone entry"
+    ],
+    "faqs": [
+        {
+            "q": "Can Onyx Storm be read without reading Fourth Wing and Iron Flame first?",
+            "a": "No — Onyx Storm continues directly from the cliffhanger ending of Iron Flame and assumes full knowledge of both previous books. Reading Fourth Wing and Iron Flame first is essential before starting Onyx Storm."
+        },
+        {
+            "q": "What is the adult content level in Onyx Storm?",
+            "a": "Onyx Storm contains adult romantic content consistent with the heat level established in Fourth Wing and Iron Flame. It is intended for adult readers — the series is not suitable for younger teenagers despite the fantasy setting."
+        },
+        {
+            "q": "How many books will the Empyrean series contain?",
+            "a": "Rebecca Yarros has indicated the Empyrean series will continue beyond Onyx Storm. Check the current Amazon UK listing and the author's official channels for the most up-to-date information on the planned series length."
+        }
+    ],
+    "hook_override": "The third book in Rebecca Yarros' Empyrean series — <b>continuing directly from Iron Flame's cliffhanger with higher stakes for Violet and Xaden</b>. Fourth Wing became one of the fastest-selling adult fantasy novels in publishing history. Requires reading Fourth Wing and Iron Flame first — adult romantic content throughout.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend", "partner"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "justbecause"],
+        "why": "The obvious gift for anyone who has read Fourth Wing and Iron Flame and is waiting for the next instalment — if they're already in the series this is exactly what they want, making it one of the most targeted and appreciated book gifts available right now."
+    }
+},
 
     {
-        "name": "Sunrise on the Reaping by Suzanne Collins (Hunger Games)",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/71mC7kMhg6L._AC_SX679_.jpg",
-        "url": "https://amzn.to/4avIgaJ?tag=whoaccepts-21",
-        "info": "The gripping new prequel to The Hunger Games series — returning to the world of Panem with high-stakes drama and unforgettable characters.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Hunger Games", "Suzanne Collins", "dystopian", "YA fiction"],
-        "pain_points": ["series completion", "dystopian fans", "strong female characters"],
-        "benefits": ["Panem backstory", "political intrigue", "emotional depth", "series expansion"],
-        "price_tier": "YA bestseller",
-        "highlights": [
-            "New prequel expanding the Hunger Games universe",
-            "Set during the Second Quarter Quell (50th Games)",
-            "Young Haymitch Abernathy's traumatic Games",
-            "Political intrigue and rebellion seeds",
-            "Hardback first edition for dedicated fans"
-        ],
-        "faqs": [
-            {"q": "Do I need to read the original trilogy first?", "a": "Recommended - this prequel enriches the main series but works best with prior knowledge of Panem."},
-            {"q": "Is this suitable for younger readers?", "a": "Ages 12+ like the original series - contains violence and mature themes."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
+    "category": "Books",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag=whoaccepts-21",
+    "asin": "0241743982",
+    "info": "The Impossible Fortune is the fifth book in Richard Osman's Thursday Murder Club series, following Elizabeth, Joyce, Ibrahim, and Ron in a new standalone mystery. The Thursday Murder Club series has sold over five million copies in the UK alone. Each instalment works as a standalone mystery while rewarding readers familiar with the characters' ongoing relationships. Hardback format suitable as a gift for series fans and new readers alike.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "The Impossible Fortune Richard Osman UK",
+        "Thursday Murder Club book 5 UK",
+        "Richard Osman new book 2025",
+        "cosy crime mystery hardback gift UK",
+        "Thursday Murder Club series latest book"
+    ],
+    "pain_points": [
+        "Thursday Murder Club fans wanting the latest instalment",
+        "Finding a cosy crime gift for someone who prefers warmth and humour over dark thrillers",
+        "Gifts for older readers who enjoy British mystery fiction",
+        "Series books that work for both existing fans and new readers"
+    ],
+    "benefits": [
+        "Fifth instalment in the Thursday Murder Club series — over five million UK copies sold",
+        "Standalone mystery — accessible to new readers as well as existing fans",
+        "Richard Osman's blend of clever plotting, British humour, and emotional warmth",
+        "Hardback format suitable as a gift for series collectors",
+        "Features the established characters Elizabeth, Joyce, Ibrahim, and Ron"
+    ],
+    "price_tier": "cosy crime champion",
+    "highlights": [
+        "Fifth book in the Thursday Murder Club series — over five million copies sold in the UK",
+        "Standalone mystery following Elizabeth, Joyce, Ibrahim, and Ron in a new case",
+        "Richard Osman's signature blend of clever plotting, wit, and emotional warmth throughout",
+        "Works as a standalone entry — new readers can start here without prior series knowledge",
+        "Hardback format — suitable as a gift for series collectors and new readers alike"
+    ],
+    "faqs": [
+        {
+            "q": "Do I need to read the previous Thursday Murder Club books before The Impossible Fortune?",
+            "a": "No — Richard Osman structures each Thursday Murder Club mystery to work as a standalone story. New readers can start with The Impossible Fortune without prior knowledge of the series. Existing fans will have a richer experience from knowing the characters' history, but it is not required."
+        },
+        {
+            "q": "Is The Impossible Fortune suitable as a gift for someone new to Richard Osman?",
+            "a": "Yes — the standalone format and accessible tone make any Thursday Murder Club book a practical entry point for new readers. If they enjoy it, the back catalogue of four previous books provides immediate further reading."
+        },
+        {
+            "q": "How does the tone compare to darker crime fiction?",
+            "a": "The Thursday Murder Club series is consistently described as cosy crime — the mysteries involve serious cases but the tone prioritises warmth, humour, and character over graphic violence or darkness. It is a reliable choice for readers who enjoy clever plotting without the bleakness of Scandinavian noir or hard-boiled crime fiction."
+        }
+    ],
+    "hook_override": "The fifth Thursday Murder Club mystery from Richard Osman — <b>a series that has sold over five million copies in the UK alone</b>. Elizabeth, Joyce, Ibrahim, and Ron return in a new standalone case with Osman's signature blend of clever plotting, British humour, and genuine emotional warmth.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["books"],
+        "occasion": ["christmas", "birthday", "mothersday", "justbecause"],
+        "why": "One of the most reliably well-received book gifts for any adult reader who enjoys British mystery fiction — the cosy tone and lovable characters make it accessible to people who don't normally read crime, and the standalone format means it works for both existing fans and complete newcomers."
+    }
+},
 
     {
-        "name": "Onyx Storm by Rebecca Yarros (Empyrean Series)",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/81dY-4XtCXL._AC_SX679_.jpg",
-        "url": "https://amzn.to/48Ysbt5?tag=whoaccepts-21",
-        "info": "The highly anticipated third book in the addictive romantasy Empyrean series — dragons, romance, and epic battles for fans of Fourth Wing and Iron Flame.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Rebecca Yarros", "Fourth Wing", "romantasy", "dragons"],
-        "pain_points": ["series continuation", "romance fantasy", "emotional rollercoaster"],
-        "benefits": ["dragon battles", "spicy romance", "plot twists", "epic fantasy"],
-        "price_tier": "romantasy phenomenon",
-        "highlights": [
-            "Eagerly awaited third book in viral romantasy series",
-            "Violet and Xaden's story continues with higher stakes",
-            "More dragon battles, political intrigue, and romance",
-            "Answers burning questions from Iron Flame's cliffhanger",
-            "Hardback limited edition with exclusive content"
-        ],
-        "faqs": [
-            {"q": "Can I start with this book?", "a": "No - you must read Fourth Wing and Iron Flame first as this continues their story directly."},
-            {"q": "How spicy is the romance?", "a": "Adult content - similar heat level to previous books in the series."}
-        ],
-        "date_added": "2025-12-28"
-    },
-
-    {
-        "name": "The Impossible Fortune by Richard Osman (Thursday Murder Club 5)",
-        "category": "Books",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/71eTwnmHa3L._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Impossible-Fortune-multi-million-bestselling-Thursday/dp/0241743982?tag=whoaccepts-21",
-        "info": "The latest cosy crime bestseller in the multi-million selling Thursday Murder Club series — perfect for fans of clever, heartwarming murder mysteries.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Richard Osman", "Thursday Murder Club", "cosy crime", "mystery"],
-        "pain_points": ["cosy mystery", "heartwarming", "British humour"],
-        "benefits": ["lovable characters", "clever plotting", "laugh-out-loud", "comfort reading"],
-        "price_tier": "cosy crime champion",
-        "highlights": [
-            "Fifth instalment in the beloved Thursday Murder Club series",
-            "Elizabeth, Joyce, Ibrahim, and Ron tackle their biggest case",
-            "Perfect blend of mystery, humour, and heart",
-            "Richard Osman's trademark wit and clever plotting",
-            "Hardback format for series collectors"
-        ],
-        "faqs": [
-            {"q": "Do I need to read the previous books first?", "a": "Each mystery stands alone, but you'll love the characters more having followed their journey."},
-            {"q": "Is this as funny as previous books?", "a": "Yes - Richard Osman's signature humour and heart remain throughout."}
-        ],
-        "date_added": "2025-12-28"
-    },
-
-    {
-        "name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
-        "category": "Books",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/81akIVih9NL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/UK-Driving-Theory-Test-Kit/dp/B09D84M7C4?tag=whoaccepts-21",
-        "info": "Complete 2025 theory test kit with official Highway Code book, practice questions, hazard perception — essential for passing the UK driving test. Massive demand spike for new learners.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["driving test", "Highway Code", "theory test", "learner driver"],
-        "pain_points": ["passing driving test", "theory revision", "hazard perception"],
-        "benefits": ["official content", "practice questions", "complete preparation", "2025 updated"],
-        "price_tier": "essential kit",
-        "highlights": [
-            "Official 2025 Highway Code book with latest rules",
-            "1000+ practice questions covering all test topics",
-            "Hazard perception training and mock tests",
-            "Covers cars, motorcycles, and LGVs",
-            "Everything needed to pass first time"
-        ],
-        "faqs": [
-            {"q": "Is this the official DVSA material?", "a": "Yes - includes the official Highway Code and DVSA-approved practice content."},
-            {"q": "Does it cover the 2025 test changes?", "a": "Yes - fully updated for 2025 with all current rules and test formats."}
-        ],
-        "date_added": "2025-12-26"
-    },
+    "name": "Driving Theory Test Kit UK 2025 with Highway Code Book",
+    "category": "Books",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/81akIVih9NL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/UK-Driving-Theory-Test-Kit/dp/B09D84M7C4?tag=whoaccepts-21",
+    "asin": "B09D84M7C4",
+    "info": "A complete UK driving theory test preparation kit including the official Highway Code book and DVSA-approved practice content for 2025. The kit covers over 1,000 practice questions across all theory test topics, hazard perception training, and mock tests. Updated for the current 2025 test format and rules. Covers cars, motorcycles, and LGVs. Check the current Amazon UK listing to confirm the exact contents and edition year of the kit.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "UK driving theory test kit 2025",
+        "Highway Code book 2025 UK",
+        "DVSA theory test practice questions UK",
+        "learner driver theory test kit UK",
+        "driving theory test preparation book UK"
+    ],
+    "pain_points": [
+        "Learner drivers unsure which revision materials are officially approved",
+        "Buying the Highway Code and practice questions separately at greater cost",
+        "Wanting a complete preparation package rather than individual books",
+        "Theory test content that hasn't been updated for the current year's test format"
+    ],
+    "benefits": [
+        "Official Highway Code book included alongside DVSA-approved practice content",
+        "1,000+ practice questions covering all theory test topic areas",
+        "Hazard perception training and mock tests included",
+        "Updated for 2025 test format and current road rules",
+        "Covers cars, motorcycles, and LGVs in one kit"
+    ],
+    "price_tier": "essential kit",
+    "highlights": [
+        "Includes the official Highway Code book updated for 2025 road rules",
+        "1,000+ DVSA-approved practice questions covering all theory test topic areas",
+        "Hazard perception training and mock tests for complete preparation",
+        "Covers car, motorcycle, and LGV theory test requirements",
+        "Check the current Amazon UK listing to confirm the exact kit contents and edition"
+    ],
+    "faqs": [
+        {
+            "q": "Is this kit based on official DVSA content?",
+            "a": "The kit includes the official Highway Code book and states it uses DVSA-approved practice content. Check the current Amazon UK listing and the publisher's details to confirm the official status of each component included in the kit."
+        },
+        {
+            "q": "Is the content updated for the 2025 theory test format?",
+            "a": "The kit is stated as updated for 2025. Road rules and test formats do change periodically — check the current Amazon UK listing for the specific publication date of the Highway Code edition included to confirm it reflects the most recent updates."
+        },
+        {
+            "q": "Does this cover hazard perception as well as the multiple choice questions?",
+            "a": "Yes — the kit includes hazard perception training and mock tests alongside the 1,000+ multiple choice practice questions, covering both components of the UK driving theory test in one package."
+        }
+    ],
+    "hook_override": "A complete UK theory test preparation kit with <b>the official Highway Code book, 1,000+ DVSA-approved practice questions, and hazard perception training</b> — updated for the 2025 test format. Covers cars, motorcycles, and LGVs in one package rather than buying each component separately.",
+    "gift_finder_tags": {
+        "recipient": ["child", "friend", "him", "her"],
+        "interests": ["books"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, well-timed gift for anyone learning to drive — buying the Highway Code, practice questions, and hazard perception prep separately costs more and risks using outdated editions, making a current complete kit a genuinely useful present."
+    }
+},
 
     # ============================================================================
     # HEALTH & PERSONAL CARE
     # ============================================================================
     {
-        "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
-        "category": "Health & Personal Care",
-        "season": "Christmas, Easter",
-        "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag=whoaccepts-21",
-        "info": "Shiatsu massage pillow with deep-kneading nodes and soothing heat function — versatile for neck, back, shoulders, legs, and feet to relieve muscle tension and promote relaxation. Popular wellness gift for stress relief during the holiday season and beyond.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["massage pillow", "shiatsu", "heat therapy", "muscle relief"],
-        "pain_points": ["muscle tension", "back pain", "stress relief", "neck stiffness"],
-        "benefits": ["deep kneading", "soothing heat", "versatile use", "portable"],
-        "price_tier": "wellness value",
-        "highlights": [
-            "8 deep-kneading shiatsu nodes replicate professional massage",
-            "Soothing heat function penetrates tired muscles",
-            "Versatile design for neck, back, shoulders, legs, and feet",
-            "Adjustable intensity with direction control",
-            "Car adapter included for use anywhere"
-        ],
-        "faqs": [
-            {"q": "Can I use this in the car?", "a": "Yes - includes car adapter for relief during commutes and long journeys."},
-            {"q": "Is the heat optional?", "a": "Yes - heat function can be used independently or combined with massage."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "WOQQW Back Massager with Heat, Shiatsu Back and Neck Massager, Deeper Tissue Kneading Massage Pillow for Shoulder, Leg, Foot, Body",
+    "category": "Health & Personal Care",
+    "season": "Christmas, Easter",
+    "image": "https://m.media-amazon.com/images/I/81fiFvLzZ1L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Massager-Shiatsu-Kneading-Massage-Shoulder/dp/B08MYSL6T8?tag=whoaccepts-21",
+    "asin": "B08MYSL6T8",
+    "info": "The WOQQW Shiatsu Massage Pillow has 8 deep-kneading nodes designed to replicate the pressure and rotation of a shiatsu massage across multiple body areas including the neck, back, shoulders, legs, and feet. A soothing heat function operates independently or in combination with the massage. Direction control allows the nodes to rotate in both directions. A car adapter is included for use during commutes and travel.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "WOQQW shiatsu massage pillow UK",
+        "back neck massager with heat UK",
+        "shiatsu kneading massage pillow home",
+        "deep tissue massage pillow shoulders UK",
+        "massage pillow car adapter heat function"
+    ],
+    "pain_points": [
+        "Muscle tension and stiffness in the neck, shoulders, and back after desk work",
+        "Professional massage appointments being expensive and inconvenient to book regularly",
+        "Massage devices that only work on one body area",
+        "Needing tension relief during long car commutes or journeys"
+    ],
+    "benefits": [
+        "8 shiatsu nodes replicate deep kneading pressure across multiple body areas",
+        "Heat function operates independently or combined with massage",
+        "Direction control — nodes rotate in both directions for varied pressure",
+        "Versatile for neck, back, shoulders, legs, and feet",
+        "Car adapter included for use during commutes and travel"
+    ],
+    "price_tier": "wellness value",
+    "highlights": [
+        "8 deep-kneading shiatsu nodes designed to replicate professional massage pressure and rotation",
+        "Soothing heat function operates independently or in combination with the kneading nodes",
+        "Direction control allows nodes to rotate both clockwise and anticlockwise",
+        "Suitable for use on neck, back, shoulders, legs, and feet in a single device",
+        "Car adapter included — suitable for home use and during commutes or long journeys"
+    ],
+    "faqs": [
+        {
+            "q": "Can the WOQQW massager be used in the car?",
+            "a": "Yes — a car adapter is included, allowing the massager to be used during commutes and long journeys. It can be positioned against a car seat for back and neck use while driving or as a passenger."
+        },
+        {
+            "q": "Is the heat function optional?",
+            "a": "Yes — the heat function can be used independently without activating the massage nodes, or combined with the shiatsu kneading for simultaneous heat and massage. Both functions can be controlled separately."
+        },
+        {
+            "q": "Is this suitable for someone with back pain?",
+            "a": "The massager is designed for muscle tension relief and relaxation rather than as a medical treatment for diagnosed back conditions. If you have a diagnosed spinal condition, disc problem, or are under medical supervision for back pain, consult your GP before use."
+        }
+    ],
+    "hook_override": "A shiatsu massage pillow with <b>8 deep-kneading nodes and an optional heat function that works on the neck, back, shoulders, legs, and feet</b> — direction control lets nodes rotate both ways for varied pressure. A car adapter is included for relief during commutes as well as home use.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["health", "home"],
+        "occasion": ["christmas", "birthday", "mothersday", "justbecause"],
+        "why": "A genuinely useful wellness gift for anyone who carries tension in their neck or shoulders — the versatility across multiple body areas and the included car adapter make it more practical than a single-purpose massage device."
+    }
+},
 
     {
-        "name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
-        "category": "Health & Personal Care",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Magnesium-Glycinate-Complex-Supplements-Bisglycinate/dp/B0C9VVCL12?tag=whoaccepts-21",
-        "info": "High-absorption 3-in-1 magnesium (glycinate, citrate, malate) — supports sleep, muscle recovery, energy, and stress relief. Consistent bestseller for wellness routines.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["magnesium supplement", "sleep support", "muscle recovery", "stress relief"],
-        "pain_points": ["poor sleep", "muscle cramps", "stress", "low energy"],
-        "benefits": ["better sleep", "muscle support", "high absorption", "3-in-1 formula"],
-        "price_tier": "supplement staple",
-        "highlights": [
-            "3-in-1 complex: glycinate, citrate, malate for full benefits",
-            "1800mg per serving of highly absorbable forms",
-            "Supports sleep quality, muscle function, and energy",
-            "Gentle on stomach - no laxative effect",
-            "Vegan-friendly capsules, 3-month supply"
-        ],
-        "faqs": [
-            {"q": "When is the best time to take magnesium?", "a": "Evening is ideal for sleep support, though it can be taken anytime for general wellness."},
-            {"q": "Will this help with leg cramps?", "a": "Yes - magnesium is essential for muscle function and many users report reduced cramping."}
-        ],
-        "date_added": "2025-12-26"
-    },
+    "name": "Magnesium Glycinate 3-in-1 Complex 1800mg Capsules",
+    "category": "Health & Personal Care",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/717wIpxmJdL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Magnesium-Glycinate-Complex-Supplements-Bisglycinate/dp/B0C9VVCL12?tag=whoaccepts-21",
+    "asin": "B0C9VVCL12",
+    "info": "A 3-in-1 magnesium supplement combining magnesium glycinate, citrate, and malate at 1800mg per serving. Magnesium glycinate is widely used for its higher absorption rate and gentler effect on digestion compared to magnesium oxide. The supplement is vegan-friendly and the pack provides approximately a 3-month supply. The NHS states magnesium contributes to normal muscle function, energy-yielding metabolism, and the reduction of tiredness and fatigue.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "magnesium glycinate supplement UK",
+        "3 in 1 magnesium complex capsules UK",
+        "magnesium citrate malate glycinate 1800mg",
+        "high absorption magnesium sleep support UK",
+        "vegan magnesium supplement 3 month supply"
+    ],
+    "pain_points": [
+        "Standard magnesium oxide supplements causing digestive discomfort",
+        "Poor sleep quality that isn't addressed by basic sleep hygiene alone",
+        "Muscle cramps and tension during or after exercise",
+        "Low energy and fatigue that persists despite adequate sleep"
+    ],
+    "benefits": [
+        "Three forms of magnesium — glycinate, citrate, and malate — in one capsule",
+        "Magnesium glycinate is widely regarded for higher absorption and digestive tolerance",
+        "1800mg per serving from highly bioavailable forms",
+        "Approximately 3-month supply per pack",
+        "Vegan-friendly capsule format"
+    ],
+    "price_tier": "supplement staple",
+    "highlights": [
+        "3-in-1 formula combining magnesium glycinate, citrate, and malate at 1800mg per serving",
+        "Magnesium glycinate is widely used for its higher absorption rate and gentler digestive effect",
+        "The NHS states magnesium contributes to normal muscle function and reduction of tiredness",
+        "Vegan-friendly capsules — approximately 3-month supply per pack",
+        "Gentler on digestion than magnesium oxide — less likely to cause laxative effects"
+    ],
+    "faqs": [
+        {
+            "q": "When is the best time to take magnesium glycinate?",
+            "a": "Evening is a commonly recommended time for magnesium glycinate due to its association with relaxation and sleep support. It can also be taken at any time of day for general muscle and energy benefits. Check the product label for the manufacturer's specific dosage guidance."
+        },
+        {
+            "q": "Will magnesium help with muscle cramps?",
+            "a": "The NHS states magnesium contributes to normal muscle function. Magnesium deficiency is associated with muscle cramps in some individuals. Supplementation may help where dietary magnesium intake is insufficient, though persistent or severe cramping should be discussed with a GP."
+        },
+        {
+            "q": "What is the difference between magnesium glycinate, citrate, and malate?",
+            "a": "Magnesium glycinate is bonded to glycine and is commonly used for its higher absorption and gentler digestive effect. Magnesium citrate is bonded to citric acid and is widely available. Magnesium malate is bonded to malic acid and is associated with energy metabolism. Combining all three in one supplement is intended to provide broader coverage of magnesium's functions."
+        }
+    ],
+    "hook_override": "A 3-in-1 magnesium supplement combining <b>glycinate, citrate, and malate at 1800mg per serving</b> — magnesium glycinate is widely used for its higher absorption rate and gentler effect on digestion compared to standard magnesium oxide. The NHS states magnesium contributes to normal muscle function and reduction of tiredness. Approximately 3-month supply per pack.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A genuinely useful wellness gift for anyone who exercises regularly, sleeps poorly, or experiences muscle tension — the 3-in-1 formula and 3-month supply make it more practical than a basic single-form magnesium supplement."
+    }
+},
 
     # ============================================================================
     # PET SUPPLIES
     # ============================================================================
     {
-        "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
-        "category": "Pet Supplies",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag=whoaccepts-21",
-        "info": "Non-clumping white hygiene cat litter made from natural quartz sand and lime — highly absorbent, locks in odours, and prevents bacterial growth for superior freshness. UK's leading choice for clean, hygienic litter trays and happy cats.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["cat litter", "Catsan", "odour control", "hygiene litter"],
-        "pain_points": ["litter tray smell", "tracking", "frequent changes"],
-        "benefits": ["superior odour control", "highly absorbent", "natural ingredients", "low dust"],
-        "price_tier": "premium cat care",
-        "highlights": [
-            "100% natural white hygiene granules - no chemicals",
-            "Superior odour control prevents unpleasant smells",
-            "Highly absorbent - lasts longer between changes",
-            "Low dust formula for cleaner homes and healthier cats",
-            "Prevents bacterial growth for hygienic litter trays"
-        ],
-        "faqs": [
-            {"q": "How often should I change the litter?", "a": "Remove solids daily; completely change every 7-10 days depending on number of cats."},
-            {"q": "Does it track around the house?", "a": "Minimal tracking compared to clumping litters - the larger granules stay in the tray better."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "Catsan Hygiene Plus Non-Clumping Cat Litter, 100% Natural White Hygiene Granules, Odour Control, 20 L",
+    "category": "Pet Supplies",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/71bURZaHfFL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Catsan-Hygiene-Plus-Litter-White/dp/B001MZV3OO?tag=whoaccepts-21",
+    "asin": "B001MZV3OO",
+    "info": "Catsan Hygiene Plus is a 20-litre non-clumping cat litter made from natural white quartz sand and limestone granules. Catsan states the formula is free from chemicals and additives, with the natural mineral composition absorbing liquid and locking in odours to prevent bacterial growth. The larger granule size reduces tracking compared to fine-grain litters. Catsan recommends removing solids daily and replacing the litter fully every 7–10 days depending on the number of cats.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Catsan Hygiene Plus cat litter 20L UK",
+        "non clumping cat litter odour control UK",
+        "natural quartz cat litter low dust",
+        "Catsan white hygiene granules UK",
+        "cat litter long lasting odour control UK"
+    ],
+    "pain_points": [
+        "Litter tray odour becoming noticeable quickly between full changes",
+        "Fine-grain litters tracking across floors and carpets",
+        "Chemical-based litters causing sensitivity in cats or household members",
+        "Clumping litters that deteriorate quickly and require frequent full replacement"
+    ],
+    "benefits": [
+        "Natural quartz sand and limestone — no chemicals or additives",
+        "Absorbs liquid and locks in odour to prevent bacterial growth",
+        "Larger granules reduce tracking compared to fine-grain litters",
+        "Low dust formula for cleaner home environment",
+        "20-litre pack suitable for single or multi-cat households"
+    ],
+    "price_tier": "premium cat care",
+    "highlights": [
+        "Made from natural white quartz sand and limestone — Catsan states free from chemicals and additives",
+        "Non-clumping formula absorbs liquid and locks in odour to inhibit bacterial growth",
+        "Larger granule size reduces floor tracking compared to fine-grain alternatives",
+        "Low dust formula reduces airborne particles during pouring and use",
+        "Catsan recommends daily solid removal and full replacement every 7–10 days"
+    ],
+    "faqs": [
+        {
+            "q": "How often should Catsan Hygiene Plus litter be changed?",
+            "a": "Catsan recommends removing solid waste daily and fully replacing the litter every 7–10 days for a single cat. With multiple cats, more frequent full changes may be needed to maintain hygiene and odour control."
+        },
+        {
+            "q": "Does Catsan Hygiene Plus track around the house?",
+            "a": "The larger quartz granules are designed to stay in the tray better than fine-grain litters, resulting in less tracking onto floors and carpets. Individual tracking will vary depending on the cat's habits and the litter tray design used."
+        },
+        {
+            "q": "Is Catsan Hygiene Plus suitable for cats with sensitivities?",
+            "a": "Catsan states the litter contains no chemicals or artificial additives — the odour control comes from the natural mineral composition of the quartz and limestone. This makes it a commonly chosen option for cats or owners sensitive to fragranced or chemically treated litters."
+        }
+    ],
+    "hook_override": "Catsan's non-clumping litter is made from <b>natural white quartz sand and limestone with no chemicals or additives</b> — the mineral composition absorbs liquid and locks in odour to inhibit bacterial growth. The larger granule size reduces floor tracking, and Catsan recommends a full change every 7–10 days for a single cat.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent", "friend"],
+        "interests": ["pets", "home"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, well-regarded consumable gift for any cat owner — Catsan is one of the most recognised litter brands in the UK and a 20-litre pack represents genuine value for a product they'll use every week regardless."
+    }
+},
 
     # ============================================================================
     # BABY SUPPLIES
     # ============================================================================
     {
-        "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
-        "category": "Baby",
-        "season": "New Year Essentials",
-        "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag=whoaccepts-21",
-        "info": "Gentle baby wipes made with 99.9% purified water and a drop of fruit extract — plastic-free, unscented, and dermatologist-approved for sensitive newborn skin, including eczema-prone. UK's top choice for pure, effective cleansing that cares for and protects delicate skin every day.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["baby wipes", "sensitive skin", "newborn care", "WaterWipes"],
-        "pain_points": ["nappy rash", "sensitive skin", "harsh chemicals", "eczema"],
-        "benefits": ["99.9% water", "chemical-free", "dermatologist-approved", "plastic-free"],
-        "price_tier": "premium baby care",
-        "highlights": [
-            "99.9% purified water + drop of fruit extract only",
-            "Plastic-free wipes - gentle on baby and planet",
-            "Dermatologist and midwife approved for newborns",
-            "Suitable for eczema-prone and sensitive skin",
-            "3-in-1 formula: cleans, cares, and protects"
-        ],
-        "faqs": [
-            {"q": "Are these suitable from birth?", "a": "Yes - specifically designed for newborns and approved for use from day one."},
-            {"q": "Do they help prevent nappy rash?", "a": "Yes - the pure formula with minimal ingredients reduces irritation that can cause nappy rash."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "WaterWipes Sensitive+ Newborn & Baby Wipes, 720 Count (12 Packs), 3-In-1 Cleans, Cares, Protects, 99.9% Water, Unscented",
+    "category": "Baby",
+    "season": "New Year Essentials",
+    "image": "https://m.media-amazon.com/images/I/81OT3srjQiL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/WaterWipes-Sensitive-Newborn-Biodegradable-Unscented/dp/B08MXSBRSB?tag=whoaccepts-21",
+    "asin": "B08MXSBRSB",
+    "info": "WaterWipes Sensitive+ are baby wipes made from 99.9% purified water and a small amount of fruit extract — no fragrance, no alcohol, no parabens, and no harsh chemicals. WaterWipes states the wipes are plastic-free, dermatologist-approved, and suitable for use from birth including on eczema-prone and sensitive newborn skin. This pack contains 720 wipes across 12 individual packs of 60.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "WaterWipes Sensitive baby wipes UK",
+        "99.9% water baby wipes newborn UK",
+        "plastic free baby wipes sensitive skin",
+        "dermatologist approved newborn wipes UK",
+        "eczema safe baby wipes 720 count UK"
+    ],
+    "pain_points": [
+        "Baby wipes containing fragrances or chemicals that irritate sensitive or eczema-prone newborn skin",
+        "Plastic-based wipes contributing to household waste with a newborn",
+        "Nappy rash caused by ingredient-heavy wipes used at every nappy change",
+        "Wanting a wipe suitable from birth without needing separate products for different skin concerns"
+    ],
+    "benefits": [
+        "99.9% purified water and fruit extract — no fragrance, alcohol, parabens, or harsh chemicals",
+        "Plastic-free construction — WaterWipes stated",
+        "Dermatologist-approved and suitable for use from birth",
+        "Suitable for eczema-prone and sensitive newborn skin",
+        "720 wipes across 12 packs — bulk format reduces reordering frequency"
+    ],
+    "price_tier": "premium baby care",
+    "highlights": [
+        "99.9% purified water with a small amount of fruit extract — no fragrance, alcohol, or parabens",
+        "WaterWipes states the wipes are plastic-free and dermatologist-approved",
+        "Suitable for use from birth — including on eczema-prone and sensitive newborn skin",
+        "720 wipes in 12 individual packs of 60 — bulk format for regular daily use",
+        "Unscented formula — no added fragrance that can irritate delicate skin"
+    ],
+    "faqs": [
+        {
+            "q": "Are WaterWipes Sensitive+ suitable from birth?",
+            "a": "Yes — WaterWipes states the wipes are specifically designed for newborn skin and are suitable for use from day one, including on premature or eczema-prone skin. The 99.9% water composition minimises the ingredient exposure on a newborn's delicate skin barrier."
+        },
+        {
+            "q": "Do WaterWipes help prevent nappy rash?",
+            "a": "The minimal ingredient formula — 99.9% purified water and fruit extract — reduces the number of potential irritants applied at each nappy change compared to wipes containing fragrance, preservatives, or alcohol. WaterWipes states the formula is designed to clean, care for, and protect sensitive skin, which may help reduce irritation-related nappy rash."
+        },
+        {
+            "q": "Are the wipes genuinely plastic-free?",
+            "a": "WaterWipes states the Sensitive+ wipes are plastic-free. Check the current Amazon UK listing and WaterWipes' website for their specific material composition and any relevant certifications for this product."
+        }
+    ],
+    "hook_override": "Baby wipes made from <b>99.9% purified water and a small amount of fruit extract — no fragrance, alcohol, parabens, or harsh chemicals</b>. WaterWipes states the plastic-free wipes are dermatologist-approved and suitable from birth including on eczema-prone skin. 720 wipes across 12 packs for regular daily use.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "friend"],
+        "interests": ["home", "health"],
+        "occasion": ["newbaby", "birthday", "justbecause"],
+        "why": "A genuinely practical gift for new or expecting parents — WaterWipes is one of the most recommended brands by UK midwives and health visitors for newborn skin, and a bulk pack of 720 covers weeks of daily use without needing to reorder."
+    }
+},
 
     # ============================================================================
     # FASHION & ACCESSORIES
     # ============================================================================
     {
-        "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
-        "category": "Fashion",
-        "season": "Winter Essentials, Christmas",
-        "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Mens-Two-Tone-Memory-Foam-Slipper/dp/B07CLXD2V4?tag=whoaccepts-21",
-        "info": "Cosy two-tone memory foam slippers with hard non-slip sole and mule design — perfect for indoor comfort and quick outdoor trips. Bestselling men's slippers for all-day warmth, support, and durability during colder months.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["men's slippers", "memory foam", "mule slippers", "winter slippers"],
-        "pain_points": ["cold feet", "uncomfortable slippers", "indoor/outdoor use"],
-        "benefits": ["memory foam comfort", "hard-wearing sole", "easy slip-on", "warm lining"],
-        "price_tier": "everyday comfort",
-        "highlights": [
-            "Memory foam footbed moulds to feet for custom comfort",
-            "Hard-wearing rubber sole for quick outdoor trips",
-            "Warm fleece lining keeps feet cosy all day",
-            "Easy mule design - slip on and off effortlessly",
-            "Non-slip tread for safety on tiles and hardwood"
-        ],
-        "faqs": [
-            {"q": "Can I wear these outside to the bin?", "a": "Yes - the durable rubber sole is designed for short outdoor trips."},
-            {"q": "Do they run true to size?", "a": "Generally yes, though if between sizes, many prefer sizing up for comfort."}
-        ],
-        "date_added": "2025-12-28"
-    },
+    "name": "Mens Two Tone Memory Foam Slippers Mule Slip On Comfortable Hard Sole Non Slip Slippers for Men",
+    "category": "Fashion",
+    "season": "Winter Essentials, Christmas",
+    "image": "https://m.media-amazon.com/images/I/81EEfuhlShL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Mens-Two-Tone-Memory-Foam-Slipper/dp/B07CLXD2V4?tag=whoaccepts-21",
+    "asin": "B07CLXD2V4",
+    "info": "Men's two-tone mule slippers with a memory foam footbed, warm fleece lining, and a hard rubber non-slip sole. The memory foam moulds to the foot shape with wear for personalised comfort. The hard rubber sole is designed for short outdoor trips as well as indoor use on tiles and hardwood floors. Available in multiple sizes — check the current Amazon UK listing for the size guide if between sizes.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-28",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "mens memory foam slippers mule UK",
+        "mens hard sole slippers indoor outdoor",
+        "non slip mens slippers winter UK",
+        "mens mule slippers fleece lining UK",
+        "comfortable mens slippers Christmas gift UK"
+    ],
+    "pain_points": [
+        "Soft-soled slippers that wear through quickly or can't be worn outside briefly",
+        "Slippers that slip on tiled or hardwood floors creating a safety risk",
+        "Standard slippers without enough cushioning for all-day indoor wear",
+        "Cold feet during winter months without a warm-lined indoor option"
+    ],
+    "benefits": [
+        "Memory foam footbed moulds to foot shape for personalised comfort",
+        "Hard rubber sole suitable for short outdoor trips and indoor use",
+        "Non-slip tread for safety on tiles, hardwood, and smooth floors",
+        "Warm fleece lining for all-day indoor comfort during colder months",
+        "Easy slip-on mule design — no bending or fastening required"
+    ],
+    "price_tier": "everyday comfort",
+    "highlights": [
+        "Memory foam footbed moulds to foot shape with wear for personalised cushioning",
+        "Hard rubber non-slip sole — suitable for short outdoor trips as well as indoor use",
+        "Warm fleece lining provides all-day comfort during colder months",
+        "Easy slip-on mule design — no fastening or bending required",
+        "Non-slip tread provides grip on tiled, hardwood, and smooth floor surfaces"
+    ],
+    "faqs": [
+        {
+            "q": "Can these slippers be worn outside briefly?",
+            "a": "Yes — the hard rubber sole is designed to handle short outdoor trips such as collecting deliveries or taking out rubbish, making them more versatile than soft-soled indoor-only slippers. They are not designed for prolonged outdoor use or wet conditions."
+        },
+        {
+            "q": "Do these slippers run true to size?",
+            "a": "Generally yes — check the current Amazon UK listing for the specific size guide. If you are between sizes, sizing up by one is commonly recommended for a more comfortable fit, particularly if wearing thicker socks."
+        },
+        {
+            "q": "How should memory foam slippers be cleaned?",
+            "a": "Most memory foam slippers are spot-clean only — machine washing can damage the memory foam structure and rubber sole. Check the care label for specific cleaning instructions before washing."
+        }
+    ],
+    "hook_override": "Men's mule slippers with a <b>memory foam footbed that moulds to foot shape and a hard rubber non-slip sole</b> — suitable for short outdoor trips as well as indoor use on tiles and hardwood. Warm fleece lining and easy slip-on design make them a practical all-day winter slipper.",
+    "gift_finder_tags": {
+        "recipient": ["him", "parent", "friend"],
+        "interests": ["home", "fashion"],
+        "occasion": ["christmas", "birthday", "fathersday", "justbecause"],
+        "why": "A reliably well-received gift for any man who spends time at home during winter — the hard sole and memory foam combination addresses the two main shortcomings of standard slippers, and they're the kind of thing most men wouldn't buy for themselves."
+    }
+},
 
     {
-        "name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
-        "category": "Fashion",
-        "season": "Christmas",
-        "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag=whoaccepts-21",
-        "info": "Festive oversized jumper with fun Christmas prints — perfect cosy gift, surging in popularity for holiday parties and family photos.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["Christmas jumper", "festive sweater", "holiday clothing", "women's jumper"],
-        "pain_points": ["festive outfit", "comfort wear", "Christmas party attire"],
-        "benefits": ["cosy fit", "fun prints", "oversized comfort", "affordable festive"],
-        "price_tier": "seasonal fashion",
-        "highlights": [
-            "Festive Christmas prints perfect for parties and photos",
-            "Soft, comfortable fabric for all-day wear",
-            "Relaxed oversized fit - cosy and flattering",
-            "Available in multiple festive designs",
-            "Affordable way to celebrate the season in style"
-        ],
-        "faqs": [
-            {"q": "Is the fit true to size?", "a": "It's intentionally oversized - order your normal size for relaxed fit, size down for more fitted."},
-            {"q": "Can I machine wash this?", "a": "Yes - machine washable on gentle cycle, though check label for specific care instructions."}
-        ],
-        "date_added": "2025-12-26"
+    "name": "Gezqieunk Christmas Jumper Women Xmas Printed Sweatshirt",
+    "category": "Fashion",
+    "season": "Christmas",
+    "image": "https://m.media-amazon.com/images/I/61Tm7Sqg13L._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/Gezqieunk-Christmas-Sweatshirts-Crewneck-Sweaters/dp/B0FXF94VW8?tag=whoaccepts-21",
+    "asin": "B0FXF94VW8",
+    "info": "A women's Christmas sweatshirt with festive printed design and an intentionally oversized relaxed fit. The crewneck construction and soft fabric are designed for all-day comfort during the Christmas season. Available in multiple festive designs. Machine washable on a gentle cycle — check the label for specific care instructions as print longevity varies with washing temperature.",
+    "last_updated": "2026-03-17",
+    "date_added": "2025-12-26",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Christmas jumper women UK",
+        "festive printed sweatshirt women",
+        "oversized Christmas sweatshirt women UK",
+        "women's Christmas party jumper",
+        "affordable Christmas jumper women UK"
+    ],
+    "pain_points": [
+        "Wanting a festive outfit for Christmas parties and family gatherings without spending on something worn once",
+        "Christmas jumpers that are itchy, stiff, or uncomfortable for all-day wear",
+        "Oversized styles that look shapeless rather than relaxed and intentional",
+        "Finding a festive top in multiple design options to suit different preferences"
+    ],
+    "benefits": [
+        "Intentionally oversized relaxed fit — order normal size for relaxed wear, size down for more fitted",
+        "Soft fabric designed for all-day comfort during the Christmas season",
+        "Festive printed design suitable for parties, family gatherings, and Christmas photos",
+        "Available in multiple festive designs",
+        "Machine washable on a gentle cycle"
+    ],
+    "price_tier": "seasonal fashion",
+    "highlights": [
+        "Intentionally oversized relaxed fit — order normal size for relaxed wear or size down for a more fitted look",
+        "Soft fabric crewneck construction designed for all-day comfort",
+        "Festive printed design suitable for Christmas parties, family gatherings, and photos",
+        "Available in multiple festive design options — check current Amazon UK listing for available prints",
+        "Machine washable on gentle cycle — check label for specific temperature and care guidance"
+    ],
+    "faqs": [
+        {
+            "q": "Is the fit true to size?",
+            "a": "The sweatshirt is intentionally designed with an oversized relaxed fit. Ordering your normal size will give a relaxed, cosy result. If you prefer a more fitted look, sizing down by one is recommended. Check the current Amazon UK listing for the specific size guide and measurements."
+        },
+        {
+            "q": "Can the Christmas jumper be machine washed?",
+            "a": "Yes — machine washable on a gentle cycle. Check the care label for the specific washing temperature recommended for this design, as printed sweatshirts generally last longer when washed at lower temperatures and turned inside-out."
+        },
+        {
+            "q": "Is this suitable for wearing to a Christmas party or office Christmas event?",
+            "a": "Yes — the festive printed design and relaxed oversized fit make it suitable for casual Christmas parties, family gatherings, and office festive events with a relaxed dress code. The crewneck construction keeps it smart enough for most informal Christmas occasions."
+        }
+    ],
+    "hook_override": "An intentionally oversized Christmas sweatshirt with a festive printed design — <b>order your normal size for a relaxed cosy fit, or size down for something more fitted</b>. Soft fabric crewneck construction designed for all-day comfort during parties, family gatherings, and Christmas photos. Available in multiple festive designs.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["fashion"],
+        "occasion": ["christmas"],
+        "why": "A practical festive gift for any woman who needs something to wear to Christmas parties and gatherings — affordable enough to feel like a thoughtful extra, and the oversized relaxed fit means sizing doesn't need to be exact."
     }
+}
 
 # ============================================================================
 # END OF PRODUCTS LIST
