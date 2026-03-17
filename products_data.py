@@ -331,26 +331,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/710hoy9qs4L._AC_SL1500_.jpg",
     "url": "https://amzn.to/3ZWjEBn",
     "asin": "B07SZCP4BJ",
-    "info": "The Revitive ProHealth Circulation Booster uses patented electrical muscle stimulation (EMS / NMES) technology to gently activate lower leg muscles, helping to improve blood flow and provide drug-free relief from everyday tired, aching, or heavy-feeling legs and feet. Easy to use at home — simply place your feet on the device for 20–60 minutes daily. Features adjustable intensity levels (0–50+), remote control, and clinically supported design. Ideal for those with sedentary jobs, prolonged standing, occasional swelling, or anyone wanting to support healthy circulation and leg comfort. A thoughtful wellness gift that shows care for daily ease and vitality.",
+    "info": "The Revitive ProHealth uses patented Electrical Muscle Stimulation (EMS/NMES) technology to activate lower leg muscles and support circulation, providing drug-free relief from tired, aching, or heavy legs. Sessions last 20–60 minutes with the feet resting on the device, with intensity adjustable across 50+ levels via included remote control. Revitive states the device is clinically supported and suitable for everyday home use.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-08",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["revitive circulation booster", "leg circulation device", "EMS leg relief", "tired legs relief", "foot circulation booster", "drug-free pain relief", "valentines wellness gift"],
-    "pain_points": ["tired, aching or heavy legs from sitting/standing too long", "occasional swelling in feet/ankles", "poor circulation leading to discomfort", "seeking non-medication ways to feel more comfortable"],
-    "benefits": ["activates leg muscles to support better blood flow", "drug-free, non-invasive daily relief", "improves leg and foot comfort", "easy home use with adjustable intensity", "helps maintain mobility and energy"],
+    "keywords": [
+        "Revitive ProHealth circulation booster UK",
+        "EMS leg circulation device",
+        "tired aching legs relief device",
+        "drug-free leg pain relief UK",
+        "foot circulation booster home use"
+    ],
+    "pain_points": [
+        "Tired, aching, or heavy legs after long periods of sitting or standing",
+        "Occasional swelling in feet and ankles",
+        "Wanting circulation support without medication",
+        "Difficulty finding a practical daily wellness routine for leg comfort"
+    ],
+    "benefits": [
+        "Patented EMS/NMES technology activates lower leg muscles",
+        "Drug-free, non-invasive daily relief",
+        "50+ adjustable intensity levels via remote control",
+        "Suitable for home use while seated",
+        "Clinically supported design — Revitive states improvements with regular use"
+    ],
     "price_tier": "premium circulation wellness device",
     "highlights": [
-        "Patented EMS/NMES technology clinically proven to boost circulation",
-        "Adjustable intensity levels (0–50+) for personalized comfort",
-        "Simple 20–60 minute daily sessions while seated",
-        "Remote control and easy-to-use design",
-        "Thoughtful gift for loved ones seeking leg comfort and vitality"
+        "Patented EMS/NMES technology stimulates lower leg muscles to support blood flow",
+        "50+ adjustable intensity levels controlled via included remote",
+        "Sessions last 20–60 minutes with feet resting on the device — no effort required",
+        "Revitive states the device is clinically supported for everyday circulation relief",
+        "Drug-free alternative for those seeking non-medication leg comfort at home"
     ],
     "faqs": [
-        {"q": "How often should I use the Revitive ProHealth?", "a": "For best results, use 20–60 minutes daily, ideally 7 days a week — many notice improvements in leg comfort within a few weeks."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, practical wellness device that helps with daily comfort and shows thoughtfulness for their well-being; especially appreciated by those with desk jobs or on their feet a lot."}
+        {
+            "q": "How often should I use the Revitive ProHealth?",
+            "a": "Revitive recommends daily sessions of 20–60 minutes, ideally seven days a week for consistent results. The brand states many users notice improvements in leg comfort within a few weeks of regular use."
+        },
+        {
+            "q": "Is the Revitive ProHealth suitable for people with medical conditions?",
+            "a": "Revitive states the device is not suitable for people with pacemakers, implanted metal components, or who are pregnant. If you have a diagnosed circulatory condition or are under medical supervision, check with your GP before use."
+        },
+        {
+            "q": "What is the difference between EMS and NMES?",
+            "a": "EMS (Electrical Muscle Stimulation) and NMES (Neuromuscular Electrical Stimulation) both use low-level electrical impulses to stimulate muscle contractions. Revitive uses both signals in combination to activate the calf and foot muscles that naturally help pump blood back up the leg."
+        }
     ],
-    "date_added": "2026-02-08"
+    "hook_override": "Revitive's patented EMS technology activates your lower leg muscles while you sit — <b>drug-free relief for tired, aching legs</b> in 20–60 minute daily sessions. Revitive states the clinically supported design works across 50+ intensity levels, making it suitable for everything from mild fatigue to regular circulation support.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "her", "him"],
+        "interests": ["health"],
+        "occasion": ["birthday", "christmas", "mothersday", "justbecause"],
+        "why": "For a parent or anyone who spends long hours on their feet or at a desk — a genuinely useful wellness device that addresses a real daily discomfort without medication."
+    }
 },
 
     {
@@ -360,26 +395,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/6102I-BUNRL._AC_SX679_.jpg",
     "url": "https://amzn.to/4qnVRoL",
     "asin": "B0FC26NDX6",
-    "info": "Compact and foldable under-desk treadmill with app connectivity for tracking steps, speed, distance, and calories — perfect for walking while working, light jogging, or building daily movement. Features a quiet 2.5HP motor (noise <55dB), speeds up to 12 km/h (depending on model variant), remote/app control, LED display, and easy storage. Ideal for home offices, apartments, or anyone wanting convenient fitness without gym trips — a thoughtful gift for health, productivity, and active lifestyles.",
+    "info": "The Superun Walking Pad is a foldable under-desk treadmill with a 2.5HP motor, operating at under 55dB for quiet home or office use. Speeds reach up to 12 km/h and the device connects via app to track steps, distance, speed, and calories. The folded profile is designed to slide under a desk or bed for compact storage.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-07",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["walking pad", "under desk treadmill", "foldable treadmill", "app controlled walking machine", "home cardio", "quiet treadmill", "office fitness"],
-    "pain_points": ["limited time for gym workouts", "sedentary desk job fatigue", "lack of convenient home exercise options", "noisy or bulky fitness equipment"],
-    "benefits": ["seamless walking while working or watching", "quiet operation for home/office use", "easy fold & store design", "app tracking for motivation and progress", "boosts daily steps and energy"],
+    "keywords": [
+        "walking pad under desk treadmill UK",
+        "foldable treadmill home office",
+        "quiet walking machine UK",
+        "app controlled walking pad",
+        "compact treadmill for small spaces UK"
+    ],
+    "pain_points": [
+        "Sedentary desk job with no time for gym visits",
+        "Bulky or noisy fitness equipment not suitable for home or office",
+        "Struggling to hit daily step targets when working from home",
+        "Limited storage space for fitness equipment in flats or small homes"
+    ],
+    "benefits": [
+        "2.5HP motor operates at under 55dB — quiet enough for calls and meetings",
+        "Folds flat to slide under a desk or bed for compact storage",
+        "App connectivity tracks steps, distance, speed, and calories",
+        "Speeds up to 12 km/h for walking and light jogging",
+        "Remote control for speed adjustments without breaking stride"
+    ],
     "price_tier": "mid-range home fitness",
     "highlights": [
-        "2.5HP quiet motor (<55dB) for smooth, peaceful use",
-        "App control + remote for easy speed/distance tracking",
-        "Foldable & compact – slides under desk or bed",
-        "Supports walking and light jogging (up to ~12 km/h)",
-        "Perfect thoughtful gift for wellness and productivity"
+        "2.5HP motor with noise level under 55dB — suitable for home office use during calls",
+        "Foldable design stores flat under a desk or bed when not in use",
+        "App control tracks steps, distance, speed, and calories in real time",
+        "Supports speeds up to 12 km/h — suitable for walking and light jogging",
+        "Remote control included for hands-free speed adjustment while working"
     ],
     "faqs": [
-        {"q": "Is it suitable for running?", "a": "Designed primarily for walking and light jogging; check exact speed limit (typically up to 10–12 km/h) for your needs — not for high-intensity running."},
-        {"q": "Good as a Valentine's gift?", "a": "Yes — shows care for health and active living; many use it for couple walks at home or to support better habits together."}
+        {
+            "q": "Can the Superun Walking Pad be used for running?",
+            "a": "The Superun is designed primarily for walking and light jogging, with a maximum speed of up to 12 km/h depending on the variant. Check the current Amazon UK listing for the exact speed range of the specific model before purchasing if running speed is a requirement."
+        },
+        {
+            "q": "How quiet is the motor during use?",
+            "a": "Superun states the motor operates at under 55dB, which is comparable to normal conversation volume. This makes it suitable for use during video calls or in shared living spaces, though individual experience will vary depending on floor surface and walking pace."
+        },
+        {
+            "q": "How does the app connect to the walking pad?",
+            "a": "The walking pad connects via Bluetooth to the Superun app, available for iOS and Android. The app displays real-time stats including steps, distance, speed, and calories. Check the current Amazon UK listing to confirm app compatibility with your device."
+        }
     ],
-    "date_added": "2026-02-07"
+    "hook_override": "A foldable under-desk treadmill with a <b>2.5HP motor running at under 55dB</b> — quiet enough for video calls while you walk. App-connected and remote-controlled, it folds flat to store under a desk or bed when not in use.",
+    "gift_finder_tags": {
+        "recipient": ["him", "her", "friend"],
+        "interests": ["sports", "health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "For someone who works from home and wants to stay active without gym trips — walks during calls, folds away after, and the app keeps daily step targets honest."
+    }
 },
     
     {
@@ -389,26 +459,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/711fo4kJQHL._AC_SX679_.jpg",
     "url": "https://amzn.to/4bofGsl",
     "asin": "B0C7LGWD8C",
-    "info": "Discover the timeless elegance of a genuine rose hand-dipped in luxurious 24K gold plating, creating an everlasting symbol of love and devotion. Unlike fleeting fresh flowers, this preserved beauty shines forever as a stunning display piece — ideal for expressing romance on Valentine's Day, anniversaries, birthdays, or any heartfelt occasion. Arrives in a protective, elegant gift box for a truly special unboxing experience.",
+    "info": "A genuine rose hand-dipped in 24K gold plating over a brass base, creating a preserved decorative piece that requires no maintenance. Ariceleo states the gold surface uses two clad layers of electroplating for lasting brilliance. Supplied in a protective gift box — suitable as a display piece for shelves, bedside tables, or as a centrepiece.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["gold dipped rose", "24K gold rose", "preserved rose", "eternal rose", "romantic gift", "Valentine's gift"],
-    "pain_points": ["fresh flowers that fade too quickly", "desire for a meaningful, lasting keepsake", "searching for unique and sentimental gifts"],
-    "benefits": ["endures forever with zero maintenance", "radiates eternal love and loyalty", "captivating gold shine that elevates any space", "beautiful, ready-to-display home accent", "heartfelt gesture she'll treasure"],
+    "keywords": [
+        "24K gold dipped rose UK",
+        "preserved gold rose Valentine's gift",
+        "eternal rose romantic gift UK",
+        "gold plated rose gift box",
+        "unique Valentine's Day gift for her UK"
+    ],
+    "pain_points": [
+        "Fresh flowers that wilt within days of gifting",
+        "Wanting a romantic keepsake that lasts rather than a consumable gift",
+        "Struggling to find a Valentine's or anniversary gift that feels genuinely special",
+        "Generic gifts that don't have a lasting presence in the home"
+    ],
+    "benefits": [
+        "24K gold electroplated over brass — no wilting, no maintenance",
+        "Two clad layers of gold plating for lasting surface brilliance",
+        "Preserved real rose — not artificial",
+        "Arrives in a protective gift box ready to present",
+        "Suitable as a permanent display piece"
+    ],
     "price_tier": "mid-range luxury gift",
     "highlights": [
-        "Authentic rose hand-dipped in real 24K gold for enduring brilliance",
-        "Powerful symbol of everlasting romance and commitment",
-        "Outlasts fresh blooms — no wilting, always perfect",
-        "Protective elegant box ensures safe arrival and gifting",
-        "A romantic favorite for girlfriends, wives, moms, and special women"
+        "A genuine rose hand-dipped in 24K gold plating over a brass base",
+        "Ariceleo states two clad layers of electroplating for durable surface brilliance",
+        "Preserved permanently — no wilting, no water, no maintenance required",
+        "Supplied in a protective gift box suitable for presenting directly",
+        "Intended as a permanent display piece for shelves, bedside tables, or desks"
     ],
     "faqs": [
-        {"q": "Is it real 24K gold?", "a": "Yes, it's 24K gold plated (electroplated over a brass base) – not solid gold, but features a genuine shining 24K gold surface with two clad layers."},
-        {"q": "How long does it last?", "a": "Indefinitely as a preserved decorative piece – no maintenance needed, just display away from direct harsh conditions."}
+        {
+            "q": "Is this made from real 24K gold?",
+            "a": "The rose is gold plated rather than solid gold — Ariceleo states it uses 24K gold electroplating over a brass base with two clad layers, giving the surface a genuine gold finish and shine."
+        },
+        {
+            "q": "How long does the gold rose last?",
+            "a": "As a preserved decorative piece it is designed to last indefinitely with no maintenance. Ariceleo recommends keeping it away from direct harsh conditions such as prolonged moisture or direct sunlight to maintain the finish."
+        },
+        {
+            "q": "Is this a real rose or an artificial one?",
+            "a": "It is made from a genuine rose that has been preserved and then hand-dipped in gold plating — not a synthetic or artificial flower. The preservation process means it retains the shape of a real rose permanently."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "A genuine rose hand-dipped in <b>24K gold electroplating over a brass base</b> — preserved permanently with no wilting or maintenance. Arrives gift-boxed and designed to last as a display piece rather than a fleeting gesture.",
+    "gift_finder_tags": {
+        "recipient": ["her", "partner"],
+        "interests": ["home", "fashion"],
+        "occasion": ["valentines", "mothersday", "birthday", "justbecause"],
+        "why": "For someone who'd rather have a lasting keepsake than flowers that are dead by the weekend — the gold finish makes it a display piece she'll actually keep out."
+    }
 },
 {
     "name": "cabpay Red Light Therapy Mat - 1280 LEDs Full Body Pad for Pain Relief & Skin Health (71'' x 31'')",
@@ -417,26 +522,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/81SMRg8rI8L._AC_SX679_.jpg",
     "url": "https://amzn.to/4q6dQQg",
     "asin": "B0G6TDPYYX",
-    "info": "Elevate your self-care routine with this expansive full-body red light therapy mat featuring 1280 powerful LEDs (660 nm red + 850 nm near-infrared) for deep, soothing benefits. Enjoy customizable sessions with 5 brightness levels, 3 modes, and an auto timer — perfect for unwinding, supporting recovery, and nurturing glowing skin from head to toe. A thoughtful wellness gift that shows you care about comfort, vitality, and long-term well-being.",
+    "info": "A full-body red light therapy mat measuring 71 x 31 inches, fitted with 1,280 LEDs emitting dual wavelengths — 660nm red light for skin surface and 850nm near-infrared for deeper tissue. Features 5 brightness levels, 3 modes, and a built-in auto timer for adjustable home sessions. Check the current Amazon UK listing for specific clinical claims and certifications.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["red light therapy mat", "full body LED pad", "pain relief device", "infrared therapy", "skin rejuvenation", "Valentine's wellness gift", "recovery mat"],
-    "pain_points": ["occasional aches and tension", "desire for deeper recovery and relaxation", "seeking glowing, revitalized skin at home"],
-    "benefits": ["gentle deep-tissue comfort and renewal", "radiant skin with boosted collagen", "improved energy and circulation", "personalized at-home sessions", "caring way to prioritize health and pampering"],
+    "keywords": [
+        "red light therapy mat full body UK",
+        "1280 LED infrared therapy pad",
+        "near infrared light therapy mat UK",
+        "home red light therapy device",
+        "full body pain relief light mat UK"
+    ],
+    "pain_points": [
+        "Muscle aches and tension after exercise or long periods of sitting",
+        "Wanting skin and recovery support without salon or clinic visits",
+        "Home wellness devices that only cover small areas of the body",
+        "Finding a practical self-care routine that fits around a busy schedule"
+    ],
+    "benefits": [
+        "1,280 dual-wavelength LEDs cover 660nm red and 850nm near-infrared",
+        "Full-body coverage at 71 x 31 inches",
+        "5 brightness levels and 3 modes for adjustable sessions",
+        "Built-in auto timer for hands-free use",
+        "Foldable mat design for home storage"
+    ],
     "price_tier": "premium wellness device",
     "highlights": [
-        "1280 dual-wavelength LEDs for comprehensive surface and deep benefits",
-        "Generous full-body size (71'' x 31'') for complete coverage",
-        "Flexible modes and brightness — tailor every session",
-        "Built-in timer for effortless, safe use",
-        "Meaningful gift that celebrates wellness and self-love"
+        "1,280 LEDs across a 71 x 31 inch mat — full-body coverage from a single device",
+        "Dual wavelength output: 660nm red light for skin surface, 850nm near-infrared for deeper tissue",
+        "5 brightness levels and 3 modes allow sessions to be adjusted for different needs",
+        "Built-in auto timer for safe, hands-free operation without manual monitoring",
+        "Check the current Amazon UK listing for certification details and specific clinical claims"
     ],
     "faqs": [
-        {"q": "How does red light therapy work?", "a": "It uses specific wavelengths to stimulate mitochondria in cells, boosting energy production (ATP), reducing inflammation, and promoting repair — red for skin surface, infrared for deeper tissues/muscles."},
-        {"q": "Is it suitable as a Valentine's gift?", "a": "Yes — marketed for occasions like Valentine's Day; provides soothing, relaxing care and shows thoughtfulness for their health and comfort."}
+        {
+            "q": "What is the difference between the 660nm and 850nm wavelengths?",
+            "a": "660nm red light is absorbed primarily at the skin surface and is associated with skin health applications. 850nm near-infrared light penetrates deeper into tissue and is used in research relating to muscle recovery and joint comfort. Check the current Amazon UK listing for the specific claims made for this device."
+        },
+        {
+            "q": "How long should each session last?",
+            "a": "Session length varies by device and intended use. The built-in auto timer manages session duration automatically. Check the current Amazon UK listing and any supplied instruction guide for the manufacturer's recommended session guidelines."
+        },
+        {
+            "q": "Is this suitable for everyday home use?",
+            "a": "The mat is designed for home use with adjustable brightness and a built-in timer. If you have a diagnosed medical condition or are under medical supervision, consult your GP before use. Check the Amazon UK listing for any contraindications listed by the manufacturer."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "A full-body red light therapy mat with <b>1,280 dual-wavelength LEDs across 71 x 31 inches</b> — 660nm red for skin surface and 850nm near-infrared for deeper tissue. Five brightness levels and a built-in auto timer make sessions adjustable without any manual monitoring.",
+    "gift_finder_tags": {
+        "recipient": ["her", "him", "parent"],
+        "interests": ["health", "beauty"],
+        "occasion": ["birthday", "christmas", "mothersday", "valentines", "justbecause"],
+        "why": "For someone serious about recovery and self-care at home — the full-body size means it actually covers what smaller panels miss, and the dual wavelength output covers both skin and muscle applications."
+    }
 },
 
     
@@ -447,26 +587,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg",
     "url": "https://amzn.to/3Z85IUA",
     "asin": "B0FQJXB6H5",
-    "info": "Transform any dart game with this sleek, portable LED lighting ring that clips on effortlessly for bright, even illumination. Enjoy shadow-free visibility and quick dart retrieval in a lightweight, foldable design — powered conveniently via USB-C. A fun upgrade for home setups, casual evenings, or shared game nights that makes every throw clearer and more enjoyable.",
+    "info": "The Mission Darts Torus is a clip-on LED lighting ring designed to eliminate shadows on a dartboard during play. It emits white light across a 120-degree arc, powered via USB-C from a wall charger, power bank, or laptop. The open frame design allows dart retrieval without removing the light, and the unit folds flat for storage or transport.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["dartboard light", "LED dart light", "dart board lighting", "Mission Torus", "portable dart illumination", "shadow-free darts", "dart accessory"],
-    "pain_points": ["dim lighting during play", "unwanted shadows on the board", "need for better focus and enjoyment"],
-    "benefits": ["crystal-clear, even lighting", "easy portability and setup", "tool-free clip for instant use", "versatile USB-C power", "more fun and accurate games together"],
+    "keywords": [
+        "Mission Torus dartboard light UK",
+        "LED dartboard lighting system",
+        "clip on dart board light",
+        "shadow free dartboard light UK",
+        "USB-C dartboard light gift"
+    ],
+    "pain_points": [
+        "Shadows across the dartboard making scoring difficult to see clearly",
+        "Overhead lighting that creates uneven illumination during play",
+        "Dartboard setups in garages or games rooms with poor ambient lighting",
+        "Lights that block dart retrieval or require removal between throws"
+    ],
+    "benefits": [
+        "120-degree LED arc eliminates shadows across the board surface",
+        "Clip-on fit — no tools or installation required",
+        "USB-C powered from any standard charger or power bank",
+        "Open frame allows dart retrieval without removing the light",
+        "Folds flat for storage or transport"
+    ],
     "price_tier": "mid-range dart accessory",
     "highlights": [
-        "Bright 120° white LEDs eliminate shadows for perfect visibility",
-        "Compact, foldable design travels or stores easily",
-        "Simple clip-on fit for most steel-tip dartboards",
-        "Open frame for fast, hassle-free dart retrieval",
-        "USB-C convenience — power from anywhere"
+        "120-degree white LED arc designed to eliminate shadows across the dartboard",
+        "Clips directly onto the board rim — no tools or installation required",
+        "Powered via USB-C — compatible with wall chargers, power banks, and laptops",
+        "Open frame construction allows dart retrieval without removing the light",
+        "Folds flat for compact storage or transport between venues"
     ],
     "faqs": [
-        {"q": "Does it fit any dartboard?", "a": "Yes, it clips securely to the top of most standard steel-tip bristle dartboards (not electronic/soft-tip unless compatible rim). Check dimensions if unsure."},
-        {"q": "Is it battery powered?", "a": "No built-in battery, but USB-C allows easy powering via power bank, wall charger, or device for portable use anywhere."}
+        {
+            "q": "Will the Torus fit my dartboard?",
+            "a": "Mission Darts states the Torus is designed to clip onto standard steel-tip bristle dartboards. It is not guaranteed to fit electronic or soft-tip boards. Check the current Amazon UK listing for exact compatibility dimensions before purchasing."
+        },
+        {
+            "q": "Does the Torus have a built-in battery?",
+            "a": "No — the Torus is powered via USB-C cable only. It can be powered from a wall charger, power bank, or any USB-C compatible device, making it flexible for both fixed home setups and portable use."
+        },
+        {
+            "q": "Does the light obstruct dart throwing or retrieval?",
+            "a": "Mission Darts designed the Torus with an open frame specifically to allow darts to be thrown and retrieved without removing or adjusting the light between turns."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "A clip-on LED ring from Mission Darts that eliminates shadows across the board with a <b>120-degree white light arc</b> — no tools, no installation, just clip on and plug in via USB-C. The open frame means darts can be retrieved without touching the light between throws.",
+    "gift_finder_tags": {
+        "recipient": ["him", "friend", "parent"],
+        "interests": ["sports", "home"],
+        "occasion": ["birthday", "christmas", "fathersday", "justbecause"],
+        "why": "For anyone with a dartboard at home — a small upgrade that genuinely improves every game, and specific enough to feel like a thoughtful pick rather than a generic gift."
+    }
 },
 
     {
@@ -476,28 +651,62 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/618YUREwDIL._AC_SL1500_.jpg",
     "url": "https://amzn.to/4kKDYiC",
     "asin": "B0DF2XBH62",
-    "info": "Stay connected to your little one with this stylish white & gold smart baby monitor featuring a 5\" color parent unit and secure WiFi app for remote viewing on your phone/tablet from anywhere. The 1080p HD camera offers crystal-clear video with infrared night vision, remote pan/tilt/zoom, two-way talk, built-in lullabies, and a soothing mood light. Monitors room temperature/humidity and alerts for changes; secure 2.4GHz FHSS local connection plus app streaming with notifications. Easy setup, expandable, and designed for peace of mind — a caring, modern gift for new parents, showing love through safety and convenience.",
+    "info": "The Motorola VM85 Connect is a smart baby monitor combining a 5-inch colour parent unit with WiFi app streaming for remote viewing on a phone or tablet. The 1080p HD camera features infrared night vision, remote pan, tilt, and zoom, two-way audio, built-in lullabies, and a mood light. A temperature and humidity sensor monitors nursery conditions and sends alerts via the app when readings change.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-21",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["motorola vm85 connect", "smart baby monitor", "wifi baby camera", "1080p nursery monitor", "pan tilt zoom baby monitor", "temperature sensor baby monitor", "valentines baby gift"],
-    "pain_points": ["worry about baby's safety when out of sight", "limited visibility in dark rooms", "need for remote monitoring on the go", "room comfort concerns like temperature changes"],
-    "benefits": ["real-time HD video and audio from anywhere via app", "crystal-clear night vision and soothing lullabies/mood light", "remote pan/tilt/zoom to view entire nursery", "temperature/humidity alerts for optimal comfort", "secure, easy-to-use system for peace of mind"],
+    "keywords": [
+        "Motorola VM85 baby monitor UK",
+        "smart WiFi baby monitor 1080p",
+        "pan tilt zoom nursery camera UK",
+        "baby monitor with temperature sensor",
+        "baby monitor app remote viewing UK"
+    ],
+    "pain_points": [
+        "Limited visibility in a dark nursery during night feeds",
+        "No way to check on the baby when away from home",
+        "Missing nursery temperature changes that affect a baby's sleep comfort",
+        "Baby monitors that only work locally without app connectivity"
+    ],
+    "benefits": [
+        "1080p HD camera with infrared night vision for clear low-light viewing",
+        "Remote pan, tilt, and zoom covers the full nursery from the app",
+        "WiFi app streaming allows viewing from anywhere on a phone or tablet",
+        "Temperature and humidity sensor with app alerts for nursery condition changes",
+        "Secure 2.4GHz FHSS local connection works without internet as a backup"
+    ],
     "price_tier": "premium smart baby monitor",
     "highlights": [
-        "Hybrid setup: 5\" parent unit + WiFi app for on-the-go viewing",
-        "1080p HD camera with infrared night vision and remote pan/tilt/zoom",
-        "Two-way talk, lullabies, mood light, and temperature/humidity monitoring",
-        "Secure encrypted connection with notifications and alerts",
-        "Elegant white & gold design — perfect thoughtful gift for new parents"
+        "5-inch colour parent unit plus WiFi app for remote viewing on phone or tablet",
+        "1080p HD camera with infrared night vision and remote pan, tilt, and zoom",
+        "Temperature and humidity sensor sends app alerts when nursery conditions change",
+        "Two-way audio, built-in lullabies, and mood light built into the camera unit",
+        "Secure 2.4GHz FHSS local connection operates independently of internet connection"
     ],
     "faqs": [
-        {"q": "Does it require WiFi for full features?", "a": "Yes for app/remote viewing and notifications; local monitoring via parent unit uses secure 2.4GHz FHSS without internet."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, practical baby essential that provides reassurance and shows thoughtfulness for family safety and comfort; great for expecting or new parents."}
+        {
+            "q": "Does the Motorola VM85 require WiFi to work?",
+            "a": "WiFi is required for app streaming, remote viewing, and push notifications. However, Motorola states the parent unit connects locally via secure 2.4GHz FHSS, meaning basic monitoring continues without an internet connection."
+        },
+        {
+            "q": "Can I view the camera feed when I'm away from home?",
+            "a": "Yes — the VM85 streams to the Motorola Nursery app over WiFi, allowing remote viewing on a smartphone or tablet from any location with an internet connection."
+        },
+        {
+            "q": "What does the temperature and humidity sensor do?",
+            "a": "The built-in sensor monitors nursery temperature and humidity levels continuously. The app sends an alert when readings move outside a comfortable range, allowing parents to adjust heating or ventilation without checking the room manually."
+        }
     ],
-    "date_added": "2026-02-21"
+    "hook_override": "A smart baby monitor with a <b>1080p HD camera, remote pan, tilt, and zoom</b>, and WiFi app streaming so you can check the nursery from anywhere. The built-in temperature and humidity sensor sends an alert the moment nursery conditions change — no manual checking needed.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["newbaby", "birthday", "christmas"],
+        "why": "For new or expecting parents who want full nursery visibility day and night — the app streaming means they can check in from another room or another country without waking anyone up."
+    }
 },
-
 
     {
     "name": "Infant Optics DXR-8 PRO Baby Monitor - 5\" Screen, 720p HD Resolution, Active Noise Reduction, Secure FHSS, Interchangeable Lenses, Night Vision, Pan/Tilt/Zoom, Temperature Sensor",
@@ -506,26 +715,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71G9W+hypCL._AC_SL1500_.jpg",
     "url": "https://amzn.to/4c8iSbR",
     "asin": "B08FF4GV5C",
-    "info": "Enjoy crystal-clear, secure monitoring with the Infant Optics DXR-8 PRO — featuring a 5\" color display, 720p HD video, and patent-pending Active Noise Reduction for clear audio without interference. The non-WiFi FHSS connection keeps everything local and hack-proof, while the interchangeable lenses (zoom included, wide-angle optional) allow customizable views. Remote pan/tilt/zoom, infrared night vision, two-way talk, temperature monitoring, and expandable camera support provide complete nursery coverage. A reliable, thoughtful gift for new parents seeking simple, dependable peace of mind and baby safety.",
+    "info": "The Infant Optics DXR-8 PRO is a non-WiFi baby monitor with a 5-inch colour display and 720p HD camera, using secure FHSS frequency-hopping for a local, interference-free connection that requires no internet. Infant Optics states the patent-pending Active Noise Reduction system filters background sounds for clearer audio. The monitor supports interchangeable lenses — a zoom lens is included, with a wide-angle lens available separately — plus remote pan, tilt, and zoom, infrared night vision, two-way audio, and a temperature sensor.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-21",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["infant optics dxr-8 pro", "baby video monitor", "non wifi baby monitor", "720p hd baby camera", "pan tilt zoom nursery monitor", "secure fhss monitor", "valentines baby gift"],
-    "pain_points": ["concerns about WiFi hacking or interference", "blurry or low-res night vision", "limited viewing angles or range", "needing reliable audio clarity without background noise"],
-    "benefits": ["secure, local FHSS connection for privacy and reliability", "sharp 720p HD video with excellent night vision", "remote pan/tilt/zoom and interchangeable lenses for full coverage", "active noise reduction for clear baby sounds", "temperature monitoring and expandable setup for growing families"],
+    "keywords": [
+        "Infant Optics DXR-8 PRO baby monitor UK",
+        "non WiFi baby monitor secure",
+        "FHSS baby monitor no internet",
+        "720p HD baby monitor interchangeable lens",
+        "hack proof baby monitor UK"
+    ],
+    "pain_points": [
+        "Concerns about WiFi baby monitors being vulnerable to hacking or interference",
+        "Poor audio quality with background noise drowning out baby sounds",
+        "Fixed camera angles that don't cover the full nursery",
+        "Baby monitors that stop working when the internet goes down"
+    ],
+    "benefits": [
+        "Secure FHSS local connection — no WiFi, no internet, no hacking risk",
+        "Patent-pending Active Noise Reduction for clearer audio",
+        "Interchangeable lenses — zoom included, wide-angle available separately",
+        "Remote pan, tilt, and zoom for full nursery coverage",
+        "Expandable to support additional cameras for growing families"
+    ],
     "price_tier": "premium non-WiFi baby monitor",
     "highlights": [
-        "5\" color screen with 720p HD resolution and Active Noise Reduction",
-        "Secure FHSS connection — no WiFi needed, hack-proof and interference-free",
-        "Interchangeable lenses (zoom standard; wide-angle available) and remote pan/tilt/zoom",
-        "Infrared night vision, two-way talk, temperature sensor, and lullabies",
-        "Expandable and reliable — ideal thoughtful gift for peace of mind and baby safety"
+        "Secure FHSS frequency-hopping connection — operates locally with no WiFi or internet required",
+        "5-inch colour display with 720p HD resolution and infrared night vision",
+        "Infant Optics patent-pending Active Noise Reduction filters background sounds for clearer audio",
+        "Interchangeable lens system — zoom lens included, wide-angle lens available separately",
+        "Remote pan, tilt, and zoom plus temperature sensor and two-way audio built in"
     ],
     "faqs": [
-        {"q": "Does it require WiFi or internet?", "a": "No — it uses secure local FHSS frequency-hopping for private, interference-free monitoring; parent unit works independently without any internet connection."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a caring, high-quality baby essential that provides reassurance and shows thoughtfulness for family safety and comfort; great for new or expecting parents."}
+        {
+            "q": "Does the Infant Optics DXR-8 PRO require WiFi or an internet connection?",
+            "a": "No — Infant Optics states the DXR-8 PRO uses secure FHSS frequency-hopping to create a local connection between the camera and parent unit. No WiFi, internet, or app is required at any point."
+        },
+        {
+            "q": "What is Active Noise Reduction and how does it work?",
+            "a": "Infant Optics states the DXR-8 PRO uses a patent-pending Active Noise Reduction system that filters out background sounds — such as white noise machines or ambient room noise — to deliver clearer audio of the baby specifically."
+        },
+        {
+            "q": "Can I add more cameras to the system later?",
+            "a": "Yes — the DXR-8 PRO is expandable and supports additional Infant Optics cameras, allowing the parent unit to monitor multiple rooms. Check the current Amazon UK listing for compatible camera models."
+        }
     ],
-    "date_added": "2026-02-21"
+    "hook_override": "A non-WiFi baby monitor that uses <b>secure FHSS frequency-hopping</b> — no internet required, no hacking risk, and it keeps working if the broadband goes down. The patent-pending Active Noise Reduction filters background sounds so you hear the baby clearly, not the white noise machine.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["newbaby", "birthday", "christmas"],
+        "why": "For parents who want reliable nursery monitoring without the security concerns of a WiFi camera — the FHSS connection works locally and independently, making it the more private choice over app-based monitors."
+    }
 },
 
 
@@ -536,28 +780,62 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71RstlSuhoL._AC_SL1500_.jpg",
     "url": "https://amzn.to/3OULZWn",
     "asin": "B0BX6GB6LL",
-    "info": "Keep a close eye on your little one with this easy-to-use VTech VM3250 video baby monitor featuring a clear 2.8\" color LCD parent unit screen and a camera with automatic infrared night vision for low-light visibility. Enjoy up to 19 hours of rechargeable video streaming on one charge, secure 300m long-range transmission (outdoors; less indoors), two-way talk-back intercom, soothing lullabies/soothing sounds, 2x digital zoom, and room temperature sensor with alerts. Non-WiFi design ensures privacy with no internet required. A simple, dependable gift for new parents, providing reassurance and comfort during nap times or nighttime.",
+    "info": "The VTech VM3250 is a non-WiFi video baby monitor with a 2.8-inch colour LCD parent unit and a camera featuring automatic infrared night vision. VTech states the rechargeable parent unit delivers up to 19 hours of video streaming on a single charge, with a secure transmission range of up to 300 metres outdoors. The monitor includes a room temperature sensor with alerts, two-way audio, 2x digital zoom, and built-in soothing sounds and lullabies.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-21",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["vtech vm3250 baby monitor", "video baby monitor 2.8 inch", "night vision baby camera", "long range baby monitor", "temperature sensor nursery monitor", "soothing sounds baby monitor", "valentines baby gift"],
-    "pain_points": ["limited visibility at night", "short battery life during monitoring", "concerns about room temperature or comfort", "need for reliable, private monitoring without WiFi"],
-    "benefits": ["clear video with automatic night vision for anytime viewing", "long 19-hour battery for uninterrupted overnight use", "temperature sensor alerts for optimal nursery environment", "secure local transmission up to 300m range", "two-way talk and soothing lullabies for calming baby from afar"],
+    "keywords": [
+        "VTech VM3250 baby monitor UK",
+        "non WiFi video baby monitor",
+        "baby monitor 19 hour battery",
+        "long range baby monitor 300m",
+        "baby monitor temperature sensor night vision"
+    ],
+    "pain_points": [
+        "Baby monitors that need recharging before the night is over",
+        "Poor visibility in a dark nursery during night feeds",
+        "WiFi monitors that raise privacy concerns or stop working without internet",
+        "Nursery temperature changes going unnoticed overnight"
+    ],
+    "benefits": [
+        "Up to 19 hours video streaming on a single charge",
+        "Automatic infrared night vision for clear low-light monitoring",
+        "Secure non-WiFi FHSS transmission — no internet required",
+        "Room temperature sensor with alerts for nursery condition changes",
+        "Two-way audio and built-in soothing sounds and lullabies"
+    ],
     "price_tier": "affordable video baby monitor",
     "highlights": [
-        "2.8\" high-resolution color LCD screen with 2x digital zoom",
-        "Up to 19 hours of video streaming on rechargeable battery",
-        "Automatic infrared night vision for clear low-light monitoring",
-        "Secure FHSS transmission with 300m outdoor range and temperature sensor",
-        "Soothing sounds/lullabies, two-way talk, and easy setup — perfect gift for peace of mind"
+        "VTech states up to 19 hours of video streaming from the rechargeable parent unit on one charge",
+        "2.8-inch colour LCD screen with 2x digital zoom for closer nursery views",
+        "Automatic infrared night vision activates in low light without manual switching",
+        "Secure non-WiFi FHSS transmission with a range of up to 300 metres outdoors",
+        "Room temperature sensor sends alerts when nursery conditions move outside a comfortable range"
     ],
     "faqs": [
-        {"q": "Does it require WiFi or internet?", "a": "No — it uses secure local FHSS transmission between parent unit and camera; no internet needed for full functionality."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring baby essential that provides reassurance and shows thoughtfulness for new parents' peace of mind and baby's comfort."}
+        {
+            "q": "Does the VTech VM3250 require WiFi or an internet connection?",
+            "a": "No — VTech states the VM3250 uses secure FHSS transmission between the camera and parent unit locally. No WiFi, internet connection, or app is needed for any feature."
+        },
+        {
+            "q": "How long does the battery last on the parent unit?",
+            "a": "VTech states the rechargeable parent unit delivers up to 19 hours of video streaming on a single charge, making it suitable for overnight monitoring without needing to recharge mid-session."
+        },
+        {
+            "q": "What is the effective range indoors?",
+            "a": "VTech states a range of up to 300 metres outdoors in open conditions. Indoor range will be shorter due to walls and interference — check the current Amazon UK listing for VTech's stated indoor range figure for this model."
+        }
     ],
-    "date_added": "2026-02-21"
+    "hook_override": "A non-WiFi baby monitor with <b>up to 19 hours of video streaming</b> on a single charge — enough for a full night without recharging. VTech's secure FHSS transmission covers up to 300 metres outdoors, and the automatic night vision switches on without any manual adjustment.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "friend"],
+        "interests": ["home", "tech"],
+        "occasion": ["newbaby", "birthday", "christmas"],
+        "why": "For new parents who want straightforward, reliable overnight monitoring without WiFi security concerns — the 19-hour battery is the standout feature for anyone doing night feeds."
+    }
 },
-
     {
     "name": "Philips Avent DECT Baby Monitor SCD503/26 - Audio-Only, 100% Private Connection, Nightlight, Up to 330m Range, 24-Hour Battery Life, Smart ECO Mode",
     "category": "Baby",
@@ -565,28 +843,62 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/51EhWe8iMgL._AC_SX425_.jpg",
     "url": "https://amzn.to/4kOeIYN",
     "asin": "B07FMM2W12",
-    "info": "Hear every sound clearly with this audio baby monitor using DECT technology for zero interference and 100% private, secure connection. Features crystal-clear sound, sound-activated LED lights (5 levels, visible even when muted), a comforting nightlight, volume control, Smart ECO mode for energy savings, out-of-range warning, and up to 24 hours of battery life on the rechargeable parent unit. Indoor range up to 50m, outdoor up to 330m — perfect for moving freely around home while staying connected. A straightforward, thoughtful gift for new parents valuing reliability, simplicity, and peace of mind without video complexity.",
+    "info": "The Philips Avent SCD503 is an audio-only baby monitor using DECT technology for a private, interference-free connection with no WiFi required. Philips states the rechargeable parent unit delivers up to 24 hours of battery life, with a range of up to 50 metres indoors and 330 metres outdoors. Features include sound-activated LED indicators across 5 levels, a built-in nightlight, Smart ECO mode to reduce power consumption, volume control, and an out-of-range alert.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-21",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["philips avent scd503", "dect audio baby monitor", "philips avent baby monitor", "nightlight baby monitor", "long range audio monitor", "eco mode baby monitor", "valentines baby gift"],
-    "pain_points": ["interference or unclear sound in baby monitors", "short battery life limiting mobility", "concerns about privacy or security", "need for simple, reliable audio monitoring"],
-    "benefits": ["crystal-clear DECT sound with zero interference", "up to 24 hours battery for cordless freedom", "private, secure connection with no WiFi needed", "sound-activated lights and nightlight for gentle reassurance", "Smart ECO mode for energy efficiency and longer use"],
+    "keywords": [
+        "Philips Avent SCD503 baby monitor UK",
+        "DECT audio baby monitor",
+        "audio only baby monitor UK",
+        "long range baby monitor 330m",
+        "baby monitor 24 hour battery life"
+    ],
+    "pain_points": [
+        "Interference or static disrupting audio on cheaper baby monitors",
+        "Parent unit battery dying before the night is over",
+        "WiFi monitors that raise privacy concerns or need an internet connection",
+        "Overly complicated monitors when straightforward audio monitoring is all that's needed"
+    ],
+    "benefits": [
+        "DECT technology delivers private, interference-free audio with no WiFi needed",
+        "Up to 24 hours battery life on the rechargeable parent unit",
+        "Range of up to 330 metres outdoors and 50 metres indoors",
+        "Sound-activated LED indicators visible even when volume is muted",
+        "Smart ECO mode reduces power consumption during quieter periods"
+    ],
     "price_tier": "affordable audio baby monitor",
     "highlights": [
-        "DECT technology for 100% private, interference-free audio",
-        "Up to 330m outdoor range (50m indoor) and 24-hour battery life",
-        "Sound-activated 5-LED lights and comforting nightlight",
-        "Smart ECO mode minimizes power use and extends battery",
-        "Simple setup with volume control, out-of-range alert — ideal gift for peace of mind"
+        "DECT technology provides a 100% private connection with zero interference — no WiFi required",
+        "Philips states up to 24 hours of battery life on the rechargeable parent unit",
+        "Range of up to 50 metres indoors and 330 metres outdoors",
+        "Five-level sound-activated LED display remains visible even when the volume is muted",
+        "Smart ECO mode automatically reduces transmission power during quiet periods to save battery"
     ],
     "faqs": [
-        {"q": "Is this a video or audio-only monitor?", "a": "Audio-only — focuses on crystal-clear sound with no video/camera; great for basic, reliable monitoring without extra features."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a practical, caring baby essential that provides reassurance and shows thoughtfulness for new parents' comfort and baby's safety."}
+        {
+            "q": "Is the Philips Avent SCD503 a video or audio-only monitor?",
+            "a": "Audio-only — the SCD503 has no camera or screen. It focuses entirely on clear, reliable sound transmission using DECT technology, making it a straightforward option for parents who don't need video monitoring."
+        },
+        {
+            "q": "Does it require WiFi or an internet connection?",
+            "a": "No — Philips Avent states the SCD503 uses DECT technology for a direct, private connection between the baby unit and parent unit. No WiFi, internet, or app is required."
+        },
+        {
+            "q": "What does Smart ECO mode do?",
+            "a": "Philips states Smart ECO mode automatically reduces the transmission power of the baby unit during quieter periods, lowering energy consumption and extending battery life without affecting audio quality when sound is detected."
+        }
     ],
-    "date_added": "2026-02-21"
+    "hook_override": "A DECT audio baby monitor with <b>up to 24 hours of battery life</b> and a private, interference-free connection that needs no WiFi or internet. The sound-activated LED display stays visible even on mute — useful for checking the nursery without waking a partner.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "friend"],
+        "interests": ["home", "tech"],
+        "occasion": ["newbaby", "birthday", "christmas"],
+        "why": "For parents who want simple, reliable audio monitoring without the complexity of a video system — DECT means no interference, no hacking risk, and no dependence on the broadband staying on."
+    }
 },
-
     {
     "name": "Nanit Pro Smart Baby Monitor with 2nd Gen Floor Stand - 1080p HD Wi-Fi Video Camera, Sleep Coach, Breathing Motion Tracker, 2-Way Audio, Night Vision, Temperature/Humidity, Real-Time Analytics",
     "category": "Baby",
@@ -594,26 +906,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71neD7B6o2L._AC_SL1500_.jpg",
     "url": "https://amzn.to/4tN82yj",
     "asin": "B0BTTQ3QD2",
-    "info": "Get a complete view of your baby's sleep and well-being with the Nanit Pro camera bundled with the 2nd Gen floor stand for flexible, elevated placement. The 1080p HD Wi-Fi camera delivers crystal-clear video with night vision, two-way audio, motion/sound alerts, room temperature/humidity monitoring, and sensor-free breathing motion tracking (works with Nanit Breathing Wear, sold separately). The app provides real-time sleep analytics, personalized insights, and a sleep coach for better routines — secure 256-bit encryption. Perfect for peace of mind and data-driven parenting. A premium, thoughtful gift for new or expecting parents who value advanced monitoring, safety, and sleep support.",
+    "info": "The Nanit Pro is a 1080p HD WiFi baby monitor bundled with the 2nd Gen floor stand for flexible, freestanding placement without wall mounting. The camera tracks breathing motion without a wearable sensor attached to the cot — though Nanit states accuracy improves when used with Nanit Breathing Wear, sold separately. The app provides real-time sleep analytics, a sleep coach, temperature and humidity monitoring, and two-way audio, with 256-bit encryption. Nanit states some advanced sleep features require a paid subscription after any included trial period.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-02-21",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["nanit pro smart monitor", "floor stand baby camera", "1080p wifi baby monitor", "breathing motion tracker", "sleep analytics baby monitor", "nanit pro bundle", "valentines baby gift"],
-    "pain_points": ["worry about baby's breathing or sleep patterns", "limited insights from basic monitors", "need for remote viewing and alerts on the go", "room environment changes affecting comfort"],
-    "benefits": ["sensor-free breathing motion monitoring and alerts", "detailed sleep analytics and personalized coaching via app", "crystal-clear 1080p HD video with night vision from anywhere", "temperature/humidity tracking for optimal nursery conditions", "secure, encrypted Wi-Fi with two-way audio and motion/sound detection"],
+    "keywords": [
+        "Nanit Pro baby monitor UK",
+        "WiFi baby monitor sleep analytics",
+        "breathing motion tracker baby monitor",
+        "1080p HD baby monitor floor stand",
+        "smart baby monitor sleep coach UK"
+    ],
+    "pain_points": [
+        "Basic monitors that show video but give no insight into sleep quality",
+        "Breathing monitors that require a sensor attached to the baby's clothing",
+        "Wall-mounted cameras that can't be repositioned as the baby grows",
+        "No way to track whether sleep routines are actually improving over time"
+    ],
+    "benefits": [
+        "1080p HD WiFi camera with infrared night vision and two-way audio",
+        "Sensor-free breathing motion tracking via overhead camera angle",
+        "Real-time sleep analytics and personalised sleep coach via app",
+        "2nd Gen floor stand allows flexible placement without wall mounting",
+        "256-bit encrypted connection for secure remote viewing"
+    ],
     "price_tier": "premium smart baby monitor bundle",
     "highlights": [
-        "1080p HD Wi-Fi camera with night vision and 2-way audio",
-        "Sensor-free breathing motion tracking and real-time sleep analytics",
-        "2nd Gen floor stand for easy, flexible camera placement",
-        "App-based insights, alerts, and sleep coach features",
-        "Thoughtful gift for parents seeking advanced safety and sleep support"
+        "1080p HD WiFi camera with infrared night vision and two-way audio",
+        "Sensor-free breathing motion tracking — no wearable attached to the cot required",
+        "App delivers real-time sleep analytics, trends, and a personalised sleep coach",
+        "Bundled 2nd Gen floor stand allows freestanding placement without wall mounting",
+        "Nanit states some advanced sleep coaching features require a paid subscription after trial"
     ],
     "faqs": [
-        {"q": "Does it require a subscription for full features?", "a": "Basic monitoring is free; advanced sleep insights and coaching require an optional paid subscription (intro trial often included)."},
-        {"q": "Is this suitable as a Valentine's gift?", "a": "Yes — it's a luxurious, caring baby essential that provides reassurance, data-driven support, and shows thoughtfulness for family well-being; ideal for new or expecting parents."}
+        {
+            "q": "Does the Nanit Pro require a subscription?",
+            "a": "Nanit states that basic live video monitoring is available without a subscription. Advanced features including detailed sleep analytics, sleep coaching, and historical data require a paid Nanit Insights subscription. Check the current Amazon UK listing for details of any trial period included with purchase."
+        },
+        {
+            "q": "Does breathing motion tracking work without Nanit Breathing Wear?",
+            "a": "Nanit states the camera can track breathing motion without a wearable sensor, using the overhead camera angle to detect movement. However, Nanit recommends using Nanit Breathing Wear — sold separately — for improved tracking accuracy."
+        },
+        {
+            "q": "Does the floor stand replace wall mounting entirely?",
+            "a": "Yes — the 2nd Gen floor stand is designed as a freestanding alternative to wall mounting, allowing the camera to be repositioned as needed. The camera can also be wall mounted if preferred, though the stand is included in this bundle for flexible placement."
+        }
     ],
-    "date_added": "2026-02-21"
+    "hook_override": "A 1080p HD WiFi baby monitor with <b>sensor-free breathing motion tracking</b> and a sleep coach built into the app — no wearable attached to the cot required. The bundled 2nd Gen floor stand means no wall mounting, so it can be repositioned as the baby grows.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "friend"],
+        "interests": ["tech", "home"],
+        "occasion": ["newbaby", "birthday", "christmas"],
+        "why": "For parents who want more than just a camera feed — the sleep analytics and coaching features give genuine insight into whether routines are working, not just whether the baby is visible."
+    }
 },
     
     
@@ -652,26 +999,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/81yQGbnj8XL._AC_SX425_.jpg",
     "url": "https://amzn.to/4akAVds",
     "asin": "B08WR5CPNB",
-    "info": "Achieve sky-high lashes with the UK's #1 mascara — its innovative Flex Tower brush captures and extends every lash for dramatic volume and length. Infused with bamboo extract, this flake-free, lightweight formula delivers bold, fluttery results that last all day. A beauty essential that boosts confidence for everyday wear or special romantic moments.",
+    "info": "Maybelline Sky High is a volumising and lengthening mascara with a Flex Tower brush — a flexible wand designed to bend and reach lashes at different angles for more complete coverage. The formula contains bamboo extract and is stated by Maybelline to be flake-free, ophthalmologist tested, and suitable for contact lens wearers. Available in black.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["sky high mascara", "maybelline mascara", "volumizing mascara", "lengthening mascara", "bamboo extract mascara", "best mascara UK", "valentines beauty gift"],
-    "pain_points": ["wanting fuller, longer-looking lashes", "dealing with clumpy or heavy formulas", "needing easy, reliable everyday glam"],
-    "benefits": ["sky-high volume and endless length", "flexible brush for complete lash coverage", "light, nourished feel with no flakes", "bamboo-enriched for healthier-looking lashes", "instant eye-opening transformation"],
+    "keywords": [
+        "Maybelline Sky High mascara UK",
+        "volumising lengthening mascara UK",
+        "best mascara UK drugstore",
+        "bamboo extract mascara",
+        "contact lens safe mascara UK"
+    ],
+    "pain_points": [
+        "Mascara that clumps or feels heavy on the lashes",
+        "Wands that miss shorter or corner lashes",
+        "Formulas that flake or smudge during the day",
+        "Mascara that irritates sensitive eyes or contact lens wearers"
+    ],
+    "benefits": [
+        "Flex Tower brush bends to reach lashes at different angles",
+        "Bamboo extract formula — stated as flake-free by Maybelline",
+        "Ophthalmologist tested and suitable for contact lens wearers",
+        "Volumising and lengthening in a single coat",
+        "Removes without harsh tugging"
+    ],
     "price_tier": "affordable drugstore beauty",
     "highlights": [
-        "UK's favorite mascara for trusted, dramatic results",
-        "Unique Flex Tower brush bends to lift and extend every lash",
-        "Bamboo-infused formula keeps lashes soft and weightless",
-        "Flake-free, easy-on/easy-off wear all day",
-        "Lovely Valentine's touch — adds sparkle and confidence"
+        "Flex Tower brush is designed to bend and adjust angle for complete lash coverage",
+        "Bamboo extract formula — Maybelline states flake-free wear throughout the day",
+        "Ophthalmologist tested and allergy tested — suitable for contact lens wearers",
+        "Delivers both volume and length in a single coat without heavyweight feel",
+        "Removes easily without requiring an oil-based remover or harsh rubbing"
     ],
     "faqs": [
-        {"q": "Is it suitable for sensitive eyes?", "a": "Yes – allergy tested, ophthalmologist tested, and safe for contact lens wearers; removes easily without harsh tugging."},
-        {"q": "How does it compare to other Maybelline mascaras?", "a": "Sky High stands out for its extreme length + volume combo with the unique flexible brush – many users say it outperforms classics like Great Lash for dramatic effect without heaviness."}
+        {
+            "q": "Is Maybelline Sky High mascara suitable for sensitive eyes?",
+            "a": "Maybelline states Sky High is ophthalmologist tested, allergy tested, and suitable for contact lens wearers. If you have a history of eye sensitivity to cosmetic products, patch testing before use is advisable."
+        },
+        {
+            "q": "What makes the Flex Tower brush different from a standard mascara wand?",
+            "a": "Maybelline designed the Flex Tower brush with a flexible shaft that bends during application, allowing the wand to adjust to the angle of the lashes rather than applying at a fixed angle. This is intended to help reach corner and lower lashes more effectively."
+        },
+        {
+            "q": "How does Sky High compare to other Maybelline mascaras?",
+            "a": "Sky High is Maybelline's lengthening-focused formula, with the Flex Tower brush prioritising reach and separation alongside volume. Other Maybelline mascaras such as Colossal focus more on maximum volume. The right choice depends on whether length or thickness is the priority."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "Maybelline's Flex Tower brush <b>bends to reach corner and lower lashes</b> that standard wands miss — delivering volume and length in a single coat without clumping. Ophthalmologist tested and suitable for contact lens wearers.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["beauty", "fashion"],
+        "occasion": ["birthday", "valentines", "mothersday", "justbecause"],
+        "why": "A genuinely well-regarded everyday mascara that most people have heard of but not tried — affordable enough to feel like a thoughtful extra rather than a main present."
+    }
 },
 {
     "name": "Vitamin D3 4000 IU & K2 MK7 100μg - 1 Year Supply, 365 Easy-Swallow Vegetarian Tablets",
@@ -680,26 +1062,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/71l1gMTmsAL._AC_SX679_.jpg",
     "url": "https://amzn.to/3Z47XIB",
     "asin": "B0CR57HRDV",
-    "info": "Support your daily vitality with this convenient 1-year supply of high-strength Vitamin D3 (4000 IU) paired with K2 MK7 (100 μg) — a powerful duo for bone, immune, and overall wellness. Vegetarian, easy-to-swallow tablets designed for consistent use, especially during low-sun seasons. A caring, practical gift that helps nurture long-term energy and health.",
+    "info": "A 365-tablet supply of combined Vitamin D3 at 4,000 IU and Vitamin K2 as MK7 at 100μg per tablet — one tablet per day providing a full year's supply. The tablets are vegetarian, easy-swallow, and designed for year-round use. The NHS recommends adults consider a daily Vitamin D supplement during autumn and winter months when sunlight exposure in the UK is insufficient for natural synthesis.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-30",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["vitamin D3 K2", "4000 IU D3", "MK7 100mcg", "bone health supplement", "immune support", "valentines wellness gift", "year supply vitamins"],
-    "pain_points": ["limited sunlight exposure in winter", "interest in stronger bone and immune support", "need for simple, long-lasting supplements"],
-    "benefits": ["optimal bone, teeth, and muscle health", "boosted immune function and daily energy", "smart calcium direction with D3 + K2 synergy", "year-long convenience in one pouch", "gentle vegetarian formula"],
+    "keywords": [
+        "Vitamin D3 K2 supplement UK",
+        "4000 IU Vitamin D3 365 tablets",
+        "D3 K2 MK7 year supply UK",
+        "vegetarian Vitamin D winter supplement",
+        "high strength D3 K2 easy swallow"
+    ],
+    "pain_points": [
+        "Insufficient Vitamin D from sunlight during UK autumn and winter months",
+        "Running out of supplements and forgetting to reorder",
+        "Supplements that are difficult to swallow daily",
+        "Uncertainty about whether to take D3 and K2 separately or combined"
+    ],
+    "benefits": [
+        "4,000 IU Vitamin D3 and 100μg K2 MK7 combined in a single daily tablet",
+        "365-tablet supply — one purchase covers a full year",
+        "Vegetarian formula in easy-swallow tablet format",
+        "MK7 is the most bioavailable form of Vitamin K2",
+        "NHS recommends Vitamin D supplementation for UK adults during autumn and winter"
+    ],
     "price_tier": "affordable wellness supplement",
     "highlights": [
-        "Potent 4000 IU D3 + 100 μg K2 MK7 combo per tablet",
-        "Full 365-day supply — excellent value and no refills needed",
-        "Easy-swallow vegetarian tablets for daily ease",
-        "Supports bones, immunity, muscles, and balanced calcium use",
-        "Thoughtful gift that shows you value their well-being"
+        "4,000 IU Vitamin D3 combined with 100μg Vitamin K2 as MK7 per tablet",
+        "365 tablets — a full year's supply at one tablet per day",
+        "MK7 is the most bioavailable and longest-acting form of Vitamin K2",
+        "Vegetarian, easy-swallow tablets suitable for daily year-round use",
+        "The NHS recommends adults in the UK consider Vitamin D supplementation during autumn and winter"
     ],
     "faqs": [
-        {"q": "Why combine D3 and K2?", "a": "Vitamin D3 increases calcium absorption, while K2 (MK7 form) helps direct calcium to bones/teeth and away from arteries/soft tissues for balanced benefits."},
-        {"q": "Is this suitable as a gift?", "a": "Yes – wellness supplements like this show thoughtful care; many use it for seasonal health boosts, and the long supply makes it practical and appreciated."}
+        {
+            "q": "Why is Vitamin D3 combined with K2 MK7 in this supplement?",
+            "a": "Vitamin D3 increases calcium absorption in the gut. Vitamin K2 in the MK7 form is involved in directing calcium towards bones and teeth and away from soft tissues. Taking both together is a common approach for those supplementing D3 at higher doses, though individual needs vary — consult a GP if you have any concerns."
+        },
+        {
+            "q": "Is 4,000 IU of Vitamin D3 safe for daily use?",
+            "a": "The NHS states that taking up to 4,000 IU of Vitamin D daily is unlikely to cause harm for most adults. However, the NHS also advises against taking more than 4,000 IU per day without medical supervision. If you are on medication or have a health condition, consult your GP before starting supplementation."
+        },
+        {
+            "q": "Why do UK adults need Vitamin D supplements?",
+            "a": "The NHS recommends that adults in the UK consider taking a daily Vitamin D supplement during autumn and winter because sunlight levels are insufficient for the body to produce adequate Vitamin D naturally. Some groups are advised to supplement year-round."
+        }
     ],
-    "date_added": "2026-01-30"
+    "hook_override": "A full year's supply of <b>Vitamin D3 at 4,000 IU combined with K2 MK7 at 100μg</b> — one easy-swallow vegetarian tablet per day. The NHS recommends UK adults consider Vitamin D supplementation during autumn and winter when sunlight levels are too low for natural synthesis.",
+    "gift_finder_tags": {
+        "recipient": ["parent", "him", "her", "friend"],
+        "interests": ["health"],
+        "occasion": ["birthday", "christmas", "justbecause"],
+        "why": "A practical, genuinely useful gift for anyone in the UK who doesn't supplement already — the year's supply format means no reordering, and the D3 and K2 combination covers two complementary needs in one tablet."
+    }
 },
 {
     "name": "BIODANCE Bio-Collagen Real Deep Mask - Hydrogel Face Mask for Pore Minimizing & Elasticity Improvement",
@@ -708,84 +1125,189 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/51Qiwz3ZiaL._AC_SX679_.jpg",
     "url": "https://amzn.eu/d/49cMTit?tag=whoaccepts-21",
     "asin": "B0B2RM68G2",
-    "info": "Indulge in spa-like radiance with these ultra-thin hydrogel masks packed with low-molecular collagen for deep hydration and visible skin refinement. Adhere seamlessly to deliver plumping, pore-minimizing, and elasticity-boosting benefits — a Korean beauty favorite for that coveted glass-skin glow. Perfect for weekly pampering or as a lovely self-care treat.",
+    "info": "BIODANCE Bio-Collagen Real Deep Mask is a Korean hydrogel sheet mask containing low-molecular collagen, sold in packs of 4. The ultra-thin hydrogel material is designed to adhere closely to facial contours for consistent serum delivery. BIODANCE states the mask is fragrance-free, dermatologist-tested, and suitable for all skin types including sensitive.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-08",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
-    "keywords": ["hydrogel mask", "collagen mask", "Korean skincare", "glass skin", "pore minimizing"],
-    "pain_points": ["enlarged pores or loss of firmness", "desire for deeper hydration and glow", "looking for gentle, effective at-home treatments"],
-    "benefits": ["intense moisture and plumpness", "refined pores and smoother texture", "enhanced elasticity and radiance", "comfortable, fragrance-free wear", "easy addition to any routine"],
+    "keywords": [
+        "BIODANCE collagen hydrogel mask UK",
+        "Korean hydrogel face mask",
+        "collagen sheet mask pore minimising",
+        "glass skin face mask UK",
+        "fragrance free collagen mask sensitive skin"
+    ],
+    "pain_points": [
+        "Sheet masks that don't adhere properly and lose contact with the skin",
+        "Wanting deeper hydration than a standard serum provides",
+        "Skincare treatments that contain fragrance and irritate sensitive skin",
+        "Looking for a Korean skincare product that delivers visible results at home"
+    ],
+    "benefits": [
+        "Ultra-thin hydrogel adheres closely to facial contours for consistent contact",
+        "Low-molecular collagen for deeper skin penetration than standard sheet masks",
+        "Fragrance-free and dermatologist-tested — suitable for sensitive skin",
+        "Pack of 4 masks for regular use",
+        "Can be used as an overnight mask or standard 20-30 minute treatment"
+    ],
     "price_tier": "affordable K-beauty",
     "highlights": [
-        "Ultra-thin hydrogel delivers maximum serum absorption",
-        "Low-molecular collagen for deep penetration and bounce",
-        "Promotes glass-skin brightness and plumpness",
-        "Gentle, fragrance-free for all skin types",
-        "4 masks per pack — ideal for regular glow-ups"
+        "Ultra-thin hydrogel construction adheres closely to skin contours for consistent serum delivery",
+        "Contains low-molecular collagen — smaller molecules designed for deeper skin penetration",
+        "Pack of 4 masks — suitable for weekly treatments over a month",
+        "Fragrance-free and dermatologist-tested — BIODANCE states suitable for all skin types including sensitive",
+        "Can be used as a standard 20–30 minute treatment or left on overnight for intensive care"
     ],
     "faqs": [
-        {"q": "How often should I use these masks?", "a": "2–3 times per week for best results, or as an overnight treatment once a week for intensive care."},
-        {"q": "Are they suitable for sensitive skin?", "a": "Yes – fragrance-free, dermatologist-tested, and designed for all skin types including sensitive."}
+        {
+            "q": "How often should the BIODANCE mask be used?",
+            "a": "BIODANCE recommends using the mask 2–3 times per week for regular hydration and skin maintenance. For more intensive care, it can also be used as an overnight treatment once a week — leave on while sleeping and remove in the morning."
+        },
+        {
+            "q": "Is this mask suitable for sensitive skin?",
+            "a": "BIODANCE states the Bio-Collagen Real Deep Mask is fragrance-free, dermatologist-tested, and formulated for all skin types including sensitive. As with any new skincare product, a patch test before full application is advisable for those with reactive skin."
+        },
+        {
+            "q": "What is the benefit of low-molecular collagen in a face mask?",
+            "a": "Low-molecular collagen refers to collagen that has been broken down into smaller particles. BIODANCE states this allows for deeper penetration into the skin compared to standard collagen molecules, which are too large to pass through the skin barrier effectively."
+        }
     ],
-    "date_added": "2026-01-08"
+    "hook_override": "A Korean hydrogel mask with <b>low-molecular collagen that penetrates deeper than standard sheet masks</b> — the ultra-thin material adheres closely to skin contours for consistent contact. Fragrance-free, dermatologist-tested, and usable as an overnight treatment or a standard 20-minute session.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["beauty"],
+        "occasion": ["birthday", "valentines", "mothersday", "justbecause"],
+        "why": "For someone who takes their skincare seriously — the hydrogel format and low-molecular collagen make it a noticeable step up from a standard sheet mask, and the pack of 4 gives enough to actually feel a difference."
+    }
 },
 
     {
-        "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
-        "category": "Beauty",
-        "season": "Valentine's Day, Mother's Day",
-        "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
-        "url": "https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
-        "asin": "B0CBLK4J2P",
-        "info": "Gentle 10% azelaic acid serum with hyaluronic acid and niacinamide to calm redness, soothe irritation, and target blemishes – lightweight, non-greasy formula ideal for sensitive, acne-prone, or rosacea skin. Natural colour, vegan, cruelty-free Korean skincare – helps even tone, hydrate, and reduce inflammation for clearer, calmer complexion.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["azelaic acid", "redness serum", "sensitive skin", "K-beauty", "rosacea relief"],
-        "pain_points": ["facial redness", "irritation", "post-acne marks", "uneven tone"],
-        "benefits": ["calms redness", "soothes irritation", "fades marks", "hydrates deeply", "non-irritating"],
-        "price_tier": "mid-range K-beauty",
-        "highlights": [
-            "10% azelaic acid gently targets redness and blemishes",
-            "Hyaluronic acid + niacinamide for hydration and barrier repair",
-            "Lightweight, fast-absorbing, no white cast",
-            "Vegan, cruelty-free, and fragrance-free",
-            "Ideal for sensitive, acne-prone, and rosacea skin"
-        ],
-        "faqs": [
-            {"q": "Can I use this with retinol?", "a": "Yes – but start slowly (2–3 times/week) and always use sunscreen during the day as azelaic acid can increase sun sensitivity."},
-            {"q": "How long until I see results?", "a": "Many notice calmer skin in 1–2 weeks, with visible redness reduction and clearer tone in 4–6 weeks."}
-        ],
-        "date_added": "2026-01-08"
-    },
+    "name": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum - Facial Serum for Sensitive Skin",
+    "category": "Beauty",
+    "season": "Valentine's Day, Mother's Day",
+    "image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
+    "url": "https://amzn.eu/d/0Q0E8tR?tag=whoaccepts-21",
+    "asin": "B0CBLK4J2P",
+    "info": "The Anua Azelaic Acid 10 Serum is a Korean skincare serum containing 10% azelaic acid combined with hyaluronic acid and niacinamide. Azelaic acid is a well-researched ingredient used in dermatology for redness, uneven skin tone, and blemishes — including in prescription formulations for rosacea. The formula is lightweight, fragrance-free, vegan, and cruelty-free, and is stated by Anua to be suitable for sensitive and acne-prone skin.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-08",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Anua azelaic acid serum UK",
+        "10% azelaic acid serum sensitive skin",
+        "Korean redness soothing serum UK",
+        "azelaic acid niacinamide hyaluronic serum",
+        "fragrance free serum rosacea acne prone UK"
+    ],
+    "pain_points": [
+        "Persistent facial redness that makeup struggles to cover",
+        "Post-acne marks and uneven skin tone that are slow to fade",
+        "Serums that irritate sensitive or reactive skin",
+        "Finding an effective active ingredient that is gentle enough for daily use"
+    ],
+    "benefits": [
+        "10% azelaic acid targets redness, blemishes, and uneven tone",
+        "Hyaluronic acid provides hydration alongside active ingredient delivery",
+        "Niacinamide supports skin barrier function",
+        "Lightweight, fast-absorbing, no white cast",
+        "Fragrance-free, vegan, and cruelty-free"
+    ],
+    "price_tier": "mid-range K-beauty",
+    "highlights": [
+        "10% azelaic acid — a dermatologist-recognised ingredient for redness, blemishes, and uneven tone",
+        "Combined with hyaluronic acid for hydration and niacinamide for barrier support",
+        "Lightweight, fast-absorbing formula with no white cast",
+        "Fragrance-free, vegan, and cruelty-free — Anua states suitable for sensitive and acne-prone skin",
+        "Korean skincare formulation designed for daily use on reactive or rosacea-prone skin"
+      ],
+    "faqs": [
+        {
+            "q": "Can the Anua azelaic acid serum be used with retinol?",
+            "a": "Azelaic acid and retinol can be used in the same routine, though introducing both simultaneously may increase the chance of irritation for sensitive skin. A common approach is to start with azelaic acid in the morning and retinol at night, or to alternate evenings. Daily SPF is advisable when using azelaic acid as it can increase sun sensitivity."
+        },
+        {
+            "q": "How long before results are visible?",
+            "a": "Azelaic acid typically requires consistent use over several weeks to show visible results. Many users report calmer, less reactive skin within 1–2 weeks, with more noticeable improvements to redness and tone at the 4–6 week mark with daily use."
+        },
+        {
+            "q": "Is azelaic acid suitable for rosacea-prone skin?",
+            "a": "Azelaic acid is a recognised dermatological ingredient used in prescription treatments for rosacea. The over-the-counter concentration of 10% in this serum is lower than prescription formulations. If you have a diagnosed rosacea condition, consult your GP or dermatologist before adding new actives to your routine."
+        }
+    ],
+    "hook_override": "A 10% azelaic acid serum combined with hyaluronic acid and niacinamide — <b>azelaic acid is a dermatologist-recognised ingredient for redness, blemishes, and uneven tone</b>. Lightweight, fragrance-free, and formulated for sensitive and acne-prone skin without causing additional irritation.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend"],
+        "interests": ["beauty"],
+        "occasion": ["birthday", "valentines", "mothersday", "justbecause"],
+        "why": "For someone dealing with persistent redness or post-acne marks who hasn't tried azelaic acid yet — it's one of the most evidence-backed skincare ingredients for those concerns and this is a well-regarded, affordable way to try it."
+    }
+},
     {
-        "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
-        "category": "Electronics",
-        "season": "Valentine's Day",
-        "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
-        "url": "https://amzn.to/4ppgXmf?tag=whoaccepts-21",
-        "asin": "B09P8ZJ5K4",
-        "info": "Compact portable instant photo printer that produces 2.1x3.4 inch sticky-back prints from your smartphone via Bluetooth – uses 4PASS dye-sublimation for vibrant, long-lasting, water-resistant photos with protective layer. Compatible with iOS & Android, includes starter cartridge – perfect for instant memories, date nights, scrapbooking, or gifting.",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": ["instant photo printer", "portable printer", "sticky-back prints", "Bluetooth printer", "Kodak Mini"],
-        "pain_points": ["waiting for photo prints", "expensive printing", "fading photos"],
-        "benefits": ["instant prints", "sticky-back convenience", "vibrant & durable", "portable size", "app editing"],
-        "price_tier": "fun gadget",
-        "highlights": [
-            "Bluetooth printing from smartphone in under 60 seconds",
-            "4PASS dye-sublimation – smudge-proof, water-resistant prints",
-            "Sticky-back photos perfect for scrapbooks, cards, or decorating",
-            "Compact and lightweight – fits in bag or pocket",
-            "Free companion app with filters, collages, and editing tools"
-        ],
-        "faqs": [
-            {"q": "How many prints per cartridge?", "a": "Each cartridge prints 60 photos – starter pack usually includes 8–20 prints."},
-            {"q": "Does it work with both iPhone and Android?", "a": "Yes – fully compatible via Bluetooth with the free Kodak app on iOS and Android."}
-        ],
-        "date_added": "2026-01-04"
-    },
+    "name": "KODAK Mini 2 Retro Portable Instant Photo Printer - 2.1x3.4 Inches Sticky-Back Prints",
+    "category": "Electronics",
+    "season": "Valentine's Day",
+    "image": "https://m.media-amazon.com/images/I/71KprRZTn2L._AC_SX679_.jpg",
+    "url": "https://amzn.to/4ppgXmf?tag=whoaccepts-21",
+    "asin": "B09P8ZJ5K4",
+    "info": "The KODAK Mini 2 Retro is a portable Bluetooth photo printer producing 2.1 x 3.4 inch sticky-back prints from a smartphone in under 60 seconds. It uses 4PASS dye-sublimation technology, which Kodak states produces smudge-proof, water-resistant prints with a protective overlay layer. Compatible with iOS and Android via the free Kodak app. A starter cartridge is included — full replacement cartridges print 60 photos each.",
+    "last_updated": "2026-03-17",
+    "date_added": "2026-01-04",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "Kodak Mini 2 Retro instant printer UK",
+        "portable Bluetooth photo printer",
+        "sticky back instant photo printer",
+        "smartphone photo printer iOS Android",
+        "instant photo printer gift UK"
+    ],
+    "pain_points": [
+        "Photos staying on a phone and never being printed or displayed",
+        "Standard photo prints that fade, smudge, or aren't waterproof",
+        "Bulky or expensive home printers not worth buying for occasional photos",
+        "Looking for a creative, practical gift that gets used rather than shelved"
+    ],
+    "benefits": [
+        "Prints 2.1 x 3.4 inch sticky-back photos from a smartphone in under 60 seconds",
+        "4PASS dye-sublimation produces smudge-proof, water-resistant prints",
+        "Sticky-back format — no tape or glue needed for scrapbooks or decorating",
+        "Compact and lightweight — fits in a bag for events and travel",
+        "Free Kodak app includes filters, collage tools, and editing"
+    ],
+    "price_tier": "fun gadget",
+    "highlights": [
+        "Prints 2.1 x 3.4 inch photos via Bluetooth in under 60 seconds from iOS or Android",
+        "4PASS dye-sublimation technology — Kodak states smudge-proof and water-resistant output",
+        "Sticky-back prints require no tape or glue for scrapbooks, cards, or wall displays",
+        "Full replacement cartridges print 60 photos each — starter cartridge included",
+        "Free Kodak app available on iOS and Android with filters, collage, and editing tools"
+    ],
+    "faqs": [
+        {
+            "q": "How many prints does each cartridge produce?",
+            "a": "Kodak states full replacement cartridges for the Mini 2 Retro print 60 photos each. A starter cartridge is included in the box — check the current Amazon UK listing for the exact number of prints included with the starter pack."
+        },
+        {
+            "q": "Does the Kodak Mini 2 Retro work with both iPhone and Android?",
+            "a": "Yes — the printer connects via Bluetooth to the free Kodak app, which is available on both iOS and Android. Check the current Amazon UK listing for the minimum OS version required for compatibility with your device."
+        },
+        {
+            "q": "What makes 4PASS dye-sublimation different from inkjet printing?",
+            "a": "Kodak's 4PASS process applies colour in four passes — cyan, magenta, yellow, and a protective overlay — using heat rather than liquid ink. The result is a print that is smudge-proof and water-resistant from the moment it leaves the printer, with no drying time required."
+        }
+    ],
+    "hook_override": "A pocket-sized Bluetooth photo printer that produces <b>sticky-back 2.1 x 3.4 inch prints in under 60 seconds</b> from any smartphone. Kodak's 4PASS dye-sublimation means prints are smudge-proof and water-resistant straight out of the printer — no drying time, no fading.",
+    "gift_finder_tags": {
+        "recipient": ["her", "friend", "him"],
+        "interests": ["tech", "arts"],
+        "occasion": ["birthday", "valentines", "christmas", "justbecause"],
+        "why": "For someone who takes hundreds of photos but never prints any — the sticky-back format and 60-second print time makes it genuinely easy to turn phone photos into something physical."
+    }
+},
 
   {
     "name": "Newthinking Suction Bathroom Grab Rails, Hand Rail for Disabled, Portable Mobility Aids Safety Handle with Suction Cup Fitting, No Fixings Needed for Bathroom, Children and Disability Aids (1 Pack)",
