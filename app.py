@@ -41,14 +41,12 @@ from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
 from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
-from groq import Groq
 from dotenv import load_dotenv
 import requests
 
 load_dotenv()
 
 app = Flask(__name__)
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 from flask_caching import Cache
 cache = Cache(app, config={
@@ -470,8 +468,9 @@ def select_hook_type(product):
 
 
 def generate_hook(product):
-    if "hook_override" in product and product["hook_override"].strip():
+    if product.get("hook_override") and product["hook_override"].strip():
         return product["hook_override"].strip()
+    return generate_smart_fallback(product)
 
     name = product["name"]
     category = product.get("category", "")
