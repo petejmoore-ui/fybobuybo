@@ -123,9 +123,10 @@ def auto_tag(product: dict) -> dict:
     category and season fields. This means every product in PRODUCTS is
     quiz-eligible without manual tagging — the richer the product data,
     the better the matching.
-
     Manual overrides in PRODUCT_TAGS take precedence.
     """
+    if product.get("gift_finder_tags"):
+        return product["gift_finder_tags"]
     asin = product.get("asin", "")
     if asin and asin in PRODUCT_TAGS:
         return PRODUCT_TAGS[asin]
