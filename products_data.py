@@ -11,72 +11,61 @@ PRODUCTS = [
     "image": "https://m.media-amazon.com/images/I/61Hh2n69xrL._SL1500_.jpg",
     "url": "https://amzn.to/3NgeNrZ",
     "asin": "B001GAP4YA",
-    "info": "DAS Air Hardening Clay is an Italian modelling clay that has been made since 1963. This 1kg white block sets naturally at room temperature within 24 hours — no oven, kiln, or specialist tools needed. It adheres to wood, cardboard, plastic, metal, and glass, making it suitable for sculptures, bas-reliefs, home décor crafts, and school projects. Once dry it can be sanded, carved, or painted with acrylics, tempera, or multi-surface markers. AP certified non-toxic, acid-free, gluten-free, dermatologically tested, and water-washable — suitable for all ages.",
+    "info": "DAS Air Hardening Clay is an Italian modelling clay produced since 1963. This 1kg white block sets naturally at room temperature within 24 hours with no oven, kiln, or specialist tools required. AP certified non-toxic, acid-free, gluten-free, and dermatologically tested — it adheres to wood, cardboard, plastic, metal, and glass, and can be sanded, carved, or painted once dry.",
     "last_updated": "2026-03-04",
     "date_added": "2026-03-04",
     "manual_price": "",
     "manual_rating": "",
     "manual_reviews": "",
     "keywords": [
-        "air drying clay UK", "DAS modelling clay 1kg", "self hardening clay no oven",
-        "air drying clay for beginners", "air drying clay for kids",
-        "sculpting clay adults UK", "craft clay amazon UK", "clay for home decor",
-        "what clay dries without baking", "easy modelling clay adults"
-    ],
-    "use_cases": [
-        "Beginners wanting to try clay sculpting without needing specialist equipment or a kiln",
-        "Parents and teachers looking for a non-toxic, water-washable craft activity for children",
-        "Home décor enthusiasts making handmade ornaments, bowls, or wall art",
-        "Artists creating mixed-media projects combining clay with wood, cardboard, or paint",
-        "Adults looking for a relaxing, hands-on creative hobby at home"
+        "air drying clay UK",
+        "DAS modelling clay 1kg",
+        "self hardening clay no oven",
+        "clay for home decor UK",
+        "non-toxic modelling clay children"
     ],
     "pain_points": [
         "Clay that requires an expensive kiln or oven to harden",
-        "Craft materials that crack excessively or are difficult for beginners to work with",
-        "Messy or staining materials that aren't suitable for children or home use",
-        "Not knowing where to start with a sculpting or modelling hobby"
+        "Craft materials that crack badly or frustrate beginners",
+        "Messy or staining materials not suitable for home or classroom use",
+        "Mixed-media projects where clay won't bond to other surfaces"
     ],
     "benefits": [
-        "Air-hardens within 24 hours at room temperature — no equipment needed",
-        "Smooth, fine-grained texture that's malleable with or without armature support",
-        "Adheres to wood, cardboard, plastic, metal, and glass for mixed-media projects",
-        "Paintable when dry with acrylics, tempera, or multi-surface markers",
-        "AP certified non-toxic, acid-free, gluten-free, and water-washable — safe for all ages"
+        "Air-hardens in 24 hours at room temperature",
+        "AP certified non-toxic, acid-free, gluten-free",
+        "Adheres to wood, cardboard, plastic, metal, and glass",
+        "Paintable when dry with acrylics or tempera",
+        "Water-washable — easy cleanup from hands and surfaces"
     ],
     "price_tier": "affordable craft essential",
     "highlights": [
-        "Made in Italy — DAS clay has been crafted since 1963",
-        "1kg of smooth white clay — air-hardens in 24 hours, no oven or kiln required",
-        "Adheres to wood, cardboard, plastic, metal, and glass surfaces",
-        "Sand, carve, or paint when dry using acrylics, tempera, or multi-surface markers",
-        "AP certified non-toxic, acid-free, gluten-free, dermatologically tested, and water-washable"
+        "Italian-made — DAS clay has been produced since 1963",
+        "1kg white block air-hardens at room temperature in approximately 24 hours — no oven or kiln needed",
+        "Bonds to wood, cardboard, plastic, metal, and glass for mixed-media projects",
+        "Once dry, can be sanded, carved, and painted with acrylics, tempera, or multi-surface markers",
+        "AP certified non-toxic, acid-free, gluten-free, and dermatologically tested — water-washable"
     ],
     "faqs": [
         {
-            "q": "Does DAS clay need to be baked or fired in a kiln?",
-            "a": "No. DAS is an air-hardening clay that sets naturally at room temperature within 24 hours. No oven, kiln, or microwave is required, making it one of the most accessible clays for beginners and home use."
+            "q": "Does DAS clay need to be baked or fired?",
+            "a": "No — DAS is an air-hardening clay that sets at room temperature within approximately 24 hours. No oven, kiln, or microwave is needed, which is why it's one of the most accessible clays for home and classroom use."
         },
         {
-            "q": "Is DAS air drying clay safe for children?",
-            "a": "Yes. DAS clay is AP certified non-toxic, acid-free, gluten-free, and dermatologically tested. Clay residue washes easily from hands and most fabrics with soap and water, making it suitable for home and classroom use."
+            "q": "Is DAS clay safe for children?",
+            "a": "Yes. DAS carries AP certification confirming it is non-toxic, and is also acid-free, gluten-free, and dermatologically tested. Clay residue washes from hands and most fabrics with soap and water."
         },
         {
-            "q": "Can you paint DAS clay after it dries?",
-            "a": "Yes. Once fully hardened, DAS clay can be painted with acrylic paints, tempera paint, or multi-surface markers. It can also be sanded or carved before painting to refine your finished piece."
-        },
-        {
-            "q": "How do I prevent DAS clay from cracking while drying?",
-            "a": "According to DAS, the clay shrinks minimally — around 1–2% — which helps reduce cracking risk. Drying slowly away from direct heat sources and keeping wall thickness even helps further. Any small cracks that do appear can be repaired by smoothing wet clay into the gaps before the piece fully dries."
-        },
-        {
-            "q": "What surfaces does DAS clay stick to?",
-            "a": "DAS clay adheres to wood, cardboard, plastic, metal, and glass — making it well-suited for mixed-media projects where clay is applied over an existing structure or base."
-        },
-        {
-            "q": "How should I store unused DAS clay?",
-            "a": "DAS packaging is resealable. After use, press out any air, reseal the original packaging tightly, and store in a cool, dry place. Alternatively, wrap unused clay in cling film and place in an airtight bag to keep it workable."
+            "q": "How do I stop DAS clay cracking as it dries?",
+            "a": "According to DAS, the clay shrinks by approximately 1–2% during drying, which keeps cracking minimal. Drying away from direct heat and keeping wall thickness even helps further. Small cracks can be repaired by smoothing wet clay into the gap before the piece fully sets."
         }
-    ]
+    ],
+    "gift_finder_tags": {
+        "recipient": ["child", "friend", "her"],
+        "interests": ["arts", "home"],
+        "occasion": ["birthday", "christmas", "justbecause", "easter"],
+        "why": "For someone who wants to try clay sculpting at home without any specialist kit — no kiln, no oven, just open the packet and start."
+        }
+    }
 },
 
 {
