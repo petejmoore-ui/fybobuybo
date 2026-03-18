@@ -5689,7 +5689,7 @@ PRODUCTS = [
     {
     "name": "Herd Mentality Board Game",
     "category": "Toys & Games",
-    "season": "Christmas, Halloween"",
+    "season": "Christmas, Halloween",
     "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag=whoaccepts-21",
     "asin": "B09S3YBBRR",
