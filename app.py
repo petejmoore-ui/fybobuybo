@@ -40,9 +40,10 @@ import random
 from threading import Thread
 from products_data import PRODUCTS
 from blog_data import BLOG_POSTS
-from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify
+from flask import Flask, render_template_string, request, url_for, abort, Response, jsonify, redirect
 from dotenv import load_dotenv
 import requests
+
 
 load_dotenv()
 
@@ -3806,6 +3807,55 @@ def generate_seasonal_content(season_slug, products):
 # key_prefix=lambda: request.url ensures paginated routes cache separately
 # load_or_generate_hooks() calls cache.clear() to invalidate on content update
 # ============================================================================
+
+# ============================================================================
+# 301 REDIRECTS — fixing old URLs Google has indexed
+# ============================================================================
+
+@app.route("/product/echo-dot-5th-generation-smart-speaker-with-alexa--deep-sea-blue")
+def redirect_echo_dot():
+    return redirect("/product/echo-dot-5th-generation-smart-speaker-with-alexa-deep-sea-blue", code=301)
+
+@app.route("/product/cosrx-advanced-snail-96-mucin-power-essence-100ml--snail-secretion-filtrate-96-skin-repair-serum")
+def redirect_cosrx():
+    return redirect("/product/cosrx-advanced-snail-96-mucin-power-essence-100ml-snail-secretion-filtrate-96-skin-repair-serum", code=301)
+
+@app.route("/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum--facial-serum-for-sensitive-skin")
+def redirect_anua():
+    return redirect("/product/anua-azelaic-acid-10-hyaluron-redness-soothing-serum-facial-serum-for-sensitive-skin", code=301)
+
+@app.route("/product/lego-speed-champions-ferrari-sf-24-f1-race-car-toy--model-kit-with-formula-1-driver-minifigure--gift-for-10-year-old-boys-girls--and--adult-motorsport-fans--77242")
+def redirect_lego_ferrari():
+    return redirect("/product/lego-speed-champions-ferrari-sf-24-f1-race-car-toy-model-kit-with-formula-1-driver-minifigure-gift-for-10-year-old-boys-girls-and-adult-motorsport-fans-77242", code=301)
+
+@app.route("/category/summer-essentials")
+def redirect_summer_essentials():
+    return redirect("/season/summer-essentials", code=301)
+
+@app.route("/category/valentines-day")
+def redirect_valentines_category():
+    return redirect("/season/valentines-day", code=301)
+
+@app.route("/category/christmas-gift-ideas")
+def redirect_christmas_category():
+    return redirect("/season/christmas", code=301)
+
+# Double/triple hyphen category fixes
+@app.route("/category/toys--and--games")
+def redirect_toys():
+    return redirect("/category/toys-and-games", code=301)
+
+@app.route("/category/health--and--personal-care")
+def redirect_health():
+    return redirect("/category/health-and-personal-care", code=301)
+
+@app.route("/category/sports--and--outdoors")
+def redirect_sports():
+    return redirect("/category/sports-and-outdoors", code=301)
+
+@app.route("/category/home--and--kitchen")
+def redirect_home():
+    return redirect("/category/home-and-kitchen", code=301)
 
 @app.route("/privacy-policy")
 @cache.cached(timeout=86400, key_prefix='privacy-policy')  # 24h — legal pages are static
