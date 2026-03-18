@@ -5689,7 +5689,7 @@ PRODUCTS = [
     {
     "name": "Herd Mentality Board Game",
     "category": "Toys & Games",
-    "season": "Christmas",
+    "season": "Christmas, Halloween"",
     "image": "https://m.media-amazon.com/images/I/61jvW6xtkdL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Herd-Mentality-Board-Game-Addictive/dp/B09S3YBBRR?tag=whoaccepts-21",
     "asin": "B09S3YBBRR",
@@ -5817,7 +5817,7 @@ PRODUCTS = [
     {
     "name": "Shot in the Dark: The Ultimate Unorthodox Quiz Game",
     "category": "Toys & Games",
-    "season": "Christmas",
+    "season": "Christmas, Halloween",
     "image": "https://m.media-amazon.com/images/I/71BXgJpJ0oL._AC_SX679_.jpg",
     "url": "https://www.amazon.co.uk/Shot-Dark-Christmas-Ultimate-Unorthodox/dp/B08LFY1F42?tag=whoaccepts-21",
     "asin": "B08LFY1F42",
