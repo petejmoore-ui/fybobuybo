@@ -200,69 +200,6 @@ PRODUCTS = [
         }
     },
  
-    {
-        "name": "Victorinox Swiss Army Huntsman Pocket Knife - 15 Functions including Scissors, Wood Saw, Corkscrew (Red)",
-        "category": "Sports & Outdoors",
-        "season": "Father's Day",
-        "image": "https://m.media-amazon.com/images/I/81D9B1QVg5L._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/dp/B000MLIEPM?tag=fybobuybo-21",
-        "asin": "B000MLIEPM",
-        "info": "The Victorinox Huntsman is a Swiss-made pocket knife with 15 functions in a 91mm frame, including large and small blades, can opener, bottle opener, corkscrew, wood saw, scissors, Phillips screwdriver, and tweezers. Victorinox states all tools are made from stainless steel with Cellidor scales. The Huntsman has been produced in Ibach, Switzerland since 1897. Each knife carries a lifetime guarantee against defects in material and workmanship.",
-        "hook_override": "A Swiss-made pocket knife with <b>15 functions including wood saw, scissors, and corkscrew</b> — produced in Ibach, Switzerland since 1897 with a lifetime guarantee. Not a cheap multitool — Victorinox states every tool is stainless steel with a precision fit that stays tight.",
-        "last_updated": "2026-03-19",
-        "date_added": "2026-03-19",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": [
-            "Victorinox Huntsman pocket knife UK",
-            "Swiss Army knife 15 functions",
-            "Victorinox gift for dad UK",
-            "Swiss pocket knife lifetime guarantee",
-            "camping knife corkscrew wood saw UK"
-        ],
-        "pain_points": [
-            "Cheap multitools that feel flimsy and break after a few uses",
-            "Needing a corkscrew, scissors, or saw and not having one to hand",
-            "Bulky tool sets that aren't practical for carrying daily or on trips",
-            "Finding a quality gift for a dad who values craftsmanship over novelty"
-        ],
-        "benefits": [
-            "15 functions including wood saw, scissors, corkscrew, and Phillips screwdriver",
-            "Swiss-made stainless steel tools — Victorinox states precision-fitted to stay tight",
-            "91mm frame fits comfortably in a pocket or on a keyring",
-            "Lifetime guarantee against defects in material and workmanship",
-            "Produced in Ibach, Switzerland since 1897 — Victorinox heritage"
-        ],
-        "price_tier": "mid-range heritage gift",
-        "highlights": [
-            "15 tools in a 91mm stainless steel frame — large blade, small blade, can opener, bottle opener, corkscrew, wood saw, scissors, Phillips screwdriver, reamer, tweezers, toothpick, and more",
-            "Swiss-made in Ibach since 1897 — every Victorinox knife carries a lifetime guarantee",
-            "Cellidor scales (handle material) designed for durability and grip",
-            "The Huntsman adds a wood saw and scissors over the standard Spartan model",
-            "Compact enough for everyday carry or packing in a travel bag"
-        ],
-        "faqs": [
-            {
-                "q": "What is the difference between the Victorinox Huntsman and the Swiss Champ?",
-                "a": "The Huntsman has 15 functions in a relatively slim 91mm frame. The Swiss Champ has 33 functions but is significantly thicker and heavier. The Huntsman is widely regarded as the best balance between usefulness and portability — it includes the most commonly needed tools without the bulk."
-            },
-            {
-                "q": "Can I take a Victorinox pocket knife on a plane?",
-                "a": "No — UK and international aviation regulations prohibit carrying knives of any size in cabin baggage. A Victorinox pocket knife must be packed in checked hold luggage when flying."
-            },
-            {
-                "q": "Does the lifetime guarantee cover blade sharpening?",
-                "a": "Victorinox states the lifetime guarantee covers defects in material and workmanship but not normal wear from use. Blade dulling from regular use is considered normal wear. Victorinox offers a sharpening service — check their website for current details and costs."
-            }
-        ],
-        "gift_finder_tags": {
-            "recipient": ["him", "dad", "friend"],
-            "interests": ["outdoors", "tech"],
-            "occasion": ["fathersday", "birthday", "christmas"],
-            "why": "For the dad who appreciates quality tools that last a lifetime — the Huntsman is the Swiss Army knife that outdoors enthusiasts, campers, and DIYers actually carry and use."
-        }
-    },
  
     {
         "name": "Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters",
@@ -461,68 +398,68 @@ PRODUCTS = [
     },
  
     {
-        "name": "Ridley's Classic Pétanque Boules Set - 8 Metal Boules with Jack and Carry Case",
-        "category": "Toys & Games",
-        "season": "Summer Gifts",
-        "image": "https://m.media-amazon.com/images/I/81Dd8vpQCIL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/dp/B01MUG5YU0?tag=fybobuybo-21",
-        "asin": "B01MUG5YU0",
-        "info": "The Ridley's Pétanque Set includes 8 chrome-plated metal boules in 4 distinctive patterns (2 per player for 4 players), a wooden jack, and a canvas carry case. Each boule weighs approximately 400g. The set is designed for garden and park play on grass, gravel, or sand. Ridley's states the game is suitable for ages 8 and above.",
-        "hook_override": "A classic metal pétanque set with <b>8 chrome boules in 4 patterns for up to 4 players</b>, a wooden jack, and a canvas carry case. Unlike plastic garden games, these have the weight and feel of proper boules — suitable for grass, gravel, or sand.",
-        "last_updated": "2026-03-19",
-        "date_added": "2026-03-19",
-        "manual_price": "",
-        "manual_rating": "",
-        "manual_reviews": "",
-        "keywords": [
-            "pétanque boules set UK",
-            "garden boules game metal UK",
-            "Ridley's classic boules carry case",
-            "outdoor game adults summer UK",
-            "pétanque set gift Father's Day summer"
-        ],
-        "pain_points": [
-            "Plastic garden games that feel cheap and break after one summer",
-            "Looking for an outdoor game that adults genuinely enjoy playing",
-            "Garden games that only work on flat surfaces",
-            "Wanting something social for BBQs and garden gatherings beyond just eating"
-        ],
-        "benefits": [
-            "8 chrome-plated metal boules — proper weight and feel for authentic play",
-            "4 distinctive patterns allow identification for up to 4 individual players",
-            "Works on grass, gravel, sand, and most garden surfaces",
-            "Canvas carry case for transport and storage between sessions",
-            "Suitable for ages 8 and above — genuine intergenerational game"
-        ],
-        "price_tier": "classic outdoor gift",
-        "highlights": [
-            "8 chrome-plated metal boules weighing approximately 400g each — authentic weight and feel",
-            "4 distinctive groove patterns identify each player's boules during play",
-            "Includes wooden jack (cochonnet) and canvas carry case",
-            "Plays on grass, gravel, sand, and most outdoor surfaces — no special court needed",
-            "Ridley's states suitable for ages 8 and above — 2–4 players"
-        ],
-        "faqs": [
-            {
-                "q": "Can pétanque be played on a regular garden lawn?",
-                "a": "Yes — pétanque is traditionally played on gravel but works well on any relatively flat outdoor surface including grass, sand, and packed earth. An uneven lawn actually adds to the challenge and fun of the game."
-            },
-            {
-                "q": "How many people can play with this set?",
-                "a": "The set includes 8 boules in 4 patterns (2 per player), supporting 2–4 individual players or 2 teams of 2. Each player throws their 2 boules per round, aiming closest to the wooden jack."
-            },
-            {
-                "q": "Is this set suitable for competitive pétanque?",
-                "a": "This is a recreational set designed for garden and park play. Competitive pétanque boules are heavier (650–800g) and individually weighted. The Ridley's set is excellent for casual social games but not regulation-compliant for tournament play."
-            }
-        ],
-        "gift_finder_tags": {
-            "recipient": ["him", "dad", "friend", "her", "parent"],
-            "interests": ["outdoors", "sports"],
-            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
-            "why": "For the dad who hosts BBQs — pétanque is the garden game that adults actually play repeatedly, and proper metal boules make it feel like a real game rather than a kids' toy."
+        "name": "Chrome Boules Set - 8 Chrome-Plated Steel Boules with Jack and Nylon Carry Case",
+    "category": "Toys & Games",
+    "season": "Summer Gifts",
+    "image": "https://m.media-amazon.com/images/I/81Dd8vpQCIL._AC_SX679_.jpg",
+    "url": "https://www.amazon.co.uk/dp/B005CLTG4S?tag=fybobuybo-21",
+    "asin": "B005CLTG4S",
+    "info": "A set of 8 chrome-plated steel boules in 4 distinctive groove patterns (2 per player for up to 4 players), with a wooden jack and nylon zip carry case. Each boule is full-size chromed steel with genuine weight for authentic play. The set is designed for garden, beach, park, and camping use on grass, gravel, or sand.",
+    "hook_override": "A set of <b>8 full-size chrome-plated steel boules in 4 patterns for up to 4 players</b>, with a wooden jack and nylon zip carry case. Genuine weight for authentic play — suitable for grass, gravel, or sand.",
+    "last_updated": "2026-03-19",
+    "date_added": "2026-03-19",
+    "manual_price": "",
+    "manual_rating": "",
+    "manual_reviews": "",
+    "keywords": [
+        "chrome boules set UK",
+        "garden boules game metal UK",
+        "boules set 8 chrome carry case",
+        "outdoor game adults summer UK",
+        "pétanque boules set gift summer"
+    ],
+    "pain_points": [
+        "Plastic garden games that feel cheap and break after one summer",
+        "Looking for an outdoor game that adults genuinely enjoy playing",
+        "Garden games that only work on flat surfaces",
+        "Wanting something social for BBQs and garden gatherings beyond just eating"
+    ],
+    "benefits": [
+        "8 chrome-plated steel boules — genuine weight and feel for authentic play",
+        "4 distinctive groove patterns allow identification for up to 4 individual players",
+        "Works on grass, gravel, sand, and most garden surfaces",
+        "Nylon zip carry case for transport and storage between sessions",
+        "Includes wooden jack — everything needed to play immediately"
+    ],
+    "price_tier": "affordable outdoor classic",
+    "highlights": [
+        "8 full-size chrome-plated steel boules with authentic weight",
+        "4 distinctive groove patterns identify each player's boules during play",
+        "Includes wooden jack and nylon zip carry case",
+        "Plays on grass, gravel, sand, and most outdoor surfaces — no special court needed",
+        "Suitable for 2–4 players — a genuine intergenerational garden game"
+    ],
+    "faqs": [
+        {
+            "q": "Can boules be played on a regular garden lawn?",
+            "a": "Yes — boules is traditionally played on gravel but works well on any relatively flat outdoor surface including grass, sand, and packed earth. An uneven lawn actually adds to the challenge and fun of the game."
+        },
+        {
+            "q": "How many people can play with this set?",
+            "a": "The set includes 8 boules in 4 patterns (2 per player), supporting 2–4 individual players or 2 teams of 2. Each player throws their 2 boules per round, aiming closest to the wooden jack."
+        },
+        {
+            "q": "Is this set suitable for competitive pétanque?",
+            "a": "This is a recreational set designed for garden and park play. Competitive pétanque boules are heavier (650–800g) and individually weighted to regulation standards. This set is excellent for casual social games but not regulation-compliant for tournament play."
         }
-    },
+    ],
+    "gift_finder_tags": {
+        "recipient": ["him", "dad", "friend", "her", "parent"],
+        "interests": ["outdoors", "sports"],
+        "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+        "why": "For anyone who hosts BBQs or garden gatherings — boules is the garden game that adults actually play repeatedly, and proper chrome steel boules make it feel like a real game rather than a kids' toy."
+    }
+},
  
     {
         "name": "BRITA Fill & Go Active Water Filter Bottle 600ml - BPA-Free with MicroDisc Filter Technology (Blue)",
