@@ -328,7 +328,7 @@ PRODUCTS = [
         }
     },
  
-    {
+    
         "name": "Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ",
         "category": "Sports & Outdoors",
         "season": "Summer Essentials, Summer Gifts",
