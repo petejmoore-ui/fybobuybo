@@ -527,7 +527,7 @@ PRODUCTS = [
         "name": "Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle",
         "category": "Home & Kitchen",
         "season": "Summer Essentials, Summer Gifts",
-        "image": "https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg",
+        "image": "https://m.media-amazon.com/images/I/61AF5ZfHDdL._AC_SL1000_.jpg",
         "url": "https://amzn.to/4bUrl1G",
         "asin": "B001QUSDZC",
         "info": "The Kingfisher OUTBBQ2 is a portable barrel-style charcoal BBQ made from stainless steel with included grills. The barrel design can be stood upright for standard grilling or laid flat for double grill use, providing two cooking surfaces. Dimensions are approximately 41 x 36 x 36 cm. The carry handle allows one person to transport it to gardens, parks, beaches, and campsites. Manufactured by Bonnington Plastics, one of the UK's largest importers of leisure and garden products.",
