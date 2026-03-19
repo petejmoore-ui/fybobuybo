@@ -36,7 +36,7 @@ BLOG_POSTS = {
             "big-game-hunters-6-boules-petanque-set-with-rust-free-protection-official-french-set-with-canvas-carry-bag",
             "anker-soundcore-2-portable-bluetooth-speaker-12w-stereo-sound-ipx7-waterproof-24-hour-playtime",
             "kollea-30l-insulated-cool-bag-leak-proof-cooler-bag-with-shoulder-strap-for-picnics-camping-and-bbq",
-            "kitchencraft-portable-barrel-charcoal-bbq-with-lid-and-carry-handle-bucket-bbq-for-gardens-camping-and-picnics",
+            "kingfisher-outbbq2-portable-barrel-bbq-stainless-steel-with-double-grill-and-carry-handle",
             "brita-fill-go-active-water-filter-bottle-600ml-bpa-free-with-microdisc-filter-technology-blue",
             "hario-v60-drip-coffee-pour-over-decanter-brewing-kit-700ml-server-with-ceramic-dripper-and-40-paper-filters"
         ],
@@ -65,7 +65,7 @@ BLOG_POSTS = {
       <li><a href="#boules">Big Game Hunters Pétanque Set</a> — The garden game adults actually play</li>
       <li><a href="#soundcore">Anker Soundcore 2 Speaker</a> — 24-hour battery, outstanding value</li>
       <li><a href="#coolbag">Kollea 30L Cool Bag</a> — Keeps a family's worth of food and drink cold</li>
-      <li><a href="#bbq">KitchenCraft Portable Bucket BBQ</a> — BBQ anywhere without the bulk</li>
+      <li><a href="#bbq">Kingfisher Portable Barrel BBQ</a> — BBQ anywhere without the bulk</li>
       <li><a href="#brita">BRITA Fill & Go Active Filter Bottle</a> — Clean-tasting water from any tap</li>
       <li><a href="#v60">Hario V60 Pour Over Coffee Kit</a> — Café-quality morning ritual</li>
     </ol>
@@ -121,12 +121,12 @@ BLOG_POSTS = {
   <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Budget-conscious music lovers, festivals, camping</p>
   <div class='card' style='max-width:600px;margin:20px auto 40px;'>
     <a href='/product/{{ slugify("Anker Soundcore 2 Portable Bluetooth Speaker - 12W Stereo Sound, IPX7 Waterproof, 24-Hour Playtime") }}'>
-      <img src='https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SX679_.jpg' alt='Anker Soundcore 2 portable waterproof Bluetooth speaker' loading='lazy' style='border-radius:16px;' itemprop="image">
+      <img src='https://m.media-amazon.com/images/I/71jjggEx2XL._AC_SL1500_.jpg' alt='Anker Soundcore 2 portable waterproof Bluetooth speaker' loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p><strong>Why it's a great summer gift:</strong> Anker states 24 hours of battery — genuinely enough for an entire festival weekend or a week of garden sessions without charging. Dual 12W drivers with BassUp technology deliver surprising volume and depth for the size and price. IPX7 waterproof means it handles rain and splashes. Outstanding value for a genuinely capable outdoor speaker.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Anker Soundcore 2 Portable Bluetooth Speaker - 12W Stereo Sound, IPX7 Waterproof, 24-Hour Playtime") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B01MTB55WH?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/3PbwmdA' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -134,25 +134,25 @@ BLOG_POSTS = {
   <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Picnic planners, beach day organisers, camping families</p>
   <div class='card' style='max-width:600px;margin:20px auto 40px;'>
     <a href='/product/{{ slugify("Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ") }}'>
-      <img src='https://m.media-amazon.com/images/I/71JZZ8G6OPL._AC_SX679_.jpg' alt='Kollea 30L insulated cool bag with shoulder strap' loading='lazy' style='border-radius:16px;' itemprop="image">
+      <img src='https://m.media-amazon.com/images/I/710i3O82YSL._AC_SL1500_.jpg' alt='Kollea 30L insulated cool bag with shoulder strap' loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p><strong>Why it's a great summer gift:</strong> A 30-litre cool bag that holds approximately 20 bottles or 30 cans — enough for a full family day out. Triple-layer insulation keeps contents cold for hours with ice packs. Leak-proof interior means no soggy car boots. Folds flat when empty for compact storage. The practical gift that gets used every weekend from May to September.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B0F12HJ16Y?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/477lsvt' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
-  <h2 id="bbq" style="scroll-margin-top:100px;">6. KitchenCraft Portable Bucket BBQ</h2>
+  <h2 id="bbq" style="scroll-margin-top:100px;">6. Kingfisher Portable Barrel BBQ</h2>
   <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Beach BBQ fans, small-garden grillers, camping cooks</p>
   <div class='card' style='max-width:600px;margin:20px auto 40px;'>
-    <a href='/product/{{ slugify("KitchenCraft Portable Barrel Charcoal BBQ with Lid and Carry Handle - Bucket BBQ for Gardens, Camping and Picnics") }}'>
-      <img src='https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg' alt='KitchenCraft portable bucket charcoal BBQ' loading='lazy' style='border-radius:16px;' itemprop="image">
+    <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'>
+      <img src='https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg' alt='Kingfisher portable stainless steel barrel BBQ' loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
-    <p><strong>Why it's a great summer gift:</strong> A compact charcoal BBQ with carry handle that one person can transport to the beach, park, or campsite. KitchenCraft states 27cm cooking surface for 4–6 servings — enough for burgers and sausages at a small gathering. Reusable season after season, unlike disposable trays that are increasingly banned in UK parks. Light it up, cook, done.</p>
+    <p><strong>Why it's a great summer gift:</strong> A stainless steel barrel BBQ with carry handle that one person can transport to the beach, park, or campsite. The clever dual configuration stands upright for standard grilling or lays flat for double grill use — two cooking surfaces in one portable design. Reusable season after season, unlike disposable trays that are increasingly banned in UK parks.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("KitchenCraft Portable Barrel Charcoal BBQ with Lid and Carry Handle - Bucket BBQ for Gardens, Camping and Picnics") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B007CL56TA?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B001QUSDZC?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -212,14 +212,14 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">What summer gifts are good for under £30?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Several picks on this list sit comfortably under £30: the BRITA Fill & Go filter bottle, Hario V60 coffee kit, Big Game Hunters pétanque set, and KitchenCraft portable BBQ all typically retail below £30 on Amazon UK. The Anker Soundcore 2 speaker is also frequently under £30 during seasonal promotions.</p>
+        <p itemprop="text">Several picks on this list sit comfortably under £30: the BRITA Fill & Go filter bottle, Hario V60 coffee kit, Big Game Hunters pétanque set, and Kingfisher portable BBQ all typically retail below £30 on Amazon UK. The Anker Soundcore 2 speaker is also frequently under £30 during seasonal promotions.</p>
       </div>
     </div>
  
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">Are disposable BBQs banned in the UK?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Several major UK retailers (including Marks & Spencer and Aldi) have stopped selling disposable BBQs due to fire risk concerns. Many local councils ban them on common land, moorland, and in parks. A reusable portable BBQ like the KitchenCraft bucket BBQ is a more sustainable and increasingly necessary alternative.</p>
+        <p itemprop="text">Several major UK retailers (including Marks & Spencer and Aldi) have stopped selling disposable BBQs due to fire risk concerns. Many local councils ban them on common land, moorland, and in parks. A reusable portable BBQ like the Kingfisher barrel BBQ is a more sustainable and increasingly necessary alternative.</p>
       </div>
     </div>
  
@@ -248,11 +248,6 @@ BLOG_POSTS = {
     },
  
  
-    # ──────────────────────────────────────────────────────────────
-    # SUMMER BLOG POST 2:
-    # Target query: "summer essentials UK 2026"
-    # ──────────────────────────────────────────────────────────────
- 
     "summer-essentials-uk-2026": {
         "title": "Summer Essentials UK 2026 — Everything You Need for the Warm Months",
         "meta_description": "Summer essentials for UK shoppers in 2026 — sun protection, hydration, outdoor cooking, and more. Practical must-haves for the British summer, all on Amazon UK.",
@@ -268,7 +263,7 @@ BLOG_POSTS = {
             "summer checklist UK",
             "British summer essentials list"
         ],
-        "featured_image": "https://m.media-amazon.com/images/I/61Q3DRZzVuL._AC_SX679_.jpg",
+        "featured_image": "https://m.media-amazon.com/images/I/71evQv2HQgL._AC_SL1500_.jpg",
         "featured_image_alt": "NIVEA SUN Protect & Moisture SPF50+ — UK summer essential",
         "article_type": "Article",
         "word_count": 1500,
@@ -281,7 +276,7 @@ BLOG_POSTS = {
             "stanley-quencher-h20-flowstate-tumbler-118l-insulated-stainless-steel-with-straw-lid",
             "brita-fill-go-active-water-filter-bottle-600ml-bpa-free-with-microdisc-filter-technology-blue",
             "kollea-30l-insulated-cool-bag-leak-proof-cooler-bag-with-shoulder-strap-for-picnics-camping-and-bbq",
-            "kitchencraft-portable-barrel-charcoal-bbq-with-lid-and-carry-handle-bucket-bbq-for-gardens-camping-and-picnics",
+            "kingfisher-outbbq2-portable-barrel-bbq-stainless-steel-with-double-grill-and-carry-handle",
             "anker-soundcore-2-portable-bluetooth-speaker-12w-stereo-sound-ipx7-waterproof-24-hour-playtime",
             "thermopro-tp20-wireless-remote-digital-meat-thermometer-with-dual-probes-for-smoker-grill-oven-bbq"
         ],
@@ -319,24 +314,24 @@ BLOG_POSTS = {
   <h3>NIVEA SUN Protect & Moisture SPF 50+ (200ml)</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("NIVEA SUN Protect & Moisture Sun Lotion SPF 50+ 200ml - UVA/UVB Protection with Vitamin C and Hyaluron") }}'>
-      <img src='https://m.media-amazon.com/images/I/61Q3DRZzVuL._AC_SX679_.jpg' alt='NIVEA SUN SPF50+ sun lotion' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/71evQv2HQgL._AC_SL1500_.jpg' alt='NIVEA SUN SPF50+ sun lotion' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>Immediate UVA/UVB protection with NIVEA's CITRACELL-PROTECT formula. Fast-absorbing with no white cast, water-resistant, and NIVEA states 48-hour moisture. Ocean-friendly formula — free from the most commonly flagged UV filters. The sunscreen that actually gets applied because it doesn't feel heavy or leave visible residue.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("NIVEA SUN Protect & Moisture Sun Lotion SPF 50+ 200ml - UVA/UVB Protection with Vitamin C and Hyaluron") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B000SQN6FW?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/4sjSEbr' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
   <h3>Garnier Ambre Solaire After Sun Lotion (400ml)</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("Garnier Ambre Solaire After Sun Lotion 400ml - Hydrating and Soothing with Aloe Vera") }}'>
-      <img src='https://m.media-amazon.com/images/I/61EJGsXFR4L._AC_SX679_.jpg' alt='Garnier Ambre Solaire after sun with Aloe Vera' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/61JS1CBqyyL._AC_SL1500_.jpg' alt='Garnier Ambre Solaire after sun with Aloe Vera' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>The recovery step most people skip. Aloe Vera formula that cools and hydrates sun-exposed skin immediately on application. Garnier states it helps skin recover after UV exposure. The 400ml bottle is generous enough for a family — apply after showering on any day you've been in the sun, not just when you're burned.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Garnier Ambre Solaire After Sun Lotion 400ml - Hydrating and Soothing with Aloe Vera") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B001E0SI18?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/4lEb7x9' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -370,15 +365,15 @@ BLOG_POSTS = {
   <h2 id="outdoor-cooking" style="scroll-margin-top:100px;">Outdoor Cooking</h2>
   <p>British summer BBQ culture is strong — whether it's a full garden setup or a portable grill at the beach.</p>
  
-  <h3>KitchenCraft Portable Bucket BBQ</h3>
+  <h3>Kingfisher Portable Barrel BBQ</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
-    <a href='/product/{{ slugify("KitchenCraft Portable Barrel Charcoal BBQ with Lid and Carry Handle - Bucket BBQ for Gardens, Camping and Picnics") }}'>
-      <img src='https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg' alt='KitchenCraft portable charcoal bucket BBQ' loading='lazy' style='border-radius:16px;'>
+    <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'>
+      <img src='https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg' alt='Kingfisher portable stainless steel barrel BBQ' loading='lazy' style='border-radius:16px;'>
     </a>
-    <p>A compact charcoal BBQ with carry handle — one person can carry it to the beach or campsite. 27cm cooking surface for 4–6 servings. Reusable season after season, unlike increasingly banned disposable BBQs. Ventilation holes for heat control, fitted lid for transport.</p>
+    <p>A stainless steel barrel BBQ with carry handle — one person can transport it to the beach or campsite. The dual configuration stands upright for standard grilling or lays flat for double grill use. Reusable season after season, unlike increasingly banned disposable BBQs.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("KitchenCraft Portable Barrel Charcoal BBQ with Lid and Carry Handle - Bucket BBQ for Gardens, Camping and Picnics") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B007CL56TA?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B001QUSDZC?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -399,12 +394,12 @@ BLOG_POSTS = {
   <h3>Kollea 30L Insulated Cool Bag</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ") }}'>
-      <img src='https://m.media-amazon.com/images/I/71JZZ8G6OPL._AC_SX679_.jpg' alt='Kollea 30L cool bag' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/710i3O82YSL._AC_SL1500_.jpg' alt='Kollea 30L cool bag' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>Holds approximately 20 bottles or 30 cans — enough for a family day out. Triple-layer insulation, leak-proof interior, and folds flat when empty. The essential piece of kit for any picnic, beach day, or camping trip where warm drinks and soggy sandwiches aren't an option.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B0F12HJ16Y?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/477lsvt' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -413,12 +408,12 @@ BLOG_POSTS = {
   <h3>Anker Soundcore 2 Bluetooth Speaker</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("Anker Soundcore 2 Portable Bluetooth Speaker - 12W Stereo Sound, IPX7 Waterproof, 24-Hour Playtime") }}'>
-      <img src='https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SX679_.jpg' alt='Anker Soundcore 2 portable Bluetooth speaker' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/71jjggEx2XL._AC_SL1500_.jpg' alt='Anker Soundcore 2 portable Bluetooth speaker' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>24-hour battery, 12W stereo sound with BassUp, IPX7 waterproof — the speaker that runs all weekend without charging and handles rain, splashes, and sandy hands. The budget-friendly essential for garden parties, camping, and beach days.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Anker Soundcore 2 Portable Bluetooth Speaker - 12W Stereo Sound, IPX7 Waterproof, 24-Hour Playtime") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B01MTB55WH?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/3PbwmdA' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -488,6 +483,8 @@ BLOG_POSTS = {
             {"text": "Health & Personal Care", "url": "/category/health-and-personal-care"}
         ]
     },
+ 
+}
  
 
     # ──────────────────────────────────────────────────────────────
