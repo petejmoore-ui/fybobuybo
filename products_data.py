@@ -20,8 +20,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.6",
-        "manual_reviews": "30000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "wireless meat thermometer UK",
             "ThermoPro TP20 BBQ thermometer",
