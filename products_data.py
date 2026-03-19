@@ -278,8 +278,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.5",
-        "manual_reviews": "8000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "NIVEA SUN SPF 50 UK",
             "sunscreen UK summer lotion",
@@ -343,8 +343,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.5",
-        "manual_reviews": "3000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "insulated cool bag 30L UK",
             "picnic cooler bag large UK",
@@ -407,8 +407,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.7",
-        "manual_reviews": "200000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "Anker Soundcore 2 speaker UK",
             "waterproof Bluetooth speaker 24 hours battery UK",
@@ -471,8 +471,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.6",
-        "manual_reviews": "10000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "after sun lotion UK",
             "Garnier Ambre Solaire after sun aloe vera",
@@ -524,23 +524,23 @@ PRODUCTS = [
     },
  
     {
-        "name": "KitchenCraft Portable Barrel Charcoal BBQ with Lid and Carry Handle - Bucket BBQ for Gardens, Camping and Picnics",
+        "name": "Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle",
         "category": "Home & Kitchen",
         "season": "Summer Essentials, Summer Gifts",
         "image": "https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg",
-        "url": "https://www.amazon.co.uk/dp/B007CL56TA?tag=fybobuybo-21",
-        "asin": "B007CL56TA",
-        "info": "The KitchenCraft Portable Barrel BBQ is a compact charcoal barbecue with a bucket-style design, chrome-plated cooking grill, ventilation holes for airflow control, a fitted lid, and a carry handle for transport. KitchenCraft states the cooking surface is approximately 27cm in diameter, suitable for 4–6 servings. The BBQ includes a charcoal grate and ash collector. Suitable for garden, beach, camping, and picnic use.",
-        "hook_override": "A compact charcoal BBQ in a <b>portable bucket design with lid, chrome grill, and carry handle</b> — KitchenCraft states a 27cm cooking surface for 4–6 servings. Light enough to carry to the beach, park, or campsite. No gas, no electricity — just charcoal and food.",
+        "url": "https://www.amazon.co.uk/dp/B001QUSDZC?tag=fybobuybo-21",
+        "asin": "B001QUSDZC",
+        "info": "The Kingfisher OUTBBQ2 is a portable barrel-style charcoal BBQ made from stainless steel with included grills. The barrel design can be stood upright for standard grilling or laid flat for double grill use, providing two cooking surfaces. Dimensions are approximately 41 x 36 x 36 cm. The carry handle allows one person to transport it to gardens, parks, beaches, and campsites. Manufactured by Bonnington Plastics, one of the UK's largest importers of leisure and garden products.",
+        "hook_override": "A stainless steel barrel BBQ that <b>stands upright for standard grilling or lays flat for double grill use</b> — two cooking options in one portable design. Carry handle for easy transport to gardens, parks, and campsites. Compact at approximately 41 x 36 x 36 cm.",
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.3",
-        "manual_reviews": "5000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "portable BBQ UK",
-            "bucket BBQ charcoal UK",
-            "KitchenCraft portable barbecue",
+            "barrel BBQ charcoal UK",
+            "Kingfisher portable barbecue stainless steel",
             "camping BBQ small UK",
             "portable charcoal BBQ beach picnic UK"
         ],
@@ -548,42 +548,42 @@ PRODUCTS = [
             "Wanting to BBQ at the beach or park but full-size grills are too heavy to carry",
             "Disposable BBQs that are wasteful, unreliable, and increasingly banned in parks",
             "No garden space for a permanent BBQ setup",
-            "Gas BBQ setups that are expensive and require refills"
+            "Needing a BBQ that offers more than one cooking configuration"
         ],
         "benefits": [
-            "Portable bucket design with carry handle — light enough for one person to transport",
-            "Chrome-plated cooking grill with approximately 27cm diameter cooking surface",
-            "Fitted lid for transport and to control cooking heat",
-            "Ventilation holes for airflow control — adjust heat without moving food",
-            "Reusable alternative to disposable BBQs — charcoal only, no gas canister needed"
+            "Stainless steel barrel design with included grills — durable and easy to clean",
+            "Two configurations: stand upright for standard grilling or lay flat for double grill use",
+            "Carry handle for easy one-person transport to gardens, parks, and beaches",
+            "Compact dimensions — approximately 41 x 36 x 36 cm",
+            "Reusable season after season — replaces single-use disposable BBQs"
         ],
         "price_tier": "affordable outdoor cooking",
         "highlights": [
-            "Compact barrel-style charcoal BBQ with chrome-plated grill and fitted lid",
-            "KitchenCraft states cooking surface is approximately 27cm — suitable for 4–6 servings",
-            "Carry handle for easy transport to gardens, beaches, parks, and campsites",
-            "Includes charcoal grate and ash collector — set up and cook within minutes",
-            "Reusable season after season — replaces single-use disposable BBQs"
+            "Stainless steel portable barrel BBQ with included grills",
+            "Dual configuration: upright for standard use or flat for double grill surface",
+            "Carry handle for easy transport to gardens, parks, beaches, and campsites",
+            "Compact at approximately 41 x 36 x 36 cm — fits in a car boot easily",
+            "Manufactured by Kingfisher (Bonnington Plastics) — established UK leisure products company"
         ],
         "faqs": [
             {
                 "q": "How many people can this BBQ serve?",
-                "a": "KitchenCraft states the 27cm cooking surface is suitable for 4–6 servings. For a couple or small family outing, it handles burgers, sausages, and skewers comfortably. For larger groups, you would need to cook in batches."
+                "a": "The barrel size comfortably serves 2–4 people for standard grilling. When laid flat using the double grill configuration, you can cook more food simultaneously — suitable for a small family gathering or couple's BBQ."
             },
             {
                 "q": "Can I take this BBQ to the beach?",
-                "a": "Yes — the portable design with carry handle is intended for beach, park, and campsite use. Always place on a stable, heat-resistant surface (not directly on grass or sand) and check local bylaws — some UK beaches and parks restrict or ban BBQ use. Never use on peat or moorland due to fire risk."
+                "a": "Yes — the portable design with carry handle is intended for beach, park, and campsite use. Always place on a stable, heat-resistant surface and check local bylaws — some UK beaches and parks restrict or ban BBQ use. Never use on peat or moorland due to fire risk."
             },
             {
-                "q": "How long does it take to heat up?",
-                "a": "With standard charcoal briquettes, expect approximately 20–30 minutes for the coals to be ready for cooking (grey/white ash covering). Charcoal chimney starters speed this up to around 15 minutes."
+                "q": "What does 'lay flat for double grill use' mean?",
+                "a": "The barrel can be positioned on its side (flat) rather than upright. In this position, both the top and bottom grills become accessible cooking surfaces, effectively doubling the grilling area for larger batches of food."
             }
         ],
         "gift_finder_tags": {
             "recipient": ["him", "dad", "friend"],
             "interests": ["cooking", "outdoors"],
             "occasion": ["birthday", "fathersday", "justbecause"],
-            "why": "For the dad or friend who wants to BBQ at the beach, park, or campsite without lugging a full-size grill — compact, reusable, and much better than a disposable tray."
+            "why": "For anyone who wants to BBQ at the beach, park, or campsite without lugging a full-size grill — the dual configuration gives flexibility and it's compact enough to keep in the car boot all summer."
         }
     },
  
