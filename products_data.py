@@ -4,6 +4,591 @@
 
 PRODUCTS = [
 
+    # ──────────────────────────────────────────────────────────────
+    # FATHER'S DAY PRODUCTS
+    # ──────────────────────────────────────────────────────────────
+ 
+    {
+        "name": "ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ",
+        "category": "Electronics",
+        "season": "Father's Day, Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B01GE77QT0?tag=fybobuybo-21",
+        "asin": "B01GE77QT0",
+        "info": "The ThermoPro TP20 is a wireless dual-probe meat thermometer with a 150-metre (500ft) transmission range between transmitter and receiver. One probe monitors internal meat temperature while the second tracks ambient grill or smoker temperature simultaneously. ThermoPro states the probes are accurate to ±1°C and withstand temperatures up to 380°C. Nine preset meat types with five doneness levels are programmed using USDA-recommended temperatures.",
+        "hook_override": "A wireless dual-probe thermometer with a <b>150-metre range and USDA-preset doneness levels for 9 meat types</b> — monitor meat and grill temperature simultaneously from indoors. ThermoPro states accuracy to ±1°C, and the probes withstand up to 380°C.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.6",
+        "manual_reviews": "30000",
+        "keywords": [
+            "wireless meat thermometer UK",
+            "ThermoPro TP20 BBQ thermometer",
+            "dual probe grill thermometer",
+            "wireless smoker thermometer Father's Day",
+            "digital meat thermometer remote UK"
+        ],
+        "pain_points": [
+            "Hovering over the BBQ because you can't monitor temperature remotely",
+            "Overcooked or undercooked meat from guessing doneness",
+            "Single-probe thermometers that can't track meat and grill temp simultaneously",
+            "Cheap thermometers with inaccurate readings and short wireless range"
+        ],
+        "benefits": [
+            "Dual probes monitor meat and ambient grill temperature simultaneously",
+            "150-metre wireless range — monitor from indoors without leaving the sofa",
+            "9 preset meat types with 5 doneness levels based on USDA recommendations",
+            "ThermoPro states accuracy to ±1°C with probes rated to 380°C",
+            "Countdown and count-up timer with audible alarm when target temperature is reached"
+        ],
+        "price_tier": "mid-range BBQ essential",
+        "highlights": [
+            "Dual stainless steel probes — one for meat, one for ambient grill or smoker temperature",
+            "ThermoPro states wireless range of up to 150 metres (500ft) between transmitter and receiver",
+            "9 preset meat types (beef, pork, chicken, lamb, fish, etc.) with 5 doneness levels each",
+            "Large backlit LCD display on both transmitter and receiver units",
+            "Powered by 4 AAA batteries (included) — pre-synced from factory, no pairing needed"
+        ],
+        "faqs": [
+            {
+                "q": "How far does the wireless signal reach through walls?",
+                "a": "ThermoPro states the TP20 has a range of up to 150 metres (500ft) in open conditions. Indoor range through walls is shorter — most UK users report reliable signal through 2–3 internal walls. Thick stone or brick walls may reduce range further."
+            },
+            {
+                "q": "Can both probes monitor different meats at the same time?",
+                "a": "Yes — each probe can be set to a different meat type and doneness level independently. Alternatively, use one probe in the meat and one clipped to the grill grate to track ambient temperature. Both readings display simultaneously on the receiver."
+            },
+            {
+                "q": "Do the probes need replacing over time?",
+                "a": "ThermoPro states the probes are durable stainless steel rated to 380°C. With regular use, probe accuracy may drift after extended periods — ThermoPro offers replacement probes and states their customer service will assist with warranty claims."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["cooking", "tech", "outdoors"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For the dad who BBQs or smokes meat — eliminates the guesswork and hovering, and the dual-probe setup is a genuine upgrade over single-probe alternatives."
+        }
+    },
+ 
+    {
+        "name": "Theragun Mini 2.0 Handheld Electric Massage Gun - Deep Tissue Percussion Massager with QuietForce Technology and 3 Attachments (Black)",
+        "category": "Health & Personal Care",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/61RkOCXbURL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B0BMJKDBVR?tag=fybobuybo-21",
+        "asin": "B0BMJKDBVR",
+        "info": "The Theragun Mini 2.0 is a compact percussion massage gun from Therabody with a QX35 brushless motor delivering up to 2,400 percussions per minute across 3 preset speeds. Therabody states it applies over 9kg of force with Active Torque Control maintaining speed and depth under pressure. The device weighs 0.68kg and includes 3 attachments — Standard Ball, Dampener, and Thumb — in a soft carry case. Bluetooth-enabled for personalised routines via the Therabody app.",
+        "hook_override": "A pocket-sized percussion massage gun that <b>delivers over 9kg of force at up to 2,400 percussions per minute</b> — Therabody's QuietForce motor maintains depth even under pressure. Three attachments included for targeted muscle recovery, and the Bluetooth app provides guided routines for specific aches.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.5",
+        "manual_reviews": "5000",
+        "keywords": [
+            "Theragun Mini massage gun UK",
+            "compact percussion massager",
+            "deep tissue massage gun portable",
+            "muscle recovery gift for dad UK",
+            "Therabody Mini 2.0 UK"
+        ],
+        "pain_points": [
+            "Post-exercise muscle soreness that takes days to recover from",
+            "Neck and shoulder tension from desk work or driving",
+            "Professional massage appointments that are expensive and hard to book",
+            "Full-size massage guns that are too heavy or loud for regular use"
+        ],
+        "benefits": [
+            "QX35 brushless motor with QuietForce Technology — powerful but quieter than competitors",
+            "3 preset speeds: 1,750, 2,100, and 2,400 percussions per minute",
+            "Active Torque Control maintains speed and depth under pressure",
+            "0.68kg weight fits in a gym bag, travel case, or desk drawer",
+            "Bluetooth-enabled — connect to Therabody app for guided recovery routines"
+        ],
+        "price_tier": "premium recovery tool",
+        "highlights": [
+            "QX35 brushless motor delivers up to 2,400 PPM with over 9kg of applied force",
+            "QuietForce Technology — Therabody states reduced noise compared to previous generations",
+            "3 attachments included: Standard Ball, Dampener, and Thumb for different muscle groups",
+            "Therabody states 120 minutes total battery life per charge via USB-C",
+            "Soft carry case included — compact enough for gym bags and carry-on luggage"
+        ],
+        "faqs": [
+            {
+                "q": "Is the Theragun Mini powerful enough compared to full-size models?",
+                "a": "Therabody states the Mini 2.0 delivers over 9kg of stall force — less than the Elite (18kg) or Pro (27kg) but significantly more than most mini massage guns. For daily muscle maintenance and targeted relief, it is widely regarded as sufficient. Full-size models are better for very deep tissue work on large muscle groups."
+            },
+            {
+                "q": "How long does the battery last?",
+                "a": "Therabody states 120 minutes of total battery life per USB-C charge. At moderate use of 10–15 minutes per day, this typically provides over a week of sessions between charges."
+            },
+            {
+                "q": "Can the Theragun Mini be used for back pain?",
+                "a": "The Mini is designed for muscle tension relief and recovery rather than treatment of diagnosed back conditions. The compact size limits reach to your own back — it works well on accessible areas like shoulders, neck, legs, and arms. For lower back use, a partner's help or a full-size model with a longer handle is more practical."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["sports", "health"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For a dad who exercises, plays golf, or just carries tension from work — the pocket-sized format means it actually gets used daily rather than gathering dust in a drawer."
+        }
+    },
+ 
+    {
+        "name": "JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)",
+        "category": "Electronics",
+        "season": "Father's Day, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/71wQ2VZuJaL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B08PJ7JMQM?tag=fybobuybo-21",
+        "asin": "B08PJ7JMQM",
+        "info": "The JBL Clip 4 is an ultra-portable Bluetooth 5.1 speaker with an integrated carabiner, IP67 waterproof and dustproof rating, and up to 10 hours of battery life. JBL states the speaker delivers JBL Pro Sound with rich audio and punchy bass from a compact oval design. The redesigned carabiner is built into the speaker body for durability, clipping to bags, belts, and buckles. Available in multiple colours.",
+        "hook_override": "A Bluetooth speaker with an <b>integrated carabiner and IP67 waterproof rating</b> — clips to a bag, belt, or bike and survives rain, pool splashes, and dust. JBL states 10 hours of battery life with Pro Sound bass from a speaker that fits in a palm.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.7",
+        "manual_reviews": "50000",
+        "keywords": [
+            "JBL Clip 4 speaker UK",
+            "waterproof Bluetooth speaker carabiner",
+            "portable speaker garden BBQ UK",
+            "IP67 outdoor speaker gift",
+            "JBL portable speaker Father's Day UK"
+        ],
+        "pain_points": [
+            "Phone speakers too quiet for outdoor gatherings",
+            "Portable speakers that aren't genuinely waterproof for poolside or garden use",
+            "Speakers too bulky to carry on walks, hikes, or bike rides",
+            "Short battery life requiring mid-day recharging during outdoor events"
+        ],
+        "benefits": [
+            "IP67 rated — fully waterproof and dustproof for any outdoor environment",
+            "Integrated carabiner clips directly to bags, belts, and buckles",
+            "JBL states up to 10 hours of battery life per charge",
+            "Bluetooth 5.1 wireless streaming from any smartphone or tablet",
+            "JBL Pro Sound with punchy bass from an oval palm-sized design"
+        ],
+        "price_tier": "affordable quality audio",
+        "highlights": [
+            "IP67 waterproof and dustproof — JBL states suitable for pool, shower, and outdoor use",
+            "Integrated carabiner built into the speaker body — clips to bags, belts, and bike handlebars",
+            "JBL states up to 10 hours of battery life on a single USB-C charge",
+            "Bluetooth 5.1 for stable wireless streaming from any compatible device",
+            "Available in 10+ colours — check current Amazon UK listing for available options"
+        ],
+        "faqs": [
+            {
+                "q": "Can the JBL Clip 4 survive being dropped in water?",
+                "a": "JBL states the Clip 4 is IP67 rated, meaning it can be submerged in up to 1 metre of water for up to 30 minutes. It is designed to survive accidental drops into pools, puddles, and rivers. It is not designed for prolonged underwater use."
+            },
+            {
+                "q": "How loud is the JBL Clip 4 outdoors?",
+                "a": "The Clip 4 is designed as an ultra-portable personal speaker — it fills a small garden area or picnic setup comfortably but is not intended to replace larger speakers for parties. For a small BBQ gathering of 4–8 people, it provides clear, enjoyable audio."
+            },
+            {
+                "q": "Does the JBL Clip 4 have a microphone for calls?",
+                "a": "Yes — JBL states the Clip 4 includes a built-in noise and echo-cancelling speakerphone for taking calls directly through the speaker."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her"],
+            "interests": ["tech", "outdoors"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For a dad who listens to podcasts in the garden, music at the BBQ, or radio on walks — the carabiner clip and genuine waterproofing make it the speaker that actually goes everywhere."
+        }
+    },
+ 
+    {
+        "name": "Victorinox Swiss Army Huntsman Pocket Knife - 15 Functions including Scissors, Wood Saw, Corkscrew (Red)",
+        "category": "Sports & Outdoors",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/81D9B1QVg5L._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B000MLIEPM?tag=fybobuybo-21",
+        "asin": "B000MLIEPM",
+        "info": "The Victorinox Huntsman is a Swiss-made pocket knife with 15 functions in a 91mm frame, including large and small blades, can opener, bottle opener, corkscrew, wood saw, scissors, Phillips screwdriver, and tweezers. Victorinox states all tools are made from stainless steel with Cellidor scales. The Huntsman has been produced in Ibach, Switzerland since 1897. Each knife carries a lifetime guarantee against defects in material and workmanship.",
+        "hook_override": "A Swiss-made pocket knife with <b>15 functions including wood saw, scissors, and corkscrew</b> — produced in Ibach, Switzerland since 1897 with a lifetime guarantee. Not a cheap multitool — Victorinox states every tool is stainless steel with a precision fit that stays tight.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.8",
+        "manual_reviews": "15000",
+        "keywords": [
+            "Victorinox Huntsman pocket knife UK",
+            "Swiss Army knife 15 functions",
+            "Victorinox gift for dad UK",
+            "Swiss pocket knife lifetime guarantee",
+            "camping knife corkscrew wood saw UK"
+        ],
+        "pain_points": [
+            "Cheap multitools that feel flimsy and break after a few uses",
+            "Needing a corkscrew, scissors, or saw and not having one to hand",
+            "Bulky tool sets that aren't practical for carrying daily or on trips",
+            "Finding a quality gift for a dad who values craftsmanship over novelty"
+        ],
+        "benefits": [
+            "15 functions including wood saw, scissors, corkscrew, and Phillips screwdriver",
+            "Swiss-made stainless steel tools — Victorinox states precision-fitted to stay tight",
+            "91mm frame fits comfortably in a pocket or on a keyring",
+            "Lifetime guarantee against defects in material and workmanship",
+            "Produced in Ibach, Switzerland since 1897 — Victorinox heritage"
+        ],
+        "price_tier": "mid-range heritage gift",
+        "highlights": [
+            "15 tools in a 91mm stainless steel frame — large blade, small blade, can opener, bottle opener, corkscrew, wood saw, scissors, Phillips screwdriver, reamer, tweezers, toothpick, and more",
+            "Swiss-made in Ibach since 1897 — every Victorinox knife carries a lifetime guarantee",
+            "Cellidor scales (handle material) designed for durability and grip",
+            "The Huntsman adds a wood saw and scissors over the standard Spartan model",
+            "Compact enough for everyday carry or packing in a travel bag"
+        ],
+        "faqs": [
+            {
+                "q": "What is the difference between the Victorinox Huntsman and the Swiss Champ?",
+                "a": "The Huntsman has 15 functions in a relatively slim 91mm frame. The Swiss Champ has 33 functions but is significantly thicker and heavier. The Huntsman is widely regarded as the best balance between usefulness and portability — it includes the most commonly needed tools without the bulk."
+            },
+            {
+                "q": "Can I take a Victorinox pocket knife on a plane?",
+                "a": "No — UK and international aviation regulations prohibit carrying knives of any size in cabin baggage. A Victorinox pocket knife must be packed in checked hold luggage when flying."
+            },
+            {
+                "q": "Does the lifetime guarantee cover blade sharpening?",
+                "a": "Victorinox states the lifetime guarantee covers defects in material and workmanship but not normal wear from use. Blade dulling from regular use is considered normal wear. Victorinox offers a sharpening service — check their website for current details and costs."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["outdoors", "tech"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For the dad who appreciates quality tools that last a lifetime — the Huntsman is the Swiss Army knife that outdoors enthusiasts, campers, and DIYers actually carry and use."
+        }
+    },
+ 
+    {
+        "name": "Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters",
+        "category": "Home & Kitchen",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/61pJNsGeDdL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B000P4D5HG?tag=fybobuybo-21",
+        "asin": "B000P4D5HG",
+        "info": "The Hario V60 Pour Over Kit includes a ceramic V60 dripper, a 700ml glass server, a measuring scoop, and 40 bleached paper filters. Hario states the V60's signature spiral ribs and large single drainage hole allow full control over brew speed and extraction — the angle and pour pattern determine the flavour profile. Made in Japan. The V60 is the standard pour over dripper used in specialty coffee shops worldwide.",
+        "hook_override": "The pour over dripper used in specialty coffee shops worldwide — <b>Hario's V60 spiral ribs and single drainage hole give full control over extraction</b>. This kit includes the ceramic dripper, 700ml glass server, scoop, and 40 filters. Made in Japan.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.6",
+        "manual_reviews": "8000",
+        "keywords": [
+            "Hario V60 pour over coffee kit UK",
+            "pour over coffee dripper set",
+            "specialty coffee gift for dad UK",
+            "Hario V60 ceramic dripper server",
+            "manual coffee brewing kit UK"
+        ],
+        "pain_points": [
+            "Wanting better coffee at home without an expensive espresso machine",
+            "Instant coffee that tastes flat compared to café pour overs",
+            "Pod machines that create ongoing capsule cost and plastic waste",
+            "No idea where to start with manual coffee brewing"
+        ],
+        "benefits": [
+            "V60 ceramic dripper — the standard pour over used in specialty coffee shops globally",
+            "Spiral ribs and single drainage hole allow full control over brew speed and extraction",
+            "700ml glass server brews enough for 2–3 cups per session",
+            "40 bleached paper filters included for immediate use",
+            "Made in Japan by Hario — established 1921"
+        ],
+        "price_tier": "affordable upgrade",
+        "highlights": [
+            "Hario V60 ceramic dripper — the industry-standard pour over used in specialty coffee worldwide",
+            "Signature spiral ribs and large single drainage hole for controlled extraction",
+            "Kit includes ceramic dripper, 700ml glass server, measuring scoop, and 40 paper filters",
+            "Made in Japan by Hario — manufacturers of coffee equipment since 1921",
+            "No electricity or pods required — just hot water and ground coffee"
+        ],
+        "faqs": [
+            {
+                "q": "What grind size should I use with the Hario V60?",
+                "a": "Hario recommends a medium-fine grind — roughly the texture of table salt. Pre-ground supermarket coffee is typically too coarse for optimal V60 extraction. A burr grinder produces the most consistent results, but many UK coffee roasters offer V60-specific grinds."
+            },
+            {
+                "q": "Is the V60 difficult for beginners to use?",
+                "a": "The basic technique is straightforward — place filter in dripper, add coffee, pour hot water slowly in a circular motion. Results improve with practice. The V60 rewards experimentation with water temperature, pour speed, and grind size, which is part of its appeal for coffee enthusiasts."
+            },
+            {
+                "q": "How long does a V60 brew take?",
+                "a": "A typical single-cup V60 brew takes 2–3 minutes from first pour to last drip. A full 700ml server takes approximately 3–4 minutes. Total time including boiling the kettle is under 5 minutes."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her"],
+            "interests": ["cooking", "home"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For the dad who drinks coffee every morning but hasn't explored beyond a cafetière — the V60 is the natural next step into genuinely better coffee at home, and the kit includes everything needed to start immediately."
+        }
+    },
+ 
+    {
+        "name": "L'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant",
+        "category": "Beauty",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B09MDKYQM1?tag=fybobuybo-21",
+        "asin": "B09MDKYQM1",
+        "info": "The L'Oréal Men Expert Hydra Energetic Gift Set contains a face wash, moisturiser, shower gel, and deodorant in L'Oréal's Hydra Energetic range. L'Oréal states the moisturiser contains Vitamin C and Guarana to combat tired, dull-looking skin. The set is presented in a gift box ready to give. L'Oréal states all Men Expert products are dermatologist-tested.",
+        "hook_override": "A complete grooming set from L'Oréal Men Expert — <b>face wash, Vitamin C moisturiser, shower gel, and deodorant in a gift-ready box</b>. L'Oréal states the Hydra Energetic range targets tired, dull-looking skin with Guarana and Vitamin C. Dermatologist-tested throughout.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.5",
+        "manual_reviews": "3000",
+        "keywords": [
+            "L'Oréal Men Expert gift set UK",
+            "men's grooming gift set Father's Day",
+            "Hydra Energetic face wash moisturiser set",
+            "men's skincare gift box UK",
+            "grooming gift for dad UK"
+        ],
+        "pain_points": [
+            "Dads who use soap on their face and wonder why their skin looks tired",
+            "Not knowing which men's skincare products to buy as a gift",
+            "Men's gift sets with unknown brands that don't inspire confidence",
+            "Wanting a complete routine in one box rather than buying products separately"
+        ],
+        "benefits": [
+            "Complete 4-product routine — face wash, moisturiser, shower gel, and deodorant",
+            "Vitamin C and Guarana in the moisturiser targets tired, dull-looking skin",
+            "L'Oréal Men Expert — established, widely trusted men's grooming brand",
+            "Gift box presentation — no additional wrapping needed",
+            "L'Oréal states all Men Expert products are dermatologist-tested"
+        ],
+        "price_tier": "affordable grooming gift",
+        "highlights": [
+            "4-product set: face wash, Hydra Energetic moisturiser, shower gel, and deodorant",
+            "L'Oréal states the Vitamin C and Guarana formula combats tired, dull-looking skin",
+            "Presented in a gift box suitable for giving directly — no additional wrapping required",
+            "L'Oréal Men Expert is one of the UK's best-selling men's grooming ranges",
+            "Dermatologist-tested — L'Oréal stated"
+        ],
+        "faqs": [
+            {
+                "q": "Is the L'Oréal Men Expert range suitable for sensitive skin?",
+                "a": "L'Oréal states the Men Expert range is dermatologist-tested. The Hydra Energetic line is formulated for normal to tired-looking skin. L'Oréal also produces a dedicated Sensitive range within Men Expert for those with reactive skin."
+            },
+            {
+                "q": "What does the moisturiser actually do?",
+                "a": "L'Oréal states the Hydra Energetic moisturiser uses Vitamin C and Guarana to hydrate, reduce the appearance of fatigue, and brighten dull-looking skin. It is designed for daily morning use after face washing."
+            },
+            {
+                "q": "Is this suitable as a Father's Day gift for someone new to skincare?",
+                "a": "Yes — the set provides a complete basic routine in one box, removing the guesswork of which products to buy individually. L'Oréal Men Expert is a familiar brand that most men will recognise, making it an approachable entry point."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad"],
+            "interests": ["beauty", "health"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For the dad who still washes his face with whatever soap is in the shower — an approachable, trusted-brand grooming upgrade that arrives gift-boxed and ready to give."
+        }
+    },
+ 
+    # ──────────────────────────────────────────────────────────────
+    # SUMMER GIFTS + SUMMER ESSENTIALS PRODUCTS
+    # ──────────────────────────────────────────────────────────────
+ 
+    {
+        "name": "Stanley Quencher H2.0 FlowState Tumbler 1.18L - Insulated Stainless Steel with Straw Lid",
+        "category": "Sports & Outdoors",
+        "season": "Summer Essentials, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/61VgBdwRURL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B0CX523GWH?tag=fybobuybo-21",
+        "asin": "B0CX523GWH",
+        "info": "The Stanley Quencher H2.0 is a 1.18-litre double-wall vacuum insulated tumbler with a FlowState three-position lid — straw, sip, and sealed. Stanley states the tumbler keeps drinks cold for up to 11 hours, iced for 2 days, and hot for 7 hours. The tapered base fits most car cup holders, and the construction is 90% recycled BPA-free stainless steel. Dishwasher safe.",
+        "hook_override": "The tumbler that went viral for a reason — <b>Stanley states it keeps drinks cold for 11 hours, iced for 2 days</b>, with a three-position lid for straw, sip, or sealed. 1.18 litres in a tapered base that fits car cup holders. 90% recycled stainless steel, dishwasher safe.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.6",
+        "manual_reviews": "20000",
+        "keywords": [
+            "Stanley Quencher tumbler UK",
+            "insulated water tumbler straw lid",
+            "Stanley H2.0 FlowState 1.18L UK",
+            "summer hydration tumbler UK",
+            "stainless steel tumbler car cup holder"
+        ],
+        "pain_points": [
+            "Drinks going warm within an hour during hot summer days",
+            "Tumblers that don't fit in car cup holders",
+            "Plastic water bottles that develop a taste over time",
+            "Lids that only offer one drinking option — straw or sip, not both"
+        ],
+        "benefits": [
+            "1.18L capacity — enough for sustained hydration throughout the day",
+            "Stanley states: cold for 11 hours, iced for 2 days, hot for 7 hours",
+            "FlowState lid with three positions — straw, sip opening, and fully sealed",
+            "Tapered base fits most car cup holders despite the large capacity",
+            "90% recycled BPA-free stainless steel, dishwasher safe"
+        ],
+        "price_tier": "premium hydration",
+        "highlights": [
+            "1.18L double-wall vacuum insulated stainless steel tumbler",
+            "Stanley states keeps drinks cold for up to 11 hours and iced for 2 days",
+            "FlowState three-position lid: straw, sip, and sealed — rotating lid mechanism",
+            "Tapered base designed to fit most standard car cup holders",
+            "90% recycled BPA-free stainless steel — dishwasher safe throughout"
+        ],
+        "faqs": [
+            {
+                "q": "Does the Stanley Quencher fit in a car cup holder?",
+                "a": "Stanley states the tapered base is designed to fit most standard car cup holders. The 1.18L Quencher fits the majority of UK vehicle cup holders, though some older or compact cars may have narrower holders — check the base diameter against your vehicle's holder before purchasing."
+            },
+            {
+                "q": "How does the FlowState lid work?",
+                "a": "The FlowState lid rotates between three positions: a straw opening for drinking through the included reusable straw, a sip opening for drinking directly, and a fully sealed position for transport. The lid is splash-resistant in the straw and sip positions but not fully leak-proof."
+            },
+            {
+                "q": "Is the Stanley Quencher dishwasher safe?",
+                "a": "Stanley states the tumbler, lid, and straw are all dishwasher safe. Place on the top rack for best results."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["her", "him", "friend", "dad"],
+            "interests": ["sports", "health", "outdoors"],
+            "occasion": ["birthday", "christmas", "justbecause", "fathersday"],
+            "why": "For anyone who spends time outdoors in summer — the 11-hour cold retention and car cup holder fit solve the two main reasons people abandon reusable bottles."
+        }
+    },
+ 
+    {
+        "name": "Ridley's Classic Pétanque Boules Set - 8 Metal Boules with Jack and Carry Case",
+        "category": "Toys & Games",
+        "season": "Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/81Dd8vpQCIL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B01MUG5YU0?tag=fybobuybo-21",
+        "asin": "B01MUG5YU0",
+        "info": "The Ridley's Pétanque Set includes 8 chrome-plated metal boules in 4 distinctive patterns (2 per player for 4 players), a wooden jack, and a canvas carry case. Each boule weighs approximately 400g. The set is designed for garden and park play on grass, gravel, or sand. Ridley's states the game is suitable for ages 8 and above.",
+        "hook_override": "A classic metal pétanque set with <b>8 chrome boules in 4 patterns for up to 4 players</b>, a wooden jack, and a canvas carry case. Unlike plastic garden games, these have the weight and feel of proper boules — suitable for grass, gravel, or sand.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.4",
+        "manual_reviews": "2500",
+        "keywords": [
+            "pétanque boules set UK",
+            "garden boules game metal UK",
+            "Ridley's classic boules carry case",
+            "outdoor game adults summer UK",
+            "pétanque set gift Father's Day summer"
+        ],
+        "pain_points": [
+            "Plastic garden games that feel cheap and break after one summer",
+            "Looking for an outdoor game that adults genuinely enjoy playing",
+            "Garden games that only work on flat surfaces",
+            "Wanting something social for BBQs and garden gatherings beyond just eating"
+        ],
+        "benefits": [
+            "8 chrome-plated metal boules — proper weight and feel for authentic play",
+            "4 distinctive patterns allow identification for up to 4 individual players",
+            "Works on grass, gravel, sand, and most garden surfaces",
+            "Canvas carry case for transport and storage between sessions",
+            "Suitable for ages 8 and above — genuine intergenerational game"
+        ],
+        "price_tier": "classic outdoor gift",
+        "highlights": [
+            "8 chrome-plated metal boules weighing approximately 400g each — authentic weight and feel",
+            "4 distinctive groove patterns identify each player's boules during play",
+            "Includes wooden jack (cochonnet) and canvas carry case",
+            "Plays on grass, gravel, sand, and most outdoor surfaces — no special court needed",
+            "Ridley's states suitable for ages 8 and above — 2–4 players"
+        ],
+        "faqs": [
+            {
+                "q": "Can pétanque be played on a regular garden lawn?",
+                "a": "Yes — pétanque is traditionally played on gravel but works well on any relatively flat outdoor surface including grass, sand, and packed earth. An uneven lawn actually adds to the challenge and fun of the game."
+            },
+            {
+                "q": "How many people can play with this set?",
+                "a": "The set includes 8 boules in 4 patterns (2 per player), supporting 2–4 individual players or 2 teams of 2. Each player throws their 2 boules per round, aiming closest to the wooden jack."
+            },
+            {
+                "q": "Is this set suitable for competitive pétanque?",
+                "a": "This is a recreational set designed for garden and park play. Competitive pétanque boules are heavier (650–800g) and individually weighted. The Ridley's set is excellent for casual social games but not regulation-compliant for tournament play."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her", "parent"],
+            "interests": ["outdoors", "sports"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For the dad who hosts BBQs — pétanque is the garden game that adults actually play repeatedly, and proper metal boules make it feel like a real game rather than a kids' toy."
+        }
+    },
+ 
+    {
+        "name": "BRITA Fill & Go Active Water Filter Bottle 600ml - BPA-Free with MicroDisc Filter Technology (Blue)",
+        "category": "Health & Personal Care",
+        "season": "Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/61dR-nLBjkL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B018SXGQHO?tag=fybobuybo-21",
+        "asin": "B018SXGQHO",
+        "info": "The BRITA Fill & Go Active is a 600ml water filter bottle with a built-in MicroDisc filter that reduces chlorine and other substances from tap water as you drink. BRITA states each MicroDisc lasts approximately 4 weeks or 150 litres, and the bottle is BPA-free and dishwasher safe. The squeeze mechanism allows filtered water to flow through the straw-like spout. One MicroDisc is included.",
+        "hook_override": "A 600ml water bottle with a <b>built-in MicroDisc filter that reduces chlorine from tap water as you drink</b> — no waiting for filtering, just fill from any tap and squeeze. BRITA states each disc lasts approximately 4 weeks. BPA-free and dishwasher safe.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.3",
+        "manual_reviews": "15000",
+        "keywords": [
+            "BRITA Fill Go Active filter bottle UK",
+            "water filter bottle BPA free UK",
+            "filtered water bottle gym travel UK",
+            "BRITA MicroDisc bottle 600ml",
+            "summer water bottle filter UK"
+        ],
+        "pain_points": [
+            "Tap water that tastes of chlorine, especially in hard water areas",
+            "Buying bottled water creating ongoing cost and plastic waste",
+            "Standard filter jugs that are too bulky for travel or the gym",
+            "Wanting clean-tasting water on the go without a full filtration system"
+        ],
+        "benefits": [
+            "MicroDisc filter reduces chlorine as you drink — no waiting for filtering",
+            "600ml capacity suitable for gym, commuting, and outdoor activities",
+            "BPA-free construction — BRITA stated",
+            "BRITA states each MicroDisc lasts approximately 4 weeks or 150 litres",
+            "Dishwasher safe for easy cleaning"
+        ],
+        "price_tier": "affordable everyday essential",
+        "highlights": [
+            "Built-in MicroDisc filter reduces chlorine and improves taste from any tap water source",
+            "BRITA states each MicroDisc lasts approximately 4 weeks (150 litres) — one included",
+            "600ml BPA-free bottle with squeeze mechanism for instant filtered drinking",
+            "Dishwasher safe — bottle and filter assembly both machine washable",
+            "Replacement MicroDisc 3-packs available for approximately 12 weeks of use"
+        ],
+        "faqs": [
+            {
+                "q": "How does the BRITA MicroDisc filter work?",
+                "a": "The MicroDisc uses activated carbon to reduce chlorine and other taste-affecting substances as water passes through it during drinking. The filtering happens as you squeeze the bottle — no need to wait for water to drip through a jug-style filter."
+            },
+            {
+                "q": "How often should the MicroDisc be replaced?",
+                "a": "BRITA states each MicroDisc lasts approximately 4 weeks or 150 litres, whichever comes first. Replacement 3-packs are widely available on Amazon UK."
+            },
+            {
+                "q": "Can the BRITA bottle be used with unfiltered tap water safely?",
+                "a": "The MicroDisc improves the taste of tap water by reducing chlorine. It is not designed to purify unsafe water sources. UK mains tap water is already safe to drink — the filter improves taste rather than safety."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "her", "friend", "dad"],
+            "interests": ["health", "sports", "outdoors"],
+            "occasion": ["birthday", "justbecause", "christmas"],
+            "why": "For anyone who buys bottled water regularly or complains about tap water taste — the filter bottle is a practical daily upgrade that pays for itself within a few weeks."
+        }
+    },
+ 
+
     {
     "name": "DAS 1kg Air Hardening Modelling Clay – White",
     "category": "Arts & Crafts",
