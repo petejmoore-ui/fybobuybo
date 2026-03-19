@@ -108,12 +108,12 @@ BLOG_POSTS = {
   <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: BBQ hosts, garden game lovers, families</p>
   <div class='card' style='max-width:600px;margin:20px auto 40px;'>
     <a href='/product/{{ slugify("Big Game Hunters 6 Boules Pétanque Set with Rust-Free Protection - Official French Set with Canvas Carry Bag") }}'>
-      <img src='https://m.media-amazon.com/images/I/81FKpCqiJnL._AC_SL1500_.jpg' alt='Big Game Hunters 6 boules pétanque set with canvas carry bag' loading='lazy' style='border-radius:16px;' itemprop="image">
+      <img src='https://m.media-amazon.com/images/I/616Eh-GHsvL._AC_SL1500_.jpg' alt='Big Game Hunters 6 boules pétanque set with canvas carry bag' loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p><strong>Why it's a great summer gift:</strong> Six official-size chrome-plated steel boules with rust-free protection — 3 per player in 2 engraved designs, following official French pétanque rules. Each boule weighs approximately 720g for authentic, satisfying play. Includes a wooden jack, measuring tool, and padded canvas carry bag. Works on grass, gravel, or sand — the garden game that adults genuinely play round after round.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Big Game Hunters 6 Boules Pétanque Set with Rust-Free Protection - Official French Set with Canvas Carry Bag") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B07P975KDP?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/4uCjBbY' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
@@ -147,12 +147,12 @@ BLOG_POSTS = {
   <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Beach BBQ fans, small-garden grillers, camping cooks</p>
   <div class='card' style='max-width:600px;margin:20px auto 40px;'>
     <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'>
-      <img src='https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg' alt='Kingfisher portable stainless steel barrel BBQ' loading='lazy' style='border-radius:16px;' itemprop="image">
+      <img src='https://m.media-amazon.com/images/I/61AF5ZfHDdL._AC_SL1000_.jpg' alt='Kingfisher portable stainless steel barrel BBQ' loading='lazy' style='border-radius:16px;' itemprop="image">
     </a>
     <p><strong>Why it's a great summer gift:</strong> A stainless steel barrel BBQ with carry handle that one person can transport to the beach, park, or campsite. The clever dual configuration stands upright for standard grilling or lays flat for double grill use — two cooking surfaces in one portable design. Reusable season after season, unlike disposable trays that are increasingly banned in UK parks.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B001QUSDZC?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/4bUrl1G' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
