@@ -398,68 +398,68 @@ PRODUCTS = [
     },
  
     {
-        "name": "Chrome Boules Set - 8 Chrome-Plated Steel Boules with Jack and Nylon Carry Case",
-    "category": "Toys & Games",
-    "season": "Summer Gifts",
-    "image": "https://m.media-amazon.com/images/I/81Dd8vpQCIL._AC_SX679_.jpg",
-    "url": "https://www.amazon.co.uk/dp/B005CLTG4S?tag=fybobuybo-21",
-    "asin": "B005CLTG4S",
-    "info": "A set of 8 chrome-plated steel boules in 4 distinctive groove patterns (2 per player for up to 4 players), with a wooden jack and nylon zip carry case. Each boule is full-size chromed steel with genuine weight for authentic play. The set is designed for garden, beach, park, and camping use on grass, gravel, or sand.",
-    "hook_override": "A set of <b>8 full-size chrome-plated steel boules in 4 patterns for up to 4 players</b>, with a wooden jack and nylon zip carry case. Genuine weight for authentic play — suitable for grass, gravel, or sand.",
-    "last_updated": "2026-03-19",
-    "date_added": "2026-03-19",
-    "manual_price": "",
-    "manual_rating": "",
-    "manual_reviews": "",
-    "keywords": [
-        "chrome boules set UK",
-        "garden boules game metal UK",
-        "boules set 8 chrome carry case",
-        "outdoor game adults summer UK",
-        "pétanque boules set gift summer"
-    ],
-    "pain_points": [
-        "Plastic garden games that feel cheap and break after one summer",
-        "Looking for an outdoor game that adults genuinely enjoy playing",
-        "Garden games that only work on flat surfaces",
-        "Wanting something social for BBQs and garden gatherings beyond just eating"
-    ],
-    "benefits": [
-        "8 chrome-plated steel boules — genuine weight and feel for authentic play",
-        "4 distinctive groove patterns allow identification for up to 4 individual players",
-        "Works on grass, gravel, sand, and most garden surfaces",
-        "Nylon zip carry case for transport and storage between sessions",
-        "Includes wooden jack — everything needed to play immediately"
-    ],
-    "price_tier": "affordable outdoor classic",
-    "highlights": [
-        "8 full-size chrome-plated steel boules with authentic weight",
-        "4 distinctive groove patterns identify each player's boules during play",
-        "Includes wooden jack and nylon zip carry case",
-        "Plays on grass, gravel, sand, and most outdoor surfaces — no special court needed",
-        "Suitable for 2–4 players — a genuine intergenerational garden game"
-    ],
-    "faqs": [
-        {
-            "q": "Can boules be played on a regular garden lawn?",
-            "a": "Yes — boules is traditionally played on gravel but works well on any relatively flat outdoor surface including grass, sand, and packed earth. An uneven lawn actually adds to the challenge and fun of the game."
-        },
-        {
-            "q": "How many people can play with this set?",
-            "a": "The set includes 8 boules in 4 patterns (2 per player), supporting 2–4 individual players or 2 teams of 2. Each player throws their 2 boules per round, aiming closest to the wooden jack."
-        },
-        {
-            "q": "Is this set suitable for competitive pétanque?",
-            "a": "This is a recreational set designed for garden and park play. Competitive pétanque boules are heavier (650–800g) and individually weighted to regulation standards. This set is excellent for casual social games but not regulation-compliant for tournament play."
+        "name": "Big Game Hunters 6 Boules Pétanque Set with Rust-Free Protection - Official French Set with Canvas Carry Bag",
+        "category": "Toys & Games",
+        "season": "Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/81FKpCqiJnL._AC_SL1500_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B07P975KDP?tag=fybobuybo-21",
+        "asin": "B07P975KDP",
+        "info": "The Big Game Hunters 6 Boules Pétanque Set includes 6 official-size chrome-plated steel boules (3 per player in 2 engraved designs), a wooden jack, a measuring tool, and a padded canvas carry bag. Big Game Hunters states the boules have a rust-free protective coating for extra durability. Each boule weighs approximately 720g and measures 7.3cm in diameter — official French pétanque size and weight. Designed for garden, park, beach, and holiday play.",
+        "hook_override": "An official-size pétanque set with <b>6 chrome-plated steel boules with rust-free protection, wooden jack, and measuring tool</b> — 3 boules per player in 2 engraved designs. Big Game Hunters states the 720g boules meet official French size and weight standards. Includes a padded canvas carry bag.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "boules pétanque set UK",
+            "garden boules game metal UK",
+            "Big Game Hunters boules rust free",
+            "outdoor game adults summer UK",
+            "pétanque set official size UK"
+        ],
+        "pain_points": [
+            "Plastic garden games that feel cheap and break after one summer",
+            "Looking for an outdoor game that adults genuinely enjoy playing",
+            "Cheap chrome boules that rust after a few uses outdoors",
+            "Wanting something social for BBQs and garden gatherings beyond just eating"
+        ],
+        "benefits": [
+            "6 official-size chrome-plated steel boules — 720g each, 7.3cm diameter",
+            "Rust-free protective coating — Big Game Hunters states enhanced durability over standard chrome",
+            "2 engraved designs (3 boules each) for clear player identification",
+            "Padded canvas carry bag with shaped support for transport and storage",
+            "Includes wooden jack and measuring tool — everything needed to play immediately"
+        ],
+        "price_tier": "affordable outdoor classic",
+        "highlights": [
+            "6 official-size boules at approximately 720g each — genuine weight for authentic pétanque play",
+            "Chrome-plated steel with rust-free protective coating for outdoor durability",
+            "2 distinctive engraved designs — 3 boules per player for official French rules",
+            "Includes wooden jack, measuring tool, and padded canvas carry bag",
+            "Plays on grass, gravel, sand, and most outdoor surfaces — no special court needed"
+        ],
+        "faqs": [
+            {
+                "q": "Can pétanque be played on a regular garden lawn?",
+                "a": "Yes — pétanque is traditionally played on gravel but works well on any relatively flat outdoor surface including grass, sand, and packed earth. An uneven lawn adds to the challenge. Note that heavy steel boules can leave marks on soft lawns."
+            },
+            {
+                "q": "Why 6 boules instead of 8?",
+                "a": "Official French pétanque is played with 3 boules per player. A 6-boule set supports 2 players (or 2 teams) with 3 boules each — this is the standard competitive format. An 8-boule set with 2 per player supports more players but uses a casual, non-standard format."
+            },
+            {
+                "q": "Will the boules rust if left outside?",
+                "a": "Big Game Hunters states the boules have a rust-free protective coating over the chrome plating. However, no coating is permanent — store the boules in the carry bag after use and avoid leaving them outdoors overnight in wet conditions for the longest life."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her", "parent"],
+            "interests": ["outdoors", "sports"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For anyone who hosts BBQs or enjoys garden gatherings — pétanque is the game adults actually play repeatedly, and official-weight boules with rust protection make it a proper set rather than a novelty."
         }
-    ],
-    "gift_finder_tags": {
-        "recipient": ["him", "dad", "friend", "her", "parent"],
-        "interests": ["outdoors", "sports"],
-        "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
-        "why": "For anyone who hosts BBQs or garden gatherings — boules is the garden game that adults actually play repeatedly, and proper chrome steel boules make it feel like a real game rather than a kids' toy."
-    }
-},
+    },
  
     {
         "name": "BRITA Fill & Go Active Water Filter Bottle 600ml - BPA-Free with MicroDisc Filter Technology (Blue)",
