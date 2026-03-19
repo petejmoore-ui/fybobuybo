@@ -3,7 +3,469 @@
 
 BLOG_POSTS = {
 
-    # ============================================================================
+    # ──────────────────────────────────────────────────────────────
+    # FATHER'S DAY BLOG POST 1:
+    # Target query: "unique father's day gifts uk 2026"
+    # ──────────────────────────────────────────────────────────────
+ 
+    "unique-fathers-day-gifts-uk-2026": {
+        "title": "Unique Father's Day Gifts UK 2026 — Ideas He Won't See Coming",
+        "meta_description": "Unique Father's Day gift ideas for UK dads in 2026 — unusual, thoughtful presents he'd never buy himself. From BBQ tech to Swiss craftsmanship, curated for UK shoppers.",
+        "heading": "Unique Father's Day Gifts UK 2026 — Ideas He Won't See Coming",
+        "subtitle": "Skip the novelty mug. Unusual, quality gifts he'll actually use — curated for UK dads who say they don't want anything.",
+        "date": "2026-03-19",
+        "last_updated": "2026-03-19",
+        "author": "FyboBuybo Editorial Team",
+        "keywords": [
+            "unique father's day gifts UK 2026",
+            "unusual gifts for dad UK",
+            "father's day gift ideas 2026",
+            "gifts for dad who has everything UK",
+            "unique presents for dad UK"
+        ],
+        "featured_image": "https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg",
+        "featured_image_alt": "ThermoPro wireless meat thermometer — unique Father's Day gift for BBQ-loving dads",
+        "article_type": "Article",
+        "word_count": 1300,
+        "reading_time": "6 min read",
+        "og_type": "article",
+        "twitter_card": "summary_large_image",
+        "related_products": [
+            "thermopro-tp20-wireless-remote-digital-meat-thermometer-with-dual-probes-for-smoker-grill-oven-bbq",
+            "theragun-mini-20-handheld-electric-massage-gun-deep-tissue-percussion-massager-with-quietforce-technology-and-3-attachments-black",
+            "jbl-clip-4-portable-bluetooth-speaker-with-integrated-carabiner-ip67-waterproof-and-dustproof-10-hours-playtime-black",
+            "victorinox-swiss-army-huntsman-pocket-knife-15-functions-including-scissors-wood-saw-corkscrew-red",
+            "hario-v60-drip-coffee-pour-over-decanter-brewing-kit-700ml-server-with-ceramic-dripper-and-40-paper-filters",
+            "loreal-men-expert-hydra-energetic-gift-set-face-wash-moisturiser-shower-gel-and-deodorant",
+            "mission-darts-torus-120-led-dartboard-lighting-system-bright-white-portable-clip-on-light-black",
+            "ocoopa-magnetic-hand-warmers-rechargeable-2-pack"
+        ],
+        "related_posts": [
+            "unique-birthday-gifts-uk"
+        ],
+        "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="Unique Father's Day Gifts UK 2026 — Ideas He Won't See Coming">
+  <meta itemprop="datePublished" content="2026-03-19">
+  <meta itemprop="dateModified" content="2026-03-19">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+ 
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
+ 
+  <p style="font-size:.88rem;color:var(--muted-2);margin-bottom:6px;">Last updated: 19 March 2026 · 6 min read</p>
+ 
+  <p itemprop="description">Father's Day in the UK falls on <strong>Sunday 21 June 2026</strong>, and if your dad is the type who says "I don't need anything," this guide is for you. We've found eight genuinely unusual gifts — things he'd never buy himself but will use constantly once he has them. Every pick is available on Amazon UK with genuine reviews from UK buyers. No novelty mugs, no generic socks, no "World's Best Dad" anything.</p>
+ 
+  <nav aria-label="Table of Contents" style="background:var(--card);padding:20px;border-radius:12px;margin:30px 0;">
+    <h2 style="font-size:1.2rem;margin-bottom:12px;">What's Inside</h2>
+    <ol style="margin-left:20px;line-height:2;">
+      <li><a href="#thermometer">ThermoPro TP20 Wireless Meat Thermometer</a> — For: BBQ and smoking dads</li>
+      <li><a href="#theragun">Theragun Mini 2.0 Massage Gun</a> — For: Active dads or desk-bound dads</li>
+      <li><a href="#speaker">JBL Clip 4 Waterproof Speaker</a> — For: Garden, workshop, or shed dads</li>
+      <li><a href="#knife">Victorinox Huntsman Swiss Army Knife</a> — For: Outdoors and DIY dads</li>
+      <li><a href="#coffee">Hario V60 Pour Over Coffee Kit</a> — For: Coffee-loving dads</li>
+      <li><a href="#grooming">L'Oréal Men Expert Gift Set</a> — For: Dads who need a skincare nudge</li>
+      <li><a href="#darts">Mission Torus Dartboard Light</a> — For: Dads with a dartboard</li>
+      <li><a href="#warmers">OCOOPA Magnetic Hand Warmers</a> — For: Dog-walking, golf, and football dads</li>
+    </ol>
+  </nav>
+ 
+  <section style="margin:30px 0;padding:25px;background:var(--card);border-left:4px solid var(--primary);border-radius:8px;">
+    <h3 style="margin-top:0;">How We Chose These Gifts</h3>
+    <p style="margin-bottom:12px;"><strong>The "he'd never buy it himself" test.</strong> Every pick here is something most dads would use and enjoy but wouldn't think to buy — either because they don't know it exists or because they'd feel it's an indulgence.</p>
+    <p style="margin-bottom:12px;"><strong>Genuine quality over novelty.</strong> These are well-reviewed, well-made products from established brands — not gimmicks that get used once and forgotten.</p>
+    <p style="margin-bottom:0;"><strong>Range of budgets.</strong> From under £20 to around £130, so there's something regardless of what you want to spend.</p>
+  </section>
+ 
+  <h2 id="thermometer" style="scroll-margin-top:100px;">1. ThermoPro TP20 Wireless Meat Thermometer</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: The dad who BBQs, roasts, or smokes meat</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ") }}'>
+      <img src='https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg' alt='ThermoPro TP20 wireless dual-probe meat thermometer' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> Dual probes monitor meat and grill temperature simultaneously from up to 150 metres away. Nine meat presets with USDA doneness levels mean he never overcooks a steak again. ThermoPro states accuracy to ±1°C. The kind of upgrade that transforms Sunday roasts and BBQs from guesswork into precision — and lets him watch the football inside while the brisket smokes outside.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B01GE77QT0?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="theragun" style="scroll-margin-top:100px;">2. Theragun Mini 2.0 Percussion Massage Gun</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Active dads, golf dads, or anyone who carries tension</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Theragun Mini 2.0 Handheld Electric Massage Gun - Deep Tissue Percussion Massager with QuietForce Technology and 3 Attachments (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/61RkOCXbURL._AC_SX679_.jpg' alt='Theragun Mini 2.0 compact percussion massage gun' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> Professional-grade percussion therapy in something that fits in a desk drawer. Therabody states it delivers over 9kg of force at up to 2,400 percussions per minute — powerful enough for deep muscle knots, quiet enough for the living room. Three attachments target different areas, and the Bluetooth app provides guided recovery routines. The gift that replaces "I'm fine, just a bit stiff" with actual relief.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Theragun Mini 2.0 Handheld Electric Massage Gun - Deep Tissue Percussion Massager with QuietForce Technology and 3 Attachments (Black)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B0BMJKDBVR?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="speaker" style="scroll-margin-top:100px;">3. JBL Clip 4 Waterproof Bluetooth Speaker</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Garden, workshop, shed, or travel dads</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71wQ2VZuJaL._AC_SX679_.jpg' alt='JBL Clip 4 portable waterproof Bluetooth speaker with carabiner' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> A speaker with an integrated carabiner that clips to a belt, bag, or bike — IP67 waterproof means it survives rain, workshop dust, and pool splashes. JBL states 10 hours of battery with genuinely impressive bass from something that fits in a palm. The speaker that goes from the BBQ to the shed to the shower without missing a beat.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B08PJ7JMQM?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="knife" style="scroll-margin-top:100px;">4. Victorinox Huntsman Swiss Army Knife</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Outdoors, camping, or DIY dads who appreciate craftsmanship</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Victorinox Swiss Army Huntsman Pocket Knife - 15 Functions including Scissors, Wood Saw, Corkscrew (Red)") }}'>
+      <img src='https://m.media-amazon.com/images/I/81D9B1QVg5L._AC_SX679_.jpg' alt='Victorinox Huntsman Swiss Army pocket knife — 15 functions' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> Not a cheap multitool — this is a genuine Swiss Army knife made in Switzerland since 1897, with 15 precision-fitted stainless steel tools including a wood saw, scissors, and corkscrew. Victorinox backs every knife with a lifetime guarantee. The Huntsman hits the sweet spot between usefulness and portability — enough tools for any situation without the bulk of a Swiss Champ.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Victorinox Swiss Army Huntsman Pocket Knife - 15 Functions including Scissors, Wood Saw, Corkscrew (Red)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B000MLIEPM?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="coffee" style="scroll-margin-top:100px;">5. Hario V60 Pour Over Coffee Kit</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Coffee-loving dads ready to upgrade from instant</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters") }}'>
+      <img src='https://m.media-amazon.com/images/I/61pJNsGeDdL._AC_SX679_.jpg' alt='Hario V60 pour over coffee brewing kit — ceramic dripper, server, filters' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> The exact dripper used in specialty coffee shops worldwide — Hario's V60 ceramic dripper with spiral ribs and single drainage hole gives complete control over extraction. The kit includes everything needed to start: dripper, 700ml server, scoop, and 40 filters. Made in Japan. A five-minute morning ritual that transforms how coffee tastes at home.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B000P4D5HG?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="grooming" style="scroll-margin-top:100px;">6. L'Oréal Men Expert Hydra Energetic Gift Set</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Dads who need a gentle nudge into actual skincare</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("L\\'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant") }}'>
+      <img src='https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg' alt='L\\'Oréal Men Expert Hydra Energetic grooming gift set' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> A complete grooming routine in one gift box — face wash, Vitamin C moisturiser, shower gel, and deodorant from a brand he'll recognise. L'Oréal states the Hydra Energetic range targets tired, dull-looking skin. For the dad who's been using the same bar of soap on his face since 1998, this is a gentle, approachable upgrade.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("L\\'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B09MDKYQM1?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="darts" style="scroll-margin-top:100px;">7. Mission Torus 120° LED Dartboard Light</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Dads with a dartboard at home</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg' alt='Mission Torus clip-on LED dartboard light' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> A brilliantly specific gift — clips onto any standard bristle board and delivers 120° shadow-free white light via USB-C. The open frame means darts can be retrieved without removing the light. Folds flat for storage. For the dad who plays darts, this transforms the experience from squinting at a poorly lit board to a properly illuminated setup.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B0FQJXB6H5?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 id="warmers" style="scroll-margin-top:100px;">8. OCOOPA Magnetic Rechargeable Hand Warmers (2 Pack)</h2>
+  <p style="font-size:.82rem;color:var(--slate);font-weight:600;margin-bottom:8px;">Best for: Dog walkers, golfers, and football-watching dads</p>
+  <div class='card' style='max-width:600px;margin:20px auto 40px;'>
+    <a href='/product/{{ slugify("OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack") }}'>
+      <img src='https://m.media-amazon.com/images/I/61sa5Gx+ZQL._AC_SX679_.jpg' alt='OCOOPA magnetic rechargeable hand warmers — dual pack' loading='lazy' style='border-radius:16px;' itemprop="image">
+    </a>
+    <p><strong>Why it's unique:</strong> Two warmers that snap together magnetically for pocket storage and separate for one per hand — OCOOPA states up to 8 hours of warmth per charge across three heat settings. The 10,000mAh battery doubles as a phone charger. Replaces disposable warmers permanently. A gift that gets used from October to March, every single year.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("OCOOPA Magnetic Hand Warmers Rechargeable 2 Pack") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B0CKNKRQ1Y?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <section style="margin-top:48px;padding:24px;background:var(--card);border-radius:12px;">
+    <h2 style="margin-top:0;">You Might Also Like</h2>
+    <p style="margin-bottom:12px;">Looking for more Father's Day inspiration or gifts by budget?</p>
+    <ul style="margin-left:20px;line-height:2;">
+      <li><a href="/blog/best-fathers-day-gifts-under-50-uk-2026">Father's Day Gifts Under £50</a></li>
+      <li><a href="/season/fathers-day">All Father's Day Gift Ideas</a></li>
+      <li><a href="/blog/unique-birthday-gifts-uk">Unique Birthday Gifts UK</a></li>
+    </ul>
+    <p>Or browse our <a href="/category/electronics">electronics</a>, <a href="/category/sports-and-outdoors">sports &amp; outdoors</a>, or <a href="/category/home-and-kitchen">home &amp; kitchen</a> categories for more picks.</p>
+  </section>
+ 
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">When is Father's Day 2026 in the UK?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Father's Day 2026 in the UK falls on Sunday 21 June. It is always the third Sunday of June. In 2027 it will be 20 June.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What are unique Father's Day gifts for dads who have everything?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The best gifts for dads who have everything are quality upgrades to things they already use — a wireless meat thermometer for a dad who BBQs, a proper Swiss Army knife for a dad who tinkers, or a pour over coffee kit for a dad who drinks instant every morning. These replace a lower-quality version of something in their routine rather than adding a new item they don't need.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What should I buy my dad if he says he doesn't want anything?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Dads who say they don't want anything typically mean they don't want clutter or novelty items. Focus on consumable upgrades (quality coffee, grooming products) or practical tools they'd use but never prioritise buying (a massage gun for back tension, a thermometer for the BBQ). The key is solving a small daily problem they've accepted rather than adding something entirely new.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">How much should I spend on a Father's Day gift?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">UK shoppers typically spend between £15 and £45 on a Father's Day gift. The thought behind the choice matters more than the price — a well-chosen £20 present that connects to something he actually does will be more appreciated than a £50 gift that doesn't. The gifts in this guide range from under £20 to around £130.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">Can I get Father's Day gifts delivered in time?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">If you order through Amazon UK by around 18 June 2026, standard delivery should arrive before Father's Day on 21 June. Amazon Prime members can typically get next-day delivery right up to 20 June on eligible items.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <section style="margin-top:60px;padding:25px;background:var(--card);border-radius:12px;border-left:4px solid #6c757d;">
+    <h4 style="margin-top:0;color:#495057;">Content Methodology & Disclosure</h4>
+    <p style="font-size:0.9rem;line-height:1.6;margin-bottom:0;">Products were selected based on Amazon UK availability, verified buyer reviews, and uniqueness of gifting appeal. Prices may vary — always check the current price on Amazon before purchasing. <strong>Affiliate Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. We earn a small commission from qualifying purchases made through Amazon affiliate links on this page, at no extra cost to you.</p>
+  </section>
+ 
+  </div>
+</article>
+""",
+        "internal_links": [
+            {"text": "Father's Day Gift Ideas", "url": "/season/fathers-day"},
+            {"text": "Unique Birthday Gifts UK", "url": "/blog/unique-birthday-gifts-uk"},
+            {"text": "Electronics", "url": "/category/electronics"},
+            {"text": "Sports & Outdoors", "url": "/category/sports-and-outdoors"}
+        ]
+    },
+ 
+ 
+    # ──────────────────────────────────────────────────────────────
+    # FATHER'S DAY BLOG POST 2:
+    # Target query: "best father's day gifts under £50 uk"
+    # ──────────────────────────────────────────────────────────────
+ 
+    "best-fathers-day-gifts-under-50-uk-2026": {
+        "title": "Best Father's Day Gifts Under £50 UK 2026 — Quality Picks That Won't Break the Bank",
+        "meta_description": "Father's Day gifts under £50 for UK dads in 2026 — quality, thoughtful presents at every price point. From BBQ gadgets to grooming sets, curated for UK shoppers.",
+        "heading": "Best Father's Day Gifts Under £50 UK 2026",
+        "subtitle": "Thoughtful, well-made gifts he'll actually use — all under £50 and available on Amazon UK.",
+        "date": "2026-03-19",
+        "last_updated": "2026-03-19",
+        "author": "FyboBuybo Editorial Team",
+        "keywords": [
+            "father's day gifts under £50 UK",
+            "best gifts for dad under 50 pounds",
+            "affordable Father's Day presents UK 2026",
+            "budget Father's Day gift ideas UK",
+            "cheap Father's Day gifts UK quality"
+        ],
+        "featured_image": "https://m.media-amazon.com/images/I/81D9B1QVg5L._AC_SX679_.jpg",
+        "featured_image_alt": "Victorinox Huntsman Swiss Army Knife — quality Father's Day gift under £50",
+        "article_type": "Article",
+        "word_count": 1200,
+        "reading_time": "6 min read",
+        "og_type": "article",
+        "twitter_card": "summary_large_image",
+        "related_products": [
+            "thermopro-tp20-wireless-remote-digital-meat-thermometer-with-dual-probes-for-smoker-grill-oven-bbq",
+            "jbl-clip-4-portable-bluetooth-speaker-with-integrated-carabiner-ip67-waterproof-and-dustproof-10-hours-playtime-black",
+            "victorinox-swiss-army-huntsman-pocket-knife-15-functions-including-scissors-wood-saw-corkscrew-red",
+            "hario-v60-drip-coffee-pour-over-decanter-brewing-kit-700ml-server-with-ceramic-dripper-and-40-paper-filters",
+            "loreal-men-expert-hydra-energetic-gift-set-face-wash-moisturiser-shower-gel-and-deodorant",
+            "mission-darts-torus-120-led-dartboard-lighting-system-bright-white-portable-clip-on-light-black",
+            "callaway-warbird-golf-balls-12-pack-white"
+        ],
+        "related_posts": [
+            "unique-fathers-day-gifts-uk-2026",
+            "unique-birthday-gifts-uk"
+        ],
+        "content": """
+<article itemscope itemtype="https://schema.org/Article">
+  <meta itemprop="headline" content="Best Father's Day Gifts Under £50 UK 2026">
+  <meta itemprop="datePublished" content="2026-03-19">
+  <meta itemprop="dateModified" content="2026-03-19">
+  <meta itemprop="author" content="FyboBuybo Editorial Team">
+ 
+  <div style='max-width:900px;margin:40px auto;line-height:1.8;font-size:1.1rem;color:var(--text-accent);'>
+ 
+  <p style="font-size:.88rem;color:var(--muted-2);margin-bottom:6px;">Last updated: 19 March 2026 · 6 min read</p>
+ 
+  <p itemprop="description">Father's Day 2026 falls on <strong>Sunday 21 June</strong>. You don't need to spend a fortune to give him something genuinely thoughtful — the trick is finding quality products he'd actually use rather than another token gesture. Every pick below is under £50, highly rated by UK buyers on Amazon, and chosen because it connects to something real in his routine. No fillers, no novelty tat.</p>
+ 
+  <section style="margin:30px 0;padding:25px;background:var(--card);border-left:4px solid var(--primary);border-radius:8px;">
+    <h3 style="margin-top:0;">Smart Buying Tips for Father's Day Under £50</h3>
+    <p style="margin-bottom:12px;"><strong>Upgrade what he already does.</strong> A quality tool for a hobby he has beats a random gadget for one he doesn't. BBQ dad? Meat thermometer. Coffee dad? V60 kit. Golf dad? Decent balls.</p>
+    <p style="margin-bottom:12px;"><strong>Don't overlook the under-£20 bracket.</strong> A Victorinox knife or a dartboard light can feel more considered than something expensive but generic.</p>
+    <p style="margin-bottom:0;"><strong>Order by 18 June</strong> for standard delivery. Amazon Prime offers next-day right up to 20 June.</p>
+  </section>
+ 
+  <h2 style="scroll-margin-top:100px;">Under £20</h2>
+ 
+  <h3>L'Oréal Men Expert Hydra Energetic Gift Set — ~£15</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("L\\'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant") }}'>
+      <img src='https://m.media-amazon.com/images/I/71Snh+hxl2L._AC_SX679_.jpg' alt='L\\'Oréal Men Expert grooming gift set' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Four-product grooming routine (face wash, moisturiser, shower gel, deodorant) in a gift-ready box from a brand he trusts. The Vitamin C moisturiser tackles tired-looking skin. For dads still using soap on their face.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("L\\'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B09MDKYQM1?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h3>Callaway Warbird Golf Balls (12 Pack) — ~£15–20</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("Callaway Warbird Golf Balls - 12 Pack (White)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg' alt='Callaway Warbird golf balls 12 pack' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>A dozen Callaway Warbirds — high-energy core for distance, thin ionomer cover for greenside feel. Not cheap range balls, but a well-known brand that covers most of a season's play. The universal gift for any golfer.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Callaway Warbird Golf Balls - 12 Pack (White)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B0BMGYWVSH?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 style="scroll-margin-top:100px;">£20–£35</h2>
+ 
+  <h3>Hario V60 Pour Over Coffee Kit — ~£20–30</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters") }}'>
+      <img src='https://m.media-amazon.com/images/I/61pJNsGeDdL._AC_SX679_.jpg' alt='Hario V60 pour over coffee brewing kit' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>The ceramic dripper used in specialty coffee shops worldwide — kit includes everything to start. Made in Japan by Hario since 1921. For the dad who drinks three coffees a day but hasn't experienced what good coffee actually tastes like.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B000P4D5HG?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h3>Victorinox Huntsman Swiss Army Knife — ~£30–40</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("Victorinox Swiss Army Huntsman Pocket Knife - 15 Functions including Scissors, Wood Saw, Corkscrew (Red)") }}'>
+      <img src='https://m.media-amazon.com/images/I/81D9B1QVg5L._AC_SX679_.jpg' alt='Victorinox Huntsman Swiss Army knife' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Fifteen Swiss-made stainless steel tools in a 91mm frame — wood saw, scissors, corkscrew, screwdriver, and more. Lifetime guarantee. Made in Switzerland since 1897. The gold standard pocket knife that outperforms any cheap multitool at five times the lifespan.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Victorinox Swiss Army Huntsman Pocket Knife - 15 Functions including Scissors, Wood Saw, Corkscrew (Red)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B000MLIEPM?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h3>ThermoPro TP20 Wireless Meat Thermometer — ~£30</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ") }}'>
+      <img src='https://m.media-amazon.com/images/I/71QXR8zYKZL._AC_SX679_.jpg' alt='ThermoPro TP20 dual-probe wireless meat thermometer' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Dual probes, 150-metre range, 9 meat presets with USDA doneness levels — monitor the BBQ from indoors. ThermoPro states ±1°C accuracy. The single upgrade that transforms every roast and BBQ from guesswork to precision.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B01GE77QT0?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h2 style="scroll-margin-top:100px;">£35–£50</h2>
+ 
+  <h3>JBL Clip 4 Waterproof Bluetooth Speaker — ~£40–50</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71wQ2VZuJaL._AC_SX679_.jpg' alt='JBL Clip 4 portable waterproof speaker' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>IP67 waterproof with an integrated carabiner — clips to bags, belts, and bikes. JBL states 10 hours battery with punchy bass from a palm-sized speaker. Goes from the BBQ to the shed to the shower. Available in 10+ colours.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B08PJ7JMQM?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <h3>Mission Torus LED Dartboard Light — ~£25–35</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg' alt='Mission Torus dartboard LED light' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Shadow-free 120° LED lighting that clips on in seconds — USB-C powered, open frame for dart retrieval, folds flat for storage. The kind of specific gift that shows you actually thought about what he enjoys.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B0FQJXB6H5?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+ 
+  <section style="margin-top:48px;padding:24px;background:var(--card);border-radius:12px;">
+    <h2 style="margin-top:0;">More Father's Day Inspiration</h2>
+    <ul style="margin-left:20px;line-height:2;">
+      <li><a href="/blog/unique-fathers-day-gifts-uk-2026">Unique Father's Day Gifts UK 2026</a> — including premium picks over £50</li>
+      <li><a href="/season/fathers-day">All Father's Day Gift Ideas</a></li>
+      <li><a href="/category/sports-and-outdoors">Sports & Outdoors Category</a></li>
+      <li><a href="/category/electronics">Electronics Category</a></li>
+    </ul>
+  </section>
+ 
+  <section style="margin-top:40px;">
+    <h2>Frequently Asked Questions</h2>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What is the best Father's Day gift under £50 UK?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">The best gift depends on what your dad actually does. For BBQ dads, the ThermoPro TP20 wireless thermometer (~£30) transforms cooking accuracy. For outdoors dads, the Victorinox Huntsman (~£35) is a lifetime investment. For coffee dads, the Hario V60 kit (~£25) upgrades their morning routine immediately. The common thread: quality tools that improve something he already enjoys.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What are good last-minute Father's Day gifts under £50?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Every product on this list is available with Amazon Prime next-day delivery. The L'Oréal Men Expert gift set and Callaway golf balls are the safest last-minute choices as they suit most dads and arrive in gift-ready packaging. Order by 20 June for Prime delivery before Father's Day on 21 June.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">What do most dads actually want for Father's Day?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">According to UK surveys, most dads value quality time with family above gifts. When they do want a present, practical upgrades to daily routines and hobbies consistently rank highest — followed by food and drink, tech, and outdoor gear. Novelty gifts and joke presents rank lowest in appreciation.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">When should I order Father's Day gifts for delivery in time?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">For standard Amazon UK delivery, order by 18 June 2026. Amazon Prime members can typically order with next-day delivery right up to 20 June. For personalised items, allow 7–10 days extra lead time.</p>
+      </div>
+    </div>
+ 
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
+      <h3 itemprop="name">How much do UK shoppers spend on Father's Day gifts?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">UK shoppers typically spend between £15 and £45 on a Father's Day gift. Every product on this list falls within that range, with several strong options under £20 for those on a tighter budget.</p>
+      </div>
+    </div>
+  </section>
+ 
+  <section style="margin-top:60px;padding:25px;background:var(--card);border-radius:12px;border-left:4px solid #6c757d;">
+    <h4 style="margin-top:0;color:#495057;">Content Methodology & Disclosure</h4>
+    <p style="font-size:0.9rem;line-height:1.6;margin-bottom:0;">Products were selected based on Amazon UK availability, price verification at time of writing, and verified buyer reviews. Prices may vary — always check the current price on Amazon before purchasing. <strong>Affiliate Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. We earn a small commission from qualifying purchases made through Amazon affiliate links on this page, at no extra cost to you.</p>
+  </section>
+ 
+  </div>
+</article>
+""",
+        "internal_links": [
+            {"text": "Unique Father's Day Gifts UK 2026", "url": "/blog/unique-fathers-day-gifts-uk-2026"},
+            {"text": "Father's Day Gift Ideas", "url": "/season/fathers-day"},
+            {"text": "Electronics", "url": "/category/electronics"},
+            {"text": "Sports & Outdoors", "url": "/category/sports-and-outdoors"}
+        ]
+    },
+ 
+
+
+# ============================================================================
 # GUIDE 1: GIFTS FOR HER UNDER £30 UK
 # ============================================================================
 
