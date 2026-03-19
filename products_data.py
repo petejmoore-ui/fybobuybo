@@ -84,8 +84,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.5",
-        "manual_reviews": "5000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "Theragun Mini massage gun UK",
             "compact percussion massager",
@@ -148,8 +148,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.7",
-        "manual_reviews": "50000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "JBL Clip 4 speaker UK",
             "waterproof Bluetooth speaker carabiner",
@@ -212,8 +212,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.8",
-        "manual_reviews": "15000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "Victorinox Huntsman pocket knife UK",
             "Swiss Army knife 15 functions",
@@ -276,8 +276,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.6",
-        "manual_reviews": "8000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "Hario V60 pour over coffee kit UK",
             "pour over coffee dripper set",
@@ -340,8 +340,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.5",
-        "manual_reviews": "3000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "L'Oréal Men Expert gift set UK",
             "men's grooming gift set Father's Day",
@@ -367,7 +367,7 @@ PRODUCTS = [
             "4-product set: face wash, Hydra Energetic moisturiser, shower gel, and deodorant",
             "L'Oréal states the Vitamin C and Guarana formula combats tired, dull-looking skin",
             "Presented in a gift box suitable for giving directly — no additional wrapping required",
-            "L'Oréal Men Expert is one of the UK's best-selling men's grooming ranges",
+            "L'Oréal Men Expert is a widely available men's grooming range in the UK",
             "Dermatologist-tested — L'Oréal stated"
         ],
         "faqs": [
@@ -408,8 +408,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.6",
-        "manual_reviews": "20000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "Stanley Quencher tumbler UK",
             "insulated water tumbler straw lid",
@@ -472,8 +472,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.4",
-        "manual_reviews": "2500",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "pétanque boules set UK",
             "garden boules game metal UK",
@@ -536,8 +536,8 @@ PRODUCTS = [
         "last_updated": "2026-03-19",
         "date_added": "2026-03-19",
         "manual_price": "",
-        "manual_rating": "4.3",
-        "manual_reviews": "15000",
+        "manual_rating": "",
+        "manual_reviews": "",
         "keywords": [
             "BRITA Fill Go Active filter bottle UK",
             "water filter bottle BPA free UK",
