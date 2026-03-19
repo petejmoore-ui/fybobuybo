@@ -368,12 +368,12 @@ BLOG_POSTS = {
   <h3>Kingfisher Portable Barrel BBQ</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'>
-      <img src='https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg' alt='Kingfisher portable stainless steel barrel BBQ' loading='lazy' style='border-radius:16px;'>
+      <img src='https://m.media-amazon.com/images/I/61AF5ZfHDdL._AC_SL1000_.jpg' alt='Kingfisher portable stainless steel barrel BBQ' loading='lazy' style='border-radius:16px;'>
     </a>
     <p>A stainless steel barrel BBQ with carry handle — one person can transport it to the beach or campsite. The dual configuration stands upright for standard grilling or lays flat for double grill use. Reusable season after season, unlike increasingly banned disposable BBQs.</p>
     <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
       <a href='/product/{{ slugify("Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B001QUSDZC?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+      <a href='https://amzn.to/4bUrl1G' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
  
