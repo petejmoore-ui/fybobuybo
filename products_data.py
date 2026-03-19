@@ -262,8 +262,10 @@ PRODUCTS = [
             "interests": ["cooking", "home"],
             "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
             "why": "For the dad who drinks coffee every morning but hasn't explored beyond a cafetière — the V60 is the natural next step into genuinely better coffee at home, and the kit includes everything needed to start immediately."
-        }
+           }
     },
+ 
+    {
 
     "name": "NIVEA SUN Protect & Moisture Sun Lotion SPF 50+ 200ml - UVA/UVB Protection with Vitamin C and Hyaluron",
         "category": "Health & Personal Care",
