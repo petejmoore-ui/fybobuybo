@@ -264,6 +264,325 @@ PRODUCTS = [
             "why": "For the dad who drinks coffee every morning but hasn't explored beyond a cafetière — the V60 is the natural next step into genuinely better coffee at home, and the kit includes everything needed to start immediately."
         }
     },
+
+    "name": "NIVEA SUN Protect & Moisture Sun Lotion SPF 50+ 200ml - UVA/UVB Protection with Vitamin C and Hyaluron",
+        "category": "Health & Personal Care",
+        "season": "Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/61Q3DRZzVuL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B000SQN6FW?tag=fybobuybo-21",
+        "asin": "B000SQN6FW",
+        "info": "NIVEA SUN Protect & Moisture SPF 50+ is a 200ml sun lotion providing immediate UVA and UVB protection. NIVEA states the formula uses CITRACELL-PROTECT technology with Vitamin C and Hyaluron to form a second protective barrier within the skin and provide 48-hour moisture. The lotion is water-resistant, fast-absorbing with no white cast, and the formula is free from UV filters Octinoxate, Oxybenzone, and Octocrylene. NIVEA states the bottle uses 96% recycled plastic.",
+        "hook_override": "A 200ml SPF 50+ sun lotion with <b>NIVEA's CITRACELL-PROTECT formula using Vitamin C and Hyaluron</b> — immediate UVA/UVB protection with 48-hour moisture. Water-resistant, fast-absorbing with no white cast, and ocean-friendly (free from Octinoxate, Oxybenzone, and Octocrylene).",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.5",
+        "manual_reviews": "8000",
+        "keywords": [
+            "NIVEA SUN SPF 50 UK",
+            "sunscreen UK summer lotion",
+            "sun cream SPF50 no white cast UK",
+            "NIVEA Protect Moisture sun lotion UK",
+            "summer sun protection UK 2026"
+        ],
+        "pain_points": [
+            "Sun creams that leave a thick white cast on skin",
+            "Greasy sunscreens that feel heavy and uncomfortable in warm weather",
+            "Worrying about sun damage during outdoor summer activities",
+            "Cheap sunscreens that wash off immediately in water"
+        ],
+        "benefits": [
+            "SPF 50+ with immediate UVA and UVB protection — NIVEA stated",
+            "CITRACELL-PROTECT formula with Vitamin C and Hyaluron for added skin protection",
+            "NIVEA states 48-hour moisture retention — skin stays hydrated, not dried out",
+            "Fast-absorbing, no white cast, water-resistant formula",
+            "Ocean-friendly — free from Octinoxate, Oxybenzone, and Octocrylene"
+        ],
+        "price_tier": "affordable everyday essential",
+        "highlights": [
+            "SPF 50+ sun lotion — 200ml bottle with immediate UVA/UVB protection",
+            "NIVEA CITRACELL-PROTECT formula with Vitamin C and Hyaluron",
+            "NIVEA states water-resistant formula with no white cast and fast absorption",
+            "Ocean-respect formula — free from microplastics and filters Octinoxate, Oxybenzone, Octocrylene",
+            "96% recycled plastic bottle — NIVEA stated"
+        ],
+        "faqs": [
+            {
+                "q": "How often should I reapply NIVEA SUN SPF 50+?",
+                "a": "NIVEA recommends reapplying generously and frequently, especially after swimming, perspiring, or towelling off. As a general guide, reapply at least every 2 hours when exposed to sun."
+            },
+            {
+                "q": "Does NIVEA SUN SPF 50+ leave a white cast?",
+                "a": "NIVEA states the formula is fast-absorbing with no white cast. Most Amazon UK reviewers confirm it absorbs without visible residue on a range of skin tones."
+            },
+            {
+                "q": "Is this sunscreen reef-safe?",
+                "a": "NIVEA states the formula is free from UV filters Octinoxate, Oxybenzone, and Octocrylene, and is free from microplastics. While no sunscreen can claim to be completely reef-safe, this formula avoids the most commonly flagged ingredients."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["her", "him", "friend", "parent"],
+            "interests": ["health", "outdoors", "sports"],
+            "occasion": ["justbecause"],
+            "why": "A practical essential for anyone spending time outdoors — the no-white-cast formula and 48-hour moisture make it the sunscreen people actually use rather than avoid."
+        }
+    },
+ 
+    {
+        "name": "Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ",
+        "category": "Sports & Outdoors",
+        "season": "Summer Essentials, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/71JZZ8G6OPL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B0F12HJ16Y?tag=fybobuybo-21",
+        "asin": "B0F12HJ16Y",
+        "info": "The Kollea 30L Cool Bag is an insulated cooler bag with aluminium foil lining, 5mm EPE cotton insulation, and 1680D Oxford fabric exterior. Kollea states the bag holds approximately 20 bottles or 30 cans (500ml) and features a leak-proof interior, detachable shoulder strap with rubber pad, padded handles rated to 20kg, and folds flat for storage. Multiple pockets for utensils and accessories.",
+        "hook_override": "A 30-litre insulated cool bag with <b>aluminium foil lining, EPE cotton insulation, and leak-proof construction</b> — holds approximately 20 bottles or 30 cans. Folds flat for storage, with a detachable shoulder strap and handles rated to 20kg.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.5",
+        "manual_reviews": "3000",
+        "keywords": [
+            "insulated cool bag 30L UK",
+            "picnic cooler bag large UK",
+            "cool bag camping BBQ UK",
+            "Kollea 30L cooler bag UK",
+            "leak proof cool bag summer UK"
+        ],
+        "pain_points": [
+            "Drinks and food warming up within an hour at outdoor events",
+            "Rigid cool boxes that take up too much boot space",
+            "Cheap cool bags that leak and soak everything in the car",
+            "Not having enough capacity for a family day out or BBQ"
+        ],
+        "benefits": [
+            "30L capacity — holds approximately 20 bottles or 30 cans (500ml)",
+            "Triple-layer insulation: aluminium foil, 5mm EPE cotton, 1680D Oxford fabric",
+            "Kollea states the interior is leak-proof using voltage fusion technology",
+            "Folds flat when empty for compact storage in a cupboard or car boot",
+            "Detachable padded shoulder strap and handles rated to 20kg"
+        ],
+        "price_tier": "affordable outdoor essential",
+        "highlights": [
+            "30L capacity — Kollea states fits approximately 20 bottles or 30 cans (500ml)",
+            "Triple insulation layer: aluminium foil lining, 5mm EPE cotton, 1680D Oxford fabric exterior",
+            "Leak-proof interior — Kollea states voltage fusion technology at seams",
+            "Detachable shoulder strap with rubber pad plus nylon handles rated to 20kg",
+            "Folds flat for storage — collapses to a fraction of its open size"
+        ],
+        "faqs": [
+            {
+                "q": "How long does the Kollea cool bag keep things cold?",
+                "a": "Kollea does not state a specific duration. Performance depends on ambient temperature, ice packs used, and how often the bag is opened. With frozen ice packs and pre-chilled contents, most UK buyers report several hours of effective cooling for picnics and day trips. It is not designed for multi-day camping — a rigid cool box is better for that."
+            },
+            {
+                "q": "Can the Kollea cool bag fit in a car boot easily?",
+                "a": "Yes — when empty, the bag folds flat for compact storage. When full, the 30L dimensions are approximately 40cm x 33cm x 26cm, which fits in most UK car boots alongside other luggage."
+            },
+            {
+                "q": "Is the cool bag machine washable?",
+                "a": "No — Kollea recommends wiping the interior and exterior with a damp cloth. The aluminium foil lining should not be machine washed as it may damage the insulation and leak-proof seal."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "her", "dad", "friend", "parent"],
+            "interests": ["outdoors", "cooking"],
+            "occasion": ["birthday", "justbecause", "fathersday"],
+            "why": "For anyone who does picnics, BBQs, beach days, or camping — a 30L cool bag is the kind of practical essential that gets used every weekend from May to September."
+        }
+    },
+ 
+    {
+        "name": "Anker Soundcore 2 Portable Bluetooth Speaker - 12W Stereo Sound, IPX7 Waterproof, 24-Hour Playtime",
+        "category": "Electronics",
+        "season": "Summer Gifts, Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B01MTB55WH?tag=fybobuybo-21",
+        "asin": "B01MTB55WH",
+        "info": "The Anker Soundcore 2 is a portable Bluetooth speaker with dual full-range drivers delivering 12W of stereo sound, IPX7 waterproof rating, and Anker states up to 24 hours of battery life per charge. Bluetooth 5.0 for stable wireless streaming. BassUp technology enhances low-end frequencies. The speaker weighs 360g and measures 16.5 x 4.5 x 5.4 cm. Charges via Micro-USB.",
+        "hook_override": "A Bluetooth speaker with <b>12W stereo drivers, IPX7 waterproof rating, and Anker states 24 hours of battery life</b> — enough power for a garden party and enough battery to last an entire weekend without charging. BassUp technology for enhanced low-end. Weighs just 360g.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.7",
+        "manual_reviews": "200000",
+        "keywords": [
+            "Anker Soundcore 2 speaker UK",
+            "waterproof Bluetooth speaker 24 hours battery UK",
+            "portable speaker garden party UK",
+            "IPX7 outdoor speaker UK",
+            "best budget Bluetooth speaker UK 2026"
+        ],
+        "pain_points": [
+            "Portable speakers that run out of battery after a few hours",
+            "Cheap speakers with tinny, bass-less sound at outdoor volume",
+            "Speakers that claim to be waterproof but fail after minor splashes",
+            "Overpaying for branded speakers when you just want reliable garden audio"
+        ],
+        "benefits": [
+            "Anker states 24-hour battery life — an entire weekend of music on one charge",
+            "Dual 12W drivers with BassUp technology for enhanced bass at any volume",
+            "IPX7 waterproof — Anker states it can be submerged in 1m of water for 30 minutes",
+            "Bluetooth 5.0 for stable wireless streaming from up to 20 metres",
+            "Compact at 360g and 16.5cm long — fits in a bag, pocket, or cup holder"
+        ],
+        "price_tier": "budget-friendly quality audio",
+        "highlights": [
+            "Dual full-range 12W stereo drivers with Anker BassUp technology",
+            "Anker states up to 24 hours of continuous playback on a single charge",
+            "IPX7 waterproof rating — safe for rain, pool splashes, and accidental submersion",
+            "Bluetooth 5.0 with stable streaming range of up to 20 metres",
+            "360g weight, 16.5 x 4.5 x 5.4 cm — genuinely pocket-portable"
+        ],
+        "faqs": [
+            {
+                "q": "How does the Anker Soundcore 2 compare to JBL speakers?",
+                "a": "The Soundcore 2 is typically half the price of comparably sized JBL speakers (like the Flip series) while offering significantly longer battery life (24 hours vs 10–12 hours). Sound quality is widely considered comparable for outdoor and casual listening. JBL speakers may have a slight edge in bass depth and build premium, but the Soundcore 2 offers exceptional value."
+            },
+            {
+                "q": "Is the 24-hour battery claim accurate?",
+                "a": "Anker states 24 hours at moderate volume. At maximum volume, battery life reduces to approximately 10–12 hours. At typical garden or picnic listening levels, most UK reviewers report the claim is realistic."
+            },
+            {
+                "q": "Can I pair two Soundcore 2 speakers together?",
+                "a": "Yes — Anker's PartyCast feature allows two Soundcore 2 speakers to be paired for true stereo sound. Both speakers must be the Soundcore 2 model."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "her", "friend", "dad"],
+            "interests": ["tech", "outdoors"],
+            "occasion": ["birthday", "christmas", "justbecause"],
+            "why": "For anyone who wants reliable outdoor audio without paying premium prices — the 24-hour battery and genuine IPX7 waterproofing make it the no-brainer summer speaker."
+        }
+    },
+ 
+    {
+        "name": "Garnier Ambre Solaire After Sun Lotion 400ml - Hydrating and Soothing with Aloe Vera",
+        "category": "Health & Personal Care",
+        "season": "Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/61EJGsXFR4L._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B001E0SI18?tag=fybobuybo-21",
+        "asin": "B001E0SI18",
+        "info": "Garnier Ambre Solaire After Sun Lotion is a 400ml moisturising body lotion enriched with Aloe Vera, designed to soothe and hydrate sun-exposed skin. Garnier states the formula provides a cooling sensation on application and helps skin recover after sun exposure. Suitable for face and body. Dermatologically tested.",
+        "hook_override": "A 400ml after sun lotion with <b>Aloe Vera for cooling, soothing, and hydrating sun-exposed skin</b> — Garnier states it helps skin recover after UV exposure. Large bottle covers multiple applications for a family. Dermatologically tested.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.6",
+        "manual_reviews": "10000",
+        "keywords": [
+            "after sun lotion UK",
+            "Garnier Ambre Solaire after sun aloe vera",
+            "soothing after sun cream UK",
+            "summer skincare after sun UK",
+            "after sun lotion 400ml UK"
+        ],
+        "pain_points": [
+            "Tight, dry, uncomfortable skin after a day in the sun",
+            "Mild sunburn that needs soothing overnight",
+            "Small after sun bottles that run out after one family beach day",
+            "After sun products that feel sticky rather than cooling"
+        ],
+        "benefits": [
+            "Enriched with Aloe Vera for immediate soothing and cooling on application",
+            "400ml bottle — generous size for multiple applications across a family",
+            "Garnier states the formula hydrates and helps skin recover after sun exposure",
+            "Suitable for face and body — one product for all areas",
+            "Dermatologically tested — Garnier stated"
+        ],
+        "price_tier": "affordable summer staple",
+        "highlights": [
+            "400ml Aloe Vera after sun lotion — large family-sized bottle",
+            "Garnier states immediate cooling sensation on application",
+            "Hydrates and soothes sun-exposed skin on face and body",
+            "Dermatologically tested — suitable for sensitive skin",
+            "Garnier Ambre Solaire — one of the UK's most recognised sun care brands"
+        ],
+        "faqs": [
+            {
+                "q": "When should I apply after sun lotion?",
+                "a": "Garnier recommends applying after sun lotion as soon as possible after sun exposure, ideally after showering or bathing. Reapply as needed throughout the evening. After sun is designed for daily use during summer months, not only after sunburn."
+            },
+            {
+                "q": "Can I use after sun on sunburned skin?",
+                "a": "After sun lotion like Garnier Ambre Solaire is designed to soothe mildly sun-stressed skin. For severe sunburn with blistering or peeling, seek medical advice before applying any product. Cool damp compresses and staying hydrated are recommended for sunburn relief."
+            },
+            {
+                "q": "Is this the same as a moisturiser?",
+                "a": "After sun lotion is formulated specifically for sun-exposed skin — it contains ingredients like Aloe Vera designed to cool and soothe. While it moisturises, its primary function is recovery after UV exposure. Standard moisturisers do not typically contain after-sun-specific soothing ingredients."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["her", "him", "friend", "parent"],
+            "interests": ["health", "outdoors"],
+            "occasion": ["justbecause"],
+            "why": "The after sun that belongs in every bathroom cabinet from May to September — the 400ml size means a family won't run out after one beach trip."
+        }
+    },
+ 
+    {
+        "name": "KitchenCraft Portable Barrel Charcoal BBQ with Lid and Carry Handle - Bucket BBQ for Gardens, Camping and Picnics",
+        "category": "Home & Kitchen",
+        "season": "Summer Essentials, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/71bK9zX7jwL._AC_SX679_.jpg",
+        "url": "https://www.amazon.co.uk/dp/B007CL56TA?tag=fybobuybo-21",
+        "asin": "B007CL56TA",
+        "info": "The KitchenCraft Portable Barrel BBQ is a compact charcoal barbecue with a bucket-style design, chrome-plated cooking grill, ventilation holes for airflow control, a fitted lid, and a carry handle for transport. KitchenCraft states the cooking surface is approximately 27cm in diameter, suitable for 4–6 servings. The BBQ includes a charcoal grate and ash collector. Suitable for garden, beach, camping, and picnic use.",
+        "hook_override": "A compact charcoal BBQ in a <b>portable bucket design with lid, chrome grill, and carry handle</b> — KitchenCraft states a 27cm cooking surface for 4–6 servings. Light enough to carry to the beach, park, or campsite. No gas, no electricity — just charcoal and food.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "4.3",
+        "manual_reviews": "5000",
+        "keywords": [
+            "portable BBQ UK",
+            "bucket BBQ charcoal UK",
+            "KitchenCraft portable barbecue",
+            "camping BBQ small UK",
+            "portable charcoal BBQ beach picnic UK"
+        ],
+        "pain_points": [
+            "Wanting to BBQ at the beach or park but full-size grills are too heavy to carry",
+            "Disposable BBQs that are wasteful, unreliable, and increasingly banned in parks",
+            "No garden space for a permanent BBQ setup",
+            "Gas BBQ setups that are expensive and require refills"
+        ],
+        "benefits": [
+            "Portable bucket design with carry handle — light enough for one person to transport",
+            "Chrome-plated cooking grill with approximately 27cm diameter cooking surface",
+            "Fitted lid for transport and to control cooking heat",
+            "Ventilation holes for airflow control — adjust heat without moving food",
+            "Reusable alternative to disposable BBQs — charcoal only, no gas canister needed"
+        ],
+        "price_tier": "affordable outdoor cooking",
+        "highlights": [
+            "Compact barrel-style charcoal BBQ with chrome-plated grill and fitted lid",
+            "KitchenCraft states cooking surface is approximately 27cm — suitable for 4–6 servings",
+            "Carry handle for easy transport to gardens, beaches, parks, and campsites",
+            "Includes charcoal grate and ash collector — set up and cook within minutes",
+            "Reusable season after season — replaces single-use disposable BBQs"
+        ],
+        "faqs": [
+            {
+                "q": "How many people can this BBQ serve?",
+                "a": "KitchenCraft states the 27cm cooking surface is suitable for 4–6 servings. For a couple or small family outing, it handles burgers, sausages, and skewers comfortably. For larger groups, you would need to cook in batches."
+            },
+            {
+                "q": "Can I take this BBQ to the beach?",
+                "a": "Yes — the portable design with carry handle is intended for beach, park, and campsite use. Always place on a stable, heat-resistant surface (not directly on grass or sand) and check local bylaws — some UK beaches and parks restrict or ban BBQ use. Never use on peat or moorland due to fire risk."
+            },
+            {
+                "q": "How long does it take to heat up?",
+                "a": "With standard charcoal briquettes, expect approximately 20–30 minutes for the coals to be ready for cooking (grey/white ash covering). Charcoal chimney starters speed this up to around 15 minutes."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["cooking", "outdoors"],
+            "occasion": ["birthday", "fathersday", "justbecause"],
+            "why": "For the dad or friend who wants to BBQ at the beach, park, or campsite without lugging a full-size grill — compact, reusable, and much better than a disposable tray."
+        }
+    },
  
     {
         "name": "L'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant",
