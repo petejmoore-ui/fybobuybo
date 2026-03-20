@@ -24,7 +24,7 @@ BLOG_POSTS = {
             "gifts for summer lovers UK"
         ],
         "featured_image": "https://m.media-amazon.com/images/I/710i3O82YSL._AC_SL1500_.jpg",
-        "featured_image_alt": "JBL Clip 4 waterproof speaker — summer gift idea UK",
+        "featured_image_alt": "Kollea 30L Insulated Cool Bag — summer gift idea UK",
         "article_type": "Article",
         "word_count": 1400,
         "reading_time": "7 min read",
@@ -264,7 +264,7 @@ BLOG_POSTS = {
             "British summer essentials list"
         ],
         "featured_image": "https://m.media-amazon.com/images/I/719T900pvML._AC_SL1500_.jpg",
-        "featured_image_alt": "NIVEA SUN Protect & Moisture SPF50+ — UK summer essential",
+        "featured_image_alt": "BRITA Fill & Go Active Water Filter Bottle — UK summer essential",
         "article_type": "Article",
         "word_count": 1500,
         "reading_time": "7 min read",
