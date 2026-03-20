@@ -872,7 +872,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">What is the best Father's Day gift under £50 UK?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">The best gift depends on what your dad actually does. For BBQ dads, the ThermoPro TP20 wireless thermometer (~£30) transforms cooking accuracy. For coffee dads, the Hario V60 kit (~£25) upgrades their morning routine immediately. For golf dads, a dozen Callaway Warbirds (~£15) covers most of a season. The common thread: quality products that improve something he already enjoys.</p>
+        <p itemprop="text">The best gift depends on what your dad actually does. For BBQ dads, the ThermoPro TP20 wireless thermometer transforms cooking accuracy. For coffee dads, the Hario V60 kit upgrades their morning routine immediately. For golf dads, a dozen Callaway Warbirds covers at least a few rounds! The common thread: quality products that improve something he already enjoys.</p>
       </div>
     </div>
  
@@ -900,7 +900,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">How much do UK shoppers spend on Father's Day gifts?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">UK shoppers typically spend between £15 and £45 on a Father's Day gift. Every product on this list falls within that range, with several strong options under £20 for those on a tighter budget.</p>
+        <p itemprop="text">UK shoppers typically spend between £15 and £45 on a Father's Day gift. Every product on this list falls within that range, with several strong options under £30 for those on a tighter budget.</p>
       </div>
     </div>
   </section>
