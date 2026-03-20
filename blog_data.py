@@ -737,7 +737,7 @@ BLOG_POSTS = {
             "cheap Father's Day gifts UK quality"
         ],
         "featured_image": "https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg",
-        "featured_image_alt": "ThermoPro TP20 wireless meat thermometer — quality Father's Day gift under £50",
+        "featured_image_alt": "Mission Torus LED Dartboard Light — quality Father's Day gift under £50",
         "article_type": "Article",
         "word_count": 1100,
         "reading_time": "5 min read",
@@ -944,7 +944,7 @@ BLOG_POSTS = {
         "under 30 pounds gift ideas women"
     ],
     "featured_image": "https://m.media-amazon.com/images/I/612vFZbbN+L._AC_SX679_.jpg",
-    "featured_image_alt": "Luxury scented candle gift set — thoughtful gift for her under £30",
+    "featured_image_alt": "nua Azelaic Acid 10% Redness Soothing Serum — thoughtful gift for her under £30",
 
     "article_type": "Article",
     "word_count": 1200,
@@ -3708,7 +3708,7 @@ BLOG_POSTS = {
         "adaptive kitchen equipment UK"
     ],
     "featured_image": "https://m.media-amazon.com/images/I/618cdu3k1HL._AC_SX679_.jpg",
-    "featured_image_alt": "Electric can opener for arthritic hands - easy one-touch operation",
+    "featured_image_alt": "Otstar Multi-Function Jar & Bottle Opener for Weak Hands",
     
     # Schema.org Article structured data
     "article_type": "Article",
@@ -4012,7 +4012,7 @@ BLOG_POSTS = {
             "essential running kit"
         ],
         "featured_image": "https://m.media-amazon.com/images/I/8186wRKgTML._AC_SX679_.jpg",  # Example: hydration vest; swap if preferred
-        "featured_image_alt": "Runner wearing hydration vest and reflective gear on UK trail",
+        "featured_image_alt": "Lightweight Hydration Vest for Long Runs",
         
         # Schema.org Article structured data
         "article_type": "Article",
@@ -4325,7 +4325,7 @@ BLOG_POSTS = {
         "meaningful valentines presents"
     ],
     "featured_image": "https://m.media-amazon.com/images/I/71Txv5ApaiL._AC_SX425_.jpg",
-    "featured_image_alt": "Personalised name necklace – elegant romantic Valentine’s gift for her",
+    "featured_image_alt": "Skincare or Beauty Gift Box – elegant romantic Valentine’s gift for her",
     
     "article_type": "Article",
     "word_count": 1100,
