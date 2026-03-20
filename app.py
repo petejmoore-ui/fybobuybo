@@ -2389,10 +2389,56 @@ body::before {
   margin-top: 18px;
 }
 
+/* ── Share bar ───────────────────────────────────────────────── */
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  margin: 36px 0 0;
+  border-top: 1px solid var(--divider);
+}
+.share-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all .2s;
+  letter-spacing: -.01em;
+}
+.share-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+.share-wa { background: #25D366; color: #fff; }
+.share-wa:hover { background: #1ebe59; transform: translateY(-1px); }
+.share-fb { background: #1877F2; color: #fff; }
+.share-fb:hover { background: #0d6ae0; transform: translateY(-1px); }
+.share-x { background: #000000; color: #fff; }
+.share-x:hover { background: #333; transform: translateY(-1px); }
+.share-em { background: var(--card); color: var(--ink-3); border: 1px solid var(--border); }
+.share-em:hover { background: var(--bg-2); transform: translateY(-1px); color: var(--ink); }
+.share-copy { background: var(--card); color: var(--ink-3); border: 1px solid var(--border); }
+.share-copy:hover { background: var(--bg-2); transform: translateY(-1px); color: var(--ink); }
+.share-copy.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
 /* ── Footer ─────────────────────────────────────────────────── */
 .site-footer {
   margin-top: 100px;
-  background: var(--ink);
+  background: #1a1a1a;
   border-top: none;
   color: rgba(245,245,245,0.75);
 }
@@ -4090,6 +4136,32 @@ def product_detail(product_slug):
     info_html = f'<p class="pd-hook">{found["info"]}</p>' if found.get("info") else ""
     date_html = f'<p style="font-size:.74rem;color:var(--muted-2);margin-top:2px;font-style:italic">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
 
+    product_url = SITE_URL + "/product/" + slugify(found["name"])
+    share_text = f"Check out this gift idea: {shorten_product_name(found['name'], 60)}"
+    share_bar = f"""<div class="share-bar" aria-label="Share this product">
+      <span class="share-label">Share</span>
+      <a href="https://wa.me/?text={share_text}%20{product_url}" target="_blank" rel="noopener" class="share-btn share-wa" aria-label="Share on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={product_url}" target="_blank" rel="noopener" class="share-btn share-fb" aria-label="Share on Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?text={share_text}&url={product_url}" target="_blank" rel="noopener" class="share-btn share-x" aria-label="Share on X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X
+      </a>
+      <a href="mailto:?subject=Great%20gift%20idea&body={share_text}%20{product_url}" class="share-btn share-em" aria-label="Share via email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <button class="share-btn share-copy" onclick="navigator.clipboard.writeText('{product_url}').then(function(){{var b=event.target.closest('.share-copy');b.classList.add('copied');b.innerHTML='Copied!';setTimeout(function(){{b.classList.remove('copied');b.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; style=&quot;width:14px;height:14px;fill:currentColor&quot;><path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z&quot;/></svg> Copy link';}},2000)}})" aria-label="Copy link">
+        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy link
+      </button>
+    </div>"""
+
     content_html = f"""
     <div class="pd-wrap">
       <div class="pd-gallery">
@@ -4116,6 +4188,7 @@ def product_detail(product_slug):
         {amazon_btn}
         {trust_row}
         {date_html}
+        {share_bar}
       </div>
     </div>"""
 
@@ -4357,6 +4430,32 @@ def blog_detail(slug):
     content_html_body = Template(raw_content).render(slugify=slugify)
     date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
+    blog_url = SITE_URL + "/blog/" + slug
+    blog_share_text = f"Great gift guide: {post.get('heading', post['title'])[:60]}"
+    blog_share_bar = f"""<div class="share-bar" aria-label="Share this guide">
+      <span class="share-label">Share this guide</span>
+      <a href="https://wa.me/?text={blog_share_text}%20{blog_url}" target="_blank" rel="noopener" class="share-btn share-wa" aria-label="Share on WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={blog_url}" target="_blank" rel="noopener" class="share-btn share-fb" aria-label="Share on Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?text={blog_share_text}&url={blog_url}" target="_blank" rel="noopener" class="share-btn share-x" aria-label="Share on X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X
+      </a>
+      <a href="mailto:?subject=Great%20gift%20guide&body={blog_share_text}%20{blog_url}" class="share-btn share-em" aria-label="Share via email">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <button class="share-btn share-copy" onclick="navigator.clipboard.writeText('{blog_url}').then(function(){{var b=event.target.closest('.share-copy');b.classList.add('copied');b.innerHTML='Copied!';setTimeout(function(){{b.classList.remove('copied');b.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; style=&quot;width:14px;height:14px;fill:currentColor&quot;><path d=&quot;M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z&quot;/></svg> Copy link';}},2000)}})" aria-label="Copy link">
+        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy link
+      </button>
+    </div>"""
+
     content_html = f"""
     <div style="max-width:900px;margin:56px auto 0;padding:0 24px">
       <div style="display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-bottom:22px">
@@ -4366,8 +4465,9 @@ def blog_detail(slug):
       <h1 style="font-family:'Playfair Display','Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.05em;color:var(--ink);margin-bottom:20px">{post.get("heading", post["title"])}</h1>
       <p style="font-size:1.06rem;line-height:1.78;color:var(--muted);margin-bottom:44px;padding-bottom:40px;border-bottom:1px solid var(--divider);font-weight:300">{post.get("description", "")}</p>
     </div>
-    <div style="max-width:900px;margin:0 auto;padding:0 24px 96px">
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 40px">
       <div class="blog-prose">{content_html_body}</div>
+      {blog_share_bar}
     </div>
     """
 
