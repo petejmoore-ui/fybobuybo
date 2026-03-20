@@ -2070,17 +2070,25 @@ body::before {
 .blog-prose tr:last-child td { border-bottom: none; }
 
 /* BUG FIX 1: Product cards inside blog posts — proper grid and containment */
+/* BUG FIX 1: Override inline max-width:600px on blog product cards.
+   blog_data.py cards use style='max-width:600px;margin:20px auto' which
+   squeezes content into a narrow column. !important overrides inline styles. */
 .blog-prose .card {
   overflow: hidden;
-  max-width: 100%;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .blog-prose .card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
   border-radius: var(--r-sm);
   margin: 0;
   box-shadow: none;
+  padding: 20px;
+  background: var(--bg-2);
 }
 .blog-prose .card div[style*='display:grid'],
 .blog-prose .card div[style*='display: grid'] {
