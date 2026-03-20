@@ -4,6 +4,850 @@
 
 PRODUCTS = [
 
+    # ──────────────────────────────────────────────────────────────
+    # FATHER'S DAY PRODUCTS
+    # ──────────────────────────────────────────────────────────────
+ 
+    {
+        "name": "ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ",
+        "category": "Electronics",
+        "season": "Father's Day, Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/71MSQiFS2JL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/3PkrS4e",
+        "asin": "B01GE77QT0",
+        "info": "The ThermoPro TP20 is a wireless dual-probe meat thermometer with a 150-metre (500ft) transmission range between transmitter and receiver. One probe monitors internal meat temperature while the second tracks ambient grill or smoker temperature simultaneously. ThermoPro states the probes are accurate to ±1°C and withstand temperatures up to 380°C. Nine preset meat types with five doneness levels are programmed using USDA-recommended temperatures.",
+        "hook_override": "A wireless dual-probe thermometer with a <b>150-metre range and USDA-preset doneness levels for 9 meat types</b> — monitor meat and grill temperature simultaneously from indoors. ThermoPro states accuracy to ±1°C, and the probes withstand up to 380°C.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "wireless meat thermometer UK",
+            "ThermoPro TP20 BBQ thermometer",
+            "dual probe grill thermometer",
+            "wireless smoker thermometer Father's Day",
+            "digital meat thermometer remote UK"
+        ],
+        "pain_points": [
+            "Hovering over the BBQ because you can't monitor temperature remotely",
+            "Overcooked or undercooked meat from guessing doneness",
+            "Single-probe thermometers that can't track meat and grill temp simultaneously",
+            "Cheap thermometers with inaccurate readings and short wireless range"
+        ],
+        "benefits": [
+            "Dual probes monitor meat and ambient grill temperature simultaneously",
+            "150-metre wireless range — monitor from indoors without leaving the sofa",
+            "9 preset meat types with 5 doneness levels based on USDA recommendations",
+            "ThermoPro states accuracy to ±1°C with probes rated to 380°C",
+            "Countdown and count-up timer with audible alarm when target temperature is reached"
+        ],
+        "price_tier": "mid-range BBQ essential",
+        "highlights": [
+            "Dual stainless steel probes — one for meat, one for ambient grill or smoker temperature",
+            "ThermoPro states wireless range of up to 150 metres (500ft) between transmitter and receiver",
+            "9 preset meat types (beef, pork, chicken, lamb, fish, etc.) with 5 doneness levels each",
+            "Large backlit LCD display on both transmitter and receiver units",
+            "Powered by 4 AAA batteries (included) — pre-synced from factory, no pairing needed"
+        ],
+        "faqs": [
+            {
+                "q": "How far does the wireless signal reach through walls?",
+                "a": "ThermoPro states the TP20 has a range of up to 150 metres (500ft) in open conditions. Indoor range through walls is shorter — most UK users report reliable signal through 2–3 internal walls. Thick stone or brick walls may reduce range further."
+            },
+            {
+                "q": "Can both probes monitor different meats at the same time?",
+                "a": "Yes — each probe can be set to a different meat type and doneness level independently. Alternatively, use one probe in the meat and one clipped to the grill grate to track ambient temperature. Both readings display simultaneously on the receiver."
+            },
+            {
+                "q": "Do the probes need replacing over time?",
+                "a": "ThermoPro states the probes are durable stainless steel rated to 380°C. With regular use, probe accuracy may drift after extended periods — ThermoPro offers replacement probes and states their customer service will assist with warranty claims."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["cooking", "tech", "outdoors"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For the dad who BBQs or smokes meat — eliminates the guesswork and hovering, and the dual-probe setup is a genuine upgrade over single-probe alternatives."
+        }
+    },
+ 
+    {
+        "name": "Theragun Mini 2.0 Handheld Electric Massage Gun - Deep Tissue Percussion Massager with QuietForce Technology and 3 Attachments (Black)",
+        "category": "Health & Personal Care",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/61xejp3eevL._AC_SX569_.jpg",
+        "url": "https://amzn.to/4uSPI7E",
+        "asin": "B0BMJKDBVR",
+        "info": "The Theragun Mini 2.0 is a compact percussion massage gun from Therabody with a QX35 brushless motor delivering up to 2,400 percussions per minute across 3 preset speeds. Therabody states it applies over 9kg of force with Active Torque Control maintaining speed and depth under pressure. The device weighs 0.68kg and includes 3 attachments — Standard Ball, Dampener, and Thumb — in a soft carry case. Bluetooth-enabled for personalised routines via the Therabody app.",
+        "hook_override": "A pocket-sized percussion massage gun that <b>delivers over 9kg of force at up to 2,400 percussions per minute</b> — Therabody's QuietForce motor maintains depth even under pressure. Three attachments included for targeted muscle recovery, and the Bluetooth app provides guided routines for specific aches.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "Theragun Mini massage gun UK",
+            "compact percussion massager",
+            "deep tissue massage gun portable",
+            "muscle recovery gift for dad UK",
+            "Therabody Mini 2.0 UK"
+        ],
+        "pain_points": [
+            "Post-exercise muscle soreness that takes days to recover from",
+            "Neck and shoulder tension from desk work or driving",
+            "Professional massage appointments that are expensive and hard to book",
+            "Full-size massage guns that are too heavy or loud for regular use"
+        ],
+        "benefits": [
+            "QX35 brushless motor with QuietForce Technology — powerful but quieter than competitors",
+            "3 preset speeds: 1,750, 2,100, and 2,400 percussions per minute",
+            "Active Torque Control maintains speed and depth under pressure",
+            "0.68kg weight fits in a gym bag, travel case, or desk drawer",
+            "Bluetooth-enabled — connect to Therabody app for guided recovery routines"
+        ],
+        "price_tier": "premium recovery tool",
+        "highlights": [
+            "QX35 brushless motor delivers up to 2,400 PPM with over 9kg of applied force",
+            "QuietForce Technology — Therabody states reduced noise compared to previous generations",
+            "3 attachments included: Standard Ball, Dampener, and Thumb for different muscle groups",
+            "Therabody states 120 minutes total battery life per charge via USB-C",
+            "Soft carry case included — compact enough for gym bags and carry-on luggage"
+        ],
+        "faqs": [
+            {
+                "q": "Is the Theragun Mini powerful enough compared to full-size models?",
+                "a": "Therabody states the Mini 2.0 delivers over 9kg of stall force — less than the Elite (18kg) or Pro (27kg) but significantly more than most mini massage guns. For daily muscle maintenance and targeted relief, it is widely regarded as sufficient. Full-size models are better for very deep tissue work on large muscle groups."
+            },
+            {
+                "q": "How long does the battery last?",
+                "a": "Therabody states 120 minutes of total battery life per USB-C charge. At moderate use of 10–15 minutes per day, this typically provides over a week of sessions between charges."
+            },
+            {
+                "q": "Can the Theragun Mini be used for back pain?",
+                "a": "The Mini is designed for muscle tension relief and recovery rather than treatment of diagnosed back conditions. The compact size limits reach to your own back — it works well on accessible areas like shoulders, neck, legs, and arms. For lower back use, a partner's help or a full-size model with a longer handle is more practical."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["sports", "health"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For a dad who exercises, plays golf, or just carries tension from work — the pocket-sized format means it actually gets used daily rather than gathering dust in a drawer."
+        }
+    },
+ 
+    {
+        "name": "JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)",
+        "category": "Electronics",
+        "season": "Father's Day, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/71+JV8JXmNL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/4uErldI",
+        "asin": "B0BV5GJCKH",
+        "info": "The JBL Clip 4 is an ultra-portable Bluetooth 5.1 speaker with an integrated carabiner, IP67 waterproof and dustproof rating, and up to 10 hours of battery life. JBL states the speaker delivers JBL Pro Sound with rich audio and punchy bass from a compact oval design. The redesigned carabiner is built into the speaker body for durability, clipping to bags, belts, and buckles. Available in multiple colours.",
+        "hook_override": "A Bluetooth speaker with an <b>integrated carabiner and IP67 waterproof rating</b> — clips to a bag, belt, or bike and survives rain, pool splashes, and dust. JBL states 10 hours of battery life with Pro Sound bass from a speaker that fits in a palm.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "JBL Clip 4 speaker UK",
+            "waterproof Bluetooth speaker carabiner",
+            "portable speaker garden BBQ UK",
+            "IP67 outdoor speaker gift",
+            "JBL portable speaker Father's Day UK"
+        ],
+        "pain_points": [
+            "Phone speakers too quiet for outdoor gatherings",
+            "Portable speakers that aren't genuinely waterproof for poolside or garden use",
+            "Speakers too bulky to carry on walks, hikes, or bike rides",
+            "Short battery life requiring mid-day recharging during outdoor events"
+        ],
+        "benefits": [
+            "IP67 rated — fully waterproof and dustproof for any outdoor environment",
+            "Integrated carabiner clips directly to bags, belts, and buckles",
+            "JBL states up to 10 hours of battery life per charge",
+            "Bluetooth 5.1 wireless streaming from any smartphone or tablet",
+            "JBL Pro Sound with punchy bass from an oval palm-sized design"
+        ],
+        "price_tier": "affordable quality audio",
+        "highlights": [
+            "IP67 waterproof and dustproof — JBL states suitable for pool, shower, and outdoor use",
+            "Integrated carabiner built into the speaker body — clips to bags, belts, and bike handlebars",
+            "JBL states up to 10 hours of battery life on a single USB-C charge",
+            "Bluetooth 5.1 for stable wireless streaming from any compatible device",
+            "Available in 10+ colours — check current Amazon UK listing for available options"
+        ],
+        "faqs": [
+            {
+                "q": "Can the JBL Clip 4 survive being dropped in water?",
+                "a": "JBL states the Clip 4 is IP67 rated, meaning it can be submerged in up to 1 metre of water for up to 30 minutes. It is designed to survive accidental drops into pools, puddles, and rivers. It is not designed for prolonged underwater use."
+            },
+            {
+                "q": "How loud is the JBL Clip 4 outdoors?",
+                "a": "The Clip 4 is designed as an ultra-portable personal speaker — it fills a small garden area or picnic setup comfortably but is not intended to replace larger speakers for parties. For a small BBQ gathering of 4–8 people, it provides clear, enjoyable audio."
+            },
+            {
+                "q": "Does the JBL Clip 4 have a microphone for calls?",
+                "a": "Yes — JBL states the Clip 4 includes a built-in noise and echo-cancelling speakerphone for taking calls directly through the speaker."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her"],
+            "interests": ["tech", "outdoors"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For a dad who listens to podcasts in the garden, music at the BBQ, or radio on walks — the carabiner clip and genuine waterproofing make it the speaker that actually goes everywhere."
+        }
+    },
+ 
+ 
+    {
+        "name": "Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters",
+        "category": "Home & Kitchen",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/41aJGBVhabL._AC_.jpg",
+        "url": "https://amzn.to/4dqA50M",
+        "asin": "B000P4D5HG",
+        "info": "The Hario V60 Pour Over Kit includes a ceramic V60 dripper, a 700ml glass server, a measuring scoop, and 40 bleached paper filters. Hario states the V60's signature spiral ribs and large single drainage hole allow full control over brew speed and extraction — the angle and pour pattern determine the flavour profile. Made in Japan. The V60 is the standard pour over dripper used in specialty coffee shops worldwide.",
+        "hook_override": "The pour over dripper used in specialty coffee shops worldwide — <b>Hario's V60 spiral ribs and single drainage hole give full control over extraction</b>. This kit includes the ceramic dripper, 700ml glass server, scoop, and 40 filters. Made in Japan.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "Hario V60 pour over coffee kit UK",
+            "pour over coffee dripper set",
+            "specialty coffee gift for dad UK",
+            "Hario V60 ceramic dripper server",
+            "manual coffee brewing kit UK"
+        ],
+        "pain_points": [
+            "Wanting better coffee at home without an expensive espresso machine",
+            "Instant coffee that tastes flat compared to café pour overs",
+            "Pod machines that create ongoing capsule cost and plastic waste",
+            "No idea where to start with manual coffee brewing"
+        ],
+        "benefits": [
+            "V60 ceramic dripper — the standard pour over used in specialty coffee shops globally",
+            "Spiral ribs and single drainage hole allow full control over brew speed and extraction",
+            "700ml glass server brews enough for 2–3 cups per session",
+            "40 bleached paper filters included for immediate use",
+            "Made in Japan by Hario — established 1921"
+        ],
+        "price_tier": "affordable upgrade",
+        "highlights": [
+            "Hario V60 ceramic dripper — the industry-standard pour over used in specialty coffee worldwide",
+            "Signature spiral ribs and large single drainage hole for controlled extraction",
+            "Kit includes ceramic dripper, 700ml glass server, measuring scoop, and 40 paper filters",
+            "Made in Japan by Hario — manufacturers of coffee equipment since 1921",
+            "No electricity or pods required — just hot water and ground coffee"
+        ],
+        "faqs": [
+            {
+                "q": "What grind size should I use with the Hario V60?",
+                "a": "Hario recommends a medium-fine grind — roughly the texture of table salt. Pre-ground supermarket coffee is typically too coarse for optimal V60 extraction. A burr grinder produces the most consistent results, but many UK coffee roasters offer V60-specific grinds."
+            },
+            {
+                "q": "Is the V60 difficult for beginners to use?",
+                "a": "The basic technique is straightforward — place filter in dripper, add coffee, pour hot water slowly in a circular motion. Results improve with practice. The V60 rewards experimentation with water temperature, pour speed, and grind size, which is part of its appeal for coffee enthusiasts."
+            },
+            {
+                "q": "How long does a V60 brew take?",
+                "a": "A typical single-cup V60 brew takes 2–3 minutes from first pour to last drip. A full 700ml server takes approximately 3–4 minutes. Total time including boiling the kettle is under 5 minutes."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her"],
+            "interests": ["cooking", "home"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For the dad who drinks coffee every morning but hasn't explored beyond a cafetière — the V60 is the natural next step into genuinely better coffee at home, and the kit includes everything needed to start immediately."
+           }
+    },
+ 
+    {
+
+    "name": "NIVEA SUN Protect & Moisture Sun Lotion SPF 50+ 200ml - UVA/UVB Protection with Vitamin C and Hyaluron",
+        "category": "Health & Personal Care",
+        "season": "Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/71evQv2HQgL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/4sjSEbr",
+        "asin": "B000SQN6FW",
+        "info": "NIVEA SUN Protect & Moisture SPF 50+ is a 200ml sun lotion providing immediate UVA and UVB protection. NIVEA states the formula uses CITRACELL-PROTECT technology with Vitamin C and Hyaluron to form a second protective barrier within the skin and provide 48-hour moisture. The lotion is water-resistant, fast-absorbing with no white cast, and the formula is free from UV filters Octinoxate, Oxybenzone, and Octocrylene. NIVEA states the bottle uses 96% recycled plastic.",
+        "hook_override": "A 200ml SPF 50+ sun lotion with <b>NIVEA's CITRACELL-PROTECT formula using Vitamin C and Hyaluron</b> — immediate UVA/UVB protection with 48-hour moisture. Water-resistant, fast-absorbing with no white cast, and ocean-friendly (free from Octinoxate, Oxybenzone, and Octocrylene).",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "NIVEA SUN SPF 50 UK",
+            "sunscreen UK summer lotion",
+            "sun cream SPF50 no white cast UK",
+            "NIVEA Protect Moisture sun lotion UK",
+            "summer sun protection UK 2026"
+        ],
+        "pain_points": [
+            "Sun creams that leave a thick white cast on skin",
+            "Greasy sunscreens that feel heavy and uncomfortable in warm weather",
+            "Worrying about sun damage during outdoor summer activities",
+            "Cheap sunscreens that wash off immediately in water"
+        ],
+        "benefits": [
+            "SPF 50+ with immediate UVA and UVB protection — NIVEA stated",
+            "CITRACELL-PROTECT formula with Vitamin C and Hyaluron for added skin protection",
+            "NIVEA states 48-hour moisture retention — skin stays hydrated, not dried out",
+            "Fast-absorbing, no white cast, water-resistant formula",
+            "Ocean-friendly — free from Octinoxate, Oxybenzone, and Octocrylene"
+        ],
+        "price_tier": "affordable everyday essential",
+        "highlights": [
+            "SPF 50+ sun lotion — 200ml bottle with immediate UVA/UVB protection",
+            "NIVEA CITRACELL-PROTECT formula with Vitamin C and Hyaluron",
+            "NIVEA states water-resistant formula with no white cast and fast absorption",
+            "Ocean-respect formula — free from microplastics and filters Octinoxate, Oxybenzone, Octocrylene",
+            "96% recycled plastic bottle — NIVEA stated"
+        ],
+        "faqs": [
+            {
+                "q": "How often should I reapply NIVEA SUN SPF 50+?",
+                "a": "NIVEA recommends reapplying generously and frequently, especially after swimming, perspiring, or towelling off. As a general guide, reapply at least every 2 hours when exposed to sun."
+            },
+            {
+                "q": "Does NIVEA SUN SPF 50+ leave a white cast?",
+                "a": "NIVEA states the formula is fast-absorbing with no white cast. Most Amazon UK reviewers confirm it absorbs without visible residue on a range of skin tones."
+            },
+            {
+                "q": "Is this sunscreen reef-safe?",
+                "a": "NIVEA states the formula is free from UV filters Octinoxate, Oxybenzone, and Octocrylene, and is free from microplastics. While no sunscreen can claim to be completely reef-safe, this formula avoids the most commonly flagged ingredients."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["her", "him", "friend", "parent"],
+            "interests": ["health", "outdoors", "sports"],
+            "occasion": ["justbecause"],
+            "why": "A practical essential for anyone spending time outdoors — the no-white-cast formula and 48-hour moisture make it the sunscreen people actually use rather than avoid."
+      }
+    },
+ 
+    {
+    
+        "name": "Kollea 30L Insulated Cool Bag - Leak-Proof Cooler Bag with Shoulder Strap for Picnics, Camping and BBQ",
+        "category": "Sports & Outdoors",
+        "season": "Summer Essentials, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/710i3O82YSL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/477lsvt",
+        "asin": "B0DD424N4M",
+        "info": "The Kollea 30L Cool Bag is an insulated cooler bag with aluminium foil lining, 5mm EPE cotton insulation, and 1680D Oxford fabric exterior. Kollea states the bag holds approximately 20 bottles or 30 cans (500ml) and features a leak-proof interior, detachable shoulder strap with rubber pad, padded handles rated to 20kg, and folds flat for storage. Multiple pockets for utensils and accessories.",
+        "hook_override": "A 30-litre insulated cool bag with <b>aluminium foil lining, EPE cotton insulation, and leak-proof construction</b> — holds approximately 20 bottles or 30 cans. Folds flat for storage, with a detachable shoulder strap and handles rated to 20kg.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "insulated cool bag 30L UK",
+            "picnic cooler bag large UK",
+            "cool bag camping BBQ UK",
+            "Kollea 30L cooler bag UK",
+            "leak proof cool bag summer UK"
+        ],
+        "pain_points": [
+            "Drinks and food warming up within an hour at outdoor events",
+            "Rigid cool boxes that take up too much boot space",
+            "Cheap cool bags that leak and soak everything in the car",
+            "Not having enough capacity for a family day out or BBQ"
+        ],
+        "benefits": [
+            "30L capacity — holds approximately 20 bottles or 30 cans (500ml)",
+            "Triple-layer insulation: aluminium foil, 5mm EPE cotton, 1680D Oxford fabric",
+            "Kollea states the interior is leak-proof using voltage fusion technology",
+            "Folds flat when empty for compact storage in a cupboard or car boot",
+            "Detachable padded shoulder strap and handles rated to 20kg"
+        ],
+        "price_tier": "affordable outdoor essential",
+        "highlights": [
+            "30L capacity — Kollea states fits approximately 20 bottles or 30 cans (500ml)",
+            "Triple insulation layer: aluminium foil lining, 5mm EPE cotton, 1680D Oxford fabric exterior",
+            "Leak-proof interior — Kollea states voltage fusion technology at seams",
+            "Detachable shoulder strap with rubber pad plus nylon handles rated to 20kg",
+            "Folds flat for storage — collapses to a fraction of its open size"
+        ],
+        "faqs": [
+            {
+                "q": "How long does the Kollea cool bag keep things cold?",
+                "a": "Kollea does not state a specific duration. Performance depends on ambient temperature, ice packs used, and how often the bag is opened. With frozen ice packs and pre-chilled contents, most UK buyers report several hours of effective cooling for picnics and day trips. It is not designed for multi-day camping — a rigid cool box is better for that."
+            },
+            {
+                "q": "Can the Kollea cool bag fit in a car boot easily?",
+                "a": "Yes — when empty, the bag folds flat for compact storage. When full, the 30L dimensions are approximately 40cm x 33cm x 26cm, which fits in most UK car boots alongside other luggage."
+            },
+            {
+                "q": "Is the cool bag machine washable?",
+                "a": "No — Kollea recommends wiping the interior and exterior with a damp cloth. The aluminium foil lining should not be machine washed as it may damage the insulation and leak-proof seal."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "her", "dad", "friend", "parent"],
+            "interests": ["outdoors", "cooking"],
+            "occasion": ["birthday", "justbecause", "fathersday"],
+            "why": "For anyone who does picnics, BBQs, beach days, or camping — a 30L cool bag is the kind of practical essential that gets used every weekend from May to September."
+        }
+    },
+ 
+    {
+        "name": "Anker Soundcore 2 Portable Bluetooth Speaker - 12W Stereo Sound, IPX7 Waterproof, 24-Hour Playtime",
+        "category": "Electronics",
+        "season": "Summer Gifts, Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/71jjggEx2XL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/3PbwmdA",
+        "asin": "B01MTB55WH",
+        "info": "The Anker Soundcore 2 is a portable Bluetooth speaker with dual full-range drivers delivering 12W of stereo sound, IPX7 waterproof rating, and Anker states up to 24 hours of battery life per charge. Bluetooth 5.0 for stable wireless streaming. BassUp technology enhances low-end frequencies. The speaker weighs 360g and measures 16.5 x 4.5 x 5.4 cm. Charges via Micro-USB.",
+        "hook_override": "A Bluetooth speaker with <b>12W stereo drivers, IPX7 waterproof rating, and Anker states 24 hours of battery life</b> — enough power for a garden party and enough battery to last an entire weekend without charging. BassUp technology for enhanced low-end. Weighs just 360g.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "Anker Soundcore 2 speaker UK",
+            "waterproof Bluetooth speaker 24 hours battery UK",
+            "portable speaker garden party UK",
+            "IPX7 outdoor speaker UK",
+            "best budget Bluetooth speaker UK 2026"
+        ],
+        "pain_points": [
+            "Portable speakers that run out of battery after a few hours",
+            "Cheap speakers with tinny, bass-less sound at outdoor volume",
+            "Speakers that claim to be waterproof but fail after minor splashes",
+            "Overpaying for branded speakers when you just want reliable garden audio"
+        ],
+        "benefits": [
+            "Anker states 24-hour battery life — an entire weekend of music on one charge",
+            "Dual 12W drivers with BassUp technology for enhanced bass at any volume",
+            "IPX7 waterproof — Anker states it can be submerged in 1m of water for 30 minutes",
+            "Bluetooth 5.0 for stable wireless streaming from up to 20 metres",
+            "Compact at 360g and 16.5cm long — fits in a bag, pocket, or cup holder"
+        ],
+        "price_tier": "budget-friendly quality audio",
+        "highlights": [
+            "Dual full-range 12W stereo drivers with Anker BassUp technology",
+            "Anker states up to 24 hours of continuous playback on a single charge",
+            "IPX7 waterproof rating — safe for rain, pool splashes, and accidental submersion",
+            "Bluetooth 5.0 with stable streaming range of up to 20 metres",
+            "360g weight, 16.5 x 4.5 x 5.4 cm — genuinely pocket-portable"
+        ],
+        "faqs": [
+            {
+                "q": "How does the Anker Soundcore 2 compare to JBL speakers?",
+                "a": "The Soundcore 2 is typically half the price of comparably sized JBL speakers (like the Flip series) while offering significantly longer battery life (24 hours vs 10–12 hours). Sound quality is widely considered comparable for outdoor and casual listening. JBL speakers may have a slight edge in bass depth and build premium, but the Soundcore 2 offers exceptional value."
+            },
+            {
+                "q": "Is the 24-hour battery claim accurate?",
+                "a": "Anker states 24 hours at moderate volume. At maximum volume, battery life reduces to approximately 10–12 hours. At typical garden or picnic listening levels, most UK reviewers report the claim is realistic."
+            },
+            {
+                "q": "Can I pair two Soundcore 2 speakers together?",
+                "a": "Yes — Anker's PartyCast feature allows two Soundcore 2 speakers to be paired for true stereo sound. Both speakers must be the Soundcore 2 model."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "her", "friend", "dad"],
+            "interests": ["tech", "outdoors"],
+            "occasion": ["birthday", "christmas", "justbecause"],
+            "why": "For anyone who wants reliable outdoor audio without paying premium prices — the 24-hour battery and genuine IPX7 waterproofing make it the no-brainer summer speaker."
+        }
+    },
+ 
+    {
+        "name": "Garnier Ambre Solaire After Sun Lotion 400ml - Hydrating and Soothing with Aloe Vera",
+        "category": "Health & Personal Care",
+        "season": "Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/61JS1CBqyyL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/4lEb7x9",
+        "asin": "B003MPDT8A",
+        "info": "Garnier Ambre Solaire After Sun Lotion is a 400ml moisturising body lotion enriched with Aloe Vera, designed to soothe and hydrate sun-exposed skin. Garnier states the formula provides a cooling sensation on application and helps skin recover after sun exposure. Suitable for face and body. Dermatologically tested.",
+        "hook_override": "A 400ml after sun lotion with <b>Aloe Vera for cooling, soothing, and hydrating sun-exposed skin</b> — Garnier states it helps skin recover after UV exposure. Large bottle covers multiple applications for a family. Dermatologically tested.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "after sun lotion UK",
+            "Garnier Ambre Solaire after sun aloe vera",
+            "soothing after sun cream UK",
+            "summer skincare after sun UK",
+            "after sun lotion 400ml UK"
+        ],
+        "pain_points": [
+            "Tight, dry, uncomfortable skin after a day in the sun",
+            "Mild sunburn that needs soothing overnight",
+            "Small after sun bottles that run out after one family beach day",
+            "After sun products that feel sticky rather than cooling"
+        ],
+        "benefits": [
+            "Enriched with Aloe Vera for immediate soothing and cooling on application",
+            "400ml bottle — generous size for multiple applications across a family",
+            "Garnier states the formula hydrates and helps skin recover after sun exposure",
+            "Suitable for face and body — one product for all areas",
+            "Dermatologically tested — Garnier stated"
+        ],
+        "price_tier": "affordable summer staple",
+        "highlights": [
+            "400ml Aloe Vera after sun lotion — large family-sized bottle",
+            "Garnier states immediate cooling sensation on application",
+            "Hydrates and soothes sun-exposed skin on face and body",
+            "Dermatologically tested — suitable for sensitive skin",
+            "Garnier Ambre Solaire — one of the UK's most recognised sun care brands"
+        ],
+        "faqs": [
+            {
+                "q": "When should I apply after sun lotion?",
+                "a": "Garnier recommends applying after sun lotion as soon as possible after sun exposure, ideally after showering or bathing. Reapply as needed throughout the evening. After sun is designed for daily use during summer months, not only after sunburn."
+            },
+            {
+                "q": "Can I use after sun on sunburned skin?",
+                "a": "After sun lotion like Garnier Ambre Solaire is designed to soothe mildly sun-stressed skin. For severe sunburn with blistering or peeling, seek medical advice before applying any product. Cool damp compresses and staying hydrated are recommended for sunburn relief."
+            },
+            {
+                "q": "Is this the same as a moisturiser?",
+                "a": "After sun lotion is formulated specifically for sun-exposed skin — it contains ingredients like Aloe Vera designed to cool and soothe. While it moisturises, its primary function is recovery after UV exposure. Standard moisturisers do not typically contain after-sun-specific soothing ingredients."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["her", "him", "friend", "parent"],
+            "interests": ["health", "outdoors"],
+            "occasion": ["justbecause"],
+            "why": "The after sun that belongs in every bathroom cabinet from May to September — the 400ml size means a family won't run out after one beach trip."
+        }
+    },
+ 
+    {
+        "name": "Kingfisher OUTBBQ2 Portable Barrel BBQ - Stainless Steel with Double Grill and Carry Handle",
+        "category": "Home & Kitchen",
+        "season": "Summer Essentials, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/61AF5ZfHDdL._AC_SL1000_.jpg",
+        "url": "https://amzn.to/4bUrl1G",
+        "asin": "B001QUSDZC",
+        "info": "The Kingfisher OUTBBQ2 is a portable barrel-style charcoal BBQ made from stainless steel with included grills. The barrel design can be stood upright for standard grilling or laid flat for double grill use, providing two cooking surfaces. Dimensions are approximately 41 x 36 x 36 cm. The carry handle allows one person to transport it to gardens, parks, beaches, and campsites. Manufactured by Bonnington Plastics, one of the UK's largest importers of leisure and garden products.",
+        "hook_override": "A stainless steel barrel BBQ that <b>stands upright for standard grilling or lays flat for double grill use</b> — two cooking options in one portable design. Carry handle for easy transport to gardens, parks, and campsites. Compact at approximately 41 x 36 x 36 cm.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "portable BBQ UK",
+            "barrel BBQ charcoal UK",
+            "Kingfisher portable barbecue stainless steel",
+            "camping BBQ small UK",
+            "portable charcoal BBQ beach picnic UK"
+        ],
+        "pain_points": [
+            "Wanting to BBQ at the beach or park but full-size grills are too heavy to carry",
+            "Disposable BBQs that are wasteful, unreliable, and increasingly banned in parks",
+            "No garden space for a permanent BBQ setup",
+            "Needing a BBQ that offers more than one cooking configuration"
+        ],
+        "benefits": [
+            "Stainless steel barrel design with included grills — durable and easy to clean",
+            "Two configurations: stand upright for standard grilling or lay flat for double grill use",
+            "Carry handle for easy one-person transport to gardens, parks, and beaches",
+            "Compact dimensions — approximately 41 x 36 x 36 cm",
+            "Reusable season after season — replaces single-use disposable BBQs"
+        ],
+        "price_tier": "affordable outdoor cooking",
+        "highlights": [
+            "Stainless steel portable barrel BBQ with included grills",
+            "Dual configuration: upright for standard use or flat for double grill surface",
+            "Carry handle for easy transport to gardens, parks, beaches, and campsites",
+            "Compact at approximately 41 x 36 x 36 cm — fits in a car boot easily",
+            "Manufactured by Kingfisher (Bonnington Plastics) — established UK leisure products company"
+        ],
+        "faqs": [
+            {
+                "q": "How many people can this BBQ serve?",
+                "a": "The barrel size comfortably serves 2–4 people for standard grilling. When laid flat using the double grill configuration, you can cook more food simultaneously — suitable for a small family gathering or couple's BBQ."
+            },
+            {
+                "q": "Can I take this BBQ to the beach?",
+                "a": "Yes — the portable design with carry handle is intended for beach, park, and campsite use. Always place on a stable, heat-resistant surface and check local bylaws — some UK beaches and parks restrict or ban BBQ use. Never use on peat or moorland due to fire risk."
+            },
+            {
+                "q": "What does 'lay flat for double grill use' mean?",
+                "a": "The barrel can be positioned on its side (flat) rather than upright. In this position, both the top and bottom grills become accessible cooking surfaces, effectively doubling the grilling area for larger batches of food."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend"],
+            "interests": ["cooking", "outdoors"],
+            "occasion": ["birthday", "fathersday", "justbecause"],
+            "why": "For anyone who wants to BBQ at the beach, park, or campsite without lugging a full-size grill — the dual configuration gives flexibility and it's compact enough to keep in the car boot all summer."
+        }
+    },
+ 
+    {
+        "name": "L'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant",
+        "category": "Beauty",
+        "season": "Father's Day",
+        "image": "https://m.media-amazon.com/images/I/618+n7s2NzL._AC_SL1010_.jpg",
+        "url": "https://amzn.to/478XhwL",
+        "asin": "B08DDYLKGS",
+        "info": "The L'Oréal Men Expert Hydra Energetic Gift Set contains a face wash, moisturiser, shower gel, and deodorant in L'Oréal's Hydra Energetic range. L'Oréal states the moisturiser contains Vitamin C and Guarana to combat tired, dull-looking skin. The set is presented in a gift box ready to give. L'Oréal states all Men Expert products are dermatologist-tested.",
+        "hook_override": "A complete grooming set from L'Oréal Men Expert — <b>face wash, Vitamin C moisturiser, shower gel, and deodorant in a gift-ready box</b>. L'Oréal states the Hydra Energetic range targets tired, dull-looking skin with Guarana and Vitamin C. Dermatologist-tested throughout.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "L'Oréal Men Expert gift set UK",
+            "men's grooming gift set Father's Day",
+            "Hydra Energetic face wash moisturiser set",
+            "men's skincare gift box UK",
+            "grooming gift for dad UK"
+        ],
+        "pain_points": [
+            "Dads who use soap on their face and wonder why their skin looks tired",
+            "Not knowing which men's skincare products to buy as a gift",
+            "Men's gift sets with unknown brands that don't inspire confidence",
+            "Wanting a complete routine in one box rather than buying products separately"
+        ],
+        "benefits": [
+            "Complete 4-product routine — face wash, moisturiser, shower gel, and deodorant",
+            "Vitamin C and Guarana in the moisturiser targets tired, dull-looking skin",
+            "L'Oréal Men Expert — established, widely trusted men's grooming brand",
+            "Gift box presentation — no additional wrapping needed",
+            "L'Oréal states all Men Expert products are dermatologist-tested"
+        ],
+        "price_tier": "affordable grooming gift",
+        "highlights": [
+            "4-product set: face wash, Hydra Energetic moisturiser, shower gel, and deodorant",
+            "L'Oréal states the Vitamin C and Guarana formula combats tired, dull-looking skin",
+            "Presented in a gift box suitable for giving directly — no additional wrapping required",
+            "L'Oréal Men Expert is a widely available men's grooming range in the UK",
+            "Dermatologist-tested — L'Oréal stated"
+        ],
+        "faqs": [
+            {
+                "q": "Is the L'Oréal Men Expert range suitable for sensitive skin?",
+                "a": "L'Oréal states the Men Expert range is dermatologist-tested. The Hydra Energetic line is formulated for normal to tired-looking skin. L'Oréal also produces a dedicated Sensitive range within Men Expert for those with reactive skin."
+            },
+            {
+                "q": "What does the moisturiser actually do?",
+                "a": "L'Oréal states the Hydra Energetic moisturiser uses Vitamin C and Guarana to hydrate, reduce the appearance of fatigue, and brighten dull-looking skin. It is designed for daily morning use after face washing."
+            },
+            {
+                "q": "Is this suitable as a Father's Day gift for someone new to skincare?",
+                "a": "Yes — the set provides a complete basic routine in one box, removing the guesswork of which products to buy individually. L'Oréal Men Expert is a familiar brand that most men will recognise, making it an approachable entry point."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad"],
+            "interests": ["beauty", "health"],
+            "occasion": ["fathersday", "birthday", "christmas"],
+            "why": "For the dad who still washes his face with whatever soap is in the shower — an approachable, trusted-brand grooming upgrade that arrives gift-boxed and ready to give."
+        }
+    },
+ 
+    # ──────────────────────────────────────────────────────────────
+    # SUMMER GIFTS + SUMMER ESSENTIALS PRODUCTS
+    # ──────────────────────────────────────────────────────────────
+ 
+    {
+        "name": "Stanley Quencher H2.0 FlowState Tumbler 1.18L - Insulated Stainless Steel with Straw Lid",
+        "category": "Sports & Outdoors",
+        "season": "Summer Essentials, Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/51y+kfgtgCL._AC_SX679_.jpg",
+        "url": "https://amzn.to/4rGlBgU",
+        "asin": "B0DCDQVMBM",
+        "info": "The Stanley Quencher H2.0 is a 1.18-litre double-wall vacuum insulated tumbler with a FlowState three-position lid — straw, sip, and sealed. Stanley states the tumbler keeps drinks cold for up to 11 hours, iced for 2 days, and hot for 7 hours. The tapered base fits most car cup holders, and the construction is 90% recycled BPA-free stainless steel. Dishwasher safe.",
+        "hook_override": "The tumbler that went viral for a reason — <b>Stanley states it keeps drinks cold for 11 hours, iced for 2 days</b>, with a three-position lid for straw, sip, or sealed. 1.18 litres in a tapered base that fits car cup holders. 90% recycled stainless steel, dishwasher safe.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "Stanley Quencher tumbler UK",
+            "insulated water tumbler straw lid",
+            "Stanley H2.0 FlowState 1.18L UK",
+            "summer hydration tumbler UK",
+            "stainless steel tumbler car cup holder"
+        ],
+        "pain_points": [
+            "Drinks going warm within an hour during hot summer days",
+            "Tumblers that don't fit in car cup holders",
+            "Plastic water bottles that develop a taste over time",
+            "Lids that only offer one drinking option — straw or sip, not both"
+        ],
+        "benefits": [
+            "1.18L capacity — enough for sustained hydration throughout the day",
+            "Stanley states: cold for 11 hours, iced for 2 days, hot for 7 hours",
+            "FlowState lid with three positions — straw, sip opening, and fully sealed",
+            "Tapered base fits most car cup holders despite the large capacity",
+            "90% recycled BPA-free stainless steel, dishwasher safe"
+        ],
+        "price_tier": "premium hydration",
+        "highlights": [
+            "1.18L double-wall vacuum insulated stainless steel tumbler",
+            "Stanley states keeps drinks cold for up to 11 hours and iced for 2 days",
+            "FlowState three-position lid: straw, sip, and sealed — rotating lid mechanism",
+            "Tapered base designed to fit most standard car cup holders",
+            "90% recycled BPA-free stainless steel — dishwasher safe throughout"
+        ],
+        "faqs": [
+            {
+                "q": "Does the Stanley Quencher fit in a car cup holder?",
+                "a": "Stanley states the tapered base is designed to fit most standard car cup holders. The 1.18L Quencher fits the majority of UK vehicle cup holders, though some older or compact cars may have narrower holders — check the base diameter against your vehicle's holder before purchasing."
+            },
+            {
+                "q": "How does the FlowState lid work?",
+                "a": "The FlowState lid rotates between three positions: a straw opening for drinking through the included reusable straw, a sip opening for drinking directly, and a fully sealed position for transport. The lid is splash-resistant in the straw and sip positions but not fully leak-proof."
+            },
+            {
+                "q": "Is the Stanley Quencher dishwasher safe?",
+                "a": "Stanley states the tumbler, lid, and straw are all dishwasher safe. Place on the top rack for best results."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["her", "him", "friend", "dad"],
+            "interests": ["sports", "health", "outdoors"],
+            "occasion": ["birthday", "christmas", "justbecause", "fathersday"],
+            "why": "For anyone who spends time outdoors in summer — the 11-hour cold retention and car cup holder fit solve the two main reasons people abandon reusable bottles."
+        }
+    },
+ 
+    {
+        "name": "Big Game Hunters 6 Boules Pétanque Set with Rust-Free Protection - Official French Set with Canvas Carry Bag",
+        "category": "Toys & Games",
+        "season": "Summer Gifts",
+        "image": "https://m.media-amazon.com/images/I/616Eh-GHsvL._AC_SL1500_.jpg",
+        "url": "https://amzn.to/4uCjBbY",
+        "asin": "B07P975KDP",
+        "info": "The Big Game Hunters 6 Boules Pétanque Set includes 6 official-size chrome-plated steel boules (3 per player in 2 engraved designs), a wooden jack, a measuring tool, and a padded canvas carry bag. Big Game Hunters states the boules have a rust-free protective coating for extra durability. Each boule weighs approximately 720g and measures 7.3cm in diameter — official French pétanque size and weight. Designed for garden, park, beach, and holiday play.",
+        "hook_override": "An official-size pétanque set with <b>6 chrome-plated steel boules with rust-free protection, wooden jack, and measuring tool</b> — 3 boules per player in 2 engraved designs. Big Game Hunters states the 720g boules meet official French size and weight standards. Includes a padded canvas carry bag.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "boules pétanque set UK",
+            "garden boules game metal UK",
+            "Big Game Hunters boules rust free",
+            "outdoor game adults summer UK",
+            "pétanque set official size UK"
+        ],
+        "pain_points": [
+            "Plastic garden games that feel cheap and break after one summer",
+            "Looking for an outdoor game that adults genuinely enjoy playing",
+            "Cheap chrome boules that rust after a few uses outdoors",
+            "Wanting something social for BBQs and garden gatherings beyond just eating"
+        ],
+        "benefits": [
+            "6 official-size chrome-plated steel boules — 720g each, 7.3cm diameter",
+            "Rust-free protective coating — Big Game Hunters states enhanced durability over standard chrome",
+            "2 engraved designs (3 boules each) for clear player identification",
+            "Padded canvas carry bag with shaped support for transport and storage",
+            "Includes wooden jack and measuring tool — everything needed to play immediately"
+        ],
+        "price_tier": "affordable outdoor classic",
+        "highlights": [
+            "6 official-size boules at approximately 720g each — genuine weight for authentic pétanque play",
+            "Chrome-plated steel with rust-free protective coating for outdoor durability",
+            "2 distinctive engraved designs — 3 boules per player for official French rules",
+            "Includes wooden jack, measuring tool, and padded canvas carry bag",
+            "Plays on grass, gravel, sand, and most outdoor surfaces — no special court needed"
+        ],
+        "faqs": [
+            {
+                "q": "Can pétanque be played on a regular garden lawn?",
+                "a": "Yes — pétanque is traditionally played on gravel but works well on any relatively flat outdoor surface including grass, sand, and packed earth. An uneven lawn adds to the challenge. Note that heavy steel boules can leave marks on soft lawns."
+            },
+            {
+                "q": "Why 6 boules instead of 8?",
+                "a": "Official French pétanque is played with 3 boules per player. A 6-boule set supports 2 players (or 2 teams) with 3 boules each — this is the standard competitive format. An 8-boule set with 2 per player supports more players but uses a casual, non-standard format."
+            },
+            {
+                "q": "Will the boules rust if left outside?",
+                "a": "Big Game Hunters states the boules have a rust-free protective coating over the chrome plating. However, no coating is permanent — store the boules in the carry bag after use and avoid leaving them outdoors overnight in wet conditions for the longest life."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "dad", "friend", "her", "parent"],
+            "interests": ["outdoors", "sports"],
+            "occasion": ["fathersday", "birthday", "christmas", "justbecause"],
+            "why": "For anyone who hosts BBQs or enjoys garden gatherings — pétanque is the game adults actually play repeatedly, and official-weight boules with rust protection make it a proper set rather than a novelty."
+        }
+    },
+ 
+    {
+        "name": "BRITA Fill & Go Active Water Filter Bottle 600ml - BPA-Free with MicroDisc Filter Technology (Blue)",
+        "category": "Health & Personal Care",
+        "season": "Summer Essentials",
+        "image": "https://m.media-amazon.com/images/I/719T900pvML._AC_SL1500_.jpg",
+        "url": "https://amzn.to/4sUHGJB",
+        "asin": "B0CT3SFCP7",
+        "info": "The BRITA Fill & Go Active is a 600ml water filter bottle with a built-in MicroDisc filter that reduces chlorine and other substances from tap water as you drink. BRITA states each MicroDisc lasts approximately 4 weeks or 150 litres, and the bottle is BPA-free and dishwasher safe. The squeeze mechanism allows filtered water to flow through the straw-like spout. One MicroDisc is included.",
+        "hook_override": "A 600ml water bottle with a <b>built-in MicroDisc filter that reduces chlorine from tap water as you drink</b> — no waiting for filtering, just fill from any tap and squeeze. BRITA states each disc lasts approximately 4 weeks. BPA-free and dishwasher safe.",
+        "last_updated": "2026-03-19",
+        "date_added": "2026-03-19",
+        "manual_price": "",
+        "manual_rating": "",
+        "manual_reviews": "",
+        "keywords": [
+            "BRITA Fill Go Active filter bottle UK",
+            "water filter bottle BPA free UK",
+            "filtered water bottle gym travel UK",
+            "BRITA MicroDisc bottle 600ml",
+            "summer water bottle filter UK"
+        ],
+        "pain_points": [
+            "Tap water that tastes of chlorine, especially in hard water areas",
+            "Buying bottled water creating ongoing cost and plastic waste",
+            "Standard filter jugs that are too bulky for travel or the gym",
+            "Wanting clean-tasting water on the go without a full filtration system"
+        ],
+        "benefits": [
+            "MicroDisc filter reduces chlorine as you drink — no waiting for filtering",
+            "600ml capacity suitable for gym, commuting, and outdoor activities",
+            "BPA-free construction — BRITA stated",
+            "BRITA states each MicroDisc lasts approximately 4 weeks or 150 litres",
+            "Dishwasher safe for easy cleaning"
+        ],
+        "price_tier": "affordable everyday essential",
+        "highlights": [
+            "Built-in MicroDisc filter reduces chlorine and improves taste from any tap water source",
+            "BRITA states each MicroDisc lasts approximately 4 weeks (150 litres) — one included",
+            "600ml BPA-free bottle with squeeze mechanism for instant filtered drinking",
+            "Dishwasher safe — bottle and filter assembly both machine washable",
+            "Replacement MicroDisc 3-packs available for approximately 12 weeks of use"
+        ],
+        "faqs": [
+            {
+                "q": "How does the BRITA MicroDisc filter work?",
+                "a": "The MicroDisc uses activated carbon to reduce chlorine and other taste-affecting substances as water passes through it during drinking. The filtering happens as you squeeze the bottle — no need to wait for water to drip through a jug-style filter."
+            },
+            {
+                "q": "How often should the MicroDisc be replaced?",
+                "a": "BRITA states each MicroDisc lasts approximately 4 weeks or 150 litres, whichever comes first. Replacement 3-packs are widely available on Amazon UK."
+            },
+            {
+                "q": "Can the BRITA bottle be used with unfiltered tap water safely?",
+                "a": "The MicroDisc improves the taste of tap water by reducing chlorine. It is not designed to purify unsafe water sources. UK mains tap water is already safe to drink — the filter improves taste rather than safety."
+            }
+        ],
+        "gift_finder_tags": {
+            "recipient": ["him", "her", "friend", "dad"],
+            "interests": ["health", "sports", "outdoors"],
+            "occasion": ["birthday", "justbecause", "christmas"],
+            "why": "For anyone who buys bottled water regularly or complains about tap water taste — the filter bottle is a practical daily upgrade that pays for itself within a few weeks."
+        }
+    },
+ 
+
     {
     "name": "DAS 1kg Air Hardening Modelling Clay – White",
     "category": "Arts & Crafts",
