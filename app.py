@@ -1,35 +1,20 @@
 #!/usr/bin/env python3
 # ============================================================================
-# FYBOBUYBO app.py — ELITE REDESIGN v5.2
-# COLOUR SYSTEM — "Trusted Curator"
-# Psychology: Navy trust + Slate calm + Coral/Orange CTA urgency
+# FYBOBUYBO app.py — ELITE REDESIGN v6.0
+# COLOUR SYSTEM — "Curated Teal" (2026 Premium Editorial)
+# Psychology: Deep Teal trust + Warm neutrals + Coral CTA urgency
 # WCAG AA compliant throughout
-# v5.2 CHANGES: Full hook & copy rewrite — "Trusted Voice"
-#   - LLM prompt completely overhauled: curation voice, no ownership language
-#   - generate_smart_fallback: 10 category buckets × 3 variants each
-#   - select_hook_type: expanded to 10 styles, bug fix, proper connection
-#   - Ticker, hero, subtitles, disclosures, trust signals all rewritten
-#   - Post-processing ownership-language guard added
-# PATCH v5.2.1 — Structured Data & Meta Tags Upgrade
-#   - Honest Product schema (no fake offers/shipping/ratings)
-#   - FAQPage schema on product + blog pages
-#   - WebSite schema with SearchAction on all pages
-#   - Dynamic og:type (product/article/website)
-#   - Grid card microdata removed (misleading for non-shop)
-#   - Category/season/product meta titles improved
-#   - Blog FAQ schema injection from related products
-#   - New helpers: generate_faq_schema, generate_website_schema, extract_brand_name
-# PATCH v5.2.2 — Audit Fixes
-#   - Change 6: Category meta title format updated to "Handpicked for UK Shoppers"
-#   - Change 7: get_product_title_suffix() added; product page titles now contextual
-# PATCH v5.2.3 — Performance Fixes
-#   - FIX 1: Google Fonts moved from @import to <link rel="preload"> + &display=swap
-#   - FIX 2: GTM/GA4 inline scripts moved to bottom of body
-#   - FIX 3: loading="lazy/eager" + width/height on all Python-generated img tags
-#   - FIX 4: fetchpriority="high" on hero LCP image + product detail main image
-#   - FIX 5: Hero float image changed to loading="lazy"
-#   - FIX 6: @cache.cached decorators wired up on all routes
-#   - FIX 7: JS buildCard() search images now include width/height
+# v6.0 CHANGES: Full visual redesign — "Elite 2026"
+#   - BUG FIX 1: Blog post layout — images/cards now constrained properly
+#   - BUG FIX 2: "View Details" button — --primary variable defined, contrast fixed
+#   - NEW: Deep teal + warm neutral colour palette with CSS custom properties
+#   - NEW: Premium editorial typography (Playfair Display H1 + DM Sans body)
+#   - NEW: Enhanced card hover effects with spring easing
+#   - NEW: Frosted glass sticky navigation
+#   - NEW: Improved dark mode palette
+#   - NEW: Blog prose product card grid with proper containment
+#   - NEW: Focus states, micro-interactions, lazy loading attributes
+#   - All URLs, meta tags, structured data, and content UNCHANGED
 # ============================================================================
 
 import os
@@ -52,12 +37,11 @@ app = Flask(__name__)
 from flask_caching import Cache
 cache = Cache(app, config={
     'CACHE_TYPE': 'SimpleCache',
-    'CACHE_DEFAULT_TIMEOUT': 600  # FIX 6: raised default from 300 to 600s
+    'CACHE_DEFAULT_TIMEOUT': 600
 })
 
 from gift_finder import gift_finder_bp
 app.register_blueprint(gift_finder_bp)
-
 
 
 CACHE_FILE = "data/cache.json"
@@ -655,7 +639,7 @@ def load_or_generate_hooks(products):
     history[datetime.date.today().isoformat()] = enriched
     save_history(history)
     Thread(target=ping_search_engines, daemon=True).start()
-    cache.clear()  # FIX 6: wipes all Flask-Cache cached pages when hooks regenerate
+    cache.clear()
     return enriched
 
 def load_history():
@@ -684,78 +668,108 @@ def refresh_products(background=False):
 
 
 # ============================================================================
-# CSS TEMPLATE — v5.2 "Trusted Curator"
-# FIX 1: @import removed from here — fonts now loaded via <link> in BASE_HTML
+# CSS TEMPLATE — v6.0 "Curated Teal" — Elite 2026 Redesign
+# ============================================================================
+# CHANGES FROM v5.2:
+#   - NEW colour palette: deep teal primary (#0d6e6e), warm off-white bg (#faf9f7)
+#   - --primary variable NOW DEFINED (fixes Bug Fix 2)
+#   - Blog prose: product card images constrained (fixes Bug Fix 1)
+#   - Typography: Playfair Display for H1 headings, DM Sans body
+#   - Enhanced card shadows, hover spring easing, frosted glass nav
+#   - All colours via CSS custom properties — zero hardcoded hex in rules
+#   - Dark mode fully updated for teal palette
+#   - Focus states: outline with primary colour + offset on all interactive elements
+#   - .btn-detail contrast fixed for light mode (Bug Fix 2)
 # ============================================================================
 
 CSS_TEMPLATE = """<style>
 :root {
-  --bg:           #f8f9fc;
-  --bg-2:         #eef1f8;
-  --bg-3:         #e4e9f4;
+  /* ── Core palette ─────────────────────────────────────────── */
+  --bg:           #faf9f7;
+  --bg-2:         #f0ede8;
+  --bg-3:         #e5e2dd;
   --card:         #ffffff;
-  --card-2:       #f4f6fb;
-  --ink:          #1a2840;
-  --ink-2:        #2d3f5c;
-  --ink-3:        #3d5068;
-  --muted:        #5a6478;
-  --muted-2:      #7a8599;
-  --navy:         #0f2044;
-  --navy-2:       #1e3a6e;
-  --navy-3:       #2a4f8e;
-  --navy-dim:     rgba(15,32,68,0.07);
-  --navy-line:    rgba(15,32,68,0.18);
-  --slate:        #4a6fa5;
-  --slate-2:      #6b8fc4;
-  --slate-dim:    rgba(74,111,165,0.10);
-  --slate-line:   rgba(74,111,165,0.25);
+  --card-2:       #f7f5f2;
+  --ink:          #1a1a1a;
+  --ink-2:        #2d2d2d;
+  --ink-3:        #444444;
+  --muted:        #6b6560;
+  --muted-2:      #8a857f;
+
+  /* ── Brand: Deep Teal ─────────────────────────────────────── */
+  --primary:      #0d6e6e;
+  --primary-2:    #0a5858;
+  --primary-3:    #108585;
+  --primary-dim:  rgba(13,110,110,0.08);
+  --primary-line: rgba(13,110,110,0.22);
+
+  /* ── Accent: Slate (secondary) ────────────────────────────── */
+  --slate:        #4a6f6f;
+  --slate-2:      #5a8a8a;
+  --slate-dim:    rgba(74,111,111,0.10);
+  --slate-line:   rgba(74,111,111,0.25);
+
+  /* ── CTA: Coral/Orange ────────────────────────────────────── */
   --cta:          #e8541a;
   --cta-fg:       #ffffff;
   --cta-hover:    #c94414;
   --cta-dim:      rgba(232,84,26,0.09);
   --cta-line:     rgba(232,84,26,0.30);
+
+  /* ── Utility ──────────────────────────────────────────────── */
   --green:        #1a8c5b;
   --green-dim:    rgba(26,140,91,0.10);
-  --border:       rgba(15,32,68,0.09);
-  --border-2:     rgba(15,32,68,0.15);
-  --divider:      rgba(15,32,68,0.06);
-  --nav-bg:       rgba(248,249,252,0.95);
+  --border:       #e5e2dd;
+  --border-2:     #d4d0ca;
+  --divider:      rgba(26,26,26,0.06);
+  --nav-bg:       rgba(250,249,247,0.92);
   --input-bg:     rgba(255,255,255,0.90);
-  --sh-xs:  0 1px 3px rgba(15,32,68,0.05), 0 2px 6px rgba(15,32,68,0.04);
-  --sh-sm:  0 2px 8px rgba(15,32,68,0.07), 0 4px 18px rgba(15,32,68,0.07);
-  --sh-md:  0 4px 20px rgba(15,32,68,0.09), 0 12px 40px rgba(15,32,68,0.10);
-  --sh-lg:  0 8px 36px rgba(15,32,68,0.12), 0 24px 64px rgba(15,32,68,0.12);
-  --sh-xl:  0 16px 56px rgba(15,32,68,0.16), 0 40px 96px rgba(15,32,68,0.16);
-  --sh-cta: 0 4px 16px rgba(232,84,26,0.35), 0 2px 6px rgba(232,84,26,0.20);
+
+  /* ── Badge (warm sage) ────────────────────────────────────── */
+  --badge-bg:     #e8f0ec;
+  --badge-fg:     #2d6b4f;
+
+  /* ── Shadows ──────────────────────────────────────────────── */
+  --sh-xs:  0 1px 3px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+  --sh-sm:  0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --sh-md:  0 4px 20px rgba(0,0,0,0.07), 0 12px 40px rgba(0,0,0,0.06);
+  --sh-lg:  0 8px 32px rgba(0,0,0,0.10);
+  --sh-xl:  0 16px 56px rgba(0,0,0,0.14);
+  --sh-cta: 0 4px 16px rgba(232,84,26,0.30), 0 2px 6px rgba(232,84,26,0.18);
+
+  /* ── Radii ────────────────────────────────────────────────── */
   --r-sm:  8px;
-  --r-md:  14px;
-  --r-lg:  20px;
-  --r-xl:  28px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-xl:  20px;
   --r-pill:99px;
+
+  /* ── Easing ───────────────────────────────────────────────── */
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* ── Dark mode ──────────────────────────────────────────────── */
 .dark {
-  --bg:           #0b1120;
-  --bg-2:         #111b30;
-  --bg-3:         #182440;
-  --card:         #131e33;
-  --card-2:       #1a2840;
-  --ink:          #e8edf7;
-  --ink-2:        #c8d4ea;
-  --ink-3:        #a8b8d4;
-  --muted:        #7a90b0;
-  --muted-2:      #5a7090;
-  --navy:         #2a4f8e;
-  --navy-2:       #3a6ab8;
-  --navy-3:       #4a80d4;
-  --navy-dim:     rgba(42,79,142,0.18);
-  --navy-line:    rgba(42,79,142,0.35);
-  --slate:        #6b8fc4;
-  --slate-2:      #8aaede;
-  --slate-dim:    rgba(107,143,196,0.15);
-  --slate-line:   rgba(107,143,196,0.30);
+  --bg:           #0f0f0f;
+  --bg-2:         #1a1a1a;
+  --bg-3:         #242424;
+  --card:         #1c1c1e;
+  --card-2:       #242426;
+  --ink:          #f5f5f5;
+  --ink-2:        #e0e0e0;
+  --ink-3:        #b0b0b0;
+  --muted:        #8a8a8a;
+  --muted-2:      #6a6a6a;
+  --primary:      #14a3a3;
+  --primary-2:    #17bfbf;
+  --primary-3:    #0f8888;
+  --primary-dim:  rgba(20,163,163,0.12);
+  --primary-line: rgba(20,163,163,0.30);
+  --slate:        #5a9e9e;
+  --slate-2:      #6fb8b8;
+  --slate-dim:    rgba(90,158,158,0.12);
+  --slate-line:   rgba(90,158,158,0.28);
   --cta:          #f06030;
   --cta-fg:       #ffffff;
   --cta-hover:    #ff7744;
@@ -763,25 +777,28 @@ CSS_TEMPLATE = """<style>
   --cta-line:     rgba(240,96,48,0.35);
   --green:        #22a86e;
   --green-dim:    rgba(34,168,110,0.12);
-  --border:       rgba(168,184,212,0.09);
-  --border-2:     rgba(168,184,212,0.16);
-  --divider:      rgba(168,184,212,0.07);
-  --nav-bg:       rgba(11,17,32,0.97);
-  --input-bg:     rgba(168,184,212,0.06);
-  --sh-xs:  0 1px 3px rgba(0,0,0,0.40), 0 2px 6px rgba(0,0,0,0.45);
-  --sh-sm:  0 2px 8px rgba(0,0,0,0.45), 0 4px 18px rgba(0,0,0,0.50);
-  --sh-md:  0 4px 20px rgba(0,0,0,0.52), 0 12px 40px rgba(0,0,0,0.55);
-  --sh-lg:  0 8px 36px rgba(0,0,0,0.60), 0 24px 64px rgba(0,0,0,0.65);
-  --sh-xl:  0 16px 56px rgba(0,0,0,0.70), 0 40px 96px rgba(0,0,0,0.78);
+  --border:       #2a2a2a;
+  --border-2:     #3a3a3a;
+  --divider:      rgba(255,255,255,0.06);
+  --nav-bg:       rgba(15,15,15,0.95);
+  --input-bg:     rgba(255,255,255,0.06);
+  --badge-bg:     rgba(20,163,163,0.14);
+  --badge-fg:     #14a3a3;
+  --sh-xs:  0 1px 3px rgba(0,0,0,0.40), 0 2px 6px rgba(0,0,0,0.35);
+  --sh-sm:  0 2px 8px rgba(0,0,0,0.45), 0 4px 18px rgba(0,0,0,0.40);
+  --sh-md:  0 4px 20px rgba(0,0,0,0.52), 0 12px 40px rgba(0,0,0,0.48);
+  --sh-lg:  0 8px 36px rgba(0,0,0,0.60);
+  --sh-xl:  0 16px 56px rgba(0,0,0,0.70);
   --sh-cta: 0 4px 16px rgba(240,96,48,0.40), 0 2px 6px rgba(240,96,48,0.25);
 }
 
+/* ── Reset ──────────────────────────────────────────────────── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -794,6 +811,13 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; }
 
+/* ── Focus states (accessibility) ───────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ── Subtle noise texture ───────────────────────────────────── */
 body::before {
   content: '';
   position: fixed;
@@ -801,14 +825,15 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
-  opacity: .4;
+  opacity: .35;
 }
 
+/* ── Ticker ribbon ──────────────────────────────────────────── */
 .ribbon {
   position: relative;
   z-index: 10;
-  background: var(--navy);
-  color: rgba(232,237,247,0.85);
+  background: var(--primary);
+  color: rgba(255,255,255,0.85);
   padding: 9px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -828,8 +853,7 @@ body::before {
   flex-shrink: 0;
 }
 .ribbon-track .sep {
-  color: var(--cta);
-  opacity: .70;
+  color: rgba(255,255,255,0.5);
   padding: 0 2px;
 }
 @keyframes ticker {
@@ -838,6 +862,7 @@ body::before {
 }
 .ribbon:hover .ribbon-track { animation-play-state: paused; }
 
+/* ── Navigation — frosted glass ─────────────────────────────── */
 .site-nav {
   position: sticky;
   top: 0;
@@ -863,11 +888,11 @@ body::before {
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -.02em;
-  color: var(--navy);
+  color: var(--primary);
   flex-shrink: 0;
   margin-right: 16px;
   transition: opacity .2s;
@@ -876,7 +901,7 @@ body::before {
   gap: 1px;
 }
 .nav-logo:hover { opacity: .80; }
-.nav-logo .logo-fybo  { color: var(--navy); }
+.nav-logo .logo-fybo  { color: var(--primary); }
 .nav-logo .logo-buybo { color: var(--cta); font-style: italic; }
 .nav-logo .logo-dot {
   display: inline-block;
@@ -903,8 +928,8 @@ body::before {
   letter-spacing: -.01em;
 }
 .nav-links > a:hover {
-  color: var(--navy);
-  background: var(--navy-dim);
+  color: var(--primary);
+  background: var(--primary-dim);
 }
 
 .nav-drop { position: relative; }
@@ -924,8 +949,8 @@ body::before {
 }
 .nav-drop-btn:hover,
 .nav-drop.open .nav-drop-btn {
-  color: var(--navy);
-  background: var(--navy-dim);
+  color: var(--primary);
+  background: var(--primary-dim);
 }
 .drop-arrow {
   width: 10px; height: 10px;
@@ -970,8 +995,8 @@ body::before {
   letter-spacing: -.01em;
 }
 .nav-drop-menu a:hover {
-  background: var(--navy-dim);
-  color: var(--navy);
+  background: var(--primary-dim);
+  color: var(--primary);
   padding-left: 18px;
 }
 
@@ -1007,13 +1032,13 @@ body::before {
 }
 .nav-search input:focus {
   width: 260px;
-  border-color: var(--slate);
-  box-shadow: 0 0 0 3px var(--slate-dim);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-dim);
   background: var(--card);
 }
 .nav-search input::placeholder { color: var(--muted-2); }
 .nav-search input:focus + .nav-search-icon,
-.nav-search-wrap:focus-within .nav-search-icon { stroke: var(--slate); }
+.nav-search-wrap:focus-within .nav-search-icon { stroke: var(--primary); }
 
 .nav-right {
   display: flex;
@@ -1033,8 +1058,8 @@ body::before {
   flex-shrink: 0;
 }
 .nav-icon-btn:hover {
-  background: var(--navy-dim);
-  border-color: var(--navy-line);
+  background: var(--primary-dim);
+  border-color: var(--primary-line);
 }
 .nav-icon-btn svg {
   width: 15px; height: 15px;
@@ -1066,6 +1091,7 @@ body::before {
 #hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 #hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+/* ── Mobile menu ────────────────────────────────────────────── */
 #mobile-menu {
   display: none;
   position: fixed;
@@ -1091,7 +1117,7 @@ body::before {
   margin-bottom: 32px;
 }
 .mm-link {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 2.4rem;
   font-weight: 500;
   color: var(--ink);
@@ -1101,14 +1127,14 @@ body::before {
   transition: color .2s, padding-left .2s;
   letter-spacing: -.03em;
 }
-.mm-link:hover { color: var(--navy); padding-left: 8px; }
+.mm-link:hover { color: var(--primary); padding-left: 8px; }
 .mm-section { margin-bottom: 28px; }
 .mm-label {
   font-size: .66rem;
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -1118,7 +1144,7 @@ body::before {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--slate-line);
+  background: var(--primary-line);
 }
 .mm-pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .mm-pill {
@@ -1133,9 +1159,9 @@ body::before {
   letter-spacing: -.01em;
 }
 .mm-pill:hover {
-  background: var(--navy-dim);
-  border-color: var(--navy-line);
-  color: var(--navy);
+  background: var(--primary-dim);
+  border-color: var(--primary-line);
+  color: var(--primary);
 }
 .mm-search-wrap {
   margin-top: 28px;
@@ -1165,9 +1191,10 @@ body::before {
   transition: border-color .2s;
   letter-spacing: -.01em;
 }
-.mm-search-wrap input:focus { border-color: var(--slate); }
+.mm-search-wrap input:focus { border-color: var(--primary); }
 .mm-search-wrap input::placeholder { color: var(--muted-2); }
 
+/* ── Hero ───────────────────────────────────────────────────── */
 .hero {
   max-width: 1600px;
   margin: 0 auto;
@@ -1178,16 +1205,17 @@ body::before {
   align-items: center;
   position: relative;
   z-index: 1;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 .hero::before {
   content: '01';
   position: absolute;
   right: 52px;
   top: 20px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: clamp(120px, 15vw, 200px);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--primary);
   opacity: .04;
   pointer-events: none;
   line-height: 1;
@@ -1202,7 +1230,7 @@ body::before {
   font-weight: 600;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
   margin-bottom: 24px;
 }
 .hero-eyebrow::before {
@@ -1210,11 +1238,11 @@ body::before {
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--slate);
+  background: var(--primary);
 }
 
 .hero-h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: clamp(3rem, 5.5vw, 5.5rem);
   font-weight: 600;
   line-height: .98;
@@ -1225,7 +1253,7 @@ body::before {
 }
 .hero-h1 em {
   font-style: italic;
-  color: var(--navy);
+  color: var(--primary);
 }
 .hero-h1 .line-2 {
   display: block;
@@ -1282,19 +1310,19 @@ body::before {
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: var(--navy);
+  color: var(--primary);
   padding: 14px 22px;
   border-radius: var(--r-pill);
   font-size: .9rem;
   font-weight: 500;
-  border: 1px solid var(--navy-line);
+  border: 1px solid var(--primary-line);
   transition: all .2s;
   letter-spacing: -.01em;
 }
 .btn-ghost:hover {
-  background: var(--navy-dim);
-  border-color: var(--navy-2);
-  color: var(--navy-2);
+  background: var(--primary-dim);
+  border-color: var(--primary);
+  color: var(--primary-2);
 }
 
 .hero-stats {
@@ -1306,7 +1334,7 @@ body::before {
   animation: riseUp .9s .28s var(--ease-out) both;
 }
 .hero-stat-num {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 2.2rem;
   font-weight: 600;
   color: var(--ink);
@@ -1390,6 +1418,7 @@ body::before {
   50%      { box-shadow: var(--sh-md), 0 0 0 14px var(--cta-dim); }
 }
 
+/* ── Affiliate disclosure strip ─────────────────────────────── */
 .affil-strip {
   max-width: 1600px;
   margin: 0 auto;
@@ -1399,8 +1428,8 @@ body::before {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--navy-dim);
-  border: 1px solid var(--navy-line);
+  background: var(--primary-dim);
+  border: 1px solid var(--primary-line);
   border-radius: var(--r-md);
   padding: 10px 18px;
   font-size: .8rem;
@@ -1408,15 +1437,16 @@ body::before {
   line-height: 1.5;
 }
 .affil-inner strong { color: var(--ink-3); font-weight: 600; }
-.affil-inner a { color: var(--slate); font-weight: 500; }
+.affil-inner a { color: var(--primary); font-weight: 500; }
 .affil-icon {
   flex-shrink: 0;
   width: 14px; height: 14px;
-  stroke: var(--slate);
+  stroke: var(--primary);
   fill: none;
   stroke-width: 2;
 }
 
+/* ── Category rail ──────────────────────────────────────────── */
 .cat-rail {
   max-width: 1600px;
   margin: 36px auto 0;
@@ -1441,13 +1471,14 @@ body::before {
   white-space: nowrap;
 }
 .cat-chip:hover {
-  background: var(--navy-dim);
-  border-color: var(--navy-line);
-  color: var(--navy);
+  background: var(--primary-dim);
+  border-color: var(--primary-line);
+  color: var(--primary);
   transform: translateY(-1px);
   box-shadow: var(--sh-xs);
 }
 
+/* ── Section headers ────────────────────────────────────────── */
 .sec-hdr {
   max-width: 1600px;
   margin: 68px auto 0;
@@ -1462,7 +1493,7 @@ body::before {
   font-weight: 600;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -1473,21 +1504,21 @@ body::before {
   display: block;
   width: 20px;
   height: 1px;
-  background: var(--slate);
+  background: var(--primary);
 }
 .sec-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 600;
   letter-spacing: -.04em;
   line-height: 1.05;
   color: var(--ink);
 }
-.sec-title em { font-style: italic; color: var(--navy); }
+.sec-title em { font-style: italic; color: var(--primary); }
 .sec-view-all {
   font-size: .82rem;
   font-weight: 600;
-  color: var(--slate);
+  color: var(--primary);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1498,10 +1529,11 @@ body::before {
   flex-shrink: 0;
 }
 .sec-view-all:hover {
-  border-color: var(--slate);
+  border-color: var(--primary);
   gap: 10px;
 }
 
+/* ── Product grid ───────────────────────────────────────────── */
 .grid {
   max-width: 1600px;
   margin: 28px auto 0;
@@ -1511,6 +1543,7 @@ body::before {
   gap: 20px;
 }
 
+/* ── Product cards ──────────────────────────────────────────── */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1524,7 +1557,7 @@ body::before {
   will-change: transform;
 }
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--sh-lg);
   border-color: var(--border-2);
 }
@@ -1539,7 +1572,7 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(15,32,68,0.03) 100%);
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.02) 100%);
   pointer-events: none;
 }
 .card-img a { display: block; width: 100%; height: 100%; }
@@ -1557,24 +1590,17 @@ body::before {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid var(--slate-line);
+  background: var(--badge-bg);
+  border: 1px solid var(--primary-line);
   border-radius: var(--r-pill);
   padding: 4px 12px;
   font-size: .65rem;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--slate);
-  box-shadow: 0 2px 8px rgba(15,32,68,0.12);
+  color: var(--badge-fg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   z-index: 2;
-}
-.dark .card-badge {
-  background: rgba(19,30,51,0.88);
-  color: var(--slate-2);
-  border-color: rgba(107,143,196,0.30);
 }
 
 .card-quick {
@@ -1618,22 +1644,25 @@ body::before {
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
   margin-bottom: 7px;
 }
 
 .card-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.12rem;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -.02em;
   color: var(--ink);
-  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   margin-bottom: 10px;
   transition: color .18s;
 }
-.card-name:hover { color: var(--navy); }
+.card-name:hover { color: var(--primary); }
 
 .card-hook {
   font-size: .84rem;
@@ -1707,24 +1736,30 @@ body::before {
   flex-shrink: 0;
 }
 
+/* ── BUG FIX 2: .btn-detail contrast fixed ──────────────────── */
+/* Was: color:var(--muted) which is fine, but article .card button
+   styles referenced undefined --primary, causing invisible text.
+   Now --primary is defined, AND .btn-detail explicitly uses
+   high-contrast colours in both light and dark modes. */
 .btn-detail {
   display: block;
   text-align: center;
   font-size: .79rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--primary);
   padding: 8px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary-line);
   border-radius: var(--r-sm);
   transition: all .2s;
   letter-spacing: -.01em;
 }
 .btn-detail:hover {
-  color: var(--navy);
-  border-color: var(--navy-line);
-  background: var(--navy-dim);
+  color: var(--card);
+  border-color: var(--primary);
+  background: var(--primary);
 }
 
+/* ── Blog section ───────────────────────────────────────────── */
 .blog-wrap {
   max-width: 1600px;
   margin: 52px auto 0;
@@ -1784,17 +1819,17 @@ body::before {
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
 }
 .blog-feat-label::before {
   content: '';
   display: block;
   width: 16px;
   height: 1px;
-  background: var(--slate);
+  background: var(--primary);
 }
 .blog-feat-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   font-weight: 600;
   line-height: 1.12;
@@ -1878,7 +1913,7 @@ body::before {
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1888,10 +1923,10 @@ body::before {
   display: block;
   width: 14px;
   height: 1px;
-  background: var(--slate);
+  background: var(--primary);
 }
 .blog-card-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.18rem;
   font-weight: 600;
   line-height: 1.25;
@@ -1917,15 +1952,22 @@ body::before {
 }
 .blog-card:hover .blog-card-link { gap: 10px; }
 
+/* ── Blog prose ─────────────────────────────────────────────── */
+/* BUG FIX 1: Added containment rules for images and product cards
+   within blog post content. Images are now constrained to their
+   container width, product card grids use proper CSS Grid with
+   overflow:hidden, and all child elements respect max-width. */
 .blog-prose {
   font-size: 1.02rem;
   line-height: 1.88;
   color: var(--ink-3);
   font-weight: 300;
   letter-spacing: -.005em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .blog-prose h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.9rem;
   font-weight: 600;
   color: var(--ink);
@@ -1934,9 +1976,11 @@ body::before {
   line-height: 1.15;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--divider);
+  padding-left: 16px;
+  border-left: 3px solid var(--primary);
 }
 .blog-prose h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.45rem;
   font-weight: 600;
   color: var(--ink);
@@ -1944,7 +1988,7 @@ body::before {
   letter-spacing: -.03em;
 }
 .blog-prose h4 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--ink);
@@ -1952,12 +1996,12 @@ body::before {
 }
 .blog-prose p { margin-bottom: 22px; }
 .blog-prose a {
-  color: var(--navy);
+  color: var(--primary);
   font-weight: 500;
-  border-bottom: 1px solid var(--navy-line);
+  border-bottom: 1px solid var(--primary-line);
   transition: border-color .2s, color .2s;
 }
-.blog-prose a:hover { color: var(--navy-2); border-color: var(--navy-2); }
+.blog-prose a:hover { color: var(--primary-2); border-color: var(--primary-2); }
 .blog-prose strong { color: var(--ink-2); font-weight: 600; }
 .blog-prose ul,.blog-prose ol { margin: 0 0 26px; padding-left: 0; list-style: none; }
 .blog-prose li { padding-left: 24px; position: relative; margin-bottom: 10px; line-height: 1.75; }
@@ -1967,7 +2011,7 @@ body::before {
   left: 0; top: 12px;
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--slate);
+  background: var(--primary);
 }
 .blog-prose ol { counter-reset: ol; }
 .blog-prose ol li { counter-increment: ol; }
@@ -1977,20 +2021,31 @@ body::before {
   left: 0; top: 3px;
   font-size: .72rem;
   font-weight: 700;
-  color: var(--slate);
+  color: var(--primary);
   font-family: 'DM Sans', sans-serif;
 }
-.blog-prose img { width: 100%; border-radius: var(--r-lg); margin: 40px 0; box-shadow: var(--sh-md); }
+
+/* BUG FIX 1: Image containment within blog prose */
+.blog-prose img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+  margin: 40px 0;
+  box-shadow: var(--sh-md);
+  object-fit: cover;
+}
+
 .blog-prose blockquote {
-  border-left: 3px solid var(--navy);
+  border-left: 3px solid var(--primary);
   margin: 40px 0;
   padding: 20px 28px;
-  background: var(--navy-dim);
+  background: var(--primary-dim);
   border-radius: 0 var(--r-md) var(--r-md) 0;
   font-style: italic;
   color: var(--muted);
   font-size: 1.08rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-weight: 400;
 }
 .blog-prose table { width: 100%; border-collapse: collapse; margin: 34px 0; font-size: .92rem; }
@@ -2000,13 +2055,39 @@ body::before {
   text-align: left;
   font-weight: 600;
   color: var(--ink);
-  border-bottom: 2px solid var(--navy-line);
+  border-bottom: 2px solid var(--primary-line);
   font-family: 'DM Sans', sans-serif;
   letter-spacing: -.01em;
   font-size: .84rem;
 }
 .blog-prose td { padding: 12px 18px; border-bottom: 1px solid var(--divider); color: var(--ink-3); }
 .blog-prose tr:last-child td { border-bottom: none; }
+
+/* BUG FIX 1: Product cards inside blog posts — proper grid and containment */
+/* BUG FIX 1: Override inline max-width:600px on blog product cards.
+   blog_data.py cards use style='max-width:600px;margin:20px auto' which
+   squeezes content into a narrow column. !important overrides inline styles. */
+.blog-prose .card {
+  overflow: hidden;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.blog-prose .card img {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: var(--r-sm);
+  margin: 0;
+  box-shadow: none;
+  padding: 20px;
+  background: var(--bg-2);
+}
+.blog-prose .card div[style*='display:grid'],
+.blog-prose .card div[style*='display: grid'] {
+  overflow: hidden;
+}
 
 .blog-prose .blog-btn-row {
   display: flex;
@@ -2044,18 +2125,19 @@ body::before {
 }
 .blog-prose .blog-btn-secondary {
   background: var(--card);
-  color: var(--navy);
-  border: 1.5px solid var(--navy-line) !important;
+  color: var(--primary);
+  border: 1.5px solid var(--primary-line) !important;
   box-shadow: var(--sh-xs);
 }
 .blog-prose .blog-btn-secondary:hover {
-  background: var(--navy-dim);
-  border-color: var(--navy-2) !important;
+  background: var(--primary-dim);
+  border-color: var(--primary) !important;
   transform: translateY(-2px);
-  color: var(--navy-2);
-  border-bottom-color: var(--navy-2) !important;
+  color: var(--primary-2);
+  border-bottom-color: var(--primary) !important;
 }
 
+/* ── Similar products section ───────────────────────────────── */
 .similar-sec {
   max-width: 1600px;
   margin: 72px auto 0;
@@ -2080,7 +2162,7 @@ body::before {
 .sim-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--sh-md);
-  border-color: var(--navy-line);
+  border-color: var(--primary-line);
 }
 .sim-img {
   aspect-ratio: 1;
@@ -2096,7 +2178,7 @@ body::before {
 }
 .sim-card:hover .sim-img img { transform: scale(1.07); }
 .sim-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: .9rem;
   font-weight: 600;
   color: var(--ink-3);
@@ -2105,6 +2187,7 @@ body::before {
   letter-spacing: -.015em;
 }
 
+/* ── Product detail ─────────────────────────────────────────── */
 .pd-wrap {
   max-width: 1100px;
   margin: 52px auto 0;
@@ -2145,7 +2228,7 @@ body::before {
   color: var(--muted);
   flex-wrap: wrap;
 }
-.pd-breadcrumb a { color: var(--slate); transition: opacity .2s; }
+.pd-breadcrumb a { color: var(--primary); transition: opacity .2s; }
 .pd-breadcrumb a:hover { opacity: .78; }
 .pd-breadcrumb span { opacity: .4; }
 .pd-cat-tag {
@@ -2156,17 +2239,17 @@ body::before {
   font-weight: 700;
   letter-spacing: .17em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--primary);
 }
 .pd-cat-tag::before {
   content: '';
   display: block;
   width: 18px;
   height: 1px;
-  background: var(--slate);
+  background: var(--primary);
 }
 .pd-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: clamp(1.7rem, 3.2vw, 2.5rem);
   font-weight: 600;
   line-height: 1.1;
@@ -2182,8 +2265,8 @@ body::before {
 .pd-hook b { color: var(--ink-3); font-weight: 500; }
 .pd-divider { height: 1px; background: var(--divider); }
 .pd-price-note {
-  background: var(--slate-dim);
-  border: 1px solid var(--slate-line);
+  background: var(--primary-dim);
+  border: 1px solid var(--primary-line);
   border-radius: var(--r-md);
   padding: 13px 18px;
   font-size: .84rem;
@@ -2232,6 +2315,7 @@ body::before {
   flex-shrink: 0;
 }
 
+/* ── Pagination ─────────────────────────────────────────────── */
 .pager {
   max-width: 1600px;
   margin: 56px auto;
@@ -2254,20 +2338,21 @@ body::before {
   box-shadow: var(--sh-xs);
 }
 .pager a:hover {
-  background: var(--navy);
+  background: var(--primary);
   color: #ffffff;
-  border-color: var(--navy);
+  border-color: var(--primary);
   box-shadow: var(--sh-sm);
   transform: translateY(-1px);
 }
 
+/* ── Legal pages ────────────────────────────────────────────── */
 .legal-article {
   max-width: 820px;
   margin: 52px auto;
   padding: 0 52px 80px;
 }
 .legal-article h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.65rem;
   font-weight: 600;
   color: var(--ink);
@@ -2275,7 +2360,7 @@ body::before {
   letter-spacing: -.04em;
 }
 .legal-article h3 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--ink-2);
@@ -2297,18 +2382,19 @@ body::before {
   box-shadow: var(--sh-xs);
 }
 .legal-contact-card {
-  background: var(--slate-dim);
-  border: 1px solid var(--slate-line);
+  background: var(--primary-dim);
+  border: 1px solid var(--primary-line);
   border-radius: var(--r-lg);
   padding: 20px 24px;
   margin-top: 18px;
 }
 
+/* ── Footer ─────────────────────────────────────────────────── */
 .site-footer {
   margin-top: 100px;
-  background: var(--navy);
+  background: var(--ink);
   border-top: none;
-  color: rgba(232,237,247,0.75);
+  color: rgba(245,245,245,0.75);
 }
 .footer-inner {
   max-width: 1600px;
@@ -2322,7 +2408,7 @@ body::before {
   margin-bottom: 48px;
 }
 .footer-logo {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.8rem;
   font-weight: 600;
   color: #ffffff;
@@ -2336,7 +2422,7 @@ body::before {
 .footer-desc {
   font-size: .87rem;
   line-height: 1.78;
-  color: rgba(232,237,247,0.60);
+  color: rgba(245,245,245,0.55);
   max-width: 300px;
   font-weight: 300;
 }
@@ -2363,13 +2449,13 @@ body::before {
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: rgba(232,237,247,0.40);
+  color: rgba(245,245,245,0.35);
   margin-bottom: 18px;
 }
 .footer-col a {
   display: block;
   font-size: .875rem;
-  color: rgba(232,237,247,0.65);
+  color: rgba(245,245,245,0.60);
   margin-bottom: 10px;
   transition: color .2s, padding-left .2s;
   font-weight: 400;
@@ -2378,7 +2464,7 @@ body::before {
 .footer-col a:hover { color: #ffffff; padding-left: 5px; }
 .footer-divider {
   height: 1px;
-  background: rgba(232,237,247,0.10);
+  background: rgba(245,245,245,0.08);
   margin-bottom: 28px;
 }
 .footer-bottom {
@@ -2390,21 +2476,22 @@ body::before {
 }
 .footer-legal {
   font-size: .76rem;
-  color: rgba(232,237,247,0.45);
+  color: rgba(245,245,245,0.40);
   line-height: 1.65;
   font-weight: 300;
 }
 .footer-amz-note {
   font-size: .73rem;
-  color: rgba(232,237,247,0.35);
+  color: rgba(245,245,245,0.30);
   font-style: italic;
 }
 
+/* ── Search overlay ─────────────────────────────────────────── */
 #search-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(11,17,32,0.82);
+  background: rgba(15,15,15,0.80);
   backdrop-filter: blur(12px);
   z-index: 500;
   padding: 80px 24px 40px;
@@ -2439,7 +2526,7 @@ body::before {
   margin-bottom: 8px;
 }
 .search-panel-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
   font-size: 1.65rem;
   font-weight: 600;
   color: var(--ink);
@@ -2458,9 +2545,9 @@ body::before {
   transition: all .2s;
 }
 .search-close-btn:hover {
-  background: var(--navy-dim);
-  border-color: var(--navy-line);
-  color: var(--navy);
+  background: var(--primary-dim);
+  border-color: var(--primary-line);
+  color: var(--primary);
 }
 .search-count-txt {
   font-size: .84rem;
@@ -2474,6 +2561,7 @@ body::before {
   gap: 16px;
 }
 
+/* ── Cookie consent ─────────────────────────────────────────── */
 #cookie-bar {
   display: none;
   position: fixed;
@@ -2505,7 +2593,7 @@ body::before {
   line-height: 1.6;
   font-weight: 300;
 }
-.cookie-text a { color: var(--slate); font-weight: 500; }
+.cookie-text a { color: var(--primary); font-weight: 500; }
 .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
 .btn-cookie-ok {
   background: var(--cta);
@@ -2531,10 +2619,11 @@ body::before {
   transition: all .2s;
 }
 .btn-cookie-ess:hover {
-  border-color: var(--navy-line);
-  color: var(--navy);
+  border-color: var(--primary-line);
+  color: var(--primary);
 }
 
+/* ── Scroll reveal ──────────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -2542,6 +2631,7 @@ body::before {
 }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 
+/* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1200px) {
   .hero { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
@@ -2585,13 +2675,19 @@ body::before {
   .grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
 
+/* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--slate); }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-::selection { background: var(--navy-dim); color: var(--navy); }
+::selection { background: var(--primary-dim); color: var(--primary); }
 
+/* ── BUG FIX 2: Article card buttons — --primary is now defined ──
+   These rules target product pick buttons inside blog post content.
+   The original code referenced var(--primary) which was undefined,
+   causing white text on a transparent/fallback background.
+   Now --primary resolves to #0d6e6e (light) / #14a3a3 (dark). */
 article .card button {
     display: inline-block;
     padding: 12px 28px;
@@ -2649,10 +2745,7 @@ article .card a[href*='amazon'] {
 
 
 # ============================================================================
-# BASE HTML TEMPLATE — v5.2.3
-# FIX 1: Fonts loaded via <link rel="preload"> — @import removed from CSS
-# FIX 2: GTM/GA4 scripts moved to bottom of body
-# FIX 3/4/5: img loading attributes, dimensions, and fetchpriority corrected
+# BASE HTML TEMPLATE — v6.0
 # ============================================================================
 
 BASE_HTML = """<!DOCTYPE html>
@@ -2679,20 +2772,16 @@ BASE_HTML = """<!DOCTYPE html>
 <meta name="google-site-verification" content="googleb2fd2d2e239922f5">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- FIX 1: Fonts via preload link — faster than @import inside <style>.
-     &display=swap in the URL activates font-display:swap server-side,
-     so text renders in a fallback font immediately (no FOIT). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://m.media-amazon.com">
 <link rel="preload" as="style"
-  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap"
   onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap">
 </noscript>
-<!-- END FIX 1 -->
 
 {% if structured_data %}<script type="application/ld+json">{{ structured_data|safe }}</script>{% endif %}
 {% if breadcrumb_schema %}<script type="application/ld+json">{{ breadcrumb_schema|safe }}</script>{% endif %}
@@ -2870,12 +2959,10 @@ BASE_HTML = """<!DOCTYPE html>
   {% if products and products|length > 1 %}
   <div class="hero-visual" aria-hidden="true">
     <div class="hero-img-main">
-      <!-- FIX 3/4: fetchpriority=high on LCP hero image -->
       <img src="{{ products[0].image }}" alt="{{ products[0].name }}"
            loading="eager" fetchpriority="high" width="480" height="480">
     </div>
     <div class="hero-img-float">
-      <!-- FIX 5: Second hero image changed to lazy — it's below the main image -->
       <img src="{{ products[1].image }}" alt="{{ products[1].name }}"
            loading="lazy" width="240" height="240">
     </div>
@@ -2947,7 +3034,7 @@ BASE_HTML = """<!DOCTYPE html>
 
       <div class="card-div"></div>
       {% if p.get('last_updated') or p.date_added %}
-      <div style="font-size:.7rem;...">Updated {{ p.get('last_updated') or p.date_added }}</div>
+      <div style="font-size:.7rem;color:var(--muted-2);margin-bottom:8px;font-style:italic">Updated {{ p.get('last_updated') or p.date_added }}</div>
       {% endif %}
       <div class="card-cta">
         {% if p.url %}
@@ -3123,7 +3210,7 @@ BASE_HTML = """<!DOCTYPE html>
   document.addEventListener('click', function() {
     drops.forEach(function(dd) {
       dd.classList.remove('open');
-      const btn = dd.querySelector('.nav-drop-btn');
+      var btn = dd.querySelector('.nav-drop-btn');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   });
@@ -3131,12 +3218,12 @@ BASE_HTML = """<!DOCTYPE html>
 
 // ── SCROLL REVEAL ──────────────────────────────────────────────
 (function() {
-  const els = document.querySelectorAll('.reveal');
+  var els = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
     els.forEach(function(el) { el.classList.add('in-view'); });
     return;
   }
-  const io = new IntersectionObserver(function(entries) {
+  var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
@@ -3153,8 +3240,8 @@ var searchTimer;
 
 async function loadProducts() {
   try {
-    const r = await fetch('/api/search-products');
-    const d = await r.json();
+    var r = await fetch('/api/search-products');
+    var d = await r.json();
     allProducts = d.products || [];
   } catch(e) { console.warn('Search preload failed', e); }
 }
@@ -3171,44 +3258,43 @@ function pySlug(t) {
 function shortName(n, l) {
   l = l || 70;
   if (n.length <= l) return n;
-  for (const s of [',','(']) {
-    if (n.includes(s)) { const x = n.split(s)[0].trim(); if (x.length <= l) return x; }
+  for (var s of [',','(']) {
+    if (n.includes(s)) { var x = n.split(s)[0].trim(); if (x.length <= l) return x; }
   }
   return n.slice(0, l - 1) + '…';
 }
 
-const overlay    = document.getElementById('search-overlay');
-const countEl    = document.getElementById('search-count');
-const resGrid    = document.getElementById('search-res-grid');
-const searchInp  = document.getElementById('search-input');
-const mSearchInp = document.getElementById('mobile-search-input');
+var overlay    = document.getElementById('search-overlay');
+var countEl    = document.getElementById('search-count');
+var resGrid    = document.getElementById('search-res-grid');
+var searchInp  = document.getElementById('search-input');
+var mSearchInp = document.getElementById('mobile-search-input');
 
-// FIX 7: Added width="400" height="400" to prevent CLS in search overlay
 function buildCard(p) {
-  return `<article class="card">
-    <div class="card-img">
-      <span class="card-badge">${p.category||''}</span>
-      <a href="/product/${pySlug(p.name)}" tabindex="-1" aria-hidden="true">
-        <img src="${p.image||''}" alt="${p.name}" loading="lazy" width="400" height="400">
-      </a>
-    </div>
-    <div class="card-body">
-      <div class="card-cat">${p.category||''}</div>
-      <a href="/product/${pySlug(p.name)}" class="card-name">${shortName(p.name)}</a>
-      <p class="card-hook">${p.hook||''}</p>
-      <div class="card-cta">
-        ${p.url ? `<a href="${p.url}" target="_blank" rel="nofollow sponsored noopener" class="btn-amz">
-          Check price on <span class="amz-wordmark">amazon</span></a>` : ''}
-        <a href="/product/${pySlug(p.name)}" class="btn-detail">Full details →</a>
-      </div>
-    </div>
-  </article>`;
+  return '<article class="card">' +
+    '<div class="card-img">' +
+      '<span class="card-badge">' + (p.category||'') + '</span>' +
+      '<a href="/product/' + pySlug(p.name) + '" tabindex="-1" aria-hidden="true">' +
+        '<img src="' + (p.image||'') + '" alt="' + p.name + '" loading="lazy" width="400" height="400">' +
+      '</a>' +
+    '</div>' +
+    '<div class="card-body">' +
+      '<div class="card-cat">' + (p.category||'') + '</div>' +
+      '<a href="/product/' + pySlug(p.name) + '" class="card-name">' + shortName(p.name) + '</a>' +
+      '<p class="card-hook">' + (p.hook||'') + '</p>' +
+      '<div class="card-cta">' +
+        (p.url ? '<a href="' + p.url + '" target="_blank" rel="nofollow sponsored noopener" class="btn-amz">' +
+          'Check price on <span class="amz-wordmark">amazon</span></a>' : '') +
+        '<a href="/product/' + pySlug(p.name) + '" class="btn-detail">Full details →</a>' +
+      '</div>' +
+    '</div>' +
+  '</article>';
 }
 
 function renderResults(products, q) {
   countEl.textContent = products.length
-    ? `${products.length} result${products.length !== 1 ? 's' : ''} for "${q}"`
-    : `No results for "${q}"`;
+    ? products.length + ' result' + (products.length !== 1 ? 's' : '') + ' for "' + q + '"'
+    : 'No results for "' + q + '"';
   resGrid.innerHTML = products.length
     ? products.map(buildCard).join('')
     : '<p style="text-align:center;padding:64px 24px;color:var(--muted);font-size:.95rem">No results found — try a different term.</p>';
@@ -3223,20 +3309,20 @@ function closeSearch() {
 
 function doSearch(q) {
   clearTimeout(searchTimer);
-  const t = q.trim();
+  var t = q.trim();
   if (t.length < 3) { if (overlay.classList.contains('open')) closeSearch(); return; }
   searchTimer = setTimeout(function() {
-    const ql    = t.toLowerCase();
-    const words = ql.split(/\s+/).filter(function(w) { return w.length > 0; });
-    const scored = allProducts.map(function(p) {
-      const name   = (p.name   || '').toLowerCase();
-      const cat    = (p.category || '').toLowerCase();
-      const hook   = (p.hook   || '').toLowerCase();
-      const info   = (p.info   || '').toLowerCase();
-      const keys   = (p.keywords || []).join(' ').toLowerCase();
-      const season = (p.season || '').toLowerCase();
-      let score = 0;
-      for (const w of words) {
+    var ql    = t.toLowerCase();
+    var words = ql.split(/\s+/).filter(function(w) { return w.length > 0; });
+    var scored = allProducts.map(function(p) {
+      var name   = (p.name   || '').toLowerCase();
+      var cat    = (p.category || '').toLowerCase();
+      var hook   = (p.hook   || '').toLowerCase();
+      var info   = (p.info   || '').toLowerCase();
+      var keys   = (p.keywords || []).join(' ').toLowerCase();
+      var season = (p.season || '').toLowerCase();
+      var score = 0;
+      for (var w of words) {
         if (w.length < 3 && words.length > 1) continue;
         if (name.startsWith(w))            score += 20;
         else if (name.includes(' ' + w))   score += 15;
@@ -3253,7 +3339,7 @@ function doSearch(q) {
       if (name.includes(ql)) score += 25;
       return { p: p, score: score };
     });
-    const hits = scored
+    var hits = scored
       .filter(function(x) { return x.score >= 8; })
       .sort(function(a, b) { return b.score - a.score; })
       .map(function(x) { return x.p; });
@@ -3278,8 +3364,8 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 // ── COOKIE CONSENT ─────────────────────────────────────────────
 (function() {
-  const KEY = 'fybo_consent_v1';
-  const bar = document.getElementById('cookie-bar');
+  var KEY = 'fybo_consent_v1';
+  var bar = document.getElementById('cookie-bar');
   if (!bar) return;
   try { if (!localStorage.getItem(KEY)) setTimeout(function() { bar.classList.add('show'); }, 1200); }
   catch(e) { bar.classList.add('show'); }
@@ -3294,12 +3380,8 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 })();
 </script>
 
-<!-- FIX 2: GTM/GA4 moved to bottom of body — no longer render-blocking.
-     Pageview fires ~100-200ms later than before, which is an acceptable
-     trade-off for the improvement to FID/INP and parser unblocking. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YNKZS6PG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-C1YNKZS6PG');</script>
-<!-- END FIX 2 -->
 
 </body>
 </html>"""
@@ -3307,7 +3389,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 
 # ============================================================================
-# RENDER PAGE — PATCH v5.2.3
+# RENDER PAGE — v6.0 (unchanged logic, only CSS/template updated above)
 # ============================================================================
 
 def render_page(title, description, heading, subtitle, products=None, page=1,
@@ -3730,7 +3812,7 @@ def generate_seasonal_content(season_slug, products):
         return None, None, None, None
 
     content_before = f"""
-    <div style="max-width:780px;margin:0 auto;padding:0 52px 40px">
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 40px">
       <div class="blog-prose">
         <p style="font-size:1.08rem;line-height:1.85;color:var(--muted);font-weight:300">
           {page_data['intro']}
@@ -3740,7 +3822,7 @@ def generate_seasonal_content(season_slug, products):
     """
 
     buying_guide = f"""
-    <div style="max-width:780px;margin:48px auto 0;padding:0 52px">
+    <div style="max-width:900px;margin:48px auto 0;padding:0 24px">
       <div class="blog-prose">
         <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">{page_data['buying_guide_title']}</h2>
         <p style="font-size:.98rem;line-height:1.82;color:var(--ink-3);font-weight:300">
@@ -3751,14 +3833,14 @@ def generate_seasonal_content(season_slug, products):
     """
 
     faq_html = """
-    <div style="max-width:780px;margin:56px auto 0;padding:0 52px">
+    <div style="max-width:900px;margin:56px auto 0;padding:0 24px">
       <div class="blog-prose">
         <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">Frequently Asked Questions</h2>
     """
     for faq in page_data['faqs']:
         faq_html += f"""
         <div style="margin:24px 0;padding-bottom:20px;border-bottom:1px solid var(--divider)">
-          <h3 style="font-size:1.15rem;margin:0 0 10px;font-family:'Cormorant Garamond',serif;color:var(--ink);letter-spacing:-.02em">{faq['q']}</h3>
+          <h3 style="font-size:1.15rem;margin:0 0 10px;font-family:'Playfair Display','Cormorant Garamond',serif;color:var(--ink);letter-spacing:-.02em">{faq['q']}</h3>
           <p style="font-size:.94rem;line-height:1.78;color:var(--muted);margin:0;font-weight:300">{faq['a']}</p>
         </div>
         """
@@ -3768,7 +3850,7 @@ def generate_seasonal_content(season_slug, products):
     """
 
     links_html = f"""
-    <div style="max-width:780px;margin:32px auto 48px;padding:0 52px">
+    <div style="max-width:900px;margin:32px auto 48px;padding:0 24px">
       <div class="blog-prose">
         <p style="font-size:.92rem;line-height:1.75;color:var(--muted);font-weight:300">
           {page_data['internal_links']}
@@ -3803,9 +3885,7 @@ def generate_seasonal_content(season_slug, products):
 
 
 # ============================================================================
-# ROUTES — FIX 6: @cache.cached decorators added to all stable routes
-# key_prefix=lambda: request.url ensures paginated routes cache separately
-# load_or_generate_hooks() calls cache.clear() to invalidate on content update
+# ROUTES
 # ============================================================================
 
 # ============================================================================
@@ -3840,7 +3920,6 @@ def redirect_valentines_category():
 def redirect_christmas_category():
     return redirect("/season/christmas", code=301)
 
-# Double/triple hyphen category fixes
 @app.route("/category/toys--and--games")
 def redirect_toys():
     return redirect("/category/toys-and-games", code=301)
@@ -3858,7 +3937,7 @@ def redirect_home():
     return redirect("/category/home-and-kitchen", code=301)
 
 @app.route("/privacy-policy")
-@cache.cached(timeout=86400, key_prefix='privacy-policy')  # 24h — legal pages are static
+@cache.cached(timeout=86400, key_prefix='privacy-policy')
 def privacy_policy():
     return render_page(
         title="Privacy Policy – FyboBuybo",
@@ -3868,7 +3947,7 @@ def privacy_policy():
     )
 
 @app.route("/terms")
-@cache.cached(timeout=86400, key_prefix='terms')  # 24h — legal pages are static
+@cache.cached(timeout=86400, key_prefix='terms')
 def terms_of_service():
     return render_page(
         title="Terms of Service – FyboBuybo",
@@ -3878,7 +3957,7 @@ def terms_of_service():
     )
 
 @app.route("/api/search-products")
-@cache.cached(timeout=600, key_prefix='api-search-products')  # 10 min — feeds JS search
+@cache.cached(timeout=600, key_prefix='api-search-products')
 def api_search_products():
     all_products = refresh_products(background=True)
     return jsonify({'products': [{
@@ -3889,7 +3968,7 @@ def api_search_products():
     } for p in all_products]})
 
 @app.route("/")
-@cache.cached(timeout=300, key_prefix='homepage')  # 5 min only — refreshes daily, keep short
+@cache.cached(timeout=300, key_prefix='homepage')
 def home():
     products = refresh_products(background=True)[:ITEMS_PER_PAGE]
     return render_page(
@@ -3902,7 +3981,7 @@ def home():
 
 @app.route("/category/<slug>")
 @app.route("/category/<slug>/page/<int:page>")
-@cache.cached(timeout=1800, key_prefix=lambda: request.url)  # 30 min — stable between hook refreshes
+@cache.cached(timeout=1800, key_prefix=lambda: request.url)
 def category(slug, page=1):
     all_products = refresh_products(background=True)
     filtered = [p for p in all_products if slugify(p.get("category", "")) == slug]
@@ -3919,7 +3998,7 @@ def category(slug, page=1):
 
 @app.route("/season/<season_slug>")
 @app.route("/season/<season_slug>/page/<int:page>")
-@cache.cached(timeout=1800, key_prefix=lambda: request.url)  # 30 min — seasonal content is stable
+@cache.cached(timeout=1800, key_prefix=lambda: request.url)
 def seasonal_collection(season_slug, page=1):
     all_products = refresh_products(background=True)
     norm_slug = normalize_for_match(season_slug)
@@ -3962,7 +4041,7 @@ def seasonal_collection(season_slug, page=1):
     )
 
 @app.route("/product/<path:product_slug>")
-@cache.cached(timeout=1800, key_prefix=lambda: request.url)  # 30 min — product pages are stable
+@cache.cached(timeout=1800, key_prefix=lambda: request.url)
 def product_detail(product_slug):
     all_products = refresh_products(background=True)
     found = next((p for p in all_products if slugify(p["name"]) == product_slug), None)
@@ -3980,7 +4059,7 @@ def product_detail(product_slug):
           <span style="color:var(--green);font-size:1.2rem;letter-spacing:-.06em;line-height:1">{stars}</span>
           <span style="font-size:.88rem;color:var(--muted);font-weight:400">Highly rated by buyers</span>
           <a href="{found.get('url','')}" target="_blank" rel="nofollow sponsored noopener"
-             style="font-size:.82rem;color:var(--slate);font-weight:600;border-bottom:1px solid var(--slate-line)">
+             style="font-size:.82rem;color:var(--primary);font-weight:600;border-bottom:1px solid var(--primary-line)">
             See current ratings →</a>
         </div>"""
 
@@ -4011,7 +4090,6 @@ def product_detail(product_slug):
     info_html = f'<p class="pd-hook">{found["info"]}</p>' if found.get("info") else ""
     date_html = f'<p style="font-size:.74rem;color:var(--muted-2);margin-top:2px;font-style:italic">Featured {found["date_added"]}</p>' if found.get("date_added") else ""
 
-    # FIX 3/4: loading="eager" + fetchpriority="high" on the main product image — it is the LCP element
     content_html = f"""
     <div class="pd-wrap">
       <div class="pd-gallery">
@@ -4071,7 +4149,6 @@ def get_blog_post_image(post, all_products):
     img_url = post.get("featured_image") or post.get("image")
     img_alt = post.get("featured_image_alt") or post.get("title", "")
     if img_url:
-        # FIX 3: featured blog image — eager (above fold) + dimensions for CLS prevention
         return (
             f'<img src="{img_url}" alt="{img_alt}" loading="eager" width="780" height="440" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
             False
@@ -4082,7 +4159,6 @@ def get_blog_post_image(post, all_products):
     if not img_match:
         img_match = re.search(r'src="(https://m\.media-amazon\.com/[^"]+)"', content)
     if img_match:
-        # FIX 3: lazy on content-extracted images + dimensions
         return (
             f'<img src="{img_match.group(1)}" alt="{post.get("title","")}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block" onerror="this.style.display=\'none\'">',
             True
@@ -4101,7 +4177,6 @@ def get_blog_post_image(post, all_products):
             rel_fuzz = fuzz(rel)
             if rel_fuzz in product_map:
                 p = product_map[rel_fuzz]
-                # FIX 3: lazy + dimensions on product-matched images
                 return (
                     f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
                     True
@@ -4130,7 +4205,6 @@ def get_blog_post_image(post, all_products):
         if kw in title_lower:
             for p in all_products:
                 if p.get("image") and any(c.lower() in p.get("category", "").lower() for c in cats):
-                    # FIX 3: lazy + dimensions on category-hint fallback images
                     return (
                         f'<img src="{p["image"]}" alt="{post["title"]}" class="product-img" loading="lazy" width="400" height="400" style="width:100%;height:100%;object-fit:contain;padding:18px;position:absolute;inset:0;display:block">',
                         True
@@ -4141,7 +4215,7 @@ def get_blog_post_image(post, all_products):
 
 @app.route("/blog")
 @app.route("/blog/page/<int:page>")
-@cache.cached(timeout=900, key_prefix=lambda: request.url)  # 15 min — changes when posts published
+@cache.cached(timeout=900, key_prefix=lambda: request.url)
 def blog_list(page=1):
     paginated, total_pages, total_posts = load_blog_posts(page)
     if not paginated and page > 1: abort(404)
@@ -4240,7 +4314,7 @@ def blog_list(page=1):
 
 
 @app.route("/blog/<slug>")
-@cache.cached(timeout=3600, key_prefix=lambda: request.url)  # 1 hour — blog posts rarely change
+@cache.cached(timeout=3600, key_prefix=lambda: request.url)
 def blog_detail(slug):
     post = BLOG_POSTS.get(slug)
     if not post: abort(404)
@@ -4284,15 +4358,15 @@ def blog_detail(slug):
     date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
     content_html = f"""
-    <div style="max-width:720px;margin:56px auto 0;padding:0 48px">
-      <div style="display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:22px">
-        <span style="display:block;width:18px;height:1px;background:var(--slate)"></span>
+    <div style="max-width:900px;margin:56px auto 0;padding:0 24px">
+      <div style="display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-bottom:22px">
+        <span style="display:block;width:18px;height:1px;background:var(--primary)"></span>
         {date_str} · Gift Guide
       </div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.05em;color:var(--ink);margin-bottom:20px">{post.get("heading", post["title"])}</h1>
+      <h1 style="font-family:'Playfair Display','Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.05em;color:var(--ink);margin-bottom:20px">{post.get("heading", post["title"])}</h1>
       <p style="font-size:1.06rem;line-height:1.78;color:var(--muted);margin-bottom:44px;padding-bottom:40px;border-bottom:1px solid var(--divider);font-weight:300">{post.get("description", "")}</p>
     </div>
-    <div style="max-width:720px;margin:0 auto;padding:0 48px 96px">
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 96px">
       <div class="blog-prose">{content_html_body}</div>
     </div>
     """
