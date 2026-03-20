@@ -23,7 +23,7 @@ BLOG_POSTS = {
             "summer present ideas UK",
             "gifts for summer lovers UK"
         ],
-        "featured_image": "https://m.media-amazon.com/images/I/71+JV8JXmNL._AC_SL1500_.jpg",
+        "featured_image": "https://m.media-amazon.com/images/I/710i3O82YSL._AC_SL1500_.jpg",
         "featured_image_alt": "JBL Clip 4 waterproof speaker — summer gift idea UK",
         "article_type": "Article",
         "word_count": 1400,
