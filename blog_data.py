@@ -263,7 +263,7 @@ BLOG_POSTS = {
             "summer checklist UK",
             "British summer essentials list"
         ],
-        "featured_image": "https://m.media-amazon.com/images/I/71evQv2HQgL._AC_SL1500_.jpg",
+        "featured_image": "https://m.media-amazon.com/images/I/719T900pvML._AC_SL1500_.jpg",
         "featured_image_alt": "NIVEA SUN Protect & Moisture SPF50+ — UK summer essential",
         "article_type": "Article",
         "word_count": 1500,
