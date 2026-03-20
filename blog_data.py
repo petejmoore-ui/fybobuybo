@@ -212,7 +212,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">What summer gifts are good for under £30?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Several picks on this list sit comfortably under £30: the BRITA Fill & Go filter bottle, Hario V60 coffee kit, Big Game Hunters pétanque set, and Kingfisher portable BBQ all typically retail below £30 on Amazon UK. The Anker Soundcore 2 speaker is also frequently under £30 during seasonal promotions.</p>
+        <p itemprop="text">Several picks on this list sit comfortably under £30: the BRITA Fill & Go filter bottle, Hario V60 coffee kit and Big Game Hunters pétanque set, all typically retail below £30 on Amazon UK. The Anker Soundcore 2 speaker is also frequently under £30 during seasonal promotions.</p>
       </div>
     </div>
  
@@ -772,7 +772,6 @@ BLOG_POSTS = {
     <h3 style="margin-top:0;">Smart Buying Tips for Father's Day Under £50</h3>
     <p style="margin-bottom:12px;"><strong>Upgrade what he already does.</strong> A quality tool for a hobby he has beats a random gadget for one he doesn't. BBQ dad? Meat thermometer. Coffee dad? V60 kit. Golf dad? Decent balls.</p>
     <p style="margin-bottom:12px;"><strong>Don't overlook the under-£30 bracket.</strong> A grooming set or a dartboard light can feel more considered than something expensive but generic.</p>
-    <p style="margin-bottom:0;"><strong>Order by 18 June</strong> for standard delivery. Amazon Prime offers next-day right up to 20 June.</p>
   </section>
  
   <h2 style="scroll-margin-top:100px;">Under £30</h2>
@@ -879,7 +878,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">What are good last-minute Father's Day gifts under £50?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Every product on this list is available with Amazon Prime next-day delivery. The L'Oréal Men Expert gift set and Callaway golf balls are the safest last-minute choices as they suit most dads and arrive in gift-ready packaging. Order by 20 June for Prime delivery before Father's Day on 21 June.</p>
+        <p itemprop="text">All of these products are good last minute gifts - especially if they are part of Amazon Prime as it is usually next day delivery (always check when buying the product). Just think what your dad likes doing and get him something to enjoy or help what he's doing, be it sport, BBQ or anything else for that matter!</p>
       </div>
     </div>
  
@@ -893,7 +892,7 @@ BLOG_POSTS = {
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="margin:20px 0;">
       <h3 itemprop="name">When should I order Father's Day gifts for delivery in time?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">For standard Amazon UK delivery, order by 18 June 2026. Amazon Prime members can typically order with next-day delivery right up to 20 June. For personalised items, allow 7–10 days extra lead time.</p>
+        <p itemprop="text">For standard Amazon UK delivery, order by 18 June 2026. Amazon Prime members can typically order with next-day delivery right up to 20 June. For personalised items, allow 7–10 days extra lead time. But make sure to check exact delivery times on Amazon as products differ.</p>
       </div>
     </div>
  
