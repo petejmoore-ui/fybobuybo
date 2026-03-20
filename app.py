@@ -3810,7 +3810,7 @@ def generate_seasonal_content(season_slug, products):
         return None, None, None, None
 
     content_before = f"""
-    <div style="max-width:780px;margin:0 auto;padding:0 52px 40px">
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 40px">
       <div class="blog-prose">
         <p style="font-size:1.08rem;line-height:1.85;color:var(--muted);font-weight:300">
           {page_data['intro']}
@@ -3820,7 +3820,7 @@ def generate_seasonal_content(season_slug, products):
     """
 
     buying_guide = f"""
-    <div style="max-width:780px;margin:48px auto 0;padding:0 52px">
+    <div style="max-width:900px;margin:48px auto 0;padding:0 24px">
       <div class="blog-prose">
         <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">{page_data['buying_guide_title']}</h2>
         <p style="font-size:.98rem;line-height:1.82;color:var(--ink-3);font-weight:300">
@@ -3831,7 +3831,7 @@ def generate_seasonal_content(season_slug, products):
     """
 
     faq_html = """
-    <div style="max-width:780px;margin:56px auto 0;padding:0 52px">
+    <div style="max-width:900px;margin:56px auto 0;padding:0 24px">
       <div class="blog-prose">
         <h2 style="font-size:1.6rem;margin-top:0;border-bottom:1px solid var(--divider);padding-bottom:14px">Frequently Asked Questions</h2>
     """
@@ -3848,7 +3848,7 @@ def generate_seasonal_content(season_slug, products):
     """
 
     links_html = f"""
-    <div style="max-width:780px;margin:32px auto 48px;padding:0 52px">
+    <div style="max-width:900px;margin:32px auto 48px;padding:0 24px">
       <div class="blog-prose">
         <p style="font-size:.92rem;line-height:1.75;color:var(--muted);font-weight:300">
           {page_data['internal_links']}
@@ -4356,7 +4356,7 @@ def blog_detail(slug):
     date_str = datetime.datetime.strptime(post.get("date", "2026-01-01"), "%Y-%m-%d").strftime("%d %B %Y")
 
     content_html = f"""
-    <div style="max-width:760px;margin:56px auto 0;padding:0 48px">
+    <div style="max-width:900px;margin:56px auto 0;padding:0 24px">
       <div style="display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-bottom:22px">
         <span style="display:block;width:18px;height:1px;background:var(--primary)"></span>
         {date_str} · Gift Guide
@@ -4364,7 +4364,7 @@ def blog_detail(slug):
       <h1 style="font-family:'Playfair Display','Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.05em;color:var(--ink);margin-bottom:20px">{post.get("heading", post["title"])}</h1>
       <p style="font-size:1.06rem;line-height:1.78;color:var(--muted);margin-bottom:44px;padding-bottom:40px;border-bottom:1px solid var(--divider);font-weight:300">{post.get("description", "")}</p>
     </div>
-    <div style="max-width:760px;margin:0 auto;padding:0 48px 96px">
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 96px">
       <div class="blog-prose">{content_html_body}</div>
     </div>
     """
