@@ -771,13 +771,13 @@ BLOG_POSTS = {
   <section style="margin:30px 0;padding:25px;background:var(--card);border-left:4px solid var(--primary);border-radius:8px;">
     <h3 style="margin-top:0;">Smart Buying Tips for Father's Day Under £50</h3>
     <p style="margin-bottom:12px;"><strong>Upgrade what he already does.</strong> A quality tool for a hobby he has beats a random gadget for one he doesn't. BBQ dad? Meat thermometer. Coffee dad? V60 kit. Golf dad? Decent balls.</p>
-    <p style="margin-bottom:12px;"><strong>Don't overlook the under-£20 bracket.</strong> A grooming set or a dartboard light can feel more considered than something expensive but generic.</p>
+    <p style="margin-bottom:12px;"><strong>Don't overlook the under-£30 bracket.</strong> A grooming set or a dartboard light can feel more considered than something expensive but generic.</p>
     <p style="margin-bottom:0;"><strong>Order by 18 June</strong> for standard delivery. Amazon Prime offers next-day right up to 20 June.</p>
   </section>
  
-  <h2 style="scroll-margin-top:100px;">Under £20</h2>
+  <h2 style="scroll-margin-top:100px;">Under £30</h2>
  
-  <h3>L'Oréal Men Expert Hydra Energetic Gift Set — ~£15</h3>
+  <h3>L'Oréal Men Expert Hydra Energetic Gift Set</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("L\\'Oréal Men Expert Hydra Energetic Gift Set - Face Wash, Moisturiser, Shower Gel and Deodorant") }}'>
       <img src='https://m.media-amazon.com/images/I/618+n7s2NzL._AC_SL1010_.jpg' alt='L\\'Oréal Men Expert grooming gift set' loading='lazy' style='border-radius:16px;'>
@@ -789,7 +789,7 @@ BLOG_POSTS = {
     </div>
   </div>
  
-  <h3>Callaway Warbird Golf Balls (12 Pack) — ~£15–20</h3>
+  <h3>Callaway Warbird Golf Balls (12 Pack)</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("Callaway Warbird Golf Balls - 12 Pack (White)") }}'>
       <img src='https://m.media-amazon.com/images/I/71uLYL3slZL._AC_SX679_.jpg' alt='Callaway Warbird golf balls 12 pack' loading='lazy' style='border-radius:16px;'>
@@ -800,10 +800,22 @@ BLOG_POSTS = {
       <a href='https://www.amazon.co.uk/dp/B0BMGYWVSH?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
+
+  <h3>Mission Torus LED Dartboard Light</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg' alt='Mission Torus dartboard LED light' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>Shadow-free 120° LED lighting that clips on in seconds — USB-C powered, open frame for dart retrieval, folds flat for storage. The kind of specific gift that shows you actually thought about what he enjoys.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'><button>View Details</button></a>
+      <a href='https://www.amazon.co.uk/dp/B0FQJXB6H5?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
  
-  <h2 style="scroll-margin-top:100px;">£20–£35</h2>
+  <h2 style="scroll-margin-top:100px;">Under £40</h2>
  
-  <h3>Hario V60 Pour Over Coffee Kit — ~£20–30</h3>
+  <h3>Hario V60 Pour Over Coffee Kit</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("Hario V60 Drip Coffee Pour Over Decanter Brewing Kit - 700ml Server with Ceramic Dripper and 40 Paper Filters") }}'>
       <img src='https://m.media-amazon.com/images/I/41aJGBVhabL._AC_.jpg' alt='Hario V60 pour over coffee brewing kit' loading='lazy' style='border-radius:16px;'>
@@ -814,8 +826,23 @@ BLOG_POSTS = {
       <a href='https://amzn.to/4dqA50M' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
     </div>
   </div>
+
+  <h3>JBL Clip 4 Waterproof Bluetooth Speaker</h3>
+  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
+    <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'>
+      <img src='https://m.media-amazon.com/images/I/71+JV8JXmNL._AC_SL1500_.jpg' alt='JBL Clip 4 portable waterproof speaker' loading='lazy' style='border-radius:16px;'>
+    </a>
+    <p>IP67 waterproof with an integrated carabiner — clips to bags, belts, and bikes. JBL states 10 hours battery with punchy bass from a palm-sized speaker. Goes from the BBQ to the shed to the shower. Available in 10+ colours.</p>
+    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
+      <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'><button>View Details</button></a>
+      <a href='https://amzn.to/4uErldI' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
+    </div>
+  </div>
+
  
-  <h3>ThermoPro TP20 Wireless Meat Thermometer — ~£30</h3>
+  <h2 style="scroll-margin-top:100px;">Under £50</h2>
+ 
+   <h3>ThermoPro TP20 Wireless Meat Thermometer</h3>
   <div class='card' style='max-width:600px;margin:20px auto 30px;'>
     <a href='/product/{{ slugify("ThermoPro TP20 Wireless Remote Digital Meat Thermometer with Dual Probes for Smoker Grill Oven BBQ") }}'>
       <img src='https://m.media-amazon.com/images/I/71MSQiFS2JL._AC_SL1500_.jpg' alt='ThermoPro TP20 dual-probe wireless meat thermometer' loading='lazy' style='border-radius:16px;'>
@@ -827,31 +854,7 @@ BLOG_POSTS = {
     </div>
   </div>
  
-  <h2 style="scroll-margin-top:100px;">£35–£50</h2>
- 
-  <h3>JBL Clip 4 Waterproof Bluetooth Speaker — ~£40–50</h3>
-  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
-    <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'>
-      <img src='https://m.media-amazon.com/images/I/71+JV8JXmNL._AC_SL1500_.jpg' alt='JBL Clip 4 portable waterproof speaker' loading='lazy' style='border-radius:16px;'>
-    </a>
-    <p>IP67 waterproof with an integrated carabiner — clips to bags, belts, and bikes. JBL states 10 hours battery with punchy bass from a palm-sized speaker. Goes from the BBQ to the shed to the shower. Available in 10+ colours.</p>
-    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("JBL Clip 4 Portable Bluetooth Speaker with Integrated Carabiner - IP67 Waterproof and Dustproof, 10 Hours Playtime (Black)") }}'><button>View Details</button></a>
-      <a href='https://amzn.to/4uErldI' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
-    </div>
-  </div>
- 
-  <h3>Mission Torus LED Dartboard Light — ~£25–35</h3>
-  <div class='card' style='max-width:600px;margin:20px auto 30px;'>
-    <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'>
-      <img src='https://m.media-amazon.com/images/I/71AaOp7wifL._AC_SX679_.jpg' alt='Mission Torus dartboard LED light' loading='lazy' style='border-radius:16px;'>
-    </a>
-    <p>Shadow-free 120° LED lighting that clips on in seconds — USB-C powered, open frame for dart retrieval, folds flat for storage. The kind of specific gift that shows you actually thought about what he enjoys.</p>
-    <div style='display:flex;gap:12px;justify-content:center;margin-top:16px;flex-wrap:wrap;'>
-      <a href='/product/{{ slugify("Mission Darts Torus 120° LED Dartboard Lighting System - Bright White Portable Clip-On Light (Black)") }}'><button>View Details</button></a>
-      <a href='https://www.amazon.co.uk/dp/B0FQJXB6H5?tag=fybobuybo-21' target='_blank' rel='nofollow sponsored noopener'><button style='background:#ff9900;'>Check Price on Amazon</button></a>
-    </div>
-  </div>
+  
  
   <section style="margin-top:48px;padding:24px;background:var(--card);border-radius:12px;">
     <h2 style="margin-top:0;">More Father's Day Inspiration</h2>
